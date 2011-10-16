@@ -1,0 +1,33 @@
+{% extends 'ApplicationCoreBundle:Backend:layout.html.twig' %}
+
+{% block content %}
+
+<div class="page-header"> 
+    <h1>Updating category.<small> Use the form below to modify existing category...</small></h1> 
+</div> 
+
+<form action="{{ path('sylius_catalog_backend_category_update', {'catalogAlias': catalog.alias, 'id': category.id}) }}" method="post">
+
+<fieldset>
+
+<div class="clearfix">
+    <div class="formErrors">
+    {{ form_errors(form.name) }}
+    </div>
+    <label for="form[name]">Name...</label> 
+    <div class="input">
+        {{ form_widget(form.name, {'attr': {'class': 'span7'}}) }}
+    </div>
+</div>
+
+</fieldset>
+		
+{{ form_rest(form) }} <br />
+
+<div class="actions">
+<input type="submit" value="save changes" class="btn primary large" />
+</div>
+
+</form>
+
+{% endblock content %}

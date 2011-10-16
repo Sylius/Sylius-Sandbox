@@ -1,0 +1,13 @@
+# This file is part of the Sylius sandbox application.
+# (c) Paweł Jędrzejewski
+
+base:
+    resource: base.yml
+
+_wdt:
+    resource: @WebProfilerBundle/Resources/config/routing/wdt.xml
+    prefix:   /_wdt
+
+_profiler:
+    resource: "@WebProfilerBundle/Resources/config/routing/profiler.xml"
+    prefix:   /_profiler

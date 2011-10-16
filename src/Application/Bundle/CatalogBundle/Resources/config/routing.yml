@@ -1,0 +1,7 @@
+_category:
+    resource: @SyliusCatalogBundle/Resources/config/routing/backend/category.yml
+    prefix: /administration
+    
+category:
+    resource: @SyliusCatalogBundle/Resources/config/routing/frontend/category.yml
+    

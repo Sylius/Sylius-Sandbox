@@ -1,0 +1,40 @@
+[symfony]
+    git=http://github.com/symfony/symfony.git
+    target=/libraries/symfony
+
+[twig]
+    git=http://github.com/fabpot/Twig.git
+    target=/libraries/twig
+
+[monolog]
+    git=http://github.com/Seldaek/monolog.git
+    target=/libraries/monolog
+
+[doctrine-common]
+    git=http://github.com/doctrine/common.git
+    target=/libraries/doctrine-common
+
+[doctrine-dbal]
+    git=http://github.com/doctrine/dbal.git
+    target=/libraries/doctrine-dbal
+
+[doctrine]
+    git=http://github.com/doctrine/doctrine2.git
+    target=/libraries/doctrine
+
+[twig-extensions]
+    git=http://github.com/fabpot/Twig-extensions.git
+    target=/libraries/twig-extensions
+
+[metadata]
+    git=http://github.com/schmittjoh/metadata.git
+    version=origin/1.0.x
+    target=/libraries/metadata
+
+[pagerfanta]
+    git=http://github.com/whiteoctober/Pagerfanta.git
+    target=/libraries/pagerfanta
+
+[WhiteOctoberPagerfantaBundle]
+    git=http://github.com/whiteoctober/WhiteOctoberPagerfantaBundle.git
+    target=/bundles/WhiteOctober/PagerfantaBundle

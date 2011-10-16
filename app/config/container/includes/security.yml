@@ -1,0 +1,30 @@
+# This file is part of the Sylius sandbox application.
+# (c) Paweł Jędrzejewski
+
+security:
+    providers:
+        sylius_guard_provider:
+            users:
+                administrator:  { password: 79fb86e161e6bee2f14740099c4bee8247926999, roles: 'ROLE_SYLIUS_ADMIN' }
+    encoders:
+        Symfony\Component\Security\Core\User\User:
+            algorithm:   sha1
+            iterations: 1
+            encode_as_base64: false
+    firewalls:
+        main:
+            form_login:
+                provider: sylius_guard_provider
+                login_path: /login
+                check_path: /login
+                use_referer: true
+            remember_me:
+                key: eUodAjYEzDza72
+                name: SYLIUS_REMEMBER_ME
+                lifetime: 31536000
+                always_remember_me: true
+                remember_me_parameter: _remember_me
+            logout: true
+            anonymous: true
+    access_control:
+        - { path: "/administration.*", role: ROLE_SYLIUS_ADMIN }

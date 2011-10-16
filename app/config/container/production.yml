@@ -1,0 +1,13 @@
+# This file is part of the Sylius sandbox application.
+# (c) Paweł Jędrzejewski
+
+imports:
+    - { resource: base.yml }
+
+monolog:
+    handlers:
+        main:
+            type:  stream
+            path:  %kernel.logs_dir%/%kernel.environment%.log
+            level: error
+    

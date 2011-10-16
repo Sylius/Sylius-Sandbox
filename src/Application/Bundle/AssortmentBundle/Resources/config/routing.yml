@@ -1,0 +1,7 @@
+sylius_assortment_backend_product:
+    resource: @SyliusAssortmentBundle/Resources/config/routing/backend/product.yml
+    prefix: /administration/assortment/products
+
+sylius_assortment_product:
+    resource: @SyliusAssortmentBundle/Resources/config/routing/frontend/product.yml
+    prefix: /assortment/products

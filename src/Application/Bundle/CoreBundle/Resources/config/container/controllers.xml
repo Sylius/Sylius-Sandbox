@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+	
+	<parameters>
+		<parameter key="app_core.controller.frontend.class">Application\Bundle\CoreBundle\Controller\FrontendController</parameter>
+		<parameter key="app_core.controller.backend.class">Application\Bundle\CoreBundle\Controller\BackendController</parameter>
+		<parameter key="app_core.controller.security.class">Application\Bundle\CoreBundle\Controller\SecurityController</parameter>
+	</parameters>
+	
+	<services>
+	    <service id="app_core.controller.frontend" class="%app_core.controller.frontend.class%">
+	    	<call method="setContainer">
+	    		<argument type="service" id="service_container" />
+	    	</call>
+	    </service>
+	    <service id="app_core.controller.backend" class="%app_core.controller.backend.class%">
+	    	<call method="setContainer">
+	    		<argument type="service" id="service_container" />
+	    	</call>
+	    </service>
+	    <service id="app_core.controller.security" class="%app_core.controller.security.class%">
+	    	<call method="setContainer">
+	    		<argument type="service" id="service_container" />
+	    	</call>
+	    </service> 
+	</services>
+
+</container>

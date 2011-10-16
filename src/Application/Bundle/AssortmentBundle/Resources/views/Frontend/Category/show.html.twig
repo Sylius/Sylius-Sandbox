@@ -1,0 +1,27 @@
+{% extends 'ApplicationCoreBundle:Frontend:layout.html.twig' %}
+
+{% block content %}
+
+<ul class="breadcrumb">
+  <li><a href="{{ path('app_core_frontend') }}">Sylius</a> <span class="divider">/</span></li>
+  <li>Assortment <span class="divider">/</span></li>
+  <li><a href="{{ path('sylius_catalog_category_show', {'catalogAlias': catalog.alias, 'id': category.id, 'slug': category.slug}) }}">{{ category.name }}</a></li>
+</ul>
+
+<h1>Product list. <small>Paginated products list.</small></h1>
+
+{% if products %}
+    {% for product in products %}
+        {% include 'ApplicationAssortmentBundle:Frontend/Product:single.html.twig' %}
+    {% endfor %}
+{% else %}
+<div class="alert-message info">
+  <p><strong>Information.</strong> No products to display.</p>
+</div>
+{% endif %}
+
+{% if paginator.haveToPaginate() %}
+{{ pagerfanta(paginator, 'twitter_bootstrap', {'prev_message': "previous page...", 'next_message': "next page..."}) }}
+{% endif %}
+
+{% endblock %}

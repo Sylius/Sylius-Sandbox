@@ -1,0 +1,11 @@
+# This file is part of the Sylius sandbox application.
+# (c) Paweł Jędrzejewski
+
+application_core:
+    resource: @ApplicationCoreBundle/Resources/config/routing.yml
+    
+application_catalog:
+    resource: @ApplicationCatalogBundle/Resources/config/routing.yml
+  
+application_assortment:
+    resource: @ApplicationAssortmentBundle/Resources/config/routing.yml

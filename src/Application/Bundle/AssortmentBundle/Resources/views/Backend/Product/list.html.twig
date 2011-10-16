@@ -1,0 +1,46 @@
+{% extends 'ApplicationCoreBundle:Backend:layout.html.twig' %}
+
+{% block content %}
+
+<div class="page-header"> 
+    <h1>Assortment products.<small> List of all registered products in assortment...</small></h1> 
+</div> 
+
+<div class="well">
+<a href="{{ path('sylius_assortment_backend_product_create') }}" class="btn primary large">create product</a>
+</div>
+	
+{% if products %}
+    <table class="zebra-stripped">
+    <thead>
+        <tr>
+            <th>#id</th>
+            <th>name</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for product in products %}
+        <tr>
+            <td>{{ product.id }}</td>
+            <td>{{ product.name }}</td>
+            <td>
+                <a href="{{ path('sylius_assortment_backend_product_show', {'id': product.id}) }}" class="btn">show details</a>
+                <a href="{{ path('sylius_assortment_backend_product_update', {'id': product.id}) }}" class="btn">update</a>
+                <a href="{{ path('sylius_assortment_backend_product_delete', {'id': product.id}) }}" class="btn danger">delete</a>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<div class="alert-message info">
+  <p><strong>Information.</strong> No products to display.</p>
+</div>
+{% endif %}
+
+{% if paginator.haveToPaginate() %}
+{{ pagerfanta(paginator, 'twitter_bootstrap', {'prev_message': "previous page...", 'next_message': "next page..."}) }}
+{% endif %}
+
+{% endblock %}

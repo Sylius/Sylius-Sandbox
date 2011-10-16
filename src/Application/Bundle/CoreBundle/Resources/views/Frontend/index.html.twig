@@ -1,0 +1,37 @@
+{% extends 'ApplicationCoreBundle:Frontend:layout.html.twig' %}
+
+{% block content %}
+
+<div class="page-header"> 
+  <h1>Welcome. <small>Sylius sandbox application.</small></h1> 
+</div> 
+
+<div class="row"> 
+    <div class="span10"> 
+        <h2>About this application.</h2>
+            <p>
+            This application shows how to integrate <a href="http://sylius.org">Sylius</a> bundles.
+            </p>
+            <h3>Included bundles.</h3>
+                <p>
+                Here is the list of all bundles included in this sandbox application. Number of them will be constantly growing.
+                Feel free to comment and contribute.
+                </p>
+                    <h4>Sylius bundles...</h4>
+                    <ul>
+                        <li><a href="http://github.com/Sylius/SyliusAssortmentBundle">SyliusAssortmentBundle</a>,</li>
+                        <li><a href="http://github.com/Sylius/SyliusCatalogBundle">SyliusCatalogBundle</a>.</li>
+                    </ul>
+                    <h4>Awesome third party bundles...</h4>
+                    <ul>
+                        <li><a href="http://github.com/WhiteOctoberPagerfantaBundle">WhiteOctoberPagerfantaBundle</a>.</li>
+                    </ul>
+    </div> 
+    <div class="span4"> 
+        <h3>Assortment categories.</h3>
+        
+        {% render 'sylius_catalog.controller.frontend.category:listAction' with {'catalogAlias': 'assortment'} %} 
+    </div> 
+</div> 
+
+{% endblock %}

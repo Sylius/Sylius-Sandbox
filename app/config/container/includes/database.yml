@@ -1,0 +1,16 @@
+# This file is part of the Sylius sandbox application.
+# (c) Paweł Jędrzejewski
+
+doctrine:
+    dbal:
+        connections:
+            default:
+                host:     %database.host%
+                port:     %database.port%
+                dbname:   %database.name%
+                user:     %database.user%
+                password: %database.password%
+                logging:  %kernel.debug%
+    orm:
+        auto_generate_proxy_classes: %kernel.debug%
+        auto_mapping: true

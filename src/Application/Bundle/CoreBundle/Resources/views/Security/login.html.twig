@@ -1,0 +1,50 @@
+{% extends 'ApplicationCoreBundle:Frontend:layout.html.twig' %}
+
+{% block header %}{% endblock %}
+
+{% block content %}
+
+<div class="page-header"> 
+  <h1>Login. <small>Sylius sandbox application.</small></h1> 
+</div> 
+
+<blockquote>
+  <p>His name is <strong>administrator</strong> and the magic word... <strong>abrakadabra</strong>.</p>
+  <small>Mr. Mysterious</small>
+</blockquote>
+
+{% if errorMessage %}
+<div class="formErrors">
+    <ul>
+        <li>{{ errorMessage }}...</li>
+    </ul>
+</div>
+{% endif %}
+
+<form action="{{ path("app_core_security_check") }}" method="post">
+    <div class="clearfix">
+    <label for="username">Login...</label>
+    <div class="input">
+        <input type="text" id="username" name="_username" value="{{ lastUsername }}" />
+    </div>
+    </div>
+    <div class="clearfix">
+    <label for="username">Password.</label>
+    <div class="input">
+        <input type="password" id="password" name="_password" />
+    </div>
+    </div>
+    <div class="clearfix">
+    <label for="username">Remember me ?</label>
+    <div class="input">
+        <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+    </div>
+    </div>
+    
+    <div class="actions">
+        <input type="submit" class="btn primary large" name="login" value="login" />
+    </div>
+    
+</form>
+
+{% endblock %}

@@ -1,0 +1,6 @@
+<div class="well">
+    <h2>{{ product.name }}</h2>
+    {{ sylius_assortment_cut_text(product.description, 200, '...') }}
+    
+    <a href="{{ path('sylius_assortment_product_show', {'id': product.id, 'slug': product.slug}) }}" class="btn pull-right">more info...</a>
+</div>

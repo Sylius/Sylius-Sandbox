@@ -1,0 +1,54 @@
+# This file is part of the Sylius sandbox application.
+# (c) Paweł Jędrzejewski
+
+imports:
+    - { resource: includes/parameters.yml }
+    - { resource: includes/security.yml }
+    - { resource: includes/database.yml }
+
+framework:
+    default_locale: %locale%
+    form: ~
+    charset:       UTF-8
+    secret: 3xdEEy7Wz
+    csrf_protection:
+        enabled: true
+    router:        { resource: "%kernel.root_dir%/config/routing/base.yml" }
+    validation:    { enabled: true }
+    translator:    { fallback: %locale% }
+    templating:    { engines: ['twig', 'php'] }
+    session:
+        name: DD24_SESSION
+        lifetime: 72000
+        auto_start:     true
+
+twig:
+    debug:            %kernel.debug%
+    strict_variables: %kernel.debug%      
+
+sylius_assortment:
+    driver: ORM
+    classes:
+        model:
+            product:  Application\Bundle\AssortmentBundle\Entity\Product
+        form:
+            type:
+                product: Application\Bundle\AssortmentBundle\Form\Type\ProductFormType
+
+sylius_catalog:
+    driver: ORM
+    catalogs:
+        assortment:
+            mode: S
+            property: "products"
+            classes:
+                model: Application\Bundle\AssortmentBundle\Entity\Category
+            templates:
+                backend:
+                    list: ApplicationAssortmentBundle:Backend/Category:list.html.twig
+                    show: ApplicationAssortmentBundle:Backend/Category:show.html.twig
+                    create: ApplicationAssortmentBundle:Backend/Category:create.html.twig
+                    update: ApplicationAssortmentBundle:Backend/Category:update.html.twig
+                frontend:
+                    list: ApplicationAssortmentBundle:Frontend/Category:list.html.twig
+                    show: ApplicationAssortmentBundle:Frontend/Category:show.html.twig

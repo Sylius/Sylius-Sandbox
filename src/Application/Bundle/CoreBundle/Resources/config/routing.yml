@@ -1,0 +1,20 @@
+app_core_frontend:
+    pattern: /
+    defaults: { _controller: app_core.controller.frontend:indexAction }
+    
+app_core_backend:
+    pattern: /administration
+    defaults: { _controller: app_core.controller.backend:indexAction }
+    
+app_core_security_login:
+    pattern: /login
+    defaults: { _controller: app_core.controller.security:loginAction }
+
+app_core_security_check:
+    pattern: /login
+    defaults: { _controller: app_core.controller.security:checkAction }
+    
+app_core_security_logout:
+    pattern: /logout
+    defaults: { _controller: app_core.controller.security:logoutAction }
+    
