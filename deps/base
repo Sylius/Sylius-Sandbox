@@ -38,3 +38,11 @@
 [WhiteOctoberPagerfantaBundle]
     git=http://github.com/whiteoctober/WhiteOctoberPagerfantaBundle.git
     target=/bundles/WhiteOctober/PagerfantaBundle
+    
+[SyliusAssortmentBundle]
+    git=http://github.com/Sylius/SyliusAssortmentBundle.git
+    target=/bundles/Sylius/Bundle/AssortmentBundle
+    
+[SyliusCatalogBundle]
+    git=http://github.com/Sylius/SyliusCatalogBundle.git
+    target=/bundles/Sylius/Bundle/CatalogBundle
