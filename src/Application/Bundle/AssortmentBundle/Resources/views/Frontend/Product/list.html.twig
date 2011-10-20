@@ -1,5 +1,15 @@
 {% extends 'ApplicationCoreBundle:Frontend:layout.html.twig' %}
 
+{% if app.request.get('order') %}
+    {% if app.request.get('order') == 'ASC' %}
+        {% set sortOrder = 'DESC' %}
+    {% else %}
+        {% set sortOrder = 'ASC' %}
+    {% endif %}
+{% else %}
+    {% set sortOrder = 'DESC' %}
+{% endif %}
+
 {% block content %}
 
 <ul class="breadcrumb">
@@ -10,7 +20,18 @@
 
 <h1>Product list. <small>Paginated products list.</small></h1>
 
+{% if paginator.haveToPaginate() %}
+{{ pagerfanta(paginator, 'twitter_bootstrap', {'prev_message': "previous page...", 'next_message': "next page..."}) }}
+{% endif %}
+
 {% if products %}
+    <strong>Sort by</strong>...
+
+    <ul class="pills">
+        <li><a href="{{ path('sylius_assortment_product_list', {'sort': 'name', 'order': sortOrder}) }}">Name!</a></li>
+        <li><a href="{{ path('sylius_assortment_product_list', {'sort': 'createdAt', 'order': sortOrder}) }}">Creation time!</a></li>
+    </ul>
+
     {% for product in products %}
         {% include 'ApplicationAssortmentBundle:Frontend/Product:single.html.twig' %}
     {% endfor %}
