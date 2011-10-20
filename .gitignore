@@ -2,6 +2,7 @@ public/bundles/
 app/cache/*
 app/logs/*
 app/config/container/includes/parameters.yml
-\.buildpath/
-\.project/
+.buildpath
+.project
+.settings/
 vendor/
