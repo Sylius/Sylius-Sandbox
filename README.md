@@ -14,6 +14,7 @@ Clone this repository with this command.
 $ git clone http://github.com/Sylius/Sylius-Sandbox path/to/Sylius-Sandbox
 ```
 
+Open `app/config/container/includes/parameters.yml.dist`, set your values and save as `parameters.yml`.
 Run the vendors script.
 
 ``` bash
@@ -21,6 +22,7 @@ $ php ./tools/vendors install
 ```
 
 Generate database schema.
+
 ``` bash
 $ php app/tools/console doctrine:schema:create
 ```
