@@ -100,3 +100,9 @@ foreach ($deps as $name => $dep) {
 if ('update' === $command) {
     file_put_contents($rootDir.'/deps/current', implode("\n", $newversions));
 }
+
+$interpreter = PHP_OS == 'WINNT' ? 'php.exe' : '';
+
+system(sprintf('%s %s', $interpreter, escapeshellarg($rootDir.'/tools/bootstrap')));
+system(sprintf('%s %s assets:install %s', $interpreter, escapeshellarg($rootDir.'/app/tools/console'), escapeshellarg($rootDir.'/public')));
+system(sprintf('%s %s cache:clear --no-warmup', $interpreter, escapeshellarg($rootDir.'/app/tools/console')));
