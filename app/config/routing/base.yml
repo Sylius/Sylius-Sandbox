@@ -9,3 +9,6 @@ application_catalog:
   
 application_assortment:
     resource: @ApplicationAssortmentBundle/Resources/config/routing.yml
+    
+application_newsletter:
+    resource: @ApplicationNewsletterBundle/Resources/config/routing.yml

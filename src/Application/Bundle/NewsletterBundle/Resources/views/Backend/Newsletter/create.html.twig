@@ -1,0 +1,40 @@
+{% extends 'ApplicationCoreBundle:Backend:layout.html.twig' %}
+
+{% block content %}
+
+<div class="page-header">
+    <h1>Create newsletter. <small>Spread the word.</small></h1>
+</div>
+
+<form action="{{ path('sylius_newsletter_backend_newsletter_create') }}" method="post">
+
+<fieldset>
+    <div class="formErrors">
+        {{ form_errors(form.title) }}
+    </div>
+    <div class="clearfix">
+    <label for="sylius_newsletter_title">Title...</label>
+    <div class="input">
+        {{ form_widget(form.title, {'attr': {'class': 'span8'}}) }}
+    </div>
+    </div>
+    <div class="formErrors">
+        {{ form_errors(form.content) }}
+    </div>
+    <div class="clearfix">
+    <label for="sylius_newsletter_content">Content...</label>
+    <div class="input">    
+        {{ form_widget(form.content, {'attr': {'class': 'xxlarge', 'rows': 5}}) }}
+    </div>
+    </div>
+</fieldset>
+
+{{ form_rest(form) }}
+
+<div class="actions">
+<input type="submit" value="create newsletter" class="btn primary large" />
+</div>
+
+</form>
+
+{% endblock content %}

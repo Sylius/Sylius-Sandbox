@@ -35,6 +35,7 @@ class AppKernel extends Kernel
             new Symfony\Bundle\SecurityBundle\SecurityBundle(),
             new Symfony\Bundle\MonologBundle\MonologBundle(),
             new Symfony\Bundle\DoctrineBundle\DoctrineBundle(),
+            new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
             new WhiteOctober\PagerfantaBundle\WhiteOctoberPagerfantaBundle(),
                    
             /*
@@ -42,13 +43,15 @@ class AppKernel extends Kernel
              */
             new Sylius\Bundle\CatalogBundle\SyliusCatalogBundle(),
             new Sylius\Bundle\AssortmentBundle\SyliusAssortmentBundle(),
+            new Sylius\Bundle\NewsletterBundle\SyliusNewsletterBundle(),
             
             /*
              * Application specific bundles.
              */
             new Application\Bundle\CoreBundle\ApplicationCoreBundle(),
-            new Application\Bundle\AssortmentBundle\ApplicationAssortmentBundle(),
             new Application\Bundle\CatalogBundle\ApplicationCatalogBundle(),
+            new Application\Bundle\AssortmentBundle\ApplicationAssortmentBundle(),
+            new Application\Bundle\NewsletterBundle\ApplicationNewsletterBundle()
         );
 
         if ($this->isDebug()) {

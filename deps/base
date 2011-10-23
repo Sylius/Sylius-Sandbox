@@ -30,6 +30,11 @@
     git=http://github.com/schmittjoh/metadata.git
     version=origin/1.0.x
     target=/libraries/metadata
+    
+[swiftmailer]
+    git=http://github.com/swiftmailer/swiftmailer.git
+    version=v4.1.1
+    target=/libraries/swiftmailer
 
 [pagerfanta]
     git=http://github.com/whiteoctober/Pagerfanta.git
@@ -46,3 +51,7 @@
 [SyliusCatalogBundle]
     git=http://github.com/Sylius/SyliusCatalogBundle.git
     target=/bundles/Sylius/Bundle/CatalogBundle
+    
+[SyliusNewsletterBundle]
+    git=http://github.com/Sylius/SyliusNewsletterBundle.git
+    target=/bundles/Sylius/Bundle/NewsletterBundle

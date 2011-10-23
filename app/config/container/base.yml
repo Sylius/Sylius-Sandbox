@@ -24,7 +24,10 @@ framework:
 
 twig:
     debug:            %kernel.debug%
-    strict_variables: %kernel.debug%      
+    strict_variables: %kernel.debug% 
+    
+swiftmailer:
+    disable_delivery: true
 
 sylius_assortment:
     driver: ORM
@@ -53,3 +56,18 @@ sylius_catalog:
                 frontend:
                     list: ApplicationAssortmentBundle:Frontend/Category:list.html.twig
                     show: ApplicationAssortmentBundle:Frontend/Category:show.html.twig
+                    
+sylius_newsletter:
+    driver: ORM
+    classes:
+        model:
+            newsletter: Sylius\Bundle\NewsletterBundle\Entity\DefaultNewsletter
+            subscriber: Sylius\Bundle\NewsletterBundle\Entity\DefaultSubscriber
+    extensions:
+        confirmation:
+            enabled: true
+            options:
+                email:
+                    from: no-reply@example.com
+                    subject: "Confirm your subscription on example.com!"
+                    template: ApplicationNewsletterBundle:Confirmation:email.html.twig

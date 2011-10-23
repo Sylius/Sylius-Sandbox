@@ -1,0 +1,60 @@
+{% extends 'ApplicationCoreBundle:Backend:layout.html.twig' %}
+
+{% block content %}
+
+<div class="page-header">
+    <h1>Subscribers list. <small>All newsletter subscribers.</small></h1>
+</div>
+
+<div class="well">
+<a href="{{ path('sylius_newsletter_backend_subscriber_create') }}" class="btn primary large">create subscriber</a>
+</div>
+
+{% if paginator.haveToPaginate() %}
+{{ pagerfanta(paginator, 'twitter_bootstrap', {'prev_message': "previous page...", 'next_message': "next page..."}) }}
+{% endif %}
+
+{% if subscribers %}
+<table class="zebra-stripped">
+    <thead>
+        <tr>
+            <th>#id</th>
+            <th>e-mail</th>
+            <th>is active?</th>
+            <th>creation time</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for subscriber in subscribers %}
+        <tr>
+            <td>{{ subscriber.id }}</td>
+            <td><a href="mailto:{{ subscriber.email }}">{{ subscriber.email }}</a></td>
+            <td>
+                {% if subscriber.enabled %}
+                    <span class="label success">yes</span>
+                {% else %}
+                    <span class="label important">no</span>
+                {% endif %}
+            </td>
+            <td>{{ subscriber.createdAt|date('Y-m-d H:i:s') }}</td>
+            <td>
+                <a href="{{ path('sylius_newsletter_backend_subscriber_show', {'id': subscriber.id}) }}" class="btn">details</a>
+                <a href="{{ path('sylius_newsletter_backend_subscriber_update', {'id': subscriber.id}) }}" class="btn">update</a>
+                <a href="{{ path('sylius_newsletter_backend_subscriber_delete', {'id': subscriber.id}) }}" class="btn danger">delete</a>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<div class="alert-message info">
+  <p><strong>Information.</strong> There are no subscribers to display.</p>
+</div>
+{% endif %}
+
+{% if paginator.haveToPaginate() %}
+{{ pagerfanta(paginator, 'twitter_bootstrap', {'prev_message': "previous page...", 'next_message': "next page..."}) }}
+{% endif %}
+
+{% endblock %}

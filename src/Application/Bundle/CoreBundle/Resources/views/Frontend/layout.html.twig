@@ -22,23 +22,24 @@
         <div class="topbar"> 
             <div class="fill"> 
                 <div class="container"> 
-                    <a class="brand" href="#">Sylius</a> 
                     <ul class="nav"> 
-                        <li><a href="{{ path('app_core_frontend') }}">Index...</a></li>
+                        <a class="brand" href="http://sylius.org">Sylius</a>
+                        <li><a href="{{ path('app_core_frontend') }}">Index</a></li>
                         <li class="dropdown" data-dropdown="dropdown">
                             <a href="#" class="dropdown-toggle">Assortment</a>
                             <ul class="dropdown-menu">
                                 <li><a href="{{ path('sylius_assortment_product_list') }}">List products</a></li>
                             </ul>
                         </li>
+                        <li><a href="{{ path('sylius_newsletter_subscriber_subscribe') }}">Newsletter</a></li>
                     </ul>
                     <div class="pull-right">
                         <ul class="nav"> 
                     {% if is_granted('ROLE_SYLIUS_ADMIN') %}
-                        <li><a href="{{ path('app_core_security_logout') }}">Logout...</a></li>
-                        <li><a href="{{ path('app_core_backend') }}">Administration...</a></li>
+                        <li><a href="{{ path('app_core_security_logout') }}">Logout</a></li>
+                        <li><a href="{{ path('app_core_backend') }}">Administration &raquo;</a></li>
                     {% else %}
-                        <li><a href="{{ path('app_core_security_login') }}">Login...</a></li>
+                        <li><a href="{{ path('app_core_security_login') }}">Login &raquo;</a></li>
                     {% endif %}
                         </ul>
                     </div>
