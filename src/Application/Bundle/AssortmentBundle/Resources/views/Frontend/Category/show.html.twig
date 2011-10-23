@@ -29,6 +29,7 @@
 
     <ul class="pills">
         <li><a href="{{ path('sylius_catalog_category_show', {'catalogAlias': catalog.alias, 'id': category.id, 'slug': category.slug, 'sort': 'name', 'order': sortOrder}) }}">Name!</a></li>
+        <li><a href="{{ path('sylius_catalog_category_show', {'catalogAlias': catalog.alias, 'id': category.id, 'slug': category.slug, 'sort': 'price', 'order': sortOrder}) }}">Price!</a></li>
         <li><a href="{{ path('sylius_catalog_category_show', {'catalogAlias': catalog.alias, 'id': category.id, 'slug': category.slug, 'sort': 'createdAt', 'order': sortOrder}) }}">Creation time!</a></li>
     </ul>
 

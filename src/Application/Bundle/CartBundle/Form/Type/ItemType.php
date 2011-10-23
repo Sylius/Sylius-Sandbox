@@ -9,24 +9,22 @@
  * file that was distributed with this source code.
  */
 
-namespace Application\Bundle\AssortmentBundle\Form\Type;
+namespace Application\Bundle\CartBundle\Form\Type;
 
-use Sylius\Bundle\AssortmentBundle\Form\Type\ProductFormType as BaseProductFormType;
+use Sylius\Bundle\CartBundle\Form\Type\ItemType as BaseItemType;
 
 use Symfony\Component\Form\FormBuilder;
 
-class ProductFormType extends BaseProductFormType
+class ItemType extends BaseItemType
 {
+    /**
+     * {@inheritdoc}
+     */
     public function buildForm(FormBuilder $builder, array $options)
     {
         parent::buildForm($builder, $options);
         
         $builder
-            ->add('price', 'money')
-            ->add('category', 'sylius_catalog_category_choice', array(
-                'multiple' => false,
-                'catalog_alias' => 'assortment'
-            ))
-        ;
+            ->add('product', 'sylius_assortment_product_hidden');
     }
 }

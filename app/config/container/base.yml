@@ -10,7 +10,7 @@ framework:
     default_locale: %locale%
     form: ~
     charset:       UTF-8
-    secret: 3xdEEy7Wz
+    secret: %secret%
     csrf_protection:
         enabled: true
     router:        { resource: "%kernel.root_dir%/config/routing/base.yml" }
@@ -18,7 +18,7 @@ framework:
     translator:    { fallback: %locale% }
     templating:    { engines: ['twig', 'php'] }
     session:
-        name: DD24_SESSION
+        name: SYLIUS_SESSION
         lifetime: 72000
         auto_start:     true
 
@@ -71,3 +71,15 @@ sylius_newsletter:
                     from: no-reply@example.com
                     subject: "Confirm your subscription on example.com!"
                     template: ApplicationNewsletterBundle:Confirmation:email.html.twig
+                    
+sylius_cart:
+    driver: ORM
+    engine: twig
+    operator: app_cart.operator
+    classes:
+        model:
+            cart: Application\Bundle\CartBundle\Entity\Cart
+            item: Application\Bundle\CartBundle\Entity\Item
+        form:
+           type:
+               item: Application\Bundle\CartBundle\Form\Type\ItemType

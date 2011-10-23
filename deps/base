@@ -44,6 +44,10 @@
     git=http://github.com/whiteoctober/WhiteOctoberPagerfantaBundle.git
     target=/bundles/WhiteOctober/PagerfantaBundle
     
+[LiipThemeBundle]
+    git=http://github.com/liip/LiipThemeBundle.git
+    target=/bundles/Liip/ThemeBundle
+    
 [SyliusAssortmentBundle]
     git=http://github.com/Sylius/SyliusAssortmentBundle.git
     target=/bundles/Sylius/Bundle/AssortmentBundle
@@ -55,3 +59,12 @@
 [SyliusNewsletterBundle]
     git=http://github.com/Sylius/SyliusNewsletterBundle.git
     target=/bundles/Sylius/Bundle/NewsletterBundle
+
+[SyliusCartBundle]
+    git=http://github.com/Sylius/SyliusCartBundle.git
+    target=/bundles/Sylius/Bundle/CartBundle
+    
+[SyliusThemingBundle]
+    git=http://github.com/Sylius/SyliusThemingBundle.git
+    target=/bundles/Sylius/Bundle/ThemingBundle
+    

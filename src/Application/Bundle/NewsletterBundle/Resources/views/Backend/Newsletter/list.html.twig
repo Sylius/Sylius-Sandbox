@@ -11,7 +11,7 @@
 </div>
 
 {% if paginator.haveToPaginate() %}
-{{ pagerfanta(paginator, 'default', {'previous_message': "previous page...", 'next_message': "next page..."}) }}
+{{ pagerfanta(paginator, c, {'prev_message': "previous page...", 'next_message': "next page..."}) }}
 {% endif %}
 
 {% if newsletters %}
@@ -55,7 +55,7 @@
 {% endif %}
 
 {% if paginator.haveToPaginate() %}
-{{ pagerfanta(paginator, 'default', {'previous_message': "previous page...", 'next_message': "next page..."}) }}
+{{ pagerfanta(paginator, 'twitter_bootstrap', {'prev_message': "previous page...", 'next_message': "next page..."}) }}
 {% endif %}
 
 {% endblock %}

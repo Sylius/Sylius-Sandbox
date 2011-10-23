@@ -27,6 +27,15 @@
         {{ form_widget(form.description, {'attr': {'class': 'xxlarge', 'rows': 10}}) }}
     </div>
     </div>
+    <div class="formErrors">
+    {{ form_errors(form.price) }}
+    </div>
+    <div class="clearfix">
+    <label for="form[name]">Price...</label> 
+    <div class="input">
+        {{ form_widget(form.price, {'attr': {'class': 'span2'}}) }}
+    </div>
+    </div>
     <div class="clearfix">
     <label for="form[category]">Assortment category...</label> 
     <div class="input">

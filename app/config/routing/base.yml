@@ -12,3 +12,7 @@ application_assortment:
     
 application_newsletter:
     resource: @ApplicationNewsletterBundle/Resources/config/routing.yml
+
+application_cart:
+    resource: @ApplicationCartBundle/Resources/config/routing.yml
+    

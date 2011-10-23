@@ -9,14 +9,14 @@
  * file that was distributed with this source code.
  */
 
-namespace Application\Bundle\NewsletterBundle;
+namespace Application\Bundle\CartBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class ApplicationNewsletterBundle extends Bundle
+class ApplicationCartBundle extends Bundle
 {
     public function getParent()
     {
-        return 'SyliusNewsletterBundle';
+        return 'SyliusCartBundle';
     }    
 }

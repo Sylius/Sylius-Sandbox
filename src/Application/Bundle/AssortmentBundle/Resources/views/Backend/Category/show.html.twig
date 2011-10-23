@@ -30,6 +30,7 @@
         <tr>
             <th><a href="{{ path('sylius_catalog_backend_category_show', {'catalogAlias': catalog.alias, 'id': category.id, 'sort': 'id', 'order': sortOrder}) }}">#id</a></th>
             <th><a href="{{ path('sylius_catalog_backend_category_show', {'catalogAlias': catalog.alias, 'id': category.id, 'sort': 'name', 'order': sortOrder}) }}">name</a></th>
+            <th><a href="{{ path('sylius_catalog_backend_category_show', {'catalogAlias': catalog.alias, 'id': category.id, 'sort': 'price', 'order': sortOrder}) }}">price</a></th>
             <th><a href="{{ path('sylius_catalog_backend_category_show', {'catalogAlias': catalog.alias, 'id': category.id, 'sort': 'createdAt', 'order': sortOrder}) }}">creation time</a></th>
             <th></th>
         </tr>
@@ -39,6 +40,7 @@
         <tr>
             <td>{{ product.id }}</td>
             <td>{{ product.name }}</td>
+            <td>{{ product.price }} &euro;</td>
             <td>{{ product.createdAt|date('Y-m-d H:i:s') }}</td>
             <td>
                 <a href="{{ path('sylius_assortment_backend_product_show', {'id': product.id}) }}" class="btn">show details</a>

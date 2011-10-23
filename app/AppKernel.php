@@ -44,6 +44,7 @@ class AppKernel extends Kernel
             new Sylius\Bundle\CatalogBundle\SyliusCatalogBundle(),
             new Sylius\Bundle\AssortmentBundle\SyliusAssortmentBundle(),
             new Sylius\Bundle\NewsletterBundle\SyliusNewsletterBundle(),
+            new Sylius\Bundle\CartBundle\SyliusCartBundle(),
             
             /*
              * Application specific bundles.
@@ -51,7 +52,8 @@ class AppKernel extends Kernel
             new Application\Bundle\CoreBundle\ApplicationCoreBundle(),
             new Application\Bundle\CatalogBundle\ApplicationCatalogBundle(),
             new Application\Bundle\AssortmentBundle\ApplicationAssortmentBundle(),
-            new Application\Bundle\NewsletterBundle\ApplicationNewsletterBundle()
+            new Application\Bundle\NewsletterBundle\ApplicationNewsletterBundle(),
+            new Application\Bundle\CartBundle\ApplicationCartBundle(),
         );
 
         if ($this->isDebug()) {
