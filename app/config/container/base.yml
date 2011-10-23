@@ -83,3 +83,13 @@ sylius_cart:
         form:
            type:
                item: Application\Bundle\CartBundle\Form\Type\ItemType
+
+liip_theme:
+        themes: ~
+        active_theme: ~
+                            
+sylius_theming:
+    driver: ORM
+    classes:
+        model:
+            theme: Sylius\Bundle\ThemingBundle\Entity\Theme

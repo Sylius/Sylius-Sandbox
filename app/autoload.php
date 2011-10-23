@@ -28,6 +28,7 @@ $loader->registerNamespaces(array(
 
     'Application'						  => __DIR__.'/../src',
 
+    'Liip'								  => __DIR__.'/../vendor/bundles',
     'WhiteOctober\PagerfantaBundle'       => __DIR__.'/../vendor/bundles',
 	'Sylius'						      => __DIR__.'/../vendor/bundles',
     
