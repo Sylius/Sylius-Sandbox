@@ -1,0 +1,36 @@
+{% extends 'ApplicationCoreBundle:Backend:layout.html.twig' %}
+
+{% block content %}
+
+<div class="page-header"> 
+    <h1>{{ post.title }} <small>Post details.</small></h1> 
+</div> 
+
+<table>
+    <thead>
+        <tr>
+            <th>#id</th>
+            <th>title</th>
+            <th>author</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{ post.id }}</td>
+            <td>{{ post.title }}</td>
+            <td>{{ post.author }}</td>
+            <td>
+                <a href="{{ path('sylius_blogger_backend_post_update', {'id': post.id}) }}" class="btn">update</a>
+                <a href="{{ path('sylius_blogger_backend_post_delete', {'id': post.id}) }}" class="btn danger">delete</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Post content.</h2>
+<div class="well">
+{{ post.content|raw }}
+</div>
+
+{% endblock %}

@@ -56,6 +56,20 @@ sylius_catalog:
                 frontend:
                     list: ApplicationAssortmentBundle:Frontend/Category:list.html.twig
                     show: ApplicationAssortmentBundle:Frontend/Category:show.html.twig
+        blog:
+            mode: M
+            property: "posts"
+            classes:
+                model: Application\Bundle\BloggerBundle\Entity\Category
+            templates:
+                backend:
+                    list: ApplicationBloggerBundle:Backend/Category:list.html.twig
+                    show: ApplicationBloggerBundle:Backend/Category:show.html.twig
+                    create: ApplicationBloggerBundle:Backend/Category:create.html.twig
+                    update: ApplicationBloggerBundle:Backend/Category:update.html.twig
+                frontend:
+                    list: ApplicationBloggerBundle:Frontend/Category:list.html.twig
+                    show: ApplicationBloggerBundle:Frontend/Category:show.html.twig
                     
 sylius_newsletter:
     driver: ORM
@@ -93,3 +107,12 @@ sylius_theming:
     classes:
         model:
             theme: Sylius\Bundle\ThemingBundle\Entity\Theme
+            
+sylius_blogger:
+    driver: ORM
+    classes:
+        model:
+            post: Application\Bundle\BloggerBundle\Entity\Post
+        form:
+            type:
+                post: Application\Bundle\BloggerBundle\Form\Type\PostFormType

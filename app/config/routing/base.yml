@@ -19,3 +19,6 @@ application_cart:
 application_theming:
     resource: @ApplicationThemingBundle/Resources/config/routing.yml
     
+application_blogger:
+    resource: @ApplicationBloggerBundle/Resources/config/routing.yml
+    

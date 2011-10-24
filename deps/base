@@ -68,3 +68,7 @@
     git=http://github.com/Sylius/SyliusThemingBundle.git
     target=/bundles/Sylius/Bundle/ThemingBundle
     
+[SyliusBloggerBundle]
+    git=http://github.com/Sylius/SyliusBloggerBundle.git
+    target=/bundles/Sylius/Bundle/BloggerBundle
+    

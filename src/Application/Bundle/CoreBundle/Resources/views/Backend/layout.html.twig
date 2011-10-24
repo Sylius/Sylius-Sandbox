@@ -26,12 +26,23 @@
                         <a class="brand" href="{{ path('app_core_backend') }}">Sylius</a> 
                         <li class="active"><a href="{{ path('app_core_backend') }}">Index...</a></li>
                         <li class="dropdown" data-dropdown="dropdown">
-                            <a href="#" class="dropdown-toggle">Manage assortment</a>
+                        <a href="#" class="dropdown-toggle">Manage assortment</a>
                         <ul class="dropdown-menu">
                             <li><a href="{{ path('sylius_catalog_backend_category_create', {'catalogAlias': 'assortment'}) }}">Create category</a></li>
                             <li><a href="{{ path('sylius_catalog_backend_category_list', {'catalogAlias': 'assortment'}) }}">List categories</a></li>
+                            <li class="divider"></li>
                             <li><a href="{{ path('sylius_assortment_backend_product_create') }}">Create product</a></li>
                             <li><a href="{{ path('sylius_assortment_backend_product_list') }}">List products</a></li>
+                        </ul>
+                        </li>
+                        <li class="dropdown" data-dropdown="dropdown">
+                        <a href="#" class="dropdown-toggle">Blog</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ path('sylius_catalog_backend_category_create', {'catalogAlias': 'blog'}) }}">Create category</a></li>
+                            <li><a href="{{ path('sylius_catalog_backend_category_list', {'catalogAlias': 'blog'}) }}">List categories</a></li>
+                            <li class="divider"></li>
+                            <li><a href="{{ path('sylius_blogger_backend_post_create') }}">Create post</a></li>
+                            <li><a href="{{ path('sylius_blogger_backend_post_list') }}">List posts</a></li>
                         </ul>
                         </li>
                         <li class="dropdown" data-dropdown="dropdown">

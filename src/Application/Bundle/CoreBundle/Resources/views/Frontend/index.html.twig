@@ -23,7 +23,8 @@
                         <li><a href="http://github.com/Sylius/SyliusCatalogBundle">SyliusCatalogBundle</a>,</li>
                         <li><a href="http://github.com/Sylius/SyliusNewsletterBundle">SyliusNewsletterBundle</a>,</li>
                         <li><a href="http://github.com/Sylius/SyliusCartBundle">SyliusCartBundle</a>,</li>
-                        <li><a href="http://github.com/Sylius/SyliusThemingBundle">SyliusThemingBundle</a>.</li>
+                        <li><a href="http://github.com/Sylius/SyliusThemingBundle">SyliusThemingBundle</a>,</li>
+                        <li><a href="http://github.com/Sylius/SyliusBloggerBundle">SyliusBloggerBundle</a>.</li>
                     </ul>
                     <h4>Awesome third party bundles...</h4>
                     <ul>
@@ -38,6 +39,7 @@
         <a href="{{ path('sylius_cart_show') }}" class="btn primary pull-right">My cart &raquo;</a>
         <br /> <br /> <br />
         {% render 'sylius_catalog.controller.frontend.category:listAction' with {'catalogAlias': 'assortment'} %}
+        {% render 'sylius_catalog.controller.frontend.category:listAction' with {'catalogAlias': 'blog'} %}
     </div> 
 </div> 
 
