@@ -2,11 +2,17 @@
 # (c) Paweł Jędrzejewski
 
 parameters:
+    database.driver:   pdo_mysql
     database.host:     localhost
     database.port:     ~
     database.name:     sylius_database
     database.user:     sylius_database_user
     database.password: ~
+    
+    mailer.transport:  smtp
+    mailer.host:       localhost
+    mailer.user:       ~
+    mailer.password:   ~
     
     locale: en
     

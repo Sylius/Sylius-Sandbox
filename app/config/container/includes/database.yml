@@ -3,14 +3,13 @@
 
 doctrine:
     dbal:
-        connections:
-            default:
-                host:     %database.host%
-                port:     %database.port%
-                dbname:   %database.name%
-                user:     %database.user%
-                password: %database.password%
-                logging:  %kernel.debug%
+        driver:   %database.driver%
+        host:     %database.host%
+        port:     %database.port%
+        dbname:   %database.name%
+        user:     %database.user%
+        password: %database.password%
+        charset:  UTF8
     orm:
         auto_generate_proxy_classes: %kernel.debug%
         auto_mapping: true
