@@ -1,0 +1,6 @@
+sylius_sales_backend_order:
+    resource: @SyliusSalesBundle/Resources/config/routing/backend/order.yml
+    prefix: /administration/orders
+    
+sylius_sales_order:
+    resource: @SyliusSalesBundle/Resources/config/routing/frontend/order.yml

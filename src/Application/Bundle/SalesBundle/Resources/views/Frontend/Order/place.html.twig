@@ -1,0 +1,35 @@
+{% extends 'ApplicationCoreBundle:Frontend:layout.html.twig' %}
+
+{% block content %}
+
+<h1>Twoje zamówienie...</h1>
+
+    <form method="post" action="{{ path('sylius_sales_order_place') }}">
+
+    <div class="box">
+        <h2>Forma pokwitowania.</h2>
+        <br />
+        {{ form_widget(form.receipt) }}
+    </div>
+    <br />&nbsp;
+    <div class="box">
+        <h2>Adres.</h2>
+        <br />
+        Imię: {{ form_widget(form.name) }} <br />
+        Nazwisko: {{ form_widget(form.surname) }} <br />
+        Miejscowość: {{ form_widget(form.city) }} <br />
+        Ulica i numer domu: {{ form_widget(form.street) }} <br />
+        Kod pocztowy: {{ form_widget(form.postcode) }} <br />
+        Adres e-mail: {{ form_widget(form.email) }} <br />
+        Numer kontaktowy: {{ form_widget(form.phone) }} <br />
+    </div>
+    
+    <div class="box" style="margin-top: 25px; text-align: center;">
+        <input type="submit" class="submit" value="złóż zamówienie" />
+    </div>
+    
+    {{ form_rest(form) }}
+    
+    </form>
+
+{% endblock %}

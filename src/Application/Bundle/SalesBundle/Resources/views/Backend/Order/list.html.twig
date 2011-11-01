@@ -1,0 +1,52 @@
+{% extends 'ApplicationCoreBundle:Backend:layout.html.twig' %}
+
+{% block content %}
+
+<div class="page-header"> 
+    <h1>Lista aktualnych zamówień.</h1> 
+</div> 
+
+{% if paginator.haveToPaginate() %}
+{{ pagerfanta(paginator, 'twitter_bootstrap', {'prev_message': "poprzednia strona...", 'next_message': "następna strona..."}) }}
+{% endif %}
+
+{% if orders %}
+    <table cellspacing="1"> 
+        <thead>
+            <tr>
+                <th>#id</th>
+                <th>wartość</th>
+                <th>data złożenia</th>
+                <th>status</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+    {% for order in orders %}
+        <tr>
+            <td>{{ order.id }}</td>
+            <td>{{ order.value }} zł</td>
+            <td>{{ order.createdAt | date('d.m.Y, H:i:s') }}</td>
+            <td style="text-align: center;">
+                {% render 'sylius_sales.controller.backend.order:statusAction' with {'id': order.id} %}
+            </td>
+            <td>
+                <a href="{{ path('sylius_sales_backend_order_show', {'id': order.id}) }}" class="btn">szczegóły</a>
+                <a href="{{ path('sylius_sales_backend_order_delete', {'id': order.id}) }}" class="btn danger">usuń</a>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% else %}
+<div class="alert-message info">
+  <p><strong>Informacja.</strong> Brak zamówień.</p>
+</div>
+{% endif %}
+
+{% if paginator.haveToPaginate() %}
+{{ pagerfanta(paginator, 'twitter_bootstrap', {'prev_message': "poprzednia strona...", 'next_message': "następna strona..."}) }}
+{% endif %}
+ 
+{% endblock %}

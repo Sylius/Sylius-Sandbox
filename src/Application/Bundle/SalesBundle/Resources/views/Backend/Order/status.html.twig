@@ -1,0 +1,9 @@
+<form method="post" action="{{ path('sylius_sales_backend_order_status', {'id': order.id}) }}">
+
+{{ form_widget(form.status, {'attr': {'class': 'span5'}}) }}
+
+{{ form_rest(form) }}
+
+<input type="submit" class="btn primary" value="zmień status" />
+
+</form>

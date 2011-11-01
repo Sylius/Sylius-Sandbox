@@ -1,0 +1,101 @@
+{% extends 'ApplicationCoreBundle:Backend:layout.html.twig' %}
+
+{% block content %}
+
+<div class="page-header"> 
+    <h1>Szczegóły zamówienia.</h1> 
+</div> 
+
+<h2>Dane zamówienia.</h2>
+<table cellspacing="1"> 
+    <tbody>
+        <tr>
+            <td><strong>#id</strong></td>
+            <td>{{ order.id }}</td>
+        </tr>
+        <tr>
+            <td><strong>wartość</strong></td>
+            <td>{{ order.value }} zł</td>
+        </tr>
+        <tr>
+            <td><strong>pokwitowanie</strong></td>
+            <td>
+                {% if order.receipt == 0 %}
+                    paragon
+                {% else %}
+                    faktura VAT
+                {% endif %}
+            </td>
+        </tr>
+        <tr>
+            <td><strong>data złożenia</strong></td>
+            <td>{{ order.createdAt|date('d.m.Y, H:i:s') }}</td>
+        </tr>
+        <tr>
+            <td><strong>status zamówienia</strong></td>
+            <td>
+                {% render 'sylius_sales.controller.backend.order:statusAction' with {'id': order.id} %}
+            </td>
+        </tr>
+    </tbody>   
+</table>
+
+<h2>Adres.</h2>
+<table> 
+    <tbody>
+        <tr>
+            <td style="width: 200px;"><strong>imię</strong></td>
+            <td>{{ order.name }}</td>
+        </tr>
+        <tr>
+            <td><strong>nazwisko</strong></td>
+            <td>{{ order.surname }}</td>
+        </tr>
+        <tr>
+            <td><strong>ulica</strong></td>
+            <td>{{ order.street }}</td>
+        </tr>
+        <tr>
+            <td><strong>miejscowość</strong></td>
+            <td>{{ order.city }}</td>
+        </tr>
+        <tr>
+            <td><strong>kod pocztowy</strong></td>
+            <td>{{ order.postcode }}</td>
+        </tr>
+        <tr>
+            <td><strong>adres e-mail</strong></td>
+            <td><a href="mailto:{{ order.email }}">{{ order.email }}</a></td>
+        </tr>
+        <tr>
+            <td><strong>numer kontaktowy</strong></td>
+            <td>{{ order.phone }}</td>
+        </tr>
+    </tbody>   
+</table>
+
+<h2>Zamówione produkty.</h2>
+<table>
+    <thead>
+        <tr>
+            <th>nazwa produktu</th>
+            <th>rozmiar</th>
+            <th>sztuk</th>
+            <th>cena detaliczna</th>
+            <th>cena promocyjna</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in order.cart.items %}
+            <tr>
+                <td>{{ item.variant.product.name }}</td>
+                <td>{{ item.variant.size }}</td>
+                <td>{{ item.quantity }}</td>
+                <td>{{ item.variant.retailPrice }} zł</td>
+                <td>{{ item.variant.promoPrice }} zł</td>
+            </tr>
+        {% endfor %}
+    </tbody>   
+</table>
+ 
+{% endblock %}
