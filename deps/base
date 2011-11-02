@@ -33,7 +33,6 @@
     
 [swiftmailer]
     git=http://github.com/swiftmailer/swiftmailer.git
-    version=v4.1.1
     target=/libraries/swiftmailer
 
 [pagerfanta]
@@ -75,5 +74,3 @@
 [SyliusSalesBundle]
     git=http://github.com/Sylius/SyliusSalesBundle.git
     target=/bundles/Sylius/Bundle/SalesBundle
-
-    
