@@ -22,6 +22,8 @@
 {% endif %}
 
 <form action="{{ path("app_core_security_check") }}" method="post">
+
+<fieldset>
     <div class="clearfix">
     <label for="username">Login...</label>
     <div class="input">
@@ -40,7 +42,8 @@
         <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
     </div>
     </div>
-    
+</fieldset>
+
     <div class="actions">
         <input type="submit" class="btn primary large" name="login" value="login" />
     </div>

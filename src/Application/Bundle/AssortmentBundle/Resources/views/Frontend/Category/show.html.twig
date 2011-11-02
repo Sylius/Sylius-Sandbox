@@ -25,14 +25,12 @@
 {% endif %}
 
 {% if products %}
-    <strong>Sort by</strong>...
-
-    <ul class="pills">
-        <li><a href="{{ path('sylius_catalog_category_show', {'catalogAlias': catalog.alias, 'id': category.id, 'slug': category.slug, 'sort': 'name', 'order': sortOrder}) }}">Name!</a></li>
-        <li><a href="{{ path('sylius_catalog_category_show', {'catalogAlias': catalog.alias, 'id': category.id, 'slug': category.slug, 'sort': 'price', 'order': sortOrder}) }}">Price!</a></li>
-        <li><a href="{{ path('sylius_catalog_category_show', {'catalogAlias': catalog.alias, 'id': category.id, 'slug': category.slug, 'sort': 'createdAt', 'order': sortOrder}) }}">Creation time!</a></li>
+    <ul class="tabs">
+        <li{% if app.request.get('sort') == 'name' %} class="active"{% endif %}><a href="{{ path('sylius_assortment_product_list', {'sort': 'name', 'order': sortOrder}) }}">Name!</a></li>
+        <li{% if app.request.get('sort') == 'price' %} class="active"{% endif %}><a href="{{ path('sylius_assortment_product_list', {'sort': 'price', 'order': sortOrder}) }}">Price!</a></li>
+        <li{% if app.request.get('sort') == 'createdAt' %} class="active"{% endif %}><a href="{{ path('sylius_assortment_product_list', {'sort': 'createdAt', 'order': sortOrder}) }}">Creation time!</a></li>
     </ul>
-
+    <br /><br /><br />
     {% for product in products %}
         {% include 'ApplicationAssortmentBundle:Frontend/Product:single.html.twig' %}
     {% endfor %}
