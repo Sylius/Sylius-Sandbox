@@ -2,34 +2,84 @@
 
 {% block content %}
 
-<h1>Twoje zamówienie...</h1>
+<div class="page-header">
+<h1>Fill your order information. <small>Thanks for chosing our services.</small></h1>
+</div>
 
-    <form method="post" action="{{ path('sylius_sales_order_place') }}">
+<form method="post" action="{{ path('sylius_sales_order_place') }}">
 
-    <div class="box">
-        <h2>Forma pokwitowania.</h2>
-        <br />
-        {{ form_widget(form.receipt) }}
+<fieldset>
+    <div class="formErrors">
+        {{ form_errors(form.name) }}
     </div>
-    <br />&nbsp;
-    <div class="box">
-        <h2>Adres.</h2>
-        <br />
-        Imię: {{ form_widget(form.name) }} <br />
-        Nazwisko: {{ form_widget(form.surname) }} <br />
-        Miejscowość: {{ form_widget(form.city) }} <br />
-        Ulica i numer domu: {{ form_widget(form.street) }} <br />
-        Kod pocztowy: {{ form_widget(form.postcode) }} <br />
-        Adres e-mail: {{ form_widget(form.email) }} <br />
-        Numer kontaktowy: {{ form_widget(form.phone) }} <br />
+    <div class="clearfix">
+    <label for="sylius_order_name">Name...</label>
+    <div class="input">
+        {{ form_widget(form.name, {'attr': {'class': 'span6'}}) }}
     </div>
-    
-    <div class="box" style="margin-top: 25px; text-align: center;">
-        <input type="submit" class="submit" value="złóż zamówienie" />
     </div>
-    
-    {{ form_rest(form) }}
-    
-    </form>
+    <div class="formErrors">
+        {{ form_errors(form.surname) }}
+    </div>
+    <div class="clearfix">
+    <label for="sylius_order_surname">Surname...</label>
+    <div class="input">
+        {{ form_widget(form.surname, {'attr': {'class': 'span6'}}) }}
+    </div>
+    </div>
+    <div class="formErrors">
+        {{ form_errors(form.city) }}
+    </div>
+    <div class="clearfix">
+    <label for="sylius_order_name">City...</label>
+    <div class="input">
+        {{ form_widget(form.city, {'attr': {'class': 'span5'}}) }}
+    </div>
+    </div>
+    <div class="formErrors">
+        {{ form_errors(form.street) }}
+    </div>
+    <div class="clearfix">
+    <label for="sylius_order_street">Street...</label>
+    <div class="input">
+        {{ form_widget(form.street, {'attr': {'class': 'span5'}}) }}
+    </div>
+    </div>
+    <div class="formErrors">
+        {{ form_errors(form.postcode) }}
+    </div>
+    <div class="clearfix">
+    <label for="sylius_order_postcode">Postcode...</label>
+    <div class="input">
+        {{ form_widget(form.postcode, {'attr': {'class': 'span3'}}) }}
+    </div>
+    </div>
+    <div class="formErrors">
+        {{ form_errors(form.email) }}
+    </div>
+    <div class="clearfix">
+    <label for="sylius_order_email">Email...</label>
+    <div class="input">
+        {{ form_widget(form.email, {'attr': {'class': 'span5'}}) }}
+    </div>
+    </div>
+    <div class="formErrors">
+        {{ form_errors(form.phone) }}
+    </div>
+    <div class="clearfix">
+    <label for="sylius_order_phone">Phone...</label>
+    <div class="input">
+        {{ form_widget(form.phone, {'attr': {'class': 'span5'}}) }}
+    </div>
+    </div>
+</fieldset>
+
+{{ form_rest(form) }}
+
+<div class="actions">
+<input type="submit" class="btn large primary" value="place order" />
+</div>
+
+</form>
 
 {% endblock %}

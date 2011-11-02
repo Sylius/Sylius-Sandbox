@@ -35,6 +35,7 @@
                             <li><a href="{{ path('sylius_assortment_backend_product_list') }}">List products</a></li>
                         </ul>
                         </li>
+                        <li><a href="{{ path('sylius_sales_backend_order_list') }}">Orders</a></li>
                         <li class="dropdown" data-dropdown="dropdown">
                         <a href="#" class="dropdown-toggle">Blog</a>
                         <ul class="dropdown-menu">
@@ -71,6 +72,8 @@
                         <li><a href="{{ path('sylius_catalog_backend_category_list', {'catalogAlias': 'assortment'}) }}">List categories</a></li>
                         <li><a href="{{ path('sylius_assortment_backend_product_create') }}">Create product</a></li>
                         <li><a href="{{ path('sylius_assortment_backend_product_list') }}">List products</a></li>
+                        <li class="header">Sales</li>
+                        <li><a href="{{ path('sylius_sales_backend_order_list') }}">List orders</a></li>
                         <li class="header">Blog</li>
                         <li><a href="{{ path('sylius_catalog_backend_category_create', {'catalogAlias': 'blog'}) }}">Create category</a></li>
                         <li><a href="{{ path('sylius_catalog_backend_category_list', {'catalogAlias': 'blog'}) }}">List categories</a></li>

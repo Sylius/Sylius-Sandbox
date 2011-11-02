@@ -9,14 +9,26 @@ use Sylius\Bundle\SalesBundle\Processor\Operation\OperationInterface;
 class ProcessOperation extends ContainerAware implements OperationInterface
 {
     public function process(OrderInterface $order)
-    {
+    {      
         // Lock cart.
         $cart = $this->container->get('sylius_cart.provider')->getCart();
+        
+        if ($cart->isEmpty()) {
+            throw new \LogicException('The cart must be not empty.');
+        }
+        
         $cart->setLocked(true);
         
         // Set order value.
         $order->setCart($cart);
-        $order->setValue($cart->getTotalPrice() + 25.00);
+        
+        $orderValue = 0.00;
+        
+        foreach ($cart->getItems() as $item) {
+            $orderValue += $item->getProduct()->getPrice() * $item->getQuantity();
+        }
+        
+        $order->setValue($orderValue);
         
         // Clear cart.
         $cart = $this->container->get('sylius_cart.manager.cart')->createCart();

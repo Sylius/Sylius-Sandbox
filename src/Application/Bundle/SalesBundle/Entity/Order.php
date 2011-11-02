@@ -12,8 +12,6 @@ class Order extends BaseOrder
     protected $cart;
     protected $value;
     
-    public $receipt = 0;
-    
     public $name;
     public $surname;
     public $city;

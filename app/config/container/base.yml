@@ -119,3 +119,16 @@ sylius_blogger:
         form:
             type:
                 post: Application\Bundle\BloggerBundle\Form\Type\PostFormType
+                
+sylius_sales:
+    driver: ORM
+    statuses:
+        - "status.0"
+        - "status.1"
+        - "status.2"
+    classes:
+        model:
+            order: Application\Bundle\SalesBundle\Entity\Order
+        form:
+            type:
+                order: Application\Bundle\SalesBundle\Form\Type\OrderFormType

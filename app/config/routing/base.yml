@@ -22,3 +22,6 @@ application_theming:
 application_blogger:
     resource: @ApplicationBloggerBundle/Resources/config/routing.yml
     
+application_sales:
+    resource: @ApplicationSalesBundle/Resources/config/routing.yml
+    

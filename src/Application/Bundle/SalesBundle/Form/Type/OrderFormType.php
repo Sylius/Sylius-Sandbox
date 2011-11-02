@@ -22,10 +22,6 @@ class OrderFormType extends BaseOrderFormType
         parent::buildForm($builder, $options);
                 
         $builder
-            ->add('receipt', 'choice', array(
-            	'choices' => array('paragon', 'faktura VAT'),
-            	'expanded' => true
-            ))
             ->add('name')
             ->add('surname')
             ->add('city')

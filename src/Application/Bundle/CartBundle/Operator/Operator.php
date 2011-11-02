@@ -24,7 +24,7 @@ class Operator implements OperatorInterface
         $product = $item->getProduct();
         
         foreach ($cart->getItems() as $existingItem) {
-            if ($existingItem->getProduct() == $product) {
+            if ($existingItem->getProduct() === $product) {
                 $existingItem->setQuantity($existingItem->getQuantity() + $item->getQuantity());
                 
                 return;

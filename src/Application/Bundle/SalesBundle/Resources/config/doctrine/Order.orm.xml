@@ -10,7 +10,6 @@
             <generator strategy="AUTO" />
         </id>
         <field name="value" column="value" type="decimal" precision="10" scale="2" />
-        <field name="receipt" column="receipt" type="integer" />
         <field name="name" column="name" type="string" />
         <field name="surname" column="surname" type="string" />
         <field name="city" column="city" type="string" />
