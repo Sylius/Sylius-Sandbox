@@ -5,6 +5,21 @@ Simple but **end-user and developer friendly** webshop engine built on top of Sy
 
 This is sandbox application that shows some examples of the Sylius bundles usage.
 
+Screenshots.
+------------
+
+The inferface is powered by the coolest [Twitter Bootstrap](http://twitter.github.com/bootstrap).
+Here are some screenshots of application... 
+[1](http://sylius.github.com/screenshots/Sylius-Sandbox/1.png), 
+[2](http://sylius.github.com/screenshots/Sylius-Sandbox/2.png), 
+[3](http://sylius.github.com/screenshots/Sylius-Sandbox/3.png), 
+[4](http://sylius.github.com/screenshots/Sylius-Sandbox/4.png), 
+[5](http://sylius.github.com/screenshots/Sylius-Sandbox/5.png), 
+[6](http://sylius.github.com/screenshots/Sylius-Sandbox/6.png), 
+[7](http://sylius.github.com/screenshots/Sylius-Sandbox/7.png), 
+[8](http://sylius.github.com/screenshots/Sylius-Sandbox/8.png), 
+[9](http://sylius.github.com/screenshots/Sylius-Sandbox/9.png).
+
 Quick installation.
 -------------
 
