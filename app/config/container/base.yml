@@ -47,7 +47,7 @@ sylius_catalog:
         assortment:
             mode: S
             property: "products"
-            sorter: sylius_assortment.sorting
+            sorter: sylius_assortment.sorter.product
             classes:
                 model: Application\Bundle\AssortmentBundle\Entity\Category
             templates:
