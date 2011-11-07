@@ -20,11 +20,20 @@
 {{ pagerfanta(paginator, 'twitter_bootstrap', {'prev_message': "previous page...", 'next_message': "next page..."}) }}
 {% endif %}
 
+<ul class="tabs">
+    <li class="active"><a href="{{ path('sylius_sales_backend_order_list') }}">show all orders</a></li>
+    <li><a href="{{ path('sylius_sales_backend_order_list', {'filters': {'closed': [false, '=']}}) }}">only open orders</a></li>
+    <li><a href="{{ path('sylius_sales_backend_order_list', {'filters': {'closed': [true, '=']}}) }}">only closed orders</a></li>
+    <li><a href="{{ path('sylius_sales_backend_order_list', {'filters': {'status': [0, '=']}}) }}">orders that need attention</a></li>
+    <li><a href="{{ path('sylius_sales_backend_order_list', {'filters': {'value': [500, '>']}}) }}">over <strong>500</strong> &euro;</a></li>
+    <li><a href="{{ path('sylius_sales_backend_order_list', {'filters': {'value': [500, '<']}}) }}">below <strong>500</strong> &euro;</a></li>
+</ul>
+
 {% if orders %}
 <table> 
     <thead>
         <tr>
-            <th><a href="{{ path('sylius_sales_backend_order_list', {'sort': 'id', 'order': sortOrder}) }}">#id</a></th>
+            <th><a href="{{ path('sylius_sales_backend_order_list', {'sort': 'id', 'order': sortOrder, 'filters': app.request.query['filters']|default(null)}) }}">#id</a></th>
             <th><a href="{{ path('sylius_sales_backend_order_list', {'sort': 'value', 'order': sortOrder}) }}">value</a></th>
             <th><a href="{{ path('sylius_sales_backend_order_list', {'sort': 'createdAt', 'order': sortOrder}) }}">creation time</a></th>
             <th><a href="{{ path('sylius_sales_backend_order_list', {'sort': 'status', 'order': sortOrder}) }}">status</a></th>
@@ -33,7 +42,7 @@
     </thead>
     <tbody>
     {% for order in orders %}
-    <tr>
+    <tr{% if order.closed %} class="inactive"{% endif %}>
         <td>{{ order.id }}</td>
         <td>{{ order.value }} &euro;</td>
         <td>{{ order.createdAt | date('d.m.Y, H:i:s') }}</td>
@@ -41,8 +50,13 @@
             {% render 'sylius_sales.controller.backend.order:statusAction' with {'id': order.id} %}
         </td>
         <td>
+            {% if order.closed %}
+            <a href="{{ path('sylius_sales_backend_order_open', {'id': order.id}) }}" class="btn pull-right">open</a>
+            {% else %}
+            <a href="{{ path('sylius_sales_backend_order_close', {'id': order.id}) }}" class="btn">close</a>
             <a href="{{ path('sylius_sales_backend_order_show', {'id': order.id}) }}" class="btn">details</a>
             <a href="{{ path('sylius_sales_backend_order_delete', {'id': order.id}) }}" class="btn danger">delete</a>
+            {% endif %}
         </td>
     </tr>
     {% endfor %}
