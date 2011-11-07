@@ -33,7 +33,7 @@
 <table> 
     <thead>
         <tr>
-            <th><a href="{{ path('sylius_sales_backend_order_list', {'sort': 'id', 'order': sortOrder, 'filters': app.request.query['filters']|default(null)}) }}">#id</a></th>
+            <th><a href="{{ path('sylius_sales_backend_order_list', {'sort': 'id', 'order': sortOrder}) }}">#id</a></th>
             <th><a href="{{ path('sylius_sales_backend_order_list', {'sort': 'value', 'order': sortOrder}) }}">value</a></th>
             <th><a href="{{ path('sylius_sales_backend_order_list', {'sort': 'createdAt', 'order': sortOrder}) }}">creation time</a></th>
             <th><a href="{{ path('sylius_sales_backend_order_list', {'sort': 'status', 'order': sortOrder}) }}">status</a></th>
