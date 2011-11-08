@@ -21,10 +21,10 @@
 {% endif %}
 
 <ul class="tabs">
-    <li class="active"><a href="{{ path('sylius_sales_backend_order_list') }}">show all orders</a></li>
+    <li><a href="{{ path('sylius_sales_backend_order_list') }}">show all orders</a></li>
     <li><a href="{{ path('sylius_sales_backend_order_list', {'filters': {'closed': [false, '=']}}) }}">only open orders</a></li>
     <li><a href="{{ path('sylius_sales_backend_order_list', {'filters': {'closed': [true, '=']}}) }}">only closed orders</a></li>
-    <li><a href="{{ path('sylius_sales_backend_order_list', {'filters': {'status': [0, '=']}}) }}">orders that need attention</a></li>
+    <li><a href="{{ path('sylius_sales_backend_order_list', {'filters': {'status': [0, '='], 'closed': [false, '=']}}) }}"><span class="label important">&nbsp;!&nbsp;</span> orders that need attention</a></li>
     <li><a href="{{ path('sylius_sales_backend_order_list', {'filters': {'value': [500, '>']}}) }}">over <strong>500</strong> &euro;</a></li>
     <li><a href="{{ path('sylius_sales_backend_order_list', {'filters': {'value': [500, '<']}}) }}">below <strong>500</strong> &euro;</a></li>
 </ul>
