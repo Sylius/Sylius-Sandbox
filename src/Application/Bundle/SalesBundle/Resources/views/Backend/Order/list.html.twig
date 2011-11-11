@@ -1,15 +1,5 @@
 {% extends 'ApplicationCoreBundle:Backend:layout.html.twig' %}
 
-{% if app.request.get('order') %}
-    {% if app.request.get('order') == 'ASC' %}
-        {% set sortOrder = 'DESC' %}
-    {% else %}
-        {% set sortOrder = 'ASC' %}
-    {% endif %}
-{% else %}
-    {% set sortOrder = 'DESC' %}
-{% endif %}
-
 {% block content %}
 
 <div class="page-header"> 
@@ -33,10 +23,10 @@
 <table> 
     <thead>
         <tr>
-            <th><a href="{{ path('sylius_sales_backend_order_list', {'sort': 'id', 'order': sortOrder}) }}">#id</a></th>
-            <th><a href="{{ path('sylius_sales_backend_order_list', {'sort': 'value', 'order': sortOrder}) }}">value</a></th>
-            <th><a href="{{ path('sylius_sales_backend_order_list', {'sort': 'createdAt', 'order': sortOrder}) }}">creation time</a></th>
-            <th><a href="{{ path('sylius_sales_backend_order_list', {'sort': 'status', 'order': sortOrder}) }}">status</a></th>
+            <th><a href="{{ path('sylius_sales_backend_order_list', {'sort': 'id', 'order': sorter.order, 'filters': filter.current}) }}">#id</a></th>
+            <th><a href="{{ path('sylius_sales_backend_order_list', {'sort': 'value', 'order': sorter.order, 'filters': filter.current}) }}">value</a></th>
+            <th><a href="{{ path('sylius_sales_backend_order_list', {'sort': 'createdAt', 'order': sorter.order, 'filters': filter.current}) }}">creation time</a></th>
+            <th><a href="{{ path('sylius_sales_backend_order_list', {'sort': 'status', 'order': sorter.order, 'filters': filter.current}) }}">status</a></th>
             <th></th>
         </tr>
     </thead>
@@ -50,13 +40,15 @@
             {% render 'sylius_sales.controller.backend.order:statusAction' with {'id': order.id} %}
         </td>
         <td>
+            <div class="pull-right">
+            <a href="{{ path('sylius_sales_backend_order_show', {'id': order.id}) }}" class="btn">details</a>
             {% if order.closed %}
-            <a href="{{ path('sylius_sales_backend_order_open', {'id': order.id}) }}" class="btn pull-right">open</a>
+            <a href="{{ path('sylius_sales_backend_order_open', {'id': order.id}) }}" class="btn">open</a>
             {% else %}
             <a href="{{ path('sylius_sales_backend_order_close', {'id': order.id}) }}" class="btn">close</a>
-            <a href="{{ path('sylius_sales_backend_order_show', {'id': order.id}) }}" class="btn">details</a>
             <a href="{{ path('sylius_sales_backend_order_delete', {'id': order.id}) }}" class="btn danger">delete</a>
             {% endif %}
+            </div>
         </td>
     </tr>
     {% endfor %}

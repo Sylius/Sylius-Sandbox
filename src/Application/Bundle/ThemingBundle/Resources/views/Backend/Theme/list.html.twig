@@ -13,7 +13,7 @@
         <tr>
             <th>#id</th>
             <th>name</th>
-            <th>options</th>
+            <th></th>
         </tr>
     </thead>
     
@@ -23,6 +23,7 @@
             <td>{{ theme.id }}</td>
             <td>{{ theme.name }}</td>
             <td>
+                <div class="pull-right">
                 <a href="{{ path('sylius_theming_backend_theme_activate', {'id': theme.id}) }}" class="btn primary">activate</a>
                 <a href="{{ path('sylius_theming_backend_theme_show', {'id': theme.id}) }}" class="btn">details</a>              
                 {% if theme.enabled %}
@@ -31,6 +32,7 @@
                     <a href="{{ path('sylius_theming_backend_theme_enable', {'id': theme.id}) }}" class="btn">enable</a>
                 {% endif %}
                 <a href="{{ path('sylius_theming_backend_theme_uninstall', {'id': theme.id}) }}"class="btn danger">uninstall</a>
+                </div>
             </td>
         </tr>
     {% endfor %}

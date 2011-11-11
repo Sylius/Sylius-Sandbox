@@ -1,76 +1,76 @@
 [symfony]
     git=http://github.com/symfony/symfony.git
-    target=/libraries/symfony
+    target=libraries/symfony
 
 [twig]
     git=http://github.com/fabpot/Twig.git
-    target=/libraries/twig
+    target=libraries/twig
 
 [monolog]
     git=http://github.com/Seldaek/monolog.git
-    target=/libraries/monolog
+    target=libraries/monolog
 
 [doctrine-common]
     git=http://github.com/doctrine/common.git
-    target=/libraries/doctrine-common
+    target=libraries/doctrine-common
 
 [doctrine-dbal]
     git=http://github.com/doctrine/dbal.git
-    target=/libraries/doctrine-dbal
+    target=libraries/doctrine-dbal
 
 [doctrine]
     git=http://github.com/doctrine/doctrine2.git
-    target=/libraries/doctrine
+    target=libraries/doctrine
 
 [twig-extensions]
     git=http://github.com/fabpot/Twig-extensions.git
-    target=/libraries/twig-extensions
+    target=libraries/twig-extensions
 
 [metadata]
     git=http://github.com/schmittjoh/metadata.git
     version=origin/1.0.x
-    target=/libraries/metadata
+    target=libraries/metadata
     
 [swiftmailer]
     git=http://github.com/swiftmailer/swiftmailer.git
-    target=/libraries/swiftmailer
+    target=libraries/swiftmailer
 
 [pagerfanta]
     git=http://github.com/whiteoctober/Pagerfanta.git
-    target=/libraries/pagerfanta
+    target=libraries/pagerfanta
 
 [WhiteOctoberPagerfantaBundle]
     git=http://github.com/whiteoctober/WhiteOctoberPagerfantaBundle.git
-    target=/bundles/WhiteOctober/PagerfantaBundle
+    target=bundles/WhiteOctober/PagerfantaBundle
     
 [LiipThemeBundle]
     git=http://github.com/liip/LiipThemeBundle.git
-    target=/bundles/Liip/ThemeBundle
+    target=bundles/Liip/ThemeBundle
     
 [SyliusAssortmentBundle]
     git=http://github.com/Sylius/SyliusAssortmentBundle.git
-    target=/bundles/Sylius/Bundle/AssortmentBundle
+    target=bundles/Sylius/Bundle/AssortmentBundle
     
 [SyliusCatalogBundle]
     git=http://github.com/Sylius/SyliusCatalogBundle.git
-    target=/bundles/Sylius/Bundle/CatalogBundle
+    target=bundles/Sylius/Bundle/CatalogBundle
     
 [SyliusNewsletterBundle]
     git=http://github.com/Sylius/SyliusNewsletterBundle.git
-    target=/bundles/Sylius/Bundle/NewsletterBundle
+    target=bundles/Sylius/Bundle/NewsletterBundle
 
 [SyliusCartBundle]
     git=http://github.com/Sylius/SyliusCartBundle.git
-    target=/bundles/Sylius/Bundle/CartBundle
+    target=bundles/Sylius/Bundle/CartBundle
     
 [SyliusThemingBundle]
     git=http://github.com/Sylius/SyliusThemingBundle.git
-    target=/bundles/Sylius/Bundle/ThemingBundle
+    target=bundles/Sylius/Bundle/ThemingBundle
     
 [SyliusBloggerBundle]
     git=http://github.com/Sylius/SyliusBloggerBundle.git
-    target=/bundles/Sylius/Bundle/BloggerBundle
+    target=bundles/Sylius/Bundle/BloggerBundle
     
 [SyliusSalesBundle]
     git=http://github.com/Sylius/SyliusSalesBundle.git
-    target=/bundles/Sylius/Bundle/SalesBundle
+    target=bundles/Sylius/Bundle/SalesBundle

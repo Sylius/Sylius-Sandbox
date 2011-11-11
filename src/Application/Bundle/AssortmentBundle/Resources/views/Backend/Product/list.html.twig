@@ -1,15 +1,5 @@
 {% extends 'ApplicationCoreBundle:Backend:layout.html.twig' %}
 
-{% if app.request.get('order') %}
-    {% if app.request.get('order') == 'ASC' %}
-        {% set sortOrder = 'DESC' %}
-    {% else %}
-        {% set sortOrder = 'ASC' %}
-    {% endif %}
-{% else %}
-    {% set sortOrder = 'DESC' %}
-{% endif %}
-
 {% block content %}
 
 <div class="page-header"> 
@@ -28,10 +18,10 @@
     <table class="zebra-stripped">
     <thead>
         <tr>
-            <th><a href="{{ path('sylius_assortment_backend_product_list', {'sort': 'id', 'order': sortOrder}) }}">#id</a></th>
-            <th><a href="{{ path('sylius_assortment_backend_product_list', {'sort': 'name', 'order': sortOrder}) }}">name</a></th>
-            <th><a href="{{ path('sylius_assortment_backend_product_list', {'sort': 'price', 'order': sortOrder}) }}">price</a></th>
-            <th><a href="{{ path('sylius_assortment_backend_product_list', {'sort': 'createdAt', 'order': sortOrder}) }}">creation time</a></th>
+            <th><a href="{{ path('sylius_assortment_backend_product_list', {'sort': 'id', 'order': sorter.order}) }}">#id</a></th>
+            <th><a href="{{ path('sylius_assortment_backend_product_list', {'sort': 'name', 'order': sorter.order}) }}">name</a></th>
+            <th><a href="{{ path('sylius_assortment_backend_product_list', {'sort': 'price', 'order': sorter.order}) }}">price</a></th>
+            <th><a href="{{ path('sylius_assortment_backend_product_list', {'sort': 'createdAt', 'order': sorter.order}) }}">creation time</a></th>
             <th></th>
         </tr>
     </thead>
