@@ -16,6 +16,7 @@
 		<tr>
 			<th>#id</th>
 			<th>name</th>
+            <th>pozycja</th>
 			<th></th>
 		</tr>
 	</thead>
@@ -25,9 +26,24 @@
             <td>{{ category.id }}</td>
             <td>{{ category.name }}</td>
             <td>
+                {% if loop.first %}
+                <a class="btn success disabled">&uarr;</a>
+                {% else %}
+                <a href="#" class="btn success">&uarr;</a>
+                {% endif %}
+                
+                {% if loop.last %}
+                <a class="btn danger disabled">&darr;</a>
+                {% else %}
+                <a href="#" class="btn danger">&darr;</a>
+                {% endif %}
+            </td>
+            <td>
+                <div class="pull-right">
                 <a href="{{ path('sylius_catalog_backend_category_show', {'catalogAlias': catalog.alias, 'id': category.id}) }}" class="btn">list products</a>
                 <a href="{{ path('sylius_catalog_backend_category_update', {'catalogAlias': catalog.alias, 'id': category.id}) }}" class="btn">update</a>
                 <a href="{{ path('sylius_catalog_backend_category_delete', {'catalogAlias': catalog.alias, 'id': category.id}) }}" class="btn danger">delete</a>
+                </div>
             </td>
         </tr>
     {% endfor %}
