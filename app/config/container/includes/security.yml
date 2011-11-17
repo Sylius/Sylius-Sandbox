@@ -4,8 +4,9 @@
 security:
     providers:
         sylius_guard_provider:
-            users:
-                administrator:  { password: 79fb86e161e6bee2f14740099c4bee8247926999, roles: 'ROLE_SYLIUS_ADMIN' }
+            memory:
+                users:
+                    administrator:  { password: 79fb86e161e6bee2f14740099c4bee8247926999, roles: 'ROLE_SYLIUS_ADMIN' }
     encoders:
         Symfony\Component\Security\Core\User\User:
             algorithm:   sha1
