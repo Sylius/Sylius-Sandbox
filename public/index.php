@@ -12,16 +12,16 @@
 use Symfony\Component\HttpFoundation\Request;
 
 /*
- * Application front controller.
+ * Sylius sandbox front controller.
  * Production environment.
  */
 
 // Require autoload.
-require_once __DIR__.'/../app/autoload.php';
+require_once __DIR__.'/../sylius-sandbox/autoload.php';
 
 // Require kernel.
-require_once __DIR__.'/../app/AppKernel.php';
+require_once __DIR__.'/../sylius-sandbox/SandboxKernel.php';
 
 // Initialize kernel and run the application.
-$kernel = new AppKernel('production', false);
+$kernel = new \Sylius\SandboxKernel('production', false);
 $kernel->handle(Request::createFromGlobals())->send();

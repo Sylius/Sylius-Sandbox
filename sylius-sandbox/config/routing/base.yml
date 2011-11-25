@@ -1,0 +1,27 @@
+# This file is part of the Sylius sandbox application.
+# (c) Paweł Jędrzejewski
+
+application_core:
+    resource: @SandboxCoreBundle/Resources/config/routing.yml
+    
+application_catalog:
+    resource: @SandboxCatalogBundle/Resources/config/routing.yml
+  
+application_assortment:
+    resource: @SandboxAssortmentBundle/Resources/config/routing.yml
+    
+application_newsletter:
+    resource: @SandboxNewsletterBundle/Resources/config/routing.yml
+
+application_cart:
+    resource: @SandboxCartBundle/Resources/config/routing.yml
+    
+application_theming:
+    resource: @SandboxThemingBundle/Resources/config/routing.yml
+    
+application_blogger:
+    resource: @SandboxBloggerBundle/Resources/config/routing.yml
+    
+application_sales:
+    resource: @SandboxSalesBundle/Resources/config/routing.yml
+    

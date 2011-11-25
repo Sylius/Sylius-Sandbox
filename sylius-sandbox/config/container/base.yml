@@ -1,0 +1,134 @@
+# This file is part of the Sylius sandbox application.
+# (c) Paweł Jędrzejewski
+
+imports:
+    - { resource: includes/parameters.yml }
+    - { resource: includes/security.yml }
+    - { resource: includes/database.yml }
+
+framework:
+    default_locale: %locale%
+    form: ~
+    charset:       UTF-8
+    secret: %secret%
+    csrf_protection:
+        enabled: true
+    router:        { resource: "%kernel.root_dir%/config/routing/base.yml" }
+    validation:    { enabled: true }
+    translator:    { fallback: %locale% }
+    templating:    { engines: ['twig', 'php'] }
+    session:
+        name: SYLIUS_SESSION
+        lifetime: 72000
+        auto_start:     true
+
+twig:
+    debug:            %kernel.debug%
+    strict_variables: %kernel.debug% 
+    
+swiftmailer:
+    transport: %mailer.transport%
+    host:      %mailer.host%
+    username:  %mailer.user%
+    password:  %mailer.password%
+
+sylius_assortment:
+    driver: ORM
+    classes:
+        model:
+            product:  Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Product
+        form:
+            type:
+                product: Sylius\Sandbox\Bundle\AssortmentBundle\Form\Type\ProductFormType
+
+sylius_catalog:
+    driver: ORM
+    catalogs:
+        assortment:
+            mode: S
+            property: "products"
+            sorter: sylius_assortment.sorter.product
+            classes:
+                model: Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Category
+            templates:
+                backend:
+                    list: SandboxAssortmentBundle:Backend/Category:list.html.twig
+                    show: SandboxAssortmentBundle:Backend/Category:show.html.twig
+                    create: SandboxAssortmentBundle:Backend/Category:create.html.twig
+                    update: SandboxAssortmentBundle:Backend/Category:update.html.twig
+                frontend:
+                    list: SandboxAssortmentBundle:Frontend/Category:list.html.twig
+                    show: SandboxAssortmentBundle:Frontend/Category:show.html.twig
+        blog:
+            mode: M
+            property: "posts"
+            classes:
+                model: Sylius\Sandbox\Bundle\BloggerBundle\Entity\Category
+            templates:
+                backend:
+                    list: SandboxBloggerBundle:Backend/Category:list.html.twig
+                    show: SandboxBloggerBundle:Backend/Category:show.html.twig
+                    create: SandboxBloggerBundle:Backend/Category:create.html.twig
+                    update: SandboxBloggerBundle:Backend/Category:update.html.twig
+                frontend:
+                    list: SandboxBloggerBundle:Frontend/Category:list.html.twig
+                    show: SandboxBloggerBundle:Frontend/Category:show.html.twig
+                    
+sylius_newsletter:
+    driver: ORM
+    classes:
+        model:
+            newsletter: Sylius\Bundle\NewsletterBundle\Entity\DefaultNewsletter
+            subscriber: Sylius\Bundle\NewsletterBundle\Entity\DefaultSubscriber
+    extensions:
+        confirmation:
+            enabled: true
+            options:
+                email:
+                    from: no-reply@example.com
+                    subject: "Confirm your subscription on example.com!"
+                    template: SandboxNewsletterBundle:Confirmation:email.html.twig
+                    
+sylius_cart:
+    driver: ORM
+    engine: twig
+    operator: sylius_sandbox_cart.operator
+    classes:
+        model:
+            cart: Sylius\Sandbox\Bundle\CartBundle\Entity\Cart
+            item: Sylius\Sandbox\Bundle\CartBundle\Entity\Item
+        form:
+           type:
+               item: Sylius\Sandbox\Bundle\CartBundle\Form\Type\ItemType
+
+liip_theme:
+        themes: ~
+        active_theme: ~
+                            
+sylius_theming:
+    driver: ORM
+    classes:
+        model:
+            theme: Sylius\Bundle\ThemingBundle\Entity\Theme
+            
+sylius_blogger:
+    driver: ORM
+    classes:
+        model:
+            post: Sylius\Sandbox\Bundle\BloggerBundle\Entity\Post
+        form:
+            type:
+                post: Sylius\Sandbox\Bundle\BloggerBundle\Form\Type\PostFormType
+                
+sylius_sales:
+    driver: ORM
+    statuses:
+        - "status.0"
+        - "status.1"
+        - "status.2"
+    classes:
+        model:
+            order: Sylius\Sandbox\Bundle\SalesBundle\Entity\Order
+        form:
+            type:
+                order: Sylius\Sandbox\Bundle\SalesBundle\Form\Type\OrderFormType

@@ -1,0 +1,58 @@
+{% extends 'SandboxCoreBundle:Backend:layout.html.twig' %}
+
+{% block content %}
+
+<div class="page-header"> 
+    <h1>Categories.<small> Manage assortment categories...</small></h1> 
+</div> 
+
+<div class="well">
+<a href="{{ path('sylius_catalog_backend_category_create', {'catalogAlias': catalog.alias}) }}" class="btn large primary">create category</a>
+</div>
+
+{% if categories %}
+<table class="zebra-stripped">
+	<thead>
+		<tr>
+			<th>#id</th>
+			<th>name</th>
+            <th>position</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+    {% for category in categories %}
+        <tr>
+            <td>{{ category.id }}</td>
+            <td>{{ category.name }}</td>
+            <td>
+                {% if loop.first %}
+                <a class="btn success disabled">&uarr;</a>
+                {% else %}
+                <a href="#" class="btn success">&uarr;</a>
+                {% endif %}
+                
+                {% if loop.last %}
+                <a class="btn danger disabled">&darr;</a>
+                {% else %}
+                <a href="#" class="btn danger">&darr;</a>
+                {% endif %}
+            </td>
+            <td>
+                <div class="pull-right">
+                <a href="{{ path('sylius_catalog_backend_category_show', {'catalogAlias': catalog.alias, 'id': category.id}) }}" class="btn">list products</a>
+                <a href="{{ path('sylius_catalog_backend_category_update', {'catalogAlias': catalog.alias, 'id': category.id}) }}" class="btn">update</a>
+                <a href="{{ path('sylius_catalog_backend_category_delete', {'catalogAlias': catalog.alias, 'id': category.id}) }}" class="btn danger">delete</a>
+                </div>
+            </td>
+        </tr>
+    {% endfor %}
+	</tbody>
+</table>
+{% else %}
+<div class="alert-message info">
+    <p><strong>Information.</strong> There are no categories to display.</p>
+</div>
+{% endif %}
+
+{% endblock %}

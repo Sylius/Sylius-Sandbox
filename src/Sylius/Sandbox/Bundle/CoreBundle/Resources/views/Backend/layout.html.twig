@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>{% block title %}Sylius sandbox application backend.{% endblock %}</title>
+
+        <meta charset="UTF-8">
+
+        <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+        <!--[if lt IE 9]>
+          <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+        <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
+        <link rel="stylesheet" href="{{ asset('assets/css/backend.css') }}" type="text/css">
+
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+        <script type="text/javascript" src="http://twitter.github.com/bootstrap/1.4.0/bootstrap-dropdown.js"></script>
+        <script type="text/javascript" src="http://twitter.github.com/bootstrap/1.4.0/bootstrap-modal.js"></script>
+        <script type="text/javascript" src="http://twitter.github.com/bootstrap/1.4.0/bootstrap-twipsy.js"></script>
+        <script type="text/javascript" src="{{ asset('assets/js/core.js') }}"></script>
+    </head>
+    <body>
+        <div class="topbar">
+            <div class="topbar-inner">
+                <div class="container-fluid">
+                    <ul class="nav">
+                        <a class="brand" href="http://sylius.org">Sylius</a> 
+                        <li class="active"><a href="{{ path('sylius_sandbox_core_backend') }}">Dashboard</a></li>
+                        <li class="dropdown" data-dropdown="dropdown">
+                        <a href="#" class="dropdown-toggle">Manage assortment</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ path('sylius_catalog_backend_category_create', {'catalogAlias': 'assortment'}) }}">Create category</a></li>
+                            <li><a href="{{ path('sylius_catalog_backend_category_list', {'catalogAlias': 'assortment'}) }}">List categories</a></li>
+                            <li class="divider"></li>
+                            <li><a href="{{ path('sylius_assortment_backend_product_create') }}">Create product</a></li>
+                            <li><a href="{{ path('sylius_assortment_backend_product_list') }}">List products</a></li>
+                        </ul>
+                        </li>
+                        <li><a href="{{ path('sylius_sales_backend_order_list') }}">Orders</a></li>
+                        <li class="dropdown" data-dropdown="dropdown">
+                        <a href="#" class="dropdown-toggle">Blog</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ path('sylius_catalog_backend_category_create', {'catalogAlias': 'blog'}) }}">Create category</a></li>
+                            <li><a href="{{ path('sylius_catalog_backend_category_list', {'catalogAlias': 'blog'}) }}">List categories</a></li>
+                            <li class="divider"></li>
+                            <li><a href="{{ path('sylius_blogger_backend_post_create') }}">Create post</a></li>
+                            <li><a href="{{ path('sylius_blogger_backend_post_list') }}">List posts</a></li>
+                        </ul>
+                        </li>
+                        <li class="dropdown" data-dropdown="dropdown">
+                        <a href="#" class="dropdown-toggle">Newsletter</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{ path('sylius_newsletter_backend_subscriber_create') }}">Create subscriber</a></li>
+                                <li><a href="{{ path('sylius_newsletter_backend_subscriber_list') }}">List subscribers</a></li>
+                                <li class="divider"></li>
+                                <li><a href="{{ path('sylius_newsletter_backend_newsletter_create') }}">Create newsletter</a></li>
+                                <li><a href="{{ path('sylius_newsletter_backend_newsletter_list') }}">List newsletters</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="{{ path('sylius_theming_backend_theme_list') }}">Themes manager</a></li>
+                        <li><a href="{{ path('sylius_sandbox_core_frontend') }}">Go to <strong>frontend</strong> &raquo;</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="sidebar">
+                {% block sidebar %}
+                    <ul>
+                        <li class="header">Assortment</li>
+                        <li><a href="{{ path('sylius_catalog_backend_category_create', {'catalogAlias': 'assortment'}) }}">Create category</a></li>
+                        <li><a href="{{ path('sylius_catalog_backend_category_list', {'catalogAlias': 'assortment'}) }}">List categories</a></li>
+                        <li><a href="{{ path('sylius_assortment_backend_product_create') }}">Create product</a></li>
+                        <li><a href="{{ path('sylius_assortment_backend_product_list') }}">List products</a></li>
+                        <li class="header">Sales</li>
+                        <li><a href="{{ path('sylius_sales_backend_order_list') }}">List orders</a></li>
+                        <li class="header">Blog</li>
+                        <li><a href="{{ path('sylius_catalog_backend_category_create', {'catalogAlias': 'blog'}) }}">Create category</a></li>
+                        <li><a href="{{ path('sylius_catalog_backend_category_list', {'catalogAlias': 'blog'}) }}">List categories</a></li>
+                        <li><a href="{{ path('sylius_blogger_backend_post_create') }}">Create post</a></li>
+                        <li><a href="{{ path('sylius_blogger_backend_post_list') }}">List posts</a></li>
+                        <li class="header">Newsletter</li>
+                        <li><a href="{{ path('sylius_newsletter_backend_subscriber_create') }}">Create subscriber</a></li>
+                        <li><a href="{{ path('sylius_newsletter_backend_subscriber_list') }}">List subscribers</a></li>
+                        <li><a href="{{ path('sylius_newsletter_backend_newsletter_create') }}">Create newsletter</a></li>
+                        <li><a href="{{ path('sylius_newsletter_backend_newsletter_list') }}">List newsletters</a></li>
+                        <li class="header">Customization</li>
+                        <li><a href="{{ path('sylius_theming_backend_theme_list') }}">Themes manager</a></li>
+                        <li class="header">Administration</li>
+                        <li><a href="{{ path('sylius_sandbox_core_security_logout') }}" class="last">Logout...</a></li>
+                    </ul>
+                {% endblock %}   
+            </div>
+            <div class="content">
+                {% block content %}    {% endblock %}
+                <footer>
+                    <p><strong>&copy;</strong> <a href="http://sylius.org">Sylius</a>, 2011.</p>
+                </footer>
+            </div>
+        </div>
+    </body>
+</html>

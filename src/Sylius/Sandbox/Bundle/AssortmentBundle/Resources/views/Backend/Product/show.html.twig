@@ -1,0 +1,35 @@
+{% extends 'SandboxCoreBundle:Backend:layout.html.twig' %}
+
+{% block content %}
+
+<div class="page-header"> 
+    <h1>Product details.</h1> 
+</div> 
+
+<div class="well">
+<a href="{{ path('sylius_assortment_product_show', {'id': product.id, 'slug': product.slug}) }}" class="btn">show in the store</a>
+<a href="{{ path('sylius_assortment_backend_product_update', {'id': product.id}) }}" class="btn">update</a>
+<a href="{{ path('sylius_assortment_backend_product_delete', {'id': product.id}) }}" class="btn danger">usuń</a>
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th>#id</th>
+            <th>name</th>
+            <th>price</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{ product.id }}</td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.price }} &euro;</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Description.</h2>
+{{ product.description|raw }}
+
+{% endblock content %}

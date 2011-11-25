@@ -1,0 +1,67 @@
+{% extends 'SandboxCoreBundle:Backend:layout.html.twig' %}
+
+{% block content %}
+
+<div class="page-header"> 
+    <h1>Current orders.</h1> 
+</div> 
+
+{% if paginator.haveToPaginate() %}
+{{ pagerfanta(paginator, 'twitter_bootstrap', {'prev_message': "previous page...", 'next_message': "next page..."}) }}
+{% endif %}
+
+<ul class="tabs">
+    <li><a href="{{ path('sylius_sales_backend_order_list') }}">show all orders</a></li>
+    <li><a href="{{ path('sylius_sales_backend_order_list', {'filters': {'closed': [false, '=']}}) }}">only open orders</a></li>
+    <li><a href="{{ path('sylius_sales_backend_order_list', {'filters': {'closed': [true, '=']}}) }}">only closed orders</a></li>
+    <li><a href="{{ path('sylius_sales_backend_order_list', {'filters': {'status': [0, '='], 'closed': [false, '=']}}) }}"><span class="label important">&nbsp;!&nbsp;</span> orders that need attention</a></li>
+    <li><a href="{{ path('sylius_sales_backend_order_list', {'filters': {'value': [500, '>']}}) }}">over <strong>500</strong> &euro;</a></li>
+    <li><a href="{{ path('sylius_sales_backend_order_list', {'filters': {'value': [500, '<']}}) }}">below <strong>500</strong> &euro;</a></li>
+</ul>
+
+{% if orders %}
+<table> 
+    <thead>
+        <tr>
+            <th><a href="{{ path('sylius_sales_backend_order_list', {'sort': 'id', 'order': sorter.order, 'filters': filter.current}) }}">#id</a></th>
+            <th><a href="{{ path('sylius_sales_backend_order_list', {'sort': 'value', 'order': sorter.order, 'filters': filter.current}) }}">value</a></th>
+            <th><a href="{{ path('sylius_sales_backend_order_list', {'sort': 'createdAt', 'order': sorter.order, 'filters': filter.current}) }}">creation time</a></th>
+            <th><a href="{{ path('sylius_sales_backend_order_list', {'sort': 'status', 'order': sorter.order, 'filters': filter.current}) }}">status</a></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for order in orders %}
+    <tr{% if order.closed %} class="inactive"{% endif %}>
+        <td>{{ order.id }}</td>
+        <td>{{ order.value }} &euro;</td>
+        <td>{{ order.createdAt | date('d.m.Y, H:i:s') }}</td>
+        <td>
+            {% render 'sylius_sales.controller.backend.order:statusAction' with {'id': order.id} %}
+        </td>
+        <td>
+            <div class="pull-right">
+            <a href="{{ path('sylius_sales_backend_order_show', {'id': order.id}) }}" class="btn">details</a>
+            {% if order.closed %}
+            <a href="{{ path('sylius_sales_backend_order_open', {'id': order.id}) }}" class="btn">open</a>
+            {% else %}
+            <a href="{{ path('sylius_sales_backend_order_close', {'id': order.id}) }}" class="btn">close</a>
+            <a href="{{ path('sylius_sales_backend_order_delete', {'id': order.id}) }}" class="btn danger">delete</a>
+            {% endif %}
+            </div>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<div class="alert-message info">
+  <p><strong>Information.</strong> There are no orders to display.</p>
+</div>
+{% endif %}
+
+{% if paginator.haveToPaginate() %}
+{{ pagerfanta(paginator, 'twitter_bootstrap', {'prev_message': "previous page...", 'next_message': "next page..."}) }}
+{% endif %}
+ 
+{% endblock %}

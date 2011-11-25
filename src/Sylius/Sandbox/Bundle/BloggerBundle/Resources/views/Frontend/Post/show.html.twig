@@ -1,0 +1,20 @@
+{% extends 'SandboxCoreBundle:Frontend:layout.html.twig' %}
+
+{% block content %}
+
+<div class="page-header">
+<h1>{{ post.title }} <small>Enjoy the read!</small></h1>
+</div>
+
+<ul class="breadcrumb">
+    <li class="current">Posted in categories... </li>
+    {% for category in post.categories %}
+        <li><a href="{{ path('sylius_catalog_category_show', {'catalogAlias': 'blog', 'id': category.id, 'slug': category.slug}) }}">{{ category.name }}</a>{% if not loop.last %}<span class="divider">, </span>{% else %}...{% endif %}</li>
+    {% endfor %}
+</ul>
+
+<div class="well">
+{{ post.content|raw }}
+</div>
+
+{% endblock %}
