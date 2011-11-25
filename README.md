@@ -26,10 +26,10 @@ Quick installation.
 Clone this repository with this command.
 
 ``` bash
-$ git clone http://github.com/Sylius/Sylius-Sandbox path/to/Sylius-Sandbox
+$ git clone http://github.com/Sylius/Sylius-Sandbox /path/to/Sylius-Sandbox
 ```
 
-Open `app/config/container/includes/parameters.yml.dist`, set your values and save as `parameters.yml`.
+Open `sylius-sandbox/config/container/includes/parameters.yml.dist`, set your values and save as `parameters.yml`.
 Run the vendors script.
 
 ``` bash
@@ -39,7 +39,7 @@ $ php ./tools/vendors install
 Generate database schema.
 
 ``` bash
-$ php app/tools/console doctrine:schema:create
+$ php sylius-sandbox/tools/console doctrine:schema:create
 ```
 
 Open up ``/path/to/Sylius-Sandbox/public`` in your browser and play with the application.
