@@ -25,3 +25,6 @@ application_blogger:
 application_sales:
     resource: @SandboxSalesBundle/Resources/config/routing.yml
     
+application_plugins:
+    resource: @SandboxPluginsBundle/Resources/config/routing.yml
+    

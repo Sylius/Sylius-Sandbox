@@ -62,9 +62,12 @@ class SandboxKernel extends Kernel
             new \Sylius\Sandbox\Bundle\CartBundle\SandboxCartBundle(),
             new \Sylius\Sandbox\Bundle\ThemingBundle\SandboxThemingBundle(),
             new \Sylius\Sandbox\Bundle\BloggerBundle\SandboxBloggerBundle(),
-            new \Sylius\Sandbox\Bundle\SalesBundle\SandboxSalesBundle()
+            new \Sylius\Sandbox\Bundle\SalesBundle\SandboxSalesBundle(),
+            new \Sylius\Sandbox\Bundle\PluginsBundle\SandboxPluginsBundle()
         );
 
+        $bundles[] = new \Sylius\Bundle\PluginsBundle\SyliusPluginsBundle($this, $bundles);
+        
         if ($this->isDebug()) {
             $bundles[] = new \Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
         }

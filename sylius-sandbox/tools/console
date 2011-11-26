@@ -11,10 +11,10 @@
  */
 
 require_once __DIR__.'/../autoload.php';
-require_once __DIR__.'/../AppKernel.php';
+require_once __DIR__.'/../SandboxKernel.php';
 
 use Symfony\Bundle\FrameworkBundle\Console\Application;
 
-$kernel = new AppKernel('production', false);
+$kernel = new Sylius\SandboxKernel('production', false);
 $application = new Application($kernel);
 $application->run();

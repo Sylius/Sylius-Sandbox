@@ -1,0 +1,11 @@
+#
+# Joker plugin for Sylius sandbox application.
+#
+
+plugin:
+    name: Joker!
+    class: Sylius\Plugin\JokerPlugin\SyliusJokerPlugin
+    version: 0.1
+    description: |
+        Simple plugin for Sylius sandbox app.
+        Does some fun with product descriptions.

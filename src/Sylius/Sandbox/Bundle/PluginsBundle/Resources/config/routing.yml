@@ -1,0 +1,4 @@
+sylius_plugins_backend_plugin:
+    resource: @SyliusPluginsBundle/Resources/config/routing/backend/plugin.yml
+    prefix: /administration/plugins
+    

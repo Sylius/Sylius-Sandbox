@@ -26,11 +26,6 @@
                 <div class="pull-right">
                 <a href="{{ path('sylius_theming_backend_theme_activate', {'id': theme.id}) }}" class="btn primary">activate</a>
                 <a href="{{ path('sylius_theming_backend_theme_show', {'id': theme.id}) }}" class="btn">details</a>              
-                {% if theme.enabled %}
-                    <a href="{{ path('sylius_theming_backend_theme_disable', {'id': theme.id}) }}" class="btn">disable</a>
-                {% else %}
-                    <a href="{{ path('sylius_theming_backend_theme_enable', {'id': theme.id}) }}" class="btn">enable</a>
-                {% endif %}
                 <a href="{{ path('sylius_theming_backend_theme_uninstall', {'id': theme.id}) }}"class="btn danger">uninstall</a>
                 </div>
             </td>

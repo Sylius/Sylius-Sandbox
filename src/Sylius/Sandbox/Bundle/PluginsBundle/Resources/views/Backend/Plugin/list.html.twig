@@ -1,0 +1,75 @@
+{% extends 'SandboxCoreBundle:Backend:layout.html.twig' %}
+
+{% block content %}
+
+<div class="page-header"> 
+    <h1>Plugins manager.<small> Use this page to install and manage plugins.</small></h1> 
+</div>
+
+{% if plugins %}
+<table>
+    <thead>
+        <tr>
+            <th>#id</th>
+            <th>name</th>
+            <th></th>
+        </tr>
+    </thead>
+    
+    <tbody>
+    {% for plugin in plugins %}
+        <tr>
+            <td>{{ plugin.id }}</td>
+            <td>{{ plugin.name }}</td>
+            <td>
+                <div class="pull-right">
+                <a href="{{ path('sylius_plugins_backend_plugin_show', {'id': plugin.id}) }}" class="btn">details</a>              
+                {% if plugin.enabled %}
+                    <a href="{{ path('sylius_plugins_backend_plugin_disable', {'id': plugin.id}) }}" class="btn">disable</a>
+                {% else %}
+                    <a href="{{ path('sylius_plugins_backend_plugin_enable', {'id': plugin.id}) }}" class="btn">enable</a>
+                {% endif %}
+                <a href="{{ path('sylius_plugins_backend_plugin_uninstall', {'id': plugin.id}) }}"class="btn danger">uninstall</a>
+                </div>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% else %}
+    <div class="alert-message info">
+      <p><strong>Information.</strong> No installed plugins.</p>
+    </div>
+{% endif %}
+
+<hr />
+{% if packs %}
+
+<table>
+    <thead>
+        <tr>
+            <th>name</th>
+            <th>options</th>
+        </tr>
+    </thead>
+    
+    <tbody>
+    {% for pack in packs %}
+        <tr>
+            <td>{{ pack.name }}</td>
+            <td>
+                <a href="{{ path('sylius_plugins_backend_plugin_install', {'path': pack.encodedPath}) }}" class="btn success">install</a>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% else %}
+    <div class="alert-message info">
+      <p><strong>Information.</strong> No plugin packs to install.</p>
+    </div>
+{% endif %}
+    
+{% endblock %}
