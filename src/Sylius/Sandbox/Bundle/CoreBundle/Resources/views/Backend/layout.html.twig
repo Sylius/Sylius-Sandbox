@@ -4,21 +4,18 @@
     <head>
         <title>{% block title %}Sylius sandbox application backend.{% endblock %}</title>
 
-        <meta charset="UTF-8">
-
         <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
         <!--[if lt IE 9]>
           <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
 
-        <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
-        <link rel="stylesheet" href="{{ asset('assets/css/backend.css') }}" type="text/css">
+        <link rel="stylesheet/less" href="{{ asset('assets/less/bootstrap.less') }}">
+        <link rel="stylesheet/less" href="{{ asset('assets/less/backend.less') }}">
 
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
-        <script type="text/javascript" src="http://twitter.github.com/bootstrap/1.4.0/bootstrap-dropdown.js"></script>
-        <script type="text/javascript" src="http://twitter.github.com/bootstrap/1.4.0/bootstrap-modal.js"></script>
-        <script type="text/javascript" src="http://twitter.github.com/bootstrap/1.4.0/bootstrap-twipsy.js"></script>
-        <script type="text/javascript" src="{{ asset('assets/js/core.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('assets/js/bootstrap-dropdown.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('assets/js/bootstrap-modal.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('assets/js/less-1.1.5.min.js') }}"></script>
     </head>
     <body>
         <div class="topbar">

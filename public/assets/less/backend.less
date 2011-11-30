@@ -1,0 +1,92 @@
+/*
+ * This file is part of the Sylius sandbox application.
+ *
+ * (c) Paweł Jędrzejewski
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+@import 'mixins.less';
+
+html, body {
+    background-color: #eee;
+}
+
+body {
+    padding-top: 40px;
+}
+
+th {
+    background-color: #f5f5f5;	
+}
+
+tr.inactive {
+    background-color: #f5f5f5;
+    color: #969696;	
+}
+
+.content {
+    background-color: #fff;
+    padding: 20px;
+    margin: 0 -20px;
+    .border-radius(0 0 6px 6px);
+    .box-shadow(0 1px 2px rgba(0,0,0,.15));
+}
+
+.page-header {
+    background-color: #f5f5f5;
+    padding: 20px 20px 10px;
+    margin: -20px -20px 20px;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    background-color: #fff;
+    margin: 0 0 0 0;
+    .border-radius(0 0 6px 6px);
+    .box-shadow(0 1px 2px rgba(0,0,0,.15));
+}
+
+.sidebar li.header {
+    padding: 6px;
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #eee;
+    text-align: center;
+    font-weight: bold;
+}
+
+.sidebar a {
+    display: block;
+    padding: 6px;
+    border-bottom: 1px solid #eee;
+}
+
+.sidebar a:hover {
+    text-decoration: none;
+    color: #fff;
+    #gradient > .vertical(#333333, #222222);
+}
+
+.sidebar a.last:hover {
+	.border-radius(0 0 6px 6px);
+}
+
+.sidebar a.last {
+    border: 0;
+}
+
+div.formErrors li {
+    padding: 3px 10px;
+    margin-bottom: 18px;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    border-width: 1px;
+    border-style: solid;
+    color: #FFF;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    border-color: #c43c35 #c43c35 #882a25;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    #gradient > .vertical(#ee5f5b, #c43c35);
+    .border-radius(4px);
+	.box-shadow(inset 0 1px 0 rgba(255, 255, 255, 0.25));
+}

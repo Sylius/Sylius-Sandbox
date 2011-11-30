@@ -18,7 +18,7 @@ framework:
     translator:    { fallback: %locale% }
     templating:    { engines: ['twig', 'php'] }
     session:
-        name: SYLIUS_SESSION
+        name: SYLIUS_SANDBOX_SESSION
         lifetime: 72000
         auto_start:     true
 
