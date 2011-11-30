@@ -6,3 +6,6 @@ sylius-sandbox/config/container/includes/parameters.yml
 .project
 .settings/
 vendor/
+composer.phar
+composer.lock
+

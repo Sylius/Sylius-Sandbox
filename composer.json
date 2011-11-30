@@ -1,0 +1,20 @@
+{
+    "require": {
+        "symfony/symfony": "2.*",
+        "twig/twig": "1.*",
+        "twig/extensions": "*",
+        "monolog/monolog": "1.*",
+        "doctrine/orm": "*",
+        "metadata/metadata": "*",
+        "swiftmailer/swiftmailer": "4.1.*",
+        "white-october/pagerfanta-bundle": "*",
+        "sylius/assortment-bundle": "*",
+        "sylius/catalog-bundle": "*",
+        "sylius/newsletter-bundle": "*",
+        "sylius/cart-bundle": "*",
+        "sylius/theming-bundle": "*",
+        "sylius/blogger-bundle": "*",
+        "sylius/sales-bundle": "*",
+        "sylius/plugins-bundle": "*"
+    }
+}
