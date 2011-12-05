@@ -1,0 +1,78 @@
+{% extends 'SandboxInstallerBundle:Setup:layout.html.twig' %}
+
+{% block content %}
+
+<div class="page-header"> 
+  <h1>Sylius-Sandbox installation.</h1> 
+</div>
+
+<h2>Configuration...</h2>
+<hr />
+
+<h3>General configuration.</h3>
+
+<form action="{{ path('sylius_sandbox_installer_setup_step', {'stepIndex': step.index}) }}" method="post">
+
+<fieldset>
+    <div class="clearfix">
+    <label for="configuration_secret">Secret phrase...</label>
+    <div class="input">
+    <input type="text" class="span4" placeholder="your secret phrase..." name="configuration_secret]">
+    </div>
+    </div>
+</fieldset>
+
+<h3>Database configuration.</h3>
+
+<fieldset>
+    <div class="clearfix">
+    <label for="configuration_database_driver">Database driver...</label>
+    <div class="input">
+    <select name="configuration[database][driver]">
+        <option value="pdo_mysql">MySQL</option>
+    </select>
+    </div>
+    </div>
+    <div class="clearfix">
+    <label for="configuration_database_host">Host...</label>
+    <div class="input">
+    <input type="text" class="span4" placeholder="database host..." name="configuration[database][host]">
+    </div>
+    </div>
+    <div class="clearfix">
+    <label for="configuration">Database port...</label>
+    <div class="input">
+    <input type="text" class="span2" style="text-align: center;" name="configuration[database][port]">
+    <span class="help-inline">This field is optional.</span>
+    </div>
+    </div>
+    <div class="clearfix">
+    <label for="configuration_database_name">Database name...</label>
+    <div class="input">
+    <input type="text" class="span4" placeholder="database name..."  name="configuration[database][name]">
+    </div>
+    </div>
+    <div class="clearfix">
+    <label for="configuration_database_name">User...</label>
+    <div class="input">
+    <input type="text" class="span4" placeholder="user..."  name="configuration[database][user]]">
+    </div>
+    </div>
+    <div class="clearfix">
+    <label for="configuration_database_name">Password...</label>
+    <div class="input">
+    <input type="password" class="span4" placeholder="password..."  name="configuration[database][password]">
+    </div>
+    </div>
+</fieldset>
+
+<hr />
+<div class="pull-right">
+<a href="{{ path('sylius_sandbox_installer_setup_step', {'stepIndex': step.previous.index}) }}" class="btn large">&laquo; previous</a> 
+<input type="submit" class="btn large primary" value="install" /> 
+<a href="{{ path('sylius_sandbox_installer_setup_step') }}" class="btn large">cancel</a>
+</div>
+
+</form>
+
+{% endblock %}

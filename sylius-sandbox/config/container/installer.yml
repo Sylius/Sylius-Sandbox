@@ -1,0 +1,22 @@
+# This file is part of the Sylius sandbox application.
+# (c) Paweł Jędrzejewski
+
+framework:
+    default_locale: en
+    form: ~
+    charset:       UTF-8
+    secret: 2seWEt9Xdp
+    csrf_protection:
+        enabled: true
+    router:        { resource: "%kernel.root_dir%/config/routing/installer.yml" }
+    validation:    { enabled: true }
+    translator:    { fallback: en }
+    templating:    { engines: ['twig'] }
+    session:
+        name: SYLIUS_SANDBOX_SESSION
+        lifetime: 72000
+        auto_start:     true
+
+twig:
+    debug:            %kernel.debug%
+    strict_variables: %kernel.debug% 

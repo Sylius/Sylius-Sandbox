@@ -1,0 +1,19 @@
+# This file is part of the Sylius sandbox application.
+# (c) Paweł Jędrzejewski
+
+parameters:
+    database.driver:   {{ configuration['database']['driver'] }}
+    database.host:     {{ configuration['database']['host'] }}
+    database.port:     {{ configuration['database']['port'] }}
+    database.name:     {{ configuration['database']['name'] }}
+    database.user:     {{ configuration['database']['user'] }}
+    database.password: {{ configuration['database']['password'] }}
+    
+    mailer.transport:  {{ configuration['mailer']['transport'] }}
+    mailer.host:       {{ configuration['mailer']['host'] }}
+    mailer.user:       {{ configuration['mailer']['user'] }}
+    mailer.password:   {{ configuration['mailer']['password'] }}
+    
+    locale: en
+    
+    secret: {{ configuration['secret'] }}

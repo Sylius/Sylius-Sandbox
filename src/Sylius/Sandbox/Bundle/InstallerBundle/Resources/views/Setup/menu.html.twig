@@ -1,0 +1,14 @@
+<hr />
+<div class="pull-right">
+
+{% if step.hasPrevious %}
+<a href="{{ path('sylius_sandbox_installer_setup_step', {'stepIndex': step.previous.index}) }}" class="btn large">&laquo; previous</a> 
+{% else %}
+<a class="btn large disabled">&laquo; previous</a> 
+{% endif %}
+
+{% if step.hasNext %}
+<a href="{{ path('sylius_sandbox_installer_setup_step', {'stepIndex': step.next.index}) }}" class="btn large primary">next &raquo;</a> 
+{% endif %}
+<a href="{{ path('sylius_sandbox_installer_setup_step') }}" class="btn large">cancel</a>
+</div>

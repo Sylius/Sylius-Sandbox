@@ -78,3 +78,7 @@
 [SyliusPluginsBundle]
     git=http://github.com/Sylius/SyliusPluginsBundle.git
     target=bundles/Sylius/Bundle/PluginsBundle
+    
+[SyliusInstallerBundle]
+    git=http://github.com/Sylius/SyliusInstallerBundle.git
+    target=bundles/Sylius/Bundle/InstallerBundle
