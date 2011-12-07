@@ -1,0 +1,43 @@
+{% extends 'SandboxInstallerBundle:Setup:layout.html.twig' %}
+
+{% block content %}
+
+<div class="page-header"> 
+  <h1>Sylius-Sandbox installation.</h1> 
+</div> 
+
+{% if saved %}
+
+<div class="alert-message success">
+<p><strong>Congratulations!</strong> You successfuly configured <strong>Sylius sandbox application</strong>.</p>
+</div>
+
+{% else %}
+
+<div class="alert-message block-message warning">
+<p>Parameters file <strong>sylius-sandbox/config/container/parameters.yml</strong> is not writeable.</p>
+<p>Change the permissions or copy&paste the text below to it.</p>
+</div>
+
+<textarea disabled="disabled" class="copy-paste"  rows="15">
+{{ configuration }}
+</textarea>
+
+{% endif %}
+
+<hr />
+<div class="pull-right">
+
+{% if step.hasPrevious %}
+<a href="{{ path('sylius_installer_setup_step', {'setupAlias': step.setup.alias,'stepIndex': step.previous.index}) }}" class="btn large">&laquo; previous</a> 
+{% else %}
+<a class="btn large disabled">&laquo; previous</a> 
+{% endif %}
+
+{% if step.hasNext %}
+<a href="{{ path('sylius_installer_setup_step', {'setupAlias': step.setup.alias,'stepIndex': step.next.index}) }}" class="btn large primary">create database schema</a> 
+{% endif %}
+<a href="{{ path('sylius_sandbox_installer_setup') }}" class="btn large">cancel</a>
+</div>
+
+{% endblock %}

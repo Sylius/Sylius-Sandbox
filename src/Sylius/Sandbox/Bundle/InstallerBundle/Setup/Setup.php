@@ -2,10 +2,10 @@
 
 namespace Sylius\Sandbox\Bundle\InstallerBundle\Setup;
 
-use Sylius\Sandbox\Bundle\InstallerBundle\Setup\Step\SecondStep;
-
-use Sylius\Sandbox\Bundle\InstallerBundle\Setup\Step\FirstStep;
-
+use Sylius\Sandbox\Bundle\InstallerBundle\Setup\Step\DoctrineStep;
+use Sylius\Sandbox\Bundle\InstallerBundle\Setup\Step\ConfigurationStep;
+use Sylius\Sandbox\Bundle\InstallerBundle\Setup\Step\PreconditionsStep;
+use Sylius\Sandbox\Bundle\InstallerBundle\Setup\Step\LicenseStep;
 use Sylius\Bundle\InstallerBundle\Setup\Builder\SetupBuilderInterface;
 use Sylius\Bundle\InstallerBundle\Setup\Setup as BaseSetup;
 
@@ -14,8 +14,10 @@ class Setup extends BaseSetup
     public function build(SetupBuilderInterface $builder, array $options)
     {
         $builder
-            ->addStep(new FirstStep())
-            ->addStep(new SecondStep())
+            ->addStep(new LicenseStep())
+            ->addStep(new PreconditionsStep())
+            ->addStep(new ConfigurationStep())
+            ->addStep(new DoctrineStep())
         ;
     }
 }

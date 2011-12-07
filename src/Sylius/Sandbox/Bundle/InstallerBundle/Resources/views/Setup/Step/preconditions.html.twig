@@ -1,0 +1,32 @@
+{% extends 'SandboxInstallerBundle:Setup:layout.html.twig' %}
+
+{% block content %}
+
+<div class="page-header"> 
+  <h1>Sylius-Sandbox installation.</h1> 
+</div>
+
+<h3>Checking requirements...</h3>
+<hr />
+
+{% if issues|length > 0 %}
+
+<div class="alert-message info">
+<p>Some minor problems were detected. If you can, please fix them before installation.</p>
+</div>
+
+{% for issue in issues %}
+<div class="alert-message block-message warning">
+<p>{{ issue|raw }}</p>
+</div>
+{% endfor %}
+
+{% else %}
+<div class="alert-message success">
+<p><strong>Congratulations!</strong> It looks like your system is ready to run <strong>Sylius sandbox application</strong>.</p>
+</div>
+{% endif %}
+
+{% include 'SandboxInstallerBundle:Setup:menu.html.twig' %}
+
+{% endblock %}

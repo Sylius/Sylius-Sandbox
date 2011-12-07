@@ -2,18 +2,18 @@
 # (c) Paweł Jędrzejewski
 
 parameters:
-    database.driver:   {{ configuration['database']['driver'] }}
-    database.host:     {{ configuration['database']['host'] }}
-    database.port:     {{ configuration['database']['port'] }}
-    database.name:     {{ configuration['database']['name'] }}
-    database.user:     {{ configuration['database']['user'] }}
-    database.password: {{ configuration['database']['password'] }}
+    database.driver:   {{ parameters.databaseDriver }}
+    database.host:     {{ parameters.databaseHost }}
+    database.port:     {{ parameters.databasePort|default('~') }}
+    database.name:     {{ parameters.databaseName }}
+    database.user:     {{ parameters.databaseUser }}
+    database.password: {{ parameters.databasePassword }}
     
-    mailer.transport:  {{ configuration['mailer']['transport'] }}
-    mailer.host:       {{ configuration['mailer']['host'] }}
-    mailer.user:       {{ configuration['mailer']['user'] }}
-    mailer.password:   {{ configuration['mailer']['password'] }}
+    mailer.transport:  {{ parameters.mailerTransport }}
+    mailer.host:       {{ parameters.mailerHost }}
+    mailer.user:       {{ parameters.mailerUser }}
+    mailer.password:   {{ parameters.mailerPassword }}
     
     locale: en
     
-    secret: {{ configuration['secret'] }}
+    secret: {{ parameters.secret }}

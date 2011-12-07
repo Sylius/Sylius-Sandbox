@@ -4,11 +4,13 @@ namespace Sylius\Sandbox\Bundle\InstallerBundle\Setup\Step;
 
 use Sylius\Bundle\InstallerBundle\Setup\Step\ContainerAwareStep;
 
-class FirstStep extends ContainerAwareStep
+class LicenseStep extends ContainerAwareStep
 {
     public function execute()
     {
-        return $this->container->get('templating')->renderResponse('SandboxInstallerBundle:Setup/Step:first.html.twig', array(
+        $this->complete();
+        
+        return $this->container->get('templating')->renderResponse('SandboxInstallerBundle:Setup/Step:license.html.twig', array(
             'step' => $this
         ));
     }

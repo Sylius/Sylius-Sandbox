@@ -1,0 +1,19 @@
+# This file is part of the Sylius sandbox application.
+# (c) Paweł Jędrzejewski
+
+parameters:
+    database.driver:   pdo_mysql
+    database.host:     localhost
+    database.port:     ~
+    database.name:     sylius_sandbox_database
+    database.user:     ~
+    database.password: ~
+    
+    mailer.transport:  smtp
+    mailer.host:       localhost
+    mailer.user:       ~
+    mailer.password:   ~
+    
+    locale: en
+    
+    secret: ~

@@ -2,9 +2,9 @@
 # (c) Paweł Jędrzejewski
 
 imports:
-    - { resource: includes/parameters.yml }
-    - { resource: includes/security.yml }
-    - { resource: includes/database.yml }
+    - { resource: parameters.yml }
+    - { resource: security.yml }
+    - { resource: database.yml }
 
 framework:
     default_locale: %locale%

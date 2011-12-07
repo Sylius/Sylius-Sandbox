@@ -21,7 +21,7 @@
 
     <services>
         <service id="sylius_sandbox_installer.setup" class="%sylius_sandbox_installer.setup.class%">
-        	<tag name="sylius_installer.setup" alias="sylius_sandbox_installer.setup" />
+        	<tag name="sylius_installer.setup" alias="sandbox-install" />
         </service>
     </services>
     

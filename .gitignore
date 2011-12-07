@@ -1,7 +1,6 @@
 public/bundles/
 sylius-sandbox/cache/*
 sylius-sandbox/logs/*
-sylius-sandbox/config/container/includes/parameters.yml
 .buildpath
 .project
 .settings/

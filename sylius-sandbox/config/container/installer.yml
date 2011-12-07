@@ -1,6 +1,10 @@
 # This file is part of the Sylius sandbox application.
 # (c) Paweł Jędrzejewski
 
+imports:
+    - { resource: parameters.yml }
+    - { resource: security.yml }
+
 framework:
     default_locale: en
     form: ~
@@ -16,6 +20,19 @@ framework:
         name: SYLIUS_SANDBOX_SESSION
         lifetime: 72000
         auto_start:     true
+
+doctrine:
+    dbal:
+        driver:   %database.driver%
+        host:     %database.host%
+        port:     %database.port%
+        dbname:   %database.name%
+        user:     %database.user%
+        password: %database.password%
+        charset:  UTF8
+    orm:
+        auto_generate_proxy_classes: %kernel.debug%
+        auto_mapping: true
 
 twig:
     debug:            %kernel.debug%

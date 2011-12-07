@@ -1,0 +1,111 @@
+{% extends 'SandboxInstallerBundle:Setup:layout.html.twig' %}
+
+{% block content %}
+
+<div class="page-header"> 
+  <h1>Sylius-Sandbox installation.</h1> 
+</div>
+
+<h2>Configuration...</h2>
+<hr />
+
+<div class="formErrors">
+{{ form_errors(form) }}
+</div>
+
+<h3>General configuration.</h3>
+
+<form action="{{ path('sylius_installer_setup_step', {'setupAlias': step.setup.alias,'stepIndex': step.index}) }}" method="post">
+
+<fieldset>
+    <div class="clearfix">
+    {{ form_label(form.secret, 'Secret phrase...') }}
+    <div class="input">
+    {{ form_widget(form.secret, {'attr': {'placeholder': 'your sercret phrase...', 'class': 'span5', 'style': 'text-align: center;'}}) }} <a class="btn primary" id="generate-secret-btn">generate</a>
+    </div>
+    </div>
+</fieldset>
+
+<h3>Database configuration.</h3>
+
+<fieldset>
+    <div class="clearfix">
+    {{ form_label(form.databaseDriver, 'Driver...') }}
+    <div class="input">
+    {{ form_widget(form.databaseDriver) }}
+    </div>
+    </div>
+    <div class="clearfix">
+    {{ form_label(form.databaseHost, 'Host...') }}
+    <div class="input">
+    {{ form_widget(form.databaseHost) }}
+    </div>
+    </div>
+    <div class="clearfix">
+    <label for="configuration">Database port...</label>
+    <div class="input">
+    {{ form_widget(form.databasePort) }}
+    <span class="help-inline">This field is optional.</span>
+    </div>
+    </div>
+    <div class="clearfix">
+    <label for="configuration_database_name">Database name...</label>
+    <div class="input">
+    {{ form_widget(form.databaseName) }}
+    </div>
+    </div>
+    <div class="clearfix">
+    <label for="configuration_database_name">User...</label>
+    <div class="input">
+    {{ form_widget(form.databaseUser) }}
+    </div>
+    </div>
+    <div class="clearfix">
+    <label for="configuration_database_name">Password...</label>
+    <div class="input">
+    {{ form_widget(form.databasePassword) }}
+    </div>
+    </div>
+</fieldset>
+
+<h3>Mailer configuration.</h3>
+
+<fieldset>
+    <div class="clearfix">
+    <label for="configuration_mailer_driver">Mailer transport...</label>
+    <div class="input">
+    {{ form_widget(form.mailerTransport) }}
+    </div>
+    </div>
+    <div class="clearfix">
+    <label for="configuration_mailer_host">Host...</label>
+    <div class="input">
+    {{ form_widget(form.mailerHost) }}
+    </div>
+    </div>
+    <div class="clearfix">
+    <label for="configuration_mailer_user">User...</label>
+    <div class="input">
+    {{ form_widget(form.mailerUser) }}
+    </div>
+    </div>
+    <div class="clearfix">
+    <label for="configuration_mailer_name">Password...</label>
+    <div class="input">
+    {{ form_widget(form.mailerPassword) }}
+    </div>
+    </div>
+</fieldset>
+
+{{ form_rest(form) }}
+
+<hr />
+<div class="pull-right">
+<a href="{{ path('sylius_installer_setup_step', {'setupAlias': step.setup.alias,'stepIndex': step.previous.index}) }}" class="btn large">&laquo; previous</a> 
+<input type="submit" class="btn large primary" value="configure" /> 
+<a href="{{ path('sylius_sandbox_installer_setup') }}" class="btn large">cancel</a>
+</div>
+
+</form>
+
+{% endblock %}
