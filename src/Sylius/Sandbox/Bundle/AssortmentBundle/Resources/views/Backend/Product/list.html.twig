@@ -35,7 +35,11 @@
             <td>
                 <a href="{{ path('sylius_assortment_backend_product_show', {'id': product.id}) }}" class="btn">show details</a>
                 <a href="{{ path('sylius_assortment_backend_product_update', {'id': product.id}) }}" class="btn">update</a>
-                <a href="{{ path('sylius_assortment_backend_product_delete', {'id': product.id}) }}" class="btn danger">delete</a>
+                <a href="{{ path('sylius_assortment_backend_product_delete', {'id': product.id}) }}" class="btn danger confirmer"
+                    data-controls-modal="modal-confirmer"
+                    data-backdrop="static"
+                    data-confirmer-question="Are you sure you want to delete product with ID <strong>#{{ product.id }}</strong>?"
+                >delete</a>
             </td>
         </tr>
     {% endfor %}

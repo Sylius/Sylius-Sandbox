@@ -13,11 +13,25 @@
         <link rel="stylesheet/less" href="{{ asset('assets/less/backend.less') }}">
 
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+        <script type="text/javascript" src="{{ asset('assets/js/backend.js') }}"></script>
         <script type="text/javascript" src="{{ asset('assets/js/bootstrap-dropdown.js') }}"></script>
         <script type="text/javascript" src="{{ asset('assets/js/bootstrap-modal.js') }}"></script>
         <script type="text/javascript" src="{{ asset('assets/js/less-1.1.5.min.js') }}"></script>
     </head>
     <body>
+        <div id="confirmer-modal" class="modal hide fade" style="display: block;">
+            <div class="modal-header">
+                <a href="#" class="close">×</a>
+                <h3>Confirm your action.</h3>
+            </div>
+            <div class="modal-body">
+                <p class="confirmer-modal-question">Are you sure you want to perform this action?</p>
+            </div>
+            <div class="modal-footer">
+                <a class="confirmer-modal-confirm btn primary">yes</a>
+                <a class="confirmer-modal-cancel btn">cancel</a>
+            </div>
+        </div>
         <div class="topbar">
             <div class="topbar-inner">
                 <div class="container-fluid">

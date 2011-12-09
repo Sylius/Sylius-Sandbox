@@ -3,12 +3,12 @@
 
 doctrine:
     dbal:
-        driver:   %database.driver%
-        host:     %database.host%
-        port:     %database.port%
-        dbname:   %database.name%
-        user:     %database.user%
-        password: %database.password%
+        driver:   %sylius.database.driver%
+        host:     %sylius.database.host%
+        port:     %sylius.database.port%
+        dbname:   %sylius.database.name%
+        user:     %sylius.database.user%
+        password: %sylius.database.password%
         charset:  UTF8
     orm:
         auto_generate_proxy_classes: %kernel.debug%

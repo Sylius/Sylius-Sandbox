@@ -1,0 +1,18 @@
+{% extends 'SandboxInstallerBundle:Setup:layout.html.twig' %}
+
+{% block content %}
+
+<div class="page-header"> 
+  <h1>Sylius-Sandbox installation.</h1> 
+</div> 
+
+<div class="alert-message error">
+<p>Sylius-Sandbox is already installed.</p>
+</div>
+
+<hr />
+<div class="pull-right">
+<a href="{{ path('sylius_sandbox_installer_setup') }}" class="btn large danger">abort</a> 
+</div>
+
+{% endblock %}

@@ -25,6 +25,10 @@ class SetupController extends ContainerAware
      */
     public function indexAction()
     {
-        return $this->container->get('templating')->renderResponse('SandboxInstallerBundle:Setup:index.html.twig');
+        $installed = $this->container->getParameter('sylius.installed');
+        
+        return $this->container->get('templating')->renderResponse('SandboxInstallerBundle:Setup:index.html.twig', array(
+            'installed' => $installed
+        ));
     }
 }

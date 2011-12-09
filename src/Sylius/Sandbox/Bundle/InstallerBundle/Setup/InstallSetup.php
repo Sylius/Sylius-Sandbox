@@ -9,7 +9,7 @@ use Sylius\Sandbox\Bundle\InstallerBundle\Setup\Step\LicenseStep;
 use Sylius\Bundle\InstallerBundle\Setup\Builder\SetupBuilderInterface;
 use Sylius\Bundle\InstallerBundle\Setup\Setup as BaseSetup;
 
-class Setup extends BaseSetup
+class InstallSetup extends BaseSetup
 {
     public function build(SetupBuilderInterface $builder, array $options)
     {

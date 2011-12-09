@@ -81,14 +81,14 @@ class PreconditionsStep extends ContainerAwareStep
             $issues[] = 'Set <strong>session.auto_start</strong> to <strong>off</strong> in php.ini.';
         }
         
-        if (!is_writable(__DIR__ . '/../sylius-sandbox/config/container/parameters.yml')) {
+        if (!is_writable($this->container->get('kernel')->getRootDir() . '/config/container/parameters.yml')) {
             $issues[] = 'Change the permissions of the "<strong>sylius-sandbox/config/container/parameters.yml</strong>"
                 file so that the web server can write into it.';
         }
         
         $this->complete();
         
-        return $this->container->get('templating')->renderResponse('SandboxInstallerBundle:Setup/Step:preconditions.html.twig', array(
+        return $this->container->get('templating')->renderResponse('SandboxInstallerBundle:Setup/Install/Step:preconditions.html.twig', array(
             'issues' => $issues,
             'step' => $this
         ));

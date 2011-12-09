@@ -14,6 +14,9 @@
     <div class="span8">
         <div class="installer-option-desc">
         Pick this option if you want fresh, clean application install.
+        {% if installed %}
+        <span class="label important">Sylius-Sandbox is already installed.</span>
+        {% endif %}
         </div>
         
         <div class="installer-option-desc">
@@ -29,7 +32,11 @@
     </div> 
     <div class="span6">
         <div class="installer-option">
+        {% if installed %}
+        <a class="btn primary large disabled">install Sylius sandbox &raquo;</a>
+        {% else %}
         <a href="{{ path('sylius_installer_setup_start', {'setupAlias': 'sandbox-install'}) }}" class="btn primary large">install Sylius sandbox &raquo;</a>
+        {% endif %}
         </div>
         
         <div class="installer-option">

@@ -1,0 +1,30 @@
+{% extends 'SandboxInstallerBundle:Setup:layout.html.twig' %}
+
+{% block content %}
+
+<div class="page-header"> 
+  <h1>Sylius-Sandbox installation.</h1> 
+</div> 
+
+{% if result %}
+<div class="alert-message success">
+<p>Database was successfully created. Your application is ready to use!</p>
+</div>
+{% else %}
+<div class="alert-message error">
+<p>An error occured while connecting or creating database...</p>
+</div>
+{% endif %}
+
+<hr />
+<div class="pull-right">
+
+{% if result %}
+<a href="/" class="btn large primary">open Sylius-Sandbox</a> 
+{% else %}
+<a href="{{ path('sylius_installer_setup_step', {'setupAlias': step.setup.alias,'stepIndex': step.previous.index}) }}" class="btn large">&laquo; previous</a> 
+<a href="{{ path('sylius_sandbox_installer_setup') }}" class="btn large">cancel</a>
+{% endif %}
+</div>
+
+{% endblock %}

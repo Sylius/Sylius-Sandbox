@@ -6,15 +6,15 @@ imports:
     - { resource: security.yml }
 
 framework:
-    default_locale: en
+    default_locale: %sylius.locale%
     form: ~
     charset:       UTF-8
-    secret: 2seWEt9Xdp
+    secret: %sylius.secret%
     csrf_protection:
         enabled: true
     router:        { resource: "%kernel.root_dir%/config/routing/installer.yml" }
     validation:    { enabled: true }
-    translator:    { fallback: en }
+    translator:    { fallback: %sylius.locale% }
     templating:    { engines: ['twig'] }
     session:
         name: SYLIUS_SANDBOX_SESSION
@@ -23,12 +23,12 @@ framework:
 
 doctrine:
     dbal:
-        driver:   %database.driver%
-        host:     %database.host%
-        port:     %database.port%
-        dbname:   %database.name%
-        user:     %database.user%
-        password: %database.password%
+        driver:   %sylius.database.driver%
+        host:     %sylius.database.host%
+        port:     %sylius.database.port%
+        dbname:   %sylius.database.name%
+        user:     %sylius.database.user%
+        password: %sylius.database.password%
         charset:  UTF8
     orm:
         auto_generate_proxy_classes: %kernel.debug%

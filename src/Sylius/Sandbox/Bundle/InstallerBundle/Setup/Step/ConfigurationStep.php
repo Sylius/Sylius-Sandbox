@@ -34,9 +34,10 @@ class ConfigurationStep extends ContainerAwareStep
                 if (is_writeable($parametersFile = $kernel->getRootDir() . '/config/container/parameters.yml')) {
                     file_put_contents($parametersFile, $configuration);
                     $saved = true;
+                    $this->complete();
                 }
                 
-                return $this->container->get('templating')->renderResponse('SandboxInstallerBundle:Setup/Step:configured.html.twig', array(
+                return $this->container->get('templating')->renderResponse('SandboxInstallerBundle:Setup/Install/Step:configured.html.twig', array(
                     'saved' => $saved,
                     'configuration' => $configuration,
                     'parameters' => $parameters,
@@ -45,7 +46,7 @@ class ConfigurationStep extends ContainerAwareStep
             }
         }
         
-        return $this->container->get('templating')->renderResponse('SandboxInstallerBundle:Setup/Step:configuration.html.twig', array(
+        return $this->container->get('templating')->renderResponse('SandboxInstallerBundle:Setup/Install/Step:configuration.html.twig', array(
             'form' => $form->createView(),
             'step' => $this
         ));

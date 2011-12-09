@@ -8,7 +8,13 @@ class DoctrineStep extends ContainerAwareStep
 {
     public function execute()
     {
-        return $this->container->get('templating')->renderResponse('SandboxInstallerBundle:Setup/Step:doctrine.html.twig', array(
+        $connection = $this->container->get('doctrine')->getConnection();
+        $sql = file_get_contents(__DIR__ .'/../../Resources/schema/doctrine.orm.sql');
+        
+        $result = $connection->query($sql);
+        
+        return $this->container->get('templating')->renderResponse('SandboxInstallerBundle:Setup/Install/Step:doctrine.html.twig', array(
+            'result' => $result,
             'step' => $this
         ));
     }

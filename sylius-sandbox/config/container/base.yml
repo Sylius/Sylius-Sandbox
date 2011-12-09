@@ -7,15 +7,15 @@ imports:
     - { resource: database.yml }
 
 framework:
-    default_locale: %locale%
+    default_locale: %sylius.locale%
     form: ~
     charset:       UTF-8
-    secret: %secret%
+    secret: %sylius.secret%
     csrf_protection:
         enabled: true
     router:        { resource: "%kernel.root_dir%/config/routing/base.yml" }
     validation:    { enabled: true }
-    translator:    { fallback: %locale% }
+    translator:    { fallback: %sylius.locale% }
     templating:    { engines: ['twig', 'php'] }
     session:
         name: SYLIUS_SANDBOX_SESSION
@@ -27,10 +27,10 @@ twig:
     strict_variables: %kernel.debug% 
     
 swiftmailer:
-    transport: %mailer.transport%
-    host:      %mailer.host%
-    username:  %mailer.user%
-    password:  %mailer.password%
+    transport: %sylius.mailer.transport%
+    host:      %sylius.mailer.host%
+    username:  %sylius.mailer.user%
+    password:  %sylius.mailer.password%
 
 sylius_assortment:
     driver: ORM

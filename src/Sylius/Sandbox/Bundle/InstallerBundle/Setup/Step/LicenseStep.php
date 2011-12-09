@@ -8,10 +8,17 @@ class LicenseStep extends ContainerAwareStep
 {
     public function execute()
     {
-        $this->complete();
+        $installed = $this->container->getParameter('sylius.installed');
         
-        return $this->container->get('templating')->renderResponse('SandboxInstallerBundle:Setup/Step:license.html.twig', array(
-            'step' => $this
+        if (!$installed) {
+            $this->complete();
+            return $this->container->get('templating')->renderResponse('SandboxInstallerBundle:Setup/Install/Step:license.html.twig', array(
+            	'step'      => $this
+            ));
+        }
+        
+        return $this->container->get('templating')->renderResponse('SandboxInstallerBundle:Setup/Install/Step:installed.html.twig', array(
+            'step'      => $this
         ));
     }
 }

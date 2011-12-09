@@ -5,7 +5,7 @@
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
                   http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
-    <entity name="Sylius\Sandbox\Bundle\SalesBundle\Entity\Order" table="sylius_sales_order">
+    <entity name="Sylius\Sandbox\Bundle\SalesBundle\Entity\Order" table="sylius_sandbox_sales_order">
     	<id name="id" column="id" type="integer">
             <generator strategy="AUTO" />
         </id>

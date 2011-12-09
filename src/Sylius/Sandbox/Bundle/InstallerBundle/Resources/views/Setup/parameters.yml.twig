@@ -2,18 +2,20 @@
 # (c) Paweł Jędrzejewski
 
 parameters:
-    database.driver:   {{ parameters.databaseDriver }}
-    database.host:     {{ parameters.databaseHost }}
-    database.port:     {{ parameters.databasePort|default('~') }}
-    database.name:     {{ parameters.databaseName }}
-    database.user:     {{ parameters.databaseUser }}
-    database.password: {{ parameters.databasePassword }}
+    sylius.database.driver:   {{ parameters.databaseDriver }}
+    sylius.database.host:     {{ parameters.databaseHost }}
+    sylius.database.port:     {{ parameters.databasePort|default('~') }}
+    sylius.database.name:     {{ parameters.databaseName }}
+    sylius.database.user:     {{ parameters.databaseUser }}
+    sylius.database.password: {{ parameters.databasePassword }}
     
-    mailer.transport:  {{ parameters.mailerTransport }}
-    mailer.host:       {{ parameters.mailerHost }}
-    mailer.user:       {{ parameters.mailerUser }}
-    mailer.password:   {{ parameters.mailerPassword }}
+    sylius.mailer.transport:  {{ parameters.mailerTransport }}
+    sylius.mailer.host:       {{ parameters.mailerHost }}
+    sylius.mailer.user:       {{ parameters.mailerUser }}
+    sylius.mailer.password:   {{ parameters.mailerPassword }}
     
-    locale: en
+    sylius.locale: en
     
-    secret: {{ parameters.secret }}
+    sylius.secret: {{ parameters.secret }}
+    
+    sylius.installed: true
