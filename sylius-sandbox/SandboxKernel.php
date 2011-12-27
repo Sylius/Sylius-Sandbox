@@ -27,64 +27,48 @@ class SandboxKernel extends Kernel
      */
     public function registerBundles()
     {
-        if ('installer' == $this->getEnvironment()) {
-            $bundles = array(
-                new \Sylius\Bundle\InstallerBundle\SyliusInstallerBundle(),
-                new \Sylius\Sandbox\Bundle\InstallerBundle\SandboxInstallerBundle(),
-                
-                /*
-                 * Third party bundles.
-                 */
-                new \Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
-                new \Symfony\Bundle\TwigBundle\TwigBundle(),
-                new \Symfony\Bundle\SecurityBundle\SecurityBundle(),
-                new \Symfony\Bundle\MonologBundle\MonologBundle(),
-                new \Symfony\Bundle\DoctrineBundle\DoctrineBundle(),
-            );
-        } else {
-            $bundles = array(
-                /*
-                 * Third party bundles.
-                 */
-                new \Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
-                new \Symfony\Bundle\TwigBundle\TwigBundle(),
-                new \Symfony\Bundle\SecurityBundle\SecurityBundle(),
-                new \Symfony\Bundle\MonologBundle\MonologBundle(),
-                new \Symfony\Bundle\DoctrineBundle\DoctrineBundle(),
-                new \Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
-                new \WhiteOctober\PagerfantaBundle\WhiteOctoberPagerfantaBundle(),
-                new \Liip\ThemeBundle\LiipThemeBundle(),
-                new \Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
-                       
-                /*
-                 * Sylius bundles.
-                 */
-                new \Sylius\Bundle\CatalogBundle\SyliusCatalogBundle(),
-                new \Sylius\Bundle\AssortmentBundle\SyliusAssortmentBundle(),
-                new \Sylius\Bundle\NewsletterBundle\SyliusNewsletterBundle(),
-                new \Sylius\Bundle\CartBundle\SyliusCartBundle(),
-                new \Sylius\Bundle\ThemingBundle\SyliusThemingBundle(),
-                new \Sylius\Bundle\BloggerBundle\SyliusBloggerBundle(),
-                new \Sylius\Bundle\SalesBundle\SyliusSalesBundle(),
-                new \Sylius\Bundle\InstallerBundle\SyliusInstallerBundle(),
-                
-                /*
-                 * Sandbox specific bundles.
-                 */
-                new \Sylius\Sandbox\Bundle\CoreBundle\SandboxCoreBundle(),
-                new \Sylius\Sandbox\Bundle\CatalogBundle\SandboxCatalogBundle(),
-                new \Sylius\Sandbox\Bundle\AssortmentBundle\SandboxAssortmentBundle(),
-                new \Sylius\Sandbox\Bundle\NewsletterBundle\SandboxNewsletterBundle(),
-                new \Sylius\Sandbox\Bundle\CartBundle\SandboxCartBundle(),
-                new \Sylius\Sandbox\Bundle\ThemingBundle\SandboxThemingBundle(),
-                new \Sylius\Sandbox\Bundle\BloggerBundle\SandboxBloggerBundle(),
-                new \Sylius\Sandbox\Bundle\SalesBundle\SandboxSalesBundle(),
-                new \Sylius\Sandbox\Bundle\PluginsBundle\SandboxPluginsBundle(),
-                new \Sylius\Sandbox\Bundle\InstallerBundle\SandboxInstallerBundle()
-            );
+        $bundles = array(
+            /*
+             * Third party bundles.
+             */
+            new \Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
+            new \Symfony\Bundle\TwigBundle\TwigBundle(),
+            new \Symfony\Bundle\SecurityBundle\SecurityBundle(),
+            new \Symfony\Bundle\MonologBundle\MonologBundle(),
+            new \Symfony\Bundle\DoctrineBundle\DoctrineBundle(),
+            new \Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
+            new \WhiteOctober\PagerfantaBundle\WhiteOctoberPagerfantaBundle(),
+            new \Liip\ThemeBundle\LiipThemeBundle(),
+            new \Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
+                   
+            /*
+             * Sylius bundles.
+             */
+            new \Sylius\Bundle\CatalogBundle\SyliusCatalogBundle(),
+            new \Sylius\Bundle\AssortmentBundle\SyliusAssortmentBundle(),
+            new \Sylius\Bundle\NewsletterBundle\SyliusNewsletterBundle(),
+            new \Sylius\Bundle\CartBundle\SyliusCartBundle(),
+            new \Sylius\Bundle\ThemingBundle\SyliusThemingBundle(),
+            new \Sylius\Bundle\BloggerBundle\SyliusBloggerBundle(),
+            new \Sylius\Bundle\SalesBundle\SyliusSalesBundle(),
+            new \Sylius\Bundle\InstallerBundle\SyliusInstallerBundle(),
+            
+            /*
+             * Sandbox specific bundles.
+             */
+            new \Sylius\Sandbox\Bundle\CoreBundle\SandboxCoreBundle(),
+            new \Sylius\Sandbox\Bundle\CatalogBundle\SandboxCatalogBundle(),
+            new \Sylius\Sandbox\Bundle\AssortmentBundle\SandboxAssortmentBundle(),
+            new \Sylius\Sandbox\Bundle\NewsletterBundle\SandboxNewsletterBundle(),
+            new \Sylius\Sandbox\Bundle\CartBundle\SandboxCartBundle(),
+            new \Sylius\Sandbox\Bundle\ThemingBundle\SandboxThemingBundle(),
+            new \Sylius\Sandbox\Bundle\BloggerBundle\SandboxBloggerBundle(),
+            new \Sylius\Sandbox\Bundle\SalesBundle\SandboxSalesBundle(),
+            new \Sylius\Sandbox\Bundle\PluginsBundle\SandboxPluginsBundle(),
+            new \Sylius\Sandbox\Bundle\InstallerBundle\SandboxInstallerBundle()
+        );
             
         $bundles[] = new \Sylius\Bundle\PluginsBundle\SyliusPluginsBundle($this, $bundles);
-        }
         
         if ($this->isDebug()) {
             $bundles[] = new \Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();

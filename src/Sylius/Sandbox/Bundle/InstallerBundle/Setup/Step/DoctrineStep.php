@@ -13,12 +13,7 @@ class DoctrineStep extends ContainerAwareStep
         $schemaTool = new \Doctrine\ORM\Tools\SchemaTool($entityManager);
         
         $result = true;
-        
-        try {
-            $schemaTool->createSchema($metadatas);
-        } catch(\Exception $e) {
-            $result = false;
-        }
+        $schemaTool->createSchema($metadatas);
             
         return $this->container->get('templating')->renderResponse('SandboxInstallerBundle:Setup/Install/Step:doctrine.html.twig', array(
             'result' => $result,

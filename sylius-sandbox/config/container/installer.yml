@@ -2,38 +2,7 @@
 # (c) Paweł Jędrzejewski
 
 imports:
-    - { resource: parameters.yml }
-    - { resource: security.yml }
+    - { resource: base.yml }
 
 framework:
-    default_locale: %sylius.locale%
-    form: ~
-    charset:       UTF-8
-    secret: %sylius.secret%
-    csrf_protection:
-        enabled: true
     router:        { resource: "%kernel.root_dir%/config/routing/installer.yml" }
-    validation:    { enabled: true }
-    translator:    { fallback: %sylius.locale% }
-    templating:    { engines: ['twig'] }
-    session:
-        name: SYLIUS_SANDBOX_SESSION
-        lifetime: 72000
-        auto_start:     true
-
-doctrine:
-    dbal:
-        driver:   %sylius.database.driver%
-        host:     %sylius.database.host%
-        port:     %sylius.database.port%
-        dbname:   %sylius.database.name%
-        user:     %sylius.database.user%
-        password: %sylius.database.password%
-        charset:  UTF8
-    orm:
-        auto_generate_proxy_classes: %kernel.debug%
-        auto_mapping: true
-
-twig:
-    debug:            %kernel.debug%
-    strict_variables: %kernel.debug% 
