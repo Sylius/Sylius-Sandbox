@@ -1,6 +1,7 @@
 <?php
 
 require __DIR__.'/../vendor/libraries/symfony/src/Symfony/Component/ClassLoader/UniversalClassLoader.php';
+require __DIR__.'/../vendor/libraries/doctrine-common/lib/Doctrine/Common/Annotations/AnnotationRegistry.php';
 
 /*
  * This file is part of the Sylius sandbox application.
@@ -12,6 +13,7 @@ require __DIR__.'/../vendor/libraries/symfony/src/Symfony/Component/ClassLoader/
  */
 
 use Symfony\Component\ClassLoader\UniversalClassLoader;
+use Doctrine\Common\Annotations\AnnotationRegistry;
 
 // Autoloader of application.
 
@@ -25,10 +27,12 @@ $loader->registerNamespaces(array(
     'Doctrine'							  => __DIR__.'/../vendor/libraries/doctrine/lib',
 	'Monolog'       				      => __DIR__.'/../vendor/libraries/monolog/src',
     'Metadata'       					  => __DIR__.'/../vendor/libraries/metadata/src',
-
+    'Gedmo'                               => __DIR__.'/../vendor/libraries/gedmo-doctrine-extensions/lib',
+    
     'Sylius\\Sandbox'					  => __DIR__.'/../src',
 
     'Liip'								  => __DIR__.'/../vendor/bundles',
+	'Stof'                                => __DIR__.'/../vendor/bundles',
     'WhiteOctober\PagerfantaBundle'       => __DIR__.'/../vendor/bundles',
 	'Sylius'						      => __DIR__.'/../vendor/bundles',
     
@@ -49,6 +53,14 @@ if (!function_exists('intl_get_error_code')) {
 
     $loader->registerPrefixFallbacks(array(__DIR__.'/../vendor/libraries/symfony/src/Symfony/Component/Locale/Resources/stubs'));
 }
+
+// Doctrine annotatnios.
+AnnotationRegistry::registerLoader(function($class) use ($loader) {
+    $loader->loadClass($class);
+    return class_exists($class, false);
+});
+
+AnnotationRegistry::registerFile(__DIR__.'/../vendor/libraries/doctrine/lib/Doctrine/ORM/Mapping/Driver/DoctrineAnnotations.php');
 
 $loader->register();
 

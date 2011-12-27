@@ -54,6 +54,7 @@ class SandboxKernel extends Kernel
                 new \Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
                 new \WhiteOctober\PagerfantaBundle\WhiteOctoberPagerfantaBundle(),
                 new \Liip\ThemeBundle\LiipThemeBundle(),
+                new \Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
                        
                 /*
                  * Sylius bundles.

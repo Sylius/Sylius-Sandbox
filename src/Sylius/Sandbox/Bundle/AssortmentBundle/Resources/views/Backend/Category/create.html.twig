@@ -11,13 +11,19 @@
 <fieldset>
 
 <div class="clearfix">
-    <div class="formErrors">
-    {{ form_errors(form.name) }}
-    </div>
-    <label for="sylius_catalog_category[name]">Name...</label> 
-    <div class="input">
-        {{ form_widget(form.name, {'attr': {'class': 'span7'}}) }}
-    </div>
+<div class="formErrors">
+{{ form_errors(form.name) }}
+</div>
+<label for="sylius_catalog_category[name]">Name...</label> 
+<div class="input">
+    {{ form_widget(form.name, {'attr': {'class': 'span7'}}) }}
+</div>
+</div>
+<div class="clearfix">
+<label for="form[category]">Parent category...</label> 
+<div class="input">
+    {{ form_widget(form.parent, {'empty_value': "choose category..."}) }}
+</div>
 </div>
 
 </fieldset>

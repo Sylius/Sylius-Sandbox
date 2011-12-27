@@ -21,6 +21,14 @@
 [doctrine]
     git=http://github.com/doctrine/doctrine2.git
     target=libraries/doctrine
+    
+[doctrine-extensions]
+    git=http://github.com/l3pp4rd/DoctrineExtensions.git
+    target=libraries/gedmo-doctrine-extensions
+
+[StofDoctrineExtensionsBundle]
+    git=http://github.com/stof/StofDoctrineExtensionsBundle.git
+    target=bundles/Stof/DoctrineExtensionsBundle
 
 [twig-extensions]
     git=http://github.com/fabpot/Twig-extensions.git

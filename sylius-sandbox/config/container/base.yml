@@ -32,6 +32,12 @@ swiftmailer:
     username:  %sylius.mailer.user%
     password:  %sylius.mailer.password%
 
+stof_doctrine_extensions:
+    default_locale: %sylius.locale%
+    orm:
+        default:
+            tree: true
+
 sylius_assortment:
     driver: ORM
     classes:
@@ -45,11 +51,12 @@ sylius_catalog:
     driver: ORM
     catalogs:
         assortment:
-            mode: S
             property: "products"
+            nested: true
             sorter: sylius_assortment.sorter.product
             classes:
                 model: Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Category
+                form: Sylius\Sandbox\Bundle\AssortmentBundle\Form\Type\CategoryFormType
             templates:
                 backend:
                     list: SandboxAssortmentBundle:Backend/Category:list.html.twig
@@ -60,7 +67,6 @@ sylius_catalog:
                     list: SandboxAssortmentBundle:Frontend/Category:list.html.twig
                     show: SandboxAssortmentBundle:Frontend/Category:show.html.twig
         blog:
-            mode: M
             property: "posts"
             classes:
                 model: Sylius\Sandbox\Bundle\BloggerBundle\Entity\Category

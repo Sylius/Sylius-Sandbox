@@ -1,0 +1,28 @@
+{% for category in category.children %}
+    <tr>
+        <td>{{ category.id }}</td>
+        <td>{% for i in 0..category.treeLevel %}&#8212;{% endfor %} - {{ category.name }}</td>
+        <td>
+            <div class="pull-right">
+            {% if loop.first %}
+            <a class="btn success disabled">&uarr;</a>
+            {% else %}
+            <a href="{{ path('sylius_catalog_backend_category_move_up', {'catalogAlias': catalog.alias, 'id': category.id}) }}" class="btn success">&uarr;</a>
+            {% endif %}
+            
+            {% if loop.last %}
+            <a class="btn danger disabled">&darr;</a>
+            {% else %}
+            <a href="{{ path('sylius_catalog_backend_category_move_down', {'catalogAlias': catalog.alias, 'id': category.id}) }}" class="btn danger">&darr;</a>
+            {% endif %}
+            <a href="{{ path('sylius_catalog_backend_category_show', {'catalogAlias': catalog.alias, 'id': category.id}) }}" class="btn">list products</a>
+            <a href="{{ path('sylius_catalog_backend_category_update', {'catalogAlias': catalog.alias, 'id': category.id}) }}" class="btn">update</a>
+            <a href="{{ path('sylius_catalog_backend_category_delete', {'catalogAlias': catalog.alias, 'id': category.id}) }}" class="btn danger">delete</a>
+            </div>
+        </td>
+    </tr>
+    
+    {% if category.hasChildren() %}
+        {% include 'SandboxAssortmentBundle:Backend/Category:tree.html.twig' %}
+    {% endif %}
+{% endfor %}

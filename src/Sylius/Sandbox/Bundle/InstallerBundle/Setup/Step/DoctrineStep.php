@@ -8,11 +8,18 @@ class DoctrineStep extends ContainerAwareStep
 {
     public function execute()
     {
-        $connection = $this->container->get('doctrine')->getConnection();
-        $sql = file_get_contents(__DIR__ .'/../../Resources/schema/doctrine.orm.sql');
+        $entityManager = $this->container->get('doctrine')->getEntityManager();
+        $metadatas = $entityManager->getMetadataFactory()->getAllMetadata();
+        $schemaTool = new \Doctrine\ORM\Tools\SchemaTool($entityManager);
         
-        $result = $connection->query($sql);
+        $result = true;
         
+        try {
+            $schemaTool->createSchema($metadatas);
+        } catch(\Exception $e) {
+            $result = false;
+        }
+            
         return $this->container->get('templating')->renderResponse('SandboxInstallerBundle:Setup/Install/Step:doctrine.html.twig', array(
             'result' => $result,
             'step' => $this

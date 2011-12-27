@@ -2,7 +2,7 @@
 
 namespace Sylius\Sandbox\Bundle\AssortmentBundle\Entity;
 
-use Sylius\Bundle\CatalogBundle\Entity\Category as BaseCategory;
+use Sylius\Bundle\CatalogBundle\Entity\NestedCategory as BaseCategory;
 
 class Category extends BaseCategory
 {
