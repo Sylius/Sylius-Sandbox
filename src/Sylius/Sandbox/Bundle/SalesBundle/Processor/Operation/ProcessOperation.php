@@ -34,8 +34,6 @@ class ProcessOperation extends ContainerAware implements OperationInterface
         $order->setValue($orderValue);
         
         // Clear cart.
-        $cart = $this->container->get('sylius_cart.manager.cart')->createCart();
-        $this->container->get('sylius_cart.provider')->setCart($cart);
-        $this->container->get('request')->getSession()->set('sylius_cart.id', false);
+        $this->container->get('sylius_cart.provider')->resetCart();
     }
 }

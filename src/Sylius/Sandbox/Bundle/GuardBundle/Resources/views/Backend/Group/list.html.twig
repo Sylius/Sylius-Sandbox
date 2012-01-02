@@ -1,0 +1,48 @@
+{% extends 'SandboxCoreBundle:Backend:layout.html.twig' %}
+
+{% block content %}
+
+<div class="page-header">
+    <h1>Lista wszystkich grup. <small>Grupy użytkowników.</small></h1>
+</div>
+
+<div class="well">
+<a href="{{ path('sylius_guard_backend_group_create') }}" class="btn primary large">dodaj grupę</a>
+</div>
+
+{% if groups %}
+<table class="zebra-stripped">
+    <thead>
+        <tr>
+            <th>#id</th>
+            <th>nazwa</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for group in groups %}
+        <tr>
+            <td>{{ group.id }}</td>
+            <td>{{ group.name }}</td>
+            <td>
+                <div class="pull-right">
+                <a href="{{ path('sylius_guard_backend_group_show', {'id': group.id}) }}" class="btn">szczegóły</a>
+                <a href="{{ path('sylius_guard_backend_group_update', {'id': group.id}) }}" class="btn">edytuj</a>
+                <a href="{{ path('sylius_guard_backend_group_delete', {'id': group.id}) }}" class="btn danger confirmer" 
+                    data-controls-modal="confirmer-modal"
+                    data-backdrop="static"
+                    data-confirmer-question="Czy na pewno chcesz usunąć grupę?"
+                >usuń</a>
+                </div>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<div class="alert-message info">
+  <p>Brak grup do wyświetlenia.</p>
+</div>
+{% endif %}
+
+{% endblock %}

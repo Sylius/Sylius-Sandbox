@@ -1,0 +1,59 @@
+{% extends 'SandboxCoreBundle:Backend:layout.html.twig' %}
+
+{% block content %}
+
+<div class="page-header">
+    <h1>Edycja użytkownika.</h1>
+</div>
+
+<form action="{{ path('sylius_guard_backend_user_update', {'id': user.id}) }}" method="post">
+
+<fieldset>
+    <div class="formErrors">
+        {{ form_errors(form.plainPassword) }}
+    </div>
+    <div class="clearfix error">
+    <label for="sylius_guard_user[plainPassword]">Hasło...</label>
+    <div class="input">
+        {{ form_widget(form.plainPassword, {'attr': {'class': 'span5 error'}}) }}
+        <span class="help-inline">Pozostaw puste by nie zmieniać hasła. Nowe hasło musi mieć minimum 5 znaków.</span>
+    </div>
+    </div>
+    <div class="formErrors">
+        {{ form_errors(form.email) }}
+    </div>
+    <div class="clearfix">
+    <label for="sylius_guard_user[email]">Adres email...</label>
+    <div class="input">
+        {{ form_widget(form.email, {'attr': {'class': 'span5'}}) }}
+    </div>
+    </div>
+    <div class="formErrors">
+        {{ form_errors(form.enabled) }}
+    </div>
+    <div class="clearfix">
+    <label for="sylius_guard_user[email]">Aktywny...</label>
+    <div class="input">
+        {{ form_widget(form.enabled) }}
+    </div>
+    </div>
+    <div class="formErrors">
+        {{ form_errors(form.groups) }}
+    </div>
+    <div class="clearfix">
+    <label for="sylius_guard_user[groups]">Grupy użytkownika...</label>
+    <div class="input">
+        {{ form_widget(form.groups, {'attr': {'class': 'span5'}}) }}
+    </div>
+    </div>
+</fieldset>
+
+{{ form_rest(form) }}
+
+<div class="actions">
+<input type="submit" value="zapisz zmiany" class="btn primary large" />
+</div>
+
+</form>
+
+{% endblock content %}

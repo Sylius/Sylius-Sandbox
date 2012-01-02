@@ -1,0 +1,73 @@
+{% extends 'SandboxCoreBundle:Backend:layout.html.twig' %}
+
+{% block content %}
+
+<div class="page-header">
+    <h1>Lista użytkowników. <small>Wszyscy użytkownicy zarejestrowani w systemie.</small></h1>
+</div>
+
+<div class="well">
+<a href="{{ path('sylius_guard_backend_user_create') }}" class="btn primary large">dodaj użytkownika</a>
+<a href="{{ path('sylius_guard_backend_group_list') }}" class="btn primary large">zarządzaj grupami</a>
+</div>
+
+{% if paginator.haveToPaginate() %}
+{{ pagerfanta(paginator, 'twitter_bootstrap', {'prev_message': "poprzednia strona...", 'next_message': "następna strona..."}) }}
+{% endif %}
+
+<ul class="tabs">
+    <li><a href="{{ path('sylius_guard_backend_user_list') }}">pokaż wszystkich</a></li>
+    <li><a href="{{ path('sylius_guard_backend_user_list', {'filters': {'enabled': [true, '=']}}) }}">aktywni użytkownicy</a></li>
+    <li><a href="{{ path('sylius_guard_backend_user_list', {'filters': {'enabled': [false, '=']}}) }}"><span class="label important">&nbsp;!&nbsp;</span> nieaktywni użytkownicy</a></li>
+</ul>
+
+{% if users %}
+<table class="zebra-stripped">
+    <thead>
+        <tr>
+            <th><a href="{{ path('sylius_guard_backend_user_list', {'sort': 'id', 'order': sorter.order, 'filters': filter.current}) }}">#id</a></th>
+            <th>adres e-mail</th>
+            <th><a href="{{ path('sylius_guard_backend_user_list', {'sort': 'enabled', 'order': sorter.order, 'filters': filter.current}) }}">aktywowany</a></th>
+            <th><a href="{{ path('sylius_guard_backend_user_list', {'sort': 'createdAt', 'order': sorter.order, 'filters': filter.current}) }}">data rejestracji</a></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for user in users %}
+        <tr>
+            <td>{{ user.id }}</td>
+            <td><a href="mailto:{{ user.email }}">{{ user.email }}</a></td>
+            <td>
+                {% if user.enabled %}
+                    <span class="label success">tak</span>
+                {% else %}
+                    <span class="label important">nie</span>
+                {% endif %}
+            </td>
+            <td>{{ user.createdAt|date('Y-m-d H:i:s') }}</td>
+            <td>
+                <div class="pull-right">
+                <a href="{{ path('sylius_guard_backend_user_show', {'id': user.id}) }}" class="btn">szczegóły</a>
+                <a href="{{ path('sylius_guard_backend_user_update', {'id': user.id}) }}" class="btn">edytuj</a>
+                <a href="{{ path('sylius_guard_backend_user_delete', {'id': user.id}) }}" class="btn danger confirmer" 
+                    data-controls-modal="confirmer-modal"
+                    data-backdrop="static"
+                    data-confirmer-question="Czy na pewno chcesz usunąć użytkownika <strong><a href='mailto:{{ user.username }}'>{{ user.username }}</a></strong>?"
+                >usuń</a>
+                </div>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<div class="alert-message info">
+  <p>Brak użytkowników do wyświetlenia.</p>
+</div>
+{% endif %}
+
+{% if paginator.haveToPaginate() %}
+{{ pagerfanta(paginator, 'twitter_bootstrap', {'prev_message': "poprzednia strona...", 'next_message': "następna strona..."}) }}
+{% endif %}
+
+{% endblock %}

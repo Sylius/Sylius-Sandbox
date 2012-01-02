@@ -1,0 +1,85 @@
+{% extends 'SandboxCoreBundle:Backend:layout.html.twig' %}
+
+{% block content %}
+
+<div class="page-header">
+    <h1>Edycja adresu. <small>Użyj tego formularza by zmodyfikować istniejący adres.</small></h1>
+</div>
+
+<form action="{{ path('sylius_addressing_backend_address_update', {'id': address.id}) }}" method="post">
+
+<fieldset>
+    <div class="formErrors">
+        {{ form_errors(form.name) }}
+    </div>
+    <div class="clearfix">
+    {{ form_label(form.name, 'Imię...') }}
+    <div class="input">
+        {{ form_widget(form.name, {'attr': {'class': 'span5'}}) }}
+    </div>
+    </div>
+    <div class="formErrors">
+        {{ form_errors(form.surname) }}
+    </div>
+    <div class="clearfix">
+    {{ form_label(form.name, 'Nazwisko...') }}
+    <div class="input">
+        {{ form_widget(form.surname, {'attr': {'class': 'span5'}}) }}
+    </div>
+    </div>
+    <div class="formErrors">
+        {{ form_errors(form.city) }}
+    </div>
+    <div class="clearfix">
+    {{ form_label(form.name, 'Miejscowość...') }}
+    <div class="input">
+        {{ form_widget(form.city, {'attr': {'class': 'span5'}}) }}
+    </div>
+    </div>
+    <div class="formErrors">
+        {{ form_errors(form.street) }}
+    </div>
+    <div class="clearfix">
+    {{ form_label(form.name, 'Ulica, numer domu oraz lokalu...') }}
+    <div class="input">
+        {{ form_widget(form.street, {'attr': {'class': 'span5'}}) }}
+    </div>
+    </div>
+    <div class="formErrors">
+        {{ form_errors(form.postcode) }}
+    </div>
+    <div class="clearfix">
+    {{ form_label(form.name, 'Kod pocztowy...') }}
+    <div class="input">
+        {{ form_widget(form.postcode, {'attr': {'class': 'span2'}}) }}
+    </div>
+    </div>
+    <div class="formErrors">
+        {{ form_errors(form.email) }}
+    </div>
+    <div class="clearfix">
+    {{ form_label(form.email, 'Adres email...') }}
+    <div class="input">
+        {{ form_widget(form.email, {'attr': {'class': 'span4'}}) }}
+    </div>
+    </div>
+    <div class="formErrors">
+        {{ form_errors(form.phone) }}
+    </div>
+    <div class="clearfix">
+    {{ form_label(form.phone, 'Numer telefonu...') }}
+    <div class="input">
+        {{ form_widget(form.phone, {'attr': {'class': 'span4'}}) }}
+    </div>
+    </div>
+</fieldset>
+
+{{ form_rest(form) }}
+
+<div class="actions">
+<input type="submit" value="zapisz zmiany" class="btn primary large" />
+</div>
+
+</form>
+
+{% endblock %}

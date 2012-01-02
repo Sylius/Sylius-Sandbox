@@ -1,0 +1,48 @@
+{% extends 'SandboxCoreBundle:Frontend:layout.html.twig' %}
+
+{% block content %}
+
+<div id="main-in">
+
+<div class="content">
+
+<h2>Rejestracja</h2>
+
+<div id="register_form">
+
+<form action="{{ path('sylius_guard_user_register') }}" method="post">
+<fieldset>
+
+{{ form_label(form.email, 'Adres e-mail') }}
+{{ form_widget(form.email) }}
+
+{{ form_label(form.plainPassword, 'Hasło') }}
+{{ form_widget(form.plainPassword) }}
+
+    {{ form_widget(form.acceptTermsOfUse) }}
+    <br /><input type="submit" name="login" value="zarejestruj się" />
+
+</fieldset>
+</form>
+
+</div>
+
+<div id="register_info">
+
+<h3>Dlaczego warto się zarejestrować?</h3>
+
+Dzięki rejestracji:
+<ul>
+<li>nie musisz wpisywać swoich danych przy każdym zakupie</li>
+<li>masz dostęp do historii swoich wszystkich kuponów</li>
+<li>możesz łatwo zarządzać swoimi subskrypcjami</li>
+<li>możesz uczestniczyć w różnych konkursach <strong>tylko dla zarejestrowanych użytkowników!</strong></li>
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+{% endblock %}

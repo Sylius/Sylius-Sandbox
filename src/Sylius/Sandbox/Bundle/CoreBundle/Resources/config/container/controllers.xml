@@ -7,7 +7,6 @@
 	<parameters>
 		<parameter key="sylius_sandbox_core.controller.frontend.class">Sylius\Sandbox\Bundle\CoreBundle\Controller\FrontendController</parameter>
 		<parameter key="sylius_sandbox_core.controller.backend.class">Sylius\Sandbox\Bundle\CoreBundle\Controller\BackendController</parameter>
-		<parameter key="sylius_sandbox_core.controller.security.class">Sylius\Sandbox\Bundle\CoreBundle\Controller\SecurityController</parameter>
 	</parameters>
 	
 	<services>
@@ -21,11 +20,6 @@
 	    		<argument type="service" id="service_container" />
 	    	</call>
 	    </service>
-	    <service id="sylius_sandbox_core.controller.security" class="%sylius_sandbox_core.controller.security.class%">
-	    	<call method="setContainer">
-	    		<argument type="service" id="service_container" />
-	    	</call>
-	    </service> 
 	</services>
 
 </container>

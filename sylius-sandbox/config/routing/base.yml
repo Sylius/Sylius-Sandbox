@@ -28,3 +28,9 @@ sylius_sandbox_sales:
 sylius_sandbox_plugins:
     resource: @SandboxPluginsBundle/Resources/config/routing.yml
     
+sylius_sandbox_addressing:
+    resource: @SandboxAddressingBundle/Resources/config/routing.yml
+
+sylius_sandbox_guard:
+    resource: @SandboxGuardBundle/Resources/config/routing.yml
+    

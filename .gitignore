@@ -1,4 +1,5 @@
 public/bundles/
+sylius-sandbox/phpunit.xml
 sylius-sandbox/cache/*
 sylius-sandbox/logs/*
 .buildpath

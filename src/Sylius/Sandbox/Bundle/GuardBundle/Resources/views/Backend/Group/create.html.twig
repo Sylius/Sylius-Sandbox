@@ -1,0 +1,40 @@
+{% extends 'SandboxCoreBundle:Backend:layout.html.twig' %}
+
+{% block content %}
+
+<div class="page-header">
+    <h1>Tworzenie grupy. <small> Wypełnij poniższy formularz by stworzyć nową grupę.</small></h1>
+</div>
+
+<form action="{{ path('sylius_guard_backend_group_create') }}" method="post">
+
+<fieldset>
+    <div class="formErrors">
+        {{ form_errors(form.name) }}
+    </div>
+     <div class="clearfix">
+    <label for="form[name]">Nazwa grupy...</label>
+    <div class="input">
+        {{ form_widget(form.name, {'attr': {'class': 'span7'}}) }}
+    </div>
+    </div>
+    <div class="formErrors">
+        {{ form_errors(form.roles) }}
+    </div>
+    <div class="clearfix">
+    <label for="form[description]">Przypisane role...</label>
+    <div class="input">
+        {{ form_widget(form.roles, {'attr': {'class': 'span10'}}) }}
+    </div>
+    </div>
+</fieldset>
+
+{{ form_rest(form) }}
+
+<div class="actions">
+<input type="submit" value="stwórz grupę" class="btn primary large" />
+</div>
+
+</form>
+
+{% endblock content %}

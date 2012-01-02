@@ -52,6 +52,8 @@ class SandboxKernel extends Kernel
             new \Sylius\Bundle\BloggerBundle\SyliusBloggerBundle(),
             new \Sylius\Bundle\SalesBundle\SyliusSalesBundle(),
             new \Sylius\Bundle\InstallerBundle\SyliusInstallerBundle(),
+            new \Sylius\Bundle\AddressingBundle\SyliusAddressingBundle(),
+            new \Sylius\Bundle\GuardBundle\SyliusGuardBundle(),
             
             /*
              * Sandbox specific bundles.
@@ -65,7 +67,9 @@ class SandboxKernel extends Kernel
             new \Sylius\Sandbox\Bundle\BloggerBundle\SandboxBloggerBundle(),
             new \Sylius\Sandbox\Bundle\SalesBundle\SandboxSalesBundle(),
             new \Sylius\Sandbox\Bundle\PluginsBundle\SandboxPluginsBundle(),
-            new \Sylius\Sandbox\Bundle\InstallerBundle\SandboxInstallerBundle()
+            new \Sylius\Sandbox\Bundle\InstallerBundle\SandboxInstallerBundle(),
+            new \Sylius\Sandbox\Bundle\AddressingBundle\SandboxAddressingBundle(),
+            new \Sylius\Sandbox\Bundle\GuardBundle\SandboxGuardBundle()
         );
             
         $bundles[] = new \Sylius\Bundle\PluginsBundle\SyliusPluginsBundle($this, $bundles);

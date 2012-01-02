@@ -90,3 +90,11 @@
 [SyliusInstallerBundle]
     git=http://github.com/Sylius/SyliusInstallerBundle.git
     target=bundles/Sylius/Bundle/InstallerBundle
+    
+[SyliusAddressingBundle]
+    git=http://github.com/Sylius/SyliusAddressingBundle.git
+    target=bundles/Sylius/Bundle/AddressingBundle
+    
+[SyliusGuardBundle]
+    git=http://github.com/Sylius/SyliusGuardBundle.git
+    target=bundles/Sylius/Bundle/GuardBundle

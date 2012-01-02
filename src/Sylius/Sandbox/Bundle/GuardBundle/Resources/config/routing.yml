@@ -1,0 +1,17 @@
+sylius_guard_security:
+    resource: @SyliusGuardBundle/Resources/config/routing/frontend/security.yml
+    
+sylius_guard_user:
+    resource: @SyliusGuardBundle/Resources/config/routing/frontend/user.yml
+    
+sylius_guard_password:
+    resource: @SyliusGuardBundle/Resources/config/routing/frontend/password.yml
+    prefix: /password
+
+sylius_guard_backend_group:
+    resource: @SyliusGuardBundle/Resources/config/routing/backend/group.yml
+    prefix: /administration/groups
+   
+sylius_guard_backend_user:
+    resource: @SyliusGuardBundle/Resources/config/routing/backend/user.yml
+    prefix: /administration/users

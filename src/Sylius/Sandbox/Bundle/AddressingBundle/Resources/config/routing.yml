@@ -1,0 +1,3 @@
+sylius_addressing_backend_address:
+    resource: @SyliusAddressingBundle/Resources/config/routing/backend/address.yml
+    prefix: /administration/addresses

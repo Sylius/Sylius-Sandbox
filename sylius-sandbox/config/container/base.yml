@@ -1,4 +1,4 @@
-# This file is part of the Sylius sandbox application.
+# This file is part of the Sylius sandbox Sylius\Sandbox.
 # (c) Paweł Jędrzejewski
 
 imports:
@@ -144,3 +144,35 @@ sylius_plugins:
     classes:
         model:
             plugin: Sylius\Bundle\PluginsBundle\Entity\Plugin
+            
+sylius_addressing:
+    driver: ORM
+    classes:
+        model:
+            address: Sylius\Sandbox\Bundle\AddressingBundle\Entity\Address
+        form:
+            type:
+                address: Sylius\Sandbox\Bundle\AddressingBundle\Form\Type\AddressFormType
+                
+sylius_guard:
+    driver: ORM
+    classes:
+        model:
+            user: Sylius\Sandbox\Bundle\GuardBundle\Entity\User
+            group: Sylius\Bundle\GuardBundle\Entity\DefaultGroup
+        form:
+            type:
+                user: Sylius\Sandbox\Bundle\GuardBundle\Form\Type\UserFormType
+        controller:
+            frontend:
+                user: Sylius\Sandbox\Bundle\GuardBundle\Controller\Frontend\UserController
+                security: Sylius\Sandbox\Bundle\GuardBundle\Controller\Frontend\SecurityController
+    extensions:
+        confirmation:
+            enabled: true
+            options:
+                email:
+                    from: foo@bar.com
+                    subject: "Sylius sandbox application account confirmation."
+                    template: SandboxGuardBundle:Confirmation:email.html.twig
+

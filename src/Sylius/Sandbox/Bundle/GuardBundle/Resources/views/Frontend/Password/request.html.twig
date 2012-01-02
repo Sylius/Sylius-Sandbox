@@ -1,0 +1,23 @@
+{% extends 'SandboxCoreBundle:Frontend:layout.html.twig' %}
+
+{% block content %}
+
+<div id="main-in">
+
+<div class="content">
+
+<h1>Zapomniałem hasła...</h1>
+
+<form action="{{ path("sylius_guard_password_request") }}" method="post">
+
+    {{ form_widget(form) }}
+
+    <br /><input type="submit" name="login" value="wyślij nowe hasło" />
+    
+</form>
+
+</div>
+
+</div>
+
+{% endblock %}
