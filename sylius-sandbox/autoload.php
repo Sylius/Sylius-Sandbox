@@ -22,6 +22,7 @@ $loader = new UniversalClassLoader();
 $loader->registerNamespaces(array(
     'Symfony'         					  => __DIR__.'/../vendor/libraries/symfony/src',
     'Pagerfanta'						  => __DIR__.'/../vendor/libraries/pagerfanta/src',
+	'Doctrine\\Bundle'                    => __DIR__.'/../vendor/bundles',
     'Doctrine\\Common'                    => __DIR__.'/../vendor/libraries/doctrine-common/lib',
     'Doctrine\\DBAL'					  => __DIR__.'/../vendor/libraries/doctrine-dbal/lib',
     'Doctrine'							  => __DIR__.'/../vendor/libraries/doctrine/lib',

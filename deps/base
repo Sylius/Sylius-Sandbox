@@ -47,10 +47,14 @@
     git=http://github.com/whiteoctober/Pagerfanta.git
     target=libraries/pagerfanta
 
+[DoctrineBundle]
+    git=http://github.com/doctrine/DoctrineBundle.git
+    target=bundles/Doctrine/Bundle/DoctrineBundle
+
 [WhiteOctoberPagerfantaBundle]
     git=http://github.com/whiteoctober/WhiteOctoberPagerfantaBundle.git
     target=bundles/WhiteOctober/PagerfantaBundle
-    
+
 [LiipThemeBundle]
     git=http://github.com/liip/LiipThemeBundle.git
     target=bundles/Liip/ThemeBundle
