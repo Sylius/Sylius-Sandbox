@@ -15,7 +15,7 @@ use Symfony\Component\DependencyInjection\ContainerAware;
 
 /**
  * Frontend controller.
- * 
+ *
  * @author Paweł Jędrzejewski <pjedrzejewski@diweb.pl>
  */
 class FrontendController extends ContainerAware

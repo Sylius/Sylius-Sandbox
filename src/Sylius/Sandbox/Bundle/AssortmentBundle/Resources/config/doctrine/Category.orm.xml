@@ -10,7 +10,7 @@
         <id name="id" column="id" type="integer">
             <generator strategy="AUTO" />
         </id>
-		<field name="treeLeft" column="tree_left" type="integer">
+    <field name="treeLeft" column="tree_left" type="integer">
             <gedmo:tree-left/>
         </field>
         <field name="treeRight" column="tree_right" type="integer">
@@ -19,17 +19,17 @@
         <field name="treeLevel" column="tree_level" type="integer">
             <gedmo:tree-level/>
         </field>
-		<one-to-many field="products" target-entity="Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Product" mapped-by="category" />
-		<one-to-many field="children" target-entity="Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Category" mapped-by="parent">
-			<order-by>
-                <order-by-field name="treeLeft" direction="ASC" />
-            </order-by>
-		</one-to-many>
+    <one-to-many field="products" target-entity="Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Product" mapped-by="category" />
+    <one-to-many field="children" target-entity="Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Category" mapped-by="parent">
+        <order-by>
+            <order-by-field name="treeLeft" direction="ASC" />
+        </order-by>
+    </one-to-many>
         <many-to-one field="parent" target-entity="Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Category">
             <join-column name="parent_id" referenced-column-name="id" on-delete="SET NULL"/>
             <gedmo:tree-parent/>
         </many-to-one>
-        
+
         <gedmo:tree type="nested"/>
     </entity>
 

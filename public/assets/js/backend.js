@@ -8,17 +8,17 @@
  */
 
 $(document).ready(function () {
-	$("#confirmer-modal a.confirmer-modal-cancel").click(function () {
-		$("#confirmer-modal").modal('hide');
-	});
-	
-	$("a.confirmer").each(function () {
-		$(this).data('confirmerLink', this.href);
-		this.href = null;
-		
-		$(this).click(function () {
-			$("#confirmer-modal p.confirmer-modal-question").html($(this).data('confirmerQuestion'));
-			$("#confirmer-modal a.confirmer-modal-confirm").attr('href', $(this).data('confirmerLink'));
-		});
-	});
+  $("#confirmer-modal a.confirmer-modal-cancel").click(function () {
+    $("#confirmer-modal").modal('hide');
+  });
+
+  $("a.confirmer").each(function () {
+    $(this).data('confirmerLink', this.href);
+    this.href = null;
+
+    $(this).click(function () {
+      $("#confirmer-modal p.confirmer-modal-question").html($(this).data('confirmerQuestion'));
+      $("#confirmer-modal a.confirmer-modal-confirm").attr('href', $(this).data('confirmerLink'));
+    });
+  });
 });

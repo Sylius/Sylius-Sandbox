@@ -16,12 +16,12 @@ use Sylius\Bundle\BloggerBundle\Entity\Post as BasePost;
 class Post extends BasePost
 {
     protected $categories;
-    
+
     public function getCategories()
     {
         return $this->categories;
     }
-    
+
     public function setCategories($categories)
     {
         $this->categories = $categories;

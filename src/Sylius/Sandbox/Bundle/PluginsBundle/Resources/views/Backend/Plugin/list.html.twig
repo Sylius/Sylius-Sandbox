@@ -2,8 +2,8 @@
 
 {% block content %}
 
-<div class="page-header"> 
-    <h1>Plugins manager.<small> Use this page to install and manage plugins.</small></h1> 
+<div class="page-header">
+    <h1>Plugins manager.<small> Use this page to install and manage plugins.</small></h1>
 </div>
 
 {% if plugins %}
@@ -15,7 +15,7 @@
             <th></th>
         </tr>
     </thead>
-    
+
     <tbody>
     {% for plugin in plugins %}
         <tr>
@@ -23,7 +23,7 @@
             <td>{{ plugin.name }}</td>
             <td>
                 <div class="pull-right">
-                <a href="{{ path('sylius_plugins_backend_plugin_show', {'id': plugin.id}) }}" class="btn">details</a>              
+                <a href="{{ path('sylius_plugins_backend_plugin_show', {'id': plugin.id}) }}" class="btn">details</a>
                 {% if plugin.enabled %}
                     <a href="{{ path('sylius_plugins_backend_plugin_disable', {'id': plugin.id}) }}" class="btn">disable</a>
                 {% else %}
@@ -53,7 +53,7 @@
             <th>options</th>
         </tr>
     </thead>
-    
+
     <tbody>
     {% for pack in packs %}
         <tr>
@@ -71,5 +71,5 @@
       <p><strong>Information.</strong> No plugin packs to install.</p>
     </div>
 {% endif %}
-    
+
 {% endblock %}

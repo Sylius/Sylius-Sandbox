@@ -19,7 +19,7 @@ class PostFormType extends BasePostFormType
     public function buildForm(FormBuilder $builder, array $options)
     {
         parent::buildForm($builder, $options);
-        
+
         $builder
             ->add('categories', 'sylius_catalog_category_choice', array(
                 'multiple' => true,

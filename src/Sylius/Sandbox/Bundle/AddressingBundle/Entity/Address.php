@@ -37,7 +37,7 @@ class Address extends BaseAddress
     {
         return $this->surname;
     }
-    
+
     public function setSurname($surname)
     {
         $this->surname = $surname;
@@ -72,22 +72,22 @@ class Address extends BaseAddress
     {
         $this->city = $city;
     }
-    
+
     public function getEmail()
     {
         return $this->email;
     }
-    
+
     public function setEmail($email)
     {
         $this->email = $email;
     }
-    
+
     public function getPhone()
     {
         return $this->phone;
     }
-    
+
     public function setPhone($phone)
     {
         $this->phone = $phone;

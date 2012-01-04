@@ -20,7 +20,7 @@ class CategoryFormType extends BaseCategoryFormType
     public function buildForm(FormBuilder $builder, array $options)
     {
         parent::buildForm($builder, $options);
-        
+
         $builder
             ->add('parent', 'sylius_catalog_category_choice', array(
                 'required' => false,

@@ -22,32 +22,32 @@ class Operator implements OperatorInterface
     public function addItem(CartInterface $cart, ItemInterface $item)
     {
         $product = $item->getProduct();
-        
+
         foreach ($cart->getItems() as $existingItem) {
             if ($existingItem->getProduct() === $product) {
                 $existingItem->setQuantity($existingItem->getQuantity() + $item->getQuantity());
-                
+
                 return;
             }
         }
-        
+
         $cart->addItem($item);
     }
-    
+
     public function removeItem(CartInterface $cart, ItemInterface $item)
     {
         $cart->removeItem($item);
     }
-    
+
     public function refreshCart(CartInterface $cart)
     {
         $value = 0.00;
         $totalItems = $cart->countItems();
-        
+
         foreach ($cart->getItems() as $item) {
             $value += $item->getProduct()->getPrice() * $item->getQuantity();
         }
-        
+
         $cart->setValue($value);
         $cart->setTotalItems($totalItems);
     }

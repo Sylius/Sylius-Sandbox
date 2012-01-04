@@ -18,5 +18,5 @@ class SandboxNewsletterBundle extends Bundle
     public function getParent()
     {
         return 'SyliusNewsletterBundle';
-    }    
+    }
 }

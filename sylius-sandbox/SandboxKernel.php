@@ -17,11 +17,11 @@ use Symfony\Component\Config\Loader\LoaderInterface;
 /**
  * Sylius sanbox application kernel.
  * Powered by Symfony2.
- * 
+ *
  * @author Paweł Jędrzejewski <pjedrzejewski@diweb.pl>
  */
 class SandboxKernel extends Kernel
-{   
+{
     /**
      * Register bundles in kernel.
      */
@@ -40,7 +40,7 @@ class SandboxKernel extends Kernel
             new \WhiteOctober\PagerfantaBundle\WhiteOctoberPagerfantaBundle(),
             new \Liip\ThemeBundle\LiipThemeBundle(),
             new \Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
-                   
+
             /*
              * Sylius bundles.
              */
@@ -54,7 +54,7 @@ class SandboxKernel extends Kernel
             new \Sylius\Bundle\InstallerBundle\SyliusInstallerBundle(),
             new \Sylius\Bundle\AddressingBundle\SyliusAddressingBundle(),
             new \Sylius\Bundle\GuardBundle\SyliusGuardBundle(),
-            
+
             /*
              * Sandbox specific bundles.
              */
@@ -71,13 +71,13 @@ class SandboxKernel extends Kernel
             new \Sylius\Sandbox\Bundle\AddressingBundle\SandboxAddressingBundle(),
             new \Sylius\Sandbox\Bundle\GuardBundle\SandboxGuardBundle()
         );
-            
+
         $bundles[] = new \Sylius\Bundle\PluginsBundle\SyliusPluginsBundle($this, $bundles);
-        
+
         if ($this->isDebug()) {
             $bundles[] = new \Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
         }
-        
+
         return $bundles;
     }
 

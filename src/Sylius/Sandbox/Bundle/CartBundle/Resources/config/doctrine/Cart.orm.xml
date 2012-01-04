@@ -10,9 +10,9 @@ http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
         </id>
         <field name="value" column="value" type="decimal" precision="10" scale="2" />
         <one-to-many field="items" target-entity="Sylius\Sandbox\Bundle\CartBundle\Entity\Item" mapped-by="cart">
-        	<cascade>
+          <cascade>
                 <cascade-all/>
-        	</cascade>
+          </cascade>
         </one-to-many>
     </entity>
 

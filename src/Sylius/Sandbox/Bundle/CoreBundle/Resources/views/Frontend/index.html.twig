@@ -2,12 +2,12 @@
 
 {% block content %}
 
-<div class="page-header"> 
-  <h1>Welcome. <small>Sylius sandbox application.</small></h1> 
-</div> 
+<div class="page-header">
+  <h1>Welcome. <small>Sylius sandbox application.</small></h1>
+</div>
 
-<div class="row"> 
-    <div class="span10"> 
+<div class="row">
+    <div class="span10">
         <h2>About this application.</h2>
             <p>
             This application shows how to integrate <a href="http://sylius.org">Sylius</a> bundles.
@@ -33,16 +33,16 @@
                         <li><a href="http://github.com/whiteoctober/WhiteOctoberPagerfantaBundle">WhiteOctoberPagerfantaBundle</a>,</li>
                         <li><a href="http://github.com/liip/LiipThemeBundle">LiipThemeBundle</a>.</li>
                     </ul>
-    </div> 
+    </div>
     <div class="span4">
         <h3>My cart.</h3>
-        
+
         <strong>{{ sylius_cart_get().totalItems }}</strong> items, <strong>{{ sylius_cart_get().value }}</strong> &euro;...
         <a href="{{ path('sylius_cart_show') }}" class="btn primary pull-right">My cart &raquo;</a>
         <br /> <br /> <br />
         {% render 'sylius_catalog.controller.frontend.category:listAction' with {'catalogAlias': 'assortment'} %}
         {% render 'sylius_catalog.controller.frontend.category:listAction' with {'catalogAlias': 'blog'} %}
-    </div> 
-</div> 
+    </div>
+</div>
 
 {% endblock %}

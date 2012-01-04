@@ -9,5 +9,5 @@ class SandboxCatalogBundle extends Bundle
     public function getParent()
     {
         return 'SyliusCatalogBundle';
-    }    
+    }
 }

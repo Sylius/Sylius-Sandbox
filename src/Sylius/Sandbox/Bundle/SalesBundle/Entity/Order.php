@@ -11,7 +11,7 @@ class Order extends BaseOrder
 {
     protected $cart;
     protected $value;
-    
+
     public $name;
     public $surname;
     public $city;
@@ -19,22 +19,22 @@ class Order extends BaseOrder
     public $postcode;
     public $email;
     public $phone;
-    
+
     public function getCart()
     {
         return $this->cart;
     }
-    
+
     public function setCart(CartInterface $cart)
     {
         $this->cart = $cart;
     }
-    
+
     public function getValue()
     {
         return $this->value;
     }
-    
+
     public function setValue($value)
     {
         $this->value = $value;

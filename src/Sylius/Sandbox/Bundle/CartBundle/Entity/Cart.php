@@ -17,19 +17,19 @@ use Sylius\Bundle\CartBundle\Entity\Cart as BaseCart;
 class Cart extends BaseCart
 {
     protected $value;
-    
+
     public function __construct()
     {
         parent::__construct();
-        
+
         $this->value = 0.00;
     }
-    
+
     public function getValue()
     {
         return $this->value;
     }
-    
+
     public function setValue($value)
     {
         $this->value = $value;

@@ -38,7 +38,7 @@
             <div class="topbar-inner">
                 <div class="container-fluid">
                     <ul class="nav">
-                        <a class="brand" href="http://sylius.org">Sylius</a> 
+                        <a class="brand" href="http://sylius.org">Sylius</a>
                         <li class="active"><a href="{{ path('sylius_sandbox_core_backend') }}">Dashboard</a></li>
                         <li class="dropdown" data-dropdown="dropdown">
                         <a href="#" class="dropdown-toggle">Manage assortment</a>
@@ -79,7 +79,7 @@
                             </ul>
                         </li>
                         <li class="dropdown" data-dropdown="dropdown">
-                        <a href="#" class="dropdown-toggle">Zarządzaj użytkownikami</a>
+                        <a href="#" class="dropdown-toggle">Manage users</a>
                         <ul class="dropdown-menu">
                             <li><a href="{{ path('sylius_guard_backend_user_create') }}">Create user</a></li>
                             <li><a href="{{ path('sylius_guard_backend_user_list') }}">List users</a></li>
@@ -132,7 +132,7 @@
                         <li class="header">Administration</li>
                             <li><a href="{{ path('sylius_guard_security_logout') }}" class="last">Logout...</a></li>
                     </ul>
-                {% endblock %}   
+                {% endblock %}
             </div>
             <div class="content">
                 {% block content %}    {% endblock %}

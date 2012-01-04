@@ -1,7 +1,7 @@
 <div class="well">
     <h2>{{ post.title }}</h2>
     {{ sylius_blogger_cut_text(post.content, 200, '...', true, true) }}
-    
+
     <br /> <br />
     <code>Posted at {{ post.createdAt|date('Y-m-d H:i:s') }} by <strong>{{ post.author }}</strong>.</code>
 

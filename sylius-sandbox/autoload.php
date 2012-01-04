@@ -22,21 +22,20 @@ $loader = new UniversalClassLoader();
 $loader->registerNamespaces(array(
     'Symfony'         					  => __DIR__.'/../vendor/libraries/symfony/src',
     'Pagerfanta'						  => __DIR__.'/../vendor/libraries/pagerfanta/src',
-	'Doctrine\\Bundle'                    => __DIR__.'/../vendor/bundles',
+    'Doctrine\\Bundle'                    => __DIR__.'/../vendor/bundles',
     'Doctrine\\Common'                    => __DIR__.'/../vendor/libraries/doctrine-common/lib',
     'Doctrine\\DBAL'					  => __DIR__.'/../vendor/libraries/doctrine-dbal/lib',
     'Doctrine'							  => __DIR__.'/../vendor/libraries/doctrine/lib',
-	'Monolog'       				      => __DIR__.'/../vendor/libraries/monolog/src',
+    'Monolog'       				      => __DIR__.'/../vendor/libraries/monolog/src',
     'Metadata'       					  => __DIR__.'/../vendor/libraries/metadata/src',
     'Gedmo'                               => __DIR__.'/../vendor/libraries/gedmo-doctrine-extensions/lib',
-    
+
     'Sylius\\Sandbox'					  => __DIR__.'/../src',
 
     'Liip'								  => __DIR__.'/../vendor/bundles',
-	'Stof'                                => __DIR__.'/../vendor/bundles',
+    'Stof'                                => __DIR__.'/../vendor/bundles',
     'WhiteOctober\PagerfantaBundle'       => __DIR__.'/../vendor/bundles',
-	'Sylius'						      => __DIR__.'/../vendor/bundles',
-    
+    'Sylius'						      => __DIR__.'/../vendor/bundles',
 ));
 
 $loader->registerPrefixes(array(
@@ -45,7 +44,7 @@ $loader->registerPrefixes(array(
 ));
 
 // Swiftmailer.
-require_once __DIR__.'/../vendor/libraries/swiftmailer/lib/classes/Swift.php'; 
+require_once __DIR__.'/../vendor/libraries/swiftmailer/lib/classes/Swift.php';
 Swift::registerAutoload(__DIR__.'/../vendor/libraries/swiftmailer/lib/swift_init.php');
 
 // Intl stubs.

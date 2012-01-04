@@ -21,14 +21,14 @@ class SandboxNewsletterExtension extends Extension
     public function load(array $config, ContainerBuilder $container)
     {
         $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config/container'));
-        
+
         $configurations = array(
             'senders'
         );
-         
+
         foreach($configurations as $basename) {
             $loader->load(sprintf('%s.xml', $basename));
         }
     }
-    
+
 }

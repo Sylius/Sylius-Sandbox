@@ -2,9 +2,9 @@
 
 {% block content %}
 
-<div class="page-header"> 
-    <h1>Creating product.<small> Use the form below to create a new product...</small></h1> 
-</div> 
+<div class="page-header">
+    <h1>Creating product.<small> Use the form below to create a new product...</small></h1>
+</div>
 
 <form action="{{ path('sylius_assortment_backend_product_create') }}" method="post">
 
@@ -13,7 +13,7 @@
     {{ form_errors(form.name) }}
     </div>
     <div class="clearfix">
-    <label for="form[name]">Name...</label> 
+    <label for="form[name]">Name...</label>
     <div class="input">
         {{ form_widget(form.name, {'attr': {'class': 'span7'}}) }}
     </div>
@@ -22,7 +22,7 @@
     {{ form_errors(form.description) }}
     </div>
     <div class="clearfix">
-    <label for="form[description]">Description...</label> 
+    <label for="form[description]">Description...</label>
     <div class="input">
         {{ form_widget(form.description, {'attr': {'class': 'xxlarge', 'rows': 10}}) }}
     </div>
@@ -31,21 +31,21 @@
     {{ form_errors(form.price) }}
     </div>
     <div class="clearfix">
-    <label for="form[name]">Price...</label> 
+    <label for="form[name]">Price...</label>
     <div class="input">
         {{ form_widget(form.price, {'attr': {'class': 'span2'}}) }}
     </div>
     </div>
     <div class="clearfix">
-    <label for="form[category]">Assortment category...</label> 
+    <label for="form[category]">Assortment category...</label>
     <div class="input">
         {{ form_widget(form.category, {'empty_value': "choose category..."}) }}
     </div>
     </div>
 </fieldset>
-		
+
 {{ form_rest(form) }}
-		
+
 <div class="actions">
 <input type="submit" value="create product" class="btn primary large" />
 </div>

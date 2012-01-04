@@ -26,10 +26,10 @@ class SandboxInstallerExtension extends Extension
             'controllers',
             'setups'
         );
-         
+
         foreach($configurations as $basename) {
             $loader->load(sprintf('%s.xml', $basename));
         }
     }
-    
+
 }

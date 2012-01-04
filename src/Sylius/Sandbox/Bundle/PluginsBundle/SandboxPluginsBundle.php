@@ -9,5 +9,5 @@ class SandboxPluginsBundle extends Bundle
     public function getParent()
     {
         return 'SyliusPluginsBundle';
-    }    
+    }
 }

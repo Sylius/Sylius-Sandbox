@@ -17,6 +17,6 @@ class SandboxGuardBundle extends Bundle
 {
     public function getParent()
     {
-        //return 'SyliusGuardBundle';
-    }    
+        return 'SyliusGuardBundle';
+    }
 }

@@ -3,28 +3,27 @@
 {% block content %}
 
 <div class="page-header">
-    <h1>Szczegóły użytkownika</h1>
+    <h1>User details</h1>
 </div>
 
 <div class="well">
-        <a href="{{ path('sylius_guard_backend_user_update', {'id': user.id}) }}" class="btn">edytuj</a>
-        <a href="{{ path('sylius_guard_backend_user_delete', {'id': user.id}) }}" class="btn danger confirmer" 
+        <a href="{{ path('sylius_guard_backend_user_update', {'id': user.id}) }}" class="btn">update</a>
+        <a href="{{ path('sylius_guard_backend_user_delete', {'id': user.id}) }}" class="btn danger confirmer"
             data-controls-modal="confirmer-modal"
             data-backdrop="static"
-            data-confirmer-question="Czy na pewno chcesz usunąć użytkownika <strong><a href='mailto:{{ user.username }}'>{{ user.username }}</a></strong>?"
-        >usuń</a>
+            data-confirmer-question="Are you sure you want do delete user <strong><a href='mailto:{{ user.username }}'>{{ user.username }}</a></strong>?"
+        >delete</a>
 </div>
 
-<h2>Dane użytkownika.</h2>
+<h2>User data.</h2>
 <table>
     <thead>
         <tr>
             <th>#id</th>
-            <th>data rejestracji</th>
-            <th>aktywowany</th>
-            <th>adres poczty e-mail</th>
-            <th>ostatnio modyfikowany</th>
-            <th>przynależność do grup</th>
+            <th>created at</th>
+            <th>enabled</th>
+            <th>e-mail</th>
+            <th>groups</th>
         </tr>
     </thead>
     <tbody>
@@ -33,61 +32,22 @@
             <td>{{ user.createdAt|date('Y-m-d H:i:s') }}</td>
             <td>
             {% if user.enabled %}
-            <span class="label success">tak</span>
+            <span class="label success">yes</span>
             {% else %}
             <span class="label important">nie</span>
             {% endif %}</td>
             <td><a href="mailto:{{ user.email }}">{{ user.email }}</a></td>
-            <td>{{ user.updatedAt|date('Y-m-d H:i:s') }}</td>
             <td>
                 <ul>
                 {% for group in user.groups %}
                     <li>{{ group.name }}</li>
                 {% else %}
-                    <li>Brak grup użytkownika...</li>
+                    <li>No user groups...</li>
                 {% endfor %}
                 </ul>
             </td>
         </tr>
     </tbody>
 </table>
-
-<hr />
-
-{% if user.orders|length > 0 %}
-    <table cellspacing="1"> 
-        <thead>
-            <tr>
-                <th>#id</th>
-                <th>wartość</th>
-                <th>data utworzenia</th>
-                <th>status</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-    {% for order in user.orders %}
-        <tr{% if order.closed %} class="invactive"{% endif %}>
-            <td>{{ order.id }}</td>
-            <td>{{ order.value }} zł</td>
-            <td>{{ order.createdAt | date('Y-m-d H:i:s') }}</td>
-            <td>
-                {% render 'sylius_sales.controller.backend.order:statusAction' with {'id': order.id} %}
-            </td>
-            <td>
-                <div class="pull-right">
-                <a href="{{ path('sylius_sales_backend_order_show', {'id': order.id}) }}" class="btn">szczegóły</a>
-                </div>
-            </td>
-        </tr>
-    {% endfor %}
-    </tbody>
-</table>
-
-{% else %}
-<div class="alert-message info">
-  <p>Ten użytkownik nie złożył żadnych zamówień.</p>
-</div>
-{% endif %}
 
 {% endblock content %}

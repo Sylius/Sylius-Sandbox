@@ -19,11 +19,11 @@
         <script type="text/javascript" src="{{ asset('assets/js/bootstrap-modal.js') }}"></script>
         <script type="text/javascript" src="{{ asset('assets/js/less-1.1.5.min.js') }}"></script>
     </head>
-    <body> 
-        <div class="topbar"> 
-            <div class="fill"> 
+    <body>
+        <div class="topbar">
+            <div class="fill">
                 <div class="container-fluid">
-                    <ul class="nav"> 
+                    <ul class="nav">
                         <a class="brand" href="http://sylius.org">Sylius</a>
                         <li><a href="{{ path('sylius_sandbox_core_frontend') }}">Index</a></li>
                         <li class="dropdown" data-dropdown="dropdown">
@@ -42,7 +42,7 @@
                         <li><a href="{{ path('sylius_newsletter_subscriber_subscribe') }}">Newsletter</a></li>
                     </ul>
                     <div class="pull-right">
-                        <ul class="nav"> 
+                        <ul class="nav">
                     {% if is_granted('ROLE_SYLIUS_ADMIN') %}
                         <li><a href="{{ path('sylius_sandbox_core_security_logout') }}">Logout</a></li>
                         <li><a href="{{ path('sylius_sandbox_core_backend') }}">Administration &raquo;</a></li>
@@ -51,28 +51,28 @@
                     {% endif %}
                         </ul>
                     </div>
-                </div> 
-            </div> 
-        </div> 
+                </div>
+            </div>
+        </div>
         <div class="container-fluid">
             <div class="sidebar">
             <br />
             <span class="label important">FLUIDERO THEME!</span>
             <h3>My cart.</h3>
-        
+
             <strong>{{ sylius_cart_get().totalItems }}</strong> items, <strong>{{ sylius_cart_get().value }}</strong> &euro;...
             <a href="{{ path('sylius_cart_show') }}" class="btn primary pull-right">My cart &raquo;</a>
             <br /> <br /> <br />
             {% render 'sylius_catalog.controller.frontend.category:listAction' with {'catalogAlias': 'assortment'} %}
             {% render 'sylius_catalog.controller.frontend.category:listAction' with {'catalogAlias': 'blog'} %}
             </div>
-            <div class="content"> 
+            <div class="content">
               {% block content %}   {% endblock %}
-              
-                <footer> 
-                    <p>&copy; <a href="http://sylius.org">Sylius</a>, 2011.</p> 
-                </footer> 
-            </div>  
+
+                <footer>
+                    <p>&copy; <a href="http://sylius.org">Sylius</a>, 2011.</p>
+                </footer>
+            </div>
         </div>
-    </body> 
+    </body>
 </html>

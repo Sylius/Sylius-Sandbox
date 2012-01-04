@@ -15,7 +15,7 @@ use Symfony\Component\DependencyInjection\ContainerAware;
 
 /**
  * Installer setup controller.
- * 
+ *
  * @author Paweł Jędrzejewski <pjedrzejewski@diweb.pl>
  */
 class SetupController extends ContainerAware
@@ -26,7 +26,7 @@ class SetupController extends ContainerAware
     public function indexAction()
     {
         $installed = $this->container->getParameter('sylius.installed');
-        
+
         return $this->container->get('templating')->renderResponse('SandboxInstallerBundle:Setup:index.html.twig', array(
             'installed' => $installed
         ));

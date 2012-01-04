@@ -18,7 +18,7 @@ class JokerListener
     public function makeJoke(FilterProductEvent $event)
     {
         $product = $event->getProduct();
-        
+
         // Yeah i know it is very funny indeed, but hey! It is just example...
         $product->setName(strrev($product->getName()) . ' Joker was here.');
     }

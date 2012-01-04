@@ -2,9 +2,9 @@
 
 {% block content %}
 
-<div class="page-header"> 
-    <h1>Current orders.</h1> 
-</div> 
+<div class="page-header">
+    <h1>Current orders.</h1>
+</div>
 
 {% if paginator.haveToPaginate() %}
 {{ pagerfanta(paginator, 'twitter_bootstrap', {'prev_message': "previous page...", 'next_message': "next page..."}) }}
@@ -20,7 +20,7 @@
 </ul>
 
 {% if orders %}
-<table> 
+<table>
     <thead>
         <tr>
             <th><a href="{{ path('sylius_sales_backend_order_list', {'sort': 'id', 'order': sorter.order, 'filters': filter.current}) }}">#id</a></th>
@@ -63,5 +63,5 @@
 {% if paginator.haveToPaginate() %}
 {{ pagerfanta(paginator, 'twitter_bootstrap', {'prev_message': "previous page...", 'next_message': "next page..."}) }}
 {% endif %}
- 
+
 {% endblock %}

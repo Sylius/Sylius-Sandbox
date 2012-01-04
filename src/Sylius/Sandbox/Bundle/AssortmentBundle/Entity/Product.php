@@ -23,17 +23,17 @@ class Product extends BaseProduct
     {
         return $this->price;
     }
-    
+
     public function setPrice($price)
     {
         $this->price = $price;
     }
-    
+
     public function getCategory()
     {
         return $this->category;
     }
-    
+
     public function setCategory(CategoryInterface $category)
     {
         $this->category = $category;

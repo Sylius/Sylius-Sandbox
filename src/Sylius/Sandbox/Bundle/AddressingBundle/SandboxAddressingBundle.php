@@ -18,5 +18,5 @@ class SandboxAddressingBundle extends Bundle
     public function getParent()
     {
         return 'SyliusAddressingBundle';
-    }    
+    }
 }

@@ -18,7 +18,7 @@ use Symfony\Component\Config\FileLocator;
 
 /**
  * Sylius joker plugin, example extension.
- * 
+ *
  * @author Paweł Jędrzejewski <pjedrzejewski@diweb.pl>
  */
 class SyliusJokerExtension extends Extension
@@ -30,7 +30,7 @@ class SyliusJokerExtension extends Extension
         $configurations = array(
             'joker',
         );
-        
+
         foreach ($configurations as $basename) {
             $loader->load(sprintf('%s.xml', $basename));
         }

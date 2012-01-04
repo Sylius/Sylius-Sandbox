@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<!-- 
+<!--
 
  This file is part of the Application.
 
  (c) Paweł Jędrzejewski
- 
+
  For the full copyright and license information, please view the LICENSE
  file that was distributed with this source code.
 
@@ -15,84 +15,84 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/dic/constraint-mapping
 http://symfony.com/schema/dic/services/constraint-mapping-1.0.xsd">
-	
-	<class name="Sylius\Sandbox\Bundle\AddressingBundle\Entity\Address">
-		
-		<property name="name">
+
+  <class name="Sylius\Sandbox\Bundle\AddressingBundle\Entity\Address">
+
+    <property name="name">
             <constraint name="NotBlank">
-                <option name="message">Proszę wpisać imię</option>
+                <option name="message">Please enter name</option>
             </constraint>
             <constraint name="MinLength">
                 <option name="limit">2</option>
-                <option name="message">Imię musi mieć przynajmniej długość dwóch znaków</option>
+                <option name="message">Name must be at least 2 characters long</option>
             </constraint>
             <constraint name="MaxLength">
                 <option name="limit">255</option>
-                <option name="message">Imię jest zbyt długie</option>
+                <option name="message">Name is too long</option>
             </constraint>
         </property>
-        
+
         <property name="surname">
             <constraint name="NotBlank">
-                <option name="message">Proszę wpisać nazwisko</option>
+                <option name="message">Please enter surname</option>
             </constraint>
             <constraint name="MinLength">
                 <option name="limit">2</option>
-                <option name="message">Nazwisko musi mieć przynajmniej długość dwóch znaków</option>
+                <option name="message">Surname must be at least 2 characters long</option>
             </constraint>
             <constraint name="MaxLength">
                 <option name="limit">255</option>
-                <option name="message">Nazwisko jest zbyt długie</option>
+                <option name="message">Surname is too long</option>
             </constraint>
         </property>
-        
+
         <property name="street">
             <constraint name="NotBlank">
-                <option name="message">Proszę wpisać adres</option>
+                <option name="message">Please enter street</option>
             </constraint>
             <constraint name="MinLength">
                 <option name="limit">2</option>
-                <option name="message">Adres musi mieć przynajmniej długość dwóch znaków</option>
+                <option name="message">Street must be at least 2 characters long</option>
             </constraint>
             <constraint name="MaxLength">
                 <option name="limit">255</option>
-                <option name="message">Adres jest zbyt długi</option>
+                <option name="message">Street is too long</option>
             </constraint>
         </property>
-        
+
         <property name="postcode">
             <constraint name="NotBlank">
-                <option name="message">Proszę wpisać kod pocztowy</option>
+                <option name="message">Please enter postcode</option>
             </constraint>
             <constraint name="Regex">
-            	<option name="pattern">/^[0-9]{2}\-[0-9]{3}$/</option>
-                <option name="message">Proszę wpisać poprawny kod pocztowy</option>
+              <option name="pattern">/^[0-9]{2}\-[0-9]{3}$/</option>
+                <option name="message">Please enter valid XX-XXX postcode</option>
             </constraint>
         </property>
-        
+
         <property name="city">
             <constraint name="NotBlank">
-                <option name="message">Proszę wpisać miejscowość</option>
+                <option name="message">Please enter city</option>
             </constraint>
             <constraint name="MinLength">
                 <option name="limit">2</option>
-                <option name="message">Nazwa miejscowości musi mieć przynajmniej długość dwóch znaków</option>
+                <option name="message">City must be at least 2 characters long</option>
             </constraint>
             <constraint name="MaxLength">
                 <option name="limit">255</option>
-                <option name="message">Nazwa miejscowości jest zbyt długa</option>
+                <option name="message">City is too long</option>
             </constraint>
         </property>
-        
+
         <property name="email">
             <constraint name="NotBlank">
-                <option name="message">Proszę podać adres email</option>
+                <option name="message">Please enter e-mail</option>
             </constraint>
             <constraint name="Email">
-                <option name="message">Proszę podać prawidłowy adres email</option>
+                <option name="message">Please enter valid e-mail</option>
             </constraint>
         </property>
-		
-	</class>
+
+  </class>
 
 </constraint-mapping>

@@ -21,20 +21,20 @@ class SwiftmailerSender extends ContainerAware implements SenderInterface
     {
         $mailer = $this->container->get('mailer');
         $subscribers = $this->container->get('sylius_newsletter.manager.subscriber')->findSubscribersBy(array('enabled' => true));
-        
+
         foreach ($subscribers as $subscriber) {
             $message = \Swift_Message::newInstance()
             ->setSubject($newsletter->getTitle())
             ->setFrom("no-reply@example.com")
             ->setBody($newsletter->getContent())
             ->setTo($subscriber->getEmail());
-            
+
             $mailer->send($message);
         }
-        
+
         $newsletter->setSent(true);
     }
-    
+
     public function supports(NewsletterInterface $newsletter)
     {
         return true;

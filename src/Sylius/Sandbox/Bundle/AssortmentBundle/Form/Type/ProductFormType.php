@@ -20,7 +20,7 @@ class ProductFormType extends BaseProductFormType
     public function buildForm(FormBuilder $builder, array $options)
     {
         parent::buildForm($builder, $options);
-        
+
         $builder
             ->add('price', 'money')
             ->add('category', 'sylius_catalog_category_choice', array(

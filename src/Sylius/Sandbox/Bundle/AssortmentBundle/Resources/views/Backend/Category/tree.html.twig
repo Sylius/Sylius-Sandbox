@@ -9,7 +9,7 @@
             {% else %}
             <a href="{{ path('sylius_catalog_backend_category_move_up', {'catalogAlias': catalog.alias, 'id': category.id}) }}" class="btn success">&uarr;</a>
             {% endif %}
-            
+
             {% if loop.last %}
             <a class="btn danger disabled">&darr;</a>
             {% else %}
@@ -17,11 +17,15 @@
             {% endif %}
             <a href="{{ path('sylius_catalog_backend_category_show', {'catalogAlias': catalog.alias, 'id': category.id}) }}" class="btn">list products</a>
             <a href="{{ path('sylius_catalog_backend_category_update', {'catalogAlias': catalog.alias, 'id': category.id}) }}" class="btn">update</a>
-            <a href="{{ path('sylius_catalog_backend_category_delete', {'catalogAlias': catalog.alias, 'id': category.id}) }}" class="btn danger">delete</a>
+            <a href="{{ path('sylius_catalog_backend_category_delete', {'catalogAlias': catalog.alias, 'id': category.id}) }}" class="btn danger confirmer"
+                data-controls-modal="confirmer-modal"
+                data-backdrop="static"
+                data-confirmer-question="Are you sure you want to delete this category?"
+            >delete</a>
             </div>
         </td>
     </tr>
-    
+
     {% if category.hasChildren() %}
         {% include 'SandboxAssortmentBundle:Backend/Category:tree.html.twig' %}
     {% endif %}

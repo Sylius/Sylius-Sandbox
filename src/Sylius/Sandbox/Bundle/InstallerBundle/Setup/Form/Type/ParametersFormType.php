@@ -12,9 +12,9 @@ class ParametersFormType extends AbstractType
     {
         $builder
             ->add('secret')
-            
+
             ->add('databaseDriver', 'choice', array(
-            	'choices' => array(
+              'choices' => array(
                     'pdo_mysql'  => 'MySQL',
                     'pdo_sqlite' => 'SQLite',
                     'pdo_pgsql'  => 'PosgreSQL',
@@ -27,7 +27,7 @@ class ParametersFormType extends AbstractType
             ->add('databaseName')
             ->add('databaseUser')
             ->add('databasePassword', 'password')
-            
+
             ->add('mailerTransport', 'choice', array(
                 'choices' => array(
                     'smtp' => 'SMTP',
@@ -37,7 +37,7 @@ class ParametersFormType extends AbstractType
             ->add('mailerPassword', 'password')
         ;
     }
-    
+
     public function getName()
     {
         return 'sylius_sandbox_installer_parameters';

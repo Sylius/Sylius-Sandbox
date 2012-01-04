@@ -13,11 +13,5 @@ class UserFormType extends BaseUserFormType
         parent::buildForm($builder, $options);
 
         $builder->remove('username');
-
-        if (isset($options['mode']) && in_array($options['mode'], array('REGISTER'))) {
-            $builder
-                ->add('acceptTermsOfUse', 'checkbox')
-            ;
-        }
     }
 }

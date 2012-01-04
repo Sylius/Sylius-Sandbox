@@ -9,5 +9,5 @@ class SandboxThemingBundle extends Bundle
     public function getParent()
     {
         return 'SyliusThemingBundle';
-    }    
+    }
 }

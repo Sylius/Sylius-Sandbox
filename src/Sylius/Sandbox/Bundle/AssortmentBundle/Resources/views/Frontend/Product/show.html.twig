@@ -13,7 +13,7 @@
 
 <form action="{{ path('sylius_cart_item_add') }}" method="post">
     <input type="hidden" name="sylius_cart_item[product]" value="{{ product.id }}" />
-    
+
     <div class="pull-right">
     <strong>Price...</strong> {{ product.price }} &euro;
     <input type="text" name="sylius_cart_item[quantity]" value="1" class="span2" style="text-align: center;" />

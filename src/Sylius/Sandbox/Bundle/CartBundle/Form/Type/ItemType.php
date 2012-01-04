@@ -23,7 +23,7 @@ class ItemType extends BaseItemType
     public function buildForm(FormBuilder $builder, array $options)
     {
         parent::buildForm($builder, $options);
-        
+
         $builder
             ->add('product', 'sylius_assortment_product_hidden');
     }

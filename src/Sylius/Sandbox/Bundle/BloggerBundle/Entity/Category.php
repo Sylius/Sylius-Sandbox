@@ -16,12 +16,12 @@ use Sylius\Bundle\CatalogBundle\Entity\Category as BaseCategory;
 class Category extends BaseCategory
 {
     protected $posts;
-    
+
     public function getPosts($posts)
     {
         return $this->posts;
     }
-    
+
     public function setPosts($posts)
     {
         $this->posts = $posts;

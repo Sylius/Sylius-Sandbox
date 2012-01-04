@@ -15,7 +15,7 @@ use Symfony\Component\DependencyInjection\ContainerAware;
 
 /**
  * Administration dashboard controller.
- * 
+ *
  * @author Paweł Jędrzejewski <pjedrzejewski@diweb.pl>
  */
 class BackendController extends ContainerAware

@@ -3,23 +3,23 @@
 <container xmlns="http://symfony.com/schema/dic/services"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
-	
-	<parameters>
-		<parameter key="sylius_sandbox_core.controller.frontend.class">Sylius\Sandbox\Bundle\CoreBundle\Controller\FrontendController</parameter>
-		<parameter key="sylius_sandbox_core.controller.backend.class">Sylius\Sandbox\Bundle\CoreBundle\Controller\BackendController</parameter>
-	</parameters>
-	
-	<services>
-	    <service id="sylius_sandbox_core.controller.frontend" class="%sylius_sandbox_core.controller.frontend.class%">
-	    	<call method="setContainer">
-	    		<argument type="service" id="service_container" />
-	    	</call>
-	    </service>
-	    <service id="sylius_sandbox_core.controller.backend" class="%sylius_sandbox_core.controller.backend.class%">
-	    	<call method="setContainer">
-	    		<argument type="service" id="service_container" />
-	    	</call>
-	    </service>
-	</services>
+
+  <parameters>
+    <parameter key="sylius_sandbox_core.controller.frontend.class">Sylius\Sandbox\Bundle\CoreBundle\Controller\FrontendController</parameter>
+    <parameter key="sylius_sandbox_core.controller.backend.class">Sylius\Sandbox\Bundle\CoreBundle\Controller\BackendController</parameter>
+  </parameters>
+
+  <services>
+      <service id="sylius_sandbox_core.controller.frontend" class="%sylius_sandbox_core.controller.frontend.class%">
+        <call method="setContainer">
+          <argument type="service" id="service_container" />
+        </call>
+      </service>
+      <service id="sylius_sandbox_core.controller.backend" class="%sylius_sandbox_core.controller.backend.class%">
+        <call method="setContainer">
+          <argument type="service" id="service_container" />
+        </call>
+      </service>
+  </services>
 
 </container>

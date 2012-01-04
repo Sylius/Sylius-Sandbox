@@ -15,5 +15,5 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 class SandboxCoreBundle extends Bundle
 {
-    
+
 }

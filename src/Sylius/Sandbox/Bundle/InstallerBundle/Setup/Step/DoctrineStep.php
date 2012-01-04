@@ -11,10 +11,10 @@ class DoctrineStep extends ContainerAwareStep
         $entityManager = $this->container->get('doctrine')->getEntityManager();
         $metadatas = $entityManager->getMetadataFactory()->getAllMetadata();
         $schemaTool = new \Doctrine\ORM\Tools\SchemaTool($entityManager);
-        
+
         $result = true;
         $schemaTool->createSchema($metadatas);
-            
+
         return $this->container->get('templating')->renderResponse('SandboxInstallerBundle:Setup/Install/Step:doctrine.html.twig', array(
             'result' => $result,
             'step' => $this

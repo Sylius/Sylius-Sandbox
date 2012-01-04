@@ -17,12 +17,12 @@ use Sylius\Bundle\CartBundle\Entity\Item as BaseItem;
 class Item extends BaseItem
 {
     protected $product;
-    
+
     public function getProduct()
     {
         return $this->product;
     }
-    
+
     public function setProduct(ProductInterface $product)
     {
         $this->product = $product;

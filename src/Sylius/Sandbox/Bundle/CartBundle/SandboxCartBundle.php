@@ -18,5 +18,5 @@ class SandboxCartBundle extends Bundle
     public function getParent()
     {
         return 'SyliusCartBundle';
-    }    
+    }
 }
