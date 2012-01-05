@@ -24,9 +24,10 @@ framework:
 
 twig:
     debug:            %kernel.debug%
-    strict_variables: %kernel.debug% 
-    
+    strict_variables: %kernel.debug%
+
 swiftmailer:
+    disable_delivery: true
     transport: %sylius.mailer.transport%
     host:      %sylius.mailer.host%
     username:  %sylius.mailer.user%
@@ -79,7 +80,7 @@ sylius_catalog:
                 frontend:
                     list: SandboxBloggerBundle:Frontend/Category:list.html.twig
                     show: SandboxBloggerBundle:Frontend/Category:show.html.twig
-                    
+
 sylius_newsletter:
     driver: ORM
     classes:
@@ -94,7 +95,7 @@ sylius_newsletter:
                     from: no-reply@example.com
                     subject: "Confirm your subscription on example.com!"
                     template: SandboxNewsletterBundle:Confirmation:email.html.twig
-                    
+
 sylius_cart:
     driver: ORM
     engine: twig
@@ -110,13 +111,13 @@ sylius_cart:
 liip_theme:
         themes: ~
         active_theme: ~
-                            
+
 sylius_theming:
     driver: ORM
     classes:
         model:
             theme: Sylius\Bundle\ThemingBundle\Entity\Theme
-            
+
 sylius_blogger:
     driver: ORM
     classes:
@@ -125,7 +126,7 @@ sylius_blogger:
         form:
             type:
                 post: Sylius\Sandbox\Bundle\BloggerBundle\Form\Type\PostFormType
-                
+
 sylius_sales:
     driver: ORM
     statuses:
@@ -138,13 +139,13 @@ sylius_sales:
         form:
             type:
                 order: Sylius\Sandbox\Bundle\SalesBundle\Form\Type\OrderFormType
-                
+
 sylius_plugins:
     driver: ORM
     classes:
         model:
             plugin: Sylius\Bundle\PluginsBundle\Entity\Plugin
-            
+
 sylius_addressing:
     driver: ORM
     classes:
@@ -153,7 +154,7 @@ sylius_addressing:
         form:
             type:
                 address: Sylius\Sandbox\Bundle\AddressingBundle\Form\Type\AddressFormType
-                
+
 sylius_guard:
     driver: ORM
     classes:
