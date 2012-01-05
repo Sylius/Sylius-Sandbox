@@ -8,4 +8,7 @@ sylius-sandbox/logs/*
 vendor/
 composer.phar
 composer.lock
+Capfile
+sylius-sandbox/config/deploy.rb
+.rsync_cache
 
