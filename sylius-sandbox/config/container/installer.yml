@@ -6,6 +6,3 @@ imports:
 
 framework:
     router:        { resource: "%kernel.root_dir%/config/routing/installer.yml" }
-    
-sylius_cart:
-    freeze: true

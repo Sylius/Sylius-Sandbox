@@ -23,7 +23,7 @@ class InstallerPass implements CompilerPassInterface
 {
     public function process(ContainerBuilder $container)
     {
-        if (!$container->getParameter('sylius.installed')) {
+        if ('installer' == $container->getParameter('kernel.environment')) {
             $container->removeDefinition('sylius_theming.listener.request');
         }
     }

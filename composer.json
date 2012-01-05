@@ -15,6 +15,8 @@
         "sylius/theming-bundle": "*",
         "sylius/blogger-bundle": "*",
         "sylius/sales-bundle": "*",
-        "sylius/plugins-bundle": "*"
+        "sylius/plugins-bundle": "*",
+        "sylius/guard-bundle": "*",
+        "sylius/addressing-bundle": "*"
     }
 }
