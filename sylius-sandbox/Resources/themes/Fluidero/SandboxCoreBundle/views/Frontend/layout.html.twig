@@ -44,10 +44,10 @@
                     <div class="pull-right">
                         <ul class="nav">
                     {% if is_granted('ROLE_SYLIUS_ADMIN') %}
-                        <li><a href="{{ path('sylius_sandbox_core_security_logout') }}">Logout</a></li>
+                        <li><a href="{{ path('sylius_guard_security_logout') }}">Logout</a></li>
                         <li><a href="{{ path('sylius_sandbox_core_backend') }}">Administration &raquo;</a></li>
                     {% else %}
-                        <li><a href="{{ path('sylius_sandbox_core_security_login') }}">Login &raquo;</a></li>
+                        <li><a href="{{ path('sylius_guard_security_login') }}">Login &raquo;</a></li>
                     {% endif %}
                         </ul>
                     </div>
