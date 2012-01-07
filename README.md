@@ -5,23 +5,32 @@ Simple but **end-user and developer friendly** webshop engine built on top of Sy
 
 This is sandbox application that shows some examples of the Sylius bundles usage.
 
+Live demo.
+----------
+
+[Click here](http://sylius.org/sandbox) to view a demo of this application.
+
 Screenshots.
 ------------
 
 The inferface is powered by the coolest [Twitter Bootstrap](http://twitter.github.com/bootstrap).
-Here are some screenshots of application... 
-[1](http://sylius.github.com/screenshots/Sylius-Sandbox/1.png), 
-[2](http://sylius.github.com/screenshots/Sylius-Sandbox/2.png), 
-[3](http://sylius.github.com/screenshots/Sylius-Sandbox/3.png), 
-[4](http://sylius.github.com/screenshots/Sylius-Sandbox/4.png), 
-[5](http://sylius.github.com/screenshots/Sylius-Sandbox/5.png), 
-[6](http://sylius.github.com/screenshots/Sylius-Sandbox/6.png), 
-[7](http://sylius.github.com/screenshots/Sylius-Sandbox/7.png), 
-[8](http://sylius.github.com/screenshots/Sylius-Sandbox/8.png), 
+Here are some screenshots of application...
+[1](http://sylius.github.com/screenshots/Sylius-Sandbox/1.png),
+[2](http://sylius.github.com/screenshots/Sylius-Sandbox/2.png),
+[3](http://sylius.github.com/screenshots/Sylius-Sandbox/3.png),
+[4](http://sylius.github.com/screenshots/Sylius-Sandbox/4.png),
+[5](http://sylius.github.com/screenshots/Sylius-Sandbox/5.png),
+[6](http://sylius.github.com/screenshots/Sylius-Sandbox/6.png),
+[7](http://sylius.github.com/screenshots/Sylius-Sandbox/7.png),
+[8](http://sylius.github.com/screenshots/Sylius-Sandbox/8.png),
 [9](http://sylius.github.com/screenshots/Sylius-Sandbox/9.png).
 
 Quick installation.
 -------------
+
+You can also download newest package with vendors on [Sylius.org](http://sylius.org) and use the web installer.
+
+Vendors can be downloaded manually. To use the installer go to `/path/to/Sylius-Sandbox/public/installer.php`.
 
 Clone this repository with this command.
 
@@ -44,11 +53,6 @@ $ php sylius-sandbox/tools/console doctrine:schema:create
 
 Open up ``/path/to/Sylius-Sandbox/public`` in your browser and play with the application.
 
-Documentation.
---------------
-
-Docs are available [here](https://github.com/Sylius/Sylius-Sandbox/blob/master/doc/index.md).
-
 Bundles used in application.
 ----------------------------
 
@@ -59,6 +63,10 @@ Bundles used in application.
 * [SyliusThemingBundle](http://github.com/Sylius/SyliusThemingBundle),
 * [SyliusBloggerBundle](http://github.com/Sylius/SyliusBloggerBundle),
 * [SyliusSalesBundle](http://github.com/Sylius/SyliusSalesBundle),
+* [SyliusInstallerBundle](http://github.com/Sylius/SyliusInstallerBundle),
+* [SyliusPluginsBundle](http://github.com/Sylius/SyliusPluginsBundle),
+* [SyliusGuardBundle](http://github.com/Sylius/SyliusGuardBundle),
+* [SyliusAddressingBundle](http://github.com/Sylius/SyliusAddressingBundle),
 * [WhiteOctoberPagerfantaBundle](http://github.com/whiteoctober/WhiteOctoberPagerfantaBundle),
 * [LiipThemeBundle](http://github.com/liip/LiipThemeBundle).
 
@@ -74,7 +82,7 @@ If you want to contribute, and develop this application, use the developers mail
 Sylius twitter account.
 -----------------------
 
-If you want to keep up with updates, [follow the official Sylius account on twitter](http://twitter.com/_Sylius) 
+If you want to keep up with updates, [follow the official Sylius account on twitter](http://twitter.com/_Sylius)
 or [follow me](http://twitter.com/pjedrzejewski).
 
 Bug tracking.
