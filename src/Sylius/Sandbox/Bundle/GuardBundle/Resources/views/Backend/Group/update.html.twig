@@ -3,26 +3,22 @@
 {% block content %}
 
 <div class="page-header">
-    <h1>Updating group.</h1>
+    <h1>{{ "header.group.update" | trans({}, 'SyliusGuardBundle') }}</h1>
 </div>
 
 <form action="{{ path('sylius_guard_backend_group_update', {'id': group.id}) }}" method="post">
 
 <fieldset>
-    <div class="formErrors">
         {{ form_errors(form.name) }}
-    </div>
     <div class="clearfix">
-    {{ form_label(form.name, 'Name...') }}
+    {{ form_label(form.name, "label.group.name" | trans({}, 'SyliusGuardBundle')) }}
     <div class="input">
         {{ form_widget(form.name, {'attr': {'class': 'span7'}}) }}
     </div>
     </div>
-    <div class="formErrors">
         {{ form_errors(form.roles) }}
-    </div>
     <div class="clearfix">
-    {{ form_label(form.roles, 'Roles...') }}
+    {{ form_label(form.roles, "label.group.roles" | trans({}, 'SyliusGuardBundle')) }}
     <div class="input">
         {{ form_widget(form.roles, {'attr': {'class': 'span10'}}) }}
     </div>
@@ -32,7 +28,7 @@
 {{ form_rest(form) }}
 
 <div class="actions">
-<input type="submit" value="save changes" class="btn primary large" />
+<input type="submit" value="{{ "save" | trans({}, 'SyliusGuardBundle') }}" class="btn primary large" />
 </div>
 
 </form>

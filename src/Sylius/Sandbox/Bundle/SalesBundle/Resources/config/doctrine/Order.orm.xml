@@ -6,23 +6,22 @@
                   http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
     <entity name="Sylius\Sandbox\Bundle\SalesBundle\Entity\Order" table="sylius_sandbox_sales_order">
-      <id name="id" column="id" type="integer">
+        <id name="id" column="id" type="integer">
             <generator strategy="AUTO" />
         </id>
         <field name="value" column="value" type="decimal" precision="10" scale="2" />
-        <field name="name" column="name" type="string" />
-        <field name="surname" column="surname" type="string" />
-        <field name="city" column="city" type="string" />
-        <field name="street" column="street" type="string" />
-        <field name="postcode" column="postcode" type="string" />
-        <field name="email" column="email" type="string" />
-        <field name="phone" column="phone" type="string" nullable="true" />
-    <many-to-one field="cart" target-entity="Sylius\Sandbox\Bundle\CartBundle\Entity\Cart">
-          <cascade>
+        <many-to-one field="cart" target-entity="Sylius\Sandbox\Bundle\CartBundle\Entity\Cart">
+            <cascade>
                 <cascade-all/>
-          </cascade>
-          <join-column name="cart_id" referenced-column-name="id" />
-      </many-to-one>
+            </cascade>
+            <join-column name="cart_id" referenced-column-name="id" />
+        </many-to-one>
+        <many-to-one field="address" target-entity="Sylius\Sandbox\Bundle\AddressingBundle\Entity\Address">
+            <cascade>
+                <cascade-all/>
+            </cascade>
+            <join-column name="address_id" referenced-column-name="id" />
+        </many-to-one>
     </entity>
 
 </doctrine-mapping>

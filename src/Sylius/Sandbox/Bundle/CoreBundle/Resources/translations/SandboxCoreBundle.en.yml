@@ -1,0 +1,35 @@
+# This file is part of the Sylius sandbox application.
+# (c) Paweł Jędrzejewski
+
+title:
+    backend: Sylius administration.
+    frontend: Sylius store frontend.
+
+confirmation-box:
+    title: Confirm your action.
+    question: Are you sure you want to perform this action?
+    confirm: yes
+    cancel: cancel
+
+menu:
+    dashboard: Dashboard
+    assortment: Manage assortment
+    sales: Sales
+    blog: Blog
+    newsletter: Newsletter
+    addressing: Address book
+    guard: Manage users and groups
+    theming: Themes list
+    plugins: Plugins list
+    frontend: Go to <strong>frontend</strong> &raquo;
+
+sidebar:
+    menu:
+        assortment: Assortment
+        sales: Sales
+        blog: Blog
+        newsletter: Newsletter
+        addressing: Address book
+        guard: Users and groups
+        customization: Customization
+        administration: Administration

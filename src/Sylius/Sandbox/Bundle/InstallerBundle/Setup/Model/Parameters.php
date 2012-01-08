@@ -13,6 +13,8 @@ class Parameters
     public $databaseUser;
     public $databasePassword;
 
+    public $locale = 'en';
+
     public $mailerTransport;
     public $mailerHost = 'localhost';
     public $mailerUser;

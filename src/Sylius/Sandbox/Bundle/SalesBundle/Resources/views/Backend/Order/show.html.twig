@@ -34,31 +34,31 @@
     <tbody>
         <tr>
             <td style="width: 200px;"><strong>name</strong></td>
-            <td>{{ order.name }}</td>
+            <td>{{ order.address.name }}</td>
         </tr>
         <tr>
             <td><strong>surname</strong></td>
-            <td>{{ order.surname }}</td>
+            <td>{{ order.address.surname }}</td>
         </tr>
         <tr>
             <td><strong>street</strong></td>
-            <td>{{ order.street }}</td>
+            <td>{{ order.address.street }}</td>
         </tr>
         <tr>
             <td><strong>city</strong></td>
-            <td>{{ order.city }}</td>
+            <td>{{ order.address.city }}</td>
         </tr>
         <tr>
             <td><strong>postcode</strong></td>
-            <td>{{ order.postcode }}</td>
+            <td>{{ order.address.postcode }}</td>
         </tr>
         <tr>
             <td><strong>e-mail</strong></td>
-            <td><a href="mailto:{{ order.email }}">{{ order.email }}</a></td>
+            <td><a href="mailto:{{ order.address.email }}">{{ order.address.email }}</a></td>
         </tr>
         <tr>
             <td><strong>phone</strong></td>
-            <td>{{ order.phone }}</td>
+            <td>{{ order.address.phone }}</td>
         </tr>
     </tbody>
 </table>

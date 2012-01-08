@@ -3,22 +3,22 @@
 {% block content %}
 
 <div class="page-header">
-    <h1>User list. <small>All users registered in system.</small></h1>
+    <h1>{{ "header.user.list" | trans({}, 'SyliusGuardBundle') | raw }}</h1>
 </div>
 
 <div class="well">
-<a href="{{ path('sylius_guard_backend_user_create') }}" class="btn primary large">create user</a>
-<a href="{{ path('sylius_guard_backend_group_list') }}" class="btn primary large">manage groups</a>
+<a href="{{ path('sylius_guard_backend_user_create') }}" class="btn primary large">{{ "user.create" | trans({}, 'SyliusGuardBundle') | lower }}</a>
+<a href="{{ path('sylius_guard_backend_group_list') }}" class="btn primary large">{{ "group.list" | trans({}, 'SyliusGuardBundle') | lower }}</a>
 </div>
 
 {% if paginator.haveToPaginate() %}
-{{ pagerfanta(paginator, 'twitter_bootstrap', {'prev_message': "previous page...", 'next_message': "next page..."}) }}
+{{ pagerfanta(paginator, 'twitter_bootstrap_translated') }}
 {% endif %}
 
 <ul class="tabs">
-    <li><a href="{{ path('sylius_guard_backend_user_list') }}">show all</a></li>
-    <li><a href="{{ path('sylius_guard_backend_user_list', {'filters': {'enabled': [true, '=']}}) }}">enabled users</a></li>
-    <li><a href="{{ path('sylius_guard_backend_user_list', {'filters': {'enabled': [false, '=']}}) }}"><span class="label important">&nbsp;!&nbsp;</span> disabled users</a></li>
+    <li><a href="{{ path('sylius_guard_backend_user_list') }}">{{ "filter.user.all" | trans({}, 'SyliusGuardBundle') }}</a></li>
+    <li><a href="{{ path('sylius_guard_backend_user_list', {'filters': {'enabled': [true, '=']}}) }}">{{ "filter.user.enabled" | trans({}, 'SyliusGuardBundle') }}</a></li>
+    <li><a href="{{ path('sylius_guard_backend_user_list', {'filters': {'enabled': [false, '=']}}) }}"><span class="label important">&nbsp;!&nbsp;</span> {{ "filter.user.disabled" | trans({}, 'SyliusGuardBundle') }}</a></li>
 </ul>
 
 {% if users %}
@@ -26,9 +26,8 @@
     <thead>
         <tr>
             <th><a href="{{ path('sylius_guard_backend_user_list', {'sort': 'id', 'order': sorter.order, 'filters': filter.current}) }}">#id</a></th>
-            <th><a href="{{ path('sylius_guard_backend_user_list', {'sort': 'email', 'order': sorter.order, 'filters': filter.current}) }}">e-mail</a></th>
-            <th><a href="{{ path('sylius_guard_backend_user_list', {'sort': 'enabled', 'order': sorter.order, 'filters': filter.current}) }}">enabled</a></th>
-            <th><a href="{{ path('sylius_guard_backend_user_list', {'sort': 'createdAt', 'order': sorter.order, 'filters': filter.current}) }}">registration date</a></th>
+            <th><a href="{{ path('sylius_guard_backend_user_list', {'sort': 'email', 'order': sorter.order, 'filters': filter.current}) }}">{{ "label.user.email" | trans({}, 'SyliusGuardBundle') | lower }}</a></th>
+            <th><a href="{{ path('sylius_guard_backend_user_list', {'sort': 'enabled', 'order': sorter.order, 'filters': filter.current}) }}">{{ "label.user.enabled" | trans({}, 'SyliusGuardBundle') | lower }}</a></th>
             <th></th>
         </tr>
     </thead>
@@ -39,21 +38,16 @@
             <td><a href="mailto:{{ user.email }}">{{ user.email }}</a></td>
             <td>
                 {% if user.enabled %}
-                    <span class="label success">yes</span>
+                    <span class="label success">+</span>
                 {% else %}
-                    <span class="label important">no</span>
+                    <span class="label important">&nbsp;-&nbsp;</span>
                 {% endif %}
             </td>
-            <td>{{ user.createdAt|date('Y-m-d H:i:s') }}</td>
             <td>
                 <div class="pull-right">
-                <a href="{{ path('sylius_guard_backend_user_show', {'id': user.id}) }}" class="btn">details</a>
-                <a href="{{ path('sylius_guard_backend_user_update', {'id': user.id}) }}" class="btn">update</a>
-                <a href="{{ path('sylius_guard_backend_user_delete', {'id': user.id}) }}" class="btn danger confirmer"
-                    data-controls-modal="confirmer-modal"
-                    data-backdrop="static"
-                    data-confirmer-question="Are you sure you want to delete <strong><a href='mailto:{{ user.username }}'>{{ user.username }}</a></strong>?"
-                >delete</a>
+                <a href="{{ path('sylius_guard_backend_user_show', {'id': user.id}) }}" class="btn">{{ "show" | trans({}, 'SyliusGuardBundle') }}</a>
+                <a href="{{ path('sylius_guard_backend_user_update', {'id': user.id}) }}" class="btn">{{ "update" | trans({}, 'SyliusGuardBundle') }}</a>
+                <a href="{{ path('sylius_guard_backend_user_delete', {'id': user.id}) }}" class="btn danger">{{ "delete" | trans({}, 'SyliusGuardBundle') }}</a>
                 </div>
             </td>
         </tr>
@@ -67,7 +61,7 @@
 {% endif %}
 
 {% if paginator.haveToPaginate() %}
-{{ pagerfanta(paginator, 'twitter_bootstrap', {'prev_message': "previous page...", 'next_message': "next page..."}) }}
+{{ pagerfanta(paginator, 'twitter_bootstrap_translated') }}
 {% endif %}
 
 {% endblock %}

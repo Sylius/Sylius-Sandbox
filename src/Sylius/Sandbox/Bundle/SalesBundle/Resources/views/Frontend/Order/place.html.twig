@@ -10,66 +10,66 @@
 
 <fieldset>
     <div class="formErrors">
-        {{ form_errors(form.name) }}
+        {{ form_errors(form.address.name) }}
     </div>
     <div class="clearfix">
     <label for="sylius_order_name">Name...</label>
     <div class="input">
-        {{ form_widget(form.name, {'attr': {'class': 'span6'}}) }}
+        {{ form_widget(form.address.name, {'attr': {'class': 'span6'}}) }}
     </div>
     </div>
     <div class="formErrors">
-        {{ form_errors(form.surname) }}
+        {{ form_errors(form.address.surname) }}
     </div>
     <div class="clearfix">
     <label for="sylius_order_surname">Surname...</label>
     <div class="input">
-        {{ form_widget(form.surname, {'attr': {'class': 'span6'}}) }}
+        {{ form_widget(form.address.surname, {'attr': {'class': 'span6'}}) }}
     </div>
     </div>
     <div class="formErrors">
-        {{ form_errors(form.city) }}
+        {{ form_errors(form.address.city) }}
     </div>
     <div class="clearfix">
     <label for="sylius_order_name">City...</label>
     <div class="input">
-        {{ form_widget(form.city, {'attr': {'class': 'span5'}}) }}
+        {{ form_widget(form.address.city, {'attr': {'class': 'span5'}}) }}
     </div>
     </div>
     <div class="formErrors">
-        {{ form_errors(form.street) }}
+        {{ form_errors(form.address.street) }}
     </div>
     <div class="clearfix">
     <label for="sylius_order_street">Street...</label>
     <div class="input">
-        {{ form_widget(form.street, {'attr': {'class': 'span5'}}) }}
+        {{ form_widget(form.address.street, {'attr': {'class': 'span5'}}) }}
     </div>
     </div>
     <div class="formErrors">
-        {{ form_errors(form.postcode) }}
+        {{ form_errors(form.address.postcode) }}
     </div>
     <div class="clearfix">
     <label for="sylius_order_postcode">Postcode...</label>
     <div class="input">
-        {{ form_widget(form.postcode, {'attr': {'class': 'span3'}}) }}
+        {{ form_widget(form.address.postcode, {'attr': {'class': 'span3'}}) }}
     </div>
     </div>
     <div class="formErrors">
-        {{ form_errors(form.email) }}
+        {{ form_errors(form.address.email) }}
     </div>
     <div class="clearfix">
     <label for="sylius_order_email">Email...</label>
     <div class="input">
-        {{ form_widget(form.email, {'attr': {'class': 'span5'}}) }}
+        {{ form_widget(form.address.email, {'attr': {'class': 'span5'}}) }}
     </div>
     </div>
     <div class="formErrors">
-        {{ form_errors(form.phone) }}
+        {{ form_errors(form.address.phone) }}
     </div>
     <div class="clearfix">
     <label for="sylius_order_phone">Phone...</label>
     <div class="input">
-        {{ form_widget(form.phone, {'attr': {'class': 'span5'}}) }}
+        {{ form_widget(form.address.phone, {'attr': {'class': 'span5'}}) }}
     </div>
     </div>
 </fieldset>

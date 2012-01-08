@@ -3,38 +3,33 @@
 {% block content %}
 
 <div class="page-header">
-    <h1>User details</h1>
+    <h1>{{ "header.user.show" | trans({}, 'SyliusGuardBundle') }}</h1>
 </div>
 
 <div class="well">
-        <a href="{{ path('sylius_guard_backend_user_update', {'id': user.id}) }}" class="btn">update</a>
-        <a href="{{ path('sylius_guard_backend_user_delete', {'id': user.id}) }}" class="btn danger confirmer"
-            data-controls-modal="confirmer-modal"
-            data-backdrop="static"
-            data-confirmer-question="Are you sure you want do delete user <strong><a href='mailto:{{ user.username }}'>{{ user.username }}</a></strong>?"
-        >delete</a>
+    <a href="{{ path('sylius_guard_backend_user_update', {'id': user.id}) }}" class="btn">{{ "update" | trans({}, 'SyliusGuardBundle') }}</a>
+    <a href="{{ path('sylius_guard_backend_user_delete', {'id': user.id}) }}" class="btn danger">{{ "delete" | trans({}, 'SyliusGuardBundle') }}</a>
 </div>
 
-<h2>User data.</h2>
 <table>
     <thead>
         <tr>
             <th>#id</th>
-            <th>created at</th>
-            <th>enabled</th>
-            <th>e-mail</th>
-            <th>groups</th>
+            <th>{{ "label.user.username" | trans({}, 'SyliusGuardBundle') | lower }}</th>
+            <th>{{ "label.user.enabled" | trans({}, 'SyliusGuardBundle') | lower }}</th>
+            <th>{{ "label.user.email" | trans({}, 'SyliusGuardBundle') | lower }}</th>
+            <th>{{ "label.user.groups" | trans({}, 'SyliusGuardBundle') | lower }}</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td>{{ user.id }}</td>
-            <td>{{ user.createdAt|date('Y-m-d H:i:s') }}</td>
+            <td>{{ user.username }}</td>
             <td>
             {% if user.enabled %}
-            <span class="label success">yes</span>
+            <span class="label success">+</span>
             {% else %}
-            <span class="label important">nie</span>
+            <span class="label important">&nbsp;-&nbsp;</span>
             {% endif %}</td>
             <td><a href="mailto:{{ user.email }}">{{ user.email }}</a></td>
             <td>
@@ -42,7 +37,7 @@
                 {% for group in user.groups %}
                     <li>{{ group.name }}</li>
                 {% else %}
-                    <li>No user groups...</li>
+                    <li>{{ "list.group.empty" | trans({}, 'SyliusGuardBundle') | lower }}</li>
                 {% endfor %}
                 </ul>
             </td>

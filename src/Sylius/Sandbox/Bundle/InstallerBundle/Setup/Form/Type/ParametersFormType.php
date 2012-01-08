@@ -28,6 +28,11 @@ class ParametersFormType extends AbstractType
             ->add('databaseUser')
             ->add('databasePassword', 'password')
 
+            ->add('locale', 'choice', array('choices' => array(
+                'en' => 'English',
+                'pl' => 'Polski'
+            )))
+
             ->add('mailerTransport', 'choice', array(
                 'choices' => array(
                     'smtp' => 'SMTP',

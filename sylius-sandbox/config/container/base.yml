@@ -168,12 +168,8 @@ sylius_guard:
             frontend:
                 user: Sylius\Sandbox\Bundle\GuardBundle\Controller\Frontend\UserController
                 security: Sylius\Sandbox\Bundle\GuardBundle\Controller\Frontend\SecurityController
-    extensions:
-        confirmation:
-            enabled: true
-            options:
-                email:
-                    from: foo@bar.com
-                    subject: "Sylius sandbox application account confirmation."
-                    template: SandboxGuardBundle:Confirmation:email.html.twig
+    confirmation:
+        email:
+            from: foo@bar.com
+            template: SandboxGuardBundle:Confirmation:email.html.twig
 

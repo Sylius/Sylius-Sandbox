@@ -24,6 +24,12 @@
     {{ form_widget(form.secret, {'attr': {'placeholder': 'your sercret phrase...', 'class': 'span5', 'style': 'text-align: center;'}}) }} <a class="btn primary" id="generate-secret-btn">generate</a>
     </div>
     </div>
+    <div class="clearfix">
+    {{ form_label(form.locale, 'Choose locale...') }}
+    <div class="input">
+    {{ form_widget(form.locale, {'empty_value': 'choose locale...'}) }}
+    </div>
+    </div>
 </fieldset>
 
 <h3>Database configuration.</h3>

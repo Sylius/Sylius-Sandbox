@@ -1,13 +1,13 @@
 <?php
 
 /*
- * This file is part of the Sandbox.
- *
- * (c) Paweł Jędrzejewski
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
+* This file is part of the Sylius sandbox application.
+*
+* (c) Paweł Jędrzejewski
+*
+* For the full copyright and license information, please view the LICENSE
+* file that was distributed with this source code.
+*/
 
 namespace Sylius\Sandbox\Bundle\SalesBundle\Form\Type;
 
@@ -22,13 +22,7 @@ class OrderFormType extends BaseOrderFormType
         parent::buildForm($builder, $options);
 
         $builder
-            ->add('name')
-            ->add('surname')
-            ->add('city')
-            ->add('street')
-            ->add('postcode')
-            ->add('email', 'email')
-            ->add('phone')
+            ->add('address', 'sylius_addressing_address')
         ;
     }
 }

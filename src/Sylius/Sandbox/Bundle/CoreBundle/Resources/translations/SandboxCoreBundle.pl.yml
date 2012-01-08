@@ -1,0 +1,35 @@
+# This file is part of the Sylius sandbox application.
+# (c) Paweł Jędrzejewski
+
+title:
+    backend: Panel administracyjny Sylius.
+    frontend: Strona główna sklepu Sylius.
+
+confirmation-box:
+    title: Potwierdź swoją akcję.
+    question: Czy na pewno chcesz wykonać to polecenie?
+    confirm: tak
+    cancel: anuluj
+
+menu:
+    dashboard: Kokpit
+    assortment: Zarządzaj asortymentem
+    sales: Sprzedaż
+    blog: Blog
+    newsletter: Newsletter
+    addressing: Książka adresowa
+    guard: Zarządzaj użytkownikami
+    theming: Motywy
+    plugins: Pluginy
+    frontend: Przejdź do sklepu &raquo;
+
+sidebar:
+    menu:
+        assortment: Asortyment
+        sales: Sprzedaż
+        blog: Blog
+        newsletter: Newsletter
+        addressing: Książka adresowa
+        guard: Użytkownicy i grupy
+        customization: Motywy i pluginy
+        administration: Administracja
