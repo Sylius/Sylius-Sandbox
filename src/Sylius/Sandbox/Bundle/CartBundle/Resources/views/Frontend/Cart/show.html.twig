@@ -30,6 +30,8 @@
 </div>
 {% endfor %}
 
+{{ form_rest(form) }}
+
 <input type="submit" class="btn primary large" value="save">
 <a href="{{ path('sylius_sales_order_place') }}" class="btn success large">order it!</a>
 <div class="pull-right">
