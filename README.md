@@ -45,11 +45,7 @@ Run the vendors script.
 $ php ./tools/vendors install
 ```
 
-Generate database schema.
-
-``` bash
-$ php sylius-sandbox/tools/console doctrine:schema:create
-```
+Open up ``/path/to/Sylius-Sandbox/public/installer.php`` and follow steps for installation
 
 Open up ``/path/to/Sylius-Sandbox/public`` in your browser and play with the application.
 
