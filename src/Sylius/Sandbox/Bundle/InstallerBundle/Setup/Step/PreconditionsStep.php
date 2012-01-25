@@ -38,29 +38,6 @@ class PreconditionsStep extends ContainerAwareStep
             $issues[] = 'Install and enable a <strong>PHP accelerator</strong> like APC (highly recommended).';
         }
 
-        if (!class_exists('Locale')) {
-            $issues[] = 'Install and enable the <strong>intl</strong> extension.';
-        } else {
-            $version = '';
-
-            if (defined('INTL_ICU_VERSION')) {
-                $version =  INTL_ICU_VERSION;
-            } else {
-                $reflector = new \ReflectionExtension('intl');
-
-                ob_start();
-                $reflector->info();
-                $output = strip_tags(ob_get_clean());
-
-                preg_match('/^ICU version (.*)$/m', $output, $matches);
-                $version = $matches[1];
-            }
-
-            if (!version_compare($version, '4.0', '>=')) {
-                $issues[] = 'Upgrade your <strong>intl</strong> extension with a newer ICU version.';
-            }
-        }
-
         if (ini_get('short_open_tag')) {
             $phpini = true;
             $issues[] = 'Set <strong>short_open_tag</strong> to <strong>off</strong> in php.ini.';
