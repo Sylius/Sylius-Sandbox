@@ -26,7 +26,7 @@ class ParametersFormType extends AbstractType
             ->add('databasePort', 'text', array('required' => false))
             ->add('databaseName')
             ->add('databaseUser')
-            ->add('databasePassword', 'password')
+            ->add('databasePassword', 'password', array('required' => false))
 
             ->add('locale', 'choice', array('choices' => array(
                 'en' => 'English',
@@ -38,8 +38,8 @@ class ParametersFormType extends AbstractType
                     'smtp' => 'SMTP',
             )))
             ->add('mailerHost')
-            ->add('mailerUser')
-            ->add('mailerPassword', 'password')
+            ->add('mailerUser', 'text', array('required' => false))
+            ->add('mailerPassword', 'password', array('required' => false))
         ;
     }
 
