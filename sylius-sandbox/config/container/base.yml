@@ -27,7 +27,7 @@ twig:
     strict_variables: %kernel.debug%
 
 swiftmailer:
-    disable_delivery: true
+    disable_delivery: false
     transport: %sylius.mailer.transport%
     host:      %sylius.mailer.host%
     username:  %sylius.mailer.user%

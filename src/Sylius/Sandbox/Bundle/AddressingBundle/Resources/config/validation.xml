@@ -64,10 +64,6 @@ http://symfony.com/schema/dic/services/constraint-mapping-1.0.xsd">
             <constraint name="NotBlank">
                 <option name="message">Please enter postcode</option>
             </constraint>
-            <constraint name="Regex">
-              <option name="pattern">/^[0-9]{2}\-[0-9]{3}$/</option>
-                <option name="message">Please enter valid XX-XXX postcode</option>
-            </constraint>
         </property>
 
         <property name="city">

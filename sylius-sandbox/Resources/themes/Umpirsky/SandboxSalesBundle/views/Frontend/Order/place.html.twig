@@ -1,0 +1,85 @@
+{% extends 'SandboxCoreBundle:Frontend:layout.html.twig' %}
+
+{% block content %}
+
+<div class="page-header">
+<h1>Unesite Vaše podatke. <small>Hvala što koristite naše usluge.</small></h1>
+</div>
+
+<form method="post" action="{{ path('sylius_sales_order_place') }}">
+
+<fieldset>
+    <div class="formErrors">
+        {{ form_errors(form.address.name) }}
+    </div>
+    <div class="clearfix">
+    <label for="sylius_order_name">Ime:</label>
+    <div class="input">
+        {{ form_widget(form.address.name, {'attr': {'class': 'span6'}}) }}
+    </div>
+    </div>
+    <div class="formErrors">
+        {{ form_errors(form.address.surname) }}
+    </div>
+    <div class="clearfix">
+    <label for="sylius_order_surname">Prezime:</label>
+    <div class="input">
+        {{ form_widget(form.address.surname, {'attr': {'class': 'span6'}}) }}
+    </div>
+    </div>
+    <div class="formErrors">
+        {{ form_errors(form.address.city) }}
+    </div>
+    <div class="clearfix">
+    <label for="sylius_order_name">Grad:</label>
+    <div class="input">
+        {{ form_widget(form.address.city, {'attr': {'class': 'span5'}}) }}
+    </div>
+    </div>
+    <div class="formErrors">
+        {{ form_errors(form.address.street) }}
+    </div>
+    <div class="clearfix">
+    <label for="sylius_order_street">Ulica:</label>
+    <div class="input">
+        {{ form_widget(form.address.street, {'attr': {'class': 'span5'}}) }}
+    </div>
+    </div>
+    <div class="formErrors">
+        {{ form_errors(form.address.postcode) }}
+    </div>
+    <div class="clearfix">
+    <label for="sylius_order_postcode">Poštanski broj:</label>
+    <div class="input">
+        {{ form_widget(form.address.postcode, {'attr': {'class': 'span3'}}) }}
+    </div>
+    </div>
+    <div class="formErrors">
+        {{ form_errors(form.address.email) }}
+    </div>
+    <div class="clearfix">
+    <label for="sylius_order_email">Meil:</label>
+    <div class="input">
+        {{ form_widget(form.address.email, {'attr': {'class': 'span5'}}) }}
+    </div>
+    </div>
+    <div class="formErrors">
+        {{ form_errors(form.address.phone) }}
+    </div>
+    <div class="clearfix">
+    <label for="sylius_order_phone">Telefon:</label>
+    <div class="input">
+        {{ form_widget(form.address.phone, {'attr': {'class': 'span5'}}) }}
+    </div>
+    </div>
+</fieldset>
+
+{{ form_rest(form) }}
+
+<div class="actions">
+<input type="submit" class="btn large primary" value="naruči" />
+</div>
+
+</form>
+
+{% endblock %}

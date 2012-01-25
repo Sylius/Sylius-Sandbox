@@ -15,7 +15,7 @@
     </div>
     <div class="span4">
         <h3>Moja korpa.</h3>
-        <strong>{{ sylius_cart_get().totalItems }}</strong> items, <strong>{{ sylius_cart_get().value }}</strong> &euro;...
+        <strong>{{ sylius_cart_get().totalItems }}</strong> kom, <strong>{{ sylius_cart_get().value }}</strong> &euro;
         <a href="{{ path('sylius_cart_show') }}" class="btn primary pull-right">Moja korpa &raquo;</a>
         <br /> <br /> <br />
         {% render 'sylius_catalog.controller.frontend.category:listAction' with {'catalogAlias': 'assortment'} %}
