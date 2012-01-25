@@ -1,0 +1,18 @@
+<div class="well">
+    <h2>{{ product.name }}</h2>
+    {{ sylius_assortment_cut_text(product.description, 200, '...') }}
+
+    <br /> <br />
+    <code>Kreiran {{ product.createdAt|date('Y-m-d H:i:s') }}.</code>
+
+    <form action="{{ path('sylius_cart_item_add') }}" method="post">
+    <input type="hidden" name="sylius_cart_item[quantity]" value="1" />
+    <input type="hidden" name="sylius_cart_item[product]" value="{{ product.id }}" />
+
+    <div class="pull-right">
+    <strong>Price...</strong> {{ product.price }} &euro;
+    <input type="submit" class="btn success" value="dodaj u korpu">
+    <a href="{{ path('sylius_assortment_product_show', {'id': product.id, 'slug': product.slug}) }}" class="btn">više informacija...</a>
+    </div>
+    </form>
+</div>

@@ -1,0 +1,26 @@
+{% extends 'SandboxCoreBundle:Frontend:layout.html.twig' %}
+
+{% block content %}
+
+<div class="page-header">
+<h1>
+{{ product.name }} <small> detalji.</small>
+<code>Kreiran {{ product.createdAt|date('Y-m-d H:i:s') }}.</code>
+</h1>
+</div>
+
+{{ product.description|raw }}
+
+<form action="{{ path('sylius_cart_item_add') }}" method="post">
+    <input type="hidden" name="sylius_cart_item[product]" value="{{ product.id }}" />
+
+    <div class="pull-right">
+    <strong>Cena</strong> {{ product.price }} &euro;
+    <input type="text" name="sylius_cart_item[quantity]" value="1" class="span2" style="text-align: center;" />
+    <input type="submit" class="btn large success" value="dodaj u korpu">
+    </div>
+</form>
+
+<br />
+
+{% endblock %}

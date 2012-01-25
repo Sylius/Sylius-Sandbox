@@ -1,0 +1,49 @@
+{% extends 'SandboxCoreBundle:Frontend:layout.html.twig' %}
+
+{% block content %}
+
+<div class="page-header">
+<h1>Vaša korpa. <small>Šta imamo ovde, hm?</small></h1>
+</div>
+
+{% if not cart.empty %}
+<div class="alert-message info">
+<strong>{{ sylius_cart_get().totalItems }}</strong> kom, <strong>{{ sylius_cart_get().value }}</strong> &euro;...
+</div>
+
+<form method="post" action="{{ path('sylius_cart_update') }}">
+
+{% for item in cart.items %}
+<div class="well">
+    <h3>{{ item.product.name }}</h3>
+
+    {{ sylius_assortment_cut_text(item.product.description, 150, '...', true, true) }}
+
+    {{ form_widget(form.items[loop.index0].product, { 'attr': {'value': item.product.id}}) }}
+
+    <div class="pull-right">
+    Upiši <strong>količinu</strong> {{ form_widget(form.items[loop.index0].quantity, {'attr': {'class': 'span2', 'style': 'text-align: center;'}}) }}
+     ili
+    <a href="{{ path('sylius_cart_item_remove', {'id': item.id}) }}" class="btn danger">ukloni</a>
+    </div>
+    <br /> <br />
+</div>
+{% endfor %}
+
+{{ form_rest(form) }}
+
+<input type="submit" class="btn primary large" value="sačuvaj">
+<a href="{{ path('sylius_sales_order_place') }}" class="btn success large">naruči!</a>
+<div class="pull-right">
+<a href="{{ path('sylius_cart_clear') }}" class="btn large danger">isprazni korpu</a>
+</div>
+
+</form>
+
+{% else %}
+<div class="alert-message info">
+<p><strong>Pažnja.</strong> Vaša korpa je prazna.</p>
+</div>
+{% endif %}
+
+{% endblock %}
