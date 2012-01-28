@@ -1,0 +1,8 @@
+<ul>
+    {% for category in category.children %}
+        <li><a href="{{ path('sylius_catalog_category_show', {'catalogAlias': catalog.alias, 'id': category.id, 'slug': category.slug}) }}">{{ category.name }}</a></li>
+        {% if category.hasChildren() %}
+            {% include 'SandboxAssortmentBundle:Frontend/Category:tree.html.twig' %}
+        {% endif %}
+    {% endfor %}
+</ul>

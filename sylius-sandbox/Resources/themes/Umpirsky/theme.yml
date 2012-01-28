@@ -1,0 +1,9 @@
+#
+# Fluidero theme for Sylius sandbox application.
+#
+
+theme:
+    name: Umpirsky!
+    version: 0.1
+    description: |
+        Umpirsky theme.

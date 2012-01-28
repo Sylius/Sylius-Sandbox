@@ -1,0 +1,11 @@
+<h3>Vesti.</h3>
+
+{% if categories %}
+<ul>
+    {% for category in categories %}
+        <li><a href="{{ path('sylius_catalog_category_show', {'catalogAlias': catalog.alias, 'id': category.id, 'slug': category.slug}) }}">{{ category.name }}</a></li>
+    {% endfor %}
+</ul>
+{% else %}
+    Nema kategorija.
+{% endif %}

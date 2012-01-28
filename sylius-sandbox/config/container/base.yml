@@ -27,9 +27,11 @@ twig:
     strict_variables: %kernel.debug%
 
 swiftmailer:
-    disable_delivery: true
+    disable_delivery: false
     transport: %sylius.mailer.transport%
     host:      %sylius.mailer.host%
+    port:      %sylius.mailer.port%
+    auth_mode: %sylius.mailer.auth_mode%
     username:  %sylius.mailer.user%
     password:  %sylius.mailer.password%
 
@@ -93,7 +95,7 @@ sylius_newsletter:
             options:
                 email:
                     from: no-reply@example.com
-                    subject: "Confirm your subscription on example.com!"
+                    subject: "Potvrdite prijavu na ducan.umpirsky.com"
                     template: SandboxNewsletterBundle:Confirmation:email.html.twig
 
 sylius_cart:

@@ -2,6 +2,7 @@ public/bundles/
 sylius-sandbox/phpunit.xml
 sylius-sandbox/cache/*
 sylius-sandbox/logs/*
+sylius-sandbox/config/container/parameters.yml
 .buildpath
 .project
 .settings/
@@ -11,4 +12,3 @@ composer.lock
 Capfile
 sylius-sandbox/config/deploy.rb
 .rsync_cache
-

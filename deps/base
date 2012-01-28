@@ -60,49 +60,49 @@
     target=bundles/Liip/ThemeBundle
 
 [SyliusAssortmentBundle]
-    git=http://github.com/Sylius/SyliusAssortmentBundle.git
+    git=git@github.com:umpirsky/SyliusAssortmentBundle.git
     target=bundles/Sylius/Bundle/AssortmentBundle
 
 [SyliusCatalogBundle]
-    git=http://github.com/Sylius/SyliusCatalogBundle.git
+    git=git@github.com:umpirsky/SyliusCatalogBundle.git
     target=bundles/Sylius/Bundle/CatalogBundle
 
 [SyliusNewsletterBundle]
-    git=http://github.com/Sylius/SyliusNewsletterBundle.git
+    git=git@github.com:umpirsky/SyliusNewsletterBundle.git
     target=bundles/Sylius/Bundle/NewsletterBundle
 
 [SyliusCartBundle]
-    git=http://github.com/Sylius/SyliusCartBundle.git
+    git=git@github.com:umpirsky/SyliusCartBundle.git
     target=bundles/Sylius/Bundle/CartBundle
 
 [SyliusThemingBundle]
-    git=http://github.com/Sylius/SyliusThemingBundle.git
+    git=git@github.com:umpirsky/SyliusThemingBundle.git
     target=bundles/Sylius/Bundle/ThemingBundle
 
 [SyliusBloggerBundle]
-    git=http://github.com/Sylius/SyliusBloggerBundle.git
+    git=git@github.com:umpirsky/SyliusBloggerBundle.git
     target=bundles/Sylius/Bundle/BloggerBundle
 
 [SyliusSalesBundle]
-    git=http://github.com/Sylius/SyliusSalesBundle.git
+    git=git@github.com:umpirsky/SyliusSalesBundle.git
     target=bundles/Sylius/Bundle/SalesBundle
 
 [SyliusPluginsBundle]
-    git=http://github.com/Sylius/SyliusPluginsBundle.git
+    git=git@github.com:umpirsky/SyliusPluginsBundle.git
     target=bundles/Sylius/Bundle/PluginsBundle
 
 [SyliusInstallerBundle]
-    git=http://github.com/Sylius/SyliusInstallerBundle.git
+    git=git@github.com:umpirsky/SyliusInstallerBundle.git
     target=bundles/Sylius/Bundle/InstallerBundle
 
 [SyliusAddressingBundle]
-    git=http://github.com/Sylius/SyliusAddressingBundle.git
+    git=git@github.com:umpirsky/SyliusAddressingBundle.git
     target=bundles/Sylius/Bundle/AddressingBundle
 
 [SyliusGuardBundle]
-    git=http://github.com/Sylius/SyliusGuardBundle.git
+    git=git@github.com:umpirsky/SyliusGuardBundle.git
     target=bundles/Sylius/Bundle/GuardBundle
 
 [SyliusPricingBundle]
-    git=http://github.com/Sylius/SyliusPricingBundle.git
+    git=git@github.com:umpirsky/SyliusPricingBundle.git
     target=bundles/Sylius/Bundle/PricingBundle

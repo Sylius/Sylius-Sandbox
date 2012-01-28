@@ -1,0 +1,48 @@
+{% extends 'SandboxCoreBundle:Frontend:layout.html.twig' %}
+
+{% block header %}{% endblock %}
+
+{% block content %}
+
+<div class="page-header">
+  <h1>Prijavljivanje. <small>Naš mali dućan :)</small></h1>
+</div>
+
+{% if errorMessage %}
+<div class="formErrors">
+    <ul>
+        <li>{{ errorMessage }}...</li>
+    </ul>
+</div>
+{% endif %}
+
+<form action="{{ path("sylius_guard_security_check") }}" method="post">
+
+<fieldset>
+    <div class="clearfix">
+    <label for="username">Korisničko ime:</label>
+    <div class="input">
+        <input type="text" id="username" name="_username" value="{{ lastUsername }}" />
+    </div>
+    </div>
+    <div class="clearfix">
+    <label for="username">Lozinka:</label>
+    <div class="input">
+        <input type="password" id="password" name="_password" />
+    </div>
+    </div>
+    <div class="clearfix">
+    <label for="username">Zapamti me?</label>
+    <div class="input">
+        <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+    </div>
+    </div>
+</fieldset>
+
+    <div class="actions">
+        <input type="submit" class="btn primary large" name="login" value="Prijavljivanje" />
+    </div>
+
+</form>
+
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'SandboxCoreBundle:Frontend:layout.html.twig' %}
+
+{% block content %}
+
+<div id="main-in">
+
+<div class="content">
+
+<h1>Promena lozinke.</h1>
+
+<form action="{{ path("sylius_guard_password_change") }}" method="post">
+
+    {{ form_widget(form) }}
+
+    <br /><input type="submit" name="login" value="promenite lozinku" />
+
+</form>
+
+</div>
+
+</div>
+
+{% endblock %}
