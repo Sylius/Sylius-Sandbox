@@ -9,13 +9,6 @@
 <form action="{{ path('sylius_guard_backend_user_create') }}" method="post">
 
 <fieldset>
-        {{ form_errors(form.username) }}
-    <div class="clearfix">
-    {{ form_label(form.email, "label.user.username" | trans({}, 'SyliusGuardBundle')) }}
-    <div class="input">
-        {{ form_widget(form.username, {'attr': {'class': 'span5'}}) }}
-    </div>
-    </div>
         {{ form_errors(form.plainPassword) }}
     <div class="clearfix">
     {{ form_label(form.plainPassword, "label.user.password" | trans({}, 'SyliusGuardBundle')) }}
