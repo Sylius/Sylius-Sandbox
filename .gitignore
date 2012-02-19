@@ -1,14 +1,12 @@
 public/bundles/
+public/assets/compiled/
+
 sylius-sandbox/phpunit.xml
 sylius-sandbox/cache/*
 sylius-sandbox/logs/*
-.buildpath
-.project
-.settings/
+
 vendor/
+
 composer.phar
 composer.lock
-Capfile
-sylius-sandbox/config/deploy.rb
-.rsync_cache
 

@@ -129,13 +129,10 @@ sylius_blogger:
 
 sylius_sales:
     driver: ORM
-    statuses:
-        - "status.0"
-        - "status.1"
-        - "status.2"
     classes:
         model:
             order: Sylius\Sandbox\Bundle\SalesBundle\Entity\Order
+            status: Sylius\Sandbox\Bundle\SalesBundle\Entity\Status
         form:
             type:
                 order: Sylius\Sandbox\Bundle\SalesBundle\Form\Type\OrderFormType

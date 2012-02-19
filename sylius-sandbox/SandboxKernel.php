@@ -37,9 +37,11 @@ class SandboxKernel extends Kernel
             new \Symfony\Bundle\MonologBundle\MonologBundle(),
             new \Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
             new \Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
-            new \WhiteOctober\PagerfantaBundle\WhiteOctoberPagerfantaBundle(),
+            new \Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
+            new \Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
             new \Liip\ThemeBundle\LiipThemeBundle(),
             new \Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
+            new \WhiteOctober\PagerfantaBundle\WhiteOctoberPagerfantaBundle(),
 
             /*
              * Sylius bundles.

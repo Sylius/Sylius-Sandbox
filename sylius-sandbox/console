@@ -1,0 +1,28 @@
+#!/usr/bin/env php
+
+<?php
+
+/*
+ * This file is part of the Sylius sandbox application.
+ *
+ * (c) Paweł Jędrzejewski
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+set_time_limit(0);
+
+require_once __DIR__.'/autoload.php';
+require_once __DIR__.'/SandboxKernel.php';
+
+use Symfony\Bundle\FrameworkBundle\Console\Application;
+use Symfony\Component\Console\Input\ArgvInput;
+
+$input = new ArgvInput();
+$env = $input->getParameterOption(array('--env', '-e'), getenv('SYMFONY_ENV') ?: 'development');
+$debug = !$input->hasParameterOption(array('--no-debug', ''));
+
+$kernel = new Sylius\SandboxKernel($env, $debug);
+$application = new Application($kernel);
+$application->run();
