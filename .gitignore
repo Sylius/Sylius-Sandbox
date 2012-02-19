@@ -1,6 +1,7 @@
 public/bundles/
 public/assets/compiled/
 
+sylius-sandbox/config/container/parameters.yml
 sylius-sandbox/phpunit.xml
 sylius-sandbox/cache/*
 sylius-sandbox/logs/*
