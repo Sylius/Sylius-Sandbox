@@ -12,6 +12,9 @@ title:
 confirmer:
     header: Confirm your action.
     question: Are you sure you want to perform this action?
+    q:
+        address:
+            delete: Do you really want to delete this address?
 
 alert:
     heading:

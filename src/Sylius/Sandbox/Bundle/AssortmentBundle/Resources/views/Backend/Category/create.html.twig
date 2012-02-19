@@ -6,34 +6,24 @@
     <h1>Creating category.<small> Use the form below to create a new assortment category...</small></h1>
 </div>
 
-<form action="{{ path('sylius_categorizer_backend_category_create', {'alias': catalog.alias}) }}" method="post">
-
+<form action="{{ path('sylius_catalog_backend_category_create', {'catalogAlias': catalog.alias}) }}" method="post" class="form-horizontal">
 <fieldset>
-
-<div class="clearfix">
-<div class="formErrors">
-{{ form_errors(form.name) }}
-</div>
-<label for="sylius_categorizer_category[name]">Name...</label>
-<div class="input">
-    {{ form_widget(form.name, {'attr': {'class': 'span7'}}) }}
-</div>
-</div>
-<div class="clearfix">
-<label for="form[category]">Parent category...</label>
-<div class="input">
-    {{ form_widget(form.parent, {'empty_value': "choose category..."}) }}
-</div>
-</div>
-
+    <div class="control-group">
+    {{ form_label(form.name, 'Name...') }}
+    <div class="controls">
+        {{ form_widget(form.name, {'attr': {'class': 'span7'}}) }}
+    </div>
+    </div>
+    <div class="control-group">
+    {{ form_label(form.parent, 'Parent category...') }}
+    <div class="controls">
+        {{ form_widget(form.parent, {'empty_value': "choose category..."}) }}
+    </div>
+    </div>
 </fieldset>
-
-{{ form_rest(form) }}
-
-<div class="actions">
-<input type="submit" value="create category" class="btn primary large" />
-</div>
-
+    {{ form_rest(form) }}
+    <div class="form-actions">
+    <input type="submit" value="create category" class="btn btn-primary btn-large" />
+    </div>
 </form>
-
-{% endblock content %}
+{% endblock %}
