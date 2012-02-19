@@ -2,20 +2,25 @@
 # (c) Paweł Jędrzejewski
 
 parameters:
+    sylius.url:               http://sylius-sandbox.localhost/dev.php
+
     sylius.database.driver:   pdo_mysql
     sylius.database.host:     localhost
     sylius.database.port:     ~
-    sylius.database.name:     sylius_sandbox_database
+    sylius.database.name:     sylius_sandbox
     sylius.database.user:     ~
     sylius.database.password: ~
-    
+
+    sylius.security.username: administrator
+    sylius.security.password: ~
+
     sylius.mailer.transport:  smtp
     sylius.mailer.host:       localhost
     sylius.mailer.user:       ~
     sylius.mailer.password:   ~
-    
+
     sylius.locale: en
-    
+
     sylius.secret: 7105d4542c26b7dec214bfab78d8da51b
-    
+
     sylius.installed: false

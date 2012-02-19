@@ -11,10 +11,14 @@ framework:
 web_profiler:
     toolbar: true
     intercept_redirects: true
-    
+
 monolog:
     handlers:
         main:
             type:  stream
             path:  %kernel.logs_dir%/%kernel.environment%.log
             level: debug
+
+doctrine:
+    dbal:
+        dbname: %sylius.database.name%_development
