@@ -26,6 +26,11 @@ twig:
     debug:            %kernel.debug%
     strict_variables: %kernel.debug%
 
+assetic:
+    debug:          %kernel.debug%
+    use_controller: false
+    read_from:      %kernel.root_dir%/../public
+
 swiftmailer:
     disable_delivery: true
     transport: %sylius.mailer.transport%

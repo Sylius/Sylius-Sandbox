@@ -5,7 +5,7 @@
 {% block content %}
 
 <div class="page-header">
-  <h1>Login. <small>Sylius sandbox application.</small></h1>
+    <h1>Login. <small>Sylius sandbox application.</small></h1>
 </div>
 
 <blockquote>
@@ -14,38 +14,36 @@
 </blockquote>
 
 {% if errorMessage %}
-<div class="formErrors">
-    <ul>
-        <li>{{ errorMessage }}...</li>
-    </ul>
+<div class="alert alert-error">
+    <h4 class="alert-heading">{{ 'alert.heading.error'|trans({}, 'SandboxCoreBundle') }}</h4>
+    {{ errorMessage }}...
 </div>
 {% endif %}
 
-<form action="{{ path("sylius_guard_security_check") }}" method="post">
-
+<form action="{{ path("sylius_guard_security_check") }}" method="post" class="form-horizontal">
 <fieldset>
-    <div class="clearfix">
+    <div class="control-group">
     <label for="username">Login...</label>
-    <div class="input">
+    <div class="controls">
         <input type="text" id="username" name="_username" value="{{ lastUsername }}" />
     </div>
     </div>
-    <div class="clearfix">
+    <div class="control-group">
     <label for="username">Password.</label>
-    <div class="input">
+    <div class="controls">
         <input type="password" id="password" name="_password" />
     </div>
     </div>
-    <div class="clearfix">
+    <div class="control-group">
     <label for="username">Remember me ?</label>
-    <div class="input">
+    <div class="controls">
         <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
     </div>
     </div>
 </fieldset>
 
-    <div class="actions">
-        <input type="submit" class="btn primary large" name="login" value="login" />
+    <div class="form-actions">
+        <input type="submit" class="btn btn-primary btn-large" name="login" value="login" />
     </div>
 
 </form>

@@ -1,15 +1,21 @@
 # This file is part of the Sylius sandbox application.
 # (c) Paweł Jędrzejewski
 
-title:
-    backend: Sylius administration.
-    frontend: Sylius store frontend.
+yes:    yes
+no:     no
+cancel: cancel
 
-confirmation-box:
-    title: Confirm your action.
+title:
+    backend:  Sylius sandbox administration, visit Sylius.org for more.
+    frontend: Sylius sandbox frontend, visit Sylius.org for more.
+
+confirmer:
+    header: Confirm your action.
     question: Are you sure you want to perform this action?
-    confirm: yes
-    cancel: cancel
+
+alert:
+    heading:
+        info: Information
 
 menu:
     dashboard: Dashboard

@@ -2,8 +2,7 @@
 
 <html>
     <head>
-        <title>{% block title %}{{ "title.backend" | trans({}, 'SandboxCoreBundle') }}{% endblock %}</title>
-
+        <title>{% block title %}{{ 'title.backend'|trans({}, 'SandboxCoreBundle') }}{% endblock %}</title>
         <meta charset="UTF-8">
 
         <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
@@ -11,58 +10,74 @@
           <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
 
-        <link rel="stylesheet/less" href="{{ asset('assets/less/bootstrap.less') }}">
-        <link rel="stylesheet/less" href="{{ asset('assets/less/backend.less') }}">
+        {% block stylesheets %}
+        {% stylesheets output='assets/compiled/backend.css'
+            '@SandboxCoreBundle/Resources/public/bootstrap/css/bootstrap.min.css'
+        %}
+            <link rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}
 
-        <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
-        <script type="text/javascript" src="{{ asset('assets/js/backend.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('assets/js/bootstrap-dropdown.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('assets/js/bootstrap-modal.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('assets/js/less-1.1.5.min.js') }}"></script>
+        {% stylesheets output='assets/compiled/backend.less'
+            '@SandboxCoreBundle/Resources/public/less/backend.less'
+        %}
+            <link rel="stylesheet/less" href="{{ asset_url }}" />
+        {% endstylesheets %}
+        {% endblock %}
+
+        {% block javascripts %}
+        {% javascripts output='assets/compiled/backend.js'
+            'http://code.jquery.com/jquery.min.js'
+            '@SandboxCoreBundle/Resources/public/bootstrap/js/bootstrap.min.js'
+            '@SandboxCoreBundle/Resources/public/js/less-1.1.5.min.js'
+            '@SandboxCoreBundle/Resources/public/js/backend.js'
+        %}
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+        {% endblock %}
     </head>
     <body>
-        <div id="confirmer-modal" class="modal hide fade" style="display: block;">
+        <div id="confirmer-modal" class="modal hide fade">
             <div class="modal-header">
-                <a href="#" class="close">×</a>
-                <h3>{{ "confirmation-box.title" | trans({}, 'SandboxCoreBundle') }}</h3>
+                <a class="close" data-dismiss="modal">×</a>
+                <h3>{{ 'confirmer.header'|trans({}, 'SandboxCoreBundle') }}</h3>
             </div>
             <div class="modal-body">
-                <p class="confirmer-modal-question">{{ "confirmation-box.question" | trans({}, 'SandboxCoreBundle') }}</p>
+                <p class="confirmer-modal-question">{{ 'confirmer.question'|trans({}, 'SandboxCoreBundle') }}</p>
             </div>
             <div class="modal-footer">
-                <a class="confirmer-modal-confirm btn primary">{{ "confirmation-box.confirm" | trans({}, 'SandboxCoreBundle') }}</a>
-                <a class="confirmer-modal-cancel btn">{{ "confirmation-box.cancel" | trans({}, 'SandboxCoreBundle') }}</a>
+                <a class="confirmer-modal-confirm btn btn-primary">{{ 'yes'|trans({}, 'SandboxCoreBundle') }}</a>
+                <a class="btn" data-dismiss="modal">{{ 'cancel'|trans({}, 'SandboxCoreBundle') }}</a>
             </div>
         </div>
-        <div class="topbar">
-            <div class="topbar-inner">
+        <div class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
                 <div class="container-fluid">
+                    <a class="brand" href="http://sylius.org">Sylius</a>
                     <ul class="nav">
-                        <a class="brand" href="http://sylius.org">Sylius</a>
                         <li class="active"><a href="{{ path('sylius_sandbox_core_backend') }}">{{ "menu.dashboard" | trans({}, 'SandboxCoreBundle') }}</a></li>
-                        <li class="dropdown" data-dropdown="dropdown">
-                        <a href="#" class="dropdown-toggle">{{ "menu.assortment" | trans({}, 'SandboxCoreBundle') }}</a>
+                        <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ "menu.assortment" | trans({}, 'SandboxCoreBundle') }} <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="{{ path('sylius_categorizer_backend_category_create', {'alias': 'assortment'}) }}">Create category</a></li>
-                            <li><a href="{{ path('sylius_categorizer_backend_category_list', {'alias': 'assortment'}) }}">List categories</a></li>
+                            <li><a href="{{ path('sylius_catalog_backend_category_create', {'catalogAlias': 'assortment'}) }}">Create category</a></li>
+                            <li><a href="{{ path('sylius_catalog_backend_category_list', {'catalogAlias': 'assortment'}) }}">List categories</a></li>
                             <li class="divider"></li>
                             <li><a href="{{ path('sylius_assortment_backend_product_create') }}">Create product</a></li>
                             <li><a href="{{ path('sylius_assortment_backend_product_list') }}">List products</a></li>
                         </ul>
                         </li>
                         <li><a href="{{ path('sylius_sales_backend_order_list') }}">{{ "menu.sales" | trans({}, 'SandboxCoreBundle') }}</a></li>
-                        <li class="dropdown" data-dropdown="dropdown">
-                        <a href="#" class="dropdown-toggle">{{ "menu.blog" | trans({}, 'SandboxCoreBundle') }}</a>
+                        <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ "menu.blog" | trans({}, 'SandboxCoreBundle') }} <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="{{ path('sylius_categorizer_backend_category_create', {'alias': 'blog'}) }}">Create category</a></li>
-                            <li><a href="{{ path('sylius_categorizer_backend_category_list', {'alias': 'blog'}) }}">List categories</a></li>
+                            <li><a href="{{ path('sylius_catalog_backend_category_create', {'catalogAlias': 'blog'}) }}">Create category</a></li>
+                            <li><a href="{{ path('sylius_catalog_backend_category_list', {'catalogAlias': 'blog'}) }}">List categories</a></li>
                             <li class="divider"></li>
                             <li><a href="{{ path('sylius_blogger_backend_post_create') }}">Create post</a></li>
                             <li><a href="{{ path('sylius_blogger_backend_post_list') }}">List posts</a></li>
                         </ul>
                         </li>
-                        <li class="dropdown" data-dropdown="dropdown">
-                        <a href="#" class="dropdown-toggle">{{ "menu.newsletter" | trans({}, 'SandboxCoreBundle') }}</a>
+                        <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ "menu.newsletter" | trans({}, 'SandboxCoreBundle') }} <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="{{ path('sylius_newsletter_backend_subscriber_create') }}">Create subscriber</a></li>
                                 <li><a href="{{ path('sylius_newsletter_backend_subscriber_list') }}">List subscribers</a></li>
@@ -71,15 +86,15 @@
                                 <li><a href="{{ path('sylius_newsletter_backend_newsletter_list') }}">List newsletters</a></li>
                             </ul>
                         </li>
-                        <li class="dropdown" data-dropdown="dropdown">
-                        <a href="#" class="dropdown-toggle">{{ "menu.addressing" | trans({}, 'SandboxCoreBundle') }}</a>
+                        <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ "menu.addressing" | trans({}, 'SandboxCoreBundle') }} <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="{{ path('sylius_addressing_backend_address_create') }}">Create address</a></li>
                                 <li><a href="{{ path('sylius_addressing_backend_address_list') }}">Addresses list</a></li>
                             </ul>
                         </li>
-                        <li class="dropdown" data-dropdown="dropdown">
-                        <a href="#" class="dropdown-toggle">{{ "menu.guard" | trans({}, 'SandboxCoreBundle') }}</a>
+                        <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ "menu.guard" | trans({}, 'SandboxCoreBundle') }} <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a href="{{ path('sylius_guard_backend_user_create') }}">{{ "user.create" | trans({}, 'SyliusGuardBundle') }}</a></li>
                             <li><a href="{{ path('sylius_guard_backend_user_list') }}">{{ "user.list" | trans({}, 'SyliusGuardBundle') }}</a></li>
@@ -95,49 +110,55 @@
                 </div>
             </div>
         </div>
-
         <div class="container-fluid">
-            <div class="sidebar">
-                {% block sidebar %}
-                    <ul>
-                        <li class="header">{{ "sidebar.menu.assortment" | trans({}, 'SandboxCoreBundle') }}</li>
-                            <li><a href="{{ path('sylius_categorizer_backend_category_create', {'alias': 'assortment'}) }}">Create category</a></li>
-                            <li><a href="{{ path('sylius_categorizer_backend_category_list', {'alias': 'assortment'}) }}">List categories</a></li>
-                            <li><a href="{{ path('sylius_assortment_backend_product_create') }}">Create product</a></li>
-                            <li><a href="{{ path('sylius_assortment_backend_product_list') }}">List products</a></li>
-                        <li class="header">{{ "sidebar.menu.sales" | trans({}, 'SandboxCoreBundle') }}</li>
-                            <li><a href="{{ path('sylius_sales_backend_order_list') }}">List orders</a></li>
-                        <li class="header">{{ "sidebar.menu.blog" | trans({}, 'SandboxCoreBundle') }}</li>
-                            <li><a href="{{ path('sylius_categorizer_backend_category_create', {'alias': 'blog'}) }}">Create category</a></li>
-                            <li><a href="{{ path('sylius_categorizer_backend_category_list', {'alias': 'blog'}) }}">List categories</a></li>
-                            <li><a href="{{ path('sylius_blogger_backend_post_create') }}">Create post</a></li>
-                            <li><a href="{{ path('sylius_blogger_backend_post_list') }}">List posts</a></li>
-                        <li class="header">{{ "sidebar.menu.newsletter" | trans({}, 'SandboxCoreBundle') }}</li>
-                            <li><a href="{{ path('sylius_newsletter_backend_subscriber_create') }}">Create subscriber</a></li>
-                            <li><a href="{{ path('sylius_newsletter_backend_subscriber_list') }}">List subscribers</a></li>
-                            <li><a href="{{ path('sylius_newsletter_backend_newsletter_create') }}">Create newsletter</a></li>
-                            <li><a href="{{ path('sylius_newsletter_backend_newsletter_list') }}">List newsletters</a></li>
-                        <li class="header">{{ "sidebar.menu.addressing" | trans({}, 'SandboxCoreBundle') }}</li>
-                            <li><a href="{{ path('sylius_addressing_backend_address_create') }}">Create address</a></li>
-                            <li><a href="{{ path('sylius_addressing_backend_address_list') }}">Addresses list</a></li>
-                        <li class="header">{{ "sidebar.menu.guard" | trans({}, 'SandboxCoreBundle') }}</li>
-                            <li><a href="{{ path('sylius_guard_backend_user_create') }}">Create user</a></li>
-                            <li><a href="{{ path('sylius_guard_backend_user_list') }}">List users</a></li>
-                            <li><a href="{{ path('sylius_guard_backend_group_create') }}">Create group</a></li>
-                            <li><a href="{{ path('sylius_guard_backend_group_list') }}">List group</a></li>
-                        <li class="header">{{ "sidebar.menu.customization" | trans({}, 'SandboxCoreBundle') }}</li>
-                            <li><a href="{{ path('sylius_theming_backend_theme_list') }}">Themes manager</a></li>
-                            <li><a href="{{ path('sylius_plugins_backend_plugin_list') }}">Plugins manager</a></li>
-                        <li class="header">{{ "sidebar.menu.administration" | trans({}, 'SandboxCoreBundle') }}</li>
-                            <li><a href="{{ path('sylius_guard_security_logout') }}" class="last">Logout...</a></li>
-                    </ul>
-                {% endblock %}
-            </div>
-            <div class="content">
-                {% block content %}    {% endblock %}
-                <footer>
-                    <p><strong>&copy;</strong> <a href="http://sylius.org">Sylius</a>, 2011.</p>
-                </footer>
+            <div class="row-fluid">
+                <div id="sidebar" class="span2">
+                    <div class="sidebar-nav well">
+                    {% block sidebar %}
+                        <ul class="nav nav-list">
+                            <li class="nav-header">{{ "sidebar.menu.assortment" | trans({}, 'SandboxCoreBundle') }}</li>
+                                <li><a href="{{ path('sylius_catalog_backend_category_create', {'catalogAlias': 'assortment'}) }}"><i class="icon-plus-sign"></i> Create category</a></li>
+                                <li><a href="{{ path('sylius_catalog_backend_category_list', {'catalogAlias': 'assortment'}) }}"><i class="icon-list-alt"></i> List categories</a></li>
+                                <li><a href="{{ path('sylius_assortment_backend_product_create') }}"><i class="icon-plus-sign"></i> Create product</a></li>
+                                <li><a href="{{ path('sylius_assortment_backend_product_list') }}"><i class="icon-list-alt"></i> List products</a></li>
+                            <li class="nav-header">{{ "sidebar.menu.sales" | trans({}, 'SandboxCoreBundle') }}</li>
+                                <li><a href="{{ path('sylius_sales_backend_order_list') }}"><i class="icon-list-alt"></i> List orders</a></li>
+                            <li class="nav-header">{{ "sidebar.menu.blog" | trans({}, 'SandboxCoreBundle') }}</li>
+                                <li><a href="{{ path('sylius_catalog_backend_category_create', {'catalogAlias': 'blog'}) }}"><i class="icon-plus-sign"></i> Create category</a></li>
+                                <li><a href="{{ path('sylius_catalog_backend_category_list', {'catalogAlias': 'blog'}) }}"><i class="icon-list-alt"></i> List categories</a></li>
+                                <li><a href="{{ path('sylius_blogger_backend_post_create') }}"><i class="icon-plus-sign"></i> Create post</a></li>
+                                <li><a href="{{ path('sylius_blogger_backend_post_list') }}"><i class="icon-list-alt"></i> List posts</a></li>
+                            <li class="nav-header">{{ "sidebar.menu.newsletter" | trans({}, 'SandboxCoreBundle') }}</li>
+                                <li><a href="{{ path('sylius_newsletter_backend_subscriber_create') }}"><i class="icon-plus-sign"></i> Create subscriber</a></li>
+                                <li><a href="{{ path('sylius_newsletter_backend_subscriber_list') }}"><i class="icon-list-alt"></i> List subscribers</a></li>
+                                <li><a href="{{ path('sylius_newsletter_backend_newsletter_create') }}"><i class="icon-plus-sign"></i> Create newsletter</a></li>
+                                <li><a href="{{ path('sylius_newsletter_backend_newsletter_list') }}"><i class="icon-list-alt"></i> List newsletters</a></li>
+                            <li class="nav-header">{{ "sidebar.menu.addressing" | trans({}, 'SandboxCoreBundle') }}</li>
+                                <li><a href="{{ path('sylius_addressing_backend_address_create') }}"><i class="icon-plus-sign"></i> Create address</a></li>
+                                <li><a href="{{ path('sylius_addressing_backend_address_list') }}"><i class="icon-list-alt"></i> List adresses</a></li>
+                            <li class="nav-header">{{ "sidebar.menu.guard" | trans({}, 'SandboxCoreBundle') }}</li>
+                                <li><a href="{{ path('sylius_guard_backend_user_create') }}"><i class="icon-plus-sign"></i> Create user</a></li>
+                                <li><a href="{{ path('sylius_guard_backend_user_list') }}"><i class="icon-user"></i> List users</a></li>
+                                <li><a href="{{ path('sylius_guard_backend_group_create') }}"><i class="icon-plus-sign"></i> Create group</a></li>
+                                <li><a href="{{ path('sylius_guard_backend_group_list') }}"><i class="icon-list-alt"></i> List group</a></li>
+                            <li class="nav-header">{{ "sidebar.menu.customization" | trans({}, 'SandboxCoreBundle') }}</li>
+                                <li><a href="{{ path('sylius_theming_backend_theme_list') }}"><i class="icon-th"></i> Themes manager</a></li>
+                                <li><a href="{{ path('sylius_plugins_backend_plugin_list') }}"><i class="icon-th-large"></i> Plugins manager</a></li>
+                            <li class="nav-header">{{ "sidebar.menu.administration" | trans({}, 'SandboxCoreBundle') }}</li>
+                                <li><a href="{{ path('sylius_guard_security_logout') }}" class="last"><i class="icon-off"></i> Logout...</a></li>
+                        </ul>
+                    {% endblock %}
+                    </div>
+                </div>
+                <div id="content" class="span10">
+                    <div id="content-inner">
+                    {% block content %}   {% endblock %}
+                    </div>
+                    <hr>
+                    <footer>
+                        <p>&copy; <a href="http://Sylius.org">Sylius.org</a>, 2011 - 2012.</p>
+                    </footer>
+                </div>
             </div>
         </div>
     </body>

@@ -2,8 +2,7 @@
 
 <html>
     <head>
-        <title>{% block title %}Sylius sandbox frontend.{% endblock %}</title>
-
+        <title>{% block title %}{{ 'title.frontend'|trans({}, 'SandboxCoreBundle') }}{% endblock %}</title>
         <meta charset="UTF-8">
 
         <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
@@ -11,29 +10,45 @@
           <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
 
-        <link rel="stylesheet/less" href="{{ asset('assets/less/bootstrap.less') }}">
-        <link rel="stylesheet/less" href="{{ asset('assets/less/frontend.less') }}">
+        {% block stylesheets %}
+        {% stylesheets output='assets/compiled/frontend.css'
+            '@SandboxCoreBundle/Resources/public/bootstrap/css/bootstrap.min.css'
+        %}
+            <link rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}
 
-        <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
-        <script type="text/javascript" src="{{ asset('assets/js/bootstrap-dropdown.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('assets/js/bootstrap-modal.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('assets/js/less-1.1.5.min.js') }}"></script>
+        {% stylesheets output='assets/compiled/frontend.less'
+            '@SandboxCoreBundle/Resources/public/less/frontend.less'
+        %}
+            <link rel="stylesheet/less" href="{{ asset_url }}" />
+        {% endstylesheets %}
+        {% endblock %}
+
+        {% block javascripts %}
+        {% javascripts output='assets/compiled/frontend.js'
+            'http://code.jquery.com/jquery.min.js'
+            '@SandboxCoreBundle/Resources/public/bootstrap/js/bootstrap.min.js'
+            '@SandboxCoreBundle/Resources/public/js/less-1.1.5.min.js'
+        %}
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+        {% endblock %}
     </head>
     <body>
-        <div class="topbar">
-            <div class="fill">
-                <div class="container">
+        <div class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <a class="brand" href="http://sylius.org">Sylius</a>
                     <ul class="nav">
-                        <a class="brand" href="http://sylius.org">Sylius</a>
                         <li><a href="{{ path('sylius_sandbox_core_frontend') }}">Index</a></li>
-                        <li class="dropdown" data-dropdown="dropdown">
-                            <a href="#" class="dropdown-toggle">Assortment</a>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Assortment  <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="{{ path('sylius_assortment_product_list') }}">List products</a></li>
                             </ul>
                         </li>
-                        <li class="dropdown" data-dropdown="dropdown">
-                            <a href="#" class="dropdown-toggle">Blog</a>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="{{ path('sylius_blogger_post_list') }}">List posts</a></li>
                             </ul>
@@ -41,28 +56,23 @@
                         <li><a href="{{ path('sylius_cart_show') }}">My cart</a></li>
                         <li><a href="{{ path('sylius_newsletter_subscriber_subscribe') }}">Newsletter</a></li>
                     </ul>
-                    <div class="pull-right">
-                        <ul class="nav">
-                    {% if is_granted('ROLE_SYLIUS_ADMIN') %}
-                        <li><a href="{{ path('sylius_guard_security_logout') }}">Logout</a></li>
-                        <li><a href="{{ path('sylius_sandbox_core_backend') }}">Administration &raquo;</a></li>
-                    {% else %}
-                        <li><a href="{{ path('sylius_guard_security_login') }}">Login &raquo;</a></li>
-                    {% endif %}
-                        </ul>
-                    </div>
                 </div>
             </div>
         </div>
         <div class="container">
-          <div class="content">
-              {% block content %}   {% endblock %}
-          </div>
-
-              <footer>
-                  <p>&copy; <a href="http://sylius.org">Sylius</a>, 2011.</p>
-              </footer>
-
+            <div class="row">
+                <div id="sidebar" class="span3">
+                    {% block sidebar %}
+                        {% include 'SandboxCoreBundle:Frontend:sidebar.html.twig' %}
+                    {% endblock %}
+                </div>
+                <div id="content" class="span9 boxy">
+                    {% block content %}   {% endblock %}
+                </div>
+            </div>
+            <footer>
+                <p>&copy; <a href="http://sylius.org">Sylius</a>, 2011.</p>
+            </footer>
         </div>
     </body>
 </html>
