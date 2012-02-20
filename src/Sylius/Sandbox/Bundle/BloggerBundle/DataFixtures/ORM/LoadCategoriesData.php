@@ -47,7 +47,7 @@ class LoadCategoriesData extends AbstractFixture implements ContainerAwareInterf
 
             $manipulator->create($category);
 
-            $this->setReference('Sandbox.PostCategory-' . $i, $category);
+            $this->setReference('Sandbox.Blogger.Category-' . $i, $category);
         }
     }
 

@@ -48,7 +48,7 @@ class LoadUsersData extends AbstractFixture implements ContainerAwareInterface, 
 
             $manipulator->create($user);
 
-            $this->setReference('Sandbox.User-' . $i, $user);
+            $this->setReference('Sandbox.Guard.User-' . $i, $user);
         }
     }
 

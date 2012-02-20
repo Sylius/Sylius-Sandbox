@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Sylius\Sandbox\Bundle\AssortmentBundle\DataFixtures\ORM;
+namespace Sylius\Sandbox\Bundle\BloggerBundle\DataFixtures\ORM;
 
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\Common\DataFixtures\AbstractFixture;
@@ -47,15 +47,15 @@ class LoadPostsData extends AbstractFixture implements ContainerAwareInterface, 
             $post->setContent($faker->paragraph);
 
             $categories = array(
-                $this->getReference('Sandbox.PostCategory-' . rand(0, 5)),
-                $this->getReference('Sandbox.PostCategory-' . rand(6, 10))
+                $this->getReference('Sandbox.Blogger.Category-' . rand(0, 5)),
+                $this->getReference('Sandbox.Blogger.Category-' . rand(6, 10))
             );
 
             $post->setCategories($categories);
 
             $manipulator->create($post);
 
-            $this->setReference('Sandbox.Post-' . $i, $post);
+            $this->setReference('Sandbox.Blogger.Post-' . $i, $post);
         }
     }
 

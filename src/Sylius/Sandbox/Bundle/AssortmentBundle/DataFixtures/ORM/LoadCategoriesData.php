@@ -40,14 +40,14 @@ class LoadCategoriesData extends AbstractFixture implements ContainerAwareInterf
 
         $faker = \Faker\Factory::create();
 
-        foreach (range(0, 10) as $i) {
+        foreach (range(0, 9) as $i) {
             $category = $manager->createCategory($catalog);
 
             $category->setName($faker->sentence(3));
 
             $manipulator->create($category);
 
-            $this->setReference('Sandbox.ProductCategory-' . $i, $category);
+            $this->setReference('Sandbox.Assortment.Category-' . $i, $category);
         }
     }
 

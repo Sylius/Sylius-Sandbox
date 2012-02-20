@@ -46,7 +46,7 @@ class LoadGroupsData extends AbstractFixture implements ContainerAwareInterface,
 
             $manipulator->create($group);
 
-            $this->setReference('Sandbox.Group-' . $i, $group);
+            $this->setReference('Sandbox.Guard.Group-' . $i, $group);
         }
     }
 

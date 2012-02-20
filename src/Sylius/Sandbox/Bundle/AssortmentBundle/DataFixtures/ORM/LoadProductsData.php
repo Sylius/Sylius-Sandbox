@@ -45,11 +45,11 @@ class LoadProductsData extends AbstractFixture implements ContainerAwareInterfac
             $product->setName($faker->sentence);
             $product->setDescription($faker->paragraph);
             $product->setPrice($faker->randomNumber(5) / 100);
-            $product->setCategory($this->getReference('Sandbox.ProductCategory-' . rand(0, 10)));
+            $product->setCategory($this->getReference('Sandbox.Assortment.Category-' . rand(0, 9)));
 
             $manipulator->create($product);
 
-            $this->setReference('Sandbox.Product-' . $i, $product);
+            $this->setReference('Sandbox.Assortment.Product-' . $i, $product);
         }
     }
 
