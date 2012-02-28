@@ -11,7 +11,7 @@
 
 namespace Sylius\Sandbox\Bundle\BloggerBundle\Entity;
 
-use Sylius\Bundle\CatalogBundle\Entity\Category as BaseCategory;
+use Sylius\Bundle\CategorizerBundle\Entity\Category as BaseCategory;
 
 class Category extends BaseCategory
 {

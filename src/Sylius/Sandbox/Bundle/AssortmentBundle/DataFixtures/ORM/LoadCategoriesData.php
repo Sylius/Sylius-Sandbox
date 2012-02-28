@@ -36,7 +36,7 @@ class LoadCategoriesData extends AbstractFixture implements ContainerAwareInterf
     {
         $manager = $this->container->get('sylius_categorizer.manager.category');
         $manipulator = $this->container->get('sylius_categorizer.manipulator.category');
-        $catalog = $this->container->get('sylius_categorizer.provider')->getCatalog('assortment');
+        $catalog = $this->container->get('sylius_categorizer.registry')->getCatalog('assortment');
 
         $faker = \Faker\Factory::create();
 

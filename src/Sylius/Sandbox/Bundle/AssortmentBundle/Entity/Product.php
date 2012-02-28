@@ -11,7 +11,7 @@
 
 namespace Sylius\Sandbox\Bundle\AssortmentBundle\Entity;
 
-use Sylius\Bundle\CatalogBundle\Model\CategoryInterface;
+use Sylius\Bundle\CategorizerBundle\Model\CategoryInterface;
 use Sylius\Bundle\AssortmentBundle\Entity\Product as BaseProduct;
 
 class Product extends BaseProduct

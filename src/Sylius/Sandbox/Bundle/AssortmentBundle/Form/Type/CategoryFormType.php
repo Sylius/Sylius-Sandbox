@@ -11,7 +11,7 @@
 
 namespace Sylius\Sandbox\Bundle\AssortmentBundle\Form\Type;
 
-use Sylius\Bundle\CatalogBundle\Form\Type\CategoryFormType as BaseCategoryFormType;
+use Sylius\Bundle\CategorizerBundle\Form\Type\CategoryFormType as BaseCategoryFormType;
 
 use Symfony\Component\Form\FormBuilder;
 
