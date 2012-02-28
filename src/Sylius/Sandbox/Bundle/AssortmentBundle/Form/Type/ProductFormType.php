@@ -23,7 +23,7 @@ class ProductFormType extends BaseProductFormType
 
         $builder
             ->add('price', 'money')
-            ->add('category', 'sylius_catalog_category_choice', array(
+            ->add('category', 'sylius_categorizer_category_choice', array(
                 'multiple' => false,
                 'catalog_alias' => 'assortment'
             ))

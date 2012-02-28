@@ -6,7 +6,7 @@
     <h1>Creating category.<small> Use the form below to create a new blog category...</small></h1>
 </div>
 
-<form action="{{ path('sylius_catalog_backend_category_create', {'catalogAlias': catalog.alias}) }}" method="post">
+<form action="{{ path('sylius_categorizer_backend_category_create', {'alias': catalog.alias}) }}" method="post">
 
 <fieldset>
 
@@ -14,7 +14,7 @@
     <div class="formErrors">
     {{ form_errors(form.name) }}
     </div>
-    <label for="sylius_catalog_category[name]">Name...</label>
+    <label for="sylius_categorizer_category[name]">Name...</label>
     <div class="input">
         {{ form_widget(form.name, {'attr': {'class': 'span7'}}) }}
     </div>

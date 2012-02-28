@@ -40,8 +40,8 @@
         <strong>{{ sylius_cart_get().totalItems }}</strong> items, <strong>{{ sylius_cart_get().value }}</strong> &euro;...
         <a href="{{ path('sylius_cart_show') }}" class="btn primary pull-right">My cart &raquo;</a>
         <br /> <br /> <br />
-        {% render 'sylius_catalog.controller.frontend.category:listAction' with {'catalogAlias': 'assortment'} %}
-        {% render 'sylius_catalog.controller.frontend.category:listAction' with {'catalogAlias': 'blog'} %}
+        {% render 'sylius_categorizer.controller.frontend.category:listAction' with {'alias': 'assortment'} %}
+        {% render 'sylius_categorizer.controller.frontend.category:listAction' with {'alias': 'blog'} %}
     </div>
 </div>
 

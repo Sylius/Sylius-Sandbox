@@ -1,36 +1,39 @@
-# This file is part of the Sylius sandbox sylius_sandbox.
+# This file is part of the Sylius sandbox application.
 # (c) Paweł Jędrzejewski
 
 sylius_sandbox_core:
     resource: @SandboxCoreBundle/Resources/config/routing.yml
-    
-sylius_sandbox_catalog:
-    resource: @SandboxCatalogBundle/Resources/config/routing.yml
-  
+
 sylius_sandbox_assortment:
     resource: @SandboxAssortmentBundle/Resources/config/routing.yml
-    
+
 sylius_sandbox_newsletter:
     resource: @SandboxNewsletterBundle/Resources/config/routing.yml
 
 sylius_sandbox_cart:
     resource: @SandboxCartBundle/Resources/config/routing.yml
-    
+
 sylius_sandbox_theming:
     resource: @SandboxThemingBundle/Resources/config/routing.yml
-    
+
 sylius_sandbox_blogger:
     resource: @SandboxBloggerBundle/Resources/config/routing.yml
-    
+
 sylius_sandbox_sales:
     resource: @SandboxSalesBundle/Resources/config/routing.yml
-    
+
 sylius_sandbox_plugins:
     resource: @SandboxPluginsBundle/Resources/config/routing.yml
-    
+
 sylius_sandbox_addressing:
     resource: @SandboxAddressingBundle/Resources/config/routing.yml
 
 sylius_sandbox_guard:
     resource: @SandboxGuardBundle/Resources/config/routing.yml
-    
+
+sylius_categorizer_category:
+    resource: @SyliusCategorizerBundle/Resources/config/routing/backend/category.yml
+    prefix: /administration
+
+sylius_categorizer_backend_category:
+    resource: @SyliusCategorizerBundle/Resources/config/routing/frontend/category.yml

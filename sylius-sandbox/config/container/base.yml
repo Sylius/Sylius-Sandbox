@@ -48,16 +48,13 @@ sylius_assortment:
             type:
                 product: Sylius\Sandbox\Bundle\AssortmentBundle\Form\Type\ProductFormType
 
-sylius_catalog:
-    driver: ORM
+sylius_categorizer:
+    driver: doctrine/orm
     catalogs:
         assortment:
             property: "products"
-            nested: true
-            sorter: sylius_assortment.sorter.product
             classes:
                 model: Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Category
-                form: Sylius\Sandbox\Bundle\AssortmentBundle\Form\Type\CategoryFormType
             templates:
                 backend:
                     list: SandboxAssortmentBundle:Backend/Category:list.html.twig

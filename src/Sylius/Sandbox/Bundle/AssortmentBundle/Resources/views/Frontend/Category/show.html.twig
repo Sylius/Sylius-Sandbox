@@ -15,7 +15,7 @@
 <ul class="breadcrumb">
   <li><a href="{{ path('sylius_sandbox_core_frontend') }}">Sylius</a> <span class="divider">/</span></li>
   <li>Assortment <span class="divider">/</span></li>
-  <li><a href="{{ path('sylius_catalog_category_show', {'catalogAlias': catalog.alias, 'id': category.id, 'slug': category.slug}) }}">{{ category.name }}</a></li>
+  <li><a href="{{ path('sylius_categorizer_category_show', {'alias': catalog.alias, 'id': category.id, 'slug': category.slug}) }}">{{ category.name }}</a></li>
 </ul>
 
 <h1>Product list. <small>Paginated products list.</small></h1>

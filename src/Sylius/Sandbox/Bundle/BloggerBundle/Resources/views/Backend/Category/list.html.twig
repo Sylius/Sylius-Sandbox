@@ -7,7 +7,7 @@
 </div>
 
 <div class="well">
-<a href="{{ path('sylius_catalog_backend_category_create', {'catalogAlias': catalog.alias}) }}" class="btn large primary">create category</a>
+<a href="{{ path('sylius_categorizer_backend_category_create', {'alias': catalog.alias}) }}" class="btn large primary">create category</a>
 </div>
 
 {% if categories %}
@@ -25,9 +25,9 @@
             <td>{{ category.id }}</td>
             <td>{{ category.name }}</td>
             <td>
-                <a href="{{ path('sylius_catalog_backend_category_show', {'catalogAlias': catalog.alias, 'id': category.id}) }}" class="btn">list posts</a>
-                <a href="{{ path('sylius_catalog_backend_category_update', {'catalogAlias': catalog.alias, 'id': category.id}) }}" class="btn">update</a>
-                <a href="{{ path('sylius_catalog_backend_category_delete', {'catalogAlias': catalog.alias, 'id': category.id}) }}" class="btn danger">delete</a>
+                <a href="{{ path('sylius_categorizer_backend_category_show', {'alias': catalog.alias, 'id': category.id}) }}" class="btn">list posts</a>
+                <a href="{{ path('sylius_categorizer_backend_category_update', {'alias': catalog.alias, 'id': category.id}) }}" class="btn">update</a>
+                <a href="{{ path('sylius_categorizer_backend_category_delete', {'alias': catalog.alias, 'id': category.id}) }}" class="btn danger">delete</a>
             </td>
         </tr>
     {% endfor %}
