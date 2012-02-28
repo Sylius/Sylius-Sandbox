@@ -6,7 +6,7 @@
     <h1>Updating category.<small> Use the form below to modify existing category...</small></h1>
 </div>
 
-<form action="{{ path('sylius_catalog_backend_category_update', {'catalogAlias': catalog.alias, 'id': category.id}) }}" method="post" class="form-horizontal">
+<form action="{{ path('sylius_categorizer_backend_category_update', {'alias': catalog.alias, 'id': category.id}) }}" method="post" class="form-horizontal">
 <fieldset>
     <div class="control-group">
     {{ form_label(form.name, 'Name...') }}

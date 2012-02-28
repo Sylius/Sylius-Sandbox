@@ -7,7 +7,7 @@
 </div>
 
 <div class="well">
-<a href="{{ path('sylius_catalog_backend_category_create', {'catalogAlias': catalog.alias}) }}" class="btn btn-primary">
+<a href="{{ path('sylius_categorizer_backend_category_create', {'alias': catalog.alias}) }}" class="btn btn-primary">
     <i class="icon-plus icon-white"></i> create category
 </a>
 </div>
@@ -32,23 +32,23 @@
                             {% if loop.first %}
                             <a class="btn disabled">&uarr;</a>
                             {% else %}
-                            <a href="{{ path('sylius_catalog_backend_category_move_up', {'catalogAlias': catalog.alias, 'id': category.id}) }}" class="btn">&uarr;</a>
+                            <a href="{{ path('sylius_categorizer_backend_category_move_up', {'alias': catalog.alias, 'id': category.id}) }}" class="btn">&uarr;</a>
                             {% endif %}
 
                             {% if loop.last %}
                             <a class="btn disabled">&darr;</a>
                             {% else %}
-                            <a href="{{ path('sylius_catalog_backend_category_move_down', {'catalogAlias': catalog.alias, 'id': category.id}) }}" class="btn">&darr;</a>
+                            <a href="{{ path('sylius_categorizer_backend_category_move_down', {'alias': catalog.alias, 'id': category.id}) }}" class="btn">&darr;</a>
                             {% endif %}
                         </div>
                         <div class="btn-group">
-                            <a href="{{ path('sylius_catalog_backend_category_show', {'catalogAlias': catalog.alias, 'id': category.id}) }}" class="btn">
+                            <a href="{{ path('sylius_categorizer_backend_category_show', {'alias': catalog.alias, 'id': category.id}) }}" class="btn">
                                 <i class="icon-list-alt"></i> list products
                             </a>
-                            <a href="{{ path('sylius_catalog_backend_category_update', {'catalogAlias': catalog.alias, 'id': category.id}) }}" class="btn">
+                            <a href="{{ path('sylius_categorizer_backend_category_update', {'alias': catalog.alias, 'id': category.id}) }}" class="btn">
                                 <i class="icon-pencil"></i> {{ 'update'|trans({}, 'SandboxCoreBundle') }}
                             </a>
-                            <a href="{{ path('sylius_catalog_backend_category_delete', {'catalogAlias': catalog.alias, 'id': category.id}) }}" class="btn btn-danger confirmer"
+                            <a href="{{ path('sylius_categorizer_backend_category_delete', {'alias': catalog.alias, 'id': category.id}) }}" class="btn btn-danger confirmer"
                                 data-confirmer-question="{{ 'confirmer.q.category.delete'|trans({}, 'SandboxCoreBundle') }}"
                             >
                                 <i class="icon-remove icon-white"></i> {{ 'delete'|trans({}, 'SandboxCoreBundle') }}

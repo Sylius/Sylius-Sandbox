@@ -58,8 +58,8 @@
                         <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ "menu.assortment" | trans({}, 'SandboxCoreBundle') }} <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="{{ path('sylius_catalog_backend_category_create', {'catalogAlias': 'assortment'}) }}">Create category</a></li>
-                            <li><a href="{{ path('sylius_catalog_backend_category_list', {'catalogAlias': 'assortment'}) }}">List categories</a></li>
+                            <li><a href="{{ path('sylius_categorizer_backend_category_create', {'alias': 'assortment'}) }}">Create category</a></li>
+                            <li><a href="{{ path('sylius_categorizer_backend_category_list', {'alias': 'assortment'}) }}">List categories</a></li>
                             <li class="divider"></li>
                             <li><a href="{{ path('sylius_assortment_backend_product_create') }}">Create product</a></li>
                             <li><a href="{{ path('sylius_assortment_backend_product_list') }}">List products</a></li>
@@ -69,8 +69,8 @@
                         <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ "menu.blog" | trans({}, 'SandboxCoreBundle') }} <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="{{ path('sylius_catalog_backend_category_create', {'catalogAlias': 'blog'}) }}">Create category</a></li>
-                            <li><a href="{{ path('sylius_catalog_backend_category_list', {'catalogAlias': 'blog'}) }}">List categories</a></li>
+                            <li><a href="{{ path('sylius_categorizer_backend_category_create', {'alias': 'blog'}) }}">Create category</a></li>
+                            <li><a href="{{ path('sylius_categorizer_backend_category_list', {'alias': 'blog'}) }}">List categories</a></li>
                             <li class="divider"></li>
                             <li><a href="{{ path('sylius_blogger_backend_post_create') }}">Create post</a></li>
                             <li><a href="{{ path('sylius_blogger_backend_post_list') }}">List posts</a></li>
@@ -117,15 +117,15 @@
                     {% block sidebar %}
                         <ul class="nav nav-list">
                             <li class="nav-header">{{ "sidebar.menu.assortment" | trans({}, 'SandboxCoreBundle') }}</li>
-                                <li><a href="{{ path('sylius_catalog_backend_category_create', {'catalogAlias': 'assortment'}) }}"><i class="icon-plus-sign"></i> Create category</a></li>
-                                <li><a href="{{ path('sylius_catalog_backend_category_list', {'catalogAlias': 'assortment'}) }}"><i class="icon-list-alt"></i> List categories</a></li>
+                                <li><a href="{{ path('sylius_categorizer_backend_category_create', {'alias': 'assortment'}) }}"><i class="icon-plus-sign"></i> Create category</a></li>
+                                <li><a href="{{ path('sylius_categorizer_backend_category_list', {'alias': 'assortment'}) }}"><i class="icon-list-alt"></i> List categories</a></li>
                                 <li><a href="{{ path('sylius_assortment_backend_product_create') }}"><i class="icon-plus-sign"></i> Create product</a></li>
                                 <li><a href="{{ path('sylius_assortment_backend_product_list') }}"><i class="icon-list-alt"></i> List products</a></li>
                             <li class="nav-header">{{ "sidebar.menu.sales" | trans({}, 'SandboxCoreBundle') }}</li>
                                 <li><a href="{{ path('sylius_sales_backend_order_list') }}"><i class="icon-list-alt"></i> List orders</a></li>
                             <li class="nav-header">{{ "sidebar.menu.blog" | trans({}, 'SandboxCoreBundle') }}</li>
-                                <li><a href="{{ path('sylius_catalog_backend_category_create', {'catalogAlias': 'blog'}) }}"><i class="icon-plus-sign"></i> Create category</a></li>
-                                <li><a href="{{ path('sylius_catalog_backend_category_list', {'catalogAlias': 'blog'}) }}"><i class="icon-list-alt"></i> List categories</a></li>
+                                <li><a href="{{ path('sylius_categorizer_backend_category_create', {'alias': 'blog'}) }}"><i class="icon-plus-sign"></i> Create category</a></li>
+                                <li><a href="{{ path('sylius_categorizer_backend_category_list', {'alias': 'blog'}) }}"><i class="icon-list-alt"></i> List categories</a></li>
                                 <li><a href="{{ path('sylius_blogger_backend_post_create') }}"><i class="icon-plus-sign"></i> Create post</a></li>
                                 <li><a href="{{ path('sylius_blogger_backend_post_list') }}"><i class="icon-list-alt"></i> List posts</a></li>
                             <li class="nav-header">{{ "sidebar.menu.newsletter" | trans({}, 'SandboxCoreBundle') }}</li>

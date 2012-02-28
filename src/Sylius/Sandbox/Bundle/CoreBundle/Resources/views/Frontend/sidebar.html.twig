@@ -4,8 +4,8 @@
 <br /><br />
 <a href="{{ path('sylius_cart_show') }}" class="btn btn-primary">My cart <i class="icon-shopping-cart icon-white"></i></a>
 <hr />
-{% render 'sylius_catalog.controller.frontend.category:listAction' with {'catalogAlias': 'assortment'} %}
-{% render 'sylius_catalog.controller.frontend.category:listAction' with {'catalogAlias': 'blog'} %}
+{% render 'sylius_categorizer.controller.frontend.category:listAction' with {'alias': 'assortment'} %}
+{% render 'sylius_categorizer.controller.frontend.category:listAction' with {'alias': 'blog'} %}
 <hr />
 <ul id="sidebar-nav" class="nav nav-list well">
 {% if is_granted('ROLE_SYLIUS_ADMIN') %}
