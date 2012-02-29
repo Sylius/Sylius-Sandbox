@@ -24,7 +24,8 @@
         "sylius/plugins-bundle":               "dev-master",
         "sylius/guard-bundle":                 "dev-master",
         "sylius/addressing-bundle":            "dev-master",
-        "sylius/installer-bundle":             "dev-master"
+        "sylius/installer-bundle":             "dev-master",
+        "sylius/catalog-bundle":               "dev-master"
     },
     "autoload": {
         "psr-0": {
