@@ -11,7 +11,7 @@
 
 namespace Sylius\Sandbox\Bundle\AssortmentBundle\Form\Type;
 
-use Sylius\Bundle\AssortmentBundle\Form\Type\ProductFormType as BaseProductFormType;
+use Sylius\Bundle\AssortmentBundle\Form\Type\ProductType as BaseProductFormType;
 
 use Symfony\Component\Form\FormBuilder;
 
