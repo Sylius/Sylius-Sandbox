@@ -11,21 +11,20 @@
 
 namespace Sylius\Sandbox\Bundle\AssortmentBundle\Form\Type;
 
-use Sylius\Bundle\CategorizerBundle\Form\Type\CategoryFormType as BaseCategoryFormType;
-
+use Sylius\Bundle\AssortmentBundle\Form\Type\ProductType as BaseProductType;
 use Symfony\Component\Form\FormBuilder;
 
-class CategoryFormType extends BaseCategoryFormType
+class ProductType extends BaseProductType
 {
     public function buildForm(FormBuilder $builder, array $options)
     {
         parent::buildForm($builder, $options);
 
         $builder
-            ->add('parent', 'sylius_categorizer_category_choice', array(
-                'required' => false,
+            ->add('price', 'money')
+            ->add('category', 'sylius_categorizer_category_choice', array(
                 'multiple' => false,
-                'catalog_alias' => 'assortment'
+                'catalog'  => 'assortment'
             ))
         ;
     }

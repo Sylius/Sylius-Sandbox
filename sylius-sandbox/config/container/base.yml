@@ -51,7 +51,7 @@ sylius_assortment:
             product:  Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Product
         form:
             type:
-                product: Sylius\Sandbox\Bundle\AssortmentBundle\Form\Type\ProductFormType
+                product: Sylius\Sandbox\Bundle\AssortmentBundle\Form\Type\ProductType
 
 sylius_categorizer:
     driver: doctrine/orm
@@ -60,6 +60,7 @@ sylius_categorizer:
             property: "products"
             classes:
                 model: Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Category
+            form: sylius_sandbox_assortment_category
             templates:
                 backend:
                     list: SandboxAssortmentBundle:Backend/Category:list.html.twig

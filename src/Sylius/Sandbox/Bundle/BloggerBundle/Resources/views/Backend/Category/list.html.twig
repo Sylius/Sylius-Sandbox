@@ -7,35 +7,63 @@
 </div>
 
 <div class="well">
-<a href="{{ path('sylius_categorizer_backend_category_create', {'alias': catalog.alias}) }}" class="btn large primary">create category</a>
+<a href="{{ path('sylius_categorizer_backend_category_create', {'alias': catalog.alias}) }}" class="btn btn-primary">
+    <i class="icon-plus icon-white"></i> create category
+</a>
 </div>
 
 {% if categories %}
-<table class="zebra-stripped">
-  <thead>
-    <tr>
-      <th>#id</th>
-      <th>name</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for category in categories %}
+<table class="table">
+    <thead>
         <tr>
-            <td>{{ category.id }}</td>
-            <td>{{ category.name }}</td>
-            <td>
-                <a href="{{ path('sylius_categorizer_backend_category_show', {'alias': catalog.alias, 'id': category.id}) }}" class="btn">list posts</a>
-                <a href="{{ path('sylius_categorizer_backend_category_update', {'alias': catalog.alias, 'id': category.id}) }}" class="btn">update</a>
-                <a href="{{ path('sylius_categorizer_backend_category_delete', {'alias': catalog.alias, 'id': category.id}) }}" class="btn danger">delete</a>
-            </td>
+            <th>#id</th>
+            <th>name</th>
+            <th></th>
         </tr>
-    {% endfor %}
-  </tbody>
+    </thead>
+    <tbody>
+        {% for category in categories %}
+            <tr>
+                <td>{{ category.id }}</td>
+                <td>{{ category.name }}</td>
+                <td>
+                    <div class="pull-right btn-toolbar">
+                        <div class="btn-group">
+                            {% if loop.first %}
+                            <a class="btn disabled">&uarr;</a>
+                            {% else %}
+                            <a href="{{ path('sylius_categorizer_backend_category_move_up', {'alias': catalog.alias, 'id': category.id}) }}" class="btn">&uarr;</a>
+                            {% endif %}
+
+                            {% if loop.last %}
+                            <a class="btn disabled">&darr;</a>
+                            {% else %}
+                            <a href="{{ path('sylius_categorizer_backend_category_move_down', {'alias': catalog.alias, 'id': category.id}) }}" class="btn">&darr;</a>
+                            {% endif %}
+                        </div>
+                        <div class="btn-group">
+                            <a href="{{ path('sylius_categorizer_backend_category_show', {'alias': catalog.alias, 'id': category.id}) }}" class="btn">
+                                <i class="icon-list-alt"></i> list products
+                            </a>
+                            <a href="{{ path('sylius_categorizer_backend_category_update', {'alias': catalog.alias, 'id': category.id}) }}" class="btn">
+                                <i class="icon-pencil"></i> {{ 'update'|trans({}, 'SandboxCoreBundle') }}
+                            </a>
+                            <a href="{{ path('sylius_categorizer_backend_category_delete', {'alias': catalog.alias, 'id': category.id}) }}" class="btn btn-danger confirmer"
+                                data-confirmer-question="{{ 'confirmer.q.category.delete'|trans({}, 'SandboxCoreBundle') }}"
+                            >
+                                <i class="icon-remove icon-white"></i> {{ 'delete'|trans({}, 'SandboxCoreBundle') }}
+                            </a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            {% endfor %}
+    </tbody>
 </table>
 {% else %}
-<div class="alert-message info">
-    <p><strong>Information.</strong> There are no categories to display.</p>
+<div class="alert alert-info">
+    <h4 class="alert-heading">{{ 'alert.heading.info'|trans({}, 'SandboxCoreBundle') }}.</h4>
+    There are no categories to display.
 </div>
 {% endif %}
 

@@ -23,7 +23,7 @@ class PostFormType extends BasePostFormType
         $builder
             ->add('categories', 'sylius_categorizer_category_choice', array(
                 'multiple' => true,
-                'catalog_alias' => 'blog'
+                'catalog'  => 'blog'
             ))
         ;
     }
