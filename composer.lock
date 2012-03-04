@@ -1,0 +1,174 @@
+{
+    "hash": "9f84ec21be5810ace03a3f02f6c486f9",
+    "packages": [
+        {
+            "package": "doctrine/common",
+            "version": "2.2.0"
+        },
+        {
+            "package": "doctrine/data-fixtures",
+            "version": "dev-master",
+            "source-reference": "ffee818a6e3af526b774de11b690a36512fa6235"
+        },
+        {
+            "package": "doctrine/dbal",
+            "version": "2.2.1"
+        },
+        {
+            "package": "doctrine/doctrine-bundle",
+            "version": "dev-master",
+            "source-reference": "ff676b6147a83b695b0033b228e160d920612365"
+        },
+        {
+            "package": "doctrine/doctrine-fixtures-bundle",
+            "version": "dev-master",
+            "source-reference": "0e4e56b1da7981bcc7729e0f301a75195d34df18"
+        },
+        {
+            "package": "doctrine/doctrine-migrations-bundle",
+            "version": "dev-master",
+            "source-reference": "9690dfba714fa82f3979fb5fa18750a37ab16e1c"
+        },
+        {
+            "package": "doctrine/migrations",
+            "version": "dev-master",
+            "source-reference": "9e81984b0f126b0830d9ac6acc2d1da81aba2b94"
+        },
+        {
+            "package": "doctrine/orm",
+            "version": "2.2.0"
+        },
+        {
+            "package": "fzaninotto/faker",
+            "version": "dev-master",
+            "source-reference": "ab426e0253a1fe41fd6077df86f34fb0a2ca65a8"
+        },
+        {
+            "package": "gedmo/doctrine-extensions",
+            "version": "v2.2.1"
+        },
+        {
+            "package": "kriswallsmith/assetic",
+            "version": "dev-master",
+            "source-reference": "ba88ad4e2c7122b270a2e06a2b79f6dba6413050"
+        },
+        {
+            "package": "liip/theme-bundle",
+            "version": "dev-master",
+            "source-reference": "5e61868de30297c7195d9c405049a8c70d4cad6f"
+        },
+        {
+            "package": "monolog/monolog",
+            "version": "1.0.2"
+        },
+        {
+            "package": "pagerfanta/pagerfanta",
+            "version": "dev-master",
+            "source-reference": "c490684def33e992241e7fad33bcbd03d9d18643"
+        },
+        {
+            "package": "stof/doctrine-extensions-bundle",
+            "version": "dev-master",
+            "source-reference": "e237d8f008c558f8a82c0d6d41281b0dd8d2ec74"
+        },
+        {
+            "package": "swiftmailer/swiftmailer",
+            "version": "4.1.5"
+        },
+        {
+            "package": "sylius/addressing-bundle",
+            "version": "dev-master",
+            "source-reference": "2be976a72d508dd240eddc3c5d53bc9ddbb630fc"
+        },
+        {
+            "package": "sylius/assortment-bundle",
+            "version": "dev-master",
+            "source-reference": "fc4ceb01d1bf52419cd4ccd3779cf9dc123899cc"
+        },
+        {
+            "package": "sylius/blogger-bundle",
+            "version": "dev-master",
+            "source-reference": "fd69b2091aff1a2ba64c4ef933cfe7dcdefc96c2"
+        },
+        {
+            "package": "sylius/cart-bundle",
+            "version": "dev-master",
+            "source-reference": "7aa1cacfabbdc659153ee789ccae9d0ea0e99324"
+        },
+        {
+            "package": "sylius/categorizer-bundle",
+            "version": "dev-master",
+            "source-reference": "ecd29e4b7fd673854000a859a831c86794782a60"
+        },
+        {
+            "package": "sylius/guard-bundle",
+            "version": "dev-master",
+            "source-reference": "51054ca024cf888b3f5eeb55fee5d6d229713dc1"
+        },
+        {
+            "package": "sylius/installer-bundle",
+            "version": "dev-master",
+            "source-reference": "dacec88f5ae87e11d55965a76045c1bac4c4127a"
+        },
+        {
+            "package": "sylius/newsletter-bundle",
+            "version": "dev-master",
+            "source-reference": "bdbb452f5d6d9ffcf5fe68c91ebf7520f119da2b"
+        },
+        {
+            "package": "sylius/plugins-bundle",
+            "version": "dev-master",
+            "source-reference": "48f809e47753e1d862924624768dd799b1a5de29"
+        },
+        {
+            "package": "sylius/sales-bundle",
+            "version": "dev-master",
+            "source-reference": "6cdd534449491aa44426203bc56807c492884d0b"
+        },
+        {
+            "package": "sylius/theming-bundle",
+            "version": "dev-master",
+            "source-reference": "a2fddc311e9dbba2c1f15baa72add9c0ab1817c4"
+        },
+        {
+            "package": "symfony/assetic-bundle",
+            "version": "dev-master",
+            "source-reference": "52cf0eaa7160cbe33bcf1ed7224c7619ceeebbdc"
+        },
+        {
+            "package": "symfony/monolog-bundle",
+            "version": "dev-master",
+            "source-reference": "289442e385e7c0fe4aa2e8884d11e774a8f9ad99"
+        },
+        {
+            "package": "symfony/swiftmailer-bridge",
+            "version": "dev-master",
+            "source-reference": "23b8d5c049bb3dfb67ec04bbea09464da27c4ec7"
+        },
+        {
+            "package": "symfony/swiftmailer-bundle",
+            "version": "dev-master",
+            "source-reference": "75f8f95c201922a966274547131b33291d15d51b"
+        },
+        {
+            "package": "symfony/symfony",
+            "version": "dev-master",
+            "source-reference": "3d0341bcecd411e855dbfb44ddee63c6c466ec87"
+        },
+        {
+            "package": "twig/extensions",
+            "version": "dev-master",
+            "source-reference": "1dfff8e793f50f651c4f74f796c2c68a4aee3147"
+        },
+        {
+            "package": "twig/twig",
+            "version": "1.6.1"
+        },
+        {
+            "package": "white-october/pagerfanta-bundle",
+            "version": "dev-master",
+            "source-reference": "60d98f508010b0fab6a93bf079be39f4c9537f7c"
+        }
+    ],
+    "aliases": []
+}

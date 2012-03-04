@@ -43,7 +43,7 @@ class LoadCategoriesData extends AbstractFixture implements ContainerAwareInterf
         foreach (range(0, 9) as $i) {
             $category = $manager->createCategory($catalog);
 
-            $category->setName($faker->sentence(3));
+            $category->setName($faker->word);
 
             $manipulator->create($category);
 

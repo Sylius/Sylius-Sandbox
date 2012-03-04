@@ -1,7 +1,7 @@
-{% for category in category.children %}
+{% for category in category['__children'] %}
     <tr>
         <td>{{ category.id }}</td>
-        <td>{% for i in 0..category.treeLevel %}&#8212;{% endfor %} - {{ category.name }}</td>
+        <td>{% for i in 0..category.treeLevel %}&#8212;&#8212;&#8212;{% endfor %} - {{ category.name }}</td>
         <td>
             <div class="pull-right btn-toolbar">
                 <div class="btn-group">
@@ -33,7 +33,7 @@
             </div>
         </td>
     </tr>
-    {% if category.hasChildren() %}
-        {% include 'SandboxAssortmentBundle:Backend/Category:tree.html.twig' %}
+    {% if category['__children'] is defined %}
+        {% include 'SandboxAssortmentBundle:Backend/Category:node.html.twig' %}
     {% endif %}
 {% endfor %}

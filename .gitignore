@@ -9,5 +9,4 @@ sylius-sandbox/logs/*
 vendor/
 
 composer.phar
-composer.lock
 

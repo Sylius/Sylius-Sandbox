@@ -58,8 +58,8 @@
                 </td>
             </tr>
 
-            {% if category.hasChildren() %}
-                {% include 'SandboxAssortmentBundle:Backend/Category:tree.html.twig' %}
+            {% if category['__children'] is defined %}
+                {% include 'SandboxAssortmentBundle:Backend/Category:node.html.twig' %}
             {% endif %}
             {% endfor %}
     </tbody>

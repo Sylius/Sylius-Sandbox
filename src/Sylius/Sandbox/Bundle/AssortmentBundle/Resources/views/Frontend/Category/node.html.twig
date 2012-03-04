@@ -1,8 +1,8 @@
 <ul>
-    {% for category in category.children %}
+    {% for category in category['__children'] %}
         <li><a href="{{ path('sylius_categorizer_category_show', {'alias': catalog.alias, 'id': category.id, 'slug': category.slug}) }}">{{ category.name }}</a></li>
-        {% if category.hasChildren() %}
-            {% include 'SandboxAssortmentBundle:Frontend/Category:tree.html.twig' %}
+        {% if category['__children'] is defined %}
+            {% include 'SandboxAssortmentBundle:Frontend/Category:node.html.twig' %}
         {% endif %}
     {% endfor %}
 </ul>
