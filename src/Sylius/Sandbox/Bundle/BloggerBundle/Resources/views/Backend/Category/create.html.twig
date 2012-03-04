@@ -1,33 +1,23 @@
 {% extends 'SandboxCoreBundle:Backend:layout.html.twig' %}
 
 {% block content %}
-
 <div class="page-header">
     <h1>Creating category.<small> Use the form below to create a new blog category...</small></h1>
 </div>
 
-<form action="{{ path('sylius_categorizer_backend_category_create', {'alias': catalog.alias}) }}" method="post">
-
+<form action="{{ path('sylius_categorizer_backend_category_create', {'alias': catalog.alias}) }}" method="post" class="form-horizontal">
 <fieldset>
-
-<div class="clearfix">
-    <div class="formErrors">
+    <div class="control-group">
     {{ form_errors(form.name) }}
-    </div>
-    <label for="sylius_categorizer_category[name]">Name...</label>
-    <div class="input">
+    {{ form_label(form.name, 'Name...') }}
+    <div class="controls">
         {{ form_widget(form.name, {'attr': {'class': 'span7'}}) }}
     </div>
-</div>
-
+    </div>
 </fieldset>
-
-{{ form_rest(form) }}
-
-<div class="actions">
-<input type="submit" value="create category" class="btn primary large" />
-</div>
-
+    {{ form_rest(form) }}
+    <div class="form-actions">
+    <input type="submit" value="create category" class="btn btn-primary btn-large" />
+    </div>
 </form>
-
-{% endblock content %}
+{% endblock %}

@@ -1,46 +1,46 @@
 {% extends 'SandboxCoreBundle:Backend:layout.html.twig' %}
 
 {% block content %}
-
 <div class="page-header">
     <h1>Create post.<small> Use this form to create a post...</small></h1>
 </div>
 
-<form action="{{ path('sylius_blogger_backend_post_create') }}" method="post">
-
+<form action="{{ path('sylius_blogger_backend_post_create') }}" method="post" class="form-horizontal">
 <fieldset>
-    <div class="clearfix">
-    <label for="sylius_blogger_post_title">Title...</label>
-    <div class="input">
+    <div class="control-group">
+    {{ form_label(form.title, 'Title...') }}
+    <div class="controls">
         {{ form_widget(form.title, {'attr': {'class': 'span7'}}) }}
     </div>
     </div>
-    <div class="clearfix">
-    <label for="form[author]">Author...</label>
-    <div class="input">
-        {{ form_widget(form.author, {'attr': {'class': 'span7'}}) }}
+    <div class="control-group">
+    {{ form_label(form.author, 'Author...') }}
+    <div class="controls">
+        {{ form_widget(form.author, {'attr': {'class': 'span4'}}) }}
     </div>
     </div>
-    <div class="clearfix">
-    <label for="form[content]">Content...</label>
-    <div class="input">
-        {{ form_widget(form.content, {'attr': {'class': 'span12', 'rows': 10}}) }}
+    <div class="control-group">
+    {{ form_label(form.content, 'Content...') }}
+    <div class="controls">
+        {{ form_widget(form.content, {'attr': {'class': 'span9', 'rows': 10}}) }}
     </div>
     </div>
-    <div class="clearfix">
-    <label for="form[categories]">Post categories...</label>
-    <div class="input">
+    <div class="control-group">
+    {{ form_label(form.published, 'Publish?') }}
+    <div class="controls">
+        {{ form_widget(form.published) }}
+    </div>
+    </div>
+    <div class="control-group">
+    {{ form_label(form.categories, 'Categories...', {'attr': {'class': 'span3'}}) }}
+    <div class="controls">
         {{ form_widget(form.categories) }}
     </div>
     </div>
 </fieldset>
-
-{{ form_rest(form) }}
-
-<div class="actions">
-<input type="submit" class="btn large primary" value="create post">
-</div>
-
+    {{ form_rest(form) }}
+    <div class="form-actions">
+    <input type="submit" class="btn btn-large btn-primary" value="create post">
+    </div>
 </form>
-
 {% endblock %}

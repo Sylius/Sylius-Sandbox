@@ -1,18 +1,29 @@
 {% extends 'SandboxCoreBundle:Backend:layout.html.twig' %}
 
 {% block content %}
-
 <div class="page-header">
-    <h1>{{ post.title }} <small>Post details.</small></h1>
+    <h1>Post details.</h1>
 </div>
 
-<table>
+<div class="well">
+<a href="{{ path('sylius_blogger_backend_post_update', {'id': post.id}) }}" class="btn">
+    <i class="icon-pencil"></i> update
+</a>
+<a href="{{ path('sylius_blogger_backend_post_delete', {'id': post.id}) }}" class="btn btn-danger confirmer"
+    data-toggle="modal"
+    data-target="confirmer-modal"
+    data-confirmer-question="Are you sure you want to delete this post?"
+>
+    <i class="icon-remove icon-white"></i> delete
+</a>
+</div>
+
+<table class="table table-bordered">
     <thead>
         <tr>
             <th>#id</th>
             <th>title</th>
             <th>author</th>
-            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -20,16 +31,12 @@
             <td>{{ post.id }}</td>
             <td>{{ post.title }}</td>
             <td>{{ post.author }}</td>
-            <td>
-                <a href="{{ path('sylius_blogger_backend_post_update', {'id': post.id}) }}" class="btn">update</a>
-                <a href="{{ path('sylius_blogger_backend_post_delete', {'id': post.id}) }}" class="btn danger">delete</a>
-            </td>
         </tr>
     </tbody>
 </table>
 
-<h2>Post content.</h2>
 <div class="well">
+<h2>Post content.</h2>
 {{ post.content|raw }}
 </div>
 
