@@ -58,8 +58,7 @@ sylius_categorizer:
     catalogs:
         assortment:
             property: "products"
-            classes:
-                model: Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Category
+            model: Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Category
             form: sylius_sandbox_assortment_category
             templates:
                 backend:
@@ -72,8 +71,7 @@ sylius_categorizer:
                     show: SandboxAssortmentBundle:Frontend/Category:show.html.twig
         blog:
             property: "posts"
-            classes:
-                model: Sylius\Sandbox\Bundle\BloggerBundle\Entity\Category
+            model: Sylius\Sandbox\Bundle\BloggerBundle\Entity\Category
             templates:
                 backend:
                     list: SandboxBloggerBundle:Backend/Category:list.html.twig
@@ -122,7 +120,7 @@ sylius_theming:
             theme: Sylius\Bundle\ThemingBundle\Entity\Theme
 
 sylius_blogger:
-    driver: ORM
+    driver: doctrine/orm
     classes:
         model:
             post: Sylius\Sandbox\Bundle\BloggerBundle\Entity\Post

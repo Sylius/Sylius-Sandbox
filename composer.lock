@@ -3,7 +3,7 @@
     "packages": [
         {
             "package": "doctrine/common",
-            "version": "2.2.0"
+            "version": "2.2.1"
         },
         {
             "package": "doctrine/data-fixtures",
@@ -17,7 +17,7 @@
         {
             "package": "doctrine/doctrine-bundle",
             "version": "dev-master",
-            "source-reference": "ff676b6147a83b695b0033b228e160d920612365"
+            "source-reference": "c3d716b046062929f691a340968bb0e6a3b7f69b"
         },
         {
             "package": "doctrine/doctrine-fixtures-bundle",
@@ -50,7 +50,7 @@
         {
             "package": "kriswallsmith/assetic",
             "version": "dev-master",
-            "source-reference": "ba88ad4e2c7122b270a2e06a2b79f6dba6413050"
+            "source-reference": "2634d29cc193981761e3daf28e1afc6358bb43b1"
         },
         {
             "package": "liip/theme-bundle",
@@ -88,7 +88,7 @@
         {
             "package": "sylius/blogger-bundle",
             "version": "dev-master",
-            "source-reference": "fd69b2091aff1a2ba64c4ef933cfe7dcdefc96c2"
+            "source-reference": "cf864f57f2810fbc59a44419989a167383cef4d7"
         },
         {
             "package": "sylius/cart-bundle",
@@ -98,7 +98,7 @@
         {
             "package": "sylius/categorizer-bundle",
             "version": "dev-master",
-            "source-reference": "ecd29e4b7fd673854000a859a831c86794782a60"
+            "source-reference": "8e0976ee7dd6c99714e2275edd3d4e8696de0f1e"
         },
         {
             "package": "sylius/guard-bundle",
@@ -153,7 +153,8 @@
         {
             "package": "symfony/symfony",
             "version": "dev-master",
-            "source-reference": "3d0341bcecd411e855dbfb44ddee63c6c466ec87"
+            "source-reference": "695c00a7a844ed428335dfd5783d7753fce0d1f7",
+            "alias": "2.1.9999999.9999999-dev"
         },
         {
             "package": "twig/extensions",
