@@ -39,7 +39,7 @@ class LoadUsersData extends AbstractFixture implements ContainerAwareInterface, 
 
         $faker = \Faker\Factory::create();
 
-        foreach (range(0, 10) as $i) {
+        foreach (range(0, 19) as $i) {
             $user = $manager->createUser();
 
             $user->setEmail($faker->email);

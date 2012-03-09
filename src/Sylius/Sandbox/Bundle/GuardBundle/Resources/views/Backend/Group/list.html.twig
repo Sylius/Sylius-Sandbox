@@ -1,17 +1,18 @@
 {% extends 'SandboxCoreBundle:Backend:layout.html.twig' %}
 
 {% block content %}
-
 <div class="page-header">
     <h1>{{ "header.group.list" | trans({}, 'SyliusGuardBundle') }}</h1>
 </div>
 
 <div class="well">
-<a href="{{ path('sylius_guard_backend_group_create') }}" class="btn primary large">{{ "group.create" | trans({}, 'SyliusGuardBundle') | lower }}</a>
+<a href="{{ path('sylius_guard_backend_group_create') }}" class="btn btn-primary">
+    <i class="icon-plus icon-white"></i> {{ "group.create" | trans({}, 'SyliusGuardBundle') | lower }}
+</a>
 </div>
 
-{% if groups %}
-<table class="zebra-stripped">
+{% if groups|length > 0 %}
+<table class="table">
     <thead>
         <tr>
             <th>#id</th>
@@ -25,10 +26,16 @@
             <td>{{ group.id }}</td>
             <td>{{ group.name }}</td>
             <td>
-                <div class="pull-right">
-                <a href="{{ path('sylius_guard_backend_group_show', {'id': group.id}) }}" class="btn">{{ "show" | trans({}, 'SyliusGuardBundle') }}</a>
-                <a href="{{ path('sylius_guard_backend_group_update', {'id': group.id}) }}" class="btn">{{ "update" | trans({}, 'SyliusGuardBundle') }}</a>
-                <a href="{{ path('sylius_guard_backend_group_delete', {'id': group.id}) }}" class="btn danger">{{ "delete" | trans({}, 'SyliusGuardBundle') }}</a>
+                <div class="btn-group pull-right">
+                    <a href="{{ path('sylius_guard_backend_group_show', {'id': group.id}) }}" class="btn">
+                        <i class="icon-book"></i> {{ "show" | trans({}, 'SyliusGuardBundle') }}
+                    </a>
+                    <a href="{{ path('sylius_guard_backend_group_update', {'id': group.id}) }}" class="btn">
+                        <i class="icon-pencil"></i> {{ "update" | trans({}, 'SyliusGuardBundle') }}
+                    </a>
+                    <a href="{{ path('sylius_guard_backend_group_delete', {'id': group.id}) }}" class="btn btn-danger">
+                        <i class="icon-remove icon-white"></i> {{ "delete" | trans({}, 'SyliusGuardBundle') }}
+                    </a>
                 </div>
             </td>
         </tr>
@@ -36,8 +43,9 @@
     </tbody>
 </table>
 {% else %}
-<div class="alert-message info">
-    <p>{{ "list.group.empty" | trans({}, 'SyliusGuardBundle') }}</p>
+<div class="alert alert-info">
+    <h4 class="alert-heading">{{ 'alert.heading.info'|trans({}, 'SandboxCoreBundle') }}.</h4>
+    There are no groups to display.
 </div>
 {% endif %}
 

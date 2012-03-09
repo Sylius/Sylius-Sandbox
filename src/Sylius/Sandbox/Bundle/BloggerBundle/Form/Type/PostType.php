@@ -11,10 +11,10 @@
 
 namespace Sylius\Sandbox\Bundle\BloggerBundle\Form\Type;
 
-use Sylius\Bundle\BloggerBundle\Form\Type\PostFormType as BasePostFormType;
+use Sylius\Bundle\BloggerBundle\Form\Type\PostType as BasePostType;
 use Symfony\Component\Form\FormBuilder;
 
-class PostFormType extends BasePostFormType
+class PostType extends BasePostType
 {
     public function buildForm(FormBuilder $builder, array $options)
     {

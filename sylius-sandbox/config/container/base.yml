@@ -126,7 +126,7 @@ sylius_blogger:
             post: Sylius\Sandbox\Bundle\BloggerBundle\Entity\Post
         form:
             type:
-                post: Sylius\Sandbox\Bundle\BloggerBundle\Form\Type\PostFormType
+                post: Sylius\Sandbox\Bundle\BloggerBundle\Form\Type\PostType
 
 sylius_sales:
     driver: ORM

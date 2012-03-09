@@ -32,9 +32,9 @@
     </div>
     </div>
     <div class="control-group">
-    {{ form_label(form.categories, 'Categories...', {'attr': {'class': 'span3'}}) }}
+    {{ form_label(form.categories, 'Categories...') }}
     <div class="controls">
-        {{ form_widget(form.categories) }}
+        {{ form_widget(form.categories, {'attr': {'class': 'span3'}}) }}
     </div>
     </div>
 </fieldset>
