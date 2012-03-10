@@ -5,14 +5,15 @@
     <br /> <br />
     <code>Created at {{ product.createdAt|date('Y-m-d H:i:s') }}.</code>
 
+    <a href="{{ path('sylius_assortment_product_show', {'id': product.id, 'slug': product.slug}) }}" class="btn">more info...</a>
+
     <form action="{{ path('sylius_cart_item_add') }}" method="post">
     <input type="hidden" name="sylius_cart_item[quantity]" value="1" />
     <input type="hidden" name="sylius_cart_item[product]" value="{{ product.id }}" />
 
     <div class="pull-right">
     <strong>Price...</strong> {{ product.price }} &euro;
-    <input type="submit" class="btn success" value="add to cart">
-    <a href="{{ path('sylius_assortment_product_show', {'id': product.id, 'slug': product.slug}) }}" class="btn">more info...</a>
+    <input type="submit" class="btn btn-success" value="add to cart">
     </div>
     </form>
 </div>

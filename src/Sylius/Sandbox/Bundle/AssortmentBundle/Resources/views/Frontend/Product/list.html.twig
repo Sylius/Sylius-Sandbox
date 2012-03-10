@@ -1,16 +1,9 @@
 {% extends 'SandboxCoreBundle:Frontend:layout.html.twig' %}
 
-{% if app.request.get('order') %}
-    {% if app.request.get('order') == 'ASC' %}
-        {% set sortOrder = 'DESC' %}
-    {% else %}
-        {% set sortOrder = 'ASC' %}
-    {% endif %}
-{% else %}
-    {% set sortOrder = 'DESC' %}
-{% endif %}
-
 {% block content %}
+<div class="page-header">
+<h1>Product list. <small>Paginated products list.</small></h1>
+</div>
 
 <ul class="breadcrumb">
   <li><a href="{{ path('sylius_sandbox_core_frontend') }}">Sylius</a> <span class="divider">/</span></li>
@@ -18,31 +11,28 @@
   <li><a href="{{ path('sylius_assortment_product_list') }}">Products</a></li>
 </ul>
 
-<h1>Product list. <small>Paginated products list.</small></h1>
-
 {% if paginator.haveToPaginate() %}
-{{ pagerfanta(paginator, 'twitter_bootstrap', {'prev_message': "previous page...", 'next_message': "next page..."}) }}
+{{ pagerfanta(paginator, 'twitter_bootstrap_translated') }}
 {% endif %}
 
-{% if products %}
-
-    <ul class="tabs">
-        <li{% if app.request.get('sort') == 'name' %} class="active"{% endif %}><a href="{{ path('sylius_assortment_product_list', {'sort': 'name', 'order': sortOrder}) }}">Name!</a></li>
-        <li{% if app.request.get('sort') == 'price' %} class="active"{% endif %}><a href="{{ path('sylius_assortment_product_list', {'sort': 'price', 'order': sortOrder}) }}">Price!</a></li>
-        <li{% if app.request.get('sort') == 'createdAt' %} class="active"{% endif %}><a href="{{ path('sylius_assortment_product_list', {'sort': 'createdAt', 'order': sortOrder}) }}">Creation time!</a></li>
+{% if products|length > 0 %}
+    <ul class="nav nav-tabs">
+        <li{% if app.request.get('sort') == 'name' %} class="active"{% endif %}><a href="{{ path('sylius_assortment_product_list', {'sort': 'name', 'order': 'asc'}) }}">Name!</a></li>
+        <li{% if app.request.get('sort') == 'price' %} class="active"{% endif %}><a href="{{ path('sylius_assortment_product_list', {'sort': 'price', 'order': 'asc'}) }}">Price!</a></li>
+        <li{% if app.request.get('sort') == 'createdAt' %} class="active"{% endif %}><a href="{{ path('sylius_assortment_product_list', {'sort': 'createdAt', 'order': 'asc'}) }}">Creation time!</a></li>
     </ul>
-    <br /><br /><br />
     {% for product in products %}
         {% include 'SandboxAssortmentBundle:Frontend/Product:single.html.twig' %}
     {% endfor %}
 {% else %}
-<div class="alert-message info">
-  <p><strong>Information.</strong> No products to display.</p>
+<div class="alert alert-info">
+    <h4 class="alert-heading">{{ 'alert.heading.info'|trans({}, 'SandboxCoreBundle') }}.</h4>
+    There are no products to display.
 </div>
 {% endif %}
 
 {% if paginator.haveToPaginate() %}
-{{ pagerfanta(paginator, 'twitter_bootstrap', {'prev_message': "previous page...", 'next_message': "next page..."}) }}
+{{ pagerfanta(paginator, 'twitter_bootstrap_translated') }}
 {% endif %}
 
 {% endblock %}
