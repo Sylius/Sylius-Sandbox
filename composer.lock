@@ -17,7 +17,7 @@
         {
             "package": "doctrine/doctrine-bundle",
             "version": "dev-master",
-            "source-reference": "c3d716b046062929f691a340968bb0e6a3b7f69b"
+            "source-reference": "cd4848f323da7ab66bed79562a23bf9f291c703e"
         },
         {
             "package": "doctrine/doctrine-fixtures-bundle",
@@ -45,7 +45,7 @@
         },
         {
             "package": "gedmo/doctrine-extensions",
-            "version": "v2.2.1"
+            "version": "v2.2.0"
         },
         {
             "package": "kriswallsmith/assetic",
@@ -78,12 +78,12 @@
         {
             "package": "sylius/addressing-bundle",
             "version": "dev-master",
-            "source-reference": "2be976a72d508dd240eddc3c5d53bc9ddbb630fc"
+            "source-reference": "10423103a90e8a4db368c489a9635439e3230c36"
         },
         {
             "package": "sylius/assortment-bundle",
             "version": "dev-master",
-            "source-reference": "fc4ceb01d1bf52419cd4ccd3779cf9dc123899cc"
+            "source-reference": "eba5543fb33262e674924c6b34db2fa6efb9d960"
         },
         {
             "package": "sylius/blogger-bundle",
@@ -98,7 +98,7 @@
         {
             "package": "sylius/categorizer-bundle",
             "version": "dev-master",
-            "source-reference": "8e0976ee7dd6c99714e2275edd3d4e8696de0f1e"
+            "source-reference": "2122e80f4b87aa3c0127d6c7cc584a3623b9627d"
         },
         {
             "package": "sylius/guard-bundle",
@@ -153,7 +153,7 @@
         {
             "package": "symfony/symfony",
             "version": "dev-master",
-            "source-reference": "695c00a7a844ed428335dfd5783d7753fce0d1f7",
+            "source-reference": "4bb65c7057770aa81fa3eb6b4fa6b7f8aaf37bd0",
             "alias": "2.1.9999999.9999999-dev"
         },
         {
