@@ -45,7 +45,7 @@ stof_doctrine_extensions:
             tree: true
 
 sylius_assortment:
-    driver: ORM
+    driver: doctrine/orm
     classes:
         model:
             product:  Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Product
@@ -145,13 +145,13 @@ sylius_plugins:
             plugin: Sylius\Bundle\PluginsBundle\Entity\Plugin
 
 sylius_addressing:
-    driver: ORM
+    driver: doctrine/orm
     classes:
         model:
             address: Sylius\Sandbox\Bundle\AddressingBundle\Entity\Address
         form:
             type:
-                address: Sylius\Sandbox\Bundle\AddressingBundle\Form\Type\AddressFormType
+                address: Sylius\Sandbox\Bundle\AddressingBundle\Form\Type\AddressType
 
 sylius_guard:
     driver: ORM
