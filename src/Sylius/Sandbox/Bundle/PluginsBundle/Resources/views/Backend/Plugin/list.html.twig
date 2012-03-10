@@ -1,13 +1,12 @@
 {% extends 'SandboxCoreBundle:Backend:layout.html.twig' %}
 
 {% block content %}
-
 <div class="page-header">
     <h1>Plugins manager.<small> Use this page to install and manage plugins.</small></h1>
 </div>
 
-{% if plugins %}
-<table>
+{% if plugins|length > 0 %}
+<table class="table">
     <thead>
         <tr>
             <th>#id</th>
@@ -15,38 +14,37 @@
             <th></th>
         </tr>
     </thead>
-
     <tbody>
     {% for plugin in plugins %}
         <tr>
             <td>{{ plugin.id }}</td>
             <td>{{ plugin.name }}</td>
             <td>
-                <div class="pull-right">
-                <a href="{{ path('sylius_plugins_backend_plugin_show', {'id': plugin.id}) }}" class="btn">details</a>
-                {% if plugin.enabled %}
-                    <a href="{{ path('sylius_plugins_backend_plugin_disable', {'id': plugin.id}) }}" class="btn">disable</a>
-                {% else %}
-                    <a href="{{ path('sylius_plugins_backend_plugin_enable', {'id': plugin.id}) }}" class="btn">enable</a>
-                {% endif %}
-                <a href="{{ path('sylius_plugins_backend_plugin_uninstall', {'id': plugin.id}) }}"class="btn danger">uninstall</a>
+                <div class="btn-group pull-right">
+                    <a href="{{ path('sylius_plugins_backend_plugin_show', {'id': plugin.id}) }}" class="btn">details</a>
+                    {% if plugin.enabled %}
+                        <a href="{{ path('sylius_plugins_backend_plugin_disable', {'id': plugin.id}) }}" class="btn">disable</a>
+                    {% else %}
+                        <a href="{{ path('sylius_plugins_backend_plugin_enable', {'id': plugin.id}) }}" class="btn">enable</a>
+                    {% endif %}
+                    <a href="{{ path('sylius_plugins_backend_plugin_uninstall', {'id': plugin.id}) }}"class="btn btn-danger">uninstall</a>
                 </div>
             </td>
         </tr>
     {% endfor %}
     </tbody>
 </table>
-
 {% else %}
-    <div class="alert-message info">
-      <p><strong>Information.</strong> No installed plugins.</p>
-    </div>
+<div class="alert alert-info">
+    <h4 class="alert-heading">{{ 'alert.heading.info'|trans({}, 'SandboxCoreBundle') }}.</h4>
+    There are no plugins to display.
+</div>
 {% endif %}
 
 <hr />
-{% if packs %}
 
-<table>
+{% if packs|length > 0 %}
+<table class="table">
     <thead>
         <tr>
             <th>name</th>
@@ -59,7 +57,9 @@
         <tr>
             <td>{{ pack.name }}</td>
             <td>
-                <a href="{{ path('sylius_plugins_backend_plugin_install', {'path': pack.encodedPath}) }}" class="btn success">install</a>
+                <div class="pull-right">
+                <a href="{{ path('sylius_plugins_backend_plugin_install', {'path': pack.encodedPath}) }}" class="btn btn-success">install</a>
+                </div>
             </td>
         </tr>
     {% endfor %}
@@ -67,9 +67,10 @@
 </table>
 
 {% else %}
-    <div class="alert-message info">
-      <p><strong>Information.</strong> No plugin packs to install.</p>
-    </div>
+<div class="alert alert-info">
+    <h4 class="alert-heading">{{ 'alert.heading.info'|trans({}, 'SandboxCoreBundle') }}.</h4>
+    There are no plugin packages to install.
+</div>
 {% endif %}
 
 {% endblock %}

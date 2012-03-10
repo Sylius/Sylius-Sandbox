@@ -1,12 +1,11 @@
 {% extends 'SandboxCoreBundle:Backend:layout.html.twig' %}
 
 {% block content %}
-
 <div class="page-header">
     <h1>Theme details.</h1>
 </div>
 
-<table>
+<table class="table table-bordered">
     <thead>
         <tr>
             <th>#id</th>
@@ -24,12 +23,11 @@
             <td>{{ theme.description }}</td>
             <td><span class="label notice">{{ theme.version }}</span></td>
             <td>
-                <a href="{{ path('sylius_theming_backend_theme_activate', {'id': theme.id}) }}" class="btn primary">activate</a>
+                <a href="{{ path('sylius_theming_backend_theme_activate', {'id': theme.id}) }}" class="btn btn-primary">activate</a>
                 <a href="{{ path('sylius_theming_backend_theme_show', {'id': theme.id}) }}" class="btn">details</a>
-                <a href="{{ path('sylius_theming_backend_theme_uninstall', {'id': theme.id}) }}"class="btn danger">uninstall</a>
+                <a href="{{ path('sylius_theming_backend_theme_uninstall', {'id': theme.id}) }}"class="btn btn-danger">uninstall</a>
             </td>
         </tr>
     </tbody>
 </table>
-
 {% endblock %}

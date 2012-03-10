@@ -1,14 +1,12 @@
 {% extends 'SandboxCoreBundle:Backend:layout.html.twig' %}
 
 {% block content %}
-
 <div class="page-header">
     <h1>Theme manager.<small> Use this page to install and manage your themes.</small></h1>
 </div>
 
-{% if themes %}
-
-<table>
+{% if themes|length > 0 %}
+<table class="table">
     <thead>
         <tr>
             <th>#id</th>
@@ -16,17 +14,16 @@
             <th></th>
         </tr>
     </thead>
-
     <tbody>
     {% for theme in themes %}
         <tr>
             <td>{{ theme.id }}</td>
             <td>{{ theme.name }}</td>
             <td>
-                <div class="pull-right">
-                <a href="{{ path('sylius_theming_backend_theme_activate', {'id': theme.id}) }}" class="btn primary">activate</a>
+                <div class="btn-group pull-right">
+                <a href="{{ path('sylius_theming_backend_theme_activate', {'id': theme.id}) }}" class="btn">activate</a>
                 <a href="{{ path('sylius_theming_backend_theme_show', {'id': theme.id}) }}" class="btn">details</a>
-                <a href="{{ path('sylius_theming_backend_theme_uninstall', {'id': theme.id}) }}"class="btn danger">uninstall</a>
+                <a href="{{ path('sylius_theming_backend_theme_uninstall', {'id': theme.id}) }}"class="btn btn-danger">uninstall</a>
                 </div>
             </td>
         </tr>
@@ -35,28 +32,30 @@
 </table>
 
 {% else %}
-    <div class="alert-message info">
-      <p><strong>Information.</strong> No installed themes.</p>
-    </div>
+<div class="alert alert-info">
+    <h4 class="alert-heading">{{ 'alert.heading.info'|trans({}, 'SandboxCoreBundle') }}.</h4>
+    There are themes to display.
+</div>
 {% endif %}
 
 <hr />
-{% if packs %}
 
-<table>
+{% if packs|length > 0 %}
+<table class="table">
     <thead>
         <tr>
             <th>name</th>
-            <th>options</th>
+            <th></th>
         </tr>
     </thead>
-
     <tbody>
     {% for pack in packs %}
         <tr>
             <td>{{ pack.name }}</td>
             <td>
-                <a href="{{ path('sylius_theming_backend_theme_install', {'path': pack.encodedPath}) }}" class="btn success">install</a>
+                <div class="pull-right">
+                <a href="{{ path('sylius_theming_backend_theme_install', {'path': pack.encodedPath}) }}" class="btn btn-success">install</a>
+                </div>
             </td>
         </tr>
     {% endfor %}
@@ -64,9 +63,10 @@
 </table>
 
 {% else %}
-    <div class="alert-message info">
-      <p><strong>Info!</strong> No theme packs to install.</p>
-    </div>
+<div class="alert alert-info">
+    <h4 class="alert-heading">{{ 'alert.heading.info'|trans({}, 'SandboxCoreBundle') }}.</h4>
+    There are no theme packages to install.
+</div>
 {% endif %}
 
 {% endblock %}
