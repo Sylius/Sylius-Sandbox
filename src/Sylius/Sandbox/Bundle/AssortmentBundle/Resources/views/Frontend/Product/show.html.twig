@@ -8,7 +8,7 @@
 </h1>
 </div>
 
-{{ product.description|raw }}
+{{ product.description|markdown }}
 
 <form action="{{ path('sylius_cart_item_add') }}" method="post">
     <input type="hidden" name="sylius_cart_item[product]" value="{{ product.id }}" />

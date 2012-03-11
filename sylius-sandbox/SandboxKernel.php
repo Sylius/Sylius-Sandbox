@@ -43,6 +43,7 @@ class SandboxKernel extends Kernel
             new \Liip\ThemeBundle\LiipThemeBundle(),
             new \Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new \WhiteOctober\PagerfantaBundle\WhiteOctoberPagerfantaBundle(),
+            new \Knp\Bundle\MarkdownBundle\KnpMarkdownBundle(),
 
             /*
              * Sylius bundles.

@@ -1,5 +1,5 @@
 {
-    "hash": "9f84ec21be5810ace03a3f02f6c486f9",
+    "hash": "951dceb275d1f0fbc84508a9f8f85b63",
     "packages": [
         {
             "package": "doctrine/common",
@@ -45,7 +45,13 @@
         },
         {
             "package": "gedmo/doctrine-extensions",
-            "version": "v2.2.0"
+            "version": "2.2.x-dev",
+            "source-reference": "e125e181faa377a7f82132299b44ce510a7c7eaa"
+        },
+        {
+            "package": "knplabs/knp-markdown-bundle",
+            "version": "dev-master",
+            "source-reference": "8a7637054b945c2fd5fbeece2cf98139fb79d8f3"
         },
         {
             "package": "kriswallsmith/assetic",
@@ -69,7 +75,7 @@
         {
             "package": "stof/doctrine-extensions-bundle",
             "version": "dev-master",
-            "source-reference": "e237d8f008c558f8a82c0d6d41281b0dd8d2ec74"
+            "source-reference": "051a9e00a2805e2cd4e1473e85e8f74dcb70e65c"
         },
         {
             "package": "swiftmailer/swiftmailer",
@@ -88,7 +94,7 @@
         {
             "package": "sylius/blogger-bundle",
             "version": "dev-master",
-            "source-reference": "cf864f57f2810fbc59a44419989a167383cef4d7"
+            "source-reference": "5bd79256fbb93b672617b1ec1856ea1408946648"
         },
         {
             "package": "sylius/cart-bundle",
@@ -153,8 +159,7 @@
         {
             "package": "symfony/symfony",
             "version": "dev-master",
-            "source-reference": "4bb65c7057770aa81fa3eb6b4fa6b7f8aaf37bd0",
-            "alias": "2.1.9999999.9999999-dev"
+            "source-reference": "d2d7aecb64d6dedf9e8580920db67e63ad88572d"
         },
         {
             "package": "twig/extensions",

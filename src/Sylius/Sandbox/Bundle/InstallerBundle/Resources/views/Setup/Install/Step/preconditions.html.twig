@@ -17,7 +17,7 @@
 
 {% for issue in issues %}
 <div class="alert-message block-message warning">
-<p>{{ issue|raw }}</p>
+<p>{{ issue|markdown }}</p>
 </div>
 {% endfor %}
 

@@ -11,6 +11,7 @@
         "doctrine/doctrine-migrations-bundle": "dev-master",
         "doctrine/doctrine-fixtures-bundle":   "dev-master",
         "stof/doctrine-extensions-bundle":     "dev-master",
+        "knplabs/knp-markdown-bundle":         "dev-master",
         "symfony/assetic-bundle":              "dev-master",
         "symfony/swiftmailer-bundle":          "dev-master",
         "symfony/monolog-bundle":              "dev-master",
