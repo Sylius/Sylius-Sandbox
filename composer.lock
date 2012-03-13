@@ -8,7 +8,7 @@
         {
             "package": "doctrine/data-fixtures",
             "version": "dev-master",
-            "source-reference": "ffee818a6e3af526b774de11b690a36512fa6235"
+            "source-reference": "aea0b95a554188892f10d8f09ce3ae8150f28f8b"
         },
         {
             "package": "doctrine/dbal",
@@ -17,7 +17,7 @@
         {
             "package": "doctrine/doctrine-bundle",
             "version": "dev-master",
-            "source-reference": "cd4848f323da7ab66bed79562a23bf9f291c703e"
+            "source-reference": "90e39fb7ff5b4c13577602dab7e08c90067160b4"
         },
         {
             "package": "doctrine/doctrine-fixtures-bundle",
@@ -45,8 +45,8 @@
         },
         {
             "package": "gedmo/doctrine-extensions",
-            "version": "2.2.x-dev",
-            "source-reference": "e125e181faa377a7f82132299b44ce510a7c7eaa"
+            "version": "dev-master",
+            "source-reference": "be7292ebce0930e5fecca1b5791b9c16bbc05bde"
         },
         {
             "package": "knplabs/knp-markdown-bundle",
@@ -99,12 +99,12 @@
         {
             "package": "sylius/cart-bundle",
             "version": "dev-master",
-            "source-reference": "7aa1cacfabbdc659153ee789ccae9d0ea0e99324"
+            "source-reference": "78ffb9b6f8baffbf0261237c5006b93beac08990"
         },
         {
             "package": "sylius/categorizer-bundle",
             "version": "dev-master",
-            "source-reference": "2122e80f4b87aa3c0127d6c7cc584a3623b9627d"
+            "source-reference": "6fa4000cb4e12c3b1643fd3d372b52f2e769a7ac"
         },
         {
             "package": "sylius/guard-bundle",
@@ -139,7 +139,7 @@
         {
             "package": "symfony/assetic-bundle",
             "version": "dev-master",
-            "source-reference": "52cf0eaa7160cbe33bcf1ed7224c7619ceeebbdc"
+            "source-reference": "b9cff021abc3d9433a892fa9908d9856393c0d09"
         },
         {
             "package": "symfony/monolog-bundle",
@@ -159,7 +159,8 @@
         {
             "package": "symfony/symfony",
             "version": "dev-master",
-            "source-reference": "d2d7aecb64d6dedf9e8580920db67e63ad88572d"
+            "source-reference": "632077aa819d0321e74a2f1b9d388af88bdcac0d",
+            "alias": "2.1.9999999.9999999-dev"
         },
         {
             "package": "twig/extensions",
