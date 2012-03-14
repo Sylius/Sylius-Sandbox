@@ -1,12 +1,13 @@
 {
     "require": {
-        "php":             ">=5.3.2",
+        "php": ">=5.3.2",
 
         "symfony/symfony":  "2.1.*",
         "doctrine/orm":     "2.2.0",
         "twig/extensions":  "dev-master",
         "fzaninotto/faker": "dev-master",
 
+        "sensio/distribution-bundle":          "dev-master",
         "doctrine/doctrine-bundle":            "dev-master",
         "doctrine/doctrine-migrations-bundle": "dev-master",
         "doctrine/doctrine-fixtures-bundle":   "dev-master",
@@ -26,6 +27,23 @@
         "sylius/guard-bundle":                 "dev-master",
         "sylius/addressing-bundle":            "dev-master",
         "sylius/installer-bundle":             "dev-master"
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets"
+        ],
+        "post-update-cmd": [
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets"
+        ]
+    },
+    "config": {
+        "bin-dir": "bin"
+    },
+    "extra": {
+        "symfony-app-dir": "sylius-sandbox",
+        "symfony-web-dir": "public"
     },
     "autoload": {
         "psr-0": {
