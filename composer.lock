@@ -46,7 +46,7 @@
         {
             "package": "gedmo/doctrine-extensions",
             "version": "dev-master",
-            "source-reference": "be7292ebce0930e5fecca1b5791b9c16bbc05bde"
+            "source-reference": "fdb2b88aa0e101e884b938e15ac9c14bf3e77699"
         },
         {
             "package": "knplabs/knp-markdown-bundle",
@@ -164,8 +164,7 @@
         {
             "package": "symfony/symfony",
             "version": "dev-master",
-            "source-reference": "e01106f2b3d2fa3d333f24298a05db1381e181eb",
-            "alias": "2.1.9999999.9999999-dev"
+            "source-reference": "3d84153d687c285b1356683298531421ec108359"
         },
         {
             "package": "twig/extensions",

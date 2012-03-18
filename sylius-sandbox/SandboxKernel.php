@@ -116,6 +116,10 @@ class SandboxKernel extends Kernel
      */
     public function registerContainerConfiguration(LoaderInterface $loader)
     {
-        $loader->load(__DIR__.'/config/container/'.$this->getEnvironment().'.yml');
+        $base = __DIR__.'/config/container/'.$this->getEnvironment();
+        if (file_exists($base.'.local.yml')) {
+            $base .= '.local';
+        }
+        $loader->load($base.'.yml');
     }
 }
