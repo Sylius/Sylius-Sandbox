@@ -109,7 +109,7 @@
         {
             "package": "sylius/categorizer-bundle",
             "version": "dev-master",
-            "source-reference": "6fa4000cb4e12c3b1643fd3d372b52f2e769a7ac"
+            "source-reference": "e325b6df07ed93b9bec1b566665635dfac256d44"
         },
         {
             "package": "sylius/guard-bundle",
@@ -164,7 +164,8 @@
         {
             "package": "symfony/symfony",
             "version": "dev-master",
-            "source-reference": "3d84153d687c285b1356683298531421ec108359"
+            "source-reference": "edac48a824bd04718a346890ca225ee28d2a347b",
+            "alias": "2.1.9999999.9999999-dev"
         },
         {
             "package": "twig/extensions",
@@ -173,7 +174,7 @@
         },
         {
             "package": "twig/twig",
-            "version": "1.6.1"
+            "version": "1.6.2"
         },
         {
             "package": "white-october/pagerfanta-bundle",
