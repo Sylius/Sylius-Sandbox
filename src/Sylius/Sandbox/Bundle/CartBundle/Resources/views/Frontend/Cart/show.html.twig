@@ -1,49 +1,40 @@
 {% extends 'SandboxCoreBundle:Frontend:layout.html.twig' %}
 
 {% block content %}
-
 <div class="page-header">
 <h1>Your cart. <small>What we have here, hm?</small></h1>
 </div>
 
 {% if not cart.empty %}
-<div class="alert-message info">
+<div class="alert alert-info">
 <strong>{{ sylius_cart_get().totalItems }}</strong> items, <strong>{{ sylius_cart_get().value }}</strong> &euro;...
 </div>
 
 <form method="post" action="{{ path('sylius_cart_update') }}">
-
 {% for item in cart.items %}
 <div class="well">
     <h3>{{ item.product.name }}</h3>
-
     {{ sylius_assortment_cut_text(item.product.description, 150, '...', true, true) }}
-
     {{ form_widget(form.items[loop.index0].product, { 'attr': {'value': item.product.id}}) }}
-
     <div class="pull-right">
     Set <strong>quantity</strong>... {{ form_widget(form.items[loop.index0].quantity, {'attr': {'class': 'span2', 'style': 'text-align: center;'}}) }}
      or
-    <a href="{{ path('sylius_cart_item_remove', {'id': item.id}) }}" class="btn danger">remove...</a>
+    <a href="{{ path('sylius_cart_item_remove', {'id': item.id}) }}" class="btn btn-danger">remove...</a>
     </div>
     <br /> <br />
 </div>
 {% endfor %}
-
 {{ form_rest(form) }}
-
-<input type="submit" class="btn primary large" value="save">
-<a href="{{ path('sylius_sales_order_place') }}" class="btn success large">order it!</a>
+<input type="submit" class="btn btn-primary btn-large" value="save">
 <div class="pull-right">
-<a href="{{ path('sylius_cart_clear') }}" class="btn large danger">clear cart</a>
+<a href="{{ path('sylius_sales_order_place') }}" class="btn btn-success btn-large">order it!</a>
+<a href="{{ path('sylius_cart_clear') }}" class="btn btn-danger btn-large">clear cart</a>
 </div>
-
 </form>
-
 {% else %}
-<div class="alert-message info">
-<p><strong>Information.</strong> Your cart is empty.</p>
+<div class="alert alert-info">
+    <h4 class="alert-heading">{{ 'alert.heading.info'|trans({}, 'SandboxCoreBundle') }}.</h4>
+    Your cart is empty.
 </div>
 {% endif %}
-
 {% endblock %}

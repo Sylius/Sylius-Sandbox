@@ -27,5 +27,7 @@ class AddressType extends BaseAddressType
             ->add('email', 'email')
             ->add('phone', 'text', array('required' => false))
         ;
+
+        parent::buildForm($builder, $options);
     }
 }
