@@ -18,9 +18,9 @@ class ProductType extends BaseProductType
 {
     public function buildForm(FormBuilder $builder, array $options)
     {
-        parent::buildForm($builder, $options);
-
         $builder
+            ->add('name', 'text')
+            ->add('description', 'ckeditor')
             ->add('price', 'money')
             ->add('category', 'sylius_categorizer_category_choice', array(
                 'multiple' => false,

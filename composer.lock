@@ -1,5 +1,5 @@
 {
-    "hash": "030b228a0164fbbf2aea22bce8aec6ec",
+    "hash": "4b551557da04625dfb26cf1ca15851d1",
     "packages": [
         {
             "package": "doctrine/common",
@@ -37,6 +37,11 @@
         {
             "package": "doctrine/orm",
             "version": "2.2.0"
+        },
+        {
+            "package": "egeloen/ckeditor-bundle",
+            "version": "dev-master",
+            "source-reference": "55572c817e557fd268ce37b0e62384e64a4f6a2e"
         },
         {
             "package": "fzaninotto/faker",

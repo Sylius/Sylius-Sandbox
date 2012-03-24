@@ -26,7 +26,8 @@
         "sylius/plugins-bundle":               "dev-master",
         "sylius/guard-bundle":                 "dev-master",
         "sylius/addressing-bundle":            "dev-master",
-        "sylius/installer-bundle":             "dev-master"
+        "sylius/installer-bundle":             "dev-master",
+        "egeloen/ckeditor-bundle":             "dev-master"
     },
     "scripts": {
         "post-install-cmd": [
