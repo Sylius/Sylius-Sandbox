@@ -7,9 +7,6 @@ sylius_sandbox_core:
 sylius_sandbox_assortment:
     resource: @SandboxAssortmentBundle/Resources/config/routing.yml
 
-sylius_sandbox_newsletter:
-    resource: @SandboxNewsletterBundle/Resources/config/routing.yml
-
 sylius_sandbox_cart:
     resource: @SandboxCartBundle/Resources/config/routing.yml
 

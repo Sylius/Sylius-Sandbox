@@ -82,21 +82,6 @@ sylius_categorizer:
                     list: SandboxBloggerBundle:Frontend/Category:list.html.twig
                     show: SandboxBloggerBundle:Frontend/Category:show.html.twig
 
-sylius_newsletter:
-    driver: ORM
-    classes:
-        model:
-            newsletter: Sylius\Bundle\NewsletterBundle\Entity\DefaultNewsletter
-            subscriber: Sylius\Bundle\NewsletterBundle\Entity\DefaultSubscriber
-    extensions:
-        confirmation:
-            enabled: true
-            options:
-                email:
-                    from: no-reply@example.com
-                    subject: "Confirm your subscription on example.com!"
-                    template: SandboxNewsletterBundle:Confirmation:email.html.twig
-
 sylius_cart:
     driver: doctrine/orm
     operator: sylius_sandbox_cart.operator

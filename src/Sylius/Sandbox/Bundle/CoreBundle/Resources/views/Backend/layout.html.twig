@@ -77,16 +77,6 @@
                         </ul>
                         </li>
                         <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ "menu.newsletter" | trans({}, 'SandboxCoreBundle') }} <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="{{ path('sylius_newsletter_backend_subscriber_create') }}">Create subscriber</a></li>
-                                <li><a href="{{ path('sylius_newsletter_backend_subscriber_list') }}">List subscribers</a></li>
-                                <li class="divider"></li>
-                                <li><a href="{{ path('sylius_newsletter_backend_newsletter_create') }}">Create newsletter</a></li>
-                                <li><a href="{{ path('sylius_newsletter_backend_newsletter_list') }}">List newsletters</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ "menu.addressing" | trans({}, 'SandboxCoreBundle') }} <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="{{ path('sylius_addressing_backend_address_create') }}">Create address</a></li>
@@ -128,11 +118,6 @@
                                 <li><a href="{{ path('sylius_categorizer_backend_category_list', {'alias': 'blog'}) }}"><i class="icon-list-alt"></i> List categories</a></li>
                                 <li><a href="{{ path('sylius_blogger_backend_post_create') }}"><i class="icon-plus-sign"></i> Create post</a></li>
                                 <li><a href="{{ path('sylius_blogger_backend_post_list') }}"><i class="icon-list-alt"></i> List posts</a></li>
-                            <li class="nav-header">{{ "sidebar.menu.newsletter" | trans({}, 'SandboxCoreBundle') }}</li>
-                                <li><a href="{{ path('sylius_newsletter_backend_subscriber_create') }}"><i class="icon-plus-sign"></i> Create subscriber</a></li>
-                                <li><a href="{{ path('sylius_newsletter_backend_subscriber_list') }}"><i class="icon-list-alt"></i> List subscribers</a></li>
-                                <li><a href="{{ path('sylius_newsletter_backend_newsletter_create') }}"><i class="icon-plus-sign"></i> Create newsletter</a></li>
-                                <li><a href="{{ path('sylius_newsletter_backend_newsletter_list') }}"><i class="icon-list-alt"></i> List newsletters</a></li>
                             <li class="nav-header">{{ "sidebar.menu.addressing" | trans({}, 'SandboxCoreBundle') }}</li>
                                 <li><a href="{{ path('sylius_addressing_backend_address_create') }}"><i class="icon-plus-sign"></i> Create address</a></li>
                                 <li><a href="{{ path('sylius_addressing_backend_address_list') }}"><i class="icon-list-alt"></i> List adresses</a></li>
