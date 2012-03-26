@@ -14,6 +14,11 @@ namespace Sylius\Sandbox\Bundle\CartBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Sylius\Bundle\CartBundle\Entity\Cart as BaseCart;
 
+/**
+ * Cart entity.
+ *
+ * @author Paweł Jędrzejewski <pjedrzejewski@diweb.pl>
+ */
 class Cart extends BaseCart
 {
     protected $value;
