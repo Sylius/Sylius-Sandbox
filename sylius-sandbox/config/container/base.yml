@@ -98,8 +98,8 @@ sylius_newsletter:
                     template: SandboxNewsletterBundle:Confirmation:email.html.twig
 
 sylius_cart:
-    driver: ORM
-    engine: twig
+    driver: doctrine/orm
+    resolver: sylius_sandbox_cart.resolver
     operator: sylius_sandbox_cart.operator
     classes:
         model:

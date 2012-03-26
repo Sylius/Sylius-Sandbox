@@ -31,6 +31,7 @@ class SandboxKernel extends Kernel
     public function registerBundles()
     {
         $bundles = array(
+
             /*
              * Third party bundles.
              */
