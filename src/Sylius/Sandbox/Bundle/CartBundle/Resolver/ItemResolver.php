@@ -55,6 +55,14 @@ class ItemResolver implements ItemResolverInterface
      */
     public function resolveItemToAdd(Request $request)
     {
+        if ($id = $request->query->get('id')) {
+            if ($product = $this->productManager->findProduct($id)) {
+                $item = $this->itemManager->createItem();
+                $item->setProduct($product);
+
+                return $item;
+            }
+        }
     }
 
     /**
@@ -62,5 +70,8 @@ class ItemResolver implements ItemResolverInterface
      */
     public function resolveItemToRemove(Request $request)
     {
+        if ($id = $request->query->get('id')) {
+            return $this->itemManager->findItem($id);
+        }
     }
 }

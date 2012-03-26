@@ -28,6 +28,13 @@ class Item extends BaseItem
      */
     protected $product;
 
+    public function __construct()
+    {
+        parent::__construct();
+
+        $this->setQuantity(1);
+    }
+
     /**
      * Get associated product.
      *

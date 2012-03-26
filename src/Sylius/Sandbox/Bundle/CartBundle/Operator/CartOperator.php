@@ -11,13 +11,17 @@
 
 namespace Sylius\Sandbox\Bundle\CartBundle\Operator;
 
-use Sylius\Bundle\CartBundle\Operator\OperatorInterface;
 use Sylius\Bundle\CartBundle\Model\CartInterface;
 use Sylius\Bundle\CartBundle\Model\ItemInterface;
-use Sylius\Bundle\StockingBundle\Resolver\StockResolverInterface;
-use Sylius\Bundle\PricingBundle\Resolver\PriceResolverInterface;
+use Sylius\Bundle\CartBundle\Operator\CartOperatorInterface;
+use Symfony\Component\DependencyInjection\ContainerAware;
 
-class Operator implements OperatorInterface
+/**
+ * Cart operator.
+ *
+ * @author Paweł Jędrzejewski <pjedrzejewski@diweb.pl>
+ */
+class CartOperator extends ContainerAware implements CartOperatorInterface
 {
     public function addItem(CartInterface $cart, ItemInterface $item)
     {
@@ -39,7 +43,7 @@ class Operator implements OperatorInterface
         $cart->removeItem($item);
     }
 
-    public function refreshCart(CartInterface $cart)
+    public function refresh(CartInterface $cart)
     {
         $value = 0.00;
         $totalItems = $cart->countItems();
@@ -50,5 +54,20 @@ class Operator implements OperatorInterface
 
         $cart->setValue($value);
         $cart->setTotalItems($totalItems);
+    }
+
+    public function validate(CartInterface $cart)
+    {
+        return true;
+    }
+
+    public function clear(CartInterface $cart)
+    {
+        $this->container->get('sylius_cart.manager.cart')->removeCart($cart);
+    }
+
+    public function save(CartInterface $cart)
+    {
+        $this->container->get('sylius_cart.manager.cart')->persistCart($cart);
     }
 }
