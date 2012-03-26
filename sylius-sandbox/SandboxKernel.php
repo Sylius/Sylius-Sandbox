@@ -48,6 +48,7 @@ class SandboxKernel extends Kernel
             new \Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new \WhiteOctober\PagerfantaBundle\WhiteOctoberPagerfantaBundle(),
             new \Knp\Bundle\MarkdownBundle\KnpMarkdownBundle(),
+            new \Ivory\CKEditorBundle\IvoryCKEditorBundle(),
 
             /*
              * Sylius bundles.

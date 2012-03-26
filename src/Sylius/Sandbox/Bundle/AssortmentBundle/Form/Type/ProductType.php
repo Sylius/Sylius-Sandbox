@@ -18,9 +18,28 @@ class ProductType extends BaseProductType
 {
     public function buildForm(FormBuilder $builder, array $options)
     {
-        parent::buildForm($builder, $options);
+        $toolbar = array(
+            array(
+                'name' => 'basicstyles',
+                'items' => array('Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat')
+            ),
+            array(
+                'name' => 'paragraph',
+                'items' => array('NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock')
+            ),
+            array(
+                'name' => 'links',
+                'items' => array('Link', 'Unlink', 'Anchor')
+            ),
+            array(
+                'name' => 'styles',
+                'items' => array('Styles', 'Format', 'Font', 'FontSize')
+            )
+        );
 
         $builder
+            ->add('name', 'text')
+            ->add('description', 'ckeditor', array('toolbar' => $toolbar))
             ->add('price', 'money')
             ->add('category', 'sylius_categorizer_category_choice', array(
                 'multiple' => false,
