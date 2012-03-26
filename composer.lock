@@ -1,5 +1,5 @@
 {
-    "hash": "030b228a0164fbbf2aea22bce8aec6ec",
+    "hash": "c7d74c7aed00d89f39d859a214f7b6cc",
     "packages": [
         {
             "package": "doctrine/common",
@@ -46,7 +46,7 @@
         {
             "package": "gedmo/doctrine-extensions",
             "version": "dev-master",
-            "source-reference": "fdb2b88aa0e101e884b938e15ac9c14bf3e77699"
+            "source-reference": "e05a61a820d02b85a6c7e93cbfe7122de71753bb"
         },
         {
             "package": "knplabs/knp-markdown-bundle",
@@ -75,16 +75,16 @@
         {
             "package": "sensio/distribution-bundle",
             "version": "dev-master",
-            "source-reference": "12882a093af81f89ac13078904e81c308784e883"
+            "source-reference": "e78f65f36b27ba07b1e44241b4cf5443e80d7bd5"
         },
         {
             "package": "stof/doctrine-extensions-bundle",
             "version": "dev-master",
-            "source-reference": "051a9e00a2805e2cd4e1473e85e8f74dcb70e65c"
+            "source-reference": "772c1b559708968fab09e99460d4092248aeacb4"
         },
         {
             "package": "swiftmailer/swiftmailer",
-            "version": "4.1.5"
+            "version": "4.1.6"
         },
         {
             "package": "sylius/addressing-bundle",
@@ -104,12 +104,12 @@
         {
             "package": "sylius/cart-bundle",
             "version": "dev-master",
-            "source-reference": "4adc2105027c7326b9597326a173d8dbc13dc5cc"
+            "source-reference": "8847368ea03c5824c4129394e28b1f3cbd5a22b2"
         },
         {
             "package": "sylius/categorizer-bundle",
             "version": "dev-master",
-            "source-reference": "e325b6df07ed93b9bec1b566665635dfac256d44"
+            "source-reference": "8cc6afacbdf8665741d9f9726fb80bf8654149ab"
         },
         {
             "package": "sylius/guard-bundle",
@@ -164,8 +164,7 @@
         {
             "package": "symfony/symfony",
             "version": "dev-master",
-            "source-reference": "edac48a824bd04718a346890ca225ee28d2a347b",
-            "alias": "2.1.9999999.9999999-dev"
+            "source-reference": "1bb6e0de4d2edfc84c8229ab05fb2f15d9e3c069"
         },
         {
             "package": "twig/extensions",
@@ -174,7 +173,7 @@
         },
         {
             "package": "twig/twig",
-            "version": "1.6.2"
+            "version": "1.6.3"
         },
         {
             "package": "white-october/pagerfanta-bundle",
