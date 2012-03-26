@@ -99,8 +99,8 @@ sylius_newsletter:
 
 sylius_cart:
     driver: doctrine/orm
-    resolver: sylius_sandbox_cart.resolver
     operator: sylius_sandbox_cart.operator
+    resolver: sylius_sandbox_cart.resolver
     classes:
         model:
             cart: Sylius\Sandbox\Bundle\CartBundle\Entity\Cart
