@@ -15,7 +15,7 @@
 <div class="well">
     <h3>{{ item.product.name }}</h3>
     {{ sylius_assortment_cut_text(item.product.description, 150, '...', true, true) }}
-    <div class="pull-right">
+    <div class="cart-actions pull-right">
     Set <strong>quantity</strong>... {{ form_widget(form.items[loop.index0].quantity, {'attr': {'class': 'span2', 'style': 'text-align: center;'}}) }}
      or
     <a href="{{ path('sylius_cart_item_remove', {'id': item.id}) }}" class="btn btn-danger">remove...</a>
