@@ -17,7 +17,7 @@
         {
             "package": "doctrine/doctrine-bundle",
             "version": "dev-master",
-            "source-reference": "90e39fb7ff5b4c13577602dab7e08c90067160b4"
+            "source-reference": "08f1764e860b684d7574448a6840b08804a516d9"
         },
         {
             "package": "doctrine/doctrine-fixtures-bundle",
@@ -104,7 +104,7 @@
         {
             "package": "sylius/cart-bundle",
             "version": "dev-master",
-            "source-reference": "8847368ea03c5824c4129394e28b1f3cbd5a22b2"
+            "source-reference": "c0ccbb243bfcb254c520992f417ce8812e301b9a"
         },
         {
             "package": "sylius/categorizer-bundle",
@@ -164,7 +164,8 @@
         {
             "package": "symfony/symfony",
             "version": "dev-master",
-            "source-reference": "1bb6e0de4d2edfc84c8229ab05fb2f15d9e3c069"
+            "source-reference": "1bb6e0de4d2edfc84c8229ab05fb2f15d9e3c069",
+            "alias": "2.1.9999999.9999999-dev"
         },
         {
             "package": "twig/extensions",
