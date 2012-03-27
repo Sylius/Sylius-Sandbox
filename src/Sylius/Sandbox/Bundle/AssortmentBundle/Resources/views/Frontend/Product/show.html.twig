@@ -10,12 +10,12 @@
 
 {{ product.description|markdown }}
 
-<form action="{{ path('sylius_cart_item_add') }}" method="post">
-    <input type="hidden" name="sylius_cart_item[product]" value="{{ product.id }}" />
-
+<form action="{{ path('sylius_cart_item_add', {'id': product.id}) }}" method="post">
     <div class="pull-right">
     <strong>Price...</strong> {{ product.price }} &euro;
-    <input type="text" name="sylius_cart_item[quantity]" value="1" class="span2" style="text-align: center;" />
+    {% set form = sylius_cart_form() %}
+    {{ form_widget(form.quantity, {'attr': {'class': 'span2 center-text'}, 'empty_value': '1'}) }}
+    {{ form_rest(form) }}
     <input type="submit" class="btn btn-large btn-success" value="add to cart">
     </div>
 </form>
