@@ -13,6 +13,7 @@ namespace Sylius\Sandbox\Bundle\CartBundle\Entity;
 
 use Sylius\Bundle\AssortmentBundle\Model\ProductInterface;
 use Sylius\Bundle\CartBundle\Entity\Item as BaseItem;
+use Sylius\Bundle\CartBundle\Model\ItemInterface;
 
 /**
  * Cart item entity.
@@ -53,5 +54,13 @@ class Item extends BaseItem
     public function setProduct(ProductInterface $product)
     {
         $this->product = $product;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function equals(ItemInterface $item)
+    {
+        return $this->getProduct()->getId() === $item->getProduct()->getId();
     }
 }
