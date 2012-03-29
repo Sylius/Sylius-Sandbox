@@ -23,6 +23,9 @@ framework:
         auto_start:     true
 
 twig:
+    form:
+        resources:
+            - 'SandboxCoreBundle::forms.html.twig'
     debug:            %kernel.debug%
     strict_variables: %kernel.debug%
 
