@@ -11,8 +11,8 @@
 
 namespace Sylius\Sandbox\Bundle\AddressingBundle\Form\Type;
 
-use Symfony\Component\Form\FormBuilder;
 use Sylius\Bundle\AddressingBundle\Form\Type\AddressType as BaseAddressType;
+use Symfony\Component\Form\FormBuilder;
 
 class AddressType extends BaseAddressType
 {

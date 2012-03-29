@@ -5,61 +5,19 @@
 <h1>Fill your order information. <small>Thanks for chosing our services.</small></h1>
 </div>
 
-<form method="post" action="{{ path('sylius_sales_order_place') }}">
+<form method="post" action="{{ path('sylius_sales_order_place') }}" class="form-horizontal" novalidate>
 <fieldset>
-        {{ form_errors(form.address.name) }}
-    <div class="control-group">
-    <label for="sylius_order_name">Name...</label>
-    <div class="controls">
-        {{ form_widget(form.address.name, {'attr': {'class': 'span6'}}) }}
-    </div>
-    </div>
-        {{ form_errors(form.address.surname) }}
-    <div class="control-group">
-    <label for="sylius_order_surname">Surname...</label>
-    <div class="controls">
-        {{ form_widget(form.address.surname, {'attr': {'class': 'span6'}}) }}
-    </div>
-    </div>
-        {{ form_errors(form.address.city) }}
-    <div class="control-group">
-    <label for="sylius_order_name">City...</label>
-    <div class="controls">
-        {{ form_widget(form.address.city, {'attr': {'class': 'span5'}}) }}
-    </div>
-    </div>
-        {{ form_errors(form.address.street) }}
-    <div class="control-group">
-    <label for="sylius_order_street">Street...</label>
-    <div class="controls">
-        {{ form_widget(form.address.street, {'attr': {'class': 'span5'}}) }}
-    </div>
-    </div>
-        {{ form_errors(form.address.postcode) }}
-    <div class="control-group">
-    <label for="sylius_order_postcode">Postcode...</label>
-    <div class="controls">
-        {{ form_widget(form.address.postcode, {'attr': {'class': 'span3'}}) }}
-    </div>
-    </div>
-        {{ form_errors(form.address.email) }}
-    <div class="control-group">
-    <label for="sylius_order_email">Email...</label>
-    <div class="controls">
-        {{ form_widget(form.address.email, {'attr': {'class': 'span5'}}) }}
-    </div>
-    </div>
-        {{ form_errors(form.address.phone) }}
-    <div class="control-group">
-    <label for="sylius_order_phone">Phone...</label>
-    <div class="controls">
-        {{ form_widget(form.address.phone, {'attr': {'class': 'span5'}}) }}
-    </div>
-    </div>
+    {{ form_row(form.address.name, {'attr': {'class': 'span6'}}) }}
+    {{ form_row(form.address.surname, {'attr': {'class': 'span6'}}) }}
+    {{ form_row(form.address.city, {'attr': {'class': 'span5'}}) }}
+    {{ form_row(form.address.street, {'attr': {'class': 'span5'}}) }}
+    {{ form_row(form.address.postcode, {'attr': {'class': 'span3'}}) }}
+    {{ form_row(form.address.email, {'attr': {'class': 'span5'}}) }}
+    {{ form_row(form.address.phone, {'attr': {'class': 'span5'}}) }}
 </fieldset>
     {{ form_rest(form) }}
 <div class="form-actions">
-<input type="submit" class="btn btn-large btn-primary" value="place order" />
+    <input type="submit" class="btn btn-primary btn-large" value="place order" />
 </div>
 </form>
 {% endblock %}
