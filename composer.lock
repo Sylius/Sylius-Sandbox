@@ -104,7 +104,7 @@
         {
             "package": "sylius/cart-bundle",
             "version": "dev-master",
-            "source-reference": "e8da20e1466fc05e432b9d6ef78e12db16334b5d"
+            "source-reference": "b420023349491c9fe7325161895ec444863fc89d"
         },
         {
             "package": "sylius/categorizer-bundle",
