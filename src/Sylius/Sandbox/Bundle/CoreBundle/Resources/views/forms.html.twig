@@ -3,7 +3,7 @@
     <div class="control-group {% if errors|length > 0 %}error{% endif %}">
         {{ form_label(form, label|default(null)) }}
         <div class="controls">
-            {{ form_widget(form, {'attr': attr}) }}
+            {{ form_widget(form, {'attr': attr|default({}), 'empty_value': empty_value|default(null)}) }}
             {{ form_errors(form)}}
         </div>
     </div>

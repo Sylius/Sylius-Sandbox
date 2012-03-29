@@ -7,33 +7,10 @@
 
 <form action="{{ path('sylius_assortment_backend_product_create') }}" method="post" class="form-horizontal">
 <fieldset>
-    {{ form_errors(form.name) }}
-    <div class="control-group">
-    {{ form_label(form.name, 'Name...') }}
-    <div class="controls">
-        {{ form_widget(form.name, {'attr': {'class': 'span6'}}) }}
-    </div>
-    </div>
-    {{ form_errors(form.description) }}
-    <div class="control-group">
-    {{ form_label(form.description, 'Description...') }}
-    <div class="controls">
-        {{ form_widget(form.description, {'attr': {'class': 'span5', 'rows': 10}}) }}
-    </div>
-    </div>
-    {{ form_errors(form.price) }}
-    <div class="control-group">
-    {{ form_label(form.price, 'Price...') }}
-    <div class="controls">
-        {{ form_widget(form.price, {'attr': {'class': 'span2'}}) }}
-    </div>
-    </div>
-    <div class="control-group">
-    {{ form_label(form.category, 'Category...') }}
-    <div class="controls">
-        {{ form_widget(form.category, {'empty_value': "choose category..."}) }}
-    </div>
-    </div>
+    {{ form_row(form.name, {'attr': {'class': 'span6'}}) }}
+    {{ form_row(form.description, {'attr': {'class': 'span5', 'rows': 10}}) }}
+    {{ form_row(form.price, {'attr': {'class': 'span2'}}) }}
+    {{ form_row(form.category, {'empty_value': "choose category..."}) }}
 </fieldset>
     {{ form_rest(form) }}
     <div class="form-actions">
