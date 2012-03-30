@@ -1,41 +1,33 @@
-Sylius.
-=======
+Sylius
+======
 
 Simple but **end-user and developer friendly** webshop engine built on top of Symfony2.
 
 This is sandbox application that shows some examples of the Sylius bundles usage.
 
-Live demo.
-----------
+Live demo
+---------
 
 [Click here](http://sylius.org/sandbox) to view a demo of this application.
 
-Interface.
-----------
-
 The inferface is powered by the coolest [Twitter Bootstrap 2](http://twitter.github.com/bootstrap).
 
-Quick installation.
--------------
-
-You can download newest package with vendors on [Sylius.org](http://sylius.org) or GitHub and use the web installer.
-
-To use the installer go to `/path/to/Sylius-Sandbox/public/installer.php`.
-
-### Manual installation.
+Quick installation
+------------------
 
 Clone this repository with this command.
 
 ``` bash
-$ git clone http://github.com/Sylius/Sylius-Sandbox /path/to/Sylius-Sandbox
+$ git clone http://github.com/Sylius/Sylius-Sandbox.git /path/to/Sylius-Sandbox
 ```
 
 Open `sylius-sandbox/config/container/includes/parameters.yml.dist`, set your values and save as `parameters.yml`.
 
-Run the vendors script.
+Install dependencies using composer.
 
 ``` bash
-$ ./bin/vendors install
+$ wget http://getcomposer.org/composer.phar
+$ php composer.phar install
 ```
 
 Create database and schema using this script.
@@ -46,41 +38,25 @@ $ ./bin/rebuild-database
 
 Open up ``/path/to/Sylius-Sandbox/public/dev.php`` in your browser and play with the application.
 
-Bundles used in application.
-----------------------------
 
-* [SyliusAssortmentBundle](http://github.com/Sylius/SyliusAssortmentBundle),
-* [SyliusCatalogBundle](http://github.com/Sylius/SyliusCatalogBundle),
-* [SyliusNewsletterBundle](http://github.com/Sylius/SyliusNewsletterBundle),
-* [SyliusCartBundle](http://github.com/Sylius/SyliusCartBundle),
-* [SyliusThemingBundle](http://github.com/Sylius/SyliusThemingBundle),
-* [SyliusBloggerBundle](http://github.com/Sylius/SyliusBloggerBundle),
-* [SyliusSalesBundle](http://github.com/Sylius/SyliusSalesBundle),
-* [SyliusInstallerBundle](http://github.com/Sylius/SyliusInstallerBundle),
-* [SyliusPluginsBundle](http://github.com/Sylius/SyliusPluginsBundle),
-* [SyliusGuardBundle](http://github.com/Sylius/SyliusGuardBundle),
-* [SyliusAddressingBundle](http://github.com/Sylius/SyliusAddressingBundle),
-* [WhiteOctoberPagerfantaBundle](http://github.com/whiteoctober/WhiteOctoberPagerfantaBundle),
-* [LiipThemeBundle](http://github.com/liip/LiipThemeBundle).
-
-Testing and build status.
--------------------------
+Testing and build status
+------------------------
 
 This application uses [travis-ci.org](http://travis-ci.org/Sylius/SyliusAssortmentBundle) for CI.
 
-You can run the tests by simply using this command, after you installed vendors.
+You can run the tests by simply using this command, only if you installed vendors.
 
 ``` bash
 $ phpunit -c sylius-sandbox
 ```
 
-Contributing.
+Contributing
+------------
+
+All informations about contributing to Sylius can be found on [this page](http://sylius.readthedocs.org/en/latest/contributing/index.html).
+
+Mailing lists
 -------------
-
-All informations about contributing to Sylius can be found on [this page](http://sylius.org/docs/contributing/index.html).
-
-Mailing lists.
---------------
 
 ### Users.
 
@@ -92,20 +68,20 @@ If you are using this application and have any questions, feel free to ask on us
 If you want to contribute, and develop this application, use the developers mailing list.
 [Mail](mailto:sylius-dev@googlegroups.com) or [view it](http://groups.google.com/group/sylius-dev).
 
-Sylius twitter account.
------------------------
+Sylius twitter account
+----------------------
 
 If you want to keep up with updates, [follow the official Sylius account on twitter](http://twitter.com/_Sylius)
 or [follow me](http://twitter.com/pjedrzejewski).
 
-Bug tracking.
--------------
+Bug tracking
+------------
 
 This application uses [GitHub issues](https://github.com/Sylius/Sylius-Sandbox/issues).
 If you have found bug, please create an issue.
 
-Versioning.
------------
+Versioning
+----------
 
 Releases will be numbered with the format `major.minor.patch`.
 
@@ -119,13 +95,13 @@ For more information on SemVer, please visit [semver.org website](http://semver.
 
 This versioning method is same for all **Sylius** bundles and applications.
 
-License.
---------
+License
+-------
 
 License can be found [here](https://github.com/Sylius/Sylius-Sandbox/blob/master/LICENSE).
 
-Authors.
---------
+Authors
+-------
 
 The application was originally created by [Paweł Jędrzejewski](http://pjedrzejewski.com).
 See the list of [contributors](https://github.com/Sylius/Sylius-Sandbox/contributors).
