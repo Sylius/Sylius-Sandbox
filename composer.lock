@@ -17,17 +17,17 @@
         {
             "package": "doctrine/doctrine-bundle",
             "version": "dev-master",
-            "source-reference": "50ee2c81bc7d0f413f402de46ecedfd98b79b4f3"
+            "source-reference": "dd3d35dd28e864fb908a70f8b206d1209aa2c333"
         },
         {
             "package": "doctrine/doctrine-fixtures-bundle",
             "version": "dev-master",
-            "source-reference": "0e4e56b1da7981bcc7729e0f301a75195d34df18"
+            "source-reference": "33b267d3068d6c2f8daa0b417285cf76e7f82fc4"
         },
         {
             "package": "doctrine/doctrine-migrations-bundle",
             "version": "dev-master",
-            "source-reference": "9690dfba714fa82f3979fb5fa18750a37ab16e1c"
+            "source-reference": "e670643b1011fb997a209d8564a1c493fda1f4c3"
         },
         {
             "package": "doctrine/migrations",
@@ -46,7 +46,7 @@
         {
             "package": "gedmo/doctrine-extensions",
             "version": "dev-master",
-            "source-reference": "e05a61a820d02b85a6c7e93cbfe7122de71753bb"
+            "source-reference": "69a4d431d11d9889d968fa50b1104f36cb3f39ed"
         },
         {
             "package": "knplabs/knp-markdown-bundle",
@@ -56,7 +56,7 @@
         {
             "package": "kriswallsmith/assetic",
             "version": "dev-master",
-            "source-reference": "2634d29cc193981761e3daf28e1afc6358bb43b1"
+            "source-reference": "b25d1fdd07a70585d15c84735e82664acec88eab"
         },
         {
             "package": "liip/theme-bundle",
@@ -75,12 +75,12 @@
         {
             "package": "sensio/distribution-bundle",
             "version": "dev-master",
-            "source-reference": "e78f65f36b27ba07b1e44241b4cf5443e80d7bd5"
+            "source-reference": "38be63ebb45cc1fbeaff3f2bdf6d0ed216305a24"
         },
         {
             "package": "stof/doctrine-extensions-bundle",
             "version": "dev-master",
-            "source-reference": "772c1b559708968fab09e99460d4092248aeacb4"
+            "source-reference": "8d58d4b49ed67a0e9775c8b26143bd7f051758ae"
         },
         {
             "package": "swiftmailer/swiftmailer",
@@ -109,7 +109,7 @@
         {
             "package": "sylius/categorizer-bundle",
             "version": "dev-master",
-            "source-reference": "8cc6afacbdf8665741d9f9726fb80bf8654149ab"
+            "source-reference": "a885256d6f8efafc249acd93ac6ad8aa2ed40a2f"
         },
         {
             "package": "sylius/guard-bundle",
@@ -144,7 +144,7 @@
         {
             "package": "symfony/assetic-bundle",
             "version": "dev-master",
-            "source-reference": "b9cff021abc3d9433a892fa9908d9856393c0d09"
+            "source-reference": "a771e48366d80002b0046ba43e658d067170634d"
         },
         {
             "package": "symfony/monolog-bundle",
@@ -164,17 +164,17 @@
         {
             "package": "symfony/symfony",
             "version": "dev-master",
-            "source-reference": "a7a696fc5a28e12871073fb0f5ecb163b450e86a",
+            "source-reference": "13aa515d65e0f9ceeb70fb197abf0bbd9f6e91ca",
             "alias": "2.1.9999999.9999999-dev"
         },
         {
             "package": "twig/extensions",
             "version": "dev-master",
-            "source-reference": "1dfff8e793f50f651c4f74f796c2c68a4aee3147"
+            "source-reference": "4c831657215e51568fcb31bb9142e827f9a69bd5"
         },
         {
             "package": "twig/twig",
-            "version": "1.6.3"
+            "version": "1.6.4"
         },
         {
             "package": "white-october/pagerfanta-bundle",
