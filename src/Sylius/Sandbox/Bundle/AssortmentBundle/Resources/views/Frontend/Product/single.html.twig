@@ -7,9 +7,6 @@
 
     <a href="{{ path('sylius_assortment_product_show', {'id': product.id, 'slug': product.slug}) }}" class="btn">more info...</a>
 
-    <input type="hidden" name="sylius_cart_item[quantity]" value="1" />
-    <input type="hidden" name="sylius_cart_item[product]" value="{{ product.id }}" />
-
     <div class="pull-right">
     <strong>Price...</strong> {{ product.price }} &euro;
     <a href="{{ path('sylius_cart_item_add', {'id': product.id}) }}" class="btn btn-success">add to cart</a>
