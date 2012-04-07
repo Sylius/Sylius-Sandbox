@@ -23,5 +23,5 @@ require_once __DIR__.'/../sylius-sandbox/autoload.php';
 require_once __DIR__.'/../sylius-sandbox/SandboxKernel.php';
 
 // Initialize kernel and run the application.
-$kernel = new \Sylius\SandboxKernel('production', false);
+$kernel = new \Sylius\SandboxKernel('live', false);
 $kernel->handle(Request::createFromGlobals())->send();
