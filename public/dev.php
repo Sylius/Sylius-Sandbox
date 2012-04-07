@@ -23,6 +23,6 @@ require_once __DIR__.'/../sylius-sandbox/autoload.php';
 require_once __DIR__.'/../sylius-sandbox/SandboxKernel.php';
 
 // Initialize kernel and run the application.
-$kernel = new \Sylius\SandboxKernel('development', true);
+$kernel = new \Sylius\SandboxKernel('dev', true);
 $kernel->loadClassCache();
 $kernel->handle(Request::createFromGlobals())->send();

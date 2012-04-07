@@ -5,7 +5,7 @@ imports:
     - { resource: base.yml }
 
 framework:
-    router:   { resource: "%kernel.root_dir%/config/routing/development.yml" }
+    router:   { resource: "%kernel.root_dir%/config/routing/dev.yml" }
     profiler: { only_exceptions: false }
 
 web_profiler:
