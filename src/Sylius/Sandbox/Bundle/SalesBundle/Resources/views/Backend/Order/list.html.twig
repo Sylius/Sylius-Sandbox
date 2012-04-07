@@ -36,7 +36,7 @@
             <td>{{ order.value }} &euro;</td>
             <td>{{ order.createdAt|date('d.m.Y, H:i:s') }}</td>
             <td>
-                {% render 'sylius_sales.controller.backend.order:statusAction' with {'id': order.id} %}
+                {% render 'sylius_sales.controller.backend.order:changeStatusAction' with {'id': order.id} %}
             </td>
             <td>
                 <div class="btn-group pull-right">

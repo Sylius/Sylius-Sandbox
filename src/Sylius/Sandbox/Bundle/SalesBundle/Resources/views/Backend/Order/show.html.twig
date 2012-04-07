@@ -1,36 +1,44 @@
 {% extends 'SandboxCoreBundle:Backend:layout.html.twig' %}
 
 {% block content %}
-
 <div class="page-header">
     <h1>Order details. <small>ID: {{ order.id }}.</small></h1>
 </div>
 
-<table class="bordered-table">
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th colspan="2">Basic information</th>
+        </tr>
+    </thead>
     <tbody>
         <tr>
             <td><strong>#id</strong></td>
             <td>{{ order.id }}</td>
         </tr>
         <tr>
-            <td><strong>wartość</strong></td>
+            <td><strong>value</strong></td>
             <td>{{ order.value }} &euro;</td>
         </tr>
         <tr>
-            <td><strong>data złożenia</strong></td>
+            <td><strong>created at</strong></td>
             <td>{{ order.createdAt|date('d.m.Y, H:i:s') }}</td>
         </tr>
         <tr>
-            <td><strong>status zamówienia</strong></td>
+            <td><strong>status</strong></td>
             <td>
-                {% render 'sylius_sales.controller.backend.order:statusAction' with {'id': order.id} %}
+                {% render 'sylius_sales.controller.backend.order:changeStatusAction' with {'id': order.id} %}
             </td>
         </tr>
     </tbody>
 </table>
-
-<h2>Address.</h2>
-<table class="bordered-table">
+<hr />
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th colspan="2">Address information</th>
+        </tr>
+    </thead>
     <tbody>
         <tr>
             <td style="width: 200px;"><strong>name</strong></td>
@@ -62,9 +70,8 @@
         </tr>
     </tbody>
 </table>
-
-<h2>Ordered products.</h2>
-<table class="bordered-table">
+<hr />
+<table class="table table-bordered">
     <thead>
         <tr>
             <th>product name</th>

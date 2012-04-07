@@ -11,11 +11,16 @@
 
 namespace Sylius\Sandbox\Bundle\SalesBundle\Form\Type;
 
-use Sylius\Sandbox\Bundle\SalesBundle\Entity\Order;
-use Sylius\Bundle\SalesBundle\Form\Type\OrderFormType as BaseOrderFormType;
+use Sylius\Bundle\SalesBundle\Form\Type\OrderType as BaseOrderType;
 use Symfony\Component\Form\FormBuilder;
 
-class OrderFormType extends BaseOrderFormType
+/**
+ * Order form type.
+ * Adds address to assign it to order.
+ *
+ * @author Paweł Jędrzejewski <pjedrzejewski@diweb.pl>
+ */
+class OrderType extends BaseOrderType
 {
     public function buildForm(FormBuilder $builder, array $options)
     {

@@ -114,14 +114,14 @@ sylius_blogger:
                 post: Sylius\Sandbox\Bundle\BloggerBundle\Form\Type\PostType
 
 sylius_sales:
-    driver: ORM
+    driver: doctrine/orm
     classes:
         model:
             order: Sylius\Sandbox\Bundle\SalesBundle\Entity\Order
-            status: Sylius\Sandbox\Bundle\SalesBundle\Entity\Status
+            status: Sylius\Bundle\SalesBundle\Entity\Status
         form:
             type:
-                order: Sylius\Sandbox\Bundle\SalesBundle\Form\Type\OrderFormType
+                order: Sylius\Sandbox\Bundle\SalesBundle\Form\Type\OrderType
 
 sylius_plugins:
     driver: ORM
