@@ -7,7 +7,7 @@
 
 <ul class="breadcrumb">
   <li><a href="{{ path('sylius_sandbox_core_frontend') }}">Sylius</a> <span class="divider">/</span></li>
-  <li>Products</li>
+  <li><a href="{{ path('sylius_assortment_product_list') }}">Products</a></li>
 </ul>
 
 {% if paginator.haveToPaginate() %}
@@ -15,11 +15,6 @@
 {% endif %}
 
 {% if products|length > 0 %}
-    <ul class="nav nav-tabs">
-        <li{% if app.request.get('sort') == 'name' %} class="active"{% endif %}><a href="{{ path('sylius_assortment_product_list', {'sort': 'name', 'order': 'asc'}) }}">Name!</a></li>
-        <li{% if app.request.get('sort') == 'price' %} class="active"{% endif %}><a href="{{ path('sylius_assortment_product_list', {'sort': 'price', 'order': 'asc'}) }}">Price!</a></li>
-        <li{% if app.request.get('sort') == 'createdAt' %} class="active"{% endif %}><a href="{{ path('sylius_assortment_product_list', {'sort': 'createdAt', 'order': 'asc'}) }}">Creation time!</a></li>
-    </ul>
     {% for product in products %}
         {% include 'SandboxAssortmentBundle:Frontend/Product:single.html.twig' %}
     {% endfor %}
