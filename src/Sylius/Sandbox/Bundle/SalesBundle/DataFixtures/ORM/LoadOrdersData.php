@@ -84,9 +84,13 @@ class LoadOrdersData extends AbstractFixture implements ContainerAwareInterface,
         $cartOperator->refresh($cart);
         $cartOperator->save($cart);
 
+        $cart->setLocked(true);
+
         $order->setCart($cart);
         $order->setAddress($this->getReference('Sandbox.Addressing.Address-'.rand(0, 49)));
         $order->setValue($cart->getValue());
+
+        $order->setStatus($this->getReference('Sandbox.Sales.Status-'.rand(0, 5)));
     }
 
     /**
@@ -94,6 +98,6 @@ class LoadOrdersData extends AbstractFixture implements ContainerAwareInterface,
      */
     public function getOrder()
     {
-        return 8;
+        return 9;
     }
 }
