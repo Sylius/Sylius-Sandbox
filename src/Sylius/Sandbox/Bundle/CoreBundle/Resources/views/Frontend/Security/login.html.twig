@@ -1,0 +1,45 @@
+{% extends 'SandboxCoreBundle:Frontend:layout.html.twig' %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Login <small>Sylius sandbox application</small></h1>
+</div>
+
+<blockquote>
+  <p>His name is <strong>administrator</strong> and the magic word... <strong>abrakadabra</strong>.</p>
+  <small>Mr. Mysterious</small>
+</blockquote>
+
+{% if errorMessage %}
+<div class="alert alert-error">
+    <h4 class="alert-heading">{{ 'alert.heading.error'|trans({}, 'SandboxCoreBundle') }}</h4>
+    {{ errorMessage }}...
+</div>
+{% endif %}
+
+<form action="{{ path("sylius_sandbox_core_frontend_security_check") }}" method="post" class="form-horizontal">
+<fieldset>
+    <div class="control-group">
+    <label for="username">Login...</label>
+    <div class="controls">
+        <input type="text" id="username" name="_username" value="{{ lastUsername }}" />
+    </div>
+    </div>
+    <div class="control-group">
+    <label for="username">Password.</label>
+    <div class="controls">
+        <input type="password" id="password" name="_password" />
+    </div>
+    </div>
+    <div class="control-group">
+    <label for="username">Remember me ?</label>
+    <div class="controls">
+        <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+    </div>
+    </div>
+</fieldset>
+<div class="form-actions">
+    <input type="submit" class="btn btn-primary btn-large" name="login" value="login" />
+</div>
+</form>
+{% endblock %}

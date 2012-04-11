@@ -50,7 +50,7 @@ class SecurityController extends ContainerAware
 
         $lastUsername = (null === $session) ? '' : $session->get(SecurityContext::LAST_USERNAME);
 
-        return $this->container->get('templating')->renderResponse('ApplicationCoreBundle:Frontend/Security:login.html.twig', array(
+        return $this->container->get('templating')->renderResponse('SandboxCoreBundle:Frontend/Security:login.html.twig', array(
             'lastUsername' => $lastUsername,
             'errorMessage' => $error,
         ));
