@@ -13,7 +13,11 @@ namespace Sylius\Sandbox\Bundle\CoreBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
+/**
+ * Sylius sandbox application core bundle.
+ *
+ * @author Paweł Jędrzejewski <pjedrzejewski@diweb.pl>
+ */
 class SandboxCoreBundle extends Bundle
 {
-
 }

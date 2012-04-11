@@ -94,16 +94,6 @@ sylius_cart:
             cart: Sylius\Sandbox\Bundle\CartBundle\Entity\Cart
             item: Sylius\Sandbox\Bundle\CartBundle\Entity\Item
 
-liip_theme:
-        themes: ~
-        active_theme: ~
-
-sylius_theming:
-    driver: ORM
-    classes:
-        model:
-            theme: Sylius\Bundle\ThemingBundle\Entity\Theme
-
 sylius_blogger:
     driver: doctrine/orm
     classes:
@@ -123,12 +113,6 @@ sylius_sales:
             type:
                 order: Sylius\Sandbox\Bundle\SalesBundle\Form\Type\OrderType
 
-sylius_plugins:
-    driver: ORM
-    classes:
-        model:
-            plugin: Sylius\Bundle\PluginsBundle\Entity\Plugin
-
 sylius_addressing:
     driver: doctrine/orm
     classes:
@@ -137,22 +121,3 @@ sylius_addressing:
         form:
             type:
                 address: Sylius\Sandbox\Bundle\AddressingBundle\Form\Type\AddressType
-
-sylius_guard:
-    driver: ORM
-    classes:
-        model:
-            user: Sylius\Sandbox\Bundle\GuardBundle\Entity\User
-            group: Sylius\Bundle\GuardBundle\Entity\DefaultGroup
-        form:
-            type:
-                user: Sylius\Sandbox\Bundle\GuardBundle\Form\Type\UserFormType
-        controller:
-            frontend:
-                user: Sylius\Sandbox\Bundle\GuardBundle\Controller\Frontend\UserController
-                security: Sylius\Sandbox\Bundle\GuardBundle\Controller\Frontend\SecurityController
-    confirmation:
-        email:
-            from: foo@bar.com
-            template: SandboxGuardBundle:Confirmation:email.html.twig
-

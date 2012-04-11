@@ -27,9 +27,6 @@ menu:
     blog: Blog
     newsletter: Newsletter
     addressing: Address book
-    guard: Manage users and groups
-    theming: Themes list
-    plugins: Plugins list
     frontend: Go to <strong>frontend</strong> &raquo;
 
 sidebar:
@@ -39,6 +36,4 @@ sidebar:
         blog: Blog
         newsletter: Newsletter
         addressing: Address book
-        guard: Users and groups
-        customization: Customization
         administration: Administration

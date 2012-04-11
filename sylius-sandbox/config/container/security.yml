@@ -1,19 +1,13 @@
 # This file is part of the Sylius sandbox application.
 # (c) Paweł Jędrzejewski
+
 security:
     providers:
-        sylius_guard_provider:
-            chain:
-                providers: [sylius_guard_provider.memory, sylius_guard_provider.database]
-        sylius_guard_provider.memory:
+        sylius_sandbox_provider:
             memory:
                 users:
-                    administrator:  { password: 79fb86e161e6bee2f14740099c4bee8247926999, roles: 'ROLE_SYLIUS_ADMIN' }
-        sylius_guard_provider.database:
-            id: sylius_guard.security.provider
+                    %sylius.security.username%:  { password: %sylius.security.password%, roles: 'ROLE_SYLIUS_ADMIN' }
     encoders:
-        Application\Bundle\GuardBundle\Entity\User:
-            id: sylius_guard.security.encoder
         Symfony\Component\Security\Core\User\User:
             algorithm:   sha1
             iterations: 1
@@ -21,7 +15,7 @@ security:
     firewalls:
         main:
             form_login:
-                provider: sylius_guard_provider
+                provider: sylius_sandbox_provider
                 login_path: /login
                 check_path: /login
                 use_referer: true
@@ -35,5 +29,3 @@ security:
             anonymous: true
     access_control:
         - { path: "/administration.*", role: ROLE_SYLIUS_ADMIN }
-    role_hierarchy:
-        ROLE_ADMIN:       ROLE_USER

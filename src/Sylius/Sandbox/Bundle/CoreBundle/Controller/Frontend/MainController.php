@@ -9,26 +9,25 @@
  * file that was distributed with this source code.
  */
 
-namespace Sylius\Sandbox\Bundle\InstallerBundle\Controller;
+namespace Sylius\Sandbox\Bundle\CoreBundle\Controller\Frontend;
 
 use Symfony\Component\DependencyInjection\ContainerAware;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
- * Installer setup controller.
+ * Frontend main controller.
  *
  * @author Paweł Jędrzejewski <pjedrzejewski@diweb.pl>
  */
-class SetupController extends ContainerAware
+class MainController extends ContainerAware
 {
     /**
-     * Displays setup.
+     * Front page, yay!
+     *
+     * @return Response
      */
     public function indexAction()
     {
-        $installed = $this->container->getParameter('sylius.installed');
-
-        return $this->container->get('templating')->renderResponse('SandboxInstallerBundle:Setup:index.html.twig', array(
-            'installed' => $installed
-        ));
+        return $this->container->get('templating')->renderResponse('SandboxCoreBundle:Frontend/Main:index.html.twig');
     }
 }

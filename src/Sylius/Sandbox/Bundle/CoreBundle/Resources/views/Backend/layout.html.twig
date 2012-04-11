@@ -90,18 +90,6 @@
                                 <li><a href="{{ path('sylius_addressing_backend_address_list') }}">Addresses list</a></li>
                             </ul>
                         </li>
-                        <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ "menu.guard" | trans({}, 'SandboxCoreBundle') }} <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="{{ path('sylius_guard_backend_user_create') }}">{{ "user.create" | trans({}, 'SyliusGuardBundle') }}</a></li>
-                            <li><a href="{{ path('sylius_guard_backend_user_list') }}">{{ "user.list" | trans({}, 'SyliusGuardBundle') }}</a></li>
-                            <li class="divider"></li>
-                            <li><a href="{{ path('sylius_guard_backend_group_create') }}">{{ "group.create" | trans({}, 'SyliusGuardBundle') }}</a></li>
-                            <li><a href="{{ path('sylius_guard_backend_group_list') }}">{{ "group.list" | trans({}, 'SyliusGuardBundle') }}</a></li>
-                        </ul>
-                        </li>
-                        <li><a href="{{ path('sylius_theming_backend_theme_list') }}">{{ "menu.theming" | trans({}, 'SandboxCoreBundle') }}</a></li>
-                        <li><a href="{{ path('sylius_plugins_backend_plugin_list') }}">{{ "menu.plugins" | trans({}, 'SandboxCoreBundle') }}</a></li>
                         <li><a href="{{ path('sylius_sandbox_core_frontend') }}">{{ "menu.frontend" | trans({}, 'SandboxCoreBundle') | raw }}</a></li>
                     </ul>
                 </div>
@@ -129,16 +117,8 @@
                             <li class="nav-header">{{ "sidebar.menu.addressing" | trans({}, 'SandboxCoreBundle') }}</li>
                                 <li><a href="{{ path('sylius_addressing_backend_address_create') }}"><i class="icon-plus-sign"></i> Create address</a></li>
                                 <li><a href="{{ path('sylius_addressing_backend_address_list') }}"><i class="icon-list-alt"></i> List adresses</a></li>
-                            <li class="nav-header">{{ "sidebar.menu.guard" | trans({}, 'SandboxCoreBundle') }}</li>
-                                <li><a href="{{ path('sylius_guard_backend_user_create') }}"><i class="icon-plus-sign"></i> Create user</a></li>
-                                <li><a href="{{ path('sylius_guard_backend_user_list') }}"><i class="icon-user"></i> List users</a></li>
-                                <li><a href="{{ path('sylius_guard_backend_group_create') }}"><i class="icon-plus-sign"></i> Create group</a></li>
-                                <li><a href="{{ path('sylius_guard_backend_group_list') }}"><i class="icon-list-alt"></i> List group</a></li>
-                            <li class="nav-header">{{ "sidebar.menu.customization" | trans({}, 'SandboxCoreBundle') }}</li>
-                                <li><a href="{{ path('sylius_theming_backend_theme_list') }}"><i class="icon-th"></i> Themes manager</a></li>
-                                <li><a href="{{ path('sylius_plugins_backend_plugin_list') }}"><i class="icon-th-large"></i> Plugins manager</a></li>
                             <li class="nav-header">{{ "sidebar.menu.administration" | trans({}, 'SandboxCoreBundle') }}</li>
-                                <li><a href="{{ path('sylius_guard_security_logout') }}" class="last"><i class="icon-off"></i> Logout...</a></li>
+                                <li><a href="{{ path('sylius_sandbox_core_frontend_security_logout') }}" class="last"><i class="icon-off"></i> Logout...</a></li>
                         </ul>
                     {% endblock %}
                     </div>

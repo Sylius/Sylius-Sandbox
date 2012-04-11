@@ -9,9 +9,9 @@
 <hr />
 <ul id="sidebar-nav" class="nav nav-list well">
 {% if is_granted('ROLE_SYLIUS_ADMIN') %}
-<li><a href="{{ path('sylius_guard_security_logout') }}"><i class="icon-off"></i> Logout</a></li>
+<li><a href="{{ path('sylius_sandbox_core_frontend_security_logout') }}"><i class="icon-off"></i> Logout</a></li>
 <li><a href="{{ path('sylius_sandbox_core_backend') }}"><i class="icon-cog"></i> Administration &raquo;</a></li>
 {% else %}
-<li><a href="{{ path('sylius_guard_security_login') }}"><i class="icon-user"></i> Login &raquo;</a></li>
+<li><a href="{{ path('sylius_sandbox_core_frontend_security_login') }}"><i class="icon-user"></i> Login &raquo;</a></li>
 {% endif %}
 </ul>

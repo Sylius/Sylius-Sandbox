@@ -9,22 +9,25 @@
  * file that was distributed with this source code.
  */
 
-namespace Sylius\Sandbox\Bundle\CoreBundle\Controller;
+namespace Sylius\Sandbox\Bundle\CoreBundle\Controller\Backend;
 
 use Symfony\Component\DependencyInjection\ContainerAware;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Administration dashboard controller.
  *
  * @author Paweł Jędrzejewski <pjedrzejewski@diweb.pl>
  */
-class BackendController extends ContainerAware
+class MainController extends ContainerAware
 {
     /**
      * Displays administration dashboard main panel.
+     *
+     * @return Response
      */
     public function indexAction()
     {
-        return $this->container->get('templating')->renderResponse('SandboxCoreBundle:Backend:index.html.twig');
+        return $this->container->get('templating')->renderResponse('SandboxCoreBundle:Backend/Main:index.html.twig');
     }
 }

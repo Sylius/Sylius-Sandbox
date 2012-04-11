@@ -1,6 +1,0 @@
-sylius_sandbox_installer_setup:
-    pattern: /
-    defaults: { _controller: sylius_sandbox_installer.controller.setup:indexAction }
-
-sylius_installer_setup:
-    resource: @SyliusInstallerBundle/Resources/config/routing/installer.yml

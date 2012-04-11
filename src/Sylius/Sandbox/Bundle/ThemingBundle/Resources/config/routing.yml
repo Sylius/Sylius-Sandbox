@@ -1,4 +1,0 @@
-sylius_theming_backend_theme:
-    resource: @SyliusThemingBundle/Resources/config/routing/backend/theme.yml
-    prefix: /administration/themes
-    
