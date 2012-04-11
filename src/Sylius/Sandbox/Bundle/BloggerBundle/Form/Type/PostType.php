@@ -14,8 +14,17 @@ namespace Sylius\Sandbox\Bundle\BloggerBundle\Form\Type;
 use Sylius\Bundle\BloggerBundle\Form\Type\PostType as BasePostType;
 use Symfony\Component\Form\FormBuilder;
 
+/**
+ * Sandbox blog post form type.
+ * Adds category choice field.
+ *
+ * @author Paweł Jędrzejewksi <pjedrzejewski@diweb.pl>
+ */
 class PostType extends BasePostType
 {
+    /**
+     * {@inheritdoc}
+     */
     public function buildForm(FormBuilder $builder, array $options)
     {
         parent::buildForm($builder, $options);

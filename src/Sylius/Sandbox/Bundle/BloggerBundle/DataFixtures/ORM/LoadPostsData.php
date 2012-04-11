@@ -11,12 +11,12 @@
 
 namespace Sylius\Sandbox\Bundle\BloggerBundle\DataFixtures\ORM;
 
-use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
+use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\ORM\EntityManager;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Default blog posts to play with Sylius sandbox.
@@ -25,13 +25,22 @@ use Symfony\Component\DependencyInjection\ContainerAwareInterface;
  */
 class LoadPostsData extends AbstractFixture implements ContainerAwareInterface, OrderedFixtureInterface
 {
+    /**
+     * @var ContainerInterface
+     */
     private $container;
 
+    /**
+     * {@inheritdoc}
+     */
     public function setContainer(ContainerInterface $container = null)
     {
         $this->container = $container;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function load(ObjectManager $manager)
     {
         $manager = $this->container->get('sylius_blogger.manager.post');
@@ -59,6 +68,9 @@ class LoadPostsData extends AbstractFixture implements ContainerAwareInterface, 
         }
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getOrder()
     {
         return 5;

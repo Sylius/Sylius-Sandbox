@@ -13,8 +13,16 @@ namespace Sylius\Sandbox\Bundle\BloggerBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
+/**
+ * Sandbox blogger bundle.
+ *
+ * @author Paweł Jędrzejewski <pjedrzejewski@diweb.pl>
+ */
 class SandboxBloggerBundle extends Bundle
 {
+    /**
+     * {@inheritdoc}
+     */
     public function getParent()
     {
         return 'SyliusBloggerBundle';

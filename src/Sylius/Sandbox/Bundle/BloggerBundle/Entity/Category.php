@@ -11,18 +11,48 @@
 
 namespace Sylius\Sandbox\Bundle\BloggerBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Sylius\Bundle\CategorizerBundle\Entity\Category as BaseCategory;
 
+/**
+ * Blog category.
+ *
+ * @author Paweł Jędrzejewski <pjedrzejewski@diweb.pl>
+ */
 class Category extends BaseCategory
 {
-    protected $posts;
+    /**
+     * @var Collection
+     */
+    private $posts;
 
-    public function getPosts($posts)
+    /**
+     * Constructor.
+     */
+    public function __construct()
+    {
+        parent::__construct();
+
+        $this->posts = new ArrayCollection;
+    }
+
+    /**
+     * Get posts.
+     *
+     * @return Collection
+     */
+    public function getPosts()
     {
         return $this->posts;
     }
 
-    public function setPosts($posts)
+    /**
+     * Set posts.
+     *
+     * @param Collection $posts
+     */
+    public function setPosts(Collection $posts)
     {
         $this->posts = $posts;
     }
