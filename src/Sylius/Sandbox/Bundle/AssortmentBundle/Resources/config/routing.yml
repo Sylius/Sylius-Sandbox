@@ -2,6 +2,18 @@ sylius_assortment_backend_product:
     resource: @SyliusAssortmentBundle/Resources/config/routing/backend/product.yml
     prefix: /administration/assortment/products
 
+sylius_assortment_backend_option:
+    resource: @SyliusAssortmentBundle/Resources/config/routing/backend/option.yml
+    prefix: /administration/assortment/options
+
+sylius_assortment_backend_property:
+    resource: @SyliusAssortmentBundle/Resources/config/routing/backend/property.yml
+    prefix: /administration/assortment/properties
+
+sylius_assortment_backend_prototype:
+    resource: @SyliusAssortmentBundle/Resources/config/routing/backend/prototype.yml
+    prefix: /administration/assortment/prototypes
+
 sylius_assortment_product:
     resource: @SyliusAssortmentBundle/Resources/config/routing/frontend/product.yml
     prefix: /assortment/products

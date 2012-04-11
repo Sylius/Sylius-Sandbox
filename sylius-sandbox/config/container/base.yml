@@ -51,7 +51,9 @@ sylius_assortment:
     driver: doctrine/orm
     classes:
         model:
-            product:  Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Product
+            product: Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Product
+            option: Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Option\Option
+            option_value: Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Option\OptionValue
         form:
             type:
                 product: Sylius\Sandbox\Bundle\AssortmentBundle\Form\Type\ProductType

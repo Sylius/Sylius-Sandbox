@@ -1,0 +1,66 @@
+{% extends 'SandboxCoreBundle:Backend:layout.html.twig' %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Assortment products.<small> List of all registered products in assortment...</small></h1>
+</div>
+
+<div class="well">
+<a href="{{ path('sylius_assortment_backend_product_create') }}" class="btn btn-primary">
+    <i class="icon-plus icon-white"></i> create product
+</a>
+</div>
+
+{% if paginator.haveToPaginate() %}
+{{ pagerfanta(paginator, 'twitter_bootstrap', {'prev_message': "previous page...", 'next_message': "next page..."}) }}
+{% endif %}
+
+{% if products|length > 0 %}
+    <table class="table">
+    <thead>
+        <tr>
+            <th><a href="{{ path('sylius_assortment_backend_product_list', {'sort': 'id', 'order': sorter.order}) }}">#id</a></th>
+            <th><a href="{{ path('sylius_assortment_backend_product_list', {'sort': 'name', 'order': sorter.order}) }}">name</a></th>
+            <th><a href="{{ path('sylius_assortment_backend_product_list', {'sort': 'price', 'order': sorter.order}) }}">price</a></th>
+            <th><a href="{{ path('sylius_assortment_backend_product_list', {'sort': 'createdAt', 'order': sorter.order}) }}">creation time</a></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for product in products %}
+        <tr>
+            <td>{{ product.id }}</td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.price }} &euro;</td>
+            <td>{{ product.createdAt|date('Y-m-d H:i:s') }}</td>
+            <td>
+                <div class="btn-group pull-right">
+                    <a href="{{ path('sylius_assortment_backend_product_show', {'id': product.id}) }}" class="btn">
+                       <i class="icon-book"></i> {{ 'show'|trans({}, 'SandboxCoreBundle') }}
+                    </a>
+                    <a href="{{ path('sylius_assortment_backend_product_update', {'id': product.id}) }}" class="btn">
+                       <i class="icon-pencil"></i> {{ 'update'|trans({}, 'SandboxCoreBundle') }}
+                    </a>
+                    <a href="{{ path('sylius_assortment_backend_product_delete', {'id': product.id}) }}" class="btn btn-danger confirmer"
+                        data-confirmer-question="{{ 'confirmer.q.product.delete'|trans({}, 'SandboxCoreBundle') }}"
+                    >
+                        <i class="icon-remove icon-white"></i> {{ 'delete'|trans({}, 'SandboxCoreBundle') }}
+                    </a>
+                </div>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<div class="alert alert-info">
+    <h4 class="alert-heading">{{ 'alert.heading.info'|trans({}, 'SandboxCoreBundle') }}.</h4>
+    There are no products to display.
+</div>
+{% endif %}
+
+{% if paginator.haveToPaginate() %}
+{{ pagerfanta(paginator, 'twitter_bootstrap', {'prev_message': "previous page...", 'next_message': "next page..."}) }}
+{% endif %}
+
+{% endblock %}
