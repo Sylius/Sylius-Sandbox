@@ -10,7 +10,7 @@
         <id name="id" column="id" type="integer">
             <generator strategy="AUTO" />
         </id>
-        <one-to-many field="optionValues" target-entity="Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Option\OptionValue" mapped-by="option" />
+        <one-to-many field="values" target-entity="Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Option\OptionValue" mapped-by="option" />
     </entity>
 
 </doctrine-mapping>
