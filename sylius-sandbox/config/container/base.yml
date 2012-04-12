@@ -52,6 +52,7 @@ sylius_assortment:
     classes:
         model:
             product: Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Product
+            property: Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Property\Property
             option: Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Option\Option
             option_value: Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Option\OptionValue
         form:

@@ -11,8 +11,8 @@
     {{ form_row(form.presentation, {'attr': {'class': 'span6'}}) }}
     <hr />
     <div id="sylius-assortment-option-values" data-prototype="{{ form_widget(form.values.get('prototype'))|e }}">
-        <a id="sylius-assortment-option-values-adder" class="btn btn-small pull-right">add value</a>
     </div>
+    <a id="sylius-assortment-option-values-adder" class="btn btn-success btn-large pull-right">add value</a>
 </fieldset>
     {{ form_widget(form._token) }}
     <div class="form-actions">

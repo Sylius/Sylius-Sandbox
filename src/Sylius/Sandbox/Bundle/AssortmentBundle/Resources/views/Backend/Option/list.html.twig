@@ -17,6 +17,7 @@
         <tr>
             <th>#id</th>
             <th>name</th>
+            <th>values</th>
             <th>creation time</th>
             <th></th>
         </tr>
@@ -26,7 +27,13 @@
         <tr>
             <td>{{ option.id }}</td>
             <td>{{ option.name }}</td>
-            <td>{{ option.price }} &euro;</td>
+            <td>
+                <ul>
+                    {% for value in option.values %}
+                    <li>{{ value }}</li>
+                    {% endfor %}
+                </ul>
+            </td>
             <td>{{ option.createdAt|date('Y-m-d H:i:s') }}</td>
             <td>
                 <div class="btn-group pull-right">

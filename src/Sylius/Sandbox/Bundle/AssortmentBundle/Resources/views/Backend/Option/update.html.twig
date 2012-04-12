@@ -2,20 +2,24 @@
 
 {% block content %}
 <div class="page-header">
-    <h1>Updating product.<small> Use the form below to modify existing product...</small></h1>
+    <h1>Updating option<small> Use the form below edit existing option</small></h1>
 </div>
 
-<form action="{{ path('sylius_assortment_backend_product_update', {'id': product.id}) }}" method="post" class="form-horizontal">
+<form action="{{ path('sylius_assortment_backend_option_update', {'id': option.id}) }}" method="post" class="form-horizontal">
 <fieldset>
-    {{ form_row(form.name, {'attr': {'class': 'span6'}}) }}
-    {{ form_row(form.description, {'attr': {'class': 'span5', 'rows': 10}}) }}
-    {{ form_row(form.price, {'attr': {'class': 'span2'}}) }}
-    {{ form_row(form.category, {'empty_value': "choose category..."}) }}
+    {{ form_row(form.name, {'attr': {'class': 'span4'}}) }}
+    {{ form_row(form.presentation, {'attr': {'class': 'span6'}}) }}
+    <hr />
+    <div id="sylius-assortment-option-values" data-prototype="{{ form_widget(form.values.get('prototype'))|e }}">
+        {% for valueForm in form.values %}
+            {{ form_widget(valueForm)  }}
+        {% endfor %}
+    </div>
+    <a id="sylius-assortment-option-values-adder" class="btn btn-success btn-large pull-right">add value</a>
 </fieldset>
-    {{ form_rest(form) }}
+    {{ form_widget(form._token) }}
     <div class="form-actions">
        <input type="submit" value="save changes" class="btn btn-primary btn-large" />
     </div>
 </form>
-
 {% endblock %}
