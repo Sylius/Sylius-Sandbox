@@ -11,6 +11,7 @@
 
 namespace Sylius\Sandbox\Bundle\BloggerBundle\DataFixtures\ORM;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -60,7 +61,7 @@ class LoadPostsData extends AbstractFixture implements ContainerAwareInterface, 
                 $this->getReference('Sandbox.Blogger.Category-' . rand(6, 10))
             );
 
-            $post->setCategories($categories);
+            $post->setCategories(new ArrayCollection($categories));
 
             $manipulator->create($post);
 
