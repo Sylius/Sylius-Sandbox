@@ -1,0 +1,18 @@
+{% extends 'SandboxCoreBundle:Backend:layout.html.twig' %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Creating property<small> Use the form below to create a new property</small></h1>
+</div>
+
+<form action="{{ path('sylius_assortment_backend_property_create') }}" method="post" class="form-horizontal">
+<fieldset>
+    {{ form_row(form.name, {'attr': {'class': 'span4'}}) }}
+    {{ form_row(form.presentation, {'attr': {'class': 'span6'}}) }}
+</fieldset>
+    {{ form_widget(form._token) }}
+    <div class="form-actions">
+       <input type="submit" value="create property" class="btn btn-primary btn-large" />
+    </div>
+</form>
+{% endblock %}
