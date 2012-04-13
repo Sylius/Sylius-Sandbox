@@ -1,0 +1,20 @@
+{% extends 'SandboxCoreBundle:Backend:layout.html.twig' %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Creating prototype<small> Use the form below to create a new prototype</small></h1>
+</div>
+
+<form action="{{ path('sylius_assortment_backend_prototype_create') }}" method="post" class="form-horizontal">
+<fieldset>
+    {{ form_row(form.name, {'attr': {'class': 'span4'}}) }}
+    {{ form_row(form.options) }}
+    {{ form_row(form.properties) }}
+    <hr />
+</fieldset>
+    {{ form_widget(form._token) }}
+    <div class="form-actions">
+       <input type="submit" value="create prototype" class="btn btn-primary btn-large" />
+    </div>
+</form>
+{% endblock %}
