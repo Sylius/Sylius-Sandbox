@@ -52,13 +52,16 @@ sylius_assortment:
     classes:
         model:
             product: Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Product
+            variant: Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Variant;
             property: Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Property\Property
+            product_property: Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Property\ProductProperty
             prototype: Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Prototype\Prototype
             option: Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Option\Option
             option_value: Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Option\OptionValue
         form:
             type:
                 product: Sylius\Sandbox\Bundle\AssortmentBundle\Form\Type\ProductType
+                variant: Sylius\Sandbox\Bundle\AssortmentBundle\Form\Type\VariantType
 
 sylius_categorizer:
     driver: doctrine/orm
