@@ -11,17 +11,25 @@
 
 namespace Sylius\Sandbox\Bundle\AssortmentBundle\Form\Type;
 
-use Sylius\Bundle\AssortmentBundle\Form\Type\ProductType as BaseProductType;
+use Sylius\Bundle\AssortmentBundle\Form\Type\CustomizableProductType as BaseCustomizableProductType;
 use Symfony\Component\Form\FormBuilder;
 
-class ProductType extends BaseProductType
+/**
+ * Product form type.
+ * Extends customizable form type, we just need to add category choice.
+ *
+ * @author Paweł Jędrzejewkski <pjedrzejewski@diweb.pl>
+ */
+class ProductType extends BaseCustomizableProductType
 {
+    /**
+     * {@inheritdoc}
+     */
     public function buildForm(FormBuilder $builder, array $options)
     {
         parent::buildForm($builder, $options);
 
         $builder
-            ->add('price', 'money')
             ->add('category', 'sylius_categorizer_category_choice', array(
                 'multiple' => false,
                 'catalog'  => 'assortment'

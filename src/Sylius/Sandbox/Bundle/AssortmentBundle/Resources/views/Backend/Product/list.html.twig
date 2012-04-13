@@ -12,7 +12,7 @@
 </div>
 
 {% if paginator.haveToPaginate() %}
-{{ pagerfanta(paginator, 'twitter_bootstrap', {'prev_message': "previous page...", 'next_message': "next page..."}) }}
+{{ pagerfanta(paginator, 'twitter_bootstrap_translated') }}
 {% endif %}
 
 {% if products|length > 0 %}
@@ -21,7 +21,6 @@
         <tr>
             <th><a href="{{ path('sylius_assortment_backend_product_list', {'sort': 'id', 'order': sorter.order}) }}">#id</a></th>
             <th><a href="{{ path('sylius_assortment_backend_product_list', {'sort': 'name', 'order': sorter.order}) }}">name</a></th>
-            <th><a href="{{ path('sylius_assortment_backend_product_list', {'sort': 'price', 'order': sorter.order}) }}">price</a></th>
             <th><a href="{{ path('sylius_assortment_backend_product_list', {'sort': 'createdAt', 'order': sorter.order}) }}">creation time</a></th>
             <th></th>
         </tr>
@@ -31,7 +30,6 @@
         <tr>
             <td>{{ product.id }}</td>
             <td>{{ product.name }}</td>
-            <td>{{ product.price }} &euro;</td>
             <td>{{ product.createdAt|date('Y-m-d H:i:s') }}</td>
             <td>
                 <div class="btn-group pull-right">
@@ -60,7 +58,7 @@
 {% endif %}
 
 {% if paginator.haveToPaginate() %}
-{{ pagerfanta(paginator, 'twitter_bootstrap', {'prev_message': "previous page...", 'next_message': "next page..."}) }}
+{{ pagerfanta(paginator, 'twitter_bootstrap_translated') }}
 {% endif %}
 
 {% endblock %}
