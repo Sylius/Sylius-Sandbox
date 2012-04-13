@@ -6,17 +6,19 @@
 </div>
 
 <div class="well">
-<a href="{{ path('sylius_assortment_product_show', {'id': product.id, 'slug': product.slug}) }}" class="btn">
-    <i class="icon-book"></i> show in the store
-</a>
-<a href="{{ path('sylius_assortment_backend_product_update', {'id': product.id}) }}" class="btn">
-    <i class="icon-pencil"></i> {{ 'update'|trans({}, 'SandboxCoreBundle') }}
-</a>
-<a href="{{ path('sylius_assortment_backend_product_delete', {'id': product.id}) }}" class="btn btn-danger confirmer"
-    data-confirmer-question="{{ 'confirmer.q.product.delete'|trans({}, 'SandboxCoreBundle') }}"
->
-    <i class="icon-remove icon-white"></i> {{ 'delete'|trans({}, 'SandboxCoreBundle') }}
-</a>
+    <div class="btn-group">
+        <a href="{{ path('sylius_assortment_product_show', {'id': product.id, 'slug': product.slug}) }}" class="btn">
+            <i class="icon-book"></i> show in the store
+        </a>
+        <a href="{{ path('sylius_assortment_backend_product_update', {'id': product.id}) }}" class="btn">
+            <i class="icon-pencil"></i> {{ 'update'|trans({}, 'SandboxCoreBundle') }}
+        </a>
+        <a href="{{ path('sylius_assortment_backend_product_delete', {'id': product.id}) }}" class="btn btn-danger confirmer"
+            data-confirmer-question="{{ 'confirmer.q.product.delete'|trans({}, 'SandboxCoreBundle') }}"
+        >
+            <i class="icon-remove icon-white"></i> {{ 'delete'|trans({}, 'SandboxCoreBundle') }}
+        </a>
+    </div>
 </div>
 
 <table class="table">
@@ -24,6 +26,7 @@
         <tr>
             <th>#id</th>
             <th>name</th>
+            <th>options</th>
             <th>master price</th>
         </tr>
     </thead>
@@ -31,11 +34,41 @@
         <tr>
             <td>{{ product.id }}</td>
             <td>{{ product.name }}</td>
+            <td>
+                {% if product.options|length > 0 %}
+                <ul>
+                {% for option in product.options %}
+                    <li>{{ option.name }}</li>
+                {% endfor %}
+                </ul>
+                {% else %}
+                    <span class="label label-info">There are no options for this product.</span>
+                {% endif %}
+            </td>
             <td>{{ product.price }}</td>
         </tr>
     </tbody>
 </table>
 
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th colspan="2">properties</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for property in product.properties %}
+        <tr>
+            <td><strong>{{ property.name }}</strong></td>
+            <td>{{ property.value }}</td>
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="2">There are no properties for this product</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
 <div class="well">
 {{ product.description|markdown }}
 </div>
