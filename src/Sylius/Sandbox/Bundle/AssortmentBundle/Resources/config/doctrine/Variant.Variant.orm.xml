@@ -11,7 +11,7 @@
             <generator strategy="AUTO" />
         </id>
         <field name="price" column="price" type="decimal" precision="10" scale="2" />
-        <many-to-one field="Product" target-entity="Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Product">
+        <many-to-one field="product" target-entity="Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Product">
             <join-column name="product_id" referenced-column-name="id" />
         </many-to-one>
     </entity>
