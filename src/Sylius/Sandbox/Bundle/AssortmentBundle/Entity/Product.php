@@ -12,22 +12,11 @@
 namespace Sylius\Sandbox\Bundle\AssortmentBundle\Entity;
 
 use Sylius\Bundle\CategorizerBundle\Model\CategoryInterface;
-use Sylius\Bundle\AssortmentBundle\Entity\Product as BaseProduct;
+use Sylius\Bundle\AssortmentBundle\Entity\CustomizableProduct as BaseProduct;
 
 class Product extends BaseProduct
 {
-    protected $price;
     protected $category;
-
-    public function getPrice()
-    {
-        return $this->price;
-    }
-
-    public function setPrice($price)
-    {
-        $this->price = $price;
-    }
 
     public function getCategory()
     {
