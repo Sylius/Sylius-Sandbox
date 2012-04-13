@@ -52,7 +52,7 @@ sylius_assortment:
     classes:
         model:
             product: Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Product
-            variant: Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Variant;
+            variant: Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Variant\Variant
             property: Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Property\Property
             product_property: Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Property\ProductProperty
             prototype: Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Prototype\Prototype
