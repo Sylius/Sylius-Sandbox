@@ -34,7 +34,7 @@
                 </inverse-join-columns>
             </join-table>
         </many-to-many>
-        <one-to-many field="properties" target-entity="Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Property\ProductProperty" mapped-by="property">
+        <one-to-many field="properties" target-entity="Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Property\ProductProperty" mapped-by="product">
             <cascade>
                 <cascade-all />
             </cascade>
