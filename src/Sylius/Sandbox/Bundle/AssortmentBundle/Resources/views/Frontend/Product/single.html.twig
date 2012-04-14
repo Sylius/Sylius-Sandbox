@@ -1,6 +1,6 @@
 <div class="well">
     <h2>{{ product.name }}</h2>
-    {{ sylius_assortment_cut_text(product.description, 200, '...') }}
+    {{ product.description|markdown }}
 
     <br /> <br />
     <code>Created at {{ product.createdAt|date('Y-m-d H:i:s') }}.</code>

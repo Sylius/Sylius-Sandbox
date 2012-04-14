@@ -14,6 +14,16 @@
         <many-to-one field="product" target-entity="Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Product">
             <join-column name="product_id" referenced-column-name="id" />
         </many-to-one>
+        <many-to-many field="options" target-entity="Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Option\OptionValue">
+            <join-table name="sylius_assortment_variant_option_value">
+                <join-columns>
+                    <join-column name="variant_id" referenced-column-name="id" column-definition="INT NULL" />
+                </join-columns>
+                <inverse-join-columns>
+                    <join-column name="option_value_id" referenced-column-name="id" nullable="false" unique="false" />
+                </inverse-join-columns>
+            </join-table>
+        </many-to-many>
     </entity>
 
 </doctrine-mapping>

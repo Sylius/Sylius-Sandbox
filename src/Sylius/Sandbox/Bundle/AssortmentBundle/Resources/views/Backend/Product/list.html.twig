@@ -32,18 +32,25 @@
             <td>{{ product.name }}</td>
             <td>{{ product.createdAt|date('Y-m-d H:i:s') }}</td>
             <td>
-                <div class="btn-group pull-right">
-                    <a href="{{ path('sylius_assortment_backend_product_show', {'id': product.id}) }}" class="btn">
-                       <i class="icon-book"></i> {{ 'show'|trans({}, 'SandboxCoreBundle') }}
-                    </a>
-                    <a href="{{ path('sylius_assortment_backend_product_update', {'id': product.id}) }}" class="btn">
-                       <i class="icon-pencil"></i> {{ 'update'|trans({}, 'SandboxCoreBundle') }}
-                    </a>
-                    <a href="{{ path('sylius_assortment_backend_product_delete', {'id': product.id}) }}" class="btn btn-danger confirmer"
-                        data-confirmer-question="{{ 'confirmer.q.product.delete'|trans({}, 'SandboxCoreBundle') }}"
-                    >
-                        <i class="icon-remove icon-white"></i> {{ 'delete'|trans({}, 'SandboxCoreBundle') }}
-                    </a>
+                <div class="btn-toolbar pull-right">
+                    <div class="btn-group">
+                        <a href="{{ path('sylius_assortment_backend_variant_list', {'productId': product.id}) }}" class="btn">
+                           <i class="icon-book"></i> list variants
+                        </a>
+                    </div>
+                    <div class="btn-group">
+                        <a href="{{ path('sylius_assortment_backend_product_show', {'id': product.id}) }}" class="btn">
+                           <i class="icon-book"></i> {{ 'show'|trans({}, 'SandboxCoreBundle') }}
+                        </a>
+                        <a href="{{ path('sylius_assortment_backend_product_update', {'id': product.id}) }}" class="btn">
+                           <i class="icon-pencil"></i> {{ 'update'|trans({}, 'SandboxCoreBundle') }}
+                        </a>
+                        <a href="{{ path('sylius_assortment_backend_product_delete', {'id': product.id}) }}" class="btn btn-danger confirmer"
+                            data-confirmer-question="{{ 'confirmer.q.product.delete'|trans({}, 'SandboxCoreBundle') }}"
+                        >
+                            <i class="icon-remove icon-white"></i> {{ 'delete'|trans({}, 'SandboxCoreBundle') }}
+                        </a>
+                    </div>
                 </div>
             </td>
         </tr>

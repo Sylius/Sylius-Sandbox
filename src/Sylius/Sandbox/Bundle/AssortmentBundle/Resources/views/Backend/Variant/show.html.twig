@@ -1,0 +1,49 @@
+{% extends 'SandboxCoreBundle:Backend:layout.html.twig' %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Variant details</h1>
+</div>
+
+<div class="well">
+    <div class="btn-group">
+        <a href="{{ path('sylius_assortment_product_show', {'id': variant.product.id, 'slug': variant.product.slug}) }}" class="btn">
+            <i class="icon-book"></i> show product in the store
+        </a>
+        <a href="{{ path('sylius_assortment_backend_variant_update', {'id': variant.id}) }}" class="btn">
+            <i class="icon-pencil"></i> {{ 'update'|trans({}, 'SandboxCoreBundle') }}
+        </a>
+        <a href="{{ path('sylius_assortment_backend_variant_delete', {'id': variant.id}) }}" class="btn btn-danger confirmer"
+            data-confirmer-question="{{ 'confirmer.q.variant.delete'|trans({}, 'SandboxCoreBundle') }}"
+        >
+            <i class="icon-remove icon-white"></i> {{ 'delete'|trans({}, 'SandboxCoreBundle') }}
+        </a>
+    </div>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>#id</th>
+            <th>creation time</th>
+            <th>option set</th>
+            <th>price</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{ variant.id }}</td>
+            <td>{{ variant.createdAt|date('Y-m-d H:i:s') }}</td>
+            <td>
+                <ul>
+                {% for option in variant.options %}
+                    <li><strong>{{ option.name }}</strong>: {{ option.value }}</li>
+                {% endfor %}
+                </ul>
+            </td>
+            <td>{{ variant.price }} &euro;</td>
+        </tr>
+    </tbody>
+</table>
+
+{% endblock content %}
