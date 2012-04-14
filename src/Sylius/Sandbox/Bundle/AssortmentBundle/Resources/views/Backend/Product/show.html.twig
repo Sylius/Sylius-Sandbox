@@ -50,6 +50,62 @@
     </tbody>
 </table>
 
+<div class="well">
+<a href="{{ path('sylius_assortment_backend_variant_create', {'productId': product.id}) }}" class="btn btn-primary">
+    <i class="icon-plus icon-white"></i> create variant
+</a>
+</div>
+
+{% if product.variants|length > 0 %}
+    <table class="table">
+    <thead>
+        <tr>
+            <th>#id</th>
+            <th>creation time</th>
+            <th>option set</th>
+            <th>price</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for variant in product.variants %}
+        <tr>
+            <td>{{ variant.id }}</td>
+            <td>{{ variant.createdAt|date('Y-m-d H:i:s') }}</td>
+            <td>
+                <ul>
+                {% for option in variant.options %}
+                    <li><strong>{{ option.name }}</strong>: {{ option.value }}</li>
+                {% endfor %}
+                </ul>
+            </td>
+            <td>{{ variant.price }} &euro;</td>
+            <td>
+                <div class="btn-group pull-right">
+                    <a href="{{ path('sylius_assortment_backend_variant_show', {'id': variant.id}) }}" class="btn">
+                       <i class="icon-book"></i> {{ 'show'|trans({}, 'SandboxCoreBundle') }}
+                    </a>
+                    <a href="{{ path('sylius_assortment_backend_variant_update', {'id': variant.id}) }}" class="btn">
+                       <i class="icon-pencil"></i> {{ 'update'|trans({}, 'SandboxCoreBundle') }}
+                    </a>
+                    <a href="{{ path('sylius_assortment_backend_variant_delete', {'id': variant.id}) }}" class="btn btn-danger confirmer"
+                        data-confirmer-question="{{ 'confirmer.q.variant.delete'|trans({}, 'SandboxCoreBundle') }}"
+                    >
+                        <i class="icon-remove icon-white"></i> {{ 'delete'|trans({}, 'SandboxCoreBundle') }}
+                    </a>
+                </div>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<div class="alert alert-info">
+    <h4 class="alert-heading">{{ 'alert.heading.info'|trans({}, 'SandboxCoreBundle') }}.</h4>
+    There are no variants of this product.
+</div>
+{% endif %}
+
 <table class="table table-bordered">
     <thead>
         <tr>
