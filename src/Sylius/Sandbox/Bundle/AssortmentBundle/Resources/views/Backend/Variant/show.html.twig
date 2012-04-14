@@ -7,6 +7,9 @@
 
 <div class="well">
     <div class="btn-group">
+        <a href="{{ path('sylius_assortment_backend_variant_create', {'productId': variant.product.id}) }}" class="btn btn-primary">
+            <i class="icon-plus icon-white"></i> add another variant
+        </a>
         <a href="{{ path('sylius_assortment_product_show', {'id': variant.product.id, 'slug': variant.product.slug}) }}" class="btn">
             <i class="icon-book"></i> show product in the store
         </a>
