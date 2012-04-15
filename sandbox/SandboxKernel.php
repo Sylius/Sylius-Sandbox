@@ -97,6 +97,8 @@ class SandboxKernel extends Kernel
         } else {
             ini_set('display_errors', 0);
         }
+
+        ini_set('date.timezone', 'UTC');
     }
 
     /**

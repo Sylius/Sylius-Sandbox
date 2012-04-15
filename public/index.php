@@ -22,9 +22,6 @@ require_once __DIR__.'/../sandbox/autoload.php';
 // Require kernel.
 require_once __DIR__.'/../sandbox/SandboxKernel.php';
 
-// Force timezone.
-ini_set('date.timezone', 'UTC');
-
 // Initialize kernel and run the application.
 $kernel = new \Sylius\SandboxKernel('live', false);
 $kernel->handle(Request::createFromGlobals())->send();
