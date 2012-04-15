@@ -3,7 +3,7 @@
     "packages": [
         {
             "package": "doctrine/common",
-            "version": "2.2.1"
+            "version": "2.2.2"
         },
         {
             "package": "doctrine/data-fixtures",
@@ -12,7 +12,7 @@
         },
         {
             "package": "doctrine/dbal",
-            "version": "2.2.1"
+            "version": "2.2.2"
         },
         {
             "package": "doctrine/doctrine-bundle",
@@ -41,7 +41,7 @@
         {
             "package": "fzaninotto/faker",
             "version": "dev-master",
-            "source-reference": "9a60f901d678557f79235b09eff8ebd1ea5fa076"
+            "source-reference": "ebcc92bf4850077978f6cee129efb723c3a8d757"
         },
         {
             "package": "gedmo/doctrine-extensions",
@@ -56,7 +56,7 @@
         {
             "package": "kriswallsmith/assetic",
             "version": "dev-master",
-            "source-reference": "b25d1fdd07a70585d15c84735e82664acec88eab"
+            "source-reference": "eb3b5eb732e5f172d5aa12dea0af36b7989c18b3"
         },
         {
             "package": "monolog/monolog",
@@ -84,37 +84,37 @@
         {
             "package": "sylius/addressing-bundle",
             "version": "dev-master",
-            "source-reference": "7aea51bf8bc15f0818f3c3de2ad7932abdc2f09c"
+            "source-reference": "f160799a12f5b6d4450b92e705e28a8a8166c30e"
         },
         {
             "package": "sylius/assortment-bundle",
             "version": "dev-master",
-            "source-reference": "2fa9636b372fab3fb8a528f9c35a1e3962e85e88"
+            "source-reference": "503194bdb32f25f17efe1b4616e7d64e32af5a8f"
         },
         {
             "package": "sylius/blogger-bundle",
             "version": "dev-master",
-            "source-reference": "afb3ddb51c45157710ab7898bff2943a8f1bd908"
+            "source-reference": "5eee3a83d5da19ca9816c293a3e48158eb605864"
         },
         {
             "package": "sylius/cart-bundle",
             "version": "dev-master",
-            "source-reference": "672b84acf0304c28cc1535206dfc3560203e9711"
+            "source-reference": "49521f47dd918b5ea8012ccbed96f527eb9ebfdf"
         },
         {
             "package": "sylius/categorizer-bundle",
             "version": "dev-master",
-            "source-reference": "f257a196fc161c6c1bbf26402eb8f0c483d774f4"
+            "source-reference": "d44d5f2ec56cb161572ce7cfb4179f99a77db367"
         },
         {
             "package": "sylius/sales-bundle",
             "version": "dev-master",
-            "source-reference": "26e182b9e7c1168b52d5bdfb11d54f7007c89fe5"
+            "source-reference": "639a9d77b60dc7b1b42064d89465db0db187378c"
         },
         {
             "package": "symfony/assetic-bundle",
             "version": "dev-master",
-            "source-reference": "a771e48366d80002b0046ba43e658d067170634d"
+            "source-reference": "d370e914e86518e88aa00ab266796ee032b8262e"
         },
         {
             "package": "symfony/monolog-bundle",
@@ -134,7 +134,7 @@
         {
             "package": "symfony/symfony",
             "version": "dev-master",
-            "source-reference": "570bb6ab6794fb9115229e108b40a347ea165a09",
+            "source-reference": "45d43d325a3849a8b8d5358a396cedb01b410a46",
             "alias": "2.1.9999999.9999999-dev"
         },
         {
@@ -145,7 +145,7 @@
         {
             "package": "twig/twig",
             "version": "dev-master",
-            "source-reference": "58fbe0da4146608e085d7e67ebf2eae7aa8da19e",
+            "source-reference": "4e28408ce1fced95251e5f8c8299aa43e9f40f4d",
             "alias": "1.7.9999999.9999999-dev"
         },
         {
@@ -154,5 +154,6 @@
             "source-reference": "60d98f508010b0fab6a93bf079be39f4c9537f7c"
         }
     ],
+    "packages-dev": [],
     "aliases": []
 }
