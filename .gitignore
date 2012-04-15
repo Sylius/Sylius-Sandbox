@@ -1,11 +1,11 @@
 public/bundles/
 public/assets/compiled/
 
-sylius-sandbox/config/container/*.local.yml
-sylius-sandbox/config/container/parameters.yml
-sylius-sandbox/phpunit.xml
-sylius-sandbox/cache/
-sylius-sandbox/logs/
+sandbox/config/container/*.local.yml
+sandbox/config/container/parameters.yml
+sandbox/phpunit.xml
+sandbox/cache/
+sandbox/logs/
 
 vendor/
 

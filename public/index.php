@@ -17,10 +17,10 @@ use Symfony\Component\HttpFoundation\Request;
  */
 
 // Require autoload.
-require_once __DIR__.'/../sylius-sandbox/autoload.php';
+require_once __DIR__.'/../sandbox/autoload.php';
 
 // Require kernel.
-require_once __DIR__.'/../sylius-sandbox/SandboxKernel.php';
+require_once __DIR__.'/../sandbox/SandboxKernel.php';
 
 // Initialize kernel and run the application.
 $kernel = new \Sylius\SandboxKernel('live', false);

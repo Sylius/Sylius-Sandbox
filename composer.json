@@ -37,7 +37,7 @@
         "bin-dir": "bin"
     },
     "extra": {
-        "symfony-app-dir": "sylius-sandbox",
+        "symfony-app-dir": "sandbox",
         "symfony-web-dir": "public"
     },
     "autoload": {
