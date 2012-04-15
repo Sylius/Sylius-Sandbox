@@ -28,12 +28,12 @@ class ProcessOperation extends ContainerAware implements OperationInterface
         $orderValue = 0.00;
 
         foreach ($cart->getItems() as $item) {
-            $orderValue += $item->getProduct()->getPrice() * $item->getQuantity();
+            $orderValue += $item->getVariant()->getPrice() * $item->getQuantity();
         }
 
         $order->setValue($orderValue);
 
-        // Clear cart.
-        //$this->container->get('sylius_cart.provider')->resetCart();
+        // Abandon current cart.
+        $this->container->get('sylius_cart.provider')->abandonCart();
     }
 }

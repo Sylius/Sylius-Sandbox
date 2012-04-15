@@ -66,7 +66,7 @@
         </tr>
         <tr>
             <td><strong>phone</strong></td>
-            <td>{{ order.address.phone }}</td>
+            <td>{{ order.address.phone|default('Not available.') }}</td>
         </tr>
     </tbody>
 </table>
@@ -75,13 +75,21 @@
     <thead>
         <tr>
             <th>product name</th>
+            <th>variant</th>
             <th>quantity</th>
         </tr>
     </thead>
     <tbody>
         {% for item in order.cart.items %}
             <tr>
-                <td>{{ item.product.name }}</td>
+                <td>{{ item.variant.product.name }}</td>
+                <td>
+                    <ul class="unstyled">
+                        {% for option in item.variant.options %}
+                        <li><strong>{{ option.presentation }}</strong>: {{ option.value }}</li>
+                        {% endfor %}
+                    </ul>
+                </td>
                 <td>{{ item.quantity }}</td>
             </tr>
         {% endfor %}
