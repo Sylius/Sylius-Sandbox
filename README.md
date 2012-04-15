@@ -19,10 +19,10 @@ Quick installation
 Clone this repository with this command.
 
 ``` bash
-$ git clone http://github.com/Sylius/Sylius-Sandbox.git /path/to/Sylius-Sandbox
+$ git clone http://github.com/Sylius/Sylius-Sandbox.git
 ```
 
-Open `sylius-sandbox/config/container/includes/parameters.yml.dist`, set your values and save as `parameters.yml`.
+Open `sandbox/config/container/includes/parameters.yml.dist`, set your values and save as `parameters.yml`.
 
 Install dependencies using composer.
 
@@ -34,7 +34,8 @@ $ php composer.phar install
 Create database and schema using this script.
 
 ``` bash
-$ ./bin/rebuild-database
+$ php sandbox/console doctrine:database:create
+$ php sandbox/console doctrine:schema:create
 ```
 
 Open up ``/path/to/Sylius-Sandbox/public/dev.php`` in your browser and play with the application.
