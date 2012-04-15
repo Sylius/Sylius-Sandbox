@@ -70,25 +70,15 @@ class ItemResolver implements ItemResolverInterface
          */
         if ($id = $request->query->get('id')) {
             if ($product = $this->productManager->findProduct($id)) {
-                /*
-                 * To have it flexible, we allow adding single item by GET request
-                 * and also user can provide desired quantity by form via POST request.
-                 */
-                $item = $this->itemManager->createItem();
-                $item->setProduct($product);
-
                 if ('POST' === $request->getMethod()) {
-                    $form = $this->formFactory->create('sylius_cart_item');
-                    $form->setData($item);
+                    $form = $this->formFactory->create('sylius_cart_item', null, array('product' => $product));
                     $form->bindRequest($request);
 
-                    if (!$form->isValid()) {
+                    if ($form->isValid()) {
 
-                        return false;
+                        return $form->getData(); // Item instance. cool.
                     }
                 }
-
-                return $item;
             }
         }
     }

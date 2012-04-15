@@ -26,7 +26,7 @@ class CartOperator extends BaseCartOperator
         $value = 0.00;
 
         foreach ($cart->getItems() as $item) {
-            $value += $item->getProduct()->getPrice() * $item->getQuantity();
+            $value += $item->getVariant()->getPrice() * $item->getQuantity();
         }
 
         $cart->setValue($value);
