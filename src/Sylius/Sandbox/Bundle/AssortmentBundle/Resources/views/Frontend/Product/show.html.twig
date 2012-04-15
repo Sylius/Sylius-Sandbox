@@ -1,5 +1,7 @@
 {% extends 'SandboxCoreBundle:Frontend:layout.html.twig' %}
 
+{% set form = sylius_cart_form({'product': product}) %}
+
 {% block content %}
 <div class="page-header">
 <h1>
@@ -8,13 +10,37 @@
 </h1>
 </div>
 
+<div class="well">
 {{ product.description|markdown }}
+</div>
 
 <form action="{{ path('sylius_cart_item_add', {'id': product.id}) }}" method="post">
+<table class="table table-condensed table-striped">
+    <thead>
+        <tr>
+            <th>variant</th>
+            <th>price</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for variant in product.variants %}
+        <tr>
+            <td>
+                <ul class="unstyled">
+                    {% for option in variant.options %}
+                    <li><strong>{{ option.presentation }}</strong>: {{ option.value }}</li>
+                    {% endfor %}
+                </ul>
+            </td>
+            <td>{{ variant.price }} &euro;</td>
+            <td>{{ form_widget(form.variant[loop.index0]) }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
     <div class="pull-right">
-    <strong>Price</strong>: {{ product.price }} &euro;
-    {% set form = sylius_cart_form() %}
-    {{ form_widget(form.quantity, {'attr': {'class': 'span2 center-text'}, 'empty_value': '1'}) }}
+    {{ form_row(form.quantity, {'attr': {'class': 'span2 center-text'}, 'empty_value': '1'}) }}
     {{ form_rest(form) }}
     <input type="submit" class="btn btn-success btn-large" value="add to cart">
     </div>

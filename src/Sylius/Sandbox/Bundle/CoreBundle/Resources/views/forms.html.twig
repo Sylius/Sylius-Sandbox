@@ -21,12 +21,11 @@
     {% endif %}
 {% endspaceless %}
 {% endblock field_errors %}
-
 {% block generic_label %}
 {% set attr = attr|merge({'class': ''}) %}
 {% spaceless %}
     {% if required %}
-        {% set attr = attr|merge({'class': 'required'}) %}
+        {% set attr = attr|merge({'class': attr.class|default('') ~ ' required'}) %}
     {% endif %}
     <label{% for attrname,attrvalue in attr %} {{attrname}}="{{attrvalue}}"{% endfor %}>{{ label|trans({}, translation_domain) }}</label>
 {% endspaceless %}

@@ -11,7 +11,7 @@
 
 namespace Sylius\Sandbox\Bundle\CartBundle\Entity;
 
-use Sylius\Bundle\AssortmentBundle\Model\ProductInterface;
+use Sylius\Bundle\AssortmentBundle\Model\Variant\VariantInterface;
 use Sylius\Bundle\CartBundle\Entity\Item as BaseItem;
 use Sylius\Bundle\CartBundle\Model\ItemInterface;
 
@@ -23,30 +23,30 @@ use Sylius\Bundle\CartBundle\Model\ItemInterface;
 class Item extends BaseItem
 {
     /**
-     * Product.
+     * Variant.
      *
-     * @var ProductInterface
+     * @var VariantInterface
      */
-    protected $product;
+    protected $variant;
 
     /**
-     * Get associated product.
+     * Get associated variant.
      *
-     * @return ProductInterface
+     * @return VariantInterface
      */
-    public function getProduct()
+    public function getVariant()
     {
-        return $this->product;
+        return $this->variant;
     }
 
     /**
-     * Set associated product.
+     * Set associated variant.
      *
-     * @param ProductInterface $product
+     * @param VariantInterface $variant
      */
-    public function setProduct(ProductInterface $product)
+    public function setVariant(VariantInterface $variant)
     {
-        $this->product = $product;
+        $this->variant = $variant;
     }
 
     /**
@@ -54,6 +54,6 @@ class Item extends BaseItem
      */
     public function equals(ItemInterface $item)
     {
-        return $this->getProduct()->getId() === $item->getProduct()->getId();
+        return $this->getVariant()->getId() === $item->getVariant()->getId();
     }
 }

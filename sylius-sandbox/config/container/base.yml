@@ -100,6 +100,9 @@ sylius_cart:
         model:
             cart: Sylius\Sandbox\Bundle\CartBundle\Entity\Cart
             item: Sylius\Sandbox\Bundle\CartBundle\Entity\Item
+        form:
+            type:
+                item: Sylius\Sandbox\Bundle\CartBundle\Form\Type\ItemType
 
 sylius_blogger:
     driver: doctrine/orm

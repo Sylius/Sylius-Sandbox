@@ -6,10 +6,5 @@
     <code>Created at {{ product.createdAt|date('Y-m-d H:i:s') }}.</code>
 
     <a href="{{ path('sylius_assortment_product_show', {'id': product.id, 'slug': product.slug}) }}" class="btn">more info...</a>
-
-    <div class="pull-right">
-    <strong>Price</strong>: {{ product.price }} &euro;
-    <a href="{{ path('sylius_cart_item_add', {'id': product.id}) }}" class="btn btn-success">add to cart</a>
-    </div>
     </form>
 </div>
