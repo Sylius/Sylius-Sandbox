@@ -89,7 +89,7 @@
         {
             "package": "sylius/assortment-bundle",
             "version": "dev-master",
-            "source-reference": "1adb2dbb83c6cf332457006342b2892730bfcd9c"
+            "source-reference": "4ce0249b15f1e7d9ff596588a31a9a2893ed5126"
         },
         {
             "package": "sylius/blogger-bundle",

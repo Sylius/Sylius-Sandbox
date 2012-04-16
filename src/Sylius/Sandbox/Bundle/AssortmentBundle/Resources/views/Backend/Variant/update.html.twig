@@ -12,6 +12,8 @@
             {{ form_row(optionForm) }}
         {% endfor %}
     {% endif %}
+    {{ form_row(form.sku) }}
+    {{ form_row(form.presentation) }}
     {{ form_row(form.price) }}
 </fieldset>
     {{ form_rest(form) }}
@@ -19,5 +21,4 @@
        <input type="submit" value="save changes" class="btn btn-primary btn-large" />
     </div>
 </form>
-
 {% endblock %}

@@ -2,7 +2,7 @@
 
 {% block content %}
 <div class="page-header">
-    <h1>Assortment products.<small> List of all registered products in assortment...</small></h1>
+    <h1>Assortment<small> List of all registered products in Sylius store</small></h1>
 </div>
 
 <div class="well">
@@ -20,6 +20,7 @@
     <thead>
         <tr>
             <th><a href="{{ path('sylius_assortment_backend_product_list', {'sort': 'id', 'order': sorter.order}) }}">#id</a></th>
+            <th><a href="{{ path('sylius_assortment_backend_product_list', {'sort': 'sku', 'order': sorter.order}) }}">SKU</a></th>
             <th><a href="{{ path('sylius_assortment_backend_product_list', {'sort': 'name', 'order': sorter.order}) }}">name</a></th>
             <th><a href="{{ path('sylius_assortment_backend_product_list', {'sort': 'createdAt', 'order': sorter.order}) }}">creation time</a></th>
             <th></th>
@@ -29,8 +30,9 @@
     {% for product in products %}
         <tr>
             <td>{{ product.id }}</td>
+            <td>{{ product.sku }}</td>
             <td>{{ product.name }}</td>
-            <td>{{ product.createdAt|date('Y-m-d H:i:s') }}</td>
+            <td>{{ product.createdAt|date }}</td>
             <td>
                 <div class="btn-toolbar pull-right">
                     <div class="btn-group">

@@ -2,12 +2,13 @@
 
 {% block content %}
 <div class="page-header">
-    <h1>Updating product.<small> Use the form below to modify existing product...</small></h1>
+    <h1>Updating product<small> Use the form below to modify existing product</small></h1>
 </div>
 
 <form action="{{ path('sylius_assortment_backend_product_update', {'id': product.id}) }}" method="post" class="form-horizontal">
 <fieldset>
-    {{ form_row(form.name, {'attr': {'class': 'an12'}}) }}
+    {{ form_row(form.masterVariant.sku) }}
+    {{ form_row(form.name, {'attr': {'class': 'span7'}}) }}
     {{ form_row(form.description, {'attr': {'class': 'span5', 'rows': 10}}) }}
     {{ form_row(form.category, {'empty_value': "choose category..."}) }}
     {{ form_row(form.masterVariant.price) }}
@@ -26,5 +27,4 @@
        <input type="submit" value="save changes" class="btn btn-primary btn-large" />
     </div>
 </form>
-
 {% endblock %}

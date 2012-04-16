@@ -16,6 +16,7 @@
     <thead>
         <tr>
             <th>#id</th>
+            <th>SKU</th>
             <th>creation time</th>
             <th>option set</th>
             <th>price</th>
@@ -26,12 +27,13 @@
     {% for variant in variants %}
         <tr>
             <td>{{ variant.id }}</td>
-            <td>{{ variant.createdAt|date('Y-m-d H:i:s') }}</td>
+            <td>{{ variant.sku }}</td>
+            <td>{{ variant.createdAt|date }}</td>
             <td>
                 <ul>
-                {% for option in variant.options %}
-                    <li><strong>{{ option.name }}</strong>: {{ option.value }}</li>
-                {% endfor %}
+                    {% for option in variant.options %}
+                        <li><strong>{{ option.name }}</strong>: {{ option.value }}</li>
+                    {% endfor %}
                 </ul>
             </td>
             <td>{{ variant.price }} &euro;</td>
