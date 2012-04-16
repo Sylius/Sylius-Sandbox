@@ -1,5 +1,5 @@
 {
-    "hash": "3888b5450258e0c4b1ce836f156d706f",
+    "hash": "e00a952feb563425eb7c9aeddfe1a0f0",
     "packages": [
         {
             "package": "doctrine/common",
@@ -84,27 +84,27 @@
         {
             "package": "sylius/addressing-bundle",
             "version": "dev-master",
-            "source-reference": "f160799a12f5b6d4450b92e705e28a8a8166c30e"
+            "source-reference": "9df40b33bcd2d65db89d3978b7a463673fefb747"
         },
         {
             "package": "sylius/assortment-bundle",
             "version": "dev-master",
-            "source-reference": "503194bdb32f25f17efe1b4616e7d64e32af5a8f"
+            "source-reference": "1adb2dbb83c6cf332457006342b2892730bfcd9c"
         },
         {
             "package": "sylius/blogger-bundle",
             "version": "dev-master",
-            "source-reference": "5eee3a83d5da19ca9816c293a3e48158eb605864"
+            "source-reference": "1845b1b38a65f07c92cf347d8510a887da0e8885"
         },
         {
             "package": "sylius/cart-bundle",
             "version": "dev-master",
-            "source-reference": "49521f47dd918b5ea8012ccbed96f527eb9ebfdf"
+            "source-reference": "8d6a25d07e2487ea68ea76666a38d9000c80ff2a"
         },
         {
             "package": "sylius/categorizer-bundle",
             "version": "dev-master",
-            "source-reference": "d44d5f2ec56cb161572ce7cfb4179f99a77db367"
+            "source-reference": "4643e3e051d0a16859c6ad553c4dad606131c9bd"
         },
         {
             "package": "sylius/sales-bundle",
@@ -134,7 +134,7 @@
         {
             "package": "symfony/symfony",
             "version": "dev-master",
-            "source-reference": "45d43d325a3849a8b8d5358a396cedb01b410a46",
+            "source-reference": "e7470ffebb07d1f09fe80c98670a00236d581563",
             "alias": "2.1.9999999.9999999-dev"
         },
         {
@@ -145,7 +145,7 @@
         {
             "package": "twig/twig",
             "version": "dev-master",
-            "source-reference": "4e28408ce1fced95251e5f8c8299aa43e9f40f4d",
+            "source-reference": "5799a889c03e38a2c6d0b475194ab8c0b8904487",
             "alias": "1.7.9999999.9999999-dev"
         },
         {
@@ -154,6 +154,6 @@
             "source-reference": "60d98f508010b0fab6a93bf079be39f4c9537f7c"
         }
     ],
-    "packages-dev": [],
+    "packages-dev": null,
     "aliases": []
 }
