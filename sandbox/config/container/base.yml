@@ -46,6 +46,9 @@ stof_doctrine_extensions:
     orm:
         default:
             tree: true
+            sluggable: true
+            timestampable: true
+            softdeletable: true
 
 sylius_assortment:
     driver: doctrine/orm

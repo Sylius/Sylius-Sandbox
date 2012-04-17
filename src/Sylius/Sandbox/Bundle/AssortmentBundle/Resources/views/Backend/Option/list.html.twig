@@ -18,7 +18,8 @@
             <th>#id</th>
             <th>name</th>
             <th>values</th>
-            <th>creation time</th>
+            <th>created at</th>
+            <th>updated at</th>
             <th></th>
         </tr>
     </thead>
@@ -34,7 +35,8 @@
                     {% endfor %}
                 </ul>
             </td>
-            <td>{{ option.createdAt|date('Y-m-d H:i:s') }}</td>
+            <td>{{ option.createdAt|date }}</td>
+            <td>{{ option.updatedAt|date }}</td>
             <td>
                 <div class="btn-group pull-right">
                     <a href="{{ path('sylius_assortment_backend_option_update', {'id': option.id}) }}" class="btn">
