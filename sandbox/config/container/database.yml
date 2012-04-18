@@ -11,5 +11,20 @@ doctrine:
         password: %sylius.database.password%
         charset:  UTF8
     orm:
-        auto_generate_proxy_classes: %kernel.debug%
-        auto_mapping: true
+        entity_managers:
+            auto_generate_proxy_classes: %kernel.debug%
+            default:
+                mappings:
+                    SandboxAssortmentBundle: ~
+                    SandboxBloggerBundle: ~
+                    SandboxCartBundle: ~
+                    SandboxSalesBundle: ~
+                    SyliusAssortmentBundle: ~
+                    SyliusBloggerBundle: ~
+                    SyliusCartBundle: ~
+                    SyliusCategorizerBundle: ~
+                    SyliusSalesBundle: ~
+                filters:
+                    softdeleteable:
+                        class: Gedmo\SoftDeleteable\Filter\SoftDeleteableFilter
+                        enabled: true
