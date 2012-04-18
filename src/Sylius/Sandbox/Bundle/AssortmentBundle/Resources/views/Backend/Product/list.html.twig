@@ -9,6 +9,15 @@
 <a href="{{ path('sylius_assortment_backend_product_create') }}" class="btn btn-primary">
     <i class="icon-plus icon-white"></i> create product
 </a>
+{% if not app.request.query.get('deleted') %}
+<a href="{{ path('sylius_assortment_backend_product_list', {'deleted': true}) }}" class="btn">
+    <i class="icon-trash"></i> show deleted products
+</a>
+{% else %}
+<a href="{{ path('sylius_assortment_backend_product_list', {'deleted': false}) }}" class="btn">
+    <i class="icon-trash"></i> hide deleted products
+</a>
+{% endif %}
 </div>
 
 {% if paginator.haveToPaginate() %}
@@ -22,7 +31,9 @@
             <th><a href="{{ path('sylius_assortment_backend_product_list', {'sort': 'id', 'order': sorter.order}) }}">#id</a></th>
             <th><a href="{{ path('sylius_assortment_backend_product_list', {'sort': 'sku', 'order': sorter.order}) }}">SKU</a></th>
             <th><a href="{{ path('sylius_assortment_backend_product_list', {'sort': 'name', 'order': sorter.order}) }}">name</a></th>
-            <th><a href="{{ path('sylius_assortment_backend_product_list', {'sort': 'createdAt', 'order': sorter.order}) }}">creation time</a></th>
+            <th><a href="{{ path('sylius_assortment_backend_product_list', {'sort': 'category', 'order': sorter.order}) }}">category</a></th>
+            <th><a href="{{ path('sylius_assortment_backend_product_list', {'sort': 'createdAt', 'order': sorter.order}) }}">created at</a></th>
+            <th><a href="{{ path('sylius_assortment_backend_product_list', {'sort': 'updatedAt', 'order': sorter.order}) }}">updated at</a></th>
             <th></th>
         </tr>
     </thead>
@@ -32,8 +43,11 @@
             <td>{{ product.id }}</td>
             <td>{{ product.sku }}</td>
             <td>{{ product.name }}</td>
+            <td>&bullet; <strong>{{ product.category.name }}</strong></td>
+            <td>{{ product.createdAt|date }}</td>
             <td>{{ product.createdAt|date }}</td>
             <td>
+                {% if not product.deleted %}
                 <div class="btn-toolbar pull-right">
                     <div class="btn-group">
                         <a href="{{ path('sylius_assortment_backend_variant_list', {'productId': product.id}) }}" class="btn">
@@ -54,6 +68,13 @@
                         </a>
                     </div>
                 </div>
+                {% else %}
+                <div class="pull-right">
+                    <span class="label label-important label-padded">
+                        <i class="icon-trash icon-white"></i> deleted
+                    </span>
+                </div>
+                {% endif %}
             </td>
         </tr>
     {% endfor %}

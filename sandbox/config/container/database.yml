@@ -18,11 +18,13 @@ doctrine:
                     SandboxAssortmentBundle: ~
                     SandboxBloggerBundle: ~
                     SandboxCartBundle: ~
+                    SandboxAddressingBundle: ~
                     SandboxSalesBundle: ~
                     SyliusAssortmentBundle: ~
                     SyliusBloggerBundle: ~
                     SyliusCartBundle: ~
                     SyliusCategorizerBundle: ~
+                    SyliusAddressingBundle: ~
                     SyliusSalesBundle: ~
                 filters:
                     softdeleteable:
