@@ -12,7 +12,8 @@ $(document).ready(function () {
     $(this).data('confirmerLink', this.href);
     this.href = null;
 
-    $(this).click(function () {
+    $(this).click(function (e) {
+      e.preventDefault();
       $("#confirmer-modal").modal('show');
       $("#confirmer-modal p.confirmer-modal-question").html($(this).data('confirmerQuestion'));
       $("#confirmer-modal a.confirmer-modal-confirm").attr('href', $(this).data('confirmerLink'));
