@@ -1,18 +1,20 @@
 {
-    "hash": "e00a952feb563425eb7c9aeddfe1a0f0",
+    "hash": "d9093dda1b7ac771da9c0e06a7ef9c59",
     "packages": [
         {
             "package": "doctrine/common",
-            "version": "2.2.2"
+            "version": "2.2.x-dev",
+            "source-reference": "1e0aa60d109c630d19543d999f12e2852ef8f932"
         },
         {
             "package": "doctrine/data-fixtures",
             "version": "dev-master",
-            "source-reference": "aea0b95a554188892f10d8f09ce3ae8150f28f8b"
+            "source-reference": "6d9f0d32041ad101cb390c36bcad691abb3eff5f"
         },
         {
             "package": "doctrine/dbal",
-            "version": "2.2.2"
+            "version": "dev-master",
+            "source-reference": "493ced5cd0c2906f403dc48c46e2f7e257144bd0"
         },
         {
             "package": "doctrine/doctrine-bundle",
@@ -36,17 +38,18 @@
         },
         {
             "package": "doctrine/orm",
-            "version": "2.2.0"
+            "version": "dev-master",
+            "source-reference": "d5d47222c1dc5ea97ebd8f4c68834fbe4abeb238"
         },
         {
             "package": "fzaninotto/faker",
             "version": "dev-master",
-            "source-reference": "ebcc92bf4850077978f6cee129efb723c3a8d757"
+            "source-reference": "93ad20eb61f9b1aef188e5c2de99d1a651ef690e"
         },
         {
             "package": "gedmo/doctrine-extensions",
             "version": "dev-master",
-            "source-reference": "49cee3615341b8c426bac121219539cdac55c344"
+            "source-reference": "ec5f3a680b127ebb3b5ae7caaea978d20a08af50"
         },
         {
             "package": "knplabs/knp-markdown-bundle",
@@ -56,7 +59,7 @@
         {
             "package": "kriswallsmith/assetic",
             "version": "dev-master",
-            "source-reference": "eb3b5eb732e5f172d5aa12dea0af36b7989c18b3"
+            "source-reference": "3acfb6afa50dd1dca387a8dfb641cd3b98a8584d"
         },
         {
             "package": "monolog/monolog",
@@ -70,7 +73,7 @@
         {
             "package": "sensio/distribution-bundle",
             "version": "dev-master",
-            "source-reference": "38be63ebb45cc1fbeaff3f2bdf6d0ed216305a24"
+            "source-reference": "a2f09ae4b38533d9f16083b740f6a77fb5efd313"
         },
         {
             "package": "stof/doctrine-extensions-bundle",
@@ -89,7 +92,7 @@
         {
             "package": "sylius/assortment-bundle",
             "version": "dev-master",
-            "source-reference": "4ce0249b15f1e7d9ff596588a31a9a2893ed5126"
+            "source-reference": "fb4e6b8480e559c468381c3353ddfbb161627e12"
         },
         {
             "package": "sylius/blogger-bundle",
@@ -99,7 +102,7 @@
         {
             "package": "sylius/cart-bundle",
             "version": "dev-master",
-            "source-reference": "8d6a25d07e2487ea68ea76666a38d9000c80ff2a"
+            "source-reference": "7b23fd558da0710f54ecda83171826446413f924"
         },
         {
             "package": "sylius/categorizer-bundle",
@@ -129,23 +132,23 @@
         {
             "package": "symfony/swiftmailer-bundle",
             "version": "dev-master",
-            "source-reference": "75f8f95c201922a966274547131b33291d15d51b"
+            "source-reference": "1c6b57fe57210e9dcb5b4586d6572f47d17a25d7"
         },
         {
             "package": "symfony/symfony",
             "version": "dev-master",
-            "source-reference": "e7470ffebb07d1f09fe80c98670a00236d581563",
+            "source-reference": "4d8461f243e8bd5c45eff02f85181f7b59c06a6a",
             "alias": "2.1.9999999.9999999-dev"
         },
         {
             "package": "twig/extensions",
             "version": "dev-master",
-            "source-reference": "4c831657215e51568fcb31bb9142e827f9a69bd5"
+            "source-reference": "446d870272cd87a720e95242eade38a2acf56eaa"
         },
         {
             "package": "twig/twig",
             "version": "dev-master",
-            "source-reference": "5799a889c03e38a2c6d0b475194ab8c0b8904487",
+            "source-reference": "037f86aa550737abf633e991f3606b9de5a69657",
             "alias": "1.7.9999999.9999999-dev"
         },
         {
