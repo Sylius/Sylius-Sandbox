@@ -32,7 +32,6 @@
             <th><a href="{{ path('sylius_assortment_backend_product_list', {'sort': 'sku', 'order': sorter.order}) }}">SKU</a></th>
             <th><a href="{{ path('sylius_assortment_backend_product_list', {'sort': 'name', 'order': sorter.order}) }}">name</a></th>
             <th><a href="{{ path('sylius_assortment_backend_product_list', {'sort': 'category', 'order': sorter.order}) }}">category</a></th>
-            <th><a href="{{ path('sylius_assortment_backend_product_list', {'sort': 'createdAt', 'order': sorter.order}) }}">created at</a></th>
             <th><a href="{{ path('sylius_assortment_backend_product_list', {'sort': 'updatedAt', 'order': sorter.order}) }}">updated at</a></th>
             <th></th>
         </tr>
@@ -44,8 +43,7 @@
             <td>{{ product.sku }}</td>
             <td>{{ product.name }}</td>
             <td>&bullet; <strong>{{ product.category.name }}</strong></td>
-            <td>{{ product.createdAt|date }}</td>
-            <td>{{ product.createdAt|date }}</td>
+            <td>{{ product.updatedAt|date }}</td>
             <td>
                 {% if not product.deleted %}
                 <div class="btn-toolbar pull-right">
@@ -60,6 +58,9 @@
                         </a>
                         <a href="{{ path('sylius_assortment_backend_product_update', {'id': product.id}) }}" class="btn">
                            <i class="icon-pencil"></i> {{ 'update'|trans({}, 'SandboxCoreBundle') }}
+                        </a>
+                        <a href="{{ path('sylius_assortment_backend_product_duplicate', {'id': product.id}) }}" class="btn">
+                           <i class="icon-plus-sign"></i> {{ 'duplicate'|trans({}, 'SandboxCoreBundle') }}
                         </a>
                         <a href="{{ path('sylius_assortment_backend_product_delete', {'id': product.id}) }}" class="btn btn-danger confirmer"
                             data-confirmer-question="{{ 'confirmer.q.product.delete'|trans({}, 'SandboxCoreBundle') }}"
