@@ -42,7 +42,9 @@
                 {% endfor %}
                 </ul>
                 {% else %}
-                    <span class="label label-info">There are no options for this product.</span>
+                    <span class="label label-info label-padded">
+                        <i class="icon-list-alt icon-white"></i> There are no options for this product.
+                    </span>
                 {% endif %}
             </td>
             <td>{{ product.price }}</td>
