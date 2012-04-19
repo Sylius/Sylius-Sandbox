@@ -15,30 +15,32 @@
 </div>
 
 <form action="{{ path('sylius_cart_item_add', {'id': product.id}) }}" method="post">
-<table class="table table-condensed table-striped">
-    <thead>
-        <tr>
-            <th>variant</th>
-            <th>price</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for variant in product.variants %}
-        <tr>
-            <td>
-                <ul class="unstyled">
-                    {% for option in variant.options %}
-                    <li><strong>{{ option.presentation }}</strong>: {{ option.value }}</li>
-                    {% endfor %}
-                </ul>
-            </td>
-            <td>{{ variant.price }} &euro;</td>
-            <td>{{ form_widget(form.variant[loop.index0]) }}</td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
+    {% if product.variants|length > 0 %}
+    <table class="table table-condensed table-striped">
+        <thead>
+            <tr>
+                <th>variant</th>
+                <th>price</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for variant in product.variants %}
+            <tr>
+                <td>
+                    <ul class="unstyled">
+                        {% for option in variant.options %}
+                        <li><strong>{{ option.presentation }}</strong>: {{ option.value }}</li>
+                        {% endfor %}
+                    </ul>
+                </td>
+                <td>{{ variant.price }} &euro;</td>
+                <td>{{ form_widget(form.variant[loop.index0]) }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
     <div class="pull-right">
     {{ form_row(form.quantity, {'attr': {'class': 'span2 center-text'}, 'empty_value': '1'}) }}
     {{ form_rest(form) }}
