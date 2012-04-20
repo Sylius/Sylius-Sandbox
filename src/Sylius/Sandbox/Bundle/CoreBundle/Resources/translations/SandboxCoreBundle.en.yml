@@ -45,6 +45,7 @@ menu:
         post_list: List posts
         address_create: Create address
         address_list: Addresses list
+        logout: Logout...
 
 sidebar:
     menu:

@@ -64,37 +64,7 @@
                 <div id="sidebar" class="span2">
                     <div class="sidebar-nav well">
                     {% block sidebar %}
-                        <ul class="nav nav-list">
-                            <li class="nav-header">{{ "sidebar.menu.assortment" | trans({}, 'SandboxCoreBundle') }}</li>
-                                <li><a href="{{ path('sylius_categorizer_backend_category_create', {'alias': 'assortment'}) }}"><i class="icon-plus-sign"></i> Create category</a></li>
-                                <li><a href="{{ path('sylius_categorizer_backend_category_list', {'alias': 'assortment'}) }}"><i class="icon-list-alt"></i> List categories</a></li>
-                                <li class="divider"></li>
-                                <li><a href="{{ path('sylius_assortment_backend_product_create') }}"><i class="icon-plus-sign"></i> Create product</a></li>
-                                <li><a href="{{ path('sylius_assortment_backend_product_list') }}"><i class="icon-list-alt"></i> List products</a></li>
-                                <li class="divider"></li>
-                                <li><a href="{{ path('sylius_assortment_backend_option_create') }}"><i class="icon-plus-sign"></i> Create option</a></li>
-                                <li><a href="{{ path('sylius_assortment_backend_option_list') }}"><i class="icon-list-alt"></i> List options</a></li>
-                                <li class="divider"></li>
-                                <li><a href="{{ path('sylius_assortment_backend_property_create') }}"><i class="icon-plus-sign"></i> Create property</a></li>
-                                <li><a href="{{ path('sylius_assortment_backend_property_list') }}"><i class="icon-list-alt"></i> List properties</a></li>
-                                <li class="divider"></li>
-                                <li><a href="{{ path('sylius_assortment_backend_prototype_create') }}"><i class="icon-plus-sign"></i> Create prototype</a></li>
-                                <li><a href="{{ path('sylius_assortment_backend_prototype_list') }}"><i class="icon-list-alt"></i> List prototypes</a></li>
-                            <li class="nav-header">{{ "sidebar.menu.sales" | trans({}, 'SandboxCoreBundle') }}</li>
-                                <li><a href="{{ path('sylius_sales_backend_order_list') }}"><i class="icon-list-alt"></i> List orders</a></li>
-                                <li><a href="{{ path('sylius_sales_backend_status_list') }}"><i class="icon-list-alt"></i> Manage order statuses</a></li>
-                            <li class="nav-header">{{ "sidebar.menu.blog" | trans({}, 'SandboxCoreBundle') }}</li>
-                                <li><a href="{{ path('sylius_categorizer_backend_category_create', {'alias': 'blog'}) }}"><i class="icon-plus-sign"></i> Create category</a></li>
-                                <li><a href="{{ path('sylius_categorizer_backend_category_list', {'alias': 'blog'}) }}"><i class="icon-list-alt"></i> List categories</a></li>
-                                <li class="divider"></li>
-                                <li><a href="{{ path('sylius_blogger_backend_post_create') }}"><i class="icon-plus-sign"></i> Create post</a></li>
-                                <li><a href="{{ path('sylius_blogger_backend_post_list') }}"><i class="icon-list-alt"></i> List posts</a></li>
-                            <li class="nav-header">{{ "sidebar.menu.addressing" | trans({}, 'SandboxCoreBundle') }}</li>
-                                <li><a href="{{ path('sylius_addressing_backend_address_create') }}"><i class="icon-plus-sign"></i> Create address</a></li>
-                                <li><a href="{{ path('sylius_addressing_backend_address_list') }}"><i class="icon-list-alt"></i> List adresses</a></li>
-                            <li class="nav-header">{{ "sidebar.menu.administration" | trans({}, 'SandboxCoreBundle') }}</li>
-                                <li><a href="{{ path('sylius_sandbox_core_frontend_security_logout') }}" class="last"><i class="icon-off"></i> Logout...</a></li>
-                        </ul>
+                        {{ knp_menu_render('SandboxCoreBundle:Builder:backendSideMenu', {'template': 'SandboxCoreBundle::side_menu.html.twig'}) }}
                     {% endblock %}
                     </div>
                 </div>
