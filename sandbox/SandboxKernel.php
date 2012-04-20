@@ -35,6 +35,7 @@ class SandboxKernel extends Kernel
             new \Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
             new \Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
             new \Knp\Bundle\MarkdownBundle\KnpMarkdownBundle(),
+            new \Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new \Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new \Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new \Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
