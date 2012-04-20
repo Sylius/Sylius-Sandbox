@@ -52,6 +52,7 @@ stof_doctrine_extensions:
 
 sylius_assortment:
     driver: doctrine/orm
+    api: true
     classes:
         model:
             product: Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Product

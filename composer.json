@@ -10,6 +10,7 @@
         "doctrine/doctrine-bundle":            "*",
         "doctrine/doctrine-fixtures-bundle":   "*",
         "doctrine/doctrine-migrations-bundle": "*",
+        "friendsofsymfony/rest-bundle":        "*",
         "knplabs/knp-markdown-bundle":         "*",
         "sensio/distribution-bundle":          "*",
         "stof/doctrine-extensions-bundle":     "*",

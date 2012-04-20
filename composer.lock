@@ -1,5 +1,5 @@
 {
-    "hash": "d9093dda1b7ac771da9c0e06a7ef9c59",
+    "hash": "c01f4899309671d6078ed11a0fabf2e2",
     "packages": [
         {
             "package": "doctrine/common",
@@ -9,7 +9,7 @@
         {
             "package": "doctrine/data-fixtures",
             "version": "dev-master",
-            "source-reference": "6d9f0d32041ad101cb390c36bcad691abb3eff5f"
+            "source-reference": "8fb90c55c0bfbf4e090adb8c0281f9a3c81735e7"
         },
         {
             "package": "doctrine/dbal",
@@ -19,7 +19,7 @@
         {
             "package": "doctrine/doctrine-bundle",
             "version": "dev-master",
-            "source-reference": "dd3d35dd28e864fb908a70f8b206d1209aa2c333"
+            "source-reference": "550bee05123a592d5010415364396c4c7b20c65c"
         },
         {
             "package": "doctrine/doctrine-fixtures-bundle",
@@ -42,6 +42,16 @@
             "source-reference": "d5d47222c1dc5ea97ebd8f4c68834fbe4abeb238"
         },
         {
+            "package": "friendsofsymfony/rest",
+            "version": "dev-master",
+            "source-reference": "a08b96b01e1ce26a7c43f993bf54aac756c0f6cb"
+        },
+        {
+            "package": "friendsofsymfony/rest-bundle",
+            "version": "dev-master",
+            "source-reference": "ff4512ef93904ba8e2af5a378cfa19c72704dc88"
+        },
+        {
             "package": "fzaninotto/faker",
             "version": "dev-master",
             "source-reference": "93ad20eb61f9b1aef188e5c2de99d1a651ef690e"
@@ -50,6 +60,16 @@
             "package": "gedmo/doctrine-extensions",
             "version": "dev-master",
             "source-reference": "ec5f3a680b127ebb3b5ae7caaea978d20a08af50"
+        },
+        {
+            "package": "jms/metadata",
+            "version": "dev-master",
+            "source-reference": "95bfbfbcbe573ff9ed5fd33fa39cdfe0da27220d"
+        },
+        {
+            "package": "jms/serializer-bundle",
+            "version": "dev-master",
+            "source-reference": "6bf2f092449c7104e6d9327de029cc3f5d2e3385"
         },
         {
             "package": "knplabs/knp-markdown-bundle",
@@ -76,9 +96,14 @@
             "source-reference": "a2f09ae4b38533d9f16083b740f6a77fb5efd313"
         },
         {
+            "package": "sensio/framework-extra-bundle",
+            "version": "dev-master",
+            "source-reference": "94a9615c6e52a3d02ca7f44eee56f20e0c5c4622"
+        },
+        {
             "package": "stof/doctrine-extensions-bundle",
             "version": "dev-master",
-            "source-reference": "59be31ee6d89f0af0e055385e6b7474ebed161db"
+            "source-reference": "f141a698d65271a18d86469c1f7b29d7e24170dd"
         },
         {
             "package": "swiftmailer/swiftmailer",
@@ -92,7 +117,7 @@
         {
             "package": "sylius/assortment-bundle",
             "version": "dev-master",
-            "source-reference": "fb4e6b8480e559c468381c3353ddfbb161627e12"
+            "source-reference": "2f3c9f8f334bb4ec2f3ac1345febb2ffe7dec335"
         },
         {
             "package": "sylius/blogger-bundle",
@@ -122,7 +147,7 @@
         {
             "package": "symfony/monolog-bundle",
             "version": "dev-master",
-            "source-reference": "289442e385e7c0fe4aa2e8884d11e774a8f9ad99"
+            "source-reference": "aea0145e5669ed855db430e0f53536fab16b6dd7"
         },
         {
             "package": "symfony/swiftmailer-bridge",
@@ -137,7 +162,7 @@
         {
             "package": "symfony/symfony",
             "version": "dev-master",
-            "source-reference": "4d8461f243e8bd5c45eff02f85181f7b59c06a6a",
+            "source-reference": "6c714095fa3e74c4a5466037f02e1845b9130d35",
             "alias": "2.1.9999999.9999999-dev"
         },
         {
@@ -148,7 +173,7 @@
         {
             "package": "twig/twig",
             "version": "dev-master",
-            "source-reference": "037f86aa550737abf633e991f3606b9de5a69657",
+            "source-reference": "a929d0336b1b39b8e6de5547d81bd65a960ce31d",
             "alias": "1.7.9999999.9999999-dev"
         },
         {
