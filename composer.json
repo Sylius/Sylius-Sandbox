@@ -11,7 +11,7 @@
         "doctrine/doctrine-fixtures-bundle":   "*",
         "doctrine/doctrine-migrations-bundle": "*",
         "knplabs/knp-markdown-bundle":         "*",
-        "knplabs/knp-menu-bundle":	       "*",
+        "knplabs/knp-menu-bundle":             "*",
         "sensio/distribution-bundle":          "*",
         "stof/doctrine-extensions-bundle":     "*",
         "sylius/addressing-bundle":            "*",
