@@ -1,0 +1,3 @@
+{% extends 'knp_menu.html.twig' %}
+
+{% block label %}{{ item.label|trans(item.getExtra('translation_params', {}), item.getExtra('translation_domain', 'SandboxCoreBundle')) }}{% endblock %}
