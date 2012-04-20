@@ -55,54 +55,7 @@
             <div class="navbar-inner">
                 <div class="container-fluid">
                     <a class="brand" href="http://sylius.org">Sylius</a>
-                    <ul class="nav">
-                        <li class="active"><a href="{{ path('sylius_sandbox_core_backend') }}">{{ "menu.dashboard" | trans({}, 'SandboxCoreBundle') }}</a></li>
-                        <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ "menu.assortment" | trans({}, 'SandboxCoreBundle') }} <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="{{ path('sylius_categorizer_backend_category_create', {'alias': 'assortment'}) }}">Create category</a></li>
-                            <li><a href="{{ path('sylius_categorizer_backend_category_list', {'alias': 'assortment'}) }}">List categories</a></li>
-                            <li class="divider"></li>
-                            <li><a href="{{ path('sylius_assortment_backend_product_create') }}">Create product</a></li>
-                            <li><a href="{{ path('sylius_assortment_backend_product_list') }}">List products</a></li>
-                            <li class="divider"></li>
-                            <li><a href="{{ path('sylius_assortment_backend_option_create') }}">Create option</a></li>
-                            <li><a href="{{ path('sylius_assortment_backend_option_list') }}">List options</a></li>
-                            <li class="divider"></li>
-                            <li><a href="{{ path('sylius_assortment_backend_property_create') }}">Create property</a></li>
-                            <li><a href="{{ path('sylius_assortment_backend_property_list') }}">List properties</a></li>
-                            <li class="divider"></li>
-                            <li><a href="{{ path('sylius_assortment_backend_prototype_create') }}">Create prototype</a></li>
-                            <li><a href="{{ path('sylius_assortment_backend_prototype_list') }}">List prototypes</a></li>
-                        </ul>
-                        </li>
-                        <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ "menu.sales" | trans({}, 'SandboxCoreBundle') }} <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="{{ path('sylius_sales_backend_order_list') }}">List orders</a></li>
-                            <li class="divider"></li>
-                            <li><a href="{{ path('sylius_sales_backend_status_list') }}">Manage statuses</a></li>
-                        </ul>
-                        </li>
-                        <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ "menu.blog" | trans({}, 'SandboxCoreBundle') }} <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="{{ path('sylius_categorizer_backend_category_create', {'alias': 'blog'}) }}">Create category</a></li>
-                            <li><a href="{{ path('sylius_categorizer_backend_category_list', {'alias': 'blog'}) }}">List categories</a></li>
-                            <li class="divider"></li>
-                            <li><a href="{{ path('sylius_blogger_backend_post_create') }}">Create post</a></li>
-                            <li><a href="{{ path('sylius_blogger_backend_post_list') }}">List posts</a></li>
-                        </ul>
-                        </li>
-                        <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ "menu.addressing" | trans({}, 'SandboxCoreBundle') }} <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="{{ path('sylius_addressing_backend_address_create') }}">Create address</a></li>
-                                <li><a href="{{ path('sylius_addressing_backend_address_list') }}">Addresses list</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="{{ path('sylius_sandbox_core_frontend') }}">{{ "menu.frontend" | trans({}, 'SandboxCoreBundle') | raw }}</a></li>
-                    </ul>
+                    {{ knp_menu_render('SandboxCoreBundle:Builder:backendMainMenu', {'template': 'SandboxCoreBundle::main_menu.html.twig', 'currentClass': 'active'}) }}
                 </div>
             </div>
         </div>

@@ -28,6 +28,23 @@ menu:
     newsletter: Newsletter
     addressing: Address book
     frontend: Go to <strong>frontend</strong> &raquo;
+    backend:
+        category_create: Create category
+        category_list: List categories
+        product_create: Create product
+        product_list: List products
+        option_create: Create option
+        option_list: List options
+        property_create: Create property
+        property_list: List properties
+        prototype_create: Create prototype
+        prototype_list: List prototypes
+        order_list: List orders
+        status_list: Manage statuses
+        post_create: Create post
+        post_list: List posts
+        address_create: Create address
+        address_list: Addresses list
 
 sidebar:
     menu:
