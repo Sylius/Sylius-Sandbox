@@ -105,43 +105,43 @@ class Builder extends ContainerAware
         }
 
         $child = $menu->addChild('menu.backend.assortment', $childOptions);
-        $child->addChild('menu.backend.category_create', array('route' => 'sylius_categorizer_backend_category_create', 'routeParameters' => array('alias' => 'assortment')));
-        $child->addChild('menu.backend.category_list', array('route' => 'sylius_categorizer_backend_category_list', 'routeParameters' => array('alias' => 'assortment')));
+        $child->addChild('menu.backend.category_create', array('route' => 'sylius_categorizer_backend_category_create', 'routeParameters' => array('alias' => 'assortment'), 'labelAttributes' => array('iconClass' => 'icon-plus-sign')));
+        $child->addChild('menu.backend.category_list', array('route' => 'sylius_categorizer_backend_category_list', 'routeParameters' => array('alias' => 'assortment'), 'labelAttributes' => array('iconClass' => 'icon-list-alt')));
         $this->addDivider($child, 'category_divider', $isMain);
-        $child->addChild('menu.backend.product_create', array('route' => 'sylius_assortment_backend_product_create'));
-        $child->addChild('menu.backend.product_list', array('route' => 'sylius_assortment_backend_product_list'));
+        $child->addChild('menu.backend.product_create', array('route' => 'sylius_assortment_backend_product_create', 'labelAttributes' => array('iconClass' => 'icon-plus-sign')));
+        $child->addChild('menu.backend.product_list', array('route' => 'sylius_assortment_backend_product_list', 'labelAttributes' => array('iconClass' => 'icon-list-alt')));
         $this->addDivider($child, 'product_divider', $isMain);
-        $child->addChild('menu.backend.option_create', array('route' => 'sylius_assortment_backend_option_create'));
-        $child->addChild('menu.backend.option_list', array('route' => 'sylius_assortment_backend_option_list'));
+        $child->addChild('menu.backend.option_create', array('route' => 'sylius_assortment_backend_option_create', 'labelAttributes' => array('iconClass' => 'icon-plus-sign')));
+        $child->addChild('menu.backend.option_list', array('route' => 'sylius_assortment_backend_option_list', 'labelAttributes' => array('iconClass' => 'icon-list-alt')));
         $this->addDivider($child, 'option_divider', $isMain);
-        $child->addChild('menu.backend.property_create', array('route' => 'sylius_assortment_backend_property_create'));
-        $child->addChild('menu.backend.property_list', array('route' => 'sylius_assortment_backend_property_list'));
+        $child->addChild('menu.backend.property_create', array('route' => 'sylius_assortment_backend_property_create', 'labelAttributes' => array('iconClass' => 'icon-plus-sign')));
+        $child->addChild('menu.backend.property_list', array('route' => 'sylius_assortment_backend_property_list', 'labelAttributes' => array('iconClass' => 'icon-list-alt')));
         $this->addDivider($child, 'property_divider', $isMain);
-        $child->addChild('menu.backend.prototype_create', array('route' => 'sylius_assortment_backend_prototype_create'));
-        $child->addChild('menu.backend.prototype_list', array('route' => 'sylius_assortment_backend_prototype_list'));
+        $child->addChild('menu.backend.prototype_create', array('route' => 'sylius_assortment_backend_prototype_create', 'labelAttributes' => array('iconClass' => 'icon-plus-sign')));
+        $child->addChild('menu.backend.prototype_list', array('route' => 'sylius_assortment_backend_prototype_list', 'labelAttributes' => array('iconClass' => 'icon-list-alt')));
 
         $child = $menu->addChild('menu.backend.sales', $childOptions);
-        $child->addChild('menu.backend.order_list', array('route' => 'sylius_sales_backend_order_list'));
+        $child->addChild('menu.backend.order_list', array('route' => 'sylius_sales_backend_order_list', 'labelAttributes' => array('iconClass' => 'icon-list-alt')));
         $this->addDivider($child, 'divider', $isMain);
-        $child->addChild('menu.backend.status_list', array('route' => 'sylius_sales_backend_status_list'));
+        $child->addChild('menu.backend.status_list', array('route' => 'sylius_sales_backend_status_list', 'labelAttributes' => array('iconClass' => 'icon-list-alt')));
 
         $child = $menu->addChild('menu.backend.blog', $childOptions);
-        $child->addChild('menu.backend.category_create', array('route' => 'sylius_categorizer_backend_category_create', 'routeParameters' => array('alias' => 'blog')));
-        $child->addChild('menu.backend.category_list', array('route' => 'sylius_categorizer_backend_category_list', 'routeParameters' => array('alias' => 'blog')));
+        $child->addChild('menu.backend.category_create', array('route' => 'sylius_categorizer_backend_category_create', 'routeParameters' => array('alias' => 'blog'), 'labelAttributes' => array('iconClass' => 'icon-plus-sign')));
+        $child->addChild('menu.backend.category_list', array('route' => 'sylius_categorizer_backend_category_list', 'routeParameters' => array('alias' => 'blog'), 'labelAttributes' => array('iconClass' => 'icon-list-alt')));
         $this->addDivider($child, 'divider', $isMain);
-        $child->addChild('menu.backend.post_create', array('route' => 'sylius_blogger_backend_post_create'));
-        $child->addChild('menu.backend.post_list', array('route' => 'sylius_blogger_backend_post_list'));
+        $child->addChild('menu.backend.post_create', array('route' => 'sylius_blogger_backend_post_create', 'labelAttributes' => array('iconClass' => 'icon-plus-sign')));
+        $child->addChild('menu.backend.post_list', array('route' => 'sylius_blogger_backend_post_list', 'labelAttributes' => array('iconClass' => 'icon-list-alt')));
 
         $child = $menu->addChild('menu.backend.addressing', $childOptions);
-        $child->addChild('menu.backend.address_create', array('route' => 'sylius_addressing_backend_address_create'));
+        $child->addChild('menu.backend.address_create', array('route' => 'sylius_addressing_backend_address_create', 'labelAttributes' => array('iconClass' => 'icon-plus-sign')));
         $this->addDivider($child, 'divider', $isMain);
-        $child->addChild('menu.backend.address_list', array('route' => 'sylius_addressing_backend_address_list'));
+        $child->addChild('menu.backend.address_list', array('route' => 'sylius_addressing_backend_address_list', 'labelAttributes' => array('iconClass' => 'icon-list-alt')));
 
         if ($isMain) {
             $child = $menu->addChild('menu.backend.frontend', array('route' => 'sylius_sandbox_core_frontend'));
         } else {
             $child = $menu->addChild('sidebar.menu.administration', $childOptions);
-            $child->addChild('menu.backend.logout', array('route' => 'sylius_sandbox_core_frontend_security_logout'));
+            $child->addChild('menu.backend.logout', array('route' => 'sylius_sandbox_core_frontend_security_logout', 'labelAttributes' => array('iconClass' => 'icon-off')));
         }
 
         return $menu;
