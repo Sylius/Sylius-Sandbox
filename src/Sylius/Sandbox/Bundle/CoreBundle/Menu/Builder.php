@@ -80,7 +80,7 @@ class Builder extends ContainerAware
     public function backendSideMenu(FactoryInterface $factory, array $options)
     {
         $menu = $this->backendMenu($factory, array(
-            'childrenAttributes' => array('class' => 'nav'),
+            'childrenAttributes' => array('class' => 'nav nav-list'),
             'labelAttributes' => array('class' => 'nav-header')
         ), false);
 
