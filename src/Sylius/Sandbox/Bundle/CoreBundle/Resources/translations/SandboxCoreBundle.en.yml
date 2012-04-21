@@ -21,14 +21,21 @@ alert:
         info: Information
 
 menu:
-    dashboard: Dashboard
-    assortment: Manage assortment
-    sales: Sales
-    blog: Blog
-    newsletter: Newsletter
-    addressing: Address book
-    frontend: Go to <strong>frontend</strong> &raquo;
+    frontend:
+        index: Index
+        assortment: Assortment
+        product_list: List products
+        blog: Blog
+        post_list: List posts
+        my_cart: My cart
     backend:
+        dashboard: Dashboard
+        assortment: Manage assortment
+        sales: Sales
+        blog: Blog
+        newsletter: Newsletter
+        addressing: Address book
+        frontend: Go to <strong>frontend</strong> &raquo;
         category_create: Create category
         category_list: List categories
         product_create: Create product
