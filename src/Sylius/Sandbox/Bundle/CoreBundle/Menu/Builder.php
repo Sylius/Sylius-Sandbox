@@ -79,7 +79,10 @@ class Builder extends ContainerAware
      */
     public function backendSideMenu(FactoryInterface $factory, array $options)
     {
-        $menu = $this->backendMenu($factory, array('labelAttributes' => array('class' => 'nav-header')), false);
+        $menu = $this->backendMenu($factory, array(
+            'childrenAttributes' => array('class' => 'nav'),
+            'labelAttributes' => array('class' => 'nav-header')
+        ), false);
 
         return $menu;
     }
@@ -97,7 +100,9 @@ class Builder extends ContainerAware
         $menu = $factory->createItem('root', array('childrenAttributes' => array('class' => 'nav' . ($isMain ? '' : ' nav-list'))));
         $menu->setCurrentUri($this->container->get('request')->getRequestUri());
 
-        $menu->addChild('menu.backend.dashboard', array('route' => 'sylius_sandbox_core_backend'));
+        if ($isMain) {
+            $menu->addChild('menu.backend.dashboard', array('route' => 'sylius_sandbox_core_backend'));
+        }
 
         $child = $menu->addChild('menu.backend.assortment', $childOptions);
         $child->addChild('menu.backend.category_create', array('route' => 'sylius_categorizer_backend_category_create', 'routeParameters' => array('alias' => 'assortment')));
