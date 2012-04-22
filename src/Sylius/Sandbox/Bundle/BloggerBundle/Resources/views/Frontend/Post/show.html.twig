@@ -7,9 +7,9 @@
 </div>
 
 <ul class="breadcrumb">
-    <li class="current">Posted in categories... </li>
+    <li class="current"><strong>Posted in categories</strong>: </li>
     {% for category in post.categories %}
-        <li><a href="{{ path('sylius_categorizer_category_show', {'alias': 'blog', 'id': category.id, 'slug': category.slug}) }}">{{ category.name }}</a>{% if not loop.last %}<span class="divider">, </span>{% else %}...{% endif %}</li>
+        <li><a href="{{ path('sylius_categorizer_category_show', {'alias': 'blog', 'id': category.id, 'slug': category.slug}) }}">{{ category.name }}</a>{% if not loop.last %}, {% else %}.{% endif %}</li>
     {% endfor %}
 </ul>
 
