@@ -120,7 +120,7 @@
         {
             "package": "sylius/blogger-bundle",
             "version": "dev-master",
-            "source-reference": "1845b1b38a65f07c92cf347d8510a887da0e8885"
+            "source-reference": "59961ecc83f5c44124b789ea06d6978cea0d1624"
         },
         {
             "package": "sylius/cart-bundle",
