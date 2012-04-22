@@ -134,4 +134,4 @@ sylius_addressing:
             address: Sylius\Sandbox\Bundle\AddressingBundle\Entity\Address
         form:
             type:
-                address: Sylius\Sandbox\Bundle\AddressingBundle\Form\Type\AddressType
+                address: Sylius\Bundle\AddressingBundle\Form\Type\CommonAddressType

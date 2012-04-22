@@ -21,25 +21,21 @@
     <thead>
         <tr>
             <th>#id</th>
-            <th>name</th>
-            <th>surname</th>
+            <th>firstname</th>
+            <th>lastname</th>
             <th>city</th>
             <th>street</th>
             <th>postcode</th>
-            <th>e-mail</th>
-            <th>phone</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td>{{ address.id }}</td>
-            <td>{{ address.name }}</td>
-            <td>{{ address.surname }}</td>
+            <td>{{ address.firstname }}</td>
+            <td>{{ address.lastname }}</td>
             <td>{{ address.city }}</td>
             <td>{{ address.street }}</td>
             <td>{{ address.postcode }}</td>
-            <td><a href="mailto:{{ address.email }}">{{ address.email }}</a></td>
-            <td>{{ address.phone|default('No phone number provided.') }}</td>
         </tr>
     </tbody>
 </table>

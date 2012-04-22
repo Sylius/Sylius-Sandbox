@@ -20,12 +20,11 @@
     <thead>
         <tr>
             <th><a href="{{ path('sylius_addressing_backend_address_list', {'sort': 'id', 'order': sorter.order}) }}">#id</a></th>
-            <th><a href="{{ path('sylius_addressing_backend_address_list', {'sort': 'name', 'order': sorter.order}) }}">name</a></th>
-            <th><a href="{{ path('sylius_addressing_backend_address_list', {'sort': 'surname', 'order': sorter.order}) }}">surname</a></th>
+            <th><a href="{{ path('sylius_addressing_backend_address_list', {'sort': 'firstname', 'order': sorter.order}) }}">firstname</a></th>
+            <th><a href="{{ path('sylius_addressing_backend_address_list', {'sort': 'lastname', 'order': sorter.order}) }}">lastname</a></th>
             <th><a href="{{ path('sylius_addressing_backend_address_list', {'sort': 'city', 'order': sorter.order}) }}">city</a></th>
             <th><a href="{{ path('sylius_addressing_backend_address_list', {'sort': 'street', 'order': sorter.order}) }}">street</a></th>
             <th><a href="{{ path('sylius_addressing_backend_address_list', {'sort': 'postcode', 'order': sorter.order}) }}">postcode</a></th>
-            <th><a href="{{ path('sylius_addressing_backend_address_list', {'sort': 'email', 'order': sorter.order}) }}">e-mail</a></th>
             <th></th>
         </tr>
     </thead>
@@ -33,12 +32,11 @@
     {% for address in addresses %}
         <tr>
             <td>{{ address.id }}</td>
-            <td>{{ address.name }}</td>
-            <td>{{ address.surname }}</td>
+            <td>{{ address.firstname }}</td>
+            <td>{{ address.lastname }}</td>
             <td>{{ address.city }}</td>
             <td>{{ address.street }}</td>
             <td>{{ address.postcode }}</td>
-            <td><a href="mailto:{{ address.email }}">{{ address.email }}</a></td>
             <td>
                 <div class="btn-group pull-right">
                     <a href="{{ path('sylius_addressing_backend_address_show', {'id': address.id}) }}" class="btn">

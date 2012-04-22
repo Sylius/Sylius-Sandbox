@@ -11,12 +11,12 @@
 
 namespace Sylius\Sandbox\Bundle\AddressingBundle\DataFixtures\ORM;
 
-use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
+use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\ORM\EntityManager;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Default addresses to play with Sylius sandbox.
@@ -25,13 +25,24 @@ use Symfony\Component\DependencyInjection\ContainerAwareInterface;
  */
 class LoadAddressesData extends AbstractFixture implements ContainerAwareInterface, OrderedFixtureInterface
 {
+    /**
+     * Container.
+     *
+     * @var ContainerInterface
+     */
     private $container;
 
+    /**
+     * {@inheritdoc}
+     */
     public function setContainer(ContainerInterface $container = null)
     {
         $this->container = $container;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function load(ObjectManager $manager)
     {
         $manager = $this->container->get('sylius_addressing.manager.address');
@@ -42,13 +53,11 @@ class LoadAddressesData extends AbstractFixture implements ContainerAwareInterfa
         foreach (range(0, 49) as $i) {
             $address = $manager->createAddress();
 
-            $address->setName($faker->firstName);
-            $address->setSurname($faker->lastName);
+            $address->setFirstname($faker->firstName);
+            $address->setLastname($faker->lastName);
             $address->setCity($faker->city);
             $address->setStreet($faker->streetAddress);
             $address->setPostcode($faker->postcode);
-            $address->setEmail($faker->email);
-            $address->setPhone($faker->phoneNumber);
 
             $manipulator->create($address);
 
@@ -56,6 +65,9 @@ class LoadAddressesData extends AbstractFixture implements ContainerAwareInterfa
         }
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getOrder()
     {
         return 1;
