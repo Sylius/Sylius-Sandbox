@@ -13,13 +13,12 @@
         },
         {
             "package": "doctrine/dbal",
-            "version": "dev-master",
-            "source-reference": "493ced5cd0c2906f403dc48c46e2f7e257144bd0"
+            "version": "2.2.0-RC3"
         },
         {
             "package": "doctrine/doctrine-bundle",
             "version": "dev-master",
-            "source-reference": "550bee05123a592d5010415364396c4c7b20c65c"
+            "source-reference": "3daf1806759db6c2bef430f2307442be0e8ead1f"
         },
         {
             "package": "doctrine/doctrine-fixtures-bundle",
@@ -38,8 +37,7 @@
         },
         {
             "package": "doctrine/orm",
-            "version": "dev-master",
-            "source-reference": "d5d47222c1dc5ea97ebd8f4c68834fbe4abeb238"
+            "version": "2.2.0-RC1"
         },
         {
             "package": "friendsofsymfony/rest",
@@ -59,7 +57,7 @@
         {
             "package": "gedmo/doctrine-extensions",
             "version": "dev-master",
-            "source-reference": "ec5f3a680b127ebb3b5ae7caaea978d20a08af50"
+            "source-reference": "af3e4303fa96757fa6ce937985eed6286a5cbd15"
         },
         {
             "package": "jms/metadata",
@@ -112,7 +110,7 @@
         {
             "package": "sylius/addressing-bundle",
             "version": "dev-master",
-            "source-reference": "9df40b33bcd2d65db89d3978b7a463673fefb747"
+            "source-reference": "5dbb251bf9a5e3346829675815af39d5f767208d"
         },
         {
             "package": "sylius/assortment-bundle",
@@ -162,7 +160,7 @@
         {
             "package": "symfony/symfony",
             "version": "dev-master",
-            "source-reference": "6c714095fa3e74c4a5466037f02e1845b9130d35",
+            "source-reference": "569043058769877d266a10880dca4aad1d95f06d",
             "alias": "2.1.9999999.9999999-dev"
         },
         {
@@ -173,8 +171,13 @@
         {
             "package": "twig/twig",
             "version": "dev-master",
-            "source-reference": "a929d0336b1b39b8e6de5547d81bd65a960ce31d",
+            "source-reference": "f79a56b431a3e6afa66ac8799ee7e25838059328",
             "alias": "1.7.9999999.9999999-dev"
+        },
+        {
+            "package": "twitter/bootstrap",
+            "version": "master",
+            "source-reference": "master"
         },
         {
             "package": "white-october/pagerfanta-bundle",
