@@ -11,8 +11,8 @@ doctrine:
         password: %sylius.database.password%
         charset:  UTF8
     orm:
+        auto_generate_proxy_classes: %kernel.debug%
         entity_managers:
-            auto_generate_proxy_classes: %kernel.debug%
             default:
                 mappings:
                     SandboxAssortmentBundle: ~
