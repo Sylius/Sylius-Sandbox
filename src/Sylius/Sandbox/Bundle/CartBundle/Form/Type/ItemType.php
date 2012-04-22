@@ -38,9 +38,11 @@ class ItemType extends BaseItemType
                 throw new FormException('Option "product" passed to cart item type must implement "Sylius\Bundle\AssortmentBundle\Model\ProductInterface"');
             }
 
-            $builder->add('variant', 'sylius_assortment_variant_choice', array(
-                'product'  => $options['product']
-            ));
+            if (0 < $options['product']->countVariants()) {
+                $builder->add('variant', 'sylius_assortment_variant_choice', array(
+                    'product'  => $options['product']
+                ));
+            }
         }
     }
 
