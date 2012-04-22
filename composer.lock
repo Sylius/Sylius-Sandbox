@@ -175,11 +175,6 @@
             "alias": "1.7.9999999.9999999-dev"
         },
         {
-            "package": "twitter/bootstrap",
-            "version": "master",
-            "source-reference": "master"
-        },
-        {
             "package": "white-october/pagerfanta-bundle",
             "version": "dev-master",
             "source-reference": "60d98f508010b0fab6a93bf079be39f4c9537f7c"
