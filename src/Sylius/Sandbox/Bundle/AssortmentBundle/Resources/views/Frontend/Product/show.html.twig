@@ -14,6 +14,48 @@
 {{ product.description|markdown }}
 </div>
 
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th colspan="2">properties</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for property in product.properties %}
+        <tr>
+            <td><strong>{{ property.name }}</strong></td>
+            <td>{{ property.value }}</td>
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="2">There are no properties for this product</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% if product.variants|length <= 0 %}
+<table class="table table-condensed table-striped">
+    <thead>
+        <tr>
+            <th>variant</th>
+            <th>price</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <ul class="unstyled">
+                    {% for option in product.masterVariant.options %}
+                    <li><strong>{{ option.presentation }}</strong>: {{ option.value }}</li>
+                    {% endfor %}
+                </ul>
+            </td>
+            <td>{{ product.masterVariant.price }} &euro;</td>
+        </tr>
+    </tbody>
+</table>
+{% endif %}
 <form action="{{ path('sylius_cart_item_add', {'id': product.id}) }}" method="post">
     {% if product.variants|length > 0 %}
     <table class="table table-condensed table-striped">
