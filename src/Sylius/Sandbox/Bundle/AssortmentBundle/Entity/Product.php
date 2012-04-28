@@ -100,7 +100,6 @@ class Product extends BaseProduct
 
         $this->setImagePath(uniqid().'.'.$this->image->guessExtension());
         $this->image->move($this->getImageUploadRootDir(), $this->getImagePath());
-        $this->image = null;
     }
 
     public function deleteImage()
