@@ -1,10 +1,10 @@
 {% extends 'SandboxCoreBundle:Backend:layout.html.twig' %}
 
-{% block content %}
-<div class="page-header">
-    <h1>Order details. <small>ID: {{ order.id }}.</small></h1>
-</div>
+{% block header %}
+    <h1>Order details</h1>
+{% endblock %}
 
+{% block content %}
 <table class="table table-bordered">
     <thead>
         <tr>
@@ -87,5 +87,4 @@
         {% endfor %}
     </tbody>
 </table>
-
 {% endblock %}

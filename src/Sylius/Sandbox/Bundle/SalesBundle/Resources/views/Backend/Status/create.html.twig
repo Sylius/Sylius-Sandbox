@@ -1,10 +1,10 @@
 {% extends 'SandboxCoreBundle:Backend:layout.html.twig' %}
 
-{% block content %}
-<div class="page-header">
+{% block header %}
     <h1>Add new status<small> Use the form below to create a order status</small></h1>
-</div>
+{% endblock %}
 
+{% block content %}
 <form action="{{ path('sylius_sales_backend_status_create') }}" method="post" class="form-horizontal">
 <fieldset>
     {{ form_row(form.name, {'attr': {'class': 'span6'}}) }}

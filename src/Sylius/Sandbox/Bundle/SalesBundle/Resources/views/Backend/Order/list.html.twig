@@ -1,10 +1,10 @@
 {% extends 'SandboxCoreBundle:Backend:layout.html.twig' %}
 
-{% block content %}
-<div class="page-header">
-    <h1>Current orders.</h1>
-</div>
+{% block header %}
+    <h1>Order details</h1>
+{% endblock %}
 
+{% block content %}
 <div class="well">
 <a href="{{ path('sylius_sales_backend_status_list') }}" class="btn btn-primary">
     <i class="icon-th-large icon-white"></i> manage order statuses
