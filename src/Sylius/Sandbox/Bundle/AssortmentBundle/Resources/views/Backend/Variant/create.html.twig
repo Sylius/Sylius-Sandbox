@@ -5,8 +5,9 @@
     <h1>Creating variant<small> Use the form below to create a new product variant</small></h1>
 </div>
 
-<form action="{{ path('sylius_assortment_backend_variant_create', {'productId': product.id}) }}" method="post" class="form-horizontal">
+<form action="{{ path('sylius_assortment_backend_variant_create', {'productId': product.id}) }}" method="post" class="form-horizontal" novalidate>
 <fieldset>
+    {{ form_errors(form) }}
     {% if form.options is defined and form.options|length > 0 %}
         {% for optionForm in form.options %}
             {{ form_row(optionForm) }}
