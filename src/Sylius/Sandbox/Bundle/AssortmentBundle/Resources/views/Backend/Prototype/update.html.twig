@@ -1,10 +1,10 @@
 {% extends 'SandboxCoreBundle:Backend:layout.html.twig' %}
 
-{% block content %}
-<div class="page-header">
+{% block header %}
     <h1>Updating prototype<small> Use the form below edit existing prototype</small></h1>
-</div>
+{% endblock %}
 
+{% block content %}
 <form action="{{ path('sylius_assortment_backend_prototype_update', {'id': prototype.id}) }}" method="post" class="form-horizontal">
 <fieldset>
     {{ form_row(form.name, {'attr': {'class': 'span4'}}) }}

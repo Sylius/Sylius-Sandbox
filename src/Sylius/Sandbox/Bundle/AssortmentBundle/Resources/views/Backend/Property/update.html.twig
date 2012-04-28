@@ -1,10 +1,10 @@
 {% extends 'SandboxCoreBundle:Backend:layout.html.twig' %}
 
-{% block content %}
-<div class="page-header">
+{% block header %}
     <h1>Updating property<small> Use the form below edit existing property</small></h1>
-</div>
+{% endblock %}
 
+{% block content %}
 <form action="{{ path('sylius_assortment_backend_property_update', {'id': property.id}) }}" method="post" class="form-horizontal">
 <fieldset>
     {{ form_row(form.name, {'attr': {'class': 'span4'}}) }}

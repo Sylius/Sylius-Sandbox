@@ -1,10 +1,10 @@
 {% extends 'SandboxCoreBundle:Backend:layout.html.twig' %}
 
-{% block content %}
-<div class="page-header">
+{% block header %}
     <h1>Updating variant<small> Use the form below to modify existing variant</small></h1>
-</div>
+{% endblock %}
 
+{% block content %}
 <form action="{{ path('sylius_assortment_backend_variant_update', {'id': variant.id}) }}" method="post" class="form-horizontal" novalidate>
 <fieldset>
     {{ form_errors(form) }}

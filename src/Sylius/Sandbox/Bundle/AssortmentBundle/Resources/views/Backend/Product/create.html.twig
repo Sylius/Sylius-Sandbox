@@ -1,10 +1,10 @@
 {% extends 'SandboxCoreBundle:Backend:layout.html.twig' %}
 
-{% block content %}
-<div class="page-header">
-    <h1>Creating product.<small> Use the form below to create a new product...</small></h1>
-</div>
+{% block header %}
+    <h1>Creating product<small> Use the form below to create a new product</small></h1>
+{% endblock %}
 
+{% block content %}
 <form action="{{ path('sylius_assortment_backend_product_create') }}" method="post" class="form-horizontal" novalidate>
 <fieldset>
     {{ form_errors(form)  }}

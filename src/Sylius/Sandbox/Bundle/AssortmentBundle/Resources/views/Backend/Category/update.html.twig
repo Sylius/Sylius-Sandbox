@@ -1,10 +1,10 @@
 {% extends 'SandboxCoreBundle:Backend:layout.html.twig' %}
 
-{% block content %}
-<div class="page-header">
-    <h1>Updating category.<small> Use the form below to modify existing category...</small></h1>
-</div>
+{% block header %}
+    <h1>Updating category<small> Use the form below to modify existing category</small></h1>
+{% endblock %}
 
+{% block content %}
 <form action="{{ path('sylius_categorizer_backend_category_update', {'alias': catalog.alias, 'id': category.id}) }}" method="post" class="form-horizontal">
 <fieldset>
     {{ form_row(form.name, {'attr': {'class': 'span7'}}) }}

@@ -1,23 +1,23 @@
 {% extends 'SandboxCoreBundle:Backend:layout.html.twig' %}
 
-{% block content %}
-<div class="page-header">
+{% block header %}
     <h1>Assortment<small> List of all registered products in Sylius store</small></h1>
-</div>
+{% endblock %}
 
+{% block content %}
 <div class="well">
-<a href="{{ path('sylius_assortment_backend_product_create') }}" class="btn btn-primary">
-    <i class="icon-plus icon-white"></i> create product
-</a>
-{% if not app.request.query.get('deleted') %}
-<a href="{{ path('sylius_assortment_backend_product_list', {'deleted': true}) }}" class="btn">
-    <i class="icon-trash"></i> show deleted products
-</a>
-{% else %}
-<a href="{{ path('sylius_assortment_backend_product_list', {'deleted': false}) }}" class="btn">
-    <i class="icon-trash"></i> hide deleted products
-</a>
-{% endif %}
+    <a href="{{ path('sylius_assortment_backend_product_create') }}" class="btn btn-primary">
+        <i class="icon-plus icon-white"></i> create product
+    </a>
+    {% if not app.request.query.get('deleted') %}
+    <a href="{{ path('sylius_assortment_backend_product_list', {'deleted': true}) }}" class="btn">
+        <i class="icon-trash"></i> show deleted products
+    </a>
+    {% else %}
+    <a href="{{ path('sylius_assortment_backend_product_list', {'deleted': false}) }}" class="btn">
+        <i class="icon-trash"></i> hide deleted products
+    </a>
+    {% endif %}
 </div>
 
 {% if paginator.haveToPaginate() %}

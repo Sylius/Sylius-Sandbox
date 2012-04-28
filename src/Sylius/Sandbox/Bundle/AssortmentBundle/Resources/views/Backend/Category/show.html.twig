@@ -1,14 +1,14 @@
 {% extends 'SandboxCoreBundle:Backend:layout.html.twig' %}
 
-{% block content %}
-<div class="page-header">
-    <h1>Assortment category.<small> List of all registered products in this category...</small></h1>
-</div>
+{% block header %}
+    <h1>Assortment category<small> List of all registered products in this category</small></h1>
+{% endblock %}
 
+{% block content %}
 <div class="well">
-<a href="{{ path('sylius_assortment_backend_product_create') }}" class="btn btn-primary">
-    <i class="icon-plus icon-white"></i> create product
-</a>
+    <a href="{{ path('sylius_assortment_backend_product_create') }}" class="btn btn-primary">
+        <i class="icon-plus icon-white"></i> create product
+    </a>
 </div>
 
 {% if paginator.haveToPaginate() %}
