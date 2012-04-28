@@ -31,6 +31,7 @@ class SandboxKernel extends Kernel
     public function registerBundles()
     {
         $bundles = array(
+            new \Avalanche\Bundle\ImagineBundle\AvalancheImagineBundle(),
             new \Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new \Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
             new \Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),

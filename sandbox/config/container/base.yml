@@ -50,6 +50,18 @@ stof_doctrine_extensions:
             timestampable: true
             softdeleteable: true
 
+avalanche_imagine:
+    source_root:  %kernel.root_dir%/../public
+    web_root: %kernel.root_dir%/../public
+    cache_prefix: media/cache
+    filters:
+        frontend_medium:
+            type: thumbnail
+            options: { size: [220, 180], mode: outbound }
+        backend_mini:
+            type: thumbnail
+            options: { size: [80, 60], mode: outbound }
+
 sylius_assortment:
     driver: doctrine/orm
     api: true

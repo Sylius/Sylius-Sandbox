@@ -29,6 +29,7 @@
     <thead>
         <tr>
             <th><a href="{{ path('sylius_assortment_backend_product_list', {'sort': 'id', 'order': sorter.order}) }}">#id</a></th>
+            <th>photo</th>
             <th><a href="{{ path('sylius_assortment_backend_product_list', {'sort': 'sku', 'order': sorter.order}) }}">SKU</a></th>
             <th><a href="{{ path('sylius_assortment_backend_product_list', {'sort': 'name', 'order': sorter.order}) }}">name</a></th>
             <th><a href="{{ path('sylius_assortment_backend_product_list', {'sort': 'category', 'order': sorter.order}) }}">category</a></th>
@@ -40,6 +41,11 @@
     {% for product in products %}
         <tr>
             <td>{{ product.id }}</td>
+            <td>
+                <a href="{{ path('sylius_assortment_backend_product_show', {'id': product.id}) }}" class="thumbnail">
+                    <img src="{{ product.imageWebPath|apply_filter('backend_mini') }}" alt="product photo" />
+                </a>
+            </td>
             <td>{{ product.sku }}</td>
             <td>{{ product.name }}</td>
             <td>&bullet; <strong>{{ product.category.name }}</strong></td>

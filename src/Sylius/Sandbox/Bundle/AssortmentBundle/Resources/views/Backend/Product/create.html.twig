@@ -5,12 +5,22 @@
 {% endblock %}
 
 {% block content %}
-<form action="{{ path('sylius_assortment_backend_product_create') }}" method="post" class="form-horizontal" novalidate>
+<form action="{{ path('sylius_assortment_backend_product_create') }}" method="post" class="form-horizontal" {{ form_enctype(form) }} novalidate>
 <fieldset>
     {{ form_errors(form)  }}
     {{ form_row(form.sku) }}
     {{ form_row(form.name, {'attr': {'class': 'span7'}}) }}
     {{ form_row(form.description, {'attr': {'class': 'span5', 'rows': 10}}) }}
+    <hr />
+    <div class="control-group">
+        {{ form_label(form.image) }}
+        <div class="controls">
+            {{ form_widget(form.image, {'attr': {'class': 'file-hide'}}) }}
+            <span class="btn large file-overlay">upload image</span>
+            {{ form_errors(form.image) }}
+        </div>
+    </div>
+    <hr />
     {{ form_row(form.category, {'empty_value': "choose category..."}) }}
     {{ form_row(form.masterVariant.price) }}
     <hr />

@@ -1,9 +1,15 @@
 {
-    "hash": "c01f4899309671d6078ed11a0fabf2e2",
+    "hash": "d7577b9f5c356bf686fe61747aab7f78",
     "packages": [
         {
+            "package": "avalanche123/imagine-bundle",
+            "version": "dev-master",
+            "source-reference": "29c5338cc9c7177d71dd51e8c3ab9652479e6ff4"
+        },
+        {
             "package": "doctrine/common",
-            "version": "2.2.2"
+            "version": "2.2.x-dev",
+            "source-reference": "1e0aa60d109c630d19543d999f12e2852ef8f932"
         },
         {
             "package": "doctrine/data-fixtures",
@@ -12,8 +18,7 @@
         },
         {
             "package": "doctrine/dbal",
-            "version": "2.2.x-dev",
-            "source-reference": "79f59d1f6d0ad55aed7ebc2f2f30f5ee1dcb37a4"
+            "version": "2.2.0-RC3"
         },
         {
             "package": "doctrine/doctrine-bundle",
@@ -58,6 +63,11 @@
             "package": "gedmo/doctrine-extensions",
             "version": "dev-master",
             "source-reference": "5be3722d26379ee21dd6de414bcc8828081ce71f"
+        },
+        {
+            "package": "imagine/Imagine",
+            "version": "dev-master",
+            "source-reference": "v0.2.8"
         },
         {
             "package": "jms/metadata",

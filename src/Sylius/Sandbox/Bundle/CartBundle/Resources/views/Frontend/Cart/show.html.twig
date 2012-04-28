@@ -2,42 +2,51 @@
 
 {% block content %}
 <div class="page-header">
-<h1>Your cart. <small>What we have here, hm?</small></h1>
+<h1>Shopping cart <small>What we have here, hm?</small></h1>
 </div>
 
 {% if not cart.empty %}
 <div class="alert alert-info">
-<strong>{{ sylius_cart_get().totalItems }}</strong> items, <strong>{{ sylius_cart_get().value }}</strong> &euro;...
+<strong>{{ sylius_cart_get().totalItems }}</strong> items, <strong>{{ sylius_cart_get().value }}</strong> &euro;
 </div>
 
 {{ form_errors(form) }}
 
 <form method="post" action="{{ path('sylius_cart_save') }}">
 {% for item in cart.items %}
-<div class="well">
-    <h3>{{ item.variant.product.name }}</h3>
-    {{ item.variant.product.description }}
-    <hr />
-    <div class="pull-left">
-    <ul class="unstyled">
-        {% for option in item.variant.options %}
-        <li><strong>{{ option.presentation }}</strong>: {{ option.value }}</li>
-        {% endfor %}
-    </ul>
+<div class="row product-container well">
+    <div class="span3 photo-container">
+        <a href="{{ path('sylius_assortment_product_show', {'slug': item.variant.product.slug}) }}" class="thumbnail">
+            <img src="{{ item.variant.product.imageWebPath|apply_filter('frontend_medium') }}" alt="product photo" />
+        </a>
     </div>
-    <div class="cart-actions pull-right">
-    Set <strong>quantity</strong>... {{ form_widget(form.items[loop.index0].quantity, {'attr': {'class': 'span2 center-text'}}) }}
-     or
-    <a href="{{ path('sylius_cart_item_remove', {'id': item.id}) }}" class="btn btn-danger">remove...</a>
+    <div class="span5">
+        <h3>{{ item.variant.product.name }}</h3>
+        <p>
+            {{ item.variant.product.description|markdown }}
+        </p>
+        <ul class="unstyled">
+            {% for option in item.variant.options %}
+            <li><strong>{{ option.presentation }}</strong>: {{ option.value }}</li>
+            {% endfor %}
+        </ul>
+        <hr />
+        <div class="cart-actions pull-right">
+        Set <strong>quantity</strong>: {{ form_widget(form.items[loop.index0].quantity, {'attr': {'class': 'span2 center-text'}}) }}
+         or
+        <a href="{{ path('sylius_cart_item_remove', {'id': item.id}) }}" class="btn btn-danger">remove...</a>
+        </div>
     </div>
-    <br /> <br /> <br />
 </div>
 {% endfor %}
 {{ form_rest(form) }}
-<input type="submit" class="btn btn-primary btn-large" value="save">
-<div class="pull-right">
-<a href="{{ path('sylius_sales_order_place') }}" class="btn btn-success btn-large">order it!</a>
-<a href="{{ path('sylius_cart_clear') }}" class="btn btn-danger btn-large">clear cart</a>
+<hr />
+<div class="well">
+    <input type="submit" class="btn btn-primary btn-large" value="save">
+    <div class="pull-right">
+    <a href="{{ path('sylius_sales_order_place') }}" class="btn btn-success btn-large">order it!</a>
+    <a href="{{ path('sylius_cart_clear') }}" class="btn btn-danger btn-large">clear cart</a>
+    </div>
 </div>
 </form>
 {% else %}
