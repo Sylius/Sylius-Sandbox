@@ -21,6 +21,23 @@
     {% endif %}
 {% endspaceless %}
 {% endblock field_errors %}
+
+{% block form_errors %}
+{% spaceless %}
+    {% if errors|length > 0 %}
+    {% for error in errors %}
+        <div class="alert alert-error">
+            {{ 
+                error.messagePluralization is null
+                    ? error.messageTemplate|trans(error.messageParameters, 'validators')
+                    : error.messageTemplate|transchoice(error.messagePluralization, error.messageParameters, 'validators')
+            }}
+        </div>
+    {% endfor %}
+    {% endif %}
+{% endspaceless %}
+{% endblock form_errors %}
+
 {% block generic_label %}
 {% set attr = attr|merge({'class': ''}) %}
 {% spaceless %}

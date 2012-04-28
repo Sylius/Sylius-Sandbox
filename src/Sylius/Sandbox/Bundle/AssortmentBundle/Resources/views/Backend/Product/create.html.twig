@@ -5,9 +5,10 @@
     <h1>Creating product.<small> Use the form below to create a new product...</small></h1>
 </div>
 
-<form action="{{ path('sylius_assortment_backend_product_create') }}" method="post" class="form-horizontal">
+<form action="{{ path('sylius_assortment_backend_product_create') }}" method="post" class="form-horizontal" novalidate>
 <fieldset>
-    {{ form_row(form.masterVariant.sku) }}
+    {{ form_errors(form)  }}
+    {{ form_row(form.sku) }}
     {{ form_row(form.name, {'attr': {'class': 'span7'}}) }}
     {{ form_row(form.description, {'attr': {'class': 'span5', 'rows': 10}}) }}
     {{ form_row(form.category, {'empty_value': "choose category..."}) }}
