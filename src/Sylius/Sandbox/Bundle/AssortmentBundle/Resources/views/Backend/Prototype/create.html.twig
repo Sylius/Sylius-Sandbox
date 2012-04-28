@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block content %}
-<form action="{{ path('sylius_assortment_backend_prototype_create') }}" method="post" class="form-horizontal">
+<form action="{{ path('sylius_assortment_backend_prototype_create') }}" method="post" class="form-horizontal" novalidate>
 <fieldset>
     {{ form_row(form.name, {'attr': {'class': 'span4'}}) }}
     {{ form_row(form.options) }}
