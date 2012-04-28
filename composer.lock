@@ -3,8 +3,7 @@
     "packages": [
         {
             "package": "doctrine/common",
-            "version": "2.2.x-dev",
-            "source-reference": "1e0aa60d109c630d19543d999f12e2852ef8f932"
+            "version": "2.2.2"
         },
         {
             "package": "doctrine/data-fixtures",
@@ -13,12 +12,13 @@
         },
         {
             "package": "doctrine/dbal",
-            "version": "2.2.0-RC3"
+            "version": "2.2.x-dev",
+            "source-reference": "79f59d1f6d0ad55aed7ebc2f2f30f5ee1dcb37a4"
         },
         {
             "package": "doctrine/doctrine-bundle",
             "version": "dev-master",
-            "source-reference": "3daf1806759db6c2bef430f2307442be0e8ead1f"
+            "source-reference": "b6f9a57c60a0acaaf931a77e833ffeb24a3bdbf1"
         },
         {
             "package": "doctrine/doctrine-fixtures-bundle",
@@ -47,17 +47,17 @@
         {
             "package": "friendsofsymfony/rest-bundle",
             "version": "dev-master",
-            "source-reference": "ff4512ef93904ba8e2af5a378cfa19c72704dc88"
+            "source-reference": "d9a876803df61858ce3e8d3f0c934727638ad874"
         },
         {
             "package": "fzaninotto/faker",
             "version": "dev-master",
-            "source-reference": "93ad20eb61f9b1aef188e5c2de99d1a651ef690e"
+            "source-reference": "a6589c64c33a9a4f16cac52c3f1ada710e1e6448"
         },
         {
             "package": "gedmo/doctrine-extensions",
             "version": "dev-master",
-            "source-reference": "af3e4303fa96757fa6ce937985eed6286a5cbd15"
+            "source-reference": "5be3722d26379ee21dd6de414bcc8828081ce71f"
         },
         {
             "package": "jms/metadata",
@@ -81,7 +81,7 @@
         },
         {
             "package": "monolog/monolog",
-            "version": "1.0.2"
+            "version": "1.1.0"
         },
         {
             "package": "pagerfanta/pagerfanta",
@@ -91,12 +91,12 @@
         {
             "package": "sensio/distribution-bundle",
             "version": "dev-master",
-            "source-reference": "a2f09ae4b38533d9f16083b740f6a77fb5efd313"
+            "source-reference": "77b7e8fabfb47ab81014759e59dd82f56f6c62f9"
         },
         {
             "package": "sensio/framework-extra-bundle",
             "version": "dev-master",
-            "source-reference": "94a9615c6e52a3d02ca7f44eee56f20e0c5c4622"
+            "source-reference": "225f05344d5332cac5b1606bc82c34486f532c8b"
         },
         {
             "package": "stof/doctrine-extensions-bundle",
@@ -105,17 +105,19 @@
         },
         {
             "package": "swiftmailer/swiftmailer",
-            "version": "4.1.6"
+            "version": "dev-master",
+            "source-reference": "fb3e0b49df4ee888ee1a89b6e0b8b2a466c497cc",
+            "alias": "4.1.9999999.9999999-dev"
         },
         {
             "package": "sylius/addressing-bundle",
             "version": "dev-master",
-            "source-reference": "5dbb251bf9a5e3346829675815af39d5f767208d"
+            "source-reference": "7dfdd0c850af6d0f118ae24805323f66edd657de"
         },
         {
             "package": "sylius/assortment-bundle",
             "version": "dev-master",
-            "source-reference": "fef0bd85be1ce56b64c918f569999855242d8459"
+            "source-reference": "0682c3455d01c08106b10b31b87a85e99aa00900"
         },
         {
             "package": "sylius/blogger-bundle",
@@ -130,7 +132,7 @@
         {
             "package": "sylius/categorizer-bundle",
             "version": "dev-master",
-            "source-reference": "4643e3e051d0a16859c6ad553c4dad606131c9bd"
+            "source-reference": "d316b145fea411e0aebc97084d492a62c42b0e94"
         },
         {
             "package": "sylius/sales-bundle",
@@ -145,12 +147,12 @@
         {
             "package": "symfony/monolog-bundle",
             "version": "dev-master",
-            "source-reference": "aea0145e5669ed855db430e0f53536fab16b6dd7"
+            "source-reference": "85a4eb48727891a7161aa3dfd0d5e4fb7a62ab59"
         },
         {
             "package": "symfony/swiftmailer-bridge",
             "version": "dev-master",
-            "source-reference": "23b8d5c049bb3dfb67ec04bbea09464da27c4ec7"
+            "source-reference": "b3002fcb105910336ce9b76886ea6678a14ed91c"
         },
         {
             "package": "symfony/swiftmailer-bundle",
@@ -159,9 +161,8 @@
         },
         {
             "package": "symfony/symfony",
-            "version": "dev-master",
-            "source-reference": "569043058769877d266a10880dca4aad1d95f06d",
-            "alias": "2.1.9999999.9999999-dev"
+            "version": "2.1.x-dev",
+            "source-reference": "a01dec00f4e8de357cce5fdf121ac98729f7f8ff"
         },
         {
             "package": "twig/extensions",
@@ -171,8 +172,8 @@
         {
             "package": "twig/twig",
             "version": "dev-master",
-            "source-reference": "f79a56b431a3e6afa66ac8799ee7e25838059328",
-            "alias": "1.7.9999999.9999999-dev"
+            "source-reference": "f3491b5cbfd03a31538b6e8c82d65cd54996e870",
+            "alias": "1.8.9999999.9999999-dev"
         },
         {
             "package": "white-october/pagerfanta-bundle",
