@@ -1,35 +1,62 @@
 {% extends 'SandboxCoreBundle:Frontend:layout.html.twig' %}
 
 {% block content %}
-
 <div class="page-header">
-  <h1>Welcome. <small>Sylius sandbox application.</small></h1>
+  <h1>Sylius <small>Symfony2 e-commerce</small></h1>
 </div>
 
-<h2>About this application.</h2>
+<h2>About the  project</h2>
+<p>
+    <strong>Sylius</strong> is meant to be flexible e-commerce solution for Symfony2. <br />
+    It aims to be friendly for both end-users and developers, we also focus on building it from fully decoupled bundles. <br />
+    If you don't want to use Sylius as a whole, maybe you'll find some of the packages handy for your project.
+</p>
+<p>
+    You can read the full description of project and the idea on <a href="http://sylius.org"><strong>the official website Sylius.org</strong></a>.
+</p>
+    <h3>About this application</h3>
     <p>
-    This application shows how to integrate <a href="http://sylius.org">Sylius</a> bundles.
+        This is full Symfony2 application that shows how to integrate <a href="http://sylius.org">Sylius</a> bundles. <br />
+        It serves as a testing ground for new features, ideas and demonstrates which functionalities are already supported.
     </p>
-    <h3>Included bundles.</h3>
-        <p>
-        Here is the list of all bundles included in this sandbox application. <br />
-        Number of them will be constantly growing. Feel free to comment and contribute.
-        </p>
-            <h4>Sylius bundles...</h4>
-            <ul>
-                <li><a href="http://github.com/Sylius/SyliusAssortmentBundle">SyliusAssortmentBundle</a>,</li>
-                <li><a href="http://github.com/Sylius/SyliusCategorizerBundle">SyliusCategorizerBundle</a>,</li>
-                <li><a href="http://github.com/Sylius/SyliusNewsletterBundle">SyliusNewsletterBundle</a>,</li>
-                <li><a href="http://github.com/Sylius/SyliusCartBundle">SyliusCartBundle</a>,</li>
-                <li><a href="http://github.com/Sylius/SyliusThemingBundle">SyliusThemingBundle</a>,</li>
-                <li><a href="http://github.com/Sylius/SyliusBloggerBundle">SyliusBloggerBundle</a>,</li>
-                <li><a href="http://github.com/Sylius/SyliusSalesBundle">SyliusSalesBundle</a>,</li>
-                <li><a href="http://github.com/Sylius/SyliusPluginsBundle">SyliusPluginsBundle</a>.</li>
-            </ul>
-            <h4>Awesome third party bundles...</h4>
-            <ul>
-                <li><a href="http://github.com/whiteoctober/WhiteOctoberPagerfantaBundle">WhiteOctoberPagerfantaBundle</a>,</li>
-                <li><a href="http://github.com/liip/LiipThemeBundle">LiipThemeBundle</a>.</li>
-            </ul>
-
+    <h3>Included bundles</h3>
+        <ul>
+            <li>
+                <a href="http://github.com/Sylius/SyliusAssortmentBundle">SyliusAssortmentBundle</a>
+                <p>
+                    Rich featured implementation of product system. <br />
+                    Allows creating variants, options, properties, prototypes for products.
+                </p>
+            </li>
+            <li>
+                <a href="http://github.com/Sylius/SyliusCategorizerBundle">SyliusCategorizerBundle</a>
+                <p>
+                    Categorization bundle, boosts development by providing architecture for categories management. <br />
+                    This application comes with 2 preconfigured catalogs, for products and blog posts.
+                </p>
+            </li>
+            <li>
+                <a href="http://github.com/Sylius/SyliusCartBundle">SyliusCartBundle</a>
+                <p>
+                    Flexible cart system, capable of storing anything you want as it gives you full control of cart and item models.
+                </p>
+            </li>
+            <li>
+                <a href="http://github.com/Sylius/SyliusSalesBundle">SyliusSalesBundle</a>
+                <p>
+                    Orders, line items bundle which provides architecture for sales management. <br />
+                    Also provides simple single step "checkout".
+                </p>
+            </li>
+            <li>
+                <a href="http://github.com/Sylius/SyliusBloggerBundle">SyliusBloggerBundle</a>
+                <p>
+                    Relatively simple blogging bundle.
+                </p>
+            </li>
+        </ul>
+    <h3>Storage layer</h3>
+    <p>
+        This app uses Doctrine ORM as main driver, although some bundles have already Doctrine MongoDB ODM support.
+    </p>
 {% endblock %}
