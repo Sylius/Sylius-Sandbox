@@ -1,11 +1,10 @@
 {% extends 'SandboxCoreBundle:Backend:layout.html.twig' %}
 
+{% block header %}
+    <h1>Address updating <small>Use this form to edit existing address</small></h1>
+{% endblock %}
+
 {% block content %}
-
-<div class="page-header">
-    <h1>Address update. <small>Use this form to edit existing address.</small></h1>
-</div>
-
 <form action="{{ path('sylius_addressing_backend_address_update', {'id': address.id}) }}" method="post" class="form-horizontal">
 <fieldset>
     {{ form_row(form.firstname, {'attr': {'class': 'span4'}}) }}

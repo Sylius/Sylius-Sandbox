@@ -1,10 +1,10 @@
 {% extends 'SandboxCoreBundle:Backend:layout.html.twig' %}
 
-{% block content %}
-<div class="page-header">
-    <h1>Creating address. <small>Use this form to add new address.</small></h1>
-</div>
+{% block header %}
+    <h1>Creating address <small>Use this form to add new address</small></h1>
+{% endblock %}
 
+{% block content %}
 <form action="{{ path('sylius_addressing_backend_address_create') }}" method="post" class="form-horizontal">
 <fieldset>
     {{ form_row(form.firstname, {'attr': {'class': 'span4'}}) }}

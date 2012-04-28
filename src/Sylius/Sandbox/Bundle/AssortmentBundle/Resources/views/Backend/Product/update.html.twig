@@ -7,6 +7,7 @@
 
 <form action="{{ path('sylius_assortment_backend_product_update', {'id': product.id}) }}" method="post" class="form-horizontal" novalidate>
 <fieldset>
+    {{ form_errors(form)  }}
     {{ form_row(form.sku) }}
     {{ form_row(form.name, {'attr': {'class': 'span7'}}) }}
     {{ form_row(form.description, {'attr': {'class': 'span5', 'rows': 10}}) }}

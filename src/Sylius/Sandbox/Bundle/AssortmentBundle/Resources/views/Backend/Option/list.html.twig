@@ -1,10 +1,10 @@
 {% extends 'SandboxCoreBundle:Backend:layout.html.twig' %}
 
-{% block content %}
-<div class="page-header">
+{% block header %}
     <h1>Product options<small> List of all created option types</small></h1>
-</div>
+{% endblock %}
 
+{% block content %}
 <div class="well">
 <a href="{{ path('sylius_assortment_backend_option_create') }}" class="btn btn-primary">
     <i class="icon-plus icon-white"></i> create option

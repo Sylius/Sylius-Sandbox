@@ -147,7 +147,17 @@
                 </div>
                 <div id="content" class="span10">
                     <div id="content-inner">
-                    {% block content %}   {% endblock %}
+                    <div class="page-header">
+                        {% block header %}<h1>Welcome<small> Sylius dashboard</small></h1>{% endblock %}
+                    </div>
+                        {% for name, value in app.session.flashes if name in ['success', 'error'] %}
+                        <div class="alert alert-{{ name }}">
+                            <a class="close" data-dismiss="alert" href="#">×</a>
+                            {{ value|trans }}
+                        </div>
+                        {% endfor %}
+                        {% block content %}
+                        {% endblock %}
                     </div>
                     <hr>
                     <footer>
