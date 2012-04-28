@@ -14,7 +14,7 @@ framework:
     csrf_protection:
         enabled: true
     router:        { resource: "%kernel.root_dir%/config/routing/base.yml" }
-    validation:    { enabled: true }
+    validation:    { enabled: true, enable_annotations: true }
     translator:    { fallback: %sylius.locale% }
     templating:    { engines: ['twig', 'php'] }
     session:

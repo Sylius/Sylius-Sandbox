@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block content %}
-<form action="{{ path('sylius_addressing_backend_address_create') }}" method="post" class="form-horizontal">
+<form action="{{ path('sylius_addressing_backend_address_create') }}" method="post" class="form-horizontal" novalidate>
 <fieldset>
     {{ form_row(form.firstname, {'attr': {'class': 'span4'}}) }}
     {{ form_row(form.lastname, {'attr': {'class': 'span5'}}) }}
