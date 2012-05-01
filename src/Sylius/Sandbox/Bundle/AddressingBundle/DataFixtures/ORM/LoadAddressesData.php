@@ -15,6 +15,7 @@ use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\ORM\EntityManager;
+use Faker\Factory as FakerFactory;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -48,7 +49,7 @@ class LoadAddressesData extends AbstractFixture implements ContainerAwareInterfa
         $manager = $this->container->get('sylius_addressing.manager.address');
         $manipulator = $this->container->get('sylius_addressing.manipulator.address');
 
-        $faker = \Faker\Factory::create();
+        $faker = FakerFactory::create();
 
         foreach (range(0, 49) as $i) {
             $address = $manager->createAddress();

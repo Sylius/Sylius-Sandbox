@@ -50,11 +50,9 @@ class LoadOrdersData extends AbstractFixture implements ContainerAwareInterface,
 
         foreach (range(0, 29) as $i) {
             $order = $manager->createOrder();
-
             $this->buildOrder($order);
 
             $manipulator->create($order);
-
             $this->setReference('Sandbox.Sales.Order-' . $i, $order);
         }
     }
@@ -73,10 +71,12 @@ class LoadOrdersData extends AbstractFixture implements ContainerAwareInterface,
 
         $cart = $cartManager->createCart();
 
+        $variants = SYLIUS_ASSORTMENT_FIXTURES_TV;
+
         foreach (range(0, rand(1, 6)) as $i) {
             $item = $itemManager->createItem();
             $item->setQuantity(rand(1, 5));
-            $item->setProduct($this->getReference('Sandbox.Assortment.Product-'.rand(0, 49)));
+            $item->setVariant($this->getReference('Sandbox.Assortment.Variant-'.rand(0, $variants - 1)));
 
             $cartOperator->addItem($cart, $item);
         }

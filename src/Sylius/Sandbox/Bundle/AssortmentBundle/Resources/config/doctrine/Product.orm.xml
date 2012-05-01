@@ -7,7 +7,7 @@
 >
 
     <entity name="Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Product" table="sylius_sandbox_assortment_product">
-        <field name="imagePath" column="image_path" />
+        <field name="imagePath" column="image_path" nullable="true" />
         <id name="id" column="id" type="integer">
             <generator strategy="AUTO" />
         </id>
