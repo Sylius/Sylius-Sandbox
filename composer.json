@@ -23,16 +23,37 @@
         "sylius/sales-bundle":                 "*",
         "symfony/assetic-bundle":              "*",
         "symfony/monolog-bundle":              "*",
-        "symfony/swiftmailer-bundle":          "*"
+        "symfony/swiftmailer-bundle":          "*",
+        "twitter/bootstrap":                   "*"
     },
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "version": "dev-master",
+                "name": "twitter/bootstrap",
+                "source": {
+                    "url": "https://github.com/twitter/bootstrap.git",
+                    "type": "git",
+                    "reference": "master"
+                },
+                "dist": {
+                    "url": "https://github.com/twitter/bootstrap/zipball/master",
+                    "type": "zip"
+                 }
+            }
+        }
+    ],
     "scripts": {
         "post-install-cmd": [
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets"
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Sylius\\Sandbox\\Bundle\\CoreBundle\\Composer\\ScriptHandler::symlinkTwitterBootstrap"
         ],
         "post-update-cmd": [
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets"
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Sylius\\Sandbox\\Bundle\\CoreBundle\\Composer\\ScriptHandler::symlinkTwitterBootstrap"
         ]
     },
     "config": {

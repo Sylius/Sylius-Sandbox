@@ -1,5 +1,5 @@
 {
-    "hash": "d7577b9f5c356bf686fe61747aab7f78",
+    "hash": "9a2934116c619dbf605d13e7863119d9",
     "packages": [
         {
             "package": "avalanche123/imagine-bundle",
@@ -8,8 +8,7 @@
         },
         {
             "package": "doctrine/common",
-            "version": "2.2.x-dev",
-            "source-reference": "1e0aa60d109c630d19543d999f12e2852ef8f932"
+            "version": "2.2.2"
         },
         {
             "package": "doctrine/data-fixtures",
@@ -18,7 +17,7 @@
         },
         {
             "package": "doctrine/dbal",
-            "version": "2.2.0-RC3"
+            "version": "2.2.2"
         },
         {
             "package": "doctrine/doctrine-bundle",
@@ -38,11 +37,12 @@
         {
             "package": "doctrine/migrations",
             "version": "dev-master",
-            "source-reference": "9e81984b0f126b0830d9ac6acc2d1da81aba2b94"
+            "source-reference": "29b1b3e67ce608d2d526271314fce889a6f7d0c0"
         },
         {
             "package": "doctrine/orm",
-            "version": "2.2.0-RC1"
+            "version": "2.2.x-dev",
+            "source-reference": "159b6f89471ac05f1c1ef2d53cc2c989ce9215a3"
         },
         {
             "package": "friendsofsymfony/rest",
@@ -62,7 +62,7 @@
         {
             "package": "gedmo/doctrine-extensions",
             "version": "dev-master",
-            "source-reference": "5be3722d26379ee21dd6de414bcc8828081ce71f"
+            "source-reference": "7c5df3691bd404a3f24998e198f197bc7431df14"
         },
         {
             "package": "imagine/Imagine",
@@ -77,7 +77,7 @@
         {
             "package": "jms/serializer-bundle",
             "version": "dev-master",
-            "source-reference": "6bf2f092449c7104e6d9327de029cc3f5d2e3385"
+            "source-reference": "4ce47e7ce898d6a431433c33e194d3fed7244bd1"
         },
         {
             "package": "knplabs/knp-markdown-bundle",
@@ -106,7 +106,7 @@
         {
             "package": "sensio/framework-extra-bundle",
             "version": "dev-master",
-            "source-reference": "225f05344d5332cac5b1606bc82c34486f532c8b"
+            "source-reference": "ab3130462a01437f4f748a778100e010c6d91ed3"
         },
         {
             "package": "stof/doctrine-extensions-bundle",
@@ -116,7 +116,7 @@
         {
             "package": "swiftmailer/swiftmailer",
             "version": "dev-master",
-            "source-reference": "fb3e0b49df4ee888ee1a89b6e0b8b2a466c497cc",
+            "source-reference": "57789082d1d53529dcf8cd3ca132d9787a59afee",
             "alias": "4.1.9999999.9999999-dev"
         },
         {
@@ -142,7 +142,7 @@
         {
             "package": "sylius/categorizer-bundle",
             "version": "dev-master",
-            "source-reference": "d316b145fea411e0aebc97084d492a62c42b0e94"
+            "source-reference": "6463a59fd3745efbd7f50ea38e4f7a7c8aa0c565"
         },
         {
             "package": "sylius/sales-bundle",
@@ -157,12 +157,12 @@
         {
             "package": "symfony/monolog-bundle",
             "version": "dev-master",
-            "source-reference": "85a4eb48727891a7161aa3dfd0d5e4fb7a62ab59"
+            "source-reference": "4420d3a740ed35a0de1feab771bb6f7386cf2e33"
         },
         {
             "package": "symfony/swiftmailer-bridge",
             "version": "dev-master",
-            "source-reference": "b3002fcb105910336ce9b76886ea6678a14ed91c"
+            "source-reference": "463536de4b149e1560bd764582cbf50dc9936ebd"
         },
         {
             "package": "symfony/swiftmailer-bundle",
@@ -171,8 +171,9 @@
         },
         {
             "package": "symfony/symfony",
-            "version": "2.1.x-dev",
-            "source-reference": "a01dec00f4e8de357cce5fdf121ac98729f7f8ff"
+            "version": "dev-master",
+            "source-reference": "8eea5c3d5fb2a7824657a018f52a16ad4623b219",
+            "alias": "2.1.9999999.9999999-dev"
         },
         {
             "package": "twig/extensions",
@@ -186,11 +187,18 @@
             "alias": "1.8.9999999.9999999-dev"
         },
         {
+            "package": "twitter/bootstrap",
+            "version": "dev-master",
+            "source-reference": "master"
+        },
+        {
             "package": "white-october/pagerfanta-bundle",
             "version": "dev-master",
             "source-reference": "60d98f508010b0fab6a93bf079be39f4c9537f7c"
         }
     ],
     "packages-dev": null,
-    "aliases": []
+    "aliases": [
+
+    ]
 }
