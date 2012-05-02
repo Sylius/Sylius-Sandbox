@@ -22,7 +22,7 @@ Clone this repository with this command.
 $ git clone http://github.com/Sylius/Sylius-Sandbox.git
 ```
 
-Open `sandbox/config/container/includes/parameters.yml.dist`, set your values and save as `parameters.yml`.
+Open `sandbox/config/container/parameters.yml.dist`, set your values and save as `parameters.yml`.
 
 Install dependencies using composer.
 
@@ -34,8 +34,7 @@ $ php composer.phar install
 Create database and schema using this script.
 
 ``` bash
-$ php sandbox/console doctrine:database:create
-$ php sandbox/console doctrine:schema:create
+$ ./bin/rebuild-database
 ```
 
 Open up ``/path/to/Sylius-Sandbox/public/dev.php`` in your browser and play with the application.
