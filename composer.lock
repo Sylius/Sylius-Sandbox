@@ -1,5 +1,5 @@
 {
-    "hash": "9a2934116c619dbf605d13e7863119d9",
+    "hash": "8e9d5cf37f158cbaca901d0605545a30",
     "packages": [
         {
             "package": "avalanche123/imagine-bundle",
@@ -122,7 +122,7 @@
         {
             "package": "sylius/addressing-bundle",
             "version": "dev-master",
-            "source-reference": "7dfdd0c850af6d0f118ae24805323f66edd657de"
+            "source-reference": "ee0605c624f15daa59bb1275a5819ab21dab1c1e"
         },
         {
             "package": "sylius/assortment-bundle",
@@ -188,8 +188,7 @@
         },
         {
             "package": "twitter/bootstrap",
-            "version": "dev-master",
-            "source-reference": "master"
+            "version": "v2.0.3"
         },
         {
             "package": "white-october/pagerfanta-bundle",

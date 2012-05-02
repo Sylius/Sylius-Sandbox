@@ -65,6 +65,6 @@ class LoadCategoriesData extends AbstractFixture implements ContainerAwareInterf
      */
     public function getOrder()
     {
-        return 3;
+        return 7;
     }
 }

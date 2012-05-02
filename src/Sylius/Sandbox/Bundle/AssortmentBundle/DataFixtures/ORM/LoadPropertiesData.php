@@ -67,6 +67,6 @@ class LoadPropertiesData extends AbstractFixture implements ContainerAwareInterf
      */
     public function getOrder()
     {
-        return 4;
+        return 5;
     }
 }

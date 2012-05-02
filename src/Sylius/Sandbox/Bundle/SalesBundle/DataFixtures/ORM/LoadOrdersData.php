@@ -98,6 +98,6 @@ class LoadOrdersData extends AbstractFixture implements ContainerAwareInterface,
      */
     public function getOrder()
     {
-        return 9;
+        return 10;
     }
 }

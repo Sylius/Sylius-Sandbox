@@ -26,8 +26,10 @@ class ScriptHandler
         $symlinkTarget = __DIR__.'/../../../../../../vendor/twitter/bootstrap';
         $symlinkName = __DIR__.'/../Resources/public/bootstrap';
 
-        if(false === symlink($symlinkTarget, $symlinkName)){
-            throw new \Exception('Error occured when trying to create a symlink.');
+        if (!file_exists($symlinkTarget)) {
+            if(false === symlink($symlinkTarget, $symlinkName)){
+                throw new \Exception('Error occured when trying to create a symlink.');
+            }
         }
     }
 }

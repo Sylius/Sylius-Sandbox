@@ -1,7 +1,7 @@
 <div class="row product-container well">
     <div class="span3 photo-container">
         <a href="{{ path('sylius_assortment_product_show', {'slug': product.slug}) }}" class="thumbnail">
-            <img src="{{ product.imageWebPath|apply_filter('frontend_medium') }}" alt="product photo" />
+            <img src="{{ product.imageWebPath is empty ? 'http://placehold.it/220x180' : product.imageWebPath|apply_filter('frontend_medium') }}" alt="product photo" />
         </a>
     </div>
     <div class="span5">

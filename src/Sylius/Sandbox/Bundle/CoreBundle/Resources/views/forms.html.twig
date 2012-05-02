@@ -1,6 +1,6 @@
 {% block field_row %}
 {% spaceless %}
-    <div class="control-group {% if errors|length > 0 %}error{% endif %}">
+    <div class="control-group{% if errors|length > 0 %} error{% endif %}">
         {{ form_label(form, label|default(null)) }}
         <div class="controls">
             {{ form_widget(form, {'attr': attr|default({}), 'empty_value': empty_value|default(null)}) }}
@@ -38,12 +38,17 @@
 {% endspaceless %}
 {% endblock form_errors %}
 
-{% block generic_label %}
-{% set attr = attr|merge({'class': ''}) %}
+{% block form_label %}
 {% spaceless %}
-    {% if required %}
-        {% set attr = attr|merge({'class': attr.class|default('') ~ ' required'}) %}
+    {% if single_control %}
+        {% set label_attr = label_attr|merge({'for': id}) %}
     {% endif %}
-    <label{% for attrname,attrvalue in attr %} {{attrname}}="{{attrvalue}}"{% endfor %}>{{ label|trans({}, translation_domain) }}</label>
+    {% if required %}
+        {% set label_attr = label_attr|merge({'class': label_attr.class|default('') ~ ' required'}) %}
+    {% endif %}
+    {% set label_attr = label_attr|merge({'class': label_attr.class|default('') ~ ' control-label'}) %}
+    <label{% for attrname,attrvalue in label_attr %} {{attrname}}="{{attrvalue}}"{% endfor %}>
+    {{ label|trans({}, translation_domain) }}
+    </label>
 {% endspaceless %}
-{% endblock %}
+{% endblock form_label %}
