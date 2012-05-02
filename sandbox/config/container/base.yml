@@ -60,7 +60,7 @@ avalanche_imagine:
             options: { size: [220, 180], mode: outbound }
         backend_mini:
             type: thumbnail
-            options: { size: [80, 60], mode: outbound }
+            options: { size: [90, 60], mode: outbound }
 
 sylius_assortment:
     driver: doctrine/orm
