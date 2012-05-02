@@ -1,12 +1,12 @@
+<div class="well">
 <h3>My cart</h3>
 
 <strong>{{ sylius_cart_get().totalItems }}</strong> items, <strong>{{ sylius_cart_get().value }}</strong> &euro;
-<br /><br />
-<a href="{{ path('sylius_cart_show') }}" class="btn btn-primary">show cart <i class="icon-shopping-cart icon-white"></i></a>
 <hr />
+<a href="{{ path('sylius_cart_show') }}" class="btn btn-primary">show cart <i class="icon-shopping-cart icon-white"></i></a>
+</div>
 {% render 'sylius_categorizer.controller.frontend.category:listAction' with {'alias': 'assortment'} %}
 {% render 'sylius_categorizer.controller.frontend.category:listAction' with {'alias': 'blog'} %}
-<hr />
 <ul id="sidebar-nav" class="nav nav-list">
 <li><a href="http://sylius.org"><i class="icon-home"></i> Sylius.org</a></li>
 <li><a href="http://sylius.readthedocs.org"><i class="icon-book"></i> Documentation</a></li>

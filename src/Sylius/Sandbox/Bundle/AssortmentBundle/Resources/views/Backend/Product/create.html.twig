@@ -36,6 +36,9 @@
         </div>
         <div class="tab-pane" id="properties">
             <div id="sylius-assortment-product-properties" data-prototype="{{ form_widget(form.properties.get('prototype'))|e }}">
+                {% for propertyForm in form.properties %}
+                    {{ form_widget(propertyForm) }}
+                {% endfor %}
             </div>
             <div class="control-group">
                 <div class="controls">

@@ -12,7 +12,7 @@
 
         {% block stylesheets %}
         {% stylesheets output='assets/compiled/frontend.css'
-            '@SandboxCoreBundle/Resources/public/bootstrap/css/bootstrap.min.css'
+            '@SandboxCoreBundle/Resources/public/bootstrap/docs/assets/css/bootstrap.css'
         %}
             <link rel="stylesheet" href="{{ asset_url }}" />
         {% endstylesheets %}
@@ -27,7 +27,7 @@
         {% block javascripts %}
         {% javascripts output='assets/compiled/frontend.js'
             'http://code.jquery.com/jquery.min.js'
-            '@SandboxCoreBundle/Resources/public/bootstrap/js/bootstrap.min.js'
+            '@SandboxCoreBundle/Resources/public/bootstrap/js/*.js'
             '@SandboxCoreBundle/Resources/public/js/less-1.1.5.min.js'
         %}
             <script type="text/javascript" src="{{ asset_url }}"></script>
