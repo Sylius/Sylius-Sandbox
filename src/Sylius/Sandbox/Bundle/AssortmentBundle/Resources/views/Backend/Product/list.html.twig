@@ -1,5 +1,7 @@
 {% extends 'SandboxCoreBundle:Backend:layout.html.twig' %}
 
+{% import 'SandboxAssortmentBundle:Backend/Product:macros.html.twig' as macros %}
+
 {% block header %}
     <h1>Assortment<small> List of all registered products in Sylius store</small></h1>
 {% endblock %}
@@ -24,75 +26,7 @@
 {{ pagerfanta(paginator, 'twitter_bootstrap_translated') }}
 {% endif %}
 
-{% if products|length > 0 %}
-    <table class="table">
-    <thead>
-        <tr>
-            <th><a href="{{ path('sylius_assortment_backend_product_list', {'sort': 'id', 'order': sorter.order}) }}">#id</a></th>
-            <th>photo</th>
-            <th><a href="{{ path('sylius_assortment_backend_product_list', {'sort': 'sku', 'order': sorter.order}) }}">SKU</a></th>
-            <th><a href="{{ path('sylius_assortment_backend_product_list', {'sort': 'name', 'order': sorter.order}) }}">name</a></th>
-            <th><a href="{{ path('sylius_assortment_backend_product_list', {'sort': 'category', 'order': sorter.order}) }}">category</a></th>
-            <th><a href="{{ path('sylius_assortment_backend_product_list', {'sort': 'updatedAt', 'order': sorter.order}) }}">updated at</a></th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-    {% for product in products %}
-        <tr>
-            <td>{{ product.id }}</td>
-            <td>
-                <a href="{{ path('sylius_assortment_backend_product_show', {'id': product.id}) }}" class="thumbnail">
-                    <img src="{{ product.imageWebPath|apply_filter('backend_mini') }}" alt="product photo" />
-                </a>
-            </td>
-            <td>{{ product.sku }}</td>
-            <td>{{ product.name }}</td>
-            <td>&bullet; <strong>{{ product.category.name }}</strong></td>
-            <td>{{ product.updatedAt|date }}</td>
-            <td>
-                {% if not product.deleted %}
-                <div class="btn-toolbar pull-right">
-                    <div class="btn-group">
-                        <a href="{{ path('sylius_assortment_backend_variant_list', {'productId': product.id}) }}" class="btn">
-                           <i class="icon-book"></i> list variants
-                        </a>
-                    </div>
-                    <div class="btn-group">
-                        <a href="{{ path('sylius_assortment_backend_product_show', {'id': product.id}) }}" class="btn">
-                           <i class="icon-book"></i> {{ 'show'|trans({}, 'SandboxCoreBundle') }}
-                        </a>
-                        <a href="{{ path('sylius_assortment_backend_product_update', {'id': product.id}) }}" class="btn">
-                           <i class="icon-pencil"></i> {{ 'update'|trans({}, 'SandboxCoreBundle') }}
-                        </a>
-                        <a href="{{ path('sylius_assortment_backend_product_duplicate', {'id': product.id}) }}" class="btn">
-                           <i class="icon-plus-sign"></i> {{ 'duplicate'|trans({}, 'SandboxCoreBundle') }}
-                        </a>
-                        <a href="{{ path('sylius_assortment_backend_product_delete', {'id': product.id}) }}" class="btn btn-danger confirmer"
-                            data-confirmer-question="{{ 'confirmer.q.product.delete'|trans({}, 'SandboxCoreBundle') }}"
-                        >
-                            <i class="icon-remove icon-white"></i> {{ 'delete'|trans({}, 'SandboxCoreBundle') }}
-                        </a>
-                    </div>
-                </div>
-                {% else %}
-                <div class="pull-right">
-                    <span class="label label-important label-padded">
-                        <i class="icon-trash icon-white"></i> deleted
-                    </span>
-                </div>
-                {% endif %}
-            </td>
-        </tr>
-    {% endfor %}
-    </tbody>
-</table>
-{% else %}
-<div class="alert alert-info">
-    <h4 class="alert-heading">{{ 'alert.heading.info'|trans({}, 'SandboxCoreBundle') }}.</h4>
-    There are no products to display.
-</div>
-{% endif %}
+{{ macros.list(products, sorter)  }}
 
 {% if paginator.haveToPaginate() %}
 {{ pagerfanta(paginator, 'twitter_bootstrap_translated') }}

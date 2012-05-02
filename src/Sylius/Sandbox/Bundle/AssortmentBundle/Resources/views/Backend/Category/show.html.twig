@@ -1,5 +1,7 @@
 {% extends 'SandboxCoreBundle:Backend:layout.html.twig' %}
 
+{% import 'SandboxAssortmentBundle:Backend/Product:macros.html.twig' as macros %}
+
 {% block header %}
     <h1>Assortment category<small> List of all registered products in this category</small></h1>
 {% endblock %}
@@ -15,49 +17,7 @@
 {{ pagerfanta(paginator, 'twitter_bootstrap', {'prev_message': "previous page...", 'next_message': "next page..."}) }}
 {% endif %}
 
-{% if products|length > 0 %}
-<table class="table">
-    <thead>
-        <tr>
-            <th><a href="{{ path('sylius_categorizer_backend_category_show', {'alias': catalog.alias, 'id': category.id}) }}">#id</a></th>
-            <th><a href="{{ path('sylius_categorizer_backend_category_show', {'alias': catalog.alias, 'id': category.id}) }}">name</a></th>
-            <th><a href="{{ path('sylius_categorizer_backend_category_show', {'alias': catalog.alias, 'id': category.id}) }}">price</a></th>
-            <th><a href="{{ path('sylius_categorizer_backend_category_show', {'alias': catalog.alias, 'id': category.id}) }}">created at</a></th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for product in products %}
-        <tr>
-            <td>{{ product.id }}</td>
-            <td>{{ product.name }}</td>
-            <td>{{ product.price }} &euro;</td>
-            <td>{{ product.createdAt|date('Y-m-d H:i:s') }}</td>
-            <td>
-                <div class="btn-group pull-right">
-                    <a href="{{ path('sylius_assortment_backend_product_show', {'id': product.id}) }}" class="btn">
-                       <i class="icon-book"></i> {{ 'show'|trans({}, 'SandboxCoreBundle') }}
-                    </a>
-                    <a href="{{ path('sylius_assortment_backend_product_update', {'id': product.id}) }}" class="btn">
-                       <i class="icon-pencil"></i> {{ 'update'|trans({}, 'SandboxCoreBundle') }}
-                    </a>
-                    <a href="{{ path('sylius_assortment_backend_product_delete', {'id': product.id}) }}" class="btn btn-danger confirmer"
-                        data-confirmer-question="{{ 'confirmer.q.product.delete'|trans({}, 'SandboxCoreBundle') }}"
-                    >
-                        <i class="icon-remove icon-white"></i> {{ 'delete'|trans({}, 'SandboxCoreBundle') }}
-                    </a>
-                </div>
-            </td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
-{% else %}
-<div class="alert alert-info">
-    <h4 class="alert-heading">{{ 'alert.heading.info'|trans({}, 'SandboxCoreBundle') }}.</h4>
-    There are no products to display.
-</div>
-{% endif %}
+{{ macros.list(products)  }}
 
 {% if paginator.haveToPaginate() %}
 {{ pagerfanta(paginator, 'twitter_bootstrap', {'prev_message': "previous page...", 'next_message': "next page..."}) }}
