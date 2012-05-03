@@ -7,13 +7,11 @@
 
 <form method="post" action="{{ path('sylius_sales_order_place') }}" class="form-horizontal" novalidate>
 <fieldset>
-    {{ form_row(form.address.name, {'attr': {'class': 'span6'}}) }}
-    {{ form_row(form.address.surname, {'attr': {'class': 'span6'}}) }}
+    {{ form_row(form.address.firstname, {'attr': {'class': 'span6'}}) }}
+    {{ form_row(form.address.lastname, {'attr': {'class': 'span6'}}) }}
     {{ form_row(form.address.city, {'attr': {'class': 'span5'}}) }}
     {{ form_row(form.address.street, {'attr': {'class': 'span5'}}) }}
     {{ form_row(form.address.postcode, {'attr': {'class': 'span3'}}) }}
-    {{ form_row(form.address.email, {'attr': {'class': 'span5'}}) }}
-    {{ form_row(form.address.phone, {'attr': {'class': 'span5'}}) }}
 </fieldset>
     {{ form_rest(form) }}
 <div class="form-actions">

@@ -74,6 +74,6 @@ class LoadPostsData extends AbstractFixture implements ContainerAwareInterface, 
      */
     public function getOrder()
     {
-        return 5;
+        return 8;
     }
 }

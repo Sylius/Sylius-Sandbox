@@ -13,8 +13,17 @@ namespace Sylius\Sandbox\Bundle\AddressingBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
+/**
+ * Sandbox addressing bundle.
+ * This bundle is implementation of SyliusAddressingBundle.
+ *
+ * @author Paweł Jędrzejewski <pjedrzejewski@diweb.pl>
+ */
 class SandboxAddressingBundle extends Bundle
 {
+    /**
+     * {@inheritdoc}
+     */
     public function getParent()
     {
         return 'SyliusAddressingBundle';

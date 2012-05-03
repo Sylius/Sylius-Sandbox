@@ -1,10 +1,10 @@
 {% extends 'SandboxCoreBundle:Backend:layout.html.twig' %}
 
-{% block content %}
-<div class="page-header">
-    <h1>Order details. <small>ID: {{ order.id }}.</small></h1>
-</div>
+{% block header %}
+    <h1>Order details</h1>
+{% endblock %}
 
+{% block content %}
 <table class="table table-bordered">
     <thead>
         <tr>
@@ -41,12 +41,12 @@
     </thead>
     <tbody>
         <tr>
-            <td style="width: 200px;"><strong>name</strong></td>
-            <td>{{ order.address.name }}</td>
+            <td><strong>firstname</strong></td>
+            <td>{{ order.address.firstname }}</td>
         </tr>
         <tr>
-            <td><strong>surname</strong></td>
-            <td>{{ order.address.surname }}</td>
+            <td><strong>lastname</strong></td>
+            <td>{{ order.address.lastname }}</td>
         </tr>
         <tr>
             <td><strong>street</strong></td>
@@ -59,14 +59,6 @@
         <tr>
             <td><strong>postcode</strong></td>
             <td>{{ order.address.postcode }}</td>
-        </tr>
-        <tr>
-            <td><strong>e-mail</strong></td>
-            <td><a href="mailto:{{ order.address.email }}">{{ order.address.email }}</a></td>
-        </tr>
-        <tr>
-            <td><strong>phone</strong></td>
-            <td>{{ order.address.phone|default('Not available.') }}</td>
         </tr>
     </tbody>
 </table>
@@ -95,5 +87,4 @@
         {% endfor %}
     </tbody>
 </table>
-
 {% endblock %}

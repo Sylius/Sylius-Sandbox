@@ -19,40 +19,54 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 
 /**
- * Default assortment categories to play with Sylius sandbox.
+ * Default assortment product properties to play with Sylius sandbox.
  *
  * @author Paweł Jędrzejewski <pjedrzejewski@diweb.pl>
  */
-class LoadCategoriesData extends AbstractFixture implements ContainerAwareInterface, OrderedFixtureInterface
+class LoadPropertiesData extends AbstractFixture implements ContainerAwareInterface, OrderedFixtureInterface
 {
+    /**
+     * Container.
+     *
+     * @var ContainerInterface
+     */
     private $container;
 
+    /**
+     * {@inheritdoc}
+     */
     public function setContainer(ContainerInterface $container = null)
     {
         $this->container = $container;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function load(ObjectManager $manager)
     {
-        $manager = $this->container->get('sylius_categorizer.manager.category');
-        $manipulator = $this->container->get('sylius_categorizer.manipulator.category');
-        $catalog = $this->container->get('sylius_categorizer.registry')->getCatalog('assortment');
+        $manager = $this->container->get('sylius_assortment.manager.property');
+        $manipulator = $this->container->get('sylius_assortment.manipulator.property');
 
         $faker = \Faker\Factory::create();
 
         foreach (range(0, 9) as $i) {
-            $category = $manager->createCategory($catalog);
+            $property = $manager->createProperty();
 
-            $category->setName(ucfirst($faker->word));
+            $property->setName($faker->word);
+            $property->setPresentation($faker->word);
 
-            $manipulator->create($category);
+            $manipulator->create($property);
 
-            $this->setReference('Sandbox.Assortment.Category-' . $i, $category);
+            $this->setReference('Sandbox.Assortment.Property-' . $i, $property);
         }
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getOrder()
     {
-        return 2;
+        return 5;
     }
 }

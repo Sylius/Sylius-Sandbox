@@ -13,15 +13,21 @@ namespace Sylius\Sandbox\Bundle\AssortmentBundle\Entity;
 
 use Sylius\Bundle\CategorizerBundle\Model\CategoryInterface;
 use Sylius\Bundle\AssortmentBundle\Entity\CustomizableProduct as BaseProduct;
+use Symfony\Component\Validator\Constraints as Assert;
 
 class Product extends BaseProduct
 {
     /**
      * Product category.
      *
+     * @Assert\NotBlank
+     *
      * @var CategoryInterface
      */
     protected $category;
+
+    protected $imagePath;
+    public $image;
 
     /**
      * Get category.
@@ -53,5 +59,58 @@ class Product extends BaseProduct
     public function getPrice()
     {
         return $this->masterVariant->getPrice();
+    }
+
+    public function getImagePath()
+    {
+        return $this->imagePath;
+    }
+
+    public function setImagePath($imagePath)
+    {
+        $this->imagePath = $imagePath;
+    }
+
+    public function getAbsoluteImagePath()
+    {
+        return null === $this->getImagePath() ? null : $this->getImageUploadRootDir().'/'.$this->getImagePath();
+    }
+
+    public function getImageWebPath()
+    {
+        return null === $this->getImagePath() ? null : $this->getImageUploadDir().'/'.$this->getImagePath();
+    }
+
+    public function getImageUploadDir()
+    {
+        return 'uploads/images';
+    }
+
+    public function hasImage()
+    {
+        return null !== $this->getImagePath();
+    }
+
+    public function saveImage()
+    {
+        if (null === $this->image) {
+
+            return;
+        }
+
+        $this->setImagePath(uniqid().'.'.$this->image->guessExtension());
+        $this->image->move($this->getImageUploadRootDir(), $this->getImagePath());
+    }
+
+    public function deleteImage()
+    {
+        if ($file = $this->getAbsoluteImagePath()) {
+            unlink($file);
+        }
+    }
+
+    protected function getImageUploadRootDir()
+    {
+        return __DIR__.'/../../../../../../public/'.$this->getImageUploadDir();
     }
 }

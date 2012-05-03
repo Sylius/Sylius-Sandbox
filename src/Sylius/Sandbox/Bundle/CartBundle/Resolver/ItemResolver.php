@@ -75,8 +75,14 @@ class ItemResolver implements ItemResolverInterface
                     $form->bindRequest($request);
 
                     if ($form->isValid()) {
+                        $item = $form->getData(); // Item instance, cool.
 
-                        return $form->getData(); // Item instance. cool.
+                        // If product has no variants, we put master variant in cart.
+                        if (0 === $product->countVariants()) {
+                            $item->setVariant($product->getMasterVariant());
+                        }
+
+                        return $item;
                     }
                 }
             }

@@ -12,6 +12,7 @@
 namespace Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Variant;
 
 use Sylius\Bundle\AssortmentBundle\Entity\Variant\Variant as BaseVariant;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Sandbox product variant entity.
@@ -22,6 +23,8 @@ class Variant extends BaseVariant
 {
     /**
      * Variant price.
+     *
+     * @Assert\NotBlank
      *
      * @var float
      */

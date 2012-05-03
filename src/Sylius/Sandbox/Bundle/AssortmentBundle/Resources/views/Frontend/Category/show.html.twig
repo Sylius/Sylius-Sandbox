@@ -15,11 +15,12 @@
 {{ pagerfanta(paginator, 'twitter_bootstrap_translated') }}
 {% endif %}
 
-{% if products %}
+{% if products|length > 0 %}
     {% for product in products %}
         {% include 'SandboxAssortmentBundle:Frontend/Product:single.html.twig' %}
     {% endfor %}
 {% else %}
+<hr />
 <div class="alert alert-info">
     <h4 class="alert-heading">{{ 'alert.heading.info'|trans({}, 'SandboxCoreBundle') }}.</h4>
     There are no products to display.

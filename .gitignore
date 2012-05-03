@@ -1,11 +1,15 @@
 public/bundles/
 public/assets/compiled/
+public/uploads/
+public/media/
 
 sandbox/config/container/*.local.yml
 sandbox/config/container/parameters.yml
 sandbox/phpunit.xml
 sandbox/cache/
 sandbox/logs/
+
+src/Sylius/Sandbox/Bundle/CoreBundle/Resources/public/*
 
 vendor/
 

@@ -12,7 +12,7 @@
 
         {% block stylesheets %}
         {% stylesheets output='assets/compiled/frontend.css'
-            '@SandboxCoreBundle/Resources/public/bootstrap/css/bootstrap.min.css'
+            '@SandboxCoreBundle/Resources/public/bootstrap/docs/assets/css/bootstrap.css'
         %}
             <link rel="stylesheet" href="{{ asset_url }}" />
         {% endstylesheets %}
@@ -27,7 +27,7 @@
         {% block javascripts %}
         {% javascripts output='assets/compiled/frontend.js'
             'http://code.jquery.com/jquery.min.js'
-            '@SandboxCoreBundle/Resources/public/bootstrap/js/bootstrap.min.js'
+            '@SandboxCoreBundle/Resources/public/bootstrap/js/*.js'
             '@SandboxCoreBundle/Resources/public/js/less-1.1.5.min.js'
         %}
             <script type="text/javascript" src="{{ asset_url }}"></script>
@@ -44,19 +44,22 @@
             </div>
         </div>
         <div class="container">
-            <div class="row">
-                <div id="sidebar" class="span3">
-                    {% block sidebar %}
-                        {% include 'SandboxCoreBundle:Frontend:sidebar.html.twig' %}
-                    {% endblock %}
-                </div>
-                <div id="content" class="span9 boxy">
-                    {% block content %}   {% endblock %}
+            <div class="span12">
+                <div class="row">
+                    <div id="sidebar" class="span3">
+                        {% block sidebar %}
+                            {% include 'SandboxCoreBundle:Frontend:sidebar.html.twig' %}
+                        {% endblock %}
+                        <hr />
+                        <footer>
+                            <p>&copy; <a href="http://sylius.org">Sylius</a>, 2011 - 2012.</p>
+                        </footer>
+                    </div>
+                    <div id="content" class="span9 boxy">
+                        {% block content %}   {% endblock %}
+                    </div>
                 </div>
             </div>
-            <footer>
-                <p>&copy; <a href="http://sylius.org">Sylius</a>, 2011.</p>
-            </footer>
         </div>
     </body>
 </html>

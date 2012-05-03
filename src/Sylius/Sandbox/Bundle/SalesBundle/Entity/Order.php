@@ -14,11 +14,16 @@ namespace Sylius\Sandbox\Bundle\SalesBundle\Entity;
 use Sylius\Bundle\CartBundle\Model\CartInterface;
 use Sylius\Bundle\AddressingBundle\Model\AddressInterface;
 use Sylius\Bundle\SalesBundle\Entity\Order as BaseOrder;
+use Symfony\Component\Validator\Constraints as Assert;
 
 class Order extends BaseOrder
 {
     protected $cart;
     protected $value;
+
+    /**
+     * @Assert\Valid
+     */
     protected $address;
 
     public function getCart()

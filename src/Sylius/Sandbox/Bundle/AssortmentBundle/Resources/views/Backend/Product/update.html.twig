@@ -1,26 +1,52 @@
 {% extends 'SandboxCoreBundle:Backend:layout.html.twig' %}
 
-{% block content %}
-<div class="page-header">
+{% block header %}
     <h1>Updating product<small> Use the form below to modify existing product</small></h1>
-</div>
+{% endblock %}
 
-<form action="{{ path('sylius_assortment_backend_product_update', {'id': product.id}) }}" method="post" class="form-horizontal">
+{% block content %}
+<form action="{{ path('sylius_assortment_backend_product_update', {'id': product.id}) }}" method="post" class="form-horizontal" {{ form_enctype(form) }} novalidate>
 <fieldset>
-    {{ form_row(form.masterVariant.sku) }}
-    {{ form_row(form.name, {'attr': {'class': 'span7'}}) }}
-    {{ form_row(form.description, {'attr': {'class': 'span5', 'rows': 10}}) }}
-    {{ form_row(form.category, {'empty_value': "choose category..."}) }}
-    {{ form_row(form.masterVariant.price) }}
-    <hr />
-    {{ form_row(form.options) }}
-    <hr />
-    <div id="sylius-assortment-product-properties" data-prototype="{{ form_widget(form.properties.get('prototype'))|e }}">
-    {% for propertyForm in form.properties %}
-        {{ form_widget(propertyForm) }}
-    {% endfor %}
+    {{ form_errors(form)  }}
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#main" data-toggle="tab">Product</a></li>
+        <li><a href="#options" data-toggle="tab">Options</a></li>
+        <li><a href="#properties" data-toggle="tab">Properties</a></li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane active" id="main">
+            {{ form_row(form.sku) }}
+            {{ form_row(form.name, {'attr': {'class': 'span7'}}) }}
+            {{ form_row(form.description, {'attr': {'class': 'span5', 'rows': 10}}) }}
+            <hr />
+            <div class="control-group">
+                {{ form_label(form.image) }}
+                <div class="controls">
+                    {{ form_widget(form.image, {'attr': {'class': 'file-hide'}}) }}
+                    <span class="btn large file-overlay">upload image</span>
+                    {{ form_errors(form.image) }}
+                </div>
+            </div>
+            <hr />
+            {{ form_row(form.category, {'empty_value': "choose category..."}) }}
+            {{ form_row(form.masterVariant.price) }}
+        </div>
+        <div class="tab-pane" id="options">
+            {{ form_row(form.options) }}
+        </div>
+        <div class="tab-pane" id="properties">
+            <div id="sylius-assortment-product-properties" data-prototype="{{ form_widget(form.properties.get('prototype'))|e }}">
+                {% for propertyForm in form.properties %}
+                    {{ form_widget(propertyForm) }}
+                {% endfor %}
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <a id="sylius-assortment-product-property-adder" class="btn btn-success">add property</a>
+                </div>
+            </div>
+        </div>
     </div>
-    <a id="sylius-assortment-product-property-adder" class="btn btn-success btn-large pull-right">add property</a>
 </fieldset>
     {{ form_widget(form._token) }}
     <div class="form-actions">

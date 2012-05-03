@@ -14,7 +14,7 @@ framework:
     csrf_protection:
         enabled: true
     router:        { resource: "%kernel.root_dir%/config/routing/base.yml" }
-    validation:    { enabled: true }
+    validation:    { enabled: true, enable_annotations: true }
     translator:    { fallback: %sylius.locale% }
     templating:    { engines: ['twig', 'php'] }
     session:
@@ -50,8 +50,21 @@ stof_doctrine_extensions:
             timestampable: true
             softdeleteable: true
 
+avalanche_imagine:
+    source_root:  %kernel.root_dir%/../public
+    web_root: %kernel.root_dir%/../public
+    cache_prefix: media/cache
+    filters:
+        frontend_medium:
+            type: thumbnail
+            options: { size: [220, 180], mode: outbound }
+        backend_mini:
+            type: thumbnail
+            options: { size: [90, 60], mode: outbound }
+
 sylius_assortment:
     driver: doctrine/orm
+    api: true
     classes:
         model:
             product: Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Product
@@ -74,26 +87,14 @@ sylius_categorizer:
             model: Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Category
             form: sylius_sandbox_assortment_category
             templates:
-                backend:
-                    list: SandboxAssortmentBundle:Backend/Category:list.html.twig
-                    show: SandboxAssortmentBundle:Backend/Category:show.html.twig
-                    create: SandboxAssortmentBundle:Backend/Category:create.html.twig
-                    update: SandboxAssortmentBundle:Backend/Category:update.html.twig
-                frontend:
-                    list: SandboxAssortmentBundle:Frontend/Category:list.html.twig
-                    show: SandboxAssortmentBundle:Frontend/Category:show.html.twig
+                backend: SandboxAssortmentBundle:Backend/Category:%s.html.twig
+                frontend: SandboxAssortmentBundle:Frontend/Category:%s.html.twig
         blog:
             property: "posts"
             model: Sylius\Sandbox\Bundle\BloggerBundle\Entity\Category
             templates:
-                backend:
-                    list: SandboxBloggerBundle:Backend/Category:list.html.twig
-                    show: SandboxBloggerBundle:Backend/Category:show.html.twig
-                    create: SandboxBloggerBundle:Backend/Category:create.html.twig
-                    update: SandboxBloggerBundle:Backend/Category:update.html.twig
-                frontend:
-                    list: SandboxBloggerBundle:Frontend/Category:list.html.twig
-                    show: SandboxBloggerBundle:Frontend/Category:show.html.twig
+                backend: SandboxBloggerBundle:Backend/Category:%s.html.twig
+                frontend: SandboxBloggerBundle:Frontend/Category:%s.html.twig
 
 sylius_cart:
     driver: doctrine/orm
@@ -133,4 +134,4 @@ sylius_addressing:
             address: Sylius\Sandbox\Bundle\AddressingBundle\Entity\Address
         form:
             type:
-                address: Sylius\Sandbox\Bundle\AddressingBundle\Form\Type\AddressType
+                address: Sylius\Bundle\AddressingBundle\Form\Type\CommonAddressType

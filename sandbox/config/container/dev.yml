@@ -21,4 +21,4 @@ monolog:
 
 doctrine:
     dbal:
-        dbname: %sylius.database.name%_development
+        dbname: %sylius.database.name%_dev

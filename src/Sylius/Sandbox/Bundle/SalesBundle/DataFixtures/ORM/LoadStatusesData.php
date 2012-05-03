@@ -61,6 +61,6 @@ class LoadStatusesData extends AbstractFixture implements ContainerAwareInterfac
      */
     public function getOrder()
     {
-        return 8;
+        return 9;
     }
 }

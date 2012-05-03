@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-./sylius-sandbox/console doctrine:database:drop --force $1
-./sylius-sandbox/console doctrine:database:create $1
-./sylius-sandbox/console doctrine:schema:create $1
-./sylius-sandbox/console doctrine:fixtures:load --verbose $1
+./sandbox/console doctrine:database:drop --force $1
+./sandbox/console doctrine:database:create $1
+./sandbox/console doctrine:schema:create --em=default $1
+./sandbox/console doctrine:fixtures:load --verbose $1

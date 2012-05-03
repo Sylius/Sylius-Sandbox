@@ -2,36 +2,59 @@
     "require": {
         "php": ">=5.3.2",
 
-        "doctrine/orm":     "*",
-        "fzaninotto/faker": "*",
-        "symfony/symfony":  "*",
-        "twig/extensions":  "*",
+        "doctrine/orm":     "2.*",
+        "fzaninotto/faker": "dev-master",
+        "symfony/symfony":  "2.*",
+        "twig/extensions":  "dev-master",
 
-        "doctrine/doctrine-bundle":            "*",
-        "doctrine/doctrine-fixtures-bundle":   "*",
-        "doctrine/doctrine-migrations-bundle": "*",
-        "knplabs/knp-markdown-bundle":         "*",
-        "knplabs/knp-menu-bundle":             "*",
-        "sensio/distribution-bundle":          "*",
-        "stof/doctrine-extensions-bundle":     "*",
-        "sylius/addressing-bundle":            "*",
-        "sylius/assortment-bundle":            "*",
-        "sylius/blogger-bundle":               "*",
-        "sylius/cart-bundle":                  "*",
-        "sylius/categorizer-bundle":           "*",
-        "sylius/sales-bundle":                 "*",
-        "symfony/assetic-bundle":              "*",
-        "symfony/monolog-bundle":              "*",
-        "symfony/swiftmailer-bundle":          "*"
+        "avalanche123/imagine-bundle":         "dev-master",
+        "doctrine/doctrine-bundle":            "dev-master",
+        "doctrine/doctrine-fixtures-bundle":   "dev-master",
+        "doctrine/doctrine-migrations-bundle": "dev-master",
+        "friendsofsymfony/rest-bundle":        "dev-master",
+        "knplabs/knp-markdown-bundle":         "dev-master",
+        "knplabs/knp-menu-bundle":             "dev-master",
+        "sensio/distribution-bundle":          "dev-master",
+        "stof/doctrine-extensions-bundle":     "dev-master",
+        "sylius/addressing-bundle":            "dev-master",
+        "sylius/assortment-bundle":            "dev-master",
+        "sylius/blogger-bundle":               "dev-master",
+        "sylius/cart-bundle":                  "dev-master",
+        "sylius/categorizer-bundle":           "dev-master",
+        "sylius/sales-bundle":                 "dev-master",
+        "symfony/assetic-bundle":              "dev-master",
+        "symfony/monolog-bundle":              "dev-master",
+        "symfony/swiftmailer-bundle":          "dev-master",
+        "twitter/bootstrap":                   "v2.0.3"
     },
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "version": "v2.0.3",
+                "name": "twitter/bootstrap",
+                "source": {
+                    "url": "https://github.com/twitter/bootstrap.git",
+                    "type": "git",
+                    "reference": "v2.0.3"
+                },
+                "dist": {
+                    "url": "https://github.com/twitter/bootstrap/zipball/v2.0.3",
+                    "type": "zip"
+                 }
+            }
+        }
+    ],
     "scripts": {
         "post-install-cmd": [
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets"
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Sylius\\Sandbox\\Bundle\\CoreBundle\\Composer\\ScriptHandler::symlinkTwitterBootstrap"
         ],
         "post-update-cmd": [
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets"
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Sylius\\Sandbox\\Bundle\\CoreBundle\\Composer\\ScriptHandler::symlinkTwitterBootstrap"
         ]
     },
     "config": {

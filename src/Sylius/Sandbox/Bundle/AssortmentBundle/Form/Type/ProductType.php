@@ -30,6 +30,7 @@ class ProductType extends BaseCustomizableProductType
         parent::buildForm($builder, $options);
 
         $builder
+            ->add('image', 'file')
             ->add('category', 'sylius_categorizer_category_choice', array(
                 'multiple' => false,
                 'catalog'  => 'assortment'

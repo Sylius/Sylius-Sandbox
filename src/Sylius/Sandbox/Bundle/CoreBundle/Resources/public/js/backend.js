@@ -10,7 +10,6 @@
 $(document).ready(function () {
   $("a.confirmer").each(function () {
     $(this).data('confirmerLink', this.href);
-    this.href = null;
 
     $(this).click(function (e) {
       e.preventDefault();

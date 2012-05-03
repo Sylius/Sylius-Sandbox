@@ -1,10 +1,10 @@
 {% extends 'SandboxCoreBundle:Backend:layout.html.twig' %}
 
-{% block content %}
-<div class="page-header">
-    <h1>Posts list.<small> Manage posts on blog.</small></h1>
-</div>
+{% block header %}
+    <h1>Posts list<small> Manage posts on blog</small></h1>
+{% endblock %}
 
+{% block content %}
 <div class="well">
 <a href="{{ path('sylius_blogger_backend_post_create') }}" class="btn btn-primary">
     <i class="icon-plus icon-white"></i> create post

@@ -1,10 +1,10 @@
 {% extends 'SandboxCoreBundle:Backend:layout.html.twig' %}
 
-{% block content %}
-<div class="page-header">
-    <h1>Post details.</h1>
-</div>
+{% block header %}
+    <h1>Post details</h1>
+{% endblock %}
 
+{% block content %}
 <div class="well">
 <a href="{{ path('sylius_blogger_backend_post_update', {'id': post.id}) }}" class="btn">
     <i class="icon-pencil"></i> update

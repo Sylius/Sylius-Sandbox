@@ -1,15 +1,14 @@
 {% extends 'SandboxCoreBundle:Backend:layout.html.twig' %}
 
+{% block header %}
+    <h1>Categories<small> Manage assortment categories</small></h1>
+{% endblock %}
+
 {% block content %}
-
-<div class="page-header">
-    <h1>Categories.<small> Manage assortment categories...</small></h1>
-</div>
-
 <div class="well">
-<a href="{{ path('sylius_categorizer_backend_category_create', {'alias': catalog.alias}) }}" class="btn btn-primary">
-    <i class="icon-plus icon-white"></i> create category
-</a>
+    <a href="{{ path('sylius_categorizer_backend_category_create', {'alias': catalog.alias}) }}" class="btn btn-primary">
+        <i class="icon-plus icon-white"></i> create category
+    </a>
 </div>
 
 {% if categories %}

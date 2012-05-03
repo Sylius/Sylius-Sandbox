@@ -1,38 +1,52 @@
 {% extends 'SandboxCoreBundle:Backend:layout.html.twig' %}
 
-{% block content %}
-<div class="page-header">
-    <h1>Product details.</h1>
-</div>
+{% import 'SandboxAssortmentBundle:Backend/Variant:macros.html.twig' as variantMacros %}
 
+{% block header %}
+    <h1>Product details</h1>
+{% endblock %}
+
+{% block content %}
 <div class="well">
-    <div class="btn-group">
-        <a href="{{ path('sylius_assortment_product_show', {'id': product.id, 'slug': product.slug}) }}" class="btn">
-            <i class="icon-book"></i> show in the store
-        </a>
-        <a href="{{ path('sylius_assortment_backend_product_update', {'id': product.id}) }}" class="btn">
-            <i class="icon-pencil"></i> {{ 'update'|trans({}, 'SandboxCoreBundle') }}
-        </a>
-        <a href="{{ path('sylius_assortment_backend_product_delete', {'id': product.id}) }}" class="btn btn-danger confirmer"
-            data-confirmer-question="{{ 'confirmer.q.product.delete'|trans({}, 'SandboxCoreBundle') }}"
-        >
-            <i class="icon-remove icon-white"></i> {{ 'delete'|trans({}, 'SandboxCoreBundle') }}
-        </a>
+    <div class="row">
+        <div class="span3">
+            <a href="{{ path('sylius_assortment_backend_product_show', {'id': product.id}) }}" class="thumbnail">
+                <img src="{{ product.imageWebPath is empty ? 'http://placehold.it/250x150' : product.imageWebPath|apply_filter('backend_mini') }}" alt="product photo" />
+            </a>
+        </div>
+        <div class="span8">
+            <h3>{{ product.name }}</h3>
+            <hr style="margin-top: 4px; margin-bottom: 4px;" />
+            {{ product.description|markdown }}
+            <a href="{{ path('sylius_assortment_product_show', {'slug': product.slug}) }}" class="btn">
+                <i class="icon-book"></i> show in the store
+            </a>
+            <a href="{{ path('sylius_assortment_backend_product_update', {'id': product.id}) }}" class="btn">
+                <i class="icon-pencil"></i> {{ 'update'|trans({}, 'SandboxCoreBundle') }}
+            </a>
+            <a href="{{ path('sylius_assortment_backend_product_delete', {'id': product.id}) }}" class="btn btn-danger confirmer"
+                data-confirmer-question="{{ 'confirmer.q.product.delete'|trans({}, 'SandboxCoreBundle') }}"
+            >
+                <i class="icon-remove icon-white"></i> {{ 'delete'|trans({}, 'SandboxCoreBundle') }}
+            </a>
+        </div>
     </div>
 </div>
 
-<table class="table">
+<table class="table table-bordered">
     <thead>
         <tr>
             <th>#id</th>
+            <th>SKU</th>
             <th>name</th>
             <th>options</th>
-            <th>master price</th>
+            <th>price</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td>{{ product.id }}</td>
+            <td>{{ product.sku }}</td>
             <td>{{ product.name }}</td>
             <td>
                 {% if product.options|length > 0 %}
@@ -47,66 +61,18 @@
                     </span>
                 {% endif %}
             </td>
-            <td>{{ product.price }}</td>
+            <td>{{ product.price }} &euro;</td>
         </tr>
     </tbody>
 </table>
 
 <div class="well">
-<a href="{{ path('sylius_assortment_backend_variant_create', {'productId': product.id}) }}" class="btn btn-primary">
-    <i class="icon-plus icon-white"></i> create variant
-</a>
+    <a href="{{ path('sylius_assortment_backend_variant_create', {'productId': product.id}) }}" class="btn btn-primary">
+        <i class="icon-plus icon-white"></i> create variant
+    </a>
 </div>
 
-{% if product.variants|length > 0 %}
-    <table class="table">
-    <thead>
-        <tr>
-            <th>#id</th>
-            <th>creation time</th>
-            <th>option set</th>
-            <th>price</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-    {% for variant in product.variants %}
-        <tr>
-            <td>{{ variant.id }}</td>
-            <td>{{ variant.createdAt|date('Y-m-d H:i:s') }}</td>
-            <td>
-                <ul>
-                {% for option in variant.options %}
-                    <li><strong>{{ option.name }}</strong>: {{ option.value }}</li>
-                {% endfor %}
-                </ul>
-            </td>
-            <td>{{ variant.price }} &euro;</td>
-            <td>
-                <div class="btn-group pull-right">
-                    <a href="{{ path('sylius_assortment_backend_variant_show', {'id': variant.id}) }}" class="btn">
-                       <i class="icon-book"></i> {{ 'show'|trans({}, 'SandboxCoreBundle') }}
-                    </a>
-                    <a href="{{ path('sylius_assortment_backend_variant_update', {'id': variant.id}) }}" class="btn">
-                       <i class="icon-pencil"></i> {{ 'update'|trans({}, 'SandboxCoreBundle') }}
-                    </a>
-                    <a href="{{ path('sylius_assortment_backend_variant_delete', {'id': variant.id}) }}" class="btn btn-danger confirmer"
-                        data-confirmer-question="{{ 'confirmer.q.variant.delete'|trans({}, 'SandboxCoreBundle') }}"
-                    >
-                        <i class="icon-remove icon-white"></i> {{ 'delete'|trans({}, 'SandboxCoreBundle') }}
-                    </a>
-                </div>
-            </td>
-        </tr>
-    {% endfor %}
-    </tbody>
-</table>
-{% else %}
-<div class="alert alert-info">
-    <h4 class="alert-heading">{{ 'alert.heading.info'|trans({}, 'SandboxCoreBundle') }}.</h4>
-    There are no variants of this product.
-</div>
-{% endif %}
+{{ variantMacros.list(product.variants, product) }}
 
 <table class="table table-bordered">
     <thead>
@@ -127,8 +93,4 @@
         {% endfor %}
     </tbody>
 </table>
-<div class="well">
-{{ product.description|markdown }}
-</div>
-
 {% endblock content %}

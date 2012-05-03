@@ -25,3 +25,7 @@ sylius_categorizer_category:
 
 sylius_categorizer_backend_category:
     resource: @SyliusCategorizerBundle/Resources/config/routing/frontend/category.yml
+
+_imagine:
+    resource: .
+    type: imagine

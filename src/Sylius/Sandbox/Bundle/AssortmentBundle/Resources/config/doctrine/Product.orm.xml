@@ -7,6 +7,7 @@
 >
 
     <entity name="Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Product" table="sylius_sandbox_assortment_product">
+        <field name="imagePath" column="image_path" nullable="true" />
         <id name="id" column="id" type="integer">
             <generator strategy="AUTO" />
         </id>
@@ -27,7 +28,7 @@
         <many-to-many field="options" target-entity="Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Option\Option">
             <join-table name="sylius_assortment_product_option">
                 <join-columns>
-                    <join-column name="prototype_id" referenced-column-name="id" column-definition="INT" />
+                    <join-column name="product_id" referenced-column-name="id" column-definition="INT" />
                 </join-columns>
                 <inverse-join-columns>
                     <join-column name="option_id" referenced-column-name="id" nullable="false" unique="false" />
@@ -39,6 +40,10 @@
                 <cascade-all />
             </cascade>
         </one-to-many>
+        <lifecycle-callbacks>
+            <lifecycle-callback type="prePersist" method="saveImage"/>
+            <lifecycle-callback type="postRemove" method="deleteImage"/>
+        </lifecycle-callbacks>
     </entity>
 
 </doctrine-mapping>
