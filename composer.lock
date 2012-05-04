@@ -13,7 +13,7 @@
         {
             "package": "doctrine/data-fixtures",
             "version": "dev-master",
-            "source-reference": "8fb90c55c0bfbf4e090adb8c0281f9a3c81735e7"
+            "source-reference": "7980ea20b3c6e5104241acb430e4822b8bc402ae"
         },
         {
             "package": "doctrine/dbal",
@@ -22,7 +22,7 @@
         {
             "package": "doctrine/doctrine-bundle",
             "version": "dev-master",
-            "source-reference": "b6f9a57c60a0acaaf931a77e833ffeb24a3bdbf1"
+            "source-reference": "9c8cdd383be8d8a9fd8113289cd36e3453c81e1c"
         },
         {
             "package": "doctrine/doctrine-fixtures-bundle",
@@ -37,7 +37,7 @@
         {
             "package": "doctrine/migrations",
             "version": "dev-master",
-            "source-reference": "29b1b3e67ce608d2d526271314fce889a6f7d0c0"
+            "source-reference": "712429162cbf322dda6817e84c1f4fa3ba54cffd"
         },
         {
             "package": "doctrine/orm",
@@ -82,7 +82,7 @@
         {
             "package": "knplabs/knp-markdown-bundle",
             "version": "dev-master",
-            "source-reference": "8a7637054b945c2fd5fbeece2cf98139fb79d8f3"
+            "source-reference": "b29850f792f4d62ea9ef6275da59f1214d391c9f"
         },
         {
             "package": "kriswallsmith/assetic",
@@ -122,7 +122,7 @@
         {
             "package": "sylius/addressing-bundle",
             "version": "dev-master",
-            "source-reference": "ee0605c624f15daa59bb1275a5819ab21dab1c1e"
+            "source-reference": "59b652801c762771b747fbe3b2b3f21b4b8164e8"
         },
         {
             "package": "sylius/assortment-bundle",
@@ -147,7 +147,7 @@
         {
             "package": "sylius/sales-bundle",
             "version": "dev-master",
-            "source-reference": "639a9d77b60dc7b1b42064d89465db0db187378c"
+            "source-reference": "258612e30178e1d2df03b5b2aab06b99373a11b2"
         },
         {
             "package": "symfony/assetic-bundle",
@@ -172,7 +172,7 @@
         {
             "package": "symfony/symfony",
             "version": "dev-master",
-            "source-reference": "8eea5c3d5fb2a7824657a018f52a16ad4623b219",
+            "source-reference": "cb905c5ff6d0ef71c5d7ec2bd1ccbd8cb0f9e2e1",
             "alias": "2.1.9999999.9999999-dev"
         },
         {
@@ -183,7 +183,7 @@
         {
             "package": "twig/twig",
             "version": "dev-master",
-            "source-reference": "f3491b5cbfd03a31538b6e8c82d65cd54996e870",
+            "source-reference": "db32d5ef431c868aaeabbb3d7d7cfe319fe4d562",
             "alias": "1.8.9999999.9999999-dev"
         },
         {
