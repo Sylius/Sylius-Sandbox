@@ -20,18 +20,18 @@ class ProcessOperation extends ContainerAware implements OperationInterface
     public function process(OrderInterface $order)
     {
         $cart = $this->container->get('sylius_cart.provider')->getCart();
-        $cart->setLocked(true);
-
-        // Set order value.
-        $order->setCart($cart);
-
-        $orderValue = 0.00;
+        $orderItemManager = $this->container->get('sylius_sales.manager.item');
 
         foreach ($cart->getItems() as $item) {
-            $orderValue += $item->getVariant()->getPrice() * $item->getQuantity();
+            $orderItem = $orderItemManager->createItem();
+            $orderItem->setVariant($item->getVariant());
+            $orderItem->setQuantity($item->getQuantity());
+            $orderItem->setUnitPrice($item->getVariant()->getPrice());
+
+            $order->addItem($orderItem);
         }
 
-        $order->setValue($orderValue);
+        $order->calculateTotal();
 
         // Abandon current cart.
         $this->container->get('sylius_cart.provider')->abandonCart();

@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the Sandbox.
+ * This file is part of the Sylius sandbox application.
  *
  * (c) Paweł Jędrzejewski
  *
@@ -11,23 +11,16 @@
 
 namespace Sylius\Sandbox\Bundle\SalesBundle\DependencyInjection;
 
-use Symfony\Component\HttpKernel\DependencyInjection\Extension;
+use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
-use Symfony\Component\Config\FileLocator;
+use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
 class SandboxSalesExtension extends Extension
 {
     public function load(array $config, ContainerBuilder $container)
     {
-        $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config/container'));
-
-        $configurations = array(
-            'operations',
-        );
-
-        foreach($configurations as $basename) {
-            $loader->load(sprintf('%s.xml', $basename));
-        }
+        $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+        $loader->load('services.xml');
     }
 }

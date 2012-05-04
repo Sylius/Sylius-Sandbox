@@ -122,10 +122,12 @@ sylius_sales:
     classes:
         model:
             order: Sylius\Sandbox\Bundle\SalesBundle\Entity\Order
+            item: Sylius\Sandbox\Bundle\SalesBundle\Entity\Item
             status: Sylius\Bundle\SalesBundle\Entity\Status
         form:
             type:
                 order: Sylius\Sandbox\Bundle\SalesBundle\Form\Type\OrderType
+                item: Sylius\Sandbox\Bundle\SalesBundle\Form\Type\ItemType
 
 sylius_addressing:
     driver: doctrine/orm

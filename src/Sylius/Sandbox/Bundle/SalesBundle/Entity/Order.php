@@ -11,39 +11,38 @@
 
 namespace Sylius\Sandbox\Bundle\SalesBundle\Entity;
 
-use Sylius\Bundle\CartBundle\Model\CartInterface;
 use Sylius\Bundle\AddressingBundle\Model\AddressInterface;
 use Sylius\Bundle\SalesBundle\Entity\Order as BaseOrder;
 use Symfony\Component\Validator\Constraints as Assert;
 
 class Order extends BaseOrder
 {
-    protected $cart;
-    protected $value;
+    protected $total;
 
     /**
      * @Assert\Valid
      */
     protected $address;
 
-    public function getCart()
+    public function getTotal()
     {
-        return $this->cart;
+        return $this->total;
     }
 
-    public function setCart(CartInterface $cart)
+    public function setTotal($total)
     {
-        $this->cart = $cart;
+        $this->total = $total;
     }
 
-    public function getValue()
+    public function calculateTotal()
     {
-        return $this->value;
-    }
+        $total = 0.00;
+        foreach ($this->getItems() as $item)
+        {
+            $total += $item->getQuantity() * $item->getUnitPrice();
+        }
 
-    public function setValue($value)
-    {
-        $this->value = $value;
+        $this->total = $total;
     }
 
     public function getAddress()

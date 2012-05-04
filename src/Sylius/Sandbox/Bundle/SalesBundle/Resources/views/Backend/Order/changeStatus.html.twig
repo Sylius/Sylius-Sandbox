@@ -1,8 +1,8 @@
 {% if order.closed %}
-{{ form_widget(form, {'attr': {'class': 'span5 twipsy', 'disabled': 'disabled', 'title':'This order is closed!'}}) }}
+{{ form_widget(form.status, {'attr': {'disabled': 'disabled', 'title':'This order is closed!'}}) }}
 {% else %}
-<form method="post" action="{{ path('sylius_sales_backend_order_status', {'id': order.id}) }}">
-{{ form_widget(form, {'attr': {'class': 'span5'}, 'empty_value': 'order status...'}) }}
+<form method="post" action="{{ path('sylius_sales_backend_order_status', {'id': order.id}) }}" class="form-inline">
+{{ form_widget(form.status) }}
 {{ form_rest(form) }}
 <input type="submit" class="btn btn-primary" value="change status" />
 </form>
