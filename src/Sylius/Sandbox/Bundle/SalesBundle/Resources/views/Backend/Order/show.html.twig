@@ -17,8 +17,8 @@
             <td>{{ order.id }}</td>
         </tr>
         <tr>
-            <td><strong>value</strong></td>
-            <td>{{ order.value }} &euro;</td>
+            <td><strong>total</strong></td>
+            <td>{{ order.total }} &euro;</td>
         </tr>
         <tr>
             <td><strong>created at</strong></td>
@@ -63,28 +63,62 @@
     </tbody>
 </table>
 <hr />
-<table class="table table-bordered">
+<div class="well">
+    <a href="{{ path('sylius_sales_backend_order_update', {'id': order.id}) }}" class="btn">
+        <i class="icon-th"></i> update
+    </a>
+    <a href="{{ path('sylius_sales_backend_order_delete', {'id': order.id}) }}" class="btn btn-danger">
+        <i class="icon-trash icon-white"></i> delete
+    </a>
+</div>
+<table class="table table-striped table-bordered">
     <thead>
         <tr>
-            <th>product name</th>
-            <th>variant</th>
+            <th>#</th>
+            <th>SKU</th>
+            <th>Product</th>
             <th>quantity</th>
+            <th><span class="pull-right">unit price</span></th>
+            <th><span class="pull-right">line total</span></th>
         </tr>
     </thead>
     <tbody>
-        {% for item in order.cart.items %}
-            <tr>
-                <td>{{ item.variant.product.name }}</td>
-                <td>
-                    <ul class="unstyled">
-                        {% for option in item.variant.options %}
-                        <li><strong>{{ option.presentation }}</strong>: {{ option.value }}</li>
-                        {% endfor %}
-                    </ul>
-                </td>
-                <td>{{ item.quantity }}</td>
-            </tr>
+        {% for item in order.items %}
+        <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ item.variant.sku }}</td>
+            <td>
+                <p>{{ item.variant.product.name }}</p>
+                {% if item.variant.countOptions > 0 %}
+                <ul class="unstyled">
+                    {% for option in item.variant.options %}
+                    <li><strong>{{ option.presentation }}</strong>: {{ option.value  }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </td>
+            <td>{{ item.quantity }}</td>
+            <td>
+                <span class="pull-right">
+                {{ item.unitPrice }} &euro;
+                </span>
+            </td>
+            <td>
+                <span class="pull-right">
+                {{ item.unitPrice * item.quantity }} &euro;
+                </span>
+            </td>
+        </tr>
         {% endfor %}
+        <tr>
+            <td colspan="4">
+            </td>
+            <td colspan="2">
+                <span class="pull-right">
+                <strong>Total</strong>: {{ order.total }} &euro;
+                </span>
+            </td>
+        </tr>
     </tbody>
 </table>
 {% endblock %}

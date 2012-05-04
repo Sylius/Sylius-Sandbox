@@ -13,8 +13,16 @@ namespace Sylius\Sandbox\Bundle\SalesBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
+/**
+ * Sales sandbox bundle.
+ *
+ * @author Paweł Jędrzejewski <pjedrzejewski@diweb.pl>
+ */
 class SandboxSalesBundle extends Bundle
 {
+    /**
+     * {@inheritdoc}
+     */
     public function getParent()
     {
         return 'SyliusSalesBundle';

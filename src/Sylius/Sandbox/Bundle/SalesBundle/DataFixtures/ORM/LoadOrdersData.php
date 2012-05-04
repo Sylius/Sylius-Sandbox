@@ -64,31 +64,22 @@ class LoadOrdersData extends AbstractFixture implements ContainerAwareInterface,
      */
     private function buildOrder(OrderInterface $order)
     {
-        $cartManager = $this->container->get('sylius_cart.manager.cart');
-        $itemManager = $this->container->get('sylius_cart.manager.item');
-
-        $cartOperator = $this->container->get('sylius_cart.operator');
-
-        $cart = $cartManager->createCart();
-
+        $itemManager = $this->container->get('sylius_sales.manager.item');
         $variants = SYLIUS_ASSORTMENT_FIXTURES_TV;
 
         foreach (range(0, rand(1, 6)) as $i) {
+            $variant = $this->getReference('Sandbox.Assortment.Variant-'.rand(0, $variants - 1));
+
             $item = $itemManager->createItem();
             $item->setQuantity(rand(1, 5));
-            $item->setVariant($this->getReference('Sandbox.Assortment.Variant-'.rand(0, $variants - 1)));
+            $item->setVariant($variant);
+            $item->setUnitPrice($variant->getPrice());
 
-            $cartOperator->addItem($cart, $item);
+            $order->addItem($item);
         }
 
-        $cartOperator->refresh($cart);
-        $cartOperator->save($cart);
-
-        $cart->setLocked(true);
-
-        $order->setCart($cart);
         $order->setAddress($this->getReference('Sandbox.Addressing.Address-'.rand(0, 49)));
-        $order->setValue($cart->getValue());
+        $order->calculateTotal();
 
         $order->setStatus($this->getReference('Sandbox.Sales.Status-'.rand(0, 5)));
     }
