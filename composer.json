@@ -22,6 +22,7 @@
         "sylius/cart-bundle":                  "dev-master",
         "sylius/categorizer-bundle":           "dev-master",
         "sylius/sales-bundle":                 "dev-master",
+        "sylius/stocking-bundle":              "dev-master",
         "symfony/assetic-bundle":              "dev-master",
         "symfony/monolog-bundle":              "dev-master",
         "symfony/swiftmailer-bundle":          "dev-master",

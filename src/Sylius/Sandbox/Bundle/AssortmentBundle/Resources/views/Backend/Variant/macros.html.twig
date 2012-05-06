@@ -9,6 +9,7 @@
             <th>updated at</th>
             <th>option set</th>
             <th>price</th>
+            <th>stock "on hand"</th>
             <th></th>
         </tr>
     </thead>
@@ -29,6 +30,9 @@
                 </ul>
             </td>
             <td>{{ variant.price }} &euro;</td>
+            <td>
+                <span class="badge badge-{{ variant.inStock ? 'success' : 'important' }}">{{ variant.onHand }}</span> available units.
+            </td>
             <td>
                 <div class="btn-group pull-right">
                     <a href="{{ path('sylius_assortment_backend_variant_show', {'id': variant.id}) }}" class="btn">

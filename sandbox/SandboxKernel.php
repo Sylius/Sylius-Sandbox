@@ -57,6 +57,7 @@ class SandboxKernel extends Kernel
             new \Sylius\Bundle\CartBundle\SyliusCartBundle(),
             new \Sylius\Bundle\CategorizerBundle\SyliusCategorizerBundle(),
             new \Sylius\Bundle\SalesBundle\SyliusSalesBundle(),
+            new \Sylius\Bundle\StockingBundle\SyliusStockingBundle(),
 
             /*
              * Sandbox specific bundles.

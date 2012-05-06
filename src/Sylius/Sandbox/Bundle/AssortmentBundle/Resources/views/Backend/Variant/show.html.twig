@@ -32,6 +32,7 @@
             <th>SKU</th>
             <th>created at</th>
             <th>updated at</th>
+            <th>stock "on hand"</th>
             <th>option set</th>
             <th>price</th>
         </tr>
@@ -42,6 +43,9 @@
             <td>{{ variant.sku }}</td>
             <td>{{ variant.createdAt|date }}</td>
             <td>{{ variant.updatedAt|date }}</td>
+            <td>
+                <span class="badge badge-{{ variant.inStock ? 'success' : 'important' }}">{{ variant.onHand }}</span> available units.
+            </td>
             <td>
                 <ul>
                 {% for option in variant.options %}

@@ -12,6 +12,7 @@
 namespace Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Variant;
 
 use Sylius\Bundle\AssortmentBundle\Entity\Variant\Variant as BaseVariant;
+use Sylius\Bundle\StockingBundle\Model\StockableInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -19,7 +20,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  *
  * @author Paweł Jędrzejewski <pjedrzejewski@diweb.pl>
  */
-class Variant extends BaseVariant
+class Variant extends BaseVariant implements StockableInterface
 {
     /**
      * Variant price.
@@ -31,13 +32,24 @@ class Variant extends BaseVariant
     protected $price;
 
     /**
-     * Constructor.
+     * On hand stock.
+     *
+     * @Assert\NotBlank
+     * @Assert\Min(0)
+     *
+     * @var integer
+     */
+    protected $onHand;
+
+    /**
+     * Override constructor to set on hand stock.
      */
     public function __construct()
     {
         parent::__construct();
 
         $this->price = 0.00;
+        $this->onHand = 1;
     }
 
     /**
@@ -58,5 +70,40 @@ class Variant extends BaseVariant
     public function setPrice($price)
     {
         $this->price = $price;
+    }
+
+    /**
+     * Implementation of stockable interface.
+     * Uses Variant SKU as stocking id.
+     *
+     * {@inheritdoc}
+     */
+    public function getStockableId()
+    {
+        return $this->sku;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function inStock()
+    {
+        return 0 < $this->onHand;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getOnHand()
+    {
+        return $this->onHand;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setOnHand($onHand)
+    {
+        $this->onHand = $onHand;
     }
 }

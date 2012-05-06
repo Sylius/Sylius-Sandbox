@@ -104,6 +104,7 @@ class LoadProductsData extends AbstractFixture implements ContainerAwareInterfac
         $variant->setPrice($this->faker->randomNumber(5) / 100);
         $variant->setSku($this->faker->randomNumber(6));
         $variant->setAvailableOn($this->faker->dateTimeThisYear);
+        $variant->setOnHand($faker->randomNumber(1));
 
         $this->setReference('Sandbox.Assortment.Variant-'.$this->totalVariants, $variant);
         $this->totalVariants++;
@@ -145,6 +146,7 @@ class LoadProductsData extends AbstractFixture implements ContainerAwareInterfac
             $variant->setAvailableOn($this->faker->dateTimeThisYear);
             $variant->setPrice($this->faker->randomNumber(5) / 100);
             $variant->setSku($this->faker->randomNumber(5));
+            $variant->setOnHand($faker->randomNumber(1));
 
             $this->setReference('Sandbox.Assortment.Variant-'.$this->totalVariants, $variant);
             $this->totalVariants++;
@@ -167,6 +169,7 @@ class LoadProductsData extends AbstractFixture implements ContainerAwareInterfac
         $variant->setPrice($this->faker->randomNumber(5) / 100);
         $variant->setSku($this->faker->randomNumber(6));
         $variant->setAvailableOn($this->faker->dateTimeThisYear);
+        $variant->setOnHand($faker->randomNumber(1));
 
         $this->setReference('Sandbox.Assortment.Variant-'.$this->totalVariants, $variant);
         $this->totalVariants++;
@@ -199,6 +202,7 @@ class LoadProductsData extends AbstractFixture implements ContainerAwareInterfac
             $variant->setAvailableOn($this->faker->dateTimeThisYear);
             $variant->setPrice($this->faker->randomNumber(5) / 100);
             $variant->setSku($this->faker->randomNumber(5));
+            $variant->setOnHand($faker->randomNumber(1));
 
             $this->setReference('Sandbox.Assortment.Variant-'.$this->totalVariants, $variant);
             $this->totalVariants++;
@@ -221,6 +225,7 @@ class LoadProductsData extends AbstractFixture implements ContainerAwareInterfac
         $variant->setPrice($this->faker->randomNumber(5) / 100);
         $variant->setSku($this->faker->randomNumber(6));
         $variant->setAvailableOn($this->faker->dateTimeThisYear);
+        $variant->setOnHand($faker->randomNumber(1));
 
         $this->setReference('Sandbox.Assortment.Variant-'.$this->totalVariants, $variant);
         $this->totalVariants++;
@@ -243,6 +248,7 @@ class LoadProductsData extends AbstractFixture implements ContainerAwareInterfac
             $variant->setAvailableOn($this->faker->dateTimeThisYear);
             $variant->setPrice($this->faker->randomNumber(5) / 100);
             $variant->setSku($this->faker->randomNumber(5));
+            $variant->setOnHand($faker->randomNumber(1));
 
             $this->setReference('Sandbox.Assortment.Variant-'.$this->totalVariants, $variant);
             $this->totalVariants++;
@@ -267,6 +273,7 @@ class LoadProductsData extends AbstractFixture implements ContainerAwareInterfac
         $variant->setPrice($this->faker->randomNumber(5) / 100);
         $variant->setSku($isbn);
         $variant->setAvailableOn($this->faker->dateTimeThisYear);
+        $variant->setOnHand($faker->randomNumber(1));
 
         $this->setReference('Sandbox.Assortment.Variant-'.$this->totalVariants, $variant);
         $this->totalVariants++;

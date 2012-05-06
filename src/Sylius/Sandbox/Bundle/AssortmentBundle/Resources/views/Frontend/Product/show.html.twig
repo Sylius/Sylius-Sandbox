@@ -25,6 +25,9 @@
         </p>
     </div>
     <div class="span4">
+        {% if product.variants|length == 0 and not product.masterVariant.inStock %}
+            <span class="label label-important span5 center-text">out of stock</span>
+        {% endif %}
         {% if product.properties|length > 0 %}
         <table class="table table-condensed">
             <thead>
@@ -44,7 +47,6 @@
         {% endif %}
     </div>
 </div>
-
 <form action="{{ path('sylius_cart_item_add', {'id': product.id}) }}" method="post">
     {% if product.variants|length > 0 %}
         {% if product.isVariantPickingModeChoice %}
@@ -69,7 +71,11 @@
                     <td>
                         <span class="label label-success">{{ variant.price }} &euro;</span>
                     </td>
-                    <td>{{ form_widget(form.variant[loop.index0]) }}</td>
+                    {% if variant.inStock %}
+                        {{ form_widget(form.variant[loop.index0]) }}
+                    {% else %}
+                        <span class="label label-important">out of stock</span>
+                    {% endif %}
                 </tr>
                 {% endfor %}
             </tbody>
@@ -90,9 +96,12 @@
         </ol>
     </div>
     <div class="pull-right">
-    {{ form_row(form.quantity, {'attr': {'class': 'center-text'}, 'empty_value': '1'}) }}
-    {{ form_rest(form) }}
-    <input type="submit" class="btn btn-success btn-large span12" value="add to cart">
+    {% if product.variants|length == 0 and not product.masterVariant.inStock %}
+    {% else %}
+        {{ form_row(form.quantity, {'attr': {'class': 'center-text'}, 'empty_value': '1'}) }}
+        {{ form_rest(form) }}
+        <input type="submit" class="btn btn-success btn-large span12" value="add to cart">
+    {% endif %}
     </div>
 </form>
 {% endblock %}

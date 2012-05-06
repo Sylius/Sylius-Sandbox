@@ -2,7 +2,7 @@
 
 {% block content %}
 <div class="page-header">
-    <h1>Login <small>Sylius sandbox application</small></h1>
+    <h1>Login <small>Sylius sandbox administration</small></h1>
 </div>
 
 <blockquote>
@@ -16,7 +16,7 @@
 </div>
 {% endif %}
 
-<form action="{{ path("sylius_sandbox_core_frontend_security_check") }}" method="post" class="form-horizontal">
+<form action="{{ path("sylius_sandbox_core_frontend_security_check") }}" method="post" class="well">
 <fieldset>
     <div class="control-group">
     <label for="username" class="control-label">Login</label>
@@ -33,7 +33,7 @@
     <div class="control-group">
     <label for="username" class="control-label checkbox">Remember me? &nbsp;</label>
     <div class="controls">
-        <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+        Remember me? <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
     </div>
     </div>
 </fieldset>
