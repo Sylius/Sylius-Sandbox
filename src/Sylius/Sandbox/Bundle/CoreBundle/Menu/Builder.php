@@ -43,10 +43,16 @@ class Builder extends ContainerAware
 
         $menu->addChild('Shop', array('route' => 'sylius_sandbox_core_frontend'));
 
-        $child = $menu->addChild('Offer', $this->defaultOptions);
+        $childOptions = array(
+            'attributes'         => array('class' => 'dropdown'),
+            'childrenAttributes' => array('class' => 'dropdown-menu'),
+            'labelAttributes'    => array('class' => 'dropdown-toggle', 'data-toggle' => 'dropdown', 'href' => '#')
+        );
+
+        $child = $menu->addChild('Offer', $childOptions);
         $child->addChild('Products', array('route' => 'sylius_assortment_product_list'));
 
-        $child = $menu->addChild('Blog', $this->defaultOptions);
+        $child = $menu->addChild('Blog', $childOptions);
         $child->addChild('Posts', array('route' => 'sylius_blogger_post_list'));
 
         $child = $menu->addChild('My cart', array('route' => 'sylius_cart_show'));
