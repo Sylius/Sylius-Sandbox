@@ -55,7 +55,7 @@
             <div class="navbar-inner">
                 <div class="container-fluid">
                     <a class="brand" href="http://sylius.org">Sylius</a>
-                    {{ knp_menu_render('SandboxCoreBundle:Builder:backendMainMenu', {'template': 'SandboxCoreBundle::main_menu.html.twig', 'currentClass': 'active'}) }}
+                    {{ knp_menu_render('SandboxCoreBundle:Builder:backendMainMenu', {'template': 'SandboxCoreBundle:Menu:main.html.twig', 'currentClass': 'active'}) }}
                 </div>
             </div>
         </div>
@@ -64,7 +64,7 @@
                 <div id="sidebar" class="span2">
                     <div class="sidebar-nav well">
                     {% block sidebar %}
-                        {{ knp_menu_render('SandboxCoreBundle:Builder:backendSideMenu', {'template': 'SandboxCoreBundle::side_menu.html.twig'}) }}
+                        {{ knp_menu_render('SandboxCoreBundle:Builder:backendSidebarMenu', {'template': 'SandboxCoreBundle:Menu:sidebar.html.twig', 'currentClass': 'active'}) }}
                     {% endblock %}
                     </div>
                 </div>
