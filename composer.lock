@@ -1,10 +1,10 @@
 {
-    "hash": "8e9d5cf37f158cbaca901d0605545a30",
+    "hash": "a8f2201e0f6c6c68f27cb0b54a6d834b",
     "packages": [
         {
             "package": "avalanche123/imagine-bundle",
             "version": "dev-master",
-            "source-reference": "29c5338cc9c7177d71dd51e8c3ab9652479e6ff4"
+            "source-reference": "5b1b09bebe0b3a3499a629b8a6fa907f8063d568"
         },
         {
             "package": "doctrine/common",
@@ -37,22 +37,22 @@
         {
             "package": "doctrine/migrations",
             "version": "dev-master",
-            "source-reference": "712429162cbf322dda6817e84c1f4fa3ba54cffd"
+            "source-reference": "fe98141b1e460baf5ab52f9139e1ae238101b28b"
         },
         {
             "package": "doctrine/orm",
             "version": "2.2.x-dev",
-            "source-reference": "159b6f89471ac05f1c1ef2d53cc2c989ce9215a3"
+            "source-reference": "202e675d2bf25ce980acc2db69bb971beb8936b9"
         },
         {
             "package": "friendsofsymfony/rest",
             "version": "dev-master",
-            "source-reference": "a08b96b01e1ce26a7c43f993bf54aac756c0f6cb"
+            "source-reference": "d9f772ddb9bb4fd0d952fa45cf0e5e76510b111c"
         },
         {
             "package": "friendsofsymfony/rest-bundle",
             "version": "dev-master",
-            "source-reference": "d9a876803df61858ce3e8d3f0c934727638ad874"
+            "source-reference": "441f2cd3c8aefc2d197dc94179e9be85717e26a5"
         },
         {
             "package": "fzaninotto/faker",
@@ -62,7 +62,7 @@
         {
             "package": "gedmo/doctrine-extensions",
             "version": "dev-master",
-            "source-reference": "7c5df3691bd404a3f24998e198f197bc7431df14"
+            "source-reference": "015de8edd4024dd1aeddd95d969448ce931a6c66"
         },
         {
             "package": "imagine/Imagine",
@@ -85,9 +85,20 @@
             "source-reference": "b29850f792f4d62ea9ef6275da59f1214d391c9f"
         },
         {
+            "package": "knplabs/knp-menu",
+            "version": "dev-master",
+            "source-reference": "582abde96d661a2367542e393a25c9cafe928b40",
+            "alias": "1.1.9999999.9999999-dev"
+        },
+        {
+            "package": "knplabs/knp-menu-bundle",
+            "version": "dev-master",
+            "source-reference": "dc12b1c8e56074d65b01eed51164c86d36579f86"
+        },
+        {
             "package": "kriswallsmith/assetic",
             "version": "dev-master",
-            "source-reference": "3acfb6afa50dd1dca387a8dfb641cd3b98a8584d"
+            "source-reference": "fe711de6512870a2b6b584eb6483460d2a65ba95"
         },
         {
             "package": "monolog/monolog",
@@ -127,7 +138,7 @@
         {
             "package": "sylius/assortment-bundle",
             "version": "dev-master",
-            "source-reference": "0682c3455d01c08106b10b31b87a85e99aa00900"
+            "source-reference": "ef16ae5e46f7f27ebce4cc2364c62fcf3e390ca0"
         },
         {
             "package": "sylius/blogger-bundle",
@@ -147,7 +158,12 @@
         {
             "package": "sylius/sales-bundle",
             "version": "dev-master",
-            "source-reference": "258612e30178e1d2df03b5b2aab06b99373a11b2"
+            "source-reference": "d32c35085d1a19cd6453d4af2da2d4b5db861b81"
+        },
+        {
+            "package": "sylius/stocking-bundle",
+            "version": "dev-master",
+            "source-reference": "8b7632d8eb2dfd7b8356a68bd73cc2094fecece3"
         },
         {
             "package": "symfony/assetic-bundle",
@@ -157,7 +173,7 @@
         {
             "package": "symfony/monolog-bundle",
             "version": "dev-master",
-            "source-reference": "4420d3a740ed35a0de1feab771bb6f7386cf2e33"
+            "source-reference": "4d5a969dc5b34c8b0cea3521ce7fbb43b965af3f"
         },
         {
             "package": "symfony/swiftmailer-bridge",
@@ -172,7 +188,7 @@
         {
             "package": "symfony/symfony",
             "version": "dev-master",
-            "source-reference": "cb905c5ff6d0ef71c5d7ec2bd1ccbd8cb0f9e2e1",
+            "source-reference": "919604ab718c47c619659cb2f7faf63222486141",
             "alias": "2.1.9999999.9999999-dev"
         },
         {
