@@ -2,7 +2,7 @@
 # (c) Paweł Jędrzejewski
 
 imports:
-    - { resource: development.yml }
+    - { resource: dev.yml }
 
 framework:
     test: ~
@@ -18,4 +18,4 @@ swiftmailer:
 
 doctrine:
     dbal:
-        dbname: %sylius.database.name%_development
+        dbname: %sylius.database.name%_testing
