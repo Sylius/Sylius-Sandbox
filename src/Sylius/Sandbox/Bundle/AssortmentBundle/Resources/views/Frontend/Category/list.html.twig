@@ -3,7 +3,7 @@
 {% if categories %}
 <ul>
     {% for category in categories %}
-        <li><a href="{{ path('sylius_categorizer_category_show', {'alias': catalog.alias, 'id': category.id, 'slug': category.slug}) }}">{{ category.name }}</a></li>
+        <li><a href="{{ path('sylius_categorizer_category_show', {'alias': catalog.alias, 'slug': category.slug}) }}">{{ category.name }}</a></li>
         {% if category['__children'] is defined %}
             {% include 'SandboxAssortmentBundle:Frontend/Category:node.html.twig' %}
         {% endif %}
