@@ -91,6 +91,8 @@ class Builder extends ContainerAware
         $this->addBlogMenu($menu, $childOptions);
         $this->addAddressingMenu($menu, $childOptions);
 
+        $this->addDivider($menu, true);
+
         $menu->addChild('Go to <strong>frontend</strong>', array('route' => 'sylius_sandbox_core_frontend'));
 
         return $menu;
@@ -144,12 +146,12 @@ class Builder extends ContainerAware
         $child = $menu->addChild('Assortment', $childOptions);
 
         // Categories.
-        $child->addChild('menu.backend.category_create', array(
+        $child->addChild('Create category', array(
             'route'           => 'sylius_categorizer_backend_category_create',
             'routeParameters' => array('alias' => 'assortment'),
             'labelAttributes' => array('icon' => 'icon-plus-sign')
         ));
-        $child->addChild('menu.backend.category_list', array(
+        $child->addChild('List categories', array(
             'route'           => 'sylius_categorizer_backend_category_list',
             'routeParameters' => array('alias' => 'assortment'),
             'labelAttributes' => array('icon' => 'icon-list-alt')
@@ -158,11 +160,11 @@ class Builder extends ContainerAware
         $this->addDivider($child);
 
         // Products.
-        $child->addChild('menu.backend.product_create', array(
+        $child->addChild('Create product', array(
             'route'           => 'sylius_assortment_backend_product_create',
             'labelAttributes' => array('icon' => 'icon-plus-sign')
         ));
-        $child->addChild('menu.backend.product_list', array(
+        $child->addChild('List products', array(
             'route'           => 'sylius_assortment_backend_product_list',
             'labelAttributes' => array('icon' => 'icon-list-alt')
         ));
@@ -170,11 +172,11 @@ class Builder extends ContainerAware
         $this->addDivider($child);
 
         // Option types.
-        $child->addChild('menu.backend.option_create', array(
+        $child->addChild('Create option', array(
             'route'           => 'sylius_assortment_backend_option_create',
             'labelAttributes' => array('icon' => 'icon-plus-sign')
         ));
-        $child->addChild('menu.backend.option_list', array(
+        $child->addChild('List options', array(
             'route'           => 'sylius_assortment_backend_option_list',
             'labelAttributes' => array('icon' => 'icon-list-alt')
         ));
@@ -182,11 +184,11 @@ class Builder extends ContainerAware
         $this->addDivider($child);
 
         // Properties.
-        $child->addChild('menu.backend.property_create', array(
+        $child->addChild('Create property', array(
             'route'           => 'sylius_assortment_backend_property_create',
             'labelAttributes' => array('icon' => 'icon-plus-sign')
         ));
-        $child->addChild('menu.backend.property_list', array(
+        $child->addChild('List properties', array(
             'route'           => 'sylius_assortment_backend_property_list',
             'labelAttributes' => array('icon' => 'icon-list-alt')
         ));
@@ -194,11 +196,11 @@ class Builder extends ContainerAware
         $this->addDivider($child);
 
         // Prototypes.
-        $child->addChild('menu.backend.prototype_create', array(
+        $child->addChild('Create prototype', array(
             'route'           => 'sylius_assortment_backend_prototype_create',
             'labelAttributes' => array('icon' => 'icon-plus-sign')
         ));
-        $child->addChild('menu.backend.prototype_list', array(
+        $child->addChild('List prototypes', array(
             'route'           => 'sylius_assortment_backend_prototype_list',
             'labelAttributes' => array('icon' => 'icon-list-alt')
         ));
@@ -288,12 +290,13 @@ class Builder extends ContainerAware
      * Adds divider menu item.
      *
      * @param ItemInterface $item
+     * @param Boolean       $vertical
      */
-    protected function addDivider(ItemInterface $item)
+    protected function addDivider(ItemInterface $item, $vertical = false)
     {
         $item->addChild(uniqid(), array(
             'attributes' => array(
-                'class' => 'divider'
+                'class' => $vertical ? 'divider-vertical' : 'divider'
             )
         ));
     }
