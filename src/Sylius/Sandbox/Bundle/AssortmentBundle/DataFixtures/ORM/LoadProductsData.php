@@ -51,7 +51,6 @@ class LoadProductsData extends AbstractFixture implements ContainerAwareInterfac
 
             $product->setName($faker->sentence);
             $product->setDescription($faker->paragraph);
-            $product->setSku($faker->randomNumber(6));
             $product->setCategory($this->getReference('Sandbox.Assortment.Category-' . rand(0, 9)));
 
             $variant = $variantManager->createVariant($product);
@@ -61,6 +60,7 @@ class LoadProductsData extends AbstractFixture implements ContainerAwareInterfac
             $variants++;
 
             $product->setMasterVariant($variant);
+            $product->setSku($faker->randomNumber(6));
 
             foreach (range(0, rand(2, 5)) as $x) {
                 $property = new $productPropertyClass;
