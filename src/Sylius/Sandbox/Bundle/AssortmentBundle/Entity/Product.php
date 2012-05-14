@@ -17,6 +17,9 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 class Product extends BaseProduct
 {
+    const VARIANT_PICKING_CHOICE = 0;
+    const VARIANT_PICKING_MATCH  = 1;
+
     /**
      * Product category.
      *
@@ -26,8 +29,32 @@ class Product extends BaseProduct
      */
     protected $category;
 
+    /**
+     * Variant picking mode.
+     * Whether to display a choice form with all variants or match variant for
+     * given options.
+     *
+     * @var integer
+     */
+    protected $variantPickingMode;
+
+    /**
+     * Image path.
+     *
+     * @var string
+     */
     protected $imagePath;
     public $image;
+
+    /**
+     * Set default variant picking mode.
+     */
+    public function __construct()
+    {
+        parent::__construct();
+
+        $this->variantPickingMode = self::VARIANT_PICKING_CHOICE;
+    }
 
     /**
      * Get category.
@@ -47,6 +74,25 @@ class Product extends BaseProduct
     public function setCategory(CategoryInterface $category)
     {
         $this->category = $category;
+    }
+
+    public function getVariantPickingMode()
+    {
+        return $this->variantPickingMode;
+    }
+
+    public function setVariantPickingMode($variantPickingMode)
+    {
+        if (!in_array($variantPickingMode, array(self::VARIANT_PICKING_CHOICE, self::VARIANT_PICKING_MATCH))) {
+            throw new \InvalidArgumentException('Wrong variant picking mode supplied');
+        }
+
+        $this->variantPickingMode = $variantPickingMode;
+    }
+
+    public function isVariantPickingModeChoice()
+    {
+        return self::VARIANT_PICKING_CHOICE === $this->variantPickingMode;
     }
 
     /**
@@ -112,5 +158,13 @@ class Product extends BaseProduct
     protected function getImageUploadRootDir()
     {
         return __DIR__.'/../../../../../../public/'.$this->getImageUploadDir();
+    }
+
+    static public function getVariantPickingModeChoices()
+    {
+        return array(
+            self::VARIANT_PICKING_CHOICE => 'Display list of variants',
+            self::VARIANT_PICKING_MATCH  => 'Display options'
+        );
     }
 }

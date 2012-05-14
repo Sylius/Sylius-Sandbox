@@ -14,6 +14,7 @@ namespace Sylius\Sandbox\Bundle\CartBundle\Entity;
 use Sylius\Bundle\AssortmentBundle\Model\Variant\VariantInterface;
 use Sylius\Bundle\CartBundle\Entity\Item as BaseItem;
 use Sylius\Bundle\CartBundle\Model\ItemInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Cart item entity.
@@ -24,6 +25,8 @@ class Item extends BaseItem
 {
     /**
      * Variant.
+     *
+     * @Assert\NotBlank
      *
      * @var VariantInterface
      */

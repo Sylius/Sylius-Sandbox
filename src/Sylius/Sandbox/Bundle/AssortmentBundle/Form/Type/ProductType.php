@@ -12,6 +12,7 @@
 namespace Sylius\Sandbox\Bundle\AssortmentBundle\Form\Type;
 
 use Sylius\Bundle\AssortmentBundle\Form\Type\CustomizableProductType as BaseCustomizableProductType;
+use Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Product;
 use Symfony\Component\Form\FormBuilder;
 
 /**
@@ -34,6 +35,10 @@ class ProductType extends BaseCustomizableProductType
             ->add('category', 'sylius_categorizer_category_choice', array(
                 'multiple' => false,
                 'catalog'  => 'assortment'
+            ))
+            ->add('variantPickingMode', 'choice', array(
+                'label'    => 'Variant picking mode',
+                'choices'  => Product::getVariantPickingModeChoices()
             ))
         ;
     }

@@ -11,12 +11,13 @@
 
 namespace Sylius\Sandbox\Bundle\AssortmentBundle\DataFixtures\ORM;
 
-use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
+use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\ORM\EntityManager;
-use Symfony\Component\DependencyInjection\ContainerInterface;
+use Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Product;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Default assortment products to play with Sylius sandbox.
@@ -52,6 +53,7 @@ class LoadProductsData extends AbstractFixture implements ContainerAwareInterfac
             $product->setName($faker->sentence);
             $product->setDescription($faker->paragraph);
             $product->setCategory($this->getReference('Sandbox.Assortment.Category-' . rand(0, 9)));
+            $product->setVariantPickingMode($faker->randomElement(array(Product::VARIANT_PICKING_CHOICE, Product::VARIANT_PICKING_MATCH)));
 
             $variant = $variantManager->createVariant($product);
             $variant->setPrice($faker->randomNumber(5) / 100);

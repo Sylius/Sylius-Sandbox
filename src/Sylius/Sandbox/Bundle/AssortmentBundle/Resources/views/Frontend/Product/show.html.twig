@@ -45,32 +45,39 @@
 
 <form action="{{ path('sylius_cart_item_add', {'id': product.id}) }}" method="post">
     {% if product.variants|length > 0 %}
-    <table class="table table-condensed table-striped">
-        <thead>
-            <tr>
-                <th></th>
-                <th>price</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for variant in product.variants %}
-            <tr>
-                <td>
-                    <ul class="unstyled">
-                        {% for option in variant.options %}
-                        <li><strong>{{ option.presentation }}</strong>: {{ option.value }}</li>
-                        {% endfor %}
-                    </ul>
-                </td>
-                <td>
-                    <span class="label label-success">{{ variant.price }} &euro;</span>
-                </td>
-                <td>{{ form_widget(form.variant[loop.index0]) }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+        {% if product.isVariantPickingModeChoice %}
+        <table class="table table-condensed table-striped">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>price</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for variant in product.variants %}
+                <tr>
+                    <td>
+                        <ul class="unstyled">
+                            {% for option in variant.options %}
+                            <li><strong>{{ option.presentation }}</strong>: {{ option.value }}</li>
+                            {% endfor %}
+                        </ul>
+                    </td>
+                    <td>
+                        <span class="label label-success">{{ variant.price }} &euro;</span>
+                    </td>
+                    <td>{{ form_widget(form.variant[loop.index0]) }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+            <div class="well">
+            {{ form_widget(form.variant) }}
+            Pick the product options that you're interested in from the menu.
+            </div>
+        {% endif %}
     {% endif %}
     <div class="pull-left">
         <hr />

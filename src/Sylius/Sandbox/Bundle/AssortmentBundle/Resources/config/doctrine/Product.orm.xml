@@ -7,10 +7,11 @@
 >
 
     <entity name="Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Product" table="sylius_sandbox_assortment_product">
-        <field name="imagePath" column="image_path" nullable="true" />
         <id name="id" column="id" type="integer">
             <generator strategy="AUTO" />
         </id>
+        <field name="variantPickingMode" column="variant_picking_mode" type="integer" />
+        <field name="imagePath" column="image_path" nullable="true" />
         <many-to-one field="category" target-entity="Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Category">
             <join-column name="category_id" referenced-column-name="id" />
         </many-to-one>

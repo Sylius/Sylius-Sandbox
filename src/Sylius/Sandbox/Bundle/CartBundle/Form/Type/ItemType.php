@@ -39,7 +39,8 @@ class ItemType extends BaseItemType
             }
 
             if (0 < $options['product']->countVariants()) {
-                $builder->add('variant', 'sylius_assortment_variant_choice', array(
+                $type = $options['product']->isVariantPickingModeChoice() ? 'sylius_assortment_variant_choice' : 'sylius_assortment_variant_match';
+                $builder->add('variant', $type, array(
                     'product'  => $options['product']
                 ));
             }
