@@ -26,7 +26,7 @@ class Item extends BaseItem
     /**
      * Variant.
      *
-     * @Assert\NotBlank
+     * @Assert\NotBlank(groups={"CheckVariant"})
      *
      * @var VariantInterface
      */

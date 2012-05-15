@@ -72,15 +72,15 @@ class ItemResolver implements ItemResolverInterface
             if ($product = $this->productManager->findProduct($id)) {
                 if ('POST' === $request->getMethod()) {
                     $form = $this->formFactory->create('sylius_cart_item', null, array('product' => $product));
+
                     $form->bindRequest($request);
+                    $item = $form->getData(); // Item instance, cool.
+
+                    if (0 === $product->countVariants()) {
+                        $item->setVariant($product->getMasterVariant());
+                    }
 
                     if ($form->isValid()) {
-                        $item = $form->getData(); // Item instance, cool.
-
-                        // If product has no variants, we put master variant in cart.
-                        if (0 === $product->countVariants()) {
-                            $item->setVariant($product->getMasterVariant());
-                        }
 
                         return $item;
                     }
