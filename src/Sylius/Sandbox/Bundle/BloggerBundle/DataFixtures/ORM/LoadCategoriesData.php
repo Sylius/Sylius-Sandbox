@@ -15,6 +15,7 @@ use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\ORM\EntityManager;
+use Faker\Factory as FakerFactory;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -47,16 +48,14 @@ class LoadCategoriesData extends AbstractFixture implements ContainerAwareInterf
         $manipulator = $this->container->get('sylius_categorizer.manipulator.category');
         $catalog = $this->container->get('sylius_categorizer.registry')->getCatalog('blog');
 
-        $faker = \Faker\Factory::create();
+        $faker = FakerFactory::create();
 
-        foreach (range(0, 10) as $i) {
+        for ($i = 1; $i <= 10; $i++) {
             $category = $manager->createCategory($catalog);
-
             $category->setName($faker->word);
 
             $manipulator->create($category);
-
-            $this->setReference('Sandbox.Blogger.Category-' . $i, $category);
+            $this->setReference('Sandbox.Blogger.Category-'.$i, $category);
         }
     }
 

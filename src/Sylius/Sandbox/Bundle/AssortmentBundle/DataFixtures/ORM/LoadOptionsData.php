@@ -11,12 +11,13 @@
 
 namespace Sylius\Sandbox\Bundle\AssortmentBundle\DataFixtures\ORM;
 
-use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
+use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\ORM\EntityManager;
-use Symfony\Component\DependencyInjection\ContainerInterface;
+use Faker\Factory as FakerFactory;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Default assortment product options to play with Sylius sandbox.
@@ -49,15 +50,16 @@ class LoadOptionsData extends AbstractFixture implements ContainerAwareInterface
         $manipulator = $this->container->get('sylius_assortment.manipulator.option');
         $optionValueClass = $this->container->getParameter('sylius_assortment.model.option_value.class');
 
-        $faker = \Faker\Factory::create();
+        $faker = FakerFactory::create();
 
-        foreach (range(0, 9) as $i) {
+        for ($i = 1; $i <= 10; $i++) {
             $option = $manager->createOption();
 
             $option->setName($faker->word);
             $option->setPresentation($faker->word);
 
-            foreach (range(0, rand(2, 5)) as $x) {
+            $totalValues = rand(2, 3);
+            for ($j = 1; $j <= $totalValues; $j++) {
                 $value = new $optionValueClass;
                 $value->setValue($faker->word);
 
@@ -65,8 +67,7 @@ class LoadOptionsData extends AbstractFixture implements ContainerAwareInterface
             }
 
             $manipulator->create($option);
-
-            $this->setReference('Sandbox.Assortment.Option-' . $i, $option);
+            $this->setReference('Sandbox.Assortment.Option-'.$i, $option);
         }
     }
 

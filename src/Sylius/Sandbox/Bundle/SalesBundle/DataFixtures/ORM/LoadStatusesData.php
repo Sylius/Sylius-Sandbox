@@ -15,6 +15,7 @@ use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\ORM\EntityManager;
+use Faker\Factory as FakerFactory;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -26,6 +27,8 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 class LoadStatusesData extends AbstractFixture implements ContainerAwareInterface, OrderedFixtureInterface
 {
     /**
+     * Container.
+     *
      * @var ContainerInterface
      */
     private $container;
@@ -44,15 +47,14 @@ class LoadStatusesData extends AbstractFixture implements ContainerAwareInterfac
     public function load(ObjectManager $manager)
     {
         $manager = $this->container->get('sylius_sales.manager.status');
-        $faker = \Faker\Factory::create();
+        $faker = FakerFactory::create();
 
-        foreach (range(0, 5) as $i) {
+        for ($i = 1; $i <= 6; $i++) {
             $status = $manager->createStatus();
             $status->setName($faker->word);
 
             $manager->persistStatus($status);
-
-            $this->setReference('Sandbox.Sales.Status-' . $i, $status);
+            $this->setReference('Sandbox.Sales.Status-'.$i, $status);
         }
     }
 

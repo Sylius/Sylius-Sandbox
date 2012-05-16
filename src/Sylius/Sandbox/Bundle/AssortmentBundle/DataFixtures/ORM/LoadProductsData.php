@@ -15,6 +15,7 @@ use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\ORM\EntityManager;
+use Faker\Factory as FakerFactory;
 use Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Product;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -26,13 +27,24 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  */
 class LoadProductsData extends AbstractFixture implements ContainerAwareInterface, OrderedFixtureInterface
 {
+    /**
+     * Container.
+     *
+     * @var ContainerInterface
+     */
     private $container;
 
+    /**
+     * {@inheritdoc}
+     */
     public function setContainer(ContainerInterface $container = null)
     {
         $this->container = $container;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function load(ObjectManager $manager)
     {
         $manager = $this->container->get('sylius_assortment.manager.product');
@@ -45,43 +57,46 @@ class LoadProductsData extends AbstractFixture implements ContainerAwareInterfac
         $variantManipulator = $this->container->get('sylius_assortment.manipulator.variant');
 
         $validator = $this->container->get('validator');
-        $faker = \Faker\Factory::create();
+        $faker = FakerFactory::create();
 
-        foreach (range(0, 50) as $i) {
+        for ($i = 1; $i <= 100; $i++) {
             $product = $manager->createProduct();
 
             $product->setName($faker->sentence);
             $product->setDescription($faker->paragraph);
-            $product->setCategory($this->getReference('Sandbox.Assortment.Category-' . rand(0, 9)));
+            $product->setCategory($this->getReference('Sandbox.Assortment.Category-' . rand(1, 10)));
             $product->setVariantPickingMode($faker->randomElement(array(Product::VARIANT_PICKING_CHOICE, Product::VARIANT_PICKING_MATCH)));
 
             $variant = $variantManager->createVariant($product);
             $variant->setPrice($faker->randomNumber(5) / 100);
 
-            $this->setReference('Sandbox.Assortment.Variant-' . $variants, $variant);
+            $this->setReference('Sandbox.Assortment.Variant-'.$variants, $variant);
             $variants++;
 
             $product->setMasterVariant($variant);
             $product->setSku($faker->randomNumber(6));
 
-            foreach (range(0, rand(2, 5)) as $x) {
+            $totalProperties = rand(3,6);
+            for ($j = 1; $j <= $totalProperties; $j++) {
                 $property = new $productPropertyClass;
-                $property->setProperty($this->getReference('Sandbox.Assortment.Property-' . rand(0, 9)));
+                $property->setProperty($this->getReference('Sandbox.Assortment.Property-'.rand(1, 10)));
                 $property->setProduct($product);
                 $property->setValue($faker->word);
 
                 $product->addProperty($property);
             }
 
-            if (true === (Boolean) rand(0, 3)) {
+            if ($faker->boolean(40)) {
                 $combinations = 0;
 
-                foreach (range(0, rand(1, 2)) as $y) {
-                    $option = $this->getReference('Sandbox.Assortment.Option-' . rand(0, 4));
+                $totalOptions = rand(1, 2);
+                for ($x = 1; $x <= $totalOptions; $x++) {
+                    $option = $this->getReference('Sandbox.Assortment.Option-'.rand(1, 5));
                     $product->addOption($option);
                 }
 
-                foreach (range(0, rand(3, 7)) as $j) {
+                $totalVariants = rand(3, 9);
+                for ($y = 1; $y <= $totalVariants; $y++) {
                     $variant = $variantManager->createVariant($product);
                     $variant->setSku($faker->randomNumber(5));
                     $variant->setPrice($faker->randomNumber(5) / 100);
@@ -95,14 +110,13 @@ class LoadProductsData extends AbstractFixture implements ContainerAwareInterfac
 
                     $product->addVariant($variant);
 
-                    $this->setReference('Sandbox.Assortment.Variant-' . $variants, $variant);
+                    $this->setReference('Sandbox.Assortment.Variant-'.$variants, $variant);
                     $variants++;
                 }
             }
 
             $manipulator->create($product);
-
-            $this->setReference('Sandbox.Assortment.Product-' . $i, $product);
+            $this->setReference('Sandbox.Assortment.Product-'.$i, $product);
         }
 
         define('SYLIUS_ASSORTMENT_FIXTURES_TV', $variants);

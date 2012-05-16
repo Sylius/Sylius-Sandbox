@@ -16,6 +16,7 @@ use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\ORM\EntityManager;
+use Faker\Factory as FakerFactory;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -27,6 +28,8 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 class LoadPostsData extends AbstractFixture implements ContainerAwareInterface, OrderedFixtureInterface
 {
     /**
+     * Container.
+     *
      * @var ContainerInterface
      */
     private $container;
@@ -47,9 +50,9 @@ class LoadPostsData extends AbstractFixture implements ContainerAwareInterface, 
         $manager = $this->container->get('sylius_blogger.manager.post');
         $manipulator = $this->container->get('sylius_blogger.manipulator.post');
 
-        $faker = \Faker\Factory::create();
+        $faker = FakerFactory::create();
 
-        foreach (range(0, 50) as $i) {
+        for ($i = 1; $i <= 50; $i++) {
             $post = $manager->createPost();
 
             $post->setTitle($faker->sentence);
@@ -57,15 +60,14 @@ class LoadPostsData extends AbstractFixture implements ContainerAwareInterface, 
             $post->setContent($faker->paragraph);
 
             $categories = array(
-                $this->getReference('Sandbox.Blogger.Category-' . rand(0, 5)),
+                $this->getReference('Sandbox.Blogger.Category-' . rand(1, 5)),
                 $this->getReference('Sandbox.Blogger.Category-' . rand(6, 10))
             );
 
             $post->setCategories(new ArrayCollection($categories));
 
             $manipulator->create($post);
-
-            $this->setReference('Sandbox.Blogger.Post-' . $i, $post);
+            $this->setReference('Sandbox.Blogger.Post-'.$i, $post);
         }
     }
 

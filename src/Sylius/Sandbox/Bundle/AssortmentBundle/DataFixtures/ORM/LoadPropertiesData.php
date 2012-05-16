@@ -11,6 +11,7 @@
 
 namespace Sylius\Sandbox\Bundle\AssortmentBundle\DataFixtures\ORM;
 
+use Faker\Factory as FakerFactory;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
@@ -48,9 +49,9 @@ class LoadPropertiesData extends AbstractFixture implements ContainerAwareInterf
         $manager = $this->container->get('sylius_assortment.manager.property');
         $manipulator = $this->container->get('sylius_assortment.manipulator.property');
 
-        $faker = \Faker\Factory::create();
+        $faker = FakerFactory::create();
 
-        foreach (range(0, 9) as $i) {
+        for ($i = 1; $i <= 10; $i++) {
             $property = $manager->createProperty();
 
             $property->setName($faker->word);
@@ -58,7 +59,7 @@ class LoadPropertiesData extends AbstractFixture implements ContainerAwareInterf
 
             $manipulator->create($property);
 
-            $this->setReference('Sandbox.Assortment.Property-' . $i, $property);
+            $this->setReference('Sandbox.Assortment.Property-'.$i, $property);
         }
     }
 
