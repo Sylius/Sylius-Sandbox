@@ -55,7 +55,7 @@
                 </tr>
             </thead>
             <tbody>
-                {% for variant in product.variants %}
+                {% for variant in product.variants if variant.available %}
                 <tr>
                     <td>
                         <ul class="unstyled">

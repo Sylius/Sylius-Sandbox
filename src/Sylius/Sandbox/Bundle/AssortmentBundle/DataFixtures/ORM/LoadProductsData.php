@@ -70,6 +70,7 @@ class LoadProductsData extends AbstractFixture implements ContainerAwareInterfac
             $variant = $variantManager->createVariant($product);
             $variant->setPrice($faker->randomNumber(5) / 100);
             $variant->setSku($faker->randomNumber(6));
+            $variant->setAvailableOn($faker->dateTimeThisYear);
 
             $this->setReference('Sandbox.Assortment.Variant-'.$variants, $variant);
             $variants++;
@@ -98,8 +99,9 @@ class LoadProductsData extends AbstractFixture implements ContainerAwareInterfac
                 $totalVariants = rand(3, 9);
                 for ($y = 1; $y <= $totalVariants; $y++) {
                     $variant = $variantManager->createVariant($product);
-                    $variant->setSku($faker->randomNumber(5));
+                    $variant->setAvailableOn($faker->dateTimeThisYear);
                     $variant->setPrice($faker->randomNumber(5) / 100);
+                    $variant->setSku($faker->randomNumber(5));
 
                     foreach ($product->getOptions() as $option) {
                         $values = $option->getValues();
@@ -108,10 +110,12 @@ class LoadProductsData extends AbstractFixture implements ContainerAwareInterfac
                         $variant->addOption($values[rand(0, $count - 1)]);
                     }
 
-                    $product->addVariant($variant);
+                    if (0 === count($this->container->get('validator')->validate($variant))) {
+                        $product->addVariant($variant);
 
-                    $this->setReference('Sandbox.Assortment.Variant-'.$variants, $variant);
-                    $variants++;
+                        $this->setReference('Sandbox.Assortment.Variant-'.$variants, $variant);
+                        $variants++;
+                    }
                 }
             }
 

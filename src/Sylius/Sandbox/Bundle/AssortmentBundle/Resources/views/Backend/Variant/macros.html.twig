@@ -5,6 +5,7 @@
         <tr>
             <th>#id</th>
             <th>SKU</th>
+            <th>availability</th>
             <th>updated at</th>
             <th>option set</th>
             <th>price</th>
@@ -16,6 +17,13 @@
         <tr>
             <td>{{ variant.id }}</td>
             <td>{{ variant.sku }}</td>
+            <td>
+                {% if variant.available %}
+                    <span class="label label-success">{{ variant.availableOn|date }}</span>
+                {% else %}
+                    <span class="label label-important">{{ variant.availableOn|date }}</span>
+                {% endif %}
+            </td>
             <td>{{ variant.updatedAt|date }}</td>
             <td>
                 <ul>
