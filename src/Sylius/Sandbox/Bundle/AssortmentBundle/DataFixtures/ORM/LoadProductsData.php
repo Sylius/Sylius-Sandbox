@@ -69,12 +69,12 @@ class LoadProductsData extends AbstractFixture implements ContainerAwareInterfac
 
             $variant = $variantManager->createVariant($product);
             $variant->setPrice($faker->randomNumber(5) / 100);
+            $variant->setSku($faker->randomNumber(6));
 
             $this->setReference('Sandbox.Assortment.Variant-'.$variants, $variant);
             $variants++;
 
             $product->setMasterVariant($variant);
-            $product->setSku($faker->randomNumber(6));
 
             $totalProperties = rand(3,6);
             for ($j = 1; $j <= $totalProperties; $j++) {
