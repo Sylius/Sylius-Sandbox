@@ -2,7 +2,9 @@
     {{ form_errors(form)  }}
     <ul class="nav nav-tabs">
         <li class="active"><a href="#main" data-toggle="tab">Product</a></li>
+        {% if prototype is not defined or (prototype is defined and prototype.options|length > 0) %}
         <li><a href="#options" data-toggle="tab">Options</a></li>
+        {% endif %}
         <li><a href="#properties" data-toggle="tab">Properties</a></li>
     </ul>
     <div class="tab-content">
@@ -25,9 +27,11 @@
             {{ form_row(form.masterVariant.availableOn) }}
             {{ form_row(form.variantPickingMode) }}
         </div>
+        {% if prototype is not defined or (prototype is defined and prototype.options|length > 0) %}
         <div class="tab-pane" id="options">
             {{ form_row(form.options) }}
         </div>
+        {% endif %}
         <div class="tab-pane" id="properties">
             <div id="sylius-assortment-product-properties" data-prototype="{{ form_widget(form.properties.get('prototype'))|e }}">
                 {% for propertyForm in form.properties %}
