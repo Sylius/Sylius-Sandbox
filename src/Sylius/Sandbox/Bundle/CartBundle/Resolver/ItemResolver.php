@@ -93,7 +93,7 @@ class ItemResolver implements ItemResolverInterface
             }
 
             // If all is ok with form, quantity and other stuff, simply return the item.
-            if ($form->isValid()) {
+            if ($form->isValid() && $item->getVariant()->isAvailable()) {
 
                 return $item;
             }
