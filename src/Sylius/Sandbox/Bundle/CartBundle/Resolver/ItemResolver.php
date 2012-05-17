@@ -61,6 +61,9 @@ class ItemResolver implements ItemResolverInterface
 
     /**
      * {@inheritdoc}
+     *
+     * Here we create the item that is going to be added to cart, basing on the current request.
+     * This method simply has to return false value if something is wrong.
      */
     public function resolveItemToAdd(Request $request)
     {
@@ -68,23 +71,31 @@ class ItemResolver implements ItemResolverInterface
          * We're getting here product id via query but you can easily override route
          * pattern and use attributes, which are available through request object.
          */
-        if ($id = $request->query->get('id')) {
-            if ($product = $this->productManager->findProduct($id)) {
-                if ('POST' === $request->getMethod()) {
-                    $form = $this->formFactory->create('sylius_cart_item', null, array('product' => $product));
+        if (!$id = $request->query->get('id')) {
 
-                    $form->bindRequest($request);
-                    $item = $form->getData(); // Item instance, cool.
+            return false;
+        }
 
-                    if (0 === $product->countVariants()) {
-                        $item->setVariant($product->getMasterVariant());
-                    }
+        if (!$product = $this->productManager->findProduct($id)) {
+            throw new NotFoundHttpException('Requested product does not exist');
+        }
 
-                    if ($form->isValid()) {
+        // We use forms to easily set the quantity and pick variant but you can do here whatever is required to create the item.
+        if ('POST' === $request->getMethod()) {
+            $form = $this->formFactory->create('sylius_cart_item', null, array('product' => $product));
 
-                        return $item;
-                    }
-                }
+            $form->bindRequest($request);
+            $item = $form->getData(); // Item instance, cool.
+
+            // If our product has no variants, we simply set the master variant of it.
+            if (0 === $product->countVariants()) {
+                $item->setVariant($product->getMasterVariant());
+            }
+
+            // If all is ok with form, quantity and other stuff, simply return the item.
+            if ($form->isValid()) {
+
+                return $item;
             }
         }
     }
