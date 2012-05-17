@@ -1,21 +1,10 @@
 <div class="well">
 <h3>My cart</h3>
-
 <strong>{{ sylius_cart_get().totalItems }}</strong> items, <strong>{{ sylius_cart_get().value }}</strong> &euro;
 <hr />
 <a href="{{ path('sylius_cart_show') }}" class="btn btn-primary">show cart <i class="icon-shopping-cart icon-white"></i></a>
 </div>
-{% render 'sylius_categorizer.controller.frontend.category:listAction' with {'alias': 'assortment'} %}
-{% render 'sylius_categorizer.controller.frontend.category:listAction' with {'alias': 'blog'} %}
-<ul id="sidebar-nav" class="nav nav-list">
-<li><a href="http://sylius.org"><i class="icon-home"></i> Sylius.org</a></li>
-<li><a href="http://sylius.readthedocs.org"><i class="icon-book"></i> Documentation</a></li>
-</ul>
-<ul id="sidebar-nav" class="nav nav-list">
-{% if is_granted('ROLE_SYLIUS_ADMIN') %}
-<li><a href="{{ path('sylius_sandbox_core_frontend_security_logout') }}"><i class="icon-off"></i> Logout</a></li>
-<li><a href="{{ path('sylius_sandbox_core_backend') }}"><i class="icon-cog"></i> Administration &raquo;</a></li>
-{% else %}
-<li><a href="{{ path('sylius_sandbox_core_frontend_security_login') }}"><i class="icon-user"></i> Login &raquo;</a></li>
-{% endif %}
-</ul>
+
+<div class="sidebar-nav well menu">
+    {{ knp_menu_render('SandboxCoreBundle:Builder:frontendSidebarMenu', {'template': 'SandboxCoreBundle:Menu:sidebar.html.twig', 'currentClass': 'active'}) }}
+</div>

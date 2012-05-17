@@ -43,27 +43,26 @@
                 </div>
             </div>
         </div>
-        <div class="container">
-            <div class="span12">
-                <div class="row">
-                    <div id="sidebar" class="span3">
-                        {% for name, value in app.session.flashes if name in ['success', 'error'] %}
-                        <div class="alert alert-{{ name }}">
-                            <a class="close" data-dismiss="alert" href="#">×</a>
-                            {{ value|trans }}
-                        </div>
-                        {% endfor %}
-                        {% block sidebar %}
-                            {% include 'SandboxCoreBundle:Frontend:sidebar.html.twig' %}
-                        {% endblock %}
-                        <hr />
-                        <footer>
-                            <p>&copy; <a href="http://sylius.org">Sylius</a>, 2011 - 2012.</p>
-                        </footer>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div id="sidebar" class="span2">
+                    {% for name, value in app.session.flashes if name in ['success', 'error'] %}
+                    <div class="alert alert-{{ name }}">
+                        <a class="close" data-dismiss="alert" href="#">×</a>
+                        {{ value|trans }}
                     </div>
-                    <div id="content" class="span9 boxy">
-                        {% block content %}   {% endblock %}
-                    </div>
+                    {% endfor %}
+                    {% block sidebar %}
+                        {% include 'SandboxCoreBundle:Frontend:sidebar.html.twig' %}
+                    {% endblock %}
+                    <hr />
+                    <footer>
+                        <p>&copy; <a href="http://sylius.org">Sylius</a>, 2011 - 2012.</p>
+                    </footer>
+                </div>
+                <div id="content" class="span10 boxy">
+                    {% block content %}
+                    {% endblock %}
                 </div>
             </div>
         </div>

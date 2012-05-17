@@ -13,38 +13,49 @@
 {{ form_errors(form) }}
 
 <form method="post" action="{{ path('sylius_cart_save') }}">
-{% for item in cart.items %}
-<div class="row product-container well">
-    <div class="span3 photo-container">
-        <a href="{{ path('sylius_assortment_product_show', {'slug': item.variant.product.slug}) }}" class="thumbnail">
-            <img src="{{ item.variant.product.imageWebPath is empty ? 'http://placehold.it/220x180' : item.variant.product.imageWebPath|apply_filter('frontend_medium') }}" alt="product photo" />
-        </a>
-    </div>
-    <div class="span5">
-        <h3>{{ item.variant.product.name }}</h3>
-        <p>
-            {{ item.variant.product.description|markdown }}
-        </p>
-        <ul class="unstyled">
-            {% for option in item.variant.options %}
-            <li><strong>{{ option.presentation }}</strong>: {{ option.value }}</li>
-            {% endfor %}
-        </ul>
-        <hr />
-        <div class="cart-actions pull-right">
-        Set <strong>quantity</strong>: {{ form_widget(form.items[loop.index0].quantity, {'attr': {'class': 'span2 center-text'}}) }}
-         or
-        <a href="{{ path('sylius_cart_item_remove', {'id': item.id}) }}" class="btn btn-danger">remove...</a>
-        </div>
-    </div>
-</div>
-{% endfor %}
+<table class="table">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th></th>
+            <th>product</th>
+            <th>quantity</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in cart.items %}
+        <tr>
+            <td>{{ loop.index }}</td>
+            <td>
+                <a href="{{ path('sylius_assortment_product_show', {'slug': item.variant.product.slug}) }}" class="thumbnail" style="width: 90px;">
+                    <img src="{{ item.variant.product.imageWebPath is empty ? 'http://placehold.it/90x60' : item.variant.product.imageWebPath|apply_filter('frontend_medium') }}" alt="product photo" />
+                </a>
+            </td>
+            <td>
+                <p>{{ item.variant.product.name }}</p>
+                <ul class="unstyled">
+                    {% for option in item.variant.options %}
+                    <li><strong>{{ option.presentation }}</strong>: {{ option.value }}</li>
+                    {% endfor %}
+                </ul>
+            </td>
+            <td>
+                {{ form_widget(form.items[loop.index0].quantity, {'attr': {'class': 'center-text'}}) }}
+            </td>
+            <td>
+                <a href="{{ path('sylius_cart_item_remove', {'id': item.id}) }}" class="btn btn-danger"><i class="icon-trash icon-white"></i></a>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
 {{ form_rest(form) }}
 <hr />
 <div class="well">
     <input type="submit" class="btn btn-primary btn-large" value="save">
     <div class="pull-right">
-    <a href="{{ path('sylius_sales_order_place') }}" class="btn btn-success btn-large">order it!</a>
+    <a href="{{ path('sylius_sales_order_place') }}" class="btn btn-success btn-large"><i class="icon-shopping-cart icon-white"></i> checkout</a>
     <a href="{{ path('sylius_cart_clear') }}" class="btn btn-danger btn-large">clear cart</a>
     </div>
 </div>

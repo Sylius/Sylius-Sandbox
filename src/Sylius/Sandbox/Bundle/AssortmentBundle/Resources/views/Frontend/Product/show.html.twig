@@ -23,6 +23,8 @@
         <p>
             {{ product.description|markdown }}
         </p>
+    </div>
+    <div class="span4">
         {% if product.properties|length > 0 %}
         <table class="table table-condensed">
             <thead>
@@ -88,9 +90,9 @@
         </ol>
     </div>
     <div class="pull-right">
-    {{ form_row(form.quantity, {'attr': {'class': 'span2 center-text'}, 'empty_value': '1'}) }}
+    {{ form_row(form.quantity, {'attr': {'class': 'center-text'}, 'empty_value': '1'}) }}
     {{ form_rest(form) }}
-    <input type="submit" class="btn btn-success btn-large" value="add to cart">
+    <input type="submit" class="btn btn-success btn-large span12" value="add to cart">
     </div>
 </form>
 {% endblock %}

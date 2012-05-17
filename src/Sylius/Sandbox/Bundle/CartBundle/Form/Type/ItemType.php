@@ -15,7 +15,7 @@ use Sylius\Bundle\AssortmentBundle\Model\ProductInterface;
 use Sylius\Bundle\CartBundle\Form\Type\ItemType as BaseItemType;
 use Symfony\Component\Form\Exception\FormException;
 use Symfony\Component\Form\FormBuilder;
-use Symfony\Component\Form\Options;
+use Symfony\Component\OptionsResolver\Options;
 
 /**
  * We extend the item form type a bit, to add a variant select field

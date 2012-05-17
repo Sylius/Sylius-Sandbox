@@ -87,7 +87,7 @@ class LoadProductsData extends AbstractFixture implements ContainerAwareInterfac
                 $product->addProperty($property);
             }
 
-            if ($faker->boolean(40)) {
+            if ($faker->boolean(70)) {
                 $combinations = 0;
 
                 $totalOptions = rand(1, 2);

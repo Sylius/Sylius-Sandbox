@@ -60,8 +60,8 @@ class LoadPostsData extends AbstractFixture implements ContainerAwareInterface, 
             $post->setContent($faker->paragraph);
 
             $categories = array(
-                $this->getReference('Sandbox.Blogger.Category-' . rand(1, 5)),
-                $this->getReference('Sandbox.Blogger.Category-' . rand(6, 10))
+                $this->getReference('Sandbox.Blogger.Category-' . rand(1, 3)),
+                $this->getReference('Sandbox.Blogger.Category-' . rand(4, 5))
             );
 
             $post->setCategories(new ArrayCollection($categories));

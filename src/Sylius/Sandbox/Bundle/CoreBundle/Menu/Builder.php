@@ -61,6 +61,80 @@ class Builder extends ContainerAware
     }
 
     /**
+     * Builds frontend side menu.
+     *
+     * @param FactoryInterface  $factory
+     * @param array             $options
+     *
+     * @return ItemInterface
+     */
+    public function frontendSidebarMenu(FactoryInterface $factory, array $options)
+    {
+        $menu = $factory->createItem('root', array(
+            'childrenAttributes' => array(
+                'class' => 'nav'
+            )
+        ));
+
+        $menu->setCurrentUri($this->container->get('request')->getRequestUri());
+
+        $childOptions = array(
+            'childrenAttributes' => array('class' => 'nav nav-list'),
+            'labelAttributes'    => array('class' => 'nav-header')
+        );
+
+        $categoryManager = $this->container->get('sylius_categorizer.manager.category');
+
+        $assortmentCategories = $categoryManager->findCategories('assortment');
+        $child = $menu->addChild('Browse products', $childOptions);
+
+        foreach ($assortmentCategories as $category) {
+            $child->addChild($category['name'], array(
+                'route'           => 'sylius_categorizer_category_show',
+                'routeParameters' => array(
+                    'alias' => 'assortment',
+                    'slug'  => $category['slug']
+                ),
+                'labelAttributes' => array('icon' => 'icon-chevron-right')
+            ));
+        }
+
+        $blogCategories = $categoryManager->findCategories('blog');
+        $child = $menu->addChild('Blog', $childOptions);
+
+        foreach ($blogCategories as $category) {
+            $child->addChild($category->getName(), array(
+                'route'           => 'sylius_categorizer_category_show',
+                'routeParameters' => array(
+                    'alias' => 'blog',
+                    'slug'  => $category->getSlug()
+                ),
+                'labelAttributes' => array('icon' => 'icon-chevron-right')
+            ));
+        }
+
+
+        $child = $menu->addChild('Administration', $childOptions);
+        if ($this->container->get('security.context')->isGranted('ROLE_SYLIUS_ADMIN')) {
+            $child->addChild('Dashboard', array(
+                'route' => 'sylius_sandbox_core_backend',
+                'labelAttributes' => array('icon' => 'icon-lock')
+            ));
+            $child->addChild('Logout', array(
+                'route' => 'sylius_sandbox_core_frontend_security_logout',
+                'labelAttributes' => array('icon' => 'icon-off')
+            ));
+        } else {
+            $child->addChild('Login', array(
+                'route' => 'sylius_sandbox_core_frontend_security_login',
+                'labelAttributes' => array('icon' => 'icon-user')
+            ));
+        }
+
+        return $menu;
+    }
+
+    /**
      * Builds backend main menu.
      *
      * @param FactoryInterface  $factory

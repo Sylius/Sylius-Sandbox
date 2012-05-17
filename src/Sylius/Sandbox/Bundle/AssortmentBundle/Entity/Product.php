@@ -41,6 +41,9 @@ class Product extends BaseProduct
     /**
      * Image path.
      *
+     * @Assert\File(maxSize="512k")
+     * @Assert\Image
+     *
      * @var string
      */
     protected $imagePath;
