@@ -140,8 +140,8 @@ sylius_addressing:
             type:
                 address: Sylius\Bundle\AddressingBundle\Form\Type\CommonAddressType
 
-sylius_stocking:
+sylius_inventory:
     driver: doctrine/orm
     classes:
         model:
-            iu: Sylius\Bundle\StockingBundle\Entity\InventoryUnit
+            iu: Sylius\Bundle\InventoryBundle\Entity\InventoryUnit

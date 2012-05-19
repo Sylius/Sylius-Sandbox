@@ -11,11 +11,12 @@
 
 namespace Sylius\Sandbox\Bundle\AssortmentBundle\Entity;
 
-use Sylius\Bundle\CategorizerBundle\Model\CategoryInterface;
 use Sylius\Bundle\AssortmentBundle\Entity\CustomizableProduct as BaseProduct;
+use Sylius\Bundle\CategorizerBundle\Model\CategoryInterface;
+use Sylius\Bundle\InventoryBundle\Model\StockableInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
-class Product extends BaseProduct
+class Product extends BaseProduct implements StockableInterface
 {
     const VARIANT_PICKING_CHOICE = 0;
     const VARIANT_PICKING_MATCH  = 1;
@@ -108,6 +109,41 @@ class Product extends BaseProduct
     public function getPrice()
     {
         return $this->masterVariant->getPrice();
+    }
+
+    /**
+     * Implementation of stockable interface.
+     * Proxy to use master variant for managing inventory status.
+     *
+     * {@inheritdoc}
+     */
+    public function getStockableId()
+    {
+        return $this->masterVariant->getStockableId();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function inStock()
+    {
+        return $this->masterVariant->inStock();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getOnHand()
+    {
+        return $this->masterVariant->getOnHand();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setOnHand($onHand)
+    {
+        $this->masterVariant->setOnHand($onHand);
     }
 
     public function getImagePath()

@@ -15,16 +15,17 @@ doctrine:
         entity_managers:
             default:
                 mappings:
+                    SandboxAddressingBundle: ~
                     SandboxAssortmentBundle: ~
                     SandboxBloggerBundle: ~
                     SandboxCartBundle: ~
-                    SandboxAddressingBundle: ~
                     SandboxSalesBundle: ~
+                    SyliusAddressingBundle: ~
                     SyliusAssortmentBundle: ~
                     SyliusBloggerBundle: ~
                     SyliusCartBundle: ~
                     SyliusCategorizerBundle: ~
-                    SyliusAddressingBundle: ~
+                    SyliusInventoryBundle: ~
                     SyliusSalesBundle: ~
                 filters:
                     softdeleteable:

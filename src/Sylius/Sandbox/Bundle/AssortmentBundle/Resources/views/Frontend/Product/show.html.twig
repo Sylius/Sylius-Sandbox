@@ -97,6 +97,8 @@
     </div>
     <div class="pull-right">
     {% if product.variants|length == 0 and not product.masterVariant.inStock %}
+        <br />
+        <span class="label label-important center-text out-of-stock">out of stock</span>
     {% else %}
         {{ form_row(form.quantity, {'attr': {'class': 'center-text'}, 'empty_value': '1'}) }}
         {{ form_rest(form) }}

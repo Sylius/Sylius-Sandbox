@@ -12,7 +12,7 @@
 namespace Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Variant;
 
 use Sylius\Bundle\AssortmentBundle\Entity\Variant\Variant as BaseVariant;
-use Sylius\Bundle\StockingBundle\Model\StockableInterface;
+use Sylius\Bundle\InventoryBundle\Model\StockableInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
