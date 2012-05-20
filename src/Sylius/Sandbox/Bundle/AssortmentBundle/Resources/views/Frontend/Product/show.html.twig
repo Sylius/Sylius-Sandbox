@@ -16,7 +16,7 @@
         </a>
     </div>
     <div class="span5">
-        {% if product.variants|length == 0 %}
+        {% if not product.varied %}
             <span class="label label-price label-success pull-right"><strong>Price</strong>: {{ product.price }} &euro;</span>
         {% endif %}
         <h3>{{ product.name }}</h3>
@@ -48,7 +48,7 @@
     </div>
 </div>
 <form action="{{ path('sylius_cart_item_add', {'id': product.id}) }}" method="post">
-    {% if product.variants|length > 0 %}
+    {% if product.varied %}
         {% if product.isVariantPickingModeChoice %}
         <table class="table table-condensed table-striped">
             <thead>
@@ -71,11 +71,13 @@
                     <td>
                         <span class="label label-success">{{ variant.price }} &euro;</span>
                     </td>
+                    <td>
                     {% if variant.inStock %}
                         {{ form_widget(form.variant[loop.index0]) }}
                     {% else %}
                         <span class="label label-important">out of stock</span>
                     {% endif %}
+                    </td>
                 </tr>
                 {% endfor %}
             </tbody>
@@ -96,12 +98,12 @@
         </ol>
     </div>
     <div class="pull-right">
-    {% if product.variants|length == 0 and not product.masterVariant.inStock %}
+    {% if not product.varied and not product.masterVariant.inStock %}
         <br />
         <span class="label label-important center-text out-of-stock">out of stock</span>
     {% else %}
         {{ form_row(form.quantity, {'attr': {'class': 'center-text'}, 'empty_value': '1'}) }}
-        {{ form_rest(form) }}
+        {{ form_widget(form._token) }}
         <input type="submit" class="btn btn-success btn-large span12" value="add to cart">
     {% endif %}
     </div>

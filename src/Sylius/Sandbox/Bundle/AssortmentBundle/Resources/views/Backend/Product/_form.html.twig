@@ -26,7 +26,9 @@
             {{ form_row(form.masterVariant.price) }}
             {{ form_row(form.masterVariant.availableOn) }}
             {{ form_row(form.variantPickingMode) }}
+            {% if not product.varied %}
             {{ form_row(form.masterVariant.onHand) }}
+            {% endif %}
         </div>
         {% if prototype is not defined or (prototype is defined and prototype.options|length > 0) %}
         <div class="tab-pane" id="options">

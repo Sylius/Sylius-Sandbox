@@ -9,6 +9,7 @@
     {% include 'SandboxAssortmentBundle:Backend/Product:_form.html.twig' %}
     <div class="form-actions">
        <input type="submit" value="save changes" class="btn btn-primary btn-large" />
+       <a href="{{ path('sylius_assortment_backend_product_show', {'id': product.id}) }}" class="btn btn-large">cancel<a>
     </div>
 </form>
 {% endblock %}
