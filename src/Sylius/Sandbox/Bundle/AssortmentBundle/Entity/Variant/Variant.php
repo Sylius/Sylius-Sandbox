@@ -31,6 +31,16 @@ class Variant extends BaseVariant
     protected $price;
 
     /**
+     * Constructor.
+     */
+    public function __construct()
+    {
+        parent::__construct();
+
+        $this->price = 0.00;
+    }
+
+    /**
      * Get price.
      *
      * @return float

@@ -8,9 +8,12 @@
 
 {% block content %}
 <div class="well">
-<a href="{{ path('sylius_assortment_backend_variant_create', {'productId': product.id}) }}" class="btn btn-primary">
-    <i class="icon-plus icon-white"></i> create variant
-</a>
+    <a href="{{ path('sylius_assortment_backend_variant_create', {'productId': product.id}) }}" class="btn btn-primary">
+        <i class="icon-plus icon-white"></i> create variant
+    </a>
+    <a href="{{ path('sylius_assortment_backend_variant_generate', {'productId': product.id}) }}" class="btn btn-success">
+        <i class="icon-forward icon-white"></i> generate variants
+    </a>
 </div>
 
 {{ macros.list(variants, product) }}
