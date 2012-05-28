@@ -58,6 +58,8 @@ class ItemType extends BaseItemType
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
+        parent::setDefaultOptions($resolver);
+
         $validationGroups = function (Options $options) {
             if (isset($options['product'])) {
                 return 0 < $options['product']->countVariants() ? 'CheckVariant' : null;
