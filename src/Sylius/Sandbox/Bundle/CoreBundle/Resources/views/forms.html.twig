@@ -40,7 +40,7 @@
 
 {% block form_label %}
 {% spaceless %}
-    {% if single_control %}
+    {% if compound %}
         {% set label_attr = label_attr|merge({'for': id}) %}
     {% endif %}
     {% if required %}
@@ -56,7 +56,7 @@
 {% block datetime_widget %}
 {% spaceless %}
     {% if widget == 'single_text' %}
-        {{ block('form_widget_single_control') }}
+        {{ block('form_widget_compound') }}
     {% else %}
         <div {{ block('widget_container_attributes') }}>
             {{ form_errors(form.date) }}
@@ -72,7 +72,7 @@
 {% block date_widget %}
 {% spaceless %}
     {% if widget == 'single_text' %}
-        {{ block('form_widget_single_control') }}
+        {{ block('form_widget_compound') }}
     {% else %}
         <div {{ block('widget_container_attributes') }}>
             <div class="form-inline">
@@ -90,7 +90,7 @@
 {% block time_widget %}
 {% spaceless %}
     {% if widget == 'single_text' %}
-        {{ block('form_widget_single_control') }}
+        {{ block('form_widget_compound') }}
     {% else %}
         <div {{ block('widget_container_attributes') }}>
             {{ form_widget(form.hour, { 'attr': { 'size': '1' } }) }}:{{ form_widget(form.minute, { 'attr': { 'size': '1' } }) }}{% if with_seconds %}:{{ form_widget(form.second, { 'attr': { 'size': '1' } }) }}{% endif %}

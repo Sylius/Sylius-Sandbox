@@ -12,7 +12,7 @@
 namespace Sylius\Sandbox\Bundle\BloggerBundle\Form\Type;
 
 use Sylius\Bundle\BloggerBundle\Form\Type\PostType as BasePostType;
-use Symfony\Component\Form\FormBuilder;
+use Symfony\Component\Form\FormBuilderInterface;
 
 /**
  * Sandbox blog post form type.
@@ -25,7 +25,7 @@ class PostType extends BasePostType
     /**
      * {@inheritdoc}
      */
-    public function buildForm(FormBuilder $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options)
     {
         parent::buildForm($builder, $options);
 

@@ -14,7 +14,7 @@ namespace Sylius\Sandbox\Bundle\CartBundle\Form\Type;
 use Sylius\Bundle\AssortmentBundle\Model\ProductInterface;
 use Sylius\Bundle\CartBundle\Form\Type\ItemType as BaseItemType;
 use Symfony\Component\Form\Exception\FormException;
-use Symfony\Component\Form\FormBuilder;
+use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\Options;
 
 /**
@@ -30,7 +30,7 @@ class ItemType extends BaseItemType
     /**
      * {@inheritdoc}
      */
-    public function buildForm(FormBuilder $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options)
     {
         parent::buildForm($builder, $options);
 
