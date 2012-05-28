@@ -15,7 +15,6 @@ use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\ORM\EntityManager;
-use Faker\Factory as FakerFactory;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -47,15 +46,30 @@ class LoadCategoriesData extends AbstractFixture implements ContainerAwareInterf
         $manipulator = $this->container->get('sylius_categorizer.manipulator.category');
         $catalog = $this->container->get('sylius_categorizer.registry')->getCatalog('assortment');
 
-        $faker = FakerFactory::create();
+        $category = $manager->createCategory($catalog);
+        $category->setName('T-Shirts');
 
-        for ($i = 1; $i <= 10; $i++) {
-            $category = $manager->createCategory($catalog);
-            $category->setName(ucfirst($faker->word));
+        $manipulator->create($category);
+        $this->setReference('Sandbox.Assortment.Category.T-Shirts', $category);
 
-            $manipulator->create($category);
-            $this->setReference('Sandbox.Assortment.Category-'.$i, $category);
-        }
+        $category = $manager->createCategory($catalog);
+        $category->setName('Stickers');
+
+        $manipulator->create($category);
+        $this->setReference('Sandbox.Assortment.Category.Stickers', $category);
+
+        $category = $manager->createCategory($catalog);
+        $category->setName('Mugs');
+
+        $manipulator->create($category);
+        $this->setReference('Sandbox.Assortment.Category.Mugs', $category);
+
+        $category = $manager->createCategory($catalog);
+        $category->setName('Books');
+
+        $manipulator->create($category);
+        $this->setReference('Sandbox.Assortment.Category.Books', $category);
+
     }
 
     public function getOrder()

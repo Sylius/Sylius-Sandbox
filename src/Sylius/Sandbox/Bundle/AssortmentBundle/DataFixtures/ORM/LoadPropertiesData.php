@@ -11,7 +11,6 @@
 
 namespace Sylius\Sandbox\Bundle\AssortmentBundle\DataFixtures\ORM;
 
-use Faker\Factory as FakerFactory;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
@@ -33,6 +32,9 @@ class LoadPropertiesData extends AbstractFixture implements ContainerAwareInterf
      */
     private $container;
 
+    private $manager;
+    private $manipulator;
+
     /**
      * {@inheritdoc}
      */
@@ -46,21 +48,88 @@ class LoadPropertiesData extends AbstractFixture implements ContainerAwareInterf
      */
     public function load(ObjectManager $manager)
     {
-        $manager = $this->container->get('sylius_assortment.manager.property');
-        $manipulator = $this->container->get('sylius_assortment.manipulator.property');
+        $this->manager = $this->container->get('sylius_assortment.manager.property');
+        $this->manipulator = $this->container->get('sylius_assortment.manipulator.property');
 
-        $faker = FakerFactory::create();
+        $this->createTShirtProperties();
+        $this->createStickerProperties();
+        $this->createMugProperties();
+        $this->createBookProperties();
+    }
 
-        for ($i = 1; $i <= 10; $i++) {
-            $property = $manager->createProperty();
+    private function createTShirtProperties()
+    {
+        $property = $this->manager->createProperty();
+        $property->setName('T-Shirt brand');
+        $property->setPresentation('Brand');
 
-            $property->setName($faker->word);
-            $property->setPresentation($faker->word);
+        $this->manipulator->create($property);
+        $this->setReference('Sandbox.Assortment.Property.T-Shirt.Brand', $property);
 
-            $manipulator->create($property);
+        $property = $this->manager->createProperty();
+        $property->setName('T-Shirt collection');
+        $property->setPresentation('Collection');
 
-            $this->setReference('Sandbox.Assortment.Property-'.$i, $property);
-        }
+        $this->manipulator->create($property);
+        $this->setReference('Sandbox.Assortment.Property.T-Shirt.Collection', $property);
+
+        $property = $this->manager->createProperty();
+        $property->setName('T-Shirt material');
+        $property->setPresentation('Made of');
+
+        $this->manipulator->create($property);
+        $this->setReference('Sandbox.Assortment.Property.T-Shirt.Made-of', $property);
+    }
+
+    private function createStickerProperties()
+    {
+        $property = $this->manager->createProperty();
+        $property->setName('Sticker print resolution');
+        $property->setPresentation('Print resolution');
+
+        $this->manipulator->create($property);
+        $this->setReference('Sandbox.Assortment.Property.Sticker.Resolution', $property);
+
+        $property = $this->manager->createProperty();
+        $property->setName('Sticker paper');
+        $property->setPresentation('Paper');
+
+        $this->manipulator->create($property);
+        $this->setReference('Sandbox.Assortment.Property.Sticker.Paper', $property);
+    }
+
+    private function createMugProperties()
+    {
+        $property = $this->manager->createProperty();
+        $property->setName('Mug material');
+        $property->setPresentation('Material');
+
+        $this->manipulator->create($property);
+        $this->setReference('Sandbox.Assortment.Property.Mug.Material', $property);
+    }
+
+    private function createBookProperties()
+    {
+        $property = $this->manager->createProperty();
+        $property->setName('Book author');
+        $property->setPresentation('Author');
+
+        $this->manipulator->create($property);
+        $this->setReference('Sandbox.Assortment.Property.Book.Author', $property);
+
+        $property = $this->manager->createProperty();
+        $property->setName('Book ISBN');
+        $property->setPresentation('ISBN');
+
+        $this->manipulator->create($property);
+        $this->setReference('Sandbox.Assortment.Property.Book.ISBN', $property);
+
+        $property = $this->manager->createProperty();
+        $property->setName('Book pages');
+        $property->setPresentation('Number of pages');
+
+        $this->manipulator->create($property);
+        $this->setReference('Sandbox.Assortment.Property.Book.Pages', $property);
     }
 
     /**

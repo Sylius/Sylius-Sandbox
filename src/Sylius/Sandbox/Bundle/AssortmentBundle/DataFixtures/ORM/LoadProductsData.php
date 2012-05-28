@@ -34,6 +34,16 @@ class LoadProductsData extends AbstractFixture implements ContainerAwareInterfac
      */
     private $container;
 
+    private $manager;
+    private $manipulator;
+
+    private $productPropertyClass;
+
+    private $totalVariants;
+    private $variantManager;
+    private $variantManipulator;
+    private $variantGenerator;
+
     /**
      * {@inheritdoc}
      */
@@ -47,83 +57,248 @@ class LoadProductsData extends AbstractFixture implements ContainerAwareInterfac
      */
     public function load(ObjectManager $manager)
     {
-        $manager = $this->container->get('sylius_assortment.manager.product');
-        $manipulator = $this->container->get('sylius_assortment.manipulator.product');
+        $this->manager = $this->container->get('sylius_assortment.manager.product');
+        $this->manipulator = $this->container->get('sylius_assortment.manipulator.product');
 
-        $productPropertyClass = $this->container->getParameter('sylius_assortment.model.product_property.class');
+        $this->productPropertyClass = $this->container->getParameter('sylius_assortment.model.product_property.class');
 
-        $variants = 0;
-        $variantManager = $this->container->get('sylius_assortment.manager.variant');
-        $variantManipulator = $this->container->get('sylius_assortment.manipulator.variant');
+        $this->variantManager = $this->container->get('sylius_assortment.manager.variant');
+        $this->variantManipulator = $this->container->get('sylius_assortment.manipulator.variant');
+        $this->variantGenerator = $this->container->get('sylius_assortment.generator.variant');
 
-        $validator = $this->container->get('validator');
-        $faker = FakerFactory::create();
+        $this->faker = FakerFactory::create();
 
-        for ($i = 1; $i <= 100; $i++) {
-            $product = $manager->createProduct();
-
-            $product->setName($faker->sentence);
-            $product->setDescription($faker->paragraph);
-            $product->setCategory($this->getReference('Sandbox.Assortment.Category-' . rand(1, 10)));
-            $product->setVariantPickingMode($faker->randomElement(array(Product::VARIANT_PICKING_CHOICE, Product::VARIANT_PICKING_MATCH)));
-
-            $variant = $variantManager->createVariant($product);
-            $variant->setPrice($faker->randomNumber(5) / 100);
-            $variant->setSku($faker->randomNumber(6));
-            $variant->setAvailableOn($faker->dateTimeThisYear);
-
-            $this->setReference('Sandbox.Assortment.Variant-'.$variants, $variant);
-            $variants++;
-
-            $product->setMasterVariant($variant);
-
-            $totalProperties = rand(3,6);
-            for ($j = 1; $j <= $totalProperties; $j++) {
-                $property = new $productPropertyClass;
-                $property->setProperty($this->getReference('Sandbox.Assortment.Property-'.rand(1, 10)));
-                $property->setProduct($product);
-                $property->setValue($faker->word);
-
-                $product->addProperty($property);
-            }
-
-            if ($faker->boolean(70)) {
-                $combinations = 0;
-
-                $totalOptions = rand(1, 2);
-                for ($x = 1; $x <= $totalOptions; $x++) {
-                    $option = $this->getReference('Sandbox.Assortment.Option-'.rand(1, 5));
-                    $product->addOption($option);
-                }
-
-                $totalVariants = rand(3, 9);
-                for ($y = 1; $y <= $totalVariants; $y++) {
-                    $variant = $variantManager->createVariant($product);
-                    $variant->setAvailableOn($faker->dateTimeThisYear);
-                    $variant->setPrice($faker->randomNumber(5) / 100);
-                    $variant->setSku($faker->randomNumber(5));
-
-                    foreach ($product->getOptions() as $option) {
-                        $values = $option->getValues();
-                        $count = $option->countValues();
-
-                        $variant->addOption($values[rand(0, $count - 1)]);
-                    }
-
-                    if (0 === count($this->container->get('validator')->validate($variant))) {
-                        $product->addVariant($variant);
-
-                        $this->setReference('Sandbox.Assortment.Variant-'.$variants, $variant);
-                        $variants++;
-                    }
-                }
-            }
-
-            $manipulator->create($product);
-            $this->setReference('Sandbox.Assortment.Product-'.$i, $product);
+        // T-Shirts...
+        for ($i = 1; $i <= 30; $i++) {
+            $this->createTShirt($i);
         }
 
-        define('SYLIUS_ASSORTMENT_FIXTURES_TV', $variants);
+        // Stickers.
+        for ($i = 31; $i <= 60; $i++) {
+            $this->createSticker($i);
+        }
+
+        // Stickers.
+        for ($i = 61; $i <= 90; $i++) {
+            $this->createMug($i);
+        }
+
+        // Stickers.
+        for ($i = 91; $i <= 120; $i++) {
+            $this->createBook($i);
+        }
+
+        define('SYLIUS_ASSORTMENT_FIXTURES_TV', $this->totalVariants);
+    }
+
+    private function createTShirt($i)
+    {
+        $product = $this->manager->createProduct();
+
+        $product->setName(sprintf('T-Shirt "%s" in different sizes and colors', $this->faker->word));
+        $product->setDescription($this->faker->paragraph);
+        $product->setCategory($this->getReference('Sandbox.Assortment.Category.T-Shirts'));
+        $product->setVariantPickingMode(Product::VARIANT_PICKING_MATCH);
+
+        $variant = $this->variantManager->createVariant($product);
+        $variant->setPrice($this->faker->randomNumber(5) / 100);
+        $variant->setSku($this->faker->randomNumber(6));
+        $variant->setAvailableOn($this->faker->dateTimeThisYear);
+
+        $this->setReference('Sandbox.Assortment.Variant-'.$this->totalVariants, $variant);
+        $this->totalVariants++;
+
+        $product->setMasterVariant($variant);
+
+        // T-Shirt brand.
+        $property = new $this->productPropertyClass;
+        $property->setProperty($this->getReference('Sandbox.Assortment.Property.T-Shirt.Brand'));
+        $property->setProduct($product);
+        $property->setValue($this->faker->randomElement(array('Nike', 'Adidas', 'Puma', 'Potato')));
+
+        $product->addProperty($property);
+
+        // T-Shirt collection.
+        $property = new $this->productPropertyClass;
+        $property->setProperty($this->getReference('Sandbox.Assortment.Property.T-Shirt.Collection'));
+        $property->setProduct($product);
+
+        $randomCollection = sprintf('Symfony2 %s %s', $this->faker->randomElement('Summer', 'Winter', 'Spring', 'Autumn'), rand(1995, 2012));
+        $property->setValue($randomCollection);
+
+        $product->addProperty($property);
+
+        // T-Shirt material.
+        $property = new $this->productPropertyClass;
+        $property->setProperty($this->getReference('Sandbox.Assortment.Property.T-Shirt.Made-of'));
+        $property->setProduct($product);
+        $property->setValue($this->faker->randomElement(array('Polyester', 'Wool', 'Polyester 10% / Wool 90%', 'Potato 100%')));
+
+        $product->addProperty($property);
+
+        $product->addOption($this->getReference('Sandbox.Assortment.Option.T-Shirt.Size'));
+        $product->addOption($this->getReference('Sandbox.Assortment.Option.T-Shirt.Color'));
+
+        $this->variantGenerator->generate($product);
+
+        foreach ($product->getVariants() as $variant) {
+            $variant->setAvailableOn($this->faker->dateTimeThisYear);
+            $variant->setPrice($this->faker->randomNumber(5) / 100);
+            $variant->setSku($this->faker->randomNumber(5));
+
+            $this->setReference('Sandbox.Assortment.Variant-'.$this->totalVariants, $variant);
+            $this->totalVariants++;
+        }
+
+        $this->manipulator->create($product);
+        $this->setReference('Sandbox.Assortment.Product-'.$i, $product);
+    }
+
+    private function createSticker($i)
+    {
+        $product = $this->manager->createProduct();
+
+        $product->setName(sprintf('Great sticker "%s" in different sizes', $this->faker->word));
+        $product->setDescription($this->faker->paragraph);
+        $product->setCategory($this->getReference('Sandbox.Assortment.Category.Stickers'));
+        $product->setVariantPickingMode($this->faker->randomElement(array(Product::VARIANT_PICKING_CHOICE, Product::VARIANT_PICKING_MATCH)));
+
+        $variant = $this->variantManager->createVariant($product);
+        $variant->setPrice($this->faker->randomNumber(5) / 100);
+        $variant->setSku($this->faker->randomNumber(6));
+        $variant->setAvailableOn($this->faker->dateTimeThisYear);
+
+        $this->setReference('Sandbox.Assortment.Variant-'.$this->totalVariants, $variant);
+        $this->totalVariants++;
+
+        $product->setMasterVariant($variant);
+
+        // Sticker resolution.
+        $property = new $this->productPropertyClass;
+        $property->setProperty($this->getReference('Sandbox.Assortment.Property.Sticker.Resolution'));
+        $property->setProduct($product);
+        $property->setValue($this->faker->randomElement(array('Waka waka', 'FULL HD', '300DPI', '200DPI')));
+
+        $product->addProperty($property);
+
+        // Sticker paper.
+        $property = new $this->productPropertyClass;
+        $property->setProperty($this->getReference('Sandbox.Assortment.Property.Sticker.Paper'));
+        $property->setProduct($product);
+
+        $randomPaper = sprintf('Paper from tree %s', $this->faker->randomElement('Wung', 'Yang', 'Lemon-San', 'Me-Gusta'));
+        $property->setValue($randomPaper);
+
+        $product->addProperty($property);
+
+        $product->addOption($this->getReference('Sandbox.Assortment.Option.Sticker.Size'));
+
+        $this->variantGenerator->generate($product);
+
+        foreach ($product->getVariants() as $variant) {
+            $variant->setAvailableOn($this->faker->dateTimeThisYear);
+            $variant->setPrice($this->faker->randomNumber(5) / 100);
+            $variant->setSku($this->faker->randomNumber(5));
+
+            $this->setReference('Sandbox.Assortment.Variant-'.$this->totalVariants, $variant);
+            $this->totalVariants++;
+        }
+
+        $this->manipulator->create($product);
+        $this->setReference('Sandbox.Assortment.Product-'.$i, $product);
+    }
+
+    private function createMug($i)
+    {
+        $product = $this->manager->createProduct();
+
+        $product->setName(sprintf('Mug "%s", many types available', $this->faker->word));
+        $product->setDescription($this->faker->paragraph);
+        $product->setCategory($this->getReference('Sandbox.Assortment.Category.Mugs'));
+        $product->setVariantPickingMode($this->faker->randomElement(array(Product::VARIANT_PICKING_CHOICE, Product::VARIANT_PICKING_MATCH)));
+
+        $variant = $this->variantManager->createVariant($product);
+        $variant->setPrice($this->faker->randomNumber(5) / 100);
+        $variant->setSku($this->faker->randomNumber(6));
+        $variant->setAvailableOn($this->faker->dateTimeThisYear);
+
+        $this->setReference('Sandbox.Assortment.Variant-'.$this->totalVariants, $variant);
+        $this->totalVariants++;
+
+        $product->setMasterVariant($variant);
+
+        // Mug material.
+        $property = new $this->productPropertyClass;
+        $property->setProperty($this->getReference('Sandbox.Assortment.Property.Mug.Material'));
+        $property->setProduct($product);
+        $property->setValue($this->faker->randomElement(array('Invisible porcelain', 'Banana skin', 'Porcelain', 'Sand')));
+
+        $product->addProperty($property);
+
+        $product->addOption($this->getReference('Sandbox.Assortment.Option.Mug.Type'));
+
+        $this->variantGenerator->generate($product);
+
+        foreach ($product->getVariants() as $variant) {
+            $variant->setAvailableOn($this->faker->dateTimeThisYear);
+            $variant->setPrice($this->faker->randomNumber(5) / 100);
+            $variant->setSku($this->faker->randomNumber(5));
+
+            $this->setReference('Sandbox.Assortment.Variant-'.$this->totalVariants, $variant);
+            $this->totalVariants++;
+        }
+
+        $this->manipulator->create($product);
+        $this->setReference('Sandbox.Assortment.Product-'.$i, $product);
+    }
+
+    private function createBook($i)
+    {
+        $product = $this->manager->createProduct();
+
+        $author = $this->faker->name;
+        $isbn = $this->faker->randomNumber(13);
+
+        $product->setName(sprintf('Book "%s" by "%s", product wihout options', ucfirst($this->faker->word), $author));
+        $product->setDescription($this->faker->paragraph);
+        $product->setCategory($this->getReference('Sandbox.Assortment.Category.Books'));
+
+        $variant = $this->variantManager->createVariant($product);
+        $variant->setPrice($this->faker->randomNumber(5) / 100);
+        $variant->setSku($isbn);
+        $variant->setAvailableOn($this->faker->dateTimeThisYear);
+
+        $this->setReference('Sandbox.Assortment.Variant-'.$this->totalVariants, $variant);
+        $this->totalVariants++;
+
+        $product->setMasterVariant($variant);
+
+        // Book author.
+        $property = new $this->productPropertyClass;
+        $property->setProperty($this->getReference('Sandbox.Assortment.Property.Book.Author'));
+        $property->setProduct($product);
+        $property->setValue($author);
+
+        $product->addProperty($property);
+
+        // Book ISBN.
+        $property = new $this->productPropertyClass;
+        $property->setProperty($this->getReference('Sandbox.Assortment.Property.Book.ISBN'));
+        $property->setProduct($product);
+        $property->setValue($isbn);
+
+        $product->addProperty($property);
+
+        // Book ISBN.
+        $property = new $this->productPropertyClass;
+        $property->setProperty($this->getReference('Sandbox.Assortment.Property.Book.Pages'));
+        $property->setProduct($product);
+        $property->setValue($this->faker->randomNumber(3));
+
+        $product->addProperty($property);
+
+        $this->manipulator->create($product);
+        $this->setReference('Sandbox.Assortment.Product-'.$i, $product);
     }
 
     public function getOrder()

@@ -15,7 +15,6 @@ use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\ORM\EntityManager;
-use Faker\Factory as FakerFactory;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -33,6 +32,10 @@ class LoadOptionsData extends AbstractFixture implements ContainerAwareInterface
      */
     private $container;
 
+    private $manager;
+    private $manipulator;
+    private $optionValueClass;
+
     /**
      * {@inheritdoc}
      */
@@ -46,29 +49,115 @@ class LoadOptionsData extends AbstractFixture implements ContainerAwareInterface
      */
     public function load(ObjectManager $manager)
     {
-        $manager = $this->container->get('sylius_assortment.manager.option');
-        $manipulator = $this->container->get('sylius_assortment.manipulator.option');
-        $optionValueClass = $this->container->getParameter('sylius_assortment.model.option_value.class');
+        $this->manager = $this->container->get('sylius_assortment.manager.option');
+        $this->manipulator = $this->container->get('sylius_assortment.manipulator.option');
+        $this->optionValueClass = $this->container->getParameter('sylius_assortment.model.option_value.class');
 
-        $faker = FakerFactory::create();
+        $this->createTShirtSizeOption();
+        $this->createTShirtColorOption();
+        $this->createStickerSizeOption();
+        $this->createMugTypeOption();
+    }
 
-        for ($i = 1; $i <= 10; $i++) {
-            $option = $manager->createOption();
+    private function createTShirtSizeOption()
+    {
+        $option = $this->manager->createOption();
 
-            $option->setName($faker->word);
-            $option->setPresentation($faker->word);
+        $option->setName('T-Shirt size');
+        $option->setPresentation('Size');
 
-            $totalValues = rand(2, 3);
-            for ($j = 1; $j <= $totalValues; $j++) {
-                $value = new $optionValueClass;
-                $value->setValue($faker->word);
+        $value = new $this->optionValueClass;
+        $value->setValue('S');
+        $option->addValue($value);
 
-                $option->addValue($value);
-            }
+        $value = new $this->optionValueClass;
+        $value->setValue('M');
+        $option->addValue($value);
 
-            $manipulator->create($option);
-            $this->setReference('Sandbox.Assortment.Option-'.$i, $option);
-        }
+        $value = new $this->optionValueClass;
+        $value->setValue('L');
+        $option->addValue($value);
+
+        $value = new $this->optionValueClass;
+        $value->setValue('XL');
+        $option->addValue($value);
+
+        $value = new $this->optionValueClass;
+        $value->setValue('XXL');
+        $option->addValue($value);
+
+        $this->manipulator->create($option);
+        $this->setReference('Sandbox.Assortment.Option.T-Shirt.Size', $option);
+    }
+
+    private function createTShirtColorOption()
+    {
+        $option = $this->manager->createOption();
+
+        $option->setName('T-Shirt color');
+        $option->setPresentation('Color');
+
+        $value = new $this->optionValueClass;
+        $value->setValue('Red');
+        $option->addValue($value);
+
+
+        $value = new $this->optionValueClass;
+        $value->setValue('Blue');
+        $option->addValue($value);
+
+        $value = new $this->optionValueClass;
+        $value->setValue('Green');
+        $option->addValue($value);
+
+        $this->manipulator->create($option);
+        $this->setReference('Sandbox.Assortment.Option.T-Shirt.Color', $option);
+    }
+
+    private function createStickerSizeOption()
+    {
+        $option = $this->manager->createOption();
+
+        $option->setName('Sticker size');
+        $option->setPresentation('Size');
+
+        $value = new $this->optionValueClass;
+        $value->setValue('3"');
+        $option->addValue($value);
+
+        $value = new $this->optionValueClass;
+        $value->setValue('5"');
+        $option->addValue($value);
+
+        $value = new $this->optionValueClass;
+        $value->setValue('7"');
+        $option->addValue($value);
+
+        $this->manipulator->create($option);
+        $this->setReference('Sandbox.Assortment.Option.Sticker.Size', $option);
+    }
+
+    private function createMugTypeOption()
+    {
+        $option = $this->manager->createOption();
+
+        $option->setName('Mug type');
+        $option->setPresentation('Type');
+
+        $value = new $this->optionValueClass;
+        $value->setValue('Medium mug');
+        $option->addValue($value);
+
+        $value = new $this->optionValueClass;
+        $value->setValue('Double mug');
+        $option->addValue($value);
+
+        $value = new $this->optionValueClass;
+        $value->setValue('MONSTER mug');
+        $option->addValue($value);
+
+        $this->manipulator->create($option);
+        $this->setReference('Sandbox.Assortment.Option.Mug.Type', $option);
     }
 
     /**
