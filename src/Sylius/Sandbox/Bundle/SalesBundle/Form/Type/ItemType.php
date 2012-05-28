@@ -12,7 +12,7 @@
 namespace Sylius\Sandbox\Bundle\SalesBundle\Form\Type;
 
 use Sylius\Bundle\SalesBundle\Form\Type\ItemType as BaseItemType;
-use Symfony\Component\Form\FormBuilder;
+use Symfony\Component\Form\FormBuilderInterface;
 
 /**
  * Item form type.
@@ -24,7 +24,7 @@ class ItemType extends BaseItemType
     /**
      * {@inheritdoc}
      */
-    public function buildForm(FormBuilder $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options)
     {
         parent::buildForm($builder, $options);
     }

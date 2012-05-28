@@ -12,7 +12,7 @@
 namespace Sylius\Sandbox\Bundle\SalesBundle\Form\Type;
 
 use Sylius\Bundle\SalesBundle\Form\Type\OrderType as BaseOrderType;
-use Symfony\Component\Form\FormBuilder;
+use Symfony\Component\Form\FormBuilderInterface;
 
 /**
  * Order form type.
@@ -22,7 +22,10 @@ use Symfony\Component\Form\FormBuilder;
  */
 class OrderType extends BaseOrderType
 {
-    public function buildForm(FormBuilder $builder, array $options)
+    /**
+     * {@inheritdoc}
+     */
+    public function buildForm(FormBuilderInterface $builder, array $options)
     {
         parent::buildForm($builder, $options);
 

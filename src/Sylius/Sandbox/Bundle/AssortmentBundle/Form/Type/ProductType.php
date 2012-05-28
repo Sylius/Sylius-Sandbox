@@ -13,7 +13,7 @@ namespace Sylius\Sandbox\Bundle\AssortmentBundle\Form\Type;
 
 use Sylius\Bundle\AssortmentBundle\Form\Type\CustomizableProductType as BaseCustomizableProductType;
 use Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Product;
-use Symfony\Component\Form\FormBuilder;
+use Symfony\Component\Form\FormBuilderInterface;
 
 /**
  * Product form type.
@@ -26,7 +26,7 @@ class ProductType extends BaseCustomizableProductType
     /**
      * {@inheritdoc}
      */
-    public function buildForm(FormBuilder $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options)
     {
         parent::buildForm($builder, $options);
 

@@ -12,7 +12,7 @@
 namespace Sylius\Sandbox\Bundle\AssortmentBundle\Form\Type;
 
 use Sylius\Bundle\AssortmentBundle\Form\Type\VariantType as BaseVariantType;
-use Symfony\Component\Form\FormBuilder;
+use Symfony\Component\Form\FormBuilderInterface;
 
 /**
  * Product variant type. We need to add only simple price field.
@@ -24,7 +24,7 @@ class VariantType extends BaseVariantType
     /**
      * {@inheritdoc}
      */
-    public function buildForm(FormBuilder $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options)
     {
         parent::buildForm($builder, $options);
 

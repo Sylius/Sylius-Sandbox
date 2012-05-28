@@ -16,6 +16,7 @@ use Sylius\Bundle\CartBundle\Form\Type\ItemType as BaseItemType;
 use Symfony\Component\Form\Exception\FormException;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\Options;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 /**
  * We extend the item form type a bit, to add a variant select field
@@ -55,17 +56,21 @@ class ItemType extends BaseItemType
      *
      * {@inheritdoc}
      */
-    public function getDefaultOptions()
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        $defaultOptions = parent::getDefaultOptions();
-        $defaultOptions['product'] = null;
-
-        $defaultOptions['validation_groups'] = function (Options $options) {
+        $validationGroups = function (Options $options) {
             if (isset($options['product'])) {
                 return 0 < $options['product']->countVariants() ? 'CheckVariant' : null;
             }
         };
 
-        return $defaultOptions;
+        $resolver
+            ->setDefaults(array(
+                'validation_groups' => $validationGroups
+            ))
+            ->setOptional(array(
+                'product'
+            ))
+        ;
     }
 }

@@ -16,7 +16,7 @@
     {{ form_row(form.address.postcode, {'attr': {'class': 'span2'}}) }}
     </div>
     <hr />
-    <table id="sylius-sales-order-items" data-prototype="{{ form_row(form.items.get('prototype'))|e }}" class="table table-striped">
+    <table id="sylius-sales-order-items" data-prototype="{{ form_row(form.items.getVar('prototype'))|e }}" class="table table-striped">
         <thead>
             <tr>
                 <th>#</th>
