@@ -107,6 +107,7 @@ sylius_cart:
         form:
             type:
                 item: Sylius\Sandbox\Bundle\CartBundle\Form\Type\ItemType
+        provider: Sylius\Sandbox\Bundle\CartBundle\Provider\CartProvider
 
 sylius_blogger:
     driver: doctrine/orm
