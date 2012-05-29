@@ -16,7 +16,7 @@ use Sylius\Bundle\CartBundle\Provider\CartProvider as BaseCartProvider;
 /**
  * Description of CartProvider.
  *
- * @author Saša Stamenković <sasa.stamenkovic@troxo.com>
+ * @author Саша Стаменковић <umpirsky@gmail.com>
  */
 class CartProvider extends BaseCartProvider
 {
