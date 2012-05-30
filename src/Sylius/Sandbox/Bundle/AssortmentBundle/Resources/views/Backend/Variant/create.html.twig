@@ -6,18 +6,7 @@
 
 {% block content %}
 <form action="{{ path('sylius_assortment_backend_variant_create', {'productId': product.id}) }}" method="post" class="form-horizontal" novalidate>
-<fieldset>
-    {{ form_errors(form) }}
-    {% if form.options is defined and form.options|length > 0 %}
-        {% for optionForm in form.options %}
-            {{ form_row(optionForm) }}
-        {% endfor %}
-    {% endif %}
-    {{ form_row(form.sku) }}
-    {{ form_row(form.presentation) }}
-    {{ form_row(form.price) }}
-    {{ form_row(form.availableOn) }}
-</fieldset>
+    {% include 'SandboxAssortmentBundle:Backend/Variant:_form.html.twig' %}
     {{ form_rest(form) }}
     <div class="form-actions">
        <input type="submit" value="create variant" class="btn btn-primary btn-large" />
