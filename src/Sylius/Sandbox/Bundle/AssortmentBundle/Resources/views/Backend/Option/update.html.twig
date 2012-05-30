@@ -10,7 +10,7 @@
     {{ form_row(form.name, {'attr': {'class': 'span4'}}) }}
     {{ form_row(form.presentation, {'attr': {'class': 'span6'}}) }}
     <hr />
-    <div id="sylius-assortment-option-values" data-prototype="{{ form_widget(form.values.getVar('prototype'))|e }}">
+    <div id="sylius-assortment-option-values" data-prototype="{{ form_widget(form.values.vars.prototype)|e }}">
         {% for valueForm in form.values %}
             {{ form_widget(valueForm)  }}
         {% endfor %}
