@@ -6,16 +6,9 @@
 
 {% block content %}
 <form action="{{ path('sylius_blogger_backend_post_create') }}" method="post" class="form-horizontal">
-<fieldset>
-    {{ form_row(form.title, {'attr': {'class': 'span7'}}) }}
-    {{ form_row(form.author, {'attr': {'class': 'span4'}}) }}
-    {{ form_row(form.content, {'attr': {'class': 'span9', 'rows': 10}}) }}
-    {{ form_row(form.published) }}
-    {{ form_row(form.categories, {'attr': {'class': 'span3'}}) }}
-</fieldset>
-    {{ form_rest(form) }}
+    {% include 'SandboxBloggerBundle:Backend/Post:_form.html.twig' %}
     <div class="form-actions">
-    <input type="submit" class="btn btn-large btn-primary" value="create post">
+        <input type="submit" class="btn btn-large btn-primary" value="create post">
     </div>
 </form>
 {% endblock %}

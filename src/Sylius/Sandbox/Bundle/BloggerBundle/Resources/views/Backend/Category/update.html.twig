@@ -6,12 +6,9 @@
 
 {% block content %}
 <form action="{{ path('sylius_categorizer_backend_category_update', {'alias': catalog.alias, 'id': category.id}) }}" method="post" class="form-horizontal">
-<fieldset>
-    {{ form_row(form.name, {'attr': {'class': 'span7'}}) }}
-</fieldset>
-    {{ form_rest(form) }}
+    {% include 'SandboxBloggerBundle:Backend/Category:_form.html.twig' %}
     <div class="form-actions">
-    <input type="submit" value="save changes" class="btn btn-primary btn-large" />
+        <input type="submit" value="save changes" class="btn btn-primary btn-large" />
     </div>
 </form>
 {% endblock %}

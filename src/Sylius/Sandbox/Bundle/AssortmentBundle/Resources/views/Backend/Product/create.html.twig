@@ -7,7 +7,6 @@
 {% block content %}
 <form action="{{ path('sylius_assortment_backend_product_create') }}" method="post" class="form-horizontal" {{ form_enctype(form) }} novalidate>
     {% include 'SandboxAssortmentBundle:Backend/Product:_form.html.twig' %}
-    {{ form_widget(form._token) }}
     <div class="form-actions">
        <input type="submit" value="create product" class="btn btn-primary btn-large" />
     </div>

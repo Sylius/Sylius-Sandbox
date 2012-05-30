@@ -6,11 +6,7 @@
 
 {% block content %}
 <form action="{{ path('sylius_assortment_backend_property_create') }}" method="post" class="form-horizontal" novalidate>
-<fieldset>
-    {{ form_row(form.name, {'attr': {'class': 'span4'}}) }}
-    {{ form_row(form.presentation, {'attr': {'class': 'span6'}}) }}
-</fieldset>
-    {{ form_widget(form._token) }}
+    {% include 'SandboxAssortmentBundle:Backend/Property:_form.html.twig' %}
     <div class="form-actions">
        <input type="submit" value="create property" class="btn btn-primary btn-large" />
     </div>

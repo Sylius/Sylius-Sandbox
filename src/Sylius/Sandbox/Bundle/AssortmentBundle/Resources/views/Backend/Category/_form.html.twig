@@ -1,0 +1,5 @@
+<fieldset>
+    {{ form_row(form.name, {'attr': {'class': 'span7'}}) }}
+    {{ form_row(form.parent, {'empty_value': "choose category..."}) }}
+</fieldset>
+    {{ form_rest(form) }}
