@@ -6,13 +6,7 @@
 
 {% block content %}
 <form action="{{ path('sylius_assortment_backend_prototype_create') }}" method="post" class="form-horizontal" novalidate>
-<fieldset>
-    {{ form_row(form.name, {'attr': {'class': 'span4'}}) }}
-    {{ form_row(form.options) }}
-    {{ form_row(form.properties) }}
-    <hr />
-</fieldset>
-    {{ form_widget(form._token) }}
+    {% include 'SandboxAssortmentBundle:Backend/Prototype:_form.html.twig' %}
     <div class="form-actions">
        <input type="submit" value="create prototype" class="btn btn-primary btn-large" />
     </div>
