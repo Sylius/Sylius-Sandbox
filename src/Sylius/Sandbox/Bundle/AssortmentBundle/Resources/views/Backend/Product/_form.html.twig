@@ -33,7 +33,7 @@
         </div>
         {% endif %}
         <div class="tab-pane" id="properties">
-            <div id="sylius-assortment-product-properties" data-prototype="{{ form_widget(form.properties.getVar('prototype'))|e }}">
+            <div id="sylius-assortment-product-properties" data-prototype="{{ form_widget(form.properties.vars.prototype)|e }}">
                 {% for propertyForm in form.properties %}
                     {{ form_widget(propertyForm) }}
                 {% endfor %}
@@ -46,3 +46,4 @@
         </div>
     </div>
 </fieldset>
+{{ form_widget(form._token) }}

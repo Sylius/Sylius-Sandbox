@@ -18,11 +18,7 @@
             <td>{{ variant.id }}</td>
             <td>{{ variant.sku }}</td>
             <td>
-                {% if variant.available %}
-                    <span class="label label-success">{{ variant.availableOn|date }}</span>
-                {% else %}
-                    <span class="label label-important">{{ variant.availableOn|date }}</span>
-                {% endif %}
+                <span class="label label-{% if variant.available %}success{% else %}important{% endif %}">{{ variant.availableOn|date }}</span>
             </td>
             <td>{{ variant.updatedAt|date }}</td>
             <td>

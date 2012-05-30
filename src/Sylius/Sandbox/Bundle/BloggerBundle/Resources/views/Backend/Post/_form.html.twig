@@ -1,0 +1,8 @@
+<fieldset>
+    {{ form_row(form.title, {'attr': {'class': 'span7'}}) }}
+    {{ form_row(form.author, {'attr': {'class': 'span4'}}) }}
+    {{ form_row(form.content, {'attr': {'class': 'span9', 'rows': 10}}) }}
+    {{ form_row(form.published) }}
+    {{ form_row(form.categories, {'attr': {'class': 'span3'}}) }}
+</fieldset>
+    {{ form_rest(form) }}

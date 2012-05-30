@@ -1,3 +1,6 @@
+bin/doctrine
+bin/doctrine.php
+
 public/bundles/
 public/assets/compiled/
 public/uploads/
