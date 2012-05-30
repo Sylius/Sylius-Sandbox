@@ -7,7 +7,6 @@
 {% block content %}
 <form action="{{ path('sylius_assortment_backend_variant_update', {'id': variant.id}) }}" method="post" class="form-horizontal" novalidate>
     {% include 'SandboxAssortmentBundle:Backend/Variant:_form.html.twig' %}
-    {{ form_rest(form) }}
     <div class="form-actions">
        <input type="submit" value="save changes" class="btn btn-primary btn-large" />
     </div>
