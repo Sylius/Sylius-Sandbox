@@ -12,7 +12,6 @@
 namespace Sylius\Sandbox\Bundle\AssortmentBundle\Form\Type;
 
 use Sylius\Bundle\CategorizerBundle\Form\Type\NestedCategoryType as BaseCategoryType;
-
 use Symfony\Component\Form\FormBuilder;
 
 class CategoryType extends BaseCategoryType
@@ -22,3 +21,4 @@ class CategoryType extends BaseCategoryType
         return 'sylius_sandbox_assortment_category';
     }
 }
+
