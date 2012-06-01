@@ -8,7 +8,7 @@ class Category extends BaseCategory
 {
     protected $products;
 
-    public function getProducts($products)
+    public function getProducts()
     {
         return $this->products;
     }
