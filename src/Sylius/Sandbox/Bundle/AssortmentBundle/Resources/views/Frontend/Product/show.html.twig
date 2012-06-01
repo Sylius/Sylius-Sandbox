@@ -25,9 +25,6 @@
         </p>
     </div>
     <div class="span4">
-        {% if product.variants|length == 0 and not product.masterVariant.inStock %}
-            <span class="label label-important span5 center-text">out of stock</span>
-        {% endif %}
         {% if product.properties|length > 0 %}
         <table class="table table-condensed">
             <thead>
