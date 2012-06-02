@@ -14,6 +14,7 @@ namespace Sylius\Sandbox\Bundle\CartBundle\Resolver;
 use Sylius\Bundle\AssortmentBundle\Model\ProductManagerInterface;
 use Sylius\Bundle\CartBundle\Model\ItemManagerInterface;
 use Sylius\Bundle\CartBundle\Resolver\ItemResolverInterface;
+use Sylius\Bundle\InventoryBundle\Resolver\StockResolverInterface;
 use Symfony\Component\Form\FormFactory;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -47,16 +48,31 @@ class ItemResolver implements ItemResolverInterface
     private $formFactory;
 
     /**
+     * Stock resolver.
+     *
+     * @var StockResolverInterface
+     */
+    private $stockResolver;
+
+    /**
      * Constructor.
      *
      * @param ItemManagerInterface    $itemManager
      * @param ProductManagerInterface $productManager
+     * @param FormFactory             $formFactory
+     * @param StockResolverInterface  $stockResolver
      */
-    public function __construct(ItemManagerInterface $itemManager, ProductManagerInterface $productManager, FormFactory $formFactory)
+    public function __construct(
+        ItemManagerInterface    $itemManager,
+        ProductManagerInterface $productManager,
+        FormFactory             $formFactory,
+        StockResolverInterface  $stockResolver
+    )
     {
         $this->itemManager = $itemManager;
         $this->productManager = $productManager;
         $this->formFactory = $formFactory;
+        $this->stockResolver = $stockResolver;
     }
 
     /**
@@ -92,8 +108,10 @@ class ItemResolver implements ItemResolverInterface
                 $item->setVariant($product->getMasterVariant());
             }
 
+            $variant = $item->getVariant();
+
             // If all is ok with form, quantity and other stuff, simply return the item.
-            if ($form->isValid() && $item->getVariant()->isAvailable()) {
+            if ($form->isValid() && $variant && $this->stockResolver->isInStock($variant)) {
 
                 return $item;
             }
