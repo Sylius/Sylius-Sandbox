@@ -86,7 +86,7 @@ class Variant extends BaseVariant implements StockableInterface
     /**
      * {@inheritdoc}
      */
-    public function inStock()
+    public function isInStock()
     {
         return 0 < $this->onHand;
     }
