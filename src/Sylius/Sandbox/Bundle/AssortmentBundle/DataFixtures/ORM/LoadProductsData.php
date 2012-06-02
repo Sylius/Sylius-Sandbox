@@ -219,7 +219,7 @@ class LoadProductsData extends AbstractFixture implements ContainerAwareInterfac
         $product->setName(sprintf('Mug "%s", many types available', $this->faker->word));
         $product->setDescription($this->faker->paragraph);
         $product->setCategory($this->getReference('Sandbox.Assortment.Category.Mugs'));
-        $product->setVariantPickingMode($this->faker->randomElement(array(Product::VARIANT_PICKING_CHOICE, Product::VARIANT_PICKING_MATCH)));
+        $product->setVariantPickingMode(Product::VARIANT_PICKING_CHOICE);
 
         $variant = $this->variantManager->createVariant($product);
         $variant->setPrice($this->faker->randomNumber(5) / 100);
