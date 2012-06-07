@@ -2,9 +2,9 @@
 
 namespace Sylius\Sandbox\Bundle\SalesBundle\Processor\Operation;
 
-use Symfony\Component\DependencyInjection\ContainerAware;
 use Sylius\Bundle\SalesBundle\Model\OrderInterface;
 use Sylius\Bundle\SalesBundle\Processor\Operation\OperationInterface;
+use Symfony\Component\DependencyInjection\ContainerAware;
 
 class ProcessOperation extends ContainerAware implements OperationInterface
 {
@@ -21,6 +21,8 @@ class ProcessOperation extends ContainerAware implements OperationInterface
     {
         $cart = $this->container->get('sylius_cart.provider')->getCart();
         $orderItemManager = $this->container->get('sylius_sales.manager.item');
+        $inventoryOperator = $this->container->get('sylius_inventory.operator');
+        $variantManipulator = $this->container->get('sylius_assortment.manipulator.variant');
 
         foreach ($cart->getItems() as $item) {
             $orderItem = $orderItemManager->createItem();
@@ -29,6 +31,11 @@ class ProcessOperation extends ContainerAware implements OperationInterface
             $orderItem->setUnitPrice($item->getVariant()->getPrice());
 
             $order->addItem($orderItem);
+
+            $inventoryUnits = $inventoryOperator->decrease($item->getVariant(), $item->getQuantity());
+            $order->addInventoryUnits($inventoryUnits);
+
+            $variantManipulator->update($item->getVariant());
         }
 
         $order->calculateTotal();

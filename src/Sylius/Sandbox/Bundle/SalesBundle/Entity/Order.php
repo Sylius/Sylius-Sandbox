@@ -11,18 +11,36 @@
 
 namespace Sylius\Sandbox\Bundle\SalesBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Sylius\Bundle\AddressingBundle\Model\AddressInterface;
 use Sylius\Bundle\SalesBundle\Entity\Order as BaseOrder;
 use Symfony\Component\Validator\Constraints as Assert;
 
 class Order extends BaseOrder
 {
-    protected $total;
+    /**
+     * Total order value.
+     *
+     * @var float
+     */
+    private $total;
 
     /**
+     * Address.
+     *
      * @Assert\Valid
      */
-    protected $address;
+    private $address;
+
+    private $inventoryUnits;
+
+    public function __construct()
+    {
+        parent::__construct();
+
+        $this->inventoryUnits = new ArrayCollection();
+    }
 
     public function getTotal()
     {
@@ -53,5 +71,18 @@ class Order extends BaseOrder
     public function setAddress(AddressInterface $address)
     {
         $this->address = $address;
+    }
+
+    public function getInventoryUnits()
+    {
+        return $this->inventoryUnits;
+    }
+
+    public function addInventoryUnits(array $inventoryUnits)
+    {
+        foreach ($inventoryUnits as $unit) {
+            $unit->setOrder($this);
+            $this->inventoryUnits->add($unit);
+        }
     }
 }

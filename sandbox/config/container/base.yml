@@ -144,4 +144,4 @@ sylius_inventory:
     driver: doctrine/orm
     classes:
         model:
-            iu: Sylius\Bundle\InventoryBundle\Entity\InventoryUnit
+            iu: Sylius\Sandbox\Bundle\AssortmentBundle\Entity\InventoryUnit
