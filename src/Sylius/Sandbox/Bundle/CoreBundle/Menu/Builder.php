@@ -121,6 +121,10 @@ class Builder extends ContainerAware
                 'labelAttributes' => array('icon' => 'icon-off')
             ));
         } else {
+            $child->addChild('Register', array(
+                'route' => 'fos_user_registration_register',
+                'labelAttributes' => array('icon' => 'icon-plus')
+            ));
             $child->addChild('Login', array(
                 'route' => 'fos_user_security_login',
                 'labelAttributes' => array('icon' => 'icon-user')
