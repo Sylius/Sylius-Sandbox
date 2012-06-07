@@ -108,7 +108,7 @@ class LoadProductsData extends AbstractFixture implements ContainerAwareInterfac
         $this->addProperty($product, 'Sandbox.Assortment.Property.T-Shirt.Brand', $randomBrand);
 
         // T-Shirt collection.
-        $randomCollection = sprintf('Symfony2 %s %s', $this->faker->randomElement('Summer', 'Winter', 'Spring', 'Autumn'), rand(1995, 2012));
+        $randomCollection = sprintf('Symfony2 %s %s', $this->faker->randomElement(array('Summer', 'Winter', 'Spring', 'Autumn')), rand(1995, 2012));
         $this->addProperty($product, 'Sandbox.Assortment.Property.T-Shirt.Collection', $randomCollection);
 
         // T-Shirt material.
