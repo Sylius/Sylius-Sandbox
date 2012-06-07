@@ -1,10 +1,13 @@
 Sylius
 ======
 
-Simple but **end-user and developer friendly** webshop engine built on top of Symfony2.
+Sylius is **developer friendly** e-commerce framework built on top of [Symfony2](http://symfony.com).  
+We also plan to provide a rich featured end-user application in future.
 
-This is sandbox application that shows some examples of the Sylius bundles usage.  
+This is sandbox application which shows some examples of the Sylius bundles usage.  
 It's also testing ground for new features planned for [main Sylius application](http://github.com/Sylius/Sylius).
+
+This repository **will never** be stable.
 
 Live demo
 ---------
@@ -49,7 +52,7 @@ This application uses [travis-ci.org](http://travis-ci.org/Sylius/SyliusAssortme
 You can run the tests by simply using this command, only if you installed vendors.
 
 ``` bash
-$ phpunit -c sylius-sandbox
+$ phpunit -c sandbox
 ```
 
 Contributing
@@ -81,21 +84,6 @@ Bug tracking
 
 This application uses [GitHub issues](https://github.com/Sylius/Sylius-Sandbox/issues).
 If you have found bug, please create an issue.
-
-Versioning
-----------
-
-Releases will be numbered with the format `major.minor.patch`.
-
-And constructed with the following guidelines.
-
-* Breaking backwards compatibility bumps the major.
-* New additions without breaking backwards compatibility bumps the minor.
-* Bug fixes and misc changes bump the patch.
-
-For more information on SemVer, please visit [semver.org website](http://semver.org/).
-
-This versioning method is same for all **Sylius** bundles and applications.
 
 License
 -------
