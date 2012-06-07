@@ -16,6 +16,7 @@ use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\ORM\EntityManager;
 use Faker\Factory as FakerFactory;
+use Sylius\Bundle\AssortmentBundle\Model\CustomizableProductInterface;
 use Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Product;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -100,57 +101,24 @@ class LoadProductsData extends AbstractFixture implements ContainerAwareInterfac
         $product->setCategory($this->getReference('Sandbox.Assortment.Category.T-Shirts'));
         $product->setVariantPickingMode(Product::VARIANT_PICKING_MATCH);
 
-        $variant = $this->variantManager->createVariant($product);
-        $variant->setPrice($this->faker->randomNumber(5) / 100);
-        $variant->setSku($this->faker->randomNumber(6));
-        $variant->setAvailableOn($this->faker->dateTimeThisYear);
-        $variant->setOnHand($this->faker->randomNumber(1));
-
-        $this->setReference('Sandbox.Assortment.Variant-'.$this->totalVariants, $variant);
-        $this->totalVariants++;
-
-        $product->setMasterVariant($variant);
+        $this->addMasterVariant($product);
 
         // T-Shirt brand.
-        $property = new $this->productPropertyClass;
-        $property->setProperty($this->getReference('Sandbox.Assortment.Property.T-Shirt.Brand'));
-        $property->setProduct($product);
-        $property->setValue($this->faker->randomElement(array('Nike', 'Adidas', 'Puma', 'Potato')));
-
-        $product->addProperty($property);
+        $randomBrand = $this->faker->randomElement(array('Nike', 'Adidas', 'Puma', 'Potato'));
+        $this->addProperty($product, 'Sandbox.Assortment.Property.T-Shirt.Brand', $randomBrand);
 
         // T-Shirt collection.
-        $property = new $this->productPropertyClass;
-        $property->setProperty($this->getReference('Sandbox.Assortment.Property.T-Shirt.Collection'));
-        $property->setProduct($product);
-
         $randomCollection = sprintf('Symfony2 %s %s', $this->faker->randomElement('Summer', 'Winter', 'Spring', 'Autumn'), rand(1995, 2012));
-        $property->setValue($randomCollection);
-
-        $product->addProperty($property);
+        $this->addProperty($product, 'Sandbox.Assortment.Property.T-Shirt.Collection', $randomCollection);
 
         // T-Shirt material.
-        $property = new $this->productPropertyClass;
-        $property->setProperty($this->getReference('Sandbox.Assortment.Property.T-Shirt.Made-of'));
-        $property->setProduct($product);
-        $property->setValue($this->faker->randomElement(array('Polyester', 'Wool', 'Polyester 10% / Wool 90%', 'Potato 100%')));
-
-        $product->addProperty($property);
+        $randomMaterial = $this->faker->randomElement(array('Polyester', 'Wool', 'Polyester 10% / Wool 90%', 'Potato 100%'));
+        $this->addProperty($product, 'Sandbox.Assortment.Property.T-Shirt.Made-of', $randomMaterial);
 
         $product->addOption($this->getReference('Sandbox.Assortment.Option.T-Shirt.Size'));
         $product->addOption($this->getReference('Sandbox.Assortment.Option.T-Shirt.Color'));
 
-        $this->variantGenerator->generate($product);
-
-        foreach ($product->getVariants() as $variant) {
-            $variant->setAvailableOn($this->faker->dateTimeThisYear);
-            $variant->setPrice($this->faker->randomNumber(5) / 100);
-            $variant->setSku($this->faker->randomNumber(5));
-            $variant->setOnHand($this->faker->randomNumber(1));
-
-            $this->setReference('Sandbox.Assortment.Variant-'.$this->totalVariants, $variant);
-            $this->totalVariants++;
-        }
+        $this->generateVariants($product);
 
         $this->manipulator->create($product);
         $this->setReference('Sandbox.Assortment.Product-'.$i, $product);
@@ -165,48 +133,19 @@ class LoadProductsData extends AbstractFixture implements ContainerAwareInterfac
         $product->setCategory($this->getReference('Sandbox.Assortment.Category.Stickers'));
         $product->setVariantPickingMode($this->faker->randomElement(array(Product::VARIANT_PICKING_CHOICE, Product::VARIANT_PICKING_MATCH)));
 
-        $variant = $this->variantManager->createVariant($product);
-        $variant->setPrice($this->faker->randomNumber(5) / 100);
-        $variant->setSku($this->faker->randomNumber(6));
-        $variant->setAvailableOn($this->faker->dateTimeThisYear);
-        $variant->setOnHand($this->faker->randomNumber(1));
-
-        $this->setReference('Sandbox.Assortment.Variant-'.$this->totalVariants, $variant);
-        $this->totalVariants++;
-
-        $product->setMasterVariant($variant);
+        $this->addMasterVariant($product);
 
         // Sticker resolution.
-        $property = new $this->productPropertyClass;
-        $property->setProperty($this->getReference('Sandbox.Assortment.Property.Sticker.Resolution'));
-        $property->setProduct($product);
-        $property->setValue($this->faker->randomElement(array('Waka waka', 'FULL HD', '300DPI', '200DPI')));
-
-        $product->addProperty($property);
+        $randomResolution = $this->faker->randomElement(array('Waka waka', 'FULL HD', '300DPI', '200DPI'));
+        $this->addProperty($product, 'Sandbox.Assortment.Property.Sticker.Resolution', $randomResolution);
 
         // Sticker paper.
-        $property = new $this->productPropertyClass;
-        $property->setProperty($this->getReference('Sandbox.Assortment.Property.Sticker.Paper'));
-        $property->setProduct($product);
-
-        $randomPaper = sprintf('Paper from tree %s', $this->faker->randomElement('Wung', 'Yang', 'Lemon-San', 'Me-Gusta'));
-        $property->setValue($randomPaper);
-
-        $product->addProperty($property);
+        $randomPaper = sprintf('Paper from tree %s', $this->faker->randomElement(array('Wung', 'Yang', 'Lemon-San', 'Me-Gusta')));
+        $this->addProperty($product, 'Sandbox.Assortment.Property.Sticker.Paper', $randomPaper);
 
         $product->addOption($this->getReference('Sandbox.Assortment.Option.Sticker.Size'));
 
-        $this->variantGenerator->generate($product);
-
-        foreach ($product->getVariants() as $variant) {
-            $variant->setAvailableOn($this->faker->dateTimeThisYear);
-            $variant->setPrice($this->faker->randomNumber(5) / 100);
-            $variant->setSku($this->faker->randomNumber(5));
-            $variant->setOnHand($this->faker->randomNumber(1));
-
-            $this->setReference('Sandbox.Assortment.Variant-'.$this->totalVariants, $variant);
-            $this->totalVariants++;
-        }
+        $this->generateVariants($product);
 
         $this->manipulator->create($product);
         $this->setReference('Sandbox.Assortment.Product-'.$i, $product);
@@ -221,38 +160,14 @@ class LoadProductsData extends AbstractFixture implements ContainerAwareInterfac
         $product->setCategory($this->getReference('Sandbox.Assortment.Category.Mugs'));
         $product->setVariantPickingMode(Product::VARIANT_PICKING_CHOICE);
 
-        $variant = $this->variantManager->createVariant($product);
-        $variant->setPrice($this->faker->randomNumber(5) / 100);
-        $variant->setSku($this->faker->randomNumber(6));
-        $variant->setAvailableOn($this->faker->dateTimeThisYear);
-        $variant->setOnHand($this->faker->randomNumber(1));
+        $this->addMasterVariant($product);
 
-        $this->setReference('Sandbox.Assortment.Variant-'.$this->totalVariants, $variant);
-        $this->totalVariants++;
-
-        $product->setMasterVariant($variant);
-
-        // Mug material.
-        $property = new $this->productPropertyClass;
-        $property->setProperty($this->getReference('Sandbox.Assortment.Property.Mug.Material'));
-        $property->setProduct($product);
-        $property->setValue($this->faker->randomElement(array('Invisible porcelain', 'Banana skin', 'Porcelain', 'Sand')));
-
-        $product->addProperty($property);
+        $randomMugMaterial = $this->faker->randomElement(array('Invisible porcelain', 'Banana skin', 'Porcelain', 'Sand'));
+        $this->addProperty($product, 'Sandbox.Assortment.Property.Mug.Material', $randomMugMaterial);
 
         $product->addOption($this->getReference('Sandbox.Assortment.Option.Mug.Type'));
 
-        $this->variantGenerator->generate($product);
-
-        foreach ($product->getVariants() as $variant) {
-            $variant->setAvailableOn($this->faker->dateTimeThisYear);
-            $variant->setPrice($this->faker->randomNumber(5) / 100);
-            $variant->setSku($this->faker->randomNumber(5));
-            $variant->setOnHand($this->faker->randomNumber(1));
-
-            $this->setReference('Sandbox.Assortment.Variant-'.$this->totalVariants, $variant);
-            $this->totalVariants++;
-        }
+        $this->generateVariants($product);
 
         $this->manipulator->create($product);
         $this->setReference('Sandbox.Assortment.Product-'.$i, $product);
@@ -269,9 +184,51 @@ class LoadProductsData extends AbstractFixture implements ContainerAwareInterfac
         $product->setDescription($this->faker->paragraph);
         $product->setCategory($this->getReference('Sandbox.Assortment.Category.Books'));
 
+        $this->addMasterVariant($product, $isbn);
+
+        $this->addProperty($product, 'Sandbox.Assortment.Property.Book.Author', $author);
+        $this->addProperty($product, 'Sandbox.Assortment.Property.Book.ISBN', $isbn);
+        $this->addProperty($product, 'Sandbox.Assortment.Property.Book.Pages', $this->faker->randomNumber(3));
+
+        $this->manipulator->create($product);
+        $this->setReference('Sandbox.Assortment.Product-'.$i, $product);
+    }
+
+    /**
+     * Generates all possible variants with random prices.
+     *
+     * @param CustomizableProductInterface $product
+     */
+    private function generateVariants(CustomizableProductInterface $product)
+    {
+        $this->variantGenerator->generate($product);
+
+        foreach ($product->getVariants() as $variant) {
+            $variant->setAvailableOn($this->faker->dateTimeThisYear);
+            $variant->setPrice($this->faker->randomNumber(5) / 100);
+            $variant->setSku($this->faker->randomNumber(5));
+            $variant->setOnHand($this->faker->randomNumber(1));
+
+            $this->setReference('Sandbox.Assortment.Variant-'.$this->totalVariants, $variant);
+            $this->totalVariants++;
+        }
+    }
+
+    /**
+     * Adds master variant to product.
+     *
+     * @param CustomizableProductInterface $product
+     * @param string                       $sku
+     */
+    private function addMasterVariant(CustomizableProductInterface $product, $sku = null)
+    {
+        if (null === $sku) {
+            $sku = $this->faker->randomNumber(6);
+        }
+
         $variant = $this->variantManager->createVariant($product);
         $variant->setPrice($this->faker->randomNumber(5) / 100);
-        $variant->setSku($isbn);
+        $variant->setSku($sku);
         $variant->setAvailableOn($this->faker->dateTimeThisYear);
         $variant->setOnHand($this->faker->randomNumber(1));
 
@@ -279,35 +236,28 @@ class LoadProductsData extends AbstractFixture implements ContainerAwareInterfac
         $this->totalVariants++;
 
         $product->setMasterVariant($variant);
-
-        // Book author.
-        $property = new $this->productPropertyClass;
-        $property->setProperty($this->getReference('Sandbox.Assortment.Property.Book.Author'));
-        $property->setProduct($product);
-        $property->setValue($author);
-
-        $product->addProperty($property);
-
-        // Book ISBN.
-        $property = new $this->productPropertyClass;
-        $property->setProperty($this->getReference('Sandbox.Assortment.Property.Book.ISBN'));
-        $property->setProduct($product);
-        $property->setValue($isbn);
-
-        $product->addProperty($property);
-
-        // Book ISBN.
-        $property = new $this->productPropertyClass;
-        $property->setProperty($this->getReference('Sandbox.Assortment.Property.Book.Pages'));
-        $property->setProduct($product);
-        $property->setValue($this->faker->randomNumber(3));
-
-        $product->addProperty($property);
-
-        $this->manipulator->create($product);
-        $this->setReference('Sandbox.Assortment.Product-'.$i, $product);
     }
 
+    /**
+     * Adds property to product with given value.
+     *
+     * @param CustomizableProductInterface $product
+     * @param string                       $propertyReference
+     * @param string                       $value
+     */
+    private function addProperty(CustomizableProductInterface $product, $propertyReference, $value)
+    {
+        $property = new $this->productPropertyClass;
+        $property->setProperty($this->getReference($propertyReference));
+        $property->setProduct($product);
+        $property->setValue($value);
+
+        $product->addProperty($property);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function getOrder()
     {
         return 6;

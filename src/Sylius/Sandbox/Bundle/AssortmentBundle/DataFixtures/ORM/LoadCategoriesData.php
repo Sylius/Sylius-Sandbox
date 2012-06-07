@@ -14,7 +14,6 @@ namespace Sylius\Sandbox\Bundle\AssortmentBundle\DataFixtures\ORM;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
-use Doctrine\ORM\EntityManager;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -32,6 +31,10 @@ class LoadCategoriesData extends AbstractFixture implements ContainerAwareInterf
      */
     private $container;
 
+    private $manager;
+    private $manipulator;
+    private $catalog;
+
     /**
      * {@inheritdoc}
      */
@@ -40,36 +43,33 @@ class LoadCategoriesData extends AbstractFixture implements ContainerAwareInterf
         $this->container = $container;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function load(ObjectManager $manager)
     {
-        $manager = $this->container->get('sylius_categorizer.manager.category');
-        $manipulator = $this->container->get('sylius_categorizer.manipulator.category');
-        $catalog = $this->container->get('sylius_categorizer.registry')->getCatalog('assortment');
+        $this->manager = $this->container->get('sylius_categorizer.manager.category');
+        $this->manipulator = $this->container->get('sylius_categorizer.manipulator.category');
+        $this->catalog = $this->container->get('sylius_categorizer.registry')->getCatalog('assortment');
 
-        $category = $manager->createCategory($catalog);
-        $category->setName('T-Shirts');
+        $this->createCategory('T-Shirts');
+        $this->createCategory('Stickers');
+        $this->createCategory('Mugs');
+        $this->createCategory('Books');
+    }
 
-        $manipulator->create($category);
-        $this->setReference('Sandbox.Assortment.Category.T-Shirts', $category);
+    /**
+     * Create and save category.
+     *
+     * @param string $name
+     */
+    private function createCategory($name)
+    {
+        $category = $this->manager->createCategory($this->catalog);
+        $category->setName($name);
 
-        $category = $manager->createCategory($catalog);
-        $category->setName('Stickers');
-
-        $manipulator->create($category);
-        $this->setReference('Sandbox.Assortment.Category.Stickers', $category);
-
-        $category = $manager->createCategory($catalog);
-        $category->setName('Mugs');
-
-        $manipulator->create($category);
-        $this->setReference('Sandbox.Assortment.Category.Mugs', $category);
-
-        $category = $manager->createCategory($catalog);
-        $category->setName('Books');
-
-        $manipulator->create($category);
-        $this->setReference('Sandbox.Assortment.Category.Books', $category);
-
+        $this->manipulator->create($category);
+        $this->setReference('Sandbox.Assortment.Category.'.$name, $category);
     }
 
     public function getOrder()
