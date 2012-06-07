@@ -121,4 +121,26 @@
         </tr>
     </tbody>
 </table>
+<hr />
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th colspan="3">inventory tracking</th>
+        </tr>
+        <tr>
+            <th>#</th>
+            <th>stockable identifier</th>
+            <th>created at</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for unit in order.inventoryUnits %}
+        <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ unit.stockableId }}</td>
+            <td>{{ unit.createdAt|date }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
 {% endblock %}

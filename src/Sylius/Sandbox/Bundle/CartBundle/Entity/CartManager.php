@@ -28,7 +28,12 @@ class CartManager extends BaseCartManager
     public function findCart($id)
     {
         return $this->repository->createQueryBuilder('cart')
-            ->join('cart.items', 'item')
+            ->select('cart, item, variant, product', 'optionValue', 'option')
+            ->leftJoin('cart.items', 'item')
+            ->leftJoin('item.variant', 'variant')
+            ->leftJoin('variant.product', 'product')
+            ->leftJoin('variant.options', 'optionValue')
+            ->leftJoin('optionValue.option', 'option')
             ->where('cart.id = :id')
             ->setParameter('id', $id)
             ->getQuery()
