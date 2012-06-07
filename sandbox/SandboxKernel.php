@@ -36,6 +36,7 @@ class SandboxKernel extends Kernel
             new \Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
             new \Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
             new \FOS\RestBundle\FOSRestBundle(),
+            new \FOS\UserBundle\FOSUserBundle(),
             new \JMS\SerializerBundle\JMSSerializerBundle($this),
             new \Knp\Bundle\MarkdownBundle\KnpMarkdownBundle(),
             new \Knp\Bundle\MenuBundle\KnpMenuBundle(),
@@ -56,8 +57,8 @@ class SandboxKernel extends Kernel
             new \Sylius\Bundle\BloggerBundle\SyliusBloggerBundle(),
             new \Sylius\Bundle\CartBundle\SyliusCartBundle(),
             new \Sylius\Bundle\CategorizerBundle\SyliusCategorizerBundle(),
-            new \Sylius\Bundle\SalesBundle\SyliusSalesBundle(),
             new \Sylius\Bundle\InventoryBundle\SyliusInventoryBundle(),
+            new \Sylius\Bundle\SalesBundle\SyliusSalesBundle(),
 
             /*
              * Sandbox specific bundles.
@@ -68,6 +69,7 @@ class SandboxKernel extends Kernel
             new \Sylius\Sandbox\Bundle\CartBundle\SandboxCartBundle(),
             new \Sylius\Sandbox\Bundle\CoreBundle\SandboxCoreBundle(),
             new \Sylius\Sandbox\Bundle\SalesBundle\SandboxSalesBundle(),
+            new \Sylius\Sandbox\Bundle\UserBundle\SandboxUserBundle(),
         );
 
         if ($this->isDebug()) {

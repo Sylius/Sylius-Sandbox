@@ -37,7 +37,7 @@ class CartManager extends BaseCartManager
             ->where('cart.id = :id')
             ->setParameter('id', $id)
             ->getQuery()
-            ->getSingleResult()
+            ->getOneOrNullResult()
         ;
     }
 }

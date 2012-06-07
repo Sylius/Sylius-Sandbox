@@ -12,6 +12,7 @@
         "doctrine/doctrine-fixtures-bundle":   "dev-master",
         "doctrine/doctrine-migrations-bundle": "dev-master",
         "friendsofsymfony/rest-bundle":        "dev-master",
+        "friendsofsymfony/user-bundle":        "dev-master",
         "knplabs/knp-markdown-bundle":         "dev-master",
         "knplabs/knp-menu-bundle":             "dev-master",
         "sensio/distribution-bundle":          "dev-master",

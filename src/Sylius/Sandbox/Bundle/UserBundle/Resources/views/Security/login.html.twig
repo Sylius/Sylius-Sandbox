@@ -10,18 +10,18 @@
   <small>Mr. Mysterious</small>
 </blockquote>
 
-{% if errorMessage %}
+{% if error %}
 <div class="alert alert-error">
-    {{ errorMessage }}
+    {{ error }}
 </div>
 {% endif %}
 
-<form action="{{ path("sylius_sandbox_core_frontend_security_check") }}" method="post" class="well">
+<form action="{{ path('fos_user_security_login') }}" method="post" class="well">
 <fieldset>
     <div class="control-group">
     <label for="username" class="control-label">Login</label>
     <div class="controls">
-        <input type="text" id="username" name="_username" value="{{ lastUsername }}" />
+        <input type="text" id="username" name="_username" value="{{ last_username }}" />
     </div>
     </div>
     <div class="control-group">
@@ -40,4 +40,5 @@
     <input type="submit" class="btn btn-primary btn-large" name="login" value="login" />
 </div>
 </form>
+
 {% endblock %}

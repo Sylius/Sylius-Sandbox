@@ -62,6 +62,11 @@ avalanche_imagine:
             type: thumbnail
             options: { size: [90, 60], mode: outbound }
 
+fos_user:
+    db_driver: orm
+    firewall_name: main
+    user_class: Sylius\Sandbox\Bundle\UserBundle\Entity\User
+
 sylius_assortment:
     driver: doctrine/orm
     api: true

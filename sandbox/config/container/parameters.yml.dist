@@ -11,9 +11,6 @@ parameters:
     sylius.database.user:     ~
     sylius.database.password: ~
 
-    sylius.security.username: administrator
-    sylius.security.password: 79fb86e161e6bee2f14740099c4bee8247926999
-
     sylius.mailer.transport:  smtp
     sylius.mailer.host:       localhost
     sylius.mailer.user:       ~

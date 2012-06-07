@@ -114,20 +114,23 @@ class Builder extends ContainerAware
         }
 
 
-        $child = $menu->addChild('Administration', $childOptions);
-        if ($this->container->get('security.context')->isGranted('ROLE_SYLIUS_ADMIN')) {
-            $child->addChild('Dashboard', array(
-                'route' => 'sylius_sandbox_core_backend',
-                'labelAttributes' => array('icon' => 'icon-lock')
-            ));
+        $child = $menu->addChild('My account', $childOptions);
+        if ($this->container->get('security.context')->isGranted('ROLE_USER')) {
             $child->addChild('Logout', array(
-                'route' => 'sylius_sandbox_core_frontend_security_logout',
+                'route' => 'fos_user_security_logout',
                 'labelAttributes' => array('icon' => 'icon-off')
             ));
         } else {
             $child->addChild('Login', array(
-                'route' => 'sylius_sandbox_core_frontend_security_login',
+                'route' => 'fos_user_security_login',
                 'labelAttributes' => array('icon' => 'icon-user')
+            ));
+        }
+
+        if ($this->container->get('security.context')->isGranted('ROLE_SYLIUS_ADMIN')) {
+            $child->addChild('Dashboard', array(
+                'route' => 'sylius_sandbox_core_backend',
+                'labelAttributes' => array('icon' => 'icon-lock')
             ));
         }
 
@@ -202,7 +205,7 @@ class Builder extends ContainerAware
 
         $child = $menu->addChild('Administration', $childOptions);
         $child->addChild('Logout', array(
-            'route' => 'sylius_sandbox_core_frontend_security_logout',
+            'route' => 'fos_user_security_logout',
             'labelAttributes' => array('icon' => 'icon-off')
         ));
 

@@ -5,18 +5,6 @@ sylius_sandbox_core_frontend:
     pattern: /
     defaults: { _controller: sylius_sandbox_core.controller.frontend.main:indexAction }
 
-sylius_sandbox_core_frontend_security_login:
-    pattern: /login
-    defaults: { _controller: sylius_sandbox_core.controller.frontend.security:loginAction }
-
-sylius_sandbox_core_frontend_security_check:
-    pattern: /login
-    defaults: { _controller: sylius_sandbox_core.controller.frontend.security:checkAction }
-
-sylius_sandbox_core_frontend_security_logout:
-    pattern: /logout
-    defaults: { _controller: sylius_sandbox_core.controller.frontend.security:logoutAction }
-
 sylius_sandbox_core_backend:
     pattern: /administration
     defaults: { _controller: sylius_sandbox_core.controller.backend.main:indexAction }
