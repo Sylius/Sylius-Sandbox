@@ -57,6 +57,7 @@ class Order extends BaseOrder
         $total = 0.00;
         foreach ($this->getItems() as $item)
         {
+            $item->setUnitPrice($item->getVariant()->getPrice());
             $total += $item->getQuantity() * $item->getUnitPrice();
         }
 

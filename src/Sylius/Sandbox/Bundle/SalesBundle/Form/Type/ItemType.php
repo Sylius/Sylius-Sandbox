@@ -27,5 +27,9 @@ class ItemType extends BaseItemType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         parent::buildForm($builder, $options);
+
+        $builder
+            ->add('variant', 'sylius_assortment_variant_to_identifier', array('identifier' => 'sku'))
+        ;
     }
 }

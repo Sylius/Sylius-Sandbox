@@ -19,7 +19,6 @@
     <table id="sylius-sales-order-items" data-prototype="{{ form_row(form.items.vars.prototype)|e }}" class="table table-striped">
         <thead>
             <tr>
-                <th>#</th>
                 <th>SKU</th>
                 <th>quantity</th>
                 <th><span class="pull-right">unit price</span></th>
@@ -28,24 +27,10 @@
         </thead>
         <tbody>
             {% for item in order.items %}
-            <tr>
-                <td>{{ loop.index }}</td>
-                <td>{{ item.variant.sku }}</td>
-                <td>{{ form_widget(form.items[loop.index0].quantity, {'attr': {'class': 'span2'}}) }}</td>
-                <td>
-                    <div class="input-append pull-right">
-                    <input type="text" id="sylius-sales-order-item-unitPrice-{{ loop.index0 }}" class="disabled input-small" disabled="disabled" value="{{ item.unitPrice }}"/><span class="add-on">&euro;</span>
-                    </div>
-                </td>
-                <td>
-                    <div class="input-append pull-right">
-                    <input type="text" id="sylius-sales-order-item-total-{{ loop.index0 }}" class="disabled input-small" disabled="disabled" value="{{ item.unitPrice * item.quantity }}"/><span class="add-on">&euro;</span>
-                    </div>
-                </td>
-            </tr>
+                {{ form_row(form.items[loop.index0])}}
             {% endfor %}
             <tr>
-                <td colspan="4">
+                <td colspan="3">
                     <a id="sylius-sales-order-items-adder" class="btn btn-success">new item</a>
                 </td>
                 <td>

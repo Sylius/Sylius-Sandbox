@@ -102,17 +102,16 @@
 {% block sylius_sales_item_row %}
 {% spaceless %}
 <tr>
-    <td>__position__</td>
-    <td></td>
-    <td>{{ form_widget(form.quantity, {'attr': {'class': 'span2'} ,'empty_value': '1'}) }}</td>
+    <td>{{ form_widget(form.variant, {'attr': {'class': 'span12'}}) }}</td>
+    <td>{{ form_widget(form.quantity, {'attr': {'class': 'span3'} ,'empty_value': '1'}) }}</td>
     <td>
         <div class="input-append pull-right">
-        <input type="text" id="sylius-sales-order-item-unitPrice-__id__" class="disabled input-small" disabled="disabled" value="0.00"/><span class="add-on">&euro;</span>
+        <input type="text" id="{{ id }}-unitPrice" class="disabled input-small" disabled="disabled" value="{{ value is not empty ? value.unitPrice : '0.00' }}"/><span class="add-on">&euro;</span>
         </div>
     </td>
     <td>
         <div class="input-append pull-right">
-        <input type="text" id="sylius-sales-order-item-total-__id__" class="disabled input-small" disabled="disabled" value="0.00"/><span class="add-on">&euro;</span>
+        <input type="text" id="{{ id }}-total" class="disabled input-small" disabled="disabled" value="{{ value is not empty ? value.unitPrice * value.quantity : '0.00' }}"/><span class="add-on">&euro;</span>
         </div>
     </td>
 </tr>
