@@ -51,6 +51,8 @@ class LoadPostsData extends AbstractFixture implements ContainerAwareInterface, 
         $manipulator = $this->container->get('sylius_blogger.manipulator.post');
 
         $faker = FakerFactory::create();
+        $categoriesA = array('Symfony2', 'Sylius');
+        $categoriesB = array('Doctrine', 'Composer');
 
         for ($i = 1; $i <= 50; $i++) {
             $post = $manager->createPost();
@@ -59,9 +61,12 @@ class LoadPostsData extends AbstractFixture implements ContainerAwareInterface, 
             $post->setAuthor($faker->name);
             $post->setContent($faker->paragraph);
 
+            $randomA = $faker->randomElement($categoriesA);
+            $randomB = $faker->randomElement($categoriesB);
+
             $categories = array(
-                $this->getReference('Sandbox.Blogger.Category-' . rand(1, 3)),
-                $this->getReference('Sandbox.Blogger.Category-' . rand(4, 5))
+                $this->getReference('Sandbox.Blogger.Category.'.$randomA),
+                $this->getReference('Sandbox.Blogger.Category.'.$randomB)
             );
 
             $post->setCategories(new ArrayCollection($categories));

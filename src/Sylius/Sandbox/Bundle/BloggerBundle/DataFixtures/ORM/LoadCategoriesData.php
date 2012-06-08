@@ -14,8 +14,6 @@ namespace Sylius\Sandbox\Bundle\BloggerBundle\DataFixtures\ORM;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
-use Doctrine\ORM\EntityManager;
-use Faker\Factory as FakerFactory;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -27,9 +25,15 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 class LoadCategoriesData extends AbstractFixture implements ContainerAwareInterface, OrderedFixtureInterface
 {
     /**
+     * Container.
+     *
      * @var ContainerInterface
      */
     private $container;
+
+    private $manager;
+    private $manipulator;
+    private $catalog;
 
     /**
      * {@inheritdoc}
@@ -44,26 +48,32 @@ class LoadCategoriesData extends AbstractFixture implements ContainerAwareInterf
      */
     public function load(ObjectManager $manager)
     {
-        $manager = $this->container->get('sylius_categorizer.manager.category');
-        $manipulator = $this->container->get('sylius_categorizer.manipulator.category');
-        $catalog = $this->container->get('sylius_categorizer.registry')->getCatalog('blog');
+        $this->manager = $this->container->get('sylius_categorizer.manager.category');
+        $this->manipulator = $this->container->get('sylius_categorizer.manipulator.category');
+        $this->catalog = $this->container->get('sylius_categorizer.registry')->getCatalog('blog');
 
-        $faker = FakerFactory::create();
-
-        for ($i = 1; $i <= 5; $i++) {
-            $category = $manager->createCategory($catalog);
-            $category->setName($faker->word);
-
-            $manipulator->create($category);
-            $this->setReference('Sandbox.Blogger.Category-'.$i, $category);
-        }
+        $this->createCategory('Symfony2');
+        $this->createCategory('Doctrine');
+        $this->createCategory('Sylius');
+        $this->createCategory('Composer');
     }
 
     /**
-     * {@inheritdoc}
+     * Create and save category.
+     *
+     * @param string $name
      */
+    private function createCategory($name)
+    {
+        $category = $this->manager->createCategory($this->catalog);
+        $category->setName($name);
+
+        $this->manipulator->create($category);
+        $this->setReference('Sandbox.Blogger.Category.'.$name, $category);
+    }
+
     public function getOrder()
     {
-        return 7;
+        return 2;
     }
 }
