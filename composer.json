@@ -27,6 +27,7 @@
         "sylius/blogger-bundle":               "dev-master",
         "sylius/cart-bundle":                  "dev-master",
         "sylius/categorizer-bundle":           "dev-master",
+        "sylius/flow-bundle":                  "dev-master",
         "sylius/inventory-bundle":             "dev-master",
         "sylius/sales-bundle":                 "dev-master",
         "symfony/assetic-bundle":              "dev-master",
