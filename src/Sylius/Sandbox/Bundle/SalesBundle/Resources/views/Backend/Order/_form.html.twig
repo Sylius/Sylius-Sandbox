@@ -1,0 +1,39 @@
+<fieldset>
+    <div class="well">
+    <hr />
+    {{ form_row(form.address.firstname, {'attr': {'class': 'span4'}}) }}
+    {{ form_row(form.address.lastname, {'attr': {'class': 'span5'}}) }}
+    {{ form_row(form.address.street, {'attr': {'class': 'span6'}}) }}
+    {{ form_row(form.address.city, {'attr': {'class': 'span4'}}) }}
+    {{ form_row(form.address.postcode, {'attr': {'class': 'span2'}}) }}
+    </div>
+    <hr />
+    <table id="sylius-sales-order-items" data-prototype="{{ form_row(form.items.vars.prototype)|e }}" class="table table-striped">
+        <thead>
+            <tr>
+                <th></th>
+                <th>SKU</th>
+                <th>quantity</th>
+                <th>product</th>
+                <th><span class="pull-right">unit price</span></th>
+                <th><span class="pull-right">line total</span></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for itemForm in form.items %}
+                {{ form_row(itemForm) }}
+            {% endfor %}
+            <tr>
+                <td colspan="5">
+                    <a id="sylius-sales-order-items-adder" class="btn btn-success">new item</a>
+                </td>
+                <td>
+                    <div class="input-append pull-right">
+                    <input type="text" id="sylius-sales-order-total" class="disabled input-small" disabled="disabled" value="0.00"/><span class="add-on">&euro;</span>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</fieldset>
+{{ form_widget(form._token) }}

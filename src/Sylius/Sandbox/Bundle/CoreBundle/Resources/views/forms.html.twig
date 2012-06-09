@@ -100,8 +100,16 @@
 {% block sylius_sales_item_row %}
 {% spaceless %}
 <tr>
+    <td>
+        <a class="btn btn-danger"><i class="icon-trash icon-white"></i></a>
+    </td>
     <td>{{ form_widget(form.variant, {'attr': {'class': 'span12'}}) }}</td>
     <td>{{ form_widget(form.quantity, {'attr': {'class': 'span3'} ,'empty_value': '1'}) }}</td>
+    <td>
+        {% if value is not empty %}
+        {{ value.variant.product.name }}
+        {% endif %}
+    </td>
     <td>
         <div class="input-append pull-right">
         <input type="text" id="{{ id }}-unitPrice" class="disabled input-small" disabled="disabled" value="{{ value is not empty ? value.unitPrice : '0.00' }}"/><span class="add-on">&euro;</span>
