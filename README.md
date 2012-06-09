@@ -46,7 +46,7 @@ Open up ``/path/to/Sylius-Sandbox/public/dev.php`` in your browser and play with
 Behat test suite
 ----------------
 
-To run Behat test suite, run the following command.
+To run Behat test suite, use the following command.
 
 ``` bash
 $ ./bin/behat @SandboxCoreBundle
