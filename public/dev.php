@@ -16,9 +16,6 @@ use Symfony\Component\HttpFoundation\Request;
  * Dev environment.
  */
 
-// Require autoload.
-require_once __DIR__.'/../sandbox/autoload.php';
-
 // Require kernel.
 require_once __DIR__.'/../sandbox/SandboxKernel.php';
 

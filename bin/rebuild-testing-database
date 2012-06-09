@@ -3,4 +3,3 @@
 ./sandbox/console --env=testing doctrine:database:drop --force $1
 ./sandbox/console --env=testing doctrine:database:create $1
 ./sandbox/console --env=testing doctrine:schema:create $1
-./sandbox/console --env=testing doctrine:fixtures:load --verbose $1

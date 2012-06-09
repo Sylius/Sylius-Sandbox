@@ -43,6 +43,14 @@ $ php sandbox/console assetic:dump
 
 Open up ``/path/to/Sylius-Sandbox/public/dev.php`` in your browser and play with the application.
 
+Behat test suite
+----------------
+
+To run Behat test suite, run the following command.
+
+``` bash
+$ ./bin/behat @SandboxCoreBundle
+```
 
 Testing and build status
 ------------------------

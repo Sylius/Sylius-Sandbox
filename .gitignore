@@ -1,5 +1,7 @@
 bin/doctrine
 bin/doctrine.php
+bin/behat
+bin/goutte.phar
 
 public/bundles/
 public/assets/compiled/
