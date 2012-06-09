@@ -3,6 +3,8 @@ bin/doctrine.php
 bin/behat
 bin/goutte.phar
 
+behat.yml
+
 public/bundles/
 public/assets/compiled/
 public/uploads/
