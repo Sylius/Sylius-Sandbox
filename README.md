@@ -1,4 +1,4 @@
-Sylius-Sandbox [![Build status...](https://secure.travis-ci.org/Sylius/SyliusAssortmentBundle.png)](http://travis-ci.org/Sylius/Sylius-Sandbox)
+Sylius-Sandbox [![Build status...](https://secure.travis-ci.org/Sylius/Sylius-Sandbox.png)](http://travis-ci.org/Sylius/Sylius-Sandbox)
 ==============
 
 Sylius is **developer friendly** e-commerce framework built on top of [Symfony2](http://symfony.com).  
