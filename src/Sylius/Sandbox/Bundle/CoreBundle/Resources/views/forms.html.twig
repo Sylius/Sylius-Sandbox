@@ -101,13 +101,15 @@
 {% spaceless %}
 <tr>
     <td>
-        <a class="btn btn-danger"><i class="icon-trash icon-white"></i></a>
+        {% if value is not empty %}
+        <a href="{{ path('sylius_sales_backend_order_item_delete', {'id': value.id}) }}" data-confirmer-question="confirmer.q.item.delete"  class="btn btn-danger confirmer"><i class="icon-trash icon-white"></i></a>
+        {% endif %}
     </td>
     <td>{{ form_widget(form.variant, {'attr': {'class': 'span12'}}) }}</td>
     <td>{{ form_widget(form.quantity, {'attr': {'class': 'span3'} ,'empty_value': '1'}) }}</td>
     <td>
         {% if value is not empty %}
-        {{ value.variant.product.name }}
+            {{ value.variant.product.name }}
         {% endif %}
     </td>
     <td>
