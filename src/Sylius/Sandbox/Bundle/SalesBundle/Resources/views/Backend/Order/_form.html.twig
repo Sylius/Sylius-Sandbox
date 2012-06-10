@@ -29,7 +29,7 @@
                 </td>
                 <td>
                     <div class="input-append pull-right">
-                    <input type="text" id="sylius-sales-order-total" class="disabled input-small" disabled="disabled" value="0.00"/><span class="add-on">&euro;</span>
+                    <input type="text" id="sylius-sales-order-total" class="disabled input-small" disabled="disabled" value="{% if order is defined %}{{ order.total }}{% else %}0.00{% endif %}"/><span class="add-on">&euro;</span>
                     </div>
                 </td>
             </tr>
