@@ -7,9 +7,7 @@
 >
 
     <entity name="Sylius\Sandbox\Bundle\CommentBundle\Entity\Thread" table="sylius_sandbox_comment_thread">
-        <id name="id" column="id" type="integer">
-            <generator strategy="AUTO" />
-        </id>
+        <id name="id" column="id" type="string" />
     </entity>
 
 </doctrine-mapping>
