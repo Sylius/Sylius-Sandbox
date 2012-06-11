@@ -22,8 +22,10 @@ sylius_sandbox_addressing:
 sylius_sandbox_user:
     resource: @SandboxUserBundle/Resources/config/routing.yml
 
-sylius_sandbox_comment:
-    resource: @SandboxCommentBundle/Resources/config/routing.yml
+fos_comment_api:
+    type: rest
+    resource: "@FOSCommentBundle/Resources/config/routing.yml"
+    prefix: /api
 
 sylius_categorizer_category:
     resource: @SyliusCategorizerBundle/Resources/config/routing/backend/category.yml
