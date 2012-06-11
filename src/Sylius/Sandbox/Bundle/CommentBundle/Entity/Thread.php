@@ -21,8 +21,4 @@ use FOS\CommentBundle\Entity\Thread as BaseThread;
  */
 class Thread extends BaseThread
 {
-    /**
-     * Thread ID.
-     */
-    protected $id;
 }

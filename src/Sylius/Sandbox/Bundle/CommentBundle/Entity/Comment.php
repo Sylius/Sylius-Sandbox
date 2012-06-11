@@ -22,11 +22,6 @@ use FOS\CommentBundle\Entity\Comment as BaseComment;
 class Comment extends BaseComment
 {
     /**
-     * Comment ID.
-     */
-    protected $id;
-
-    /**
      * Thread of this comment.
      *
      * @var Thread

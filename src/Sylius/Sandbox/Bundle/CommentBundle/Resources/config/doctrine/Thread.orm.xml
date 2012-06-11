@@ -6,7 +6,7 @@
                                       http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd"
 >
 
-    <entity name="Sylius\Sandbox\Bundle\CommentBundle\Entity\Thread" table="bgb_comment_thread">
+    <entity name="Sylius\Sandbox\Bundle\CommentBundle\Entity\Thread" table="sylius_sandbox_comment_thread">
         <id name="id" column="id" type="integer">
             <generator strategy="AUTO" />
         </id>
