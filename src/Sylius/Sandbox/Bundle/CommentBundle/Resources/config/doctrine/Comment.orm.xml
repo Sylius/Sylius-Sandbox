@@ -11,7 +11,7 @@
             <generator strategy="AUTO" />
         </id>
         <many-to-one field="thread" target-entity="Sylius\Sandbox\Bundle\CommentBundle\Entity\Thread">
-            <join-column name="comment_id" referenced-column-name="id" on-delete="SET NULL"/>
+            <join-column name="thread_id" referenced-column-name="id" on-delete="SET NULL"/>
         </many-to-one>
     </entity>
 
