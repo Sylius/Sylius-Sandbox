@@ -67,6 +67,13 @@ fos_user:
     firewall_name: main
     user_class: Sylius\Sandbox\Bundle\UserBundle\Entity\User
 
+fos_comment:
+    db_driver: orm
+    class:
+        model:
+            comment: Sylius\Sandbox\Bundle\CommentBundle\Entity\Comment
+            thread: Sylius\Sandbox\Bundle\CommentBundle\Entity\Thread
+
 sylius_assortment:
     driver: doctrine/orm
     api: true

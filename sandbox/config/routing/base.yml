@@ -22,6 +22,9 @@ sylius_sandbox_addressing:
 sylius_sandbox_user:
     resource: @SandboxUserBundle/Resources/config/routing.yml
 
+sylius_sandbox_comment:
+    resource: @SandboxCommentBundle/Resources/config/routing.yml
+
 sylius_categorizer_category:
     resource: @SyliusCategorizerBundle/Resources/config/routing/backend/category.yml
     prefix: /administration

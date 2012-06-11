@@ -16,12 +16,14 @@ doctrine:
             default:
                 mappings:
                     FOSUserBundle: ~
+                    FOSCommentBundle: ~
                     SandboxAddressingBundle: ~
                     SandboxAssortmentBundle: ~
                     SandboxBloggerBundle: ~
                     SandboxCartBundle: ~
                     SandboxSalesBundle: ~
                     SandboxUserBundle: ~
+                    SandboxCommentBundle: ~
                     SyliusAddressingBundle: ~
                     SyliusAssortmentBundle: ~
                     SyliusBloggerBundle: ~
