@@ -9,6 +9,7 @@ public/bundles/
 public/assets/compiled/
 public/uploads/
 public/media/
+public/js/
 
 sandbox/config/container/*.local.yml
 sandbox/config/container/parameters.yml

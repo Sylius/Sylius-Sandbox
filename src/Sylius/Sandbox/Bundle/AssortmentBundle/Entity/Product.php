@@ -206,4 +206,14 @@ class Product extends BaseProduct implements StockableInterface
             self::VARIANT_PICKING_MATCH  => 'Display options'
         );
     }
+
+    /**
+     * Get comment thread ID.
+     *
+     * @return string
+     */
+    public function getCommentThreadId()
+    {
+        return 'assortment_product_'.$this->getId();
+    }
 }

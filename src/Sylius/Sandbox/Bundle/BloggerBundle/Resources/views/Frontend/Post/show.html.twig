@@ -20,5 +20,7 @@
 
 <hr />
 {{ post.content|markdown }}
+<hr />
+{% include 'FOSCommentBundle:Thread:async.html.twig' with {'id': post.commentThreadId} %}
 </div>
 {% endblock %}

@@ -46,4 +46,14 @@ class Post extends BasePost
     {
         $this->categories = $categories;
     }
+
+    /**
+     * Get comment thread ID.
+     *
+     * @return string
+     */
+    public function getCommentThreadId()
+    {
+        return 'blogger_post_'.$this->getId();
+    }
 }

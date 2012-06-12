@@ -40,6 +40,7 @@ class SandboxKernel extends Kernel
             new \Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
             new \FOS\RestBundle\FOSRestBundle(),
             new \FOS\UserBundle\FOSUserBundle(),
+            new \FOS\CommentBundle\FOSCommentBundle(),
             new \JMS\SerializerBundle\JMSSerializerBundle($this),
             new \Knp\Bundle\MarkdownBundle\KnpMarkdownBundle(),
             new \Knp\Bundle\MenuBundle\KnpMenuBundle(),
@@ -73,6 +74,7 @@ class SandboxKernel extends Kernel
             new \Sylius\Sandbox\Bundle\CoreBundle\SandboxCoreBundle(),
             new \Sylius\Sandbox\Bundle\SalesBundle\SandboxSalesBundle(),
             new \Sylius\Sandbox\Bundle\UserBundle\SandboxUserBundle(),
+            new \Sylius\Sandbox\Bundle\CommentBundle\SandboxCommentBundle(),
         );
 
         if ($this->isDebug()) {
