@@ -16,8 +16,6 @@ use Symfony\Component\HttpFoundation\Request;
  * Dev environment.
  */
 
-ini_set('xdebug.max_nesting_level', 200);
-
 // Require kernel.
 require_once __DIR__.'/../sandbox/SandboxKernel.php';
 
