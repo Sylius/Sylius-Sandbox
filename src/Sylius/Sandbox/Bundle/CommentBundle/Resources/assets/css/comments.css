@@ -48,8 +48,6 @@ div.fos_comment_comment_reply.replying {
     -moz-border-radius: 5px;
 }
 button.fos_comment_comment_reply_show_form {
-    padding: 2px 5px;
-    font-size: 0.8em;
 }
 div.fos_comment_comment_reply.fos_comment_replying button.fos_comment_comment_reply_show_form {
     display: none;
@@ -88,8 +86,6 @@ div.fos_comment_submit {
     text-align: right;
 }
 div.fos_comment_submit input {
-    font-size: 1.2em;
-    padding: 3px 12px;
     margin-top: 3px;
 }
 a.fos_comment_thread_feed {

@@ -109,7 +109,10 @@
     {% endif %}
     </div>
 </form>
+
+<hr />
 <div class="well">
     {% include 'FOSCommentBundle:Thread:async.html.twig' with {'id': product.commentThreadId} %}
 </div>
+<hr />
 {% endblock %}

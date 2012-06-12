@@ -9,6 +9,7 @@
                 <h3>{% trans from 'FOSCommentBundle' %}fos_comment_comment_new_headline{% endtrans %}</h3>
             {% endif %}
         {% endblock %}
+        <hr style="margin-top: 0;" />
 
 
         {% block fos_comment_comment_new_form %}
@@ -21,7 +22,7 @@
                     <div class="fos_comment_form_errors">
                     {{ form_errors(form.body) }}
                     </div>
-                    {{ form_widget(form.body, {'attr': {'class': 'span12'}}) }}
+                    {{ form_widget(form.body, {'attr': {'class': 'span12', 'rows': 4, 'resize': 'none'}}) }}
 
                     {{ form_rest(form) }}
                 {% endblock %}
@@ -31,7 +32,7 @@
                         {% if parent is not null %}
                             <input type="button" value="{% trans from 'FOSCommentBundle' %}fos_comment_comment_reply_cancel{% endtrans %}" class="fos_comment_comment_reply_cancel btn" />
                         {% endif %}
-                        <input type="submit" value="{% trans from 'FOSCommentBundle' %}fos_comment_comment_new_submit{% endtrans %}" class="btn btn-primary" />
+                        <input type="submit" value="{% trans from 'FOSCommentBundle' %}fos_comment_comment_new_submit{% endtrans %}" class="btn btn-primary btn-large span4" />
                     {% endblock %}
                 </div>
 

@@ -6,31 +6,35 @@
             {% block fos_comment_comment_metas_authorline %}
                 {% trans from 'FOSCommentBundle' %}fos_comment_comment_show_by{% endtrans %}
                 <span class="fos_comment_comment_authorname">
+                    <strong>
                     {% if comment is fos_comment_deleted %}
                 {% trans from 'FOSCommentBundle' %}fos_comment_comment_deleted{% endtrans %}
                     {% else %}
                         {{ comment.authorName }}
                     {% endif %}
+                    </strong>
                 </span> - {{ comment.createdAt|date }}
             {% endblock fos_comment_comment_metas_authorline %}
 
             {% block fos_comment_comment_metas_edit %}
                 {% if fos_comment_can_edit_comment(comment) %}
-                <button data-url="{{ url("fos_comment_edit_thread_comment", {"id": comment.thread.id, "commentId": comment.id}) }}" class="btn fos_comment_comment_edit_show_form">
-                    <i class="icon-pencil"></i> {% trans from 'FOSCommentBundle' %}fos_comment_comment_edit{% endtrans %}
+                &nbsp;
+                <button data-url="{{ url("fos_comment_edit_thread_comment", {"id": comment.thread.id, "commentId": comment.id}) }}" class="btn fos_comment_comment_edit_show_form btn-mini">
+                    <i class="icon-pencil"></i>
                 </button>
                 {% endif %}
             {% endblock fos_comment_comment_metas_edit %}
 
             {% block fos_comment_comment_metas_delete %}
                 {% if fos_comment_can_delete_comment(comment) %}
+                    &nbsp;
                     {% if comment is fos_comment_deleted %}
                         {# undelete #}
-                        <button data-url="{{ url("fos_comment_remove_thread_comment", {"id": comment.thread.id, "commentId": comment.id, "value": constant('FOS\\CommentBundle\\Model\\CommentInterface::STATE_VISIBLE') }) }}" class="fos_comment_comment_remove btn">{% trans from 'FOSCommentBundle' %}fos_comment_comment_undelete{% endtrans %}</button>
+                        <button data-url="{{ url("fos_comment_remove_thread_comment", {"id": comment.thread.id, "commentId": comment.id, "value": constant('FOS\\CommentBundle\\Model\\CommentInterface::STATE_VISIBLE') }) }}" class="fos_comment_comment_remove btn btn-mini">{% trans from 'FOSCommentBundle' %}fos_comment_comment_undelete{% endtrans %}</button>
                     {% else %}
                         {# delete #}
-                        <button data-url="{{ url("fos_comment_remove_thread_comment", {"id": comment.thread.id, "commentId": comment.id, "value":  constant('FOS\\CommentBundle\\Model\\CommentInterface::STATE_DELETED')}) }}" class="fos_comment_comment_remove btn btn-danger">
-                            <i class="icon-remove icon-white"></i> {% trans from 'FOSCommentBundle' %}fos_comment_comment_delete{% endtrans %}
+                        <button data-url="{{ url("fos_comment_remove_thread_comment", {"id": comment.thread.id, "commentId": comment.id, "value":  constant('FOS\\CommentBundle\\Model\\CommentInterface::STATE_DELETED')}) }}" class="fos_comment_comment_remove btn btn-danger btn-mini">
+                            <i class="icon-trash icon-white"></i>
                         </button>
                     {% endif %}
                 {% endif %}
@@ -53,11 +57,13 @@
             {% if comment is fos_comment_deleted %}
                 {% trans from 'FOSCommentBundle' %}fos_comment_comment_deleted{% endtrans %}
             {% else %}
+                <div style="margin-left: 10px;">
                 {% if comment is fos_comment_raw %}
                     {{ comment.rawBody | raw }}
                 {% else %}
                     {{ comment.body | nl2br }}
                 {% endif %}
+                </div>
             {% endif %}
         {% endblock fos_comment_comment_body %}
     </div>
