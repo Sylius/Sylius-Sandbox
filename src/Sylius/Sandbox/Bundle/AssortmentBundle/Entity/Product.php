@@ -42,12 +42,16 @@ class Product extends BaseProduct implements StockableInterface
     /**
      * Image path.
      *
-     * @Assert\File(maxSize="512k")
-     * @Assert\Image
-     *
      * @var string
      */
     protected $imagePath;
+
+    /**
+     * Image upload.
+     *
+     * @Assert\File(maxSize="512k")
+     * @Assert\Image
+     */
     public $image;
 
     /**
