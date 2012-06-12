@@ -16,9 +16,9 @@
 
             {% block fos_comment_comment_metas_edit %}
                 {% if fos_comment_can_edit_comment(comment) %}
-                <a data-url="{{ url("fos_comment_edit_thread_comment", {"id": comment.thread.id, "commentId": comment.id}) }}" class="btn fos_comment_comment_edit_show_form" href="#">
+                <button data-url="{{ url("fos_comment_edit_thread_comment", {"id": comment.thread.id, "commentId": comment.id}) }}" class="btn fos_comment_comment_edit_show_form">
                     <i class="icon-pencil"></i> {% trans from 'FOSCommentBundle' %}fos_comment_comment_edit{% endtrans %}
-                </a>
+                </button>
                 {% endif %}
             {% endblock fos_comment_comment_metas_edit %}
 
@@ -26,12 +26,12 @@
                 {% if fos_comment_can_delete_comment(comment) %}
                     {% if comment is fos_comment_deleted %}
                         {# undelete #}
-                        <a data-url="{{ url("fos_comment_remove_thread_comment", {"id": comment.thread.id, "commentId": comment.id, "value": constant('FOS\\CommentBundle\\Model\\CommentInterface::STATE_VISIBLE') }) }}" class="fos_comment_comment_remove btn" href="#">{% trans from 'FOSCommentBundle' %}fos_comment_comment_undelete{% endtrans %}</a>
+                        <button data-url="{{ url("fos_comment_remove_thread_comment", {"id": comment.thread.id, "commentId": comment.id, "value": constant('FOS\\CommentBundle\\Model\\CommentInterface::STATE_VISIBLE') }) }}" class="fos_comment_comment_remove btn">{% trans from 'FOSCommentBundle' %}fos_comment_comment_undelete{% endtrans %}</button>
                     {% else %}
                         {# delete #}
-                        <a data-url="{{ url("fos_comment_remove_thread_comment", {"id": comment.thread.id, "commentId": comment.id, "value":  constant('FOS\\CommentBundle\\Model\\CommentInterface::STATE_DELETED')}) }}" class="fos_comment_comment_remove btn btn-danger" href="#">
+                        <button data-url="{{ url("fos_comment_remove_thread_comment", {"id": comment.thread.id, "commentId": comment.id, "value":  constant('FOS\\CommentBundle\\Model\\CommentInterface::STATE_DELETED')}) }}" class="fos_comment_comment_remove btn btn-danger">
                             <i class="icon-remove icon-white"></i> {% trans from 'FOSCommentBundle' %}fos_comment_comment_delete{% endtrans %}
-                        </a>
+                        </button>
                     {% endif %}
                 {% endif %}
             {% endblock fos_comment_comment_metas_delete %}
