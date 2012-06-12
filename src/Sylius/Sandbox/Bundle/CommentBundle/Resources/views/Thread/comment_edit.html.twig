@@ -4,12 +4,12 @@
         {% block fos_comment_form_fields %}
             {{ form_errors(form) }}
             {{ form_errors(form.body) }}
-            {{ form_widget(form.body) }}
+            {{ form_widget(form.body, {'attr': {'class': 'span12', 'rows': 4, 'resize': 'none'}}) }}
             {{ form_widget(form._token) }}
         {% endblock %}
 
         <div class="fos_comment_submit">
-            <button type="button" class="fos_comment_comment_edit_cancel btn">Cancel</button>
+            <button type="button" class="fos_comment_comment_edit_cancel btn">{% trans from 'FOSCommentBundle' %}fos_comment_comment_new_cancel{% endtrans %}</button>
             {% block fos_comment_form_submit %}
             <input type="submit" value="{% trans from 'FOSCommentBundle' %}fos_comment_comment_new_submit{% endtrans %}" class="btn btn-primary btn-large span4" />
             {% endblock %}
