@@ -19,7 +19,7 @@
             {% block fos_comment_comment_metas_edit %}
                 {% if fos_comment_can_edit_comment(comment) %}
                 &nbsp;
-                <button data-url="{{ url("fos_comment_edit_thread_comment", {"id": comment.thread.id, "commentId": comment.id}) }}" class="btn fos_comment_comment_edit_show_form btn-mini">
+                <button title="{% trans from 'FOSCommentBundle' %}fos_comment_comment_edit{% endtrans %}" data-url="{{ url("fos_comment_edit_thread_comment", {"id": comment.thread.id, "commentId": comment.id}) }}" class="btn fos_comment_comment_edit_show_form btn-mini">
                     <i class="icon-pencil"></i>
                 </button>
                 {% endif %}
@@ -33,7 +33,7 @@
                         <button data-url="{{ url("fos_comment_remove_thread_comment", {"id": comment.thread.id, "commentId": comment.id, "value": constant('FOS\\CommentBundle\\Model\\CommentInterface::STATE_VISIBLE') }) }}" class="fos_comment_comment_remove btn btn-mini">{% trans from 'FOSCommentBundle' %}fos_comment_comment_undelete{% endtrans %}</button>
                     {% else %}
                         {# delete #}
-                        <button data-url="{{ url("fos_comment_remove_thread_comment", {"id": comment.thread.id, "commentId": comment.id, "value":  constant('FOS\\CommentBundle\\Model\\CommentInterface::STATE_DELETED')}) }}" class="fos_comment_comment_remove btn btn-danger btn-mini">
+                        <button title="{% trans from 'FOSCommentBundle' %}fos_comment_comment_delete{% endtrans %}" data-url="{{ url("fos_comment_remove_thread_comment", {"id": comment.thread.id, "commentId": comment.id, "value":  constant('FOS\\CommentBundle\\Model\\CommentInterface::STATE_DELETED')}) }}" class="fos_comment_comment_remove btn btn-danger btn-mini">
                             <i class="icon-trash icon-white"></i>
                         </button>
                     {% endif %}
