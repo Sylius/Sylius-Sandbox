@@ -21,7 +21,7 @@
                     <div class="fos_comment_form_errors">
                     {{ form_errors(form.body) }}
                     </div>
-                    {{ form_widget(form.body) }}
+                    {{ form_widget(form.body, {'attr': {'class': 'span12'}}) }}
 
                     {{ form_rest(form) }}
                 {% endblock %}
