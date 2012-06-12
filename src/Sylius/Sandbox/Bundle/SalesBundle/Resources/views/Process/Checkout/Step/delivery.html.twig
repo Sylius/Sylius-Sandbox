@@ -1,0 +1,15 @@
+{% extends 'SandboxCoreBundle:Frontend:layout.html.twig' %}
+
+{% block content %}
+<div class="page-header">
+<h1>Fill your order information. <small>Thanks for chosing our services.</small></h1>
+</div>
+
+<form method="post" action="{{ path('sylius_sales_order_place') }}" class="form-horizontal" novalidate>
+<fieldset>
+</fieldset>
+<div class="form-actions">
+    <input type="submit" class="btn btn-primary btn-large" value="place order" />
+</div>
+</form>
+{% endblock %}

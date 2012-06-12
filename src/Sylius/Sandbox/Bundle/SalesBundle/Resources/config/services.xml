@@ -8,6 +8,7 @@
 
     <parameters>
         <parameter key="sylius_sandbox_sales.processor.operation.process.class">Sylius\Sandbox\Bundle\SalesBundle\Processor\Operation\ProcessOperation</parameter>
+        <parameter key="sylius_sandbox_sales.process.checkout.class">Sylius\Sandbox\Bundle\SalesBundle\Process\Scenario\CheckoutProcessScenario</parameter>
     </parameters>
 
     <services>
@@ -16,6 +17,10 @@
                 <argument type="service" id="service_container" />
             </call>
             <tag name="sylius_sales.operation" alias="process" />
+        </service>
+
+        <service id="sylius_sandbox_sales.process.checkout" class="%sylius_sandbox_sales.process.checkout.class%">
+            <tag name="sylius_flow.scenario" alias="sylius_sandbox_checkout" />
         </service>
     </services>
 
