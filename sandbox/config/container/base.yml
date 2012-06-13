@@ -35,7 +35,7 @@ assetic:
     read_from:      %kernel.root_dir%/../public
 
 swiftmailer:
-    disable_delivery: true
+    disable_delivery: %kernel.debug%
     transport: %sylius.mailer.transport%
     host:      %sylius.mailer.host%
     username:  %sylius.mailer.user%
