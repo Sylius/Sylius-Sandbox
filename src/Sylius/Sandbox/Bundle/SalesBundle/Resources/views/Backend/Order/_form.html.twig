@@ -1,12 +1,27 @@
 <fieldset>
-    <div class="well">
+<div class="row-fluid">
     <hr />
-    {{ form_row(form.address.firstname, {'attr': {'class': 'span4'}}) }}
-    {{ form_row(form.address.lastname, {'attr': {'class': 'span5'}}) }}
-    {{ form_row(form.address.street, {'attr': {'class': 'span6'}}) }}
-    {{ form_row(form.address.city, {'attr': {'class': 'span4'}}) }}
-    {{ form_row(form.address.postcode, {'attr': {'class': 'span2'}}) }}
+    <div class="span5 well">
+    <h3>Delivery address</h3>
+    <hr />
+    {{ form_row(form.deliveryAddress.firstname, {'attr': {'class': 'input-xlarge'}}) }}
+    {{ form_row(form.deliveryAddress.lastname, {'attr': {'class': 'input-xlarge'}}) }}
+    {{ form_row(form.deliveryAddress.street, {'attr': {'class': 'input-medium'}}) }}
+    {{ form_row(form.deliveryAddress.city, {'attr': {'class': 'input-medium'}}) }}
+    {{ form_row(form.deliveryAddress.postcode, {'attr': {'class': 'input-small'}}) }}
     </div>
+
+    <div class="span5 well">
+    <h3>Billing address</h3>
+    <hr />
+    {{ form_row(form.billingAddress.firstname, {'attr': {'class': 'input-xlarge'}}) }}
+    {{ form_row(form.billingAddress.lastname, {'attr': {'class': 'input-xlarge'}}) }}
+    {{ form_row(form.billingAddress.street, {'attr': {'class': 'input-medium'}}) }}
+    {{ form_row(form.billingAddress.city, {'attr': {'class': 'input-medium'}}) }}
+    {{ form_row(form.billingAddress.postcode, {'attr': {'class': 'input-small'}}) }}
+    </div>
+</div>
+
     <hr />
     <table id="sylius-sales-order-items" data-prototype="{{ form_row(form.items.vars.prototype)|e }}" class="table table-striped">
         <thead>

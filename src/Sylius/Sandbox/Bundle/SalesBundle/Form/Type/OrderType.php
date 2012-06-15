@@ -34,7 +34,8 @@ class OrderType extends BaseOrderType
             case self::MODE_UPDATE:
             case self::MODE_PLACE:
                 $builder
-                    ->add('address', 'sylius_addressing_address')
+                    ->add('deliveryAddress', 'sylius_addressing_address')
+                    ->add('billingAddress', 'sylius_addressing_address')
                 ;
             break;
         }

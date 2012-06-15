@@ -33,35 +33,70 @@
     </tbody>
 </table>
 <hr />
-<table class="table table-bordered">
-    <thead>
-        <tr>
-            <th colspan="2">Address information</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><strong>firstname</strong></td>
-            <td>{{ order.address.firstname }}</td>
-        </tr>
-        <tr>
-            <td><strong>lastname</strong></td>
-            <td>{{ order.address.lastname }}</td>
-        </tr>
-        <tr>
-            <td><strong>street</strong></td>
-            <td>{{ order.address.street }}</td>
-        </tr>
-        <tr>
-            <td><strong>city</strong></td>
-            <td>{{ order.address.city }}</td>
-        </tr>
-        <tr>
-            <td><strong>postcode</strong></td>
-            <td>{{ order.address.postcode }}</td>
-        </tr>
-    </tbody>
-</table>
+<div class="row-fluid">
+    <div class="span6">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th colspan="2">Delivery address</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>firstname</strong></td>
+                    <td>{{ order.deliveryAddress.firstname }}</td>
+                </tr>
+                <tr>
+                    <td><strong>lastname</strong></td>
+                    <td>{{ order.deliveryAddress.lastname }}</td>
+                </tr>
+                <tr>
+                    <td><strong>street</strong></td>
+                    <td>{{ order.deliveryAddress.street }}</td>
+                </tr>
+                <tr>
+                    <td><strong>city</strong></td>
+                    <td>{{ order.deliveryAddress.city }}</td>
+                </tr>
+                <tr>
+                    <td><strong>postcode</strong></td>
+                    <td>{{ order.deliveryAddress.postcode }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="span6">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th colspan="2">Billing address</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>firstname</strong></td>
+                    <td>{{ order.billingAddress.firstname }}</td>
+                </tr>
+                <tr>
+                    <td><strong>lastname</strong></td>
+                    <td>{{ order.billingAddress.lastname }}</td>
+                </tr>
+                <tr>
+                    <td><strong>street</strong></td>
+                    <td>{{ order.billingAddress.street }}</td>
+                </tr>
+                <tr>
+                    <td><strong>city</strong></td>
+                    <td>{{ order.billingAddress.city }}</td>
+                </tr>
+                <tr>
+                    <td><strong>postcode</strong></td>
+                    <td>{{ order.billingAddress.postcode }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
 <hr />
 <div class="well">
     <a href="{{ path('sylius_sales_backend_order_update', {'id': order.id}) }}" class="btn">
