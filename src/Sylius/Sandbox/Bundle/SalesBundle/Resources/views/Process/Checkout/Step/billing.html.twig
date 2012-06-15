@@ -2,7 +2,7 @@
 
 {% block content %}
 <div class="page-header">
-<h1>Delivery <small>Where should we ship your order?</small></h1>
+<h1>Billing <small>Please select payment method you prefer</small></h1>
 </div>
 
 {% include 'SandboxSalesBundle:Process/Checkout/Step:_progressBar.html.twig' %}
@@ -17,7 +17,7 @@
     {{ form_rest(form) }}
 </fieldset>
 <div class="form-actions">
-    <a href="{{ path('sylius_cart_show') }}" class="btn btn-large">back</a> &nbsp;
+    <a href="{{ path('sylius_sandbox_checkout_display', {'stepName': context.previousStep.name}) }}" class="btn btn-large">back</a> &nbsp;
     <input type="submit" class="btn btn-primary btn-large" value="continue" />
 </div>
 </form>

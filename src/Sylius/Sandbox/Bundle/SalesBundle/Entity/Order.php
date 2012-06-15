@@ -27,11 +27,18 @@ class Order extends BaseOrder
     private $total;
 
     /**
-     * Address.
+     * Delivery address.
      *
-     * @Assert\Valid
+     * @var AddressInterface
      */
-    private $address;
+    private $deliveryAddress;
+
+    /**
+     * Billing address.
+     *
+     * @var AddressInterface
+     */
+    private $billingAddress;
 
     private $inventoryUnits;
 
@@ -64,14 +71,24 @@ class Order extends BaseOrder
         $this->total = $total;
     }
 
-    public function getAddress()
+    public function getDeliveryAddress()
     {
-        return $this->address;
+        return $this->deliveryAddress;
     }
 
-    public function setAddress(AddressInterface $address)
+    public function setDeliveryAddress(AddressInterface $deliveryAddress)
     {
-        $this->address = $address;
+        $this->deliveryAddress = $deliveryAddress;
+    }
+
+    public function getBillingAddress()
+    {
+        return $this->billingAddress;
+    }
+
+    public function setBillingAddress(AddressInterface $billingAddress)
+    {
+        $this->billingAddress = $billingAddress;
     }
 
     public function getInventoryUnits()

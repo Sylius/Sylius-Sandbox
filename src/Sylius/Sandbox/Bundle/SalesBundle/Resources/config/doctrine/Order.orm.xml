@@ -16,11 +16,17 @@
                 <cascade-all/>
             </cascade>
         </one-to-many>
-        <many-to-one field="address" target-entity="Sylius\Sandbox\Bundle\AddressingBundle\Entity\Address">
+        <many-to-one field="deliveryAddress" target-entity="Sylius\Sandbox\Bundle\AddressingBundle\Entity\Address">
             <cascade>
                 <cascade-all/>
             </cascade>
-            <join-column name="address_id" referenced-column-name="id" />
+            <join-column name="delivery_address_id" referenced-column-name="id" />
+        </many-to-one>
+        <many-to-one field="billingAddress" target-entity="Sylius\Sandbox\Bundle\AddressingBundle\Entity\Address">
+            <cascade>
+                <cascade-all/>
+            </cascade>
+            <join-column name="billing_address_id" referenced-column-name="id" />
         </many-to-one>
         <many-to-one field="status" target-entity="Sylius\Bundle\SalesBundle\Entity\Status">
             <join-column name="status_id" referenced-column-name="id" />

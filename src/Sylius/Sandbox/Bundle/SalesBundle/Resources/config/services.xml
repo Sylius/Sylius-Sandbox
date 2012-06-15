@@ -20,6 +20,9 @@
         </service>
 
         <service id="sylius_sandbox_sales.process.checkout" class="%sylius_sandbox_sales.process.checkout.class%">
+            <call method="setContainer">
+                <argument type="service" id="service_container" />
+            </call>
             <tag name="sylius_flow.scenario" alias="sylius_sandbox_checkout" />
         </service>
     </services>

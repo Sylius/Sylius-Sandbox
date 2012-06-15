@@ -79,7 +79,9 @@ class LoadOrdersData extends AbstractFixture implements ContainerAwareInterface,
             $order->addItem($item);
         }
 
-        $order->setAddress($this->getReference('Sandbox.Addressing.Address-'.rand(1, 50)));
+        $order->setDeliveryAddress($this->getReference('Sandbox.Addressing.Address-'.rand(1, 50)));
+        $order->setBillingAddress($this->getReference('Sandbox.Addressing.Address-'.rand(1, 50)));
+
         $order->calculateTotal();
 
         $order->setStatus($this->getReference('Sandbox.Sales.Status-'.rand(1, 6)));

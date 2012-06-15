@@ -14,10 +14,7 @@ class ProcessOperation extends ContainerAwareOperation
         if ($cart->isEmpty()) {
             throw new \LogicException('The cart must be not empty.');
         }
-    }
 
-    public function process(OrderInterface $order)
-    {
         $cart = $this->container->get('sylius_cart.provider')->getCart();
         $orderItemManager = $this->container->get('sylius_sales.manager.item');
 
@@ -31,7 +28,10 @@ class ProcessOperation extends ContainerAwareOperation
         }
 
         $order->calculateTotal();
+    }
 
+    public function process(OrderInterface $order)
+    {
         // Abandon current cart.
         $this->container->get('sylius_cart.provider')->abandonCart();
     }
