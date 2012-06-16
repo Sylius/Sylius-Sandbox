@@ -14,13 +14,12 @@ namespace Sylius\Sandbox\Bundle\AddressingBundle\DataFixtures\ORM;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
-use Doctrine\ORM\EntityManager;
 use Faker\Factory as FakerFactory;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * Default addresses to play with Sylius sandbox.
+ * Default addresssing fixtures to play with Sylius sandbox.
  *
  * @author Paweł Jędrzejewski <pjedrzejewski@diweb.pl>
  */
@@ -51,7 +50,7 @@ class LoadAddressesData extends AbstractFixture implements ContainerAwareInterfa
 
         $faker = FakerFactory::create();
 
-        for ($i = 1; $i <= 50; $i++) {
+        for ($i = 1; $i <= 100; $i++) {
             $address = $manager->createAddress();
 
             $address->setFirstname($faker->firstName);

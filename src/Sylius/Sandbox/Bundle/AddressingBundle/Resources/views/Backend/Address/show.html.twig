@@ -1,41 +1,26 @@
 {% extends 'SandboxCoreBundle:Backend:layout.html.twig' %}
 
 {% block header %}
-    <h1>Address details</h1>
+    <h1>Address details <small>{{ address.firstname }} {{ address.lastname }}</small></h1>
 {% endblock %}
 
 {% block content %}
-<div class="well">
-    <a href="{{ path('sylius_addressing_backend_address_update', {'id': address.id}) }}" class="btn">
-        <i class="icon-pencil"></i> {{ 'update'|trans({}, 'SandboxCoreBundle') }}
-    </a>
-    <a href="{{ path('sylius_addressing_backend_address_delete', {'id': address.id}) }}"  class="btn btn-danger confirmer"
-        data-confirmer-question="{{ 'confirmer.q.address.delete'|trans({}, 'SandboxCoreBundle') }}"
-    >
-        <i class="icon-remove icon-white"></i> {{ 'delete'|trans({}, 'SandboxCoreBundle') }}
-    </a>
-</div>
-
 <table class="table table-bordered">
     <thead>
         <tr>
-            <th>#id</th>
-            <th>firstname</th>
-            <th>lastname</th>
-            <th>city</th>
-            <th>street</th>
-            <th>postcode</th>
+            <th>#{{ address.id }}</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td>{{ address.id }}</td>
-            <td>{{ address.firstname }}</td>
-            <td>{{ address.lastname }}</td>
-            <td>{{ address.city }}</td>
-            <td>{{ address.street }}</td>
-            <td>{{ address.postcode }}</td>
-        </tr>
+            <td>
+                <address class="code">
+                    <strong>{{ address.firstname }} {{ address.lastname }}</strong> <br />
+                    {{ address.street }}, {{ address.city }} <br />
+                    <abbr title="Phone">P:</abbr> {{ address.phone|default('<span class="label">Not specified</span>')|raw }}
+                </address>
+            </td>
+        <tr>
     </tbody>
 </table>
 {% endblock %}
