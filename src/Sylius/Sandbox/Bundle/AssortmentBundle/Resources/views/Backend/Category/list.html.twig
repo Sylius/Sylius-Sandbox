@@ -11,7 +11,7 @@
     </a>
 </div>
 
-{% if categories %}
+{% if categories|length > 0 %}
 <table class="table">
     <thead>
         <tr>
@@ -22,40 +22,7 @@
     </thead>
     <tbody>
         {% for category in categories %}
-            <tr>
-                <td>{{ category.id }}</td>
-                <td>{{ category.name }}</td>
-                <td>
-                    <div class="pull-right btn-toolbar">
-                        <div class="btn-group">
-                            {% if loop.first %}
-                            <a class="btn disabled">&uarr;</a>
-                            {% else %}
-                            <a href="{{ path('sylius_categorizer_backend_category_move_up', {'alias': catalog.alias, 'id': category.id}) }}" class="btn">&uarr;</a>
-                            {% endif %}
-
-                            {% if loop.last %}
-                            <a class="btn disabled">&darr;</a>
-                            {% else %}
-                            <a href="{{ path('sylius_categorizer_backend_category_move_down', {'alias': catalog.alias, 'id': category.id}) }}" class="btn">&darr;</a>
-                            {% endif %}
-                        </div>
-                        <div class="btn-group">
-                            <a href="{{ path('sylius_categorizer_backend_category_show', {'alias': catalog.alias, 'id': category.id}) }}" class="btn">
-                                <i class="icon-list-alt"></i> list products
-                            </a>
-                            <a href="{{ path('sylius_categorizer_backend_category_update', {'alias': catalog.alias, 'id': category.id}) }}" class="btn">
-                                <i class="icon-pencil"></i> {{ 'update'|trans({}, 'SandboxCoreBundle') }}
-                            </a>
-                            <a href="{{ path('sylius_categorizer_backend_category_delete', {'alias': catalog.alias, 'id': category.id}) }}" class="btn btn-danger confirmer"
-                                data-confirmer-question="{{ 'confirmer.q.category.delete'|trans({}, 'SandboxCoreBundle') }}"
-                            >
-                                <i class="icon-remove icon-white"></i> {{ 'delete'|trans({}, 'SandboxCoreBundle') }}
-                            </a>
-                        </div>
-                    </div>
-                </td>
-            </tr>
+            {% include 'SandboxAssortmentBundle:Backend/Category:_row.html.twig' %}
 
             {% if category['__children'] is defined %}
                 {% include 'SandboxAssortmentBundle:Backend/Category:_node.html.twig' %}
@@ -65,8 +32,8 @@
 </table>
 {% else %}
 <div class="alert alert-info">
-    <h4 class="alert-heading">{{ 'alert.heading.info'|trans({}, 'SandboxCoreBundle') }}.</h4>
-    There are no categories to display.
+    <h4 class="alert-heading">Information</h4>
+    There are no categories to display
 </div>
 {% endif %}
 

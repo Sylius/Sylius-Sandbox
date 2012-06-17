@@ -3,7 +3,7 @@
 {% import 'SandboxAssortmentBundle:Backend/Product:macros.html.twig' as macros %}
 
 {% block header %}
-    <h1>Assortment category<small> List of all registered products in this category</small></h1>
+    <h1>Assortment category<small> List of all products in category <strong>{{ category.name }}</strong></small></h1>
 {% endblock %}
 
 {% block content %}
@@ -14,13 +14,13 @@
 </div>
 
 {% if paginator.haveToPaginate() %}
-{{ pagerfanta(paginator, 'twitter_bootstrap', {'prev_message': "previous page...", 'next_message': "next page..."}) }}
+{{ pagerfanta(paginator, 'twitter_bootstrap_translated') }}
 {% endif %}
 
 {{ macros.list(products)  }}
 
 {% if paginator.haveToPaginate() %}
-{{ pagerfanta(paginator, 'twitter_bootstrap', {'prev_message': "previous page...", 'next_message': "next page..."}) }}
+{{ pagerfanta(paginator, 'twitter_bootstrap_translated') }}
 {% endif %}
 
 {% endblock %}

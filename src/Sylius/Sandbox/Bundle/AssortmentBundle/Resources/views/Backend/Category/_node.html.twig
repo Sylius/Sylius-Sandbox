@@ -1,38 +1,6 @@
 {% for category in category['__children'] %}
-    <tr>
-        <td>{{ category.id }}</td>
-        <td>{% for i in 0..category.level %}&#8212;&#8212;&#8212;{% endfor %} - {{ category.name }}</td>
-        <td>
-            <div class="pull-right btn-toolbar">
-                <div class="btn-group">
-                    {% if loop.first %}
-                    <a class="btn disabled">&uarr;</a>
-                    {% else %}
-                    <a href="{{ path('sylius_categorizer_backend_category_move_up', {'alias': catalog.alias, 'id': category.id}) }}" class="btn">&uarr;</a>
-                    {% endif %}
+    {% include 'SandboxAssortmentBundle:Backend/Category:_row.html.twig' %}
 
-                    {% if loop.last %}
-                    <a class="btn disabled">&darr;</a>
-                    {% else %}
-                    <a href="{{ path('sylius_categorizer_backend_category_move_down', {'alias': catalog.alias, 'id': category.id}) }}" class="btn">&darr;</a>
-                    {% endif %}
-                </div>
-                <div class="btn-group">
-                    <a href="{{ path('sylius_categorizer_backend_category_show', {'alias': catalog.alias, 'id': category.id}) }}" class="btn">
-                        <i class="icon-list-alt"></i> list products
-                    </a>
-                    <a href="{{ path('sylius_categorizer_backend_category_update', {'alias': catalog.alias, 'id': category.id}) }}" class="btn">
-                        <i class="icon-pencil"></i> {{ 'update'|trans({}, 'SandboxCoreBundle') }}
-                    </a>
-                    <a href="{{ path('sylius_categorizer_backend_category_delete', {'alias': catalog.alias, 'id': category.id}) }}" class="btn btn-danger confirmer"
-                        data-confirmer-question="{{ 'confirmer.q.category.delete'|trans({}, 'SandboxCoreBundle') }}"
-                    >
-                        <i class="icon-remove icon-white"></i> {{ 'delete'|trans({}, 'SandboxCoreBundle') }}
-                    </a>
-                </div>
-            </div>
-        </td>
-    </tr>
     {% if category['__children'] is defined %}
         {% include 'SandboxAssortmentBundle:Backend/Category:_node.html.twig' %}
     {% endif %}
