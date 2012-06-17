@@ -35,14 +35,53 @@ class LoadProductsData extends AbstractFixture implements ContainerAwareInterfac
      */
     private $container;
 
+    /**
+     * Product manager.
+     *
+     * @var ProductManagerInterface
+     */
     private $manager;
+
+    /**
+     * Product manipulator.
+     *
+     * @var ProductManipulatorInterface
+     */
     private $manipulator;
 
+    /**
+     * Product property entity class.
+     *
+     * @var string
+     */
     private $productPropertyClass;
 
+    /**
+     * Total variants created.
+     *
+     * @var integer
+     */
     private $totalVariants;
+
+    /**
+     * Variant manager.
+     *
+     * @var VariantManagerInterface
+     */
     private $variantManager;
+
+    /**
+     * Variant manipulator.
+     *
+     * @var VariantManipulatorInterface
+     */
     private $variantManipulator;
+
+    /**
+     * Variants generator.
+     *
+     * @var VariantGeneratorInterface
+     */
     private $variantGenerator;
 
     /**
@@ -79,19 +118,33 @@ class LoadProductsData extends AbstractFixture implements ContainerAwareInterfac
             $this->createSticker($i);
         }
 
-        // Stickers.
+        // Mugs.
         for ($i = 61; $i <= 90; $i++) {
             $this->createMug($i);
         }
 
-        // Stickers.
+        // Books.
         for ($i = 91; $i <= 120; $i++) {
             $this->createBook($i);
         }
 
+        // Define constant with number of total variants created.
         define('SYLIUS_ASSORTMENT_FIXTURES_TV', $this->totalVariants);
     }
 
+    /**
+     * {@inheritdoc}
+     */
+    public function getOrder()
+    {
+        return 6;
+    }
+
+    /**
+     * Creates t-shirt product.
+     *
+     * @param integer $i
+     */
     private function createTShirt($i)
     {
         $product = $this->manager->createProduct();
@@ -124,6 +177,11 @@ class LoadProductsData extends AbstractFixture implements ContainerAwareInterfac
         $this->setReference('Sandbox.Assortment.Product-'.$i, $product);
     }
 
+    /**
+     * Create sticker product.
+     *
+     * @param integer $i
+     */
     private function createSticker($i)
     {
         $product = $this->manager->createProduct();
@@ -151,6 +209,11 @@ class LoadProductsData extends AbstractFixture implements ContainerAwareInterfac
         $this->setReference('Sandbox.Assortment.Product-'.$i, $product);
     }
 
+    /**
+     * Create mug product.
+     *
+     * @param integer $i
+     */
     private function createMug($i)
     {
         $product = $this->manager->createProduct();
@@ -173,6 +236,11 @@ class LoadProductsData extends AbstractFixture implements ContainerAwareInterfac
         $this->setReference('Sandbox.Assortment.Product-'.$i, $product);
     }
 
+    /**
+     * Create book product.
+     *
+     * @param integer $i
+     */
     private function createBook($i)
     {
         $product = $this->manager->createProduct();
@@ -253,13 +321,5 @@ class LoadProductsData extends AbstractFixture implements ContainerAwareInterfac
         $property->setValue($value);
 
         $product->addProperty($property);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getOrder()
-    {
-        return 6;
     }
 }

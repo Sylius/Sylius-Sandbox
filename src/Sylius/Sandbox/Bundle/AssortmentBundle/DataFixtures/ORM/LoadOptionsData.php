@@ -32,8 +32,25 @@ class LoadOptionsData extends AbstractFixture implements ContainerAwareInterface
      */
     private $container;
 
+    /**
+     * Options manager.
+     *
+     * @var OptionManagerInterface
+     */
     private $manager;
+
+    /**
+     * Option manipulator.
+     *
+     * @var OptionManipulatorInterface
+     */
     private $manipulator;
+
+    /**
+     * Option value entity class.
+     *
+     * @var string
+     */
     private $optionValueClass;
 
     /**
@@ -105,6 +122,14 @@ class LoadOptionsData extends AbstractFixture implements ContainerAwareInterface
     }
 
     /**
+     * {@inheritdoc}
+     */
+    public function getOrder()
+    {
+        return 4;
+    }
+
+    /**
      * Create an option.
      *
      * @param string $name
@@ -122,18 +147,11 @@ class LoadOptionsData extends AbstractFixture implements ContainerAwareInterface
         foreach ($values as $text) {
             $value = new $this->optionValueClass;
             $value->setValue($text);
+
             $option->addValue($value);
         }
 
         $this->manipulator->create($option);
         $this->setReference($reference, $option);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getOrder()
-    {
-        return 4;
     }
 }

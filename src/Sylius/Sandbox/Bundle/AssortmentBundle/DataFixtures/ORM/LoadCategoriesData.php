@@ -31,8 +31,25 @@ class LoadCategoriesData extends AbstractFixture implements ContainerAwareInterf
      */
     private $container;
 
+    /**
+     * Category manager.
+     *
+     * @var CategoryManagerInterface
+     */
     private $manager;
+
+    /**
+     * Category manipulator.
+     *
+     * @var CategoryManipulatorInterface
+     */
     private $manipulator;
+
+    /**
+     * Assortment products catalog.
+     *
+     * @var CatalogInterface
+     */
     private $catalog;
 
     /**
@@ -59,6 +76,14 @@ class LoadCategoriesData extends AbstractFixture implements ContainerAwareInterf
     }
 
     /**
+     * {@inheritdoc}
+     */
+    public function getOrder()
+    {
+        return 2;
+    }
+
+    /**
      * Create and save category.
      *
      * @param string $name
@@ -70,10 +95,5 @@ class LoadCategoriesData extends AbstractFixture implements ContainerAwareInterf
 
         $this->manipulator->create($category);
         $this->setReference('Sandbox.Assortment.Category.'.$name, $category);
-    }
-
-    public function getOrder()
-    {
-        return 2;
     }
 }
