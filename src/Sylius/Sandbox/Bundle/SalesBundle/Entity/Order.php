@@ -13,6 +13,7 @@ namespace Sylius\Sandbox\Bundle\SalesBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use FOS\UserBundle\Model\UserInterface;
 use Sylius\Bundle\AddressingBundle\Model\AddressInterface;
 use Sylius\Bundle\SalesBundle\Entity\Order as BaseOrder;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -40,8 +41,23 @@ class Order extends BaseOrder
      */
     private $billingAddress;
 
+    /**
+     * Inventory units.
+     *
+     * @var Collection
+     */
     private $inventoryUnits;
 
+    /**
+     * User.
+     *
+     * @var UserInterface
+     */
+    private $user;
+
+    /**
+     * Constructor.
+     */
     public function __construct()
     {
         parent::__construct();
@@ -62,6 +78,7 @@ class Order extends BaseOrder
     public function calculateTotal()
     {
         $total = 0.00;
+
         foreach ($this->getItems() as $item)
         {
             $item->setUnitPrice($item->getVariant()->getPrice());
@@ -102,5 +119,15 @@ class Order extends BaseOrder
             $unit->setOrder($this);
             $this->inventoryUnits->add($unit);
         }
+    }
+
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    public function setUser(UserInterface $user)
+    {
+        $this->user = $user;
     }
 }

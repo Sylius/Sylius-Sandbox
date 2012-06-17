@@ -21,6 +21,16 @@
             <td>{{ order.total }} &euro;</td>
         </tr>
         <tr>
+            <td><strong>user</strong></td>
+            <td>
+            {% if order.user is not empty %}
+                <strong>{{ order.user.username }}</strong>
+            {% else %}
+                <span class="label label-warning">unknown</span>
+            {% endif %}
+            </td>
+        </tr>
+        <tr>
             <td><strong>created at</strong></td>
             <td>{{ order.createdAt|date('d.m.Y, H:i:s') }}</td>
         </tr>

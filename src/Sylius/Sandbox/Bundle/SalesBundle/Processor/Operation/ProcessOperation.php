@@ -15,7 +15,8 @@ class ProcessOperation extends ContainerAwareOperation
             throw new \LogicException('The cart must be not empty.');
         }
 
-        $cart = $this->container->get('sylius_cart.provider')->getCart();
+        $order->setUser($this->container->get('security.context')->getToken()->getUser());
+
         $orderItemManager = $this->container->get('sylius_sales.manager.item');
 
         foreach ($cart->getItems() as $item) {
