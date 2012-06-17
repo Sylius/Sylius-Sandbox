@@ -14,11 +14,18 @@ namespace Sylius\Sandbox\Bundle\AssortmentBundle\Form\Type;
 use Sylius\Bundle\CategorizerBundle\Form\Type\NestedCategoryType as BaseCategoryType;
 use Symfony\Component\Form\FormBuilder;
 
+/**
+ * Simple class to create separate form type for assortment category.
+ *
+ * @author Paweł Jędrzejewski <pjedrzejewski@diweb.pl>
+ */
 class CategoryType extends BaseCategoryType
 {
+    /**
+     * {@inheritdoc}
+     */
     public function getName()
     {
         return 'sylius_sandbox_assortment_category';
     }
 }
-

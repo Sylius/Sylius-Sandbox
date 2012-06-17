@@ -15,9 +15,9 @@ use Sylius\Bundle\AssortmentBundle\Form\Type\VariantType as BaseVariantType;
 use Symfony\Component\Form\FormBuilderInterface;
 
 /**
- * Product variant type. We need to add only simple price field.
+ * Product variant type. We need to add only simple price field and inventory tracking field for quantity.
  *
- * @author Paweł Jędrzejewkski <pjedrzejewski@diweb.pl>
+ * @author Paweł Jędrzejewski <pjedrzejewski@diweb.pl>
  */
 class VariantType extends BaseVariantType
 {

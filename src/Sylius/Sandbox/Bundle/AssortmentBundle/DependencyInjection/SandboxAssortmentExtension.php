@@ -11,10 +11,10 @@
 
 namespace Sylius\Sandbox\Bundle\AssortmentBundle\DependencyInjection;
 
-use Symfony\Component\HttpKernel\DependencyInjection\Extension;
+use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
-use Symfony\Component\Config\FileLocator;
+use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
 /**
  * Sandbox assortment bundle extension.
@@ -24,7 +24,7 @@ use Symfony\Component\Config\FileLocator;
 class SandboxAssortmentExtension extends Extension
 {
     /**
-     * @see Extension/Symfony\Component\DependencyInjection\Extension.ExtensionInterface::load()
+     * {@inheritdoc}
      */
     public function load(array $config, ContainerBuilder $container)
     {

@@ -19,6 +19,9 @@ use Symfony\Component\Form\FormBuilderInterface;
  * Product form type.
  * Extends customizable form type, we just need to add category choice.
  *
+ * Also we add a simple choice field to determine how product variants should
+ * be selected, matched against combination of option or just list them all.
+ *
  * @author Paweł Jędrzejewkski <pjedrzejewski@diweb.pl>
  */
 class ProductType extends BaseCustomizableProductType

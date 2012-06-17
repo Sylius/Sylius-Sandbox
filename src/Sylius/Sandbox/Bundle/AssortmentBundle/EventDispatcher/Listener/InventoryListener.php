@@ -17,6 +17,7 @@ use Sylius\Bundle\InventoryBundle\Operator\InventoryOperatorInterface;
 
 /**
  * Inventory change listener.
+ * Refreshes inventory state every time product or variant are updated.
  *
  * @author Paweł Jędrzejewski <pjedrzejewski@diweb.pl>
  */
