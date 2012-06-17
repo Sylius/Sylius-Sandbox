@@ -21,6 +21,8 @@
             <th>product</th>
             <th>quantity</th>
             <th></th>
+            <th>price</th>
+            <th style="text-align: right;">total</th>
         </tr>
     </thead>
     <tbody>
@@ -46,12 +48,23 @@
             <td>
                 <a href="{{ path('sylius_cart_item_remove', {'id': item.id}) }}" class="btn btn-danger"><i class="icon-trash icon-white"></i></a>
             </td>
+            <td>
+                {{ item.variant.price }} &euro;
+            </td>
+            <td style="text-align: right">
+                {{ item.quantity * item.variant.price }} &euro;
+            </td>
         </tr>
     {% endfor %}
+        <tr>
+            <td colspan="6"></td>
+            <td style="text-align: right;">
+                <strong>Grand total</strong>: {{ cart.value }} &euro;
+            </td>
+        </tr>
     </tbody>
 </table>
 {{ form_rest(form) }}
-<hr />
 <div class="well">
     <input type="submit" class="btn btn-primary btn-large" value="save">
     <div class="pull-right">
