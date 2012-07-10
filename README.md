@@ -34,7 +34,7 @@ $ wget http://getcomposer.org/composer.phar
 $ php composer.phar install
 ```
 
-Create database schema and dump assetic assets by typing this commands inside console.
+Create database schema and dump assetic assets by typing following commands inside console.
 
 ``` bash
 $ ./bin/rebuild-database
@@ -43,10 +43,10 @@ $ php sandbox/console assetic:dump
 
 Open up ``/path/to/Sylius-Sandbox/public/dev.php`` in your browser and play with the application.
 
-Behat test suite
-----------------
+Behat features
+--------------
 
-To run Behat test suite, use the following command.
+To check Behat business features, use the following command.
 
 ``` bash
 $ ./bin/behat @SandboxCoreBundle
