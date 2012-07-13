@@ -9,7 +9,6 @@ imports:
 framework:
     default_locale: %sylius.locale%
     form: ~
-    charset:       UTF-8
     secret: %sylius.secret%
     csrf_protection:
         enabled: true
@@ -20,7 +19,6 @@ framework:
     session:
         name: SYLIUS_SANDBOX_SESSION
         lifetime: 72000
-        auto_start:     true
 
 twig:
     form:

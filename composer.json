@@ -3,7 +3,7 @@
     "require": {
         "php": ">=5.3.2",
 
-        "doctrine/orm":     "2.2.2",
+        "doctrine/orm":     "dev-master",
         "fzaninotto/faker": "dev-master",
         "symfony/symfony":  "dev-master",
         "twig/extensions":  "dev-master",
