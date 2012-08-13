@@ -38,8 +38,8 @@ class Builder extends ContainerAware
                 'class' => 'nav'
             )
         ));
-	
-	$menu->setCurrent($this->container->get('request')->getRequestUri());
+
+        $menu->setCurrent($this->container->get('request')->getRequestUri());
 
         $menu->addChild('Shop', array('route' => 'sylius_sandbox_core_frontend'));
 
@@ -76,7 +76,7 @@ class Builder extends ContainerAware
             )
         ));
 
-	$menu->setCurrent($this->container->get('request')->getRequestUri());
+        $menu->setCurrent($this->container->get('request')->getRequestUri());
 
         $childOptions = array(
             'childrenAttributes' => array('class' => 'nav nav-list'),
@@ -157,7 +157,7 @@ class Builder extends ContainerAware
             )
         ));
 
-        $menu->setCurrentUri($this->container->get('request')->getRequestUri());
+        $menu->setCurrent($this->container->get('request')->getRequestUri());
 
         $menu->addChild('Dashboard', array('route' => 'sylius_sandbox_core_backend'));
 
@@ -195,7 +195,7 @@ class Builder extends ContainerAware
             )
         ));
 
-        $menu->setCurrentUri($this->container->get('request')->getRequestUri());
+        $menu->setCurrent($this->container->get('request')->getRequestUri());
 
         $childOptions = array(
             'childrenAttributes' => array('class' => 'nav nav-list'),
