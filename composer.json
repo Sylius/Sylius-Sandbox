@@ -3,52 +3,53 @@
     "require": {
         "php": ">=5.3.2",
 
-        "doctrine/orm":     "dev-master",
-        "fzaninotto/faker": "dev-master",
-        "symfony/symfony":  "dev-master",
-        "twig/extensions":  "dev-master",
+        "doctrine/orm":     "*",
+        "fzaninotto/faker": "*",
+        "symfony/symfony":  "*",
+        "twig/extensions":  "*",
 
-        "avalanche123/imagine-bundle":         "dev-master",
-        "behat/mink-browserkit-driver":        "dev-master",
-        "behat/mink-extension":                "dev-master",
-        "behat/mink-goutte-driver":            "dev-master",
-        "behat/symfony2-extension":            "dev-master",
-        "doctrine/doctrine-bundle":            "dev-master",
-        "doctrine/doctrine-fixtures-bundle":   "dev-master",
-        "doctrine/doctrine-migrations-bundle": "dev-master",
-        "friendsofsymfony/rest-bundle":        "dev-master",
-        "friendsofsymfony/user-bundle":        "dev-master",
-        "friendsofsymfony/comment-bundle":     "dev-master",
-        "knplabs/knp-markdown-bundle":         "dev-master",
-        "knplabs/knp-menu-bundle":             "dev-master",
-        "sensio/distribution-bundle":          "dev-master",
-        "stof/doctrine-extensions-bundle":     "dev-master",
-        "sylius/addressing-bundle":            "dev-master",
-        "sylius/assortment-bundle":            "dev-master",
-        "sylius/blogger-bundle":               "dev-master",
-        "sylius/cart-bundle":                  "dev-master",
-        "sylius/categorizer-bundle":           "dev-master",
-        "sylius/flow-bundle":                  "dev-master",
-        "sylius/inventory-bundle":             "dev-master",
-        "sylius/sales-bundle":                 "dev-master",
-        "symfony/assetic-bundle":              "dev-master",
-        "symfony/monolog-bundle":              "dev-master",
-        "symfony/swiftmailer-bundle":          "dev-master",
-        "twitter/bootstrap":                   "v2.0.4"
+        "avalanche123/imagine-bundle":         "*",
+        "doctrine/doctrine-bundle":            "*",
+        "doctrine/doctrine-fixtures-bundle":   "*",
+        "doctrine/doctrine-migrations-bundle": "*",
+        "friendsofsymfony/comment-bundle":     "*",
+        "friendsofsymfony/rest-bundle":        "*",
+        "friendsofsymfony/user-bundle":        "*",
+        "knplabs/knp-markdown-bundle":         "*",
+        "knplabs/knp-menu-bundle":             "*",
+        "sensio/distribution-bundle":          "*",
+        "stof/doctrine-extensions-bundle":     "*",
+        "sylius/addressing-bundle":            "*",
+        "sylius/assortment-bundle":            "*",
+        "sylius/blogger-bundle":               "*",
+        "sylius/cart-bundle":                  "*",
+        "sylius/categorizer-bundle":           "*",
+        "sylius/flow-bundle":                  "*",
+        "sylius/inventory-bundle":             "*",
+        "sylius/sales-bundle":                 "*",
+        "symfony/assetic-bundle":              "*",
+        "symfony/monolog-bundle":              "*",
+        "symfony/swiftmailer-bundle":          "*",
+        "twitter/bootstrap":                   "v2.1.1"
+    },
+    "require-dev": {
+        "behat/mink-extension":                "*",
+        "behat/mink-goutte-driver":            "*",
+        "behat/symfony2-extension":            "*"
     },
     "repositories": [
         {
             "type": "package",
             "package": {
-                "version": "v2.0.4",
+                "version": "v2.1.1",
                 "name": "twitter/bootstrap",
                 "source": {
                     "url": "https://github.com/twitter/bootstrap.git",
                     "type": "git",
-                    "reference": "v2.0.4"
+                    "reference": "v2.1.1"
                 },
                 "dist": {
-                    "url": "https://github.com/twitter/bootstrap/zipball/v2.0.4",
+                    "url": "https://github.com/twitter/bootstrap/zipball/v2.1.1",
                     "type": "zip"
                  }
             }

@@ -22,4 +22,3 @@ src/Sylius/Sandbox/Bundle/CoreBundle/Resources/public/bootstrap
 vendor/
 
 composer.phar
-composer.lock
