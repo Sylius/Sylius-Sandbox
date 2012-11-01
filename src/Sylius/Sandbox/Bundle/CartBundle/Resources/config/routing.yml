@@ -1,3 +1,0 @@
-cart:
-    resource: @SyliusCartBundle/Resources/config/routing/frontend/cart.yml
-    prefix: /cart

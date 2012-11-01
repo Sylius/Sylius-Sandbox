@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <container xmlns="http://symfony.com/schema/dic/services"
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -10,6 +10,9 @@
         <parameter key="sylius_sandbox_core.controller.frontend.main.class">Sylius\Sandbox\Bundle\CoreBundle\Controller\Frontend\MainController</parameter>
         <parameter key="sylius_sandbox_core.controller.frontend.security.class">Sylius\Sandbox\Bundle\CoreBundle\Controller\Frontend\SecurityController</parameter>
         <parameter key="sylius_sandbox_core.controller.backend.main.class">Sylius\Sandbox\Bundle\CoreBundle\Controller\Backend\MainController</parameter>
+
+        <parameter key="sylius_sandbox_cart.operator.class">Sylius\Sandbox\Bundle\CoreBundle\Operator\CartOperator</parameter>
+        <parameter key="sylius_sandbox_cart.resolver.class">Sylius\Sandbox\Bundle\CoreBundle\Resolver\ItemResolver</parameter>
     </parameters>
 
     <services>
@@ -27,6 +30,16 @@
             <call method="setContainer">
                 <argument type="service" id="service_container" />
             </call>
+        </service>
+
+        <service id="sylius_sandbox_cart.operator" class="%sylius_sandbox_cart.operator.class%">
+            <argument type="service" id="sylius_cart.manager.cart" />
+        </service>
+        <service id="sylius_sandbox_cart.resolver" class="%sylius_sandbox_cart.resolver.class%">
+            <argument type="service" id="sylius_cart.manager.item" />
+            <argument type="service" id="sylius_assortment.manager.product" />
+            <argument type="service" id="form.factory" />
+            <argument type="service" id="sylius_inventory.resolver" />
         </service>
     </services>
 

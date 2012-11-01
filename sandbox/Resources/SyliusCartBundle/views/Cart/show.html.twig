@@ -7,7 +7,7 @@
 
 {% if not cart.empty %}
 <div class="alert alert-info">
-<strong>{{ sylius_cart_get().totalItems }}</strong> items, <strong>{{ sylius_cart_get().value }}</strong> &euro;
+<strong>{{ sylius_cart_get().totalItems }}</strong> items, <strong>{{ sylius_cart_get().total }}</strong> &euro;
 </div>
 
 {{ form_errors(form) }}
@@ -49,17 +49,17 @@
                 <a href="{{ path('sylius_cart_item_remove', {'id': item.id}) }}" class="btn btn-danger"><i class="icon-trash icon-white"></i></a>
             </td>
             <td>
-                {{ item.variant.price }} &euro;
+                {{ item.unitPrice }} &euro;
             </td>
             <td style="text-align: right">
-                {{ item.quantity * item.variant.price }} &euro;
+                {{ item.total }} &euro;
             </td>
         </tr>
     {% endfor %}
         <tr>
             <td colspan="6"></td>
             <td style="text-align: right;">
-                <strong>Grand total</strong>: {{ cart.value }} &euro;
+                <strong>Grand total</strong>: {{ cart.total }} &euro;
             </td>
         </tr>
     </tbody>

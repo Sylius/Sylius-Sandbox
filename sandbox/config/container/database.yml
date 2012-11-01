@@ -15,15 +15,15 @@ doctrine:
         entity_managers:
             default:
                 mappings:
-                    FOSUserBundle: ~
                     FOSCommentBundle: ~
+                    FOSUserBundle: ~
                     SandboxAddressingBundle: ~
                     SandboxAssortmentBundle: ~
                     SandboxBloggerBundle: ~
-                    SandboxCartBundle: ~
+                    SandboxCommentBundle: ~
+                    SandboxCoreBundle: ~
                     SandboxSalesBundle: ~
                     SandboxUserBundle: ~
-                    SandboxCommentBundle: ~
                     SyliusAddressingBundle: ~
                     SyliusAssortmentBundle: ~
                     SyliusBloggerBundle: ~

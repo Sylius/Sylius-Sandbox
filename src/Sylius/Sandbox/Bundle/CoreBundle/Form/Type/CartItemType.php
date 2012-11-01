@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Sylius\Sandbox\Bundle\CartBundle\Form\Type;
+namespace Sylius\Sandbox\Bundle\CoreBundle\Form\Type;
 
 use Sylius\Bundle\AssortmentBundle\Model\ProductInterface;
-use Sylius\Bundle\CartBundle\Form\Type\ItemType as BaseItemType;
+use Sylius\Bundle\CartBundle\Form\Type\CartItemType as BaseCartItemType;
 use Symfony\Component\Form\Exception\FormException;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\Options;
@@ -26,7 +26,7 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
  *
  * @author Paweł Jędrzejewkski <pjedrzejewski@diweb.pl>
  */
-class ItemType extends BaseItemType
+class CartItemType extends BaseCartItemType
 {
     /**
      * {@inheritdoc}
@@ -35,17 +35,11 @@ class ItemType extends BaseItemType
     {
         parent::buildForm($builder, $options);
 
-        if (isset($options['product'])) {
-            if (!$options['product'] instanceof ProductInterface) {
-                throw new FormException('Option "product" passed to cart item type must implement "Sylius\Bundle\AssortmentBundle\Model\ProductInterface"');
-            }
-
-            if (0 < $options['product']->countVariants()) {
-                $type = $options['product']->isVariantPickingModeChoice() ? 'sylius_assortment_variant_choice' : 'sylius_assortment_variant_match';
-                $builder->add('variant', $type, array(
-                    'product'  => $options['product']
-                ));
-            }
+        if (isset($options['product']) && 0 < $options['product']->countVariants()) {
+            $type = $options['product']->isVariantPickingModeChoice() ? 'sylius_assortment_variant_choice' : 'sylius_assortment_variant_match';
+            $builder->add('variant', $type, array(
+                'product'  => $options['product']
+            ));
         }
     }
 
@@ -72,6 +66,9 @@ class ItemType extends BaseItemType
             ))
             ->setOptional(array(
                 'product'
+            ))
+            ->setAllowedTypes(array(
+                'product' => array('Sylius\Bundle\AssortmentBundle\Model\CustomizableProductInterface')
             ))
         ;
     }

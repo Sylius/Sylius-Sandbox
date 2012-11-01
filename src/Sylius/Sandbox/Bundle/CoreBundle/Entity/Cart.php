@@ -9,14 +9,15 @@
  * file that was distributed with this source code.
  */
 
-namespace Sylius\Sandbox\Bundle\CartBundle;
+namespace Sylius\Sandbox\Bundle\CoreBundle\Entity;
 
-use Symfony\Component\HttpKernel\Bundle\Bundle;
+use Sylius\Bundle\CartBundle\Entity\Cart as BaseCart;
 
-class SandboxCartBundle extends Bundle
+/**
+ * Cart entity.
+ *
+ * @author Paweł Jędrzejewski <pjedrzejewski@diweb.pl>
+ */
+class Cart extends BaseCart
 {
-    public function getParent()
-    {
-        return 'SyliusCartBundle';
-    }
 }

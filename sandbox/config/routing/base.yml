@@ -7,9 +7,6 @@ sylius_sandbox_core:
 sylius_sandbox_assortment:
     resource: @SandboxAssortmentBundle/Resources/config/routing.yml
 
-sylius_sandbox_cart:
-    resource: @SandboxCartBundle/Resources/config/routing.yml
-
 sylius_sandbox_blogger:
     resource: @SandboxBloggerBundle/Resources/config/routing.yml
 
@@ -21,6 +18,10 @@ sylius_sandbox_addressing:
 
 sylius_sandbox_user:
     resource: @SandboxUserBundle/Resources/config/routing.yml
+
+sylius_cart:
+    resource: @SyliusCartBundle/Resources/config/routing.yml
+    prefix: /cart
 
 sylius_categorizer_category:
     resource: @SyliusCategorizerBundle/Resources/config/routing/backend/category.yml

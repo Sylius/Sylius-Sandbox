@@ -9,12 +9,12 @@
  * file that was distributed with this source code.
  */
 
-namespace Sylius\Sandbox\Bundle\CartBundle\Resolver;
+namespace Sylius\Sandbox\Bundle\CoreBundle\Resolver;
 
 use Sylius\Bundle\AssortmentBundle\Model\ProductManagerInterface;
-use Sylius\Bundle\CartBundle\Model\ItemManagerInterface;
 use Sylius\Bundle\CartBundle\Resolver\ItemResolverInterface;
 use Sylius\Bundle\InventoryBundle\Resolver\StockResolverInterface;
+use Sylius\Bundle\ResourceBundle\Manager\ResourceManagerInterface;
 use Symfony\Component\Form\FormFactory;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -29,7 +29,7 @@ class ItemResolver implements ItemResolverInterface
     /**
      * Item manager.
      *
-     * @var ItemManagerInterface
+     * @var ResourceManagerInterface
      */
     private $itemManager;
 
@@ -57,16 +57,16 @@ class ItemResolver implements ItemResolverInterface
     /**
      * Constructor.
      *
-     * @param ItemManagerInterface    $itemManager
-     * @param ProductManagerInterface $productManager
-     * @param FormFactory             $formFactory
-     * @param StockResolverInterface  $stockResolver
+     * @param ResourceManagerInterface $itemManager
+     * @param ProductManagerInterface  $productManager
+     * @param FormFactory              $formFactory
+     * @param StockResolverInterface   $stockResolver
      */
     public function __construct(
-        ItemManagerInterface    $itemManager,
-        ProductManagerInterface $productManager,
-        FormFactory             $formFactory,
-        StockResolverInterface  $stockResolver
+        ResourceManagerInterface $itemManager,
+        ProductManagerInterface  $productManager,
+        FormFactory              $formFactory,
+        StockResolverInterface   $stockResolver
     )
     {
         $this->itemManager = $itemManager;
@@ -124,7 +124,7 @@ class ItemResolver implements ItemResolverInterface
     public function resolveItemToRemove(Request $request)
     {
         if ($id = $request->query->get('id')) {
-            return $this->itemManager->findItem($id);
+            return $this->itemManager->find($id);
         }
     }
 }

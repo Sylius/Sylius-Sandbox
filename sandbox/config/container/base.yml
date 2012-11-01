@@ -134,13 +134,11 @@ sylius_cart:
     resolver: sylius_sandbox_cart.resolver
     classes:
         model:
-            cart: Sylius\Sandbox\Bundle\CartBundle\Entity\Cart
-            item: Sylius\Sandbox\Bundle\CartBundle\Entity\Item
-        manager:
-            cart: Sylius\Sandbox\Bundle\CartBundle\Entity\CartManager
+            cart: Sylius\Sandbox\Bundle\CoreBundle\Entity\Cart
+            item: Sylius\Sandbox\Bundle\CoreBundle\Entity\CartItem
         form:
             type:
-                item: Sylius\Sandbox\Bundle\CartBundle\Form\Type\ItemType
+                item: Sylius\Sandbox\Bundle\CoreBundle\Form\Type\CartItemType
 
 sylius_blogger:
     driver: doctrine/orm

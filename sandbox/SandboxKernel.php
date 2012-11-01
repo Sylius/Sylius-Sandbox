@@ -63,6 +63,7 @@ class SandboxKernel extends Kernel
             new \Sylius\Bundle\CategorizerBundle\SyliusCategorizerBundle(),
             new \Sylius\Bundle\FlowBundle\SyliusFlowBundle(),
             new \Sylius\Bundle\InventoryBundle\SyliusInventoryBundle(),
+            new \Sylius\Bundle\ResourceBundle\SyliusResourceBundle(),
             new \Sylius\Bundle\SalesBundle\SyliusSalesBundle(),
 
             /*
@@ -71,7 +72,6 @@ class SandboxKernel extends Kernel
             new \Sylius\Sandbox\Bundle\AddressingBundle\SandboxAddressingBundle(),
             new \Sylius\Sandbox\Bundle\AssortmentBundle\SandboxAssortmentBundle(),
             new \Sylius\Sandbox\Bundle\BloggerBundle\SandboxBloggerBundle(),
-            new \Sylius\Sandbox\Bundle\CartBundle\SandboxCartBundle(),
             new \Sylius\Sandbox\Bundle\CoreBundle\SandboxCoreBundle(),
             new \Sylius\Sandbox\Bundle\SalesBundle\SandboxSalesBundle(),
             new \Sylius\Sandbox\Bundle\UserBundle\SandboxUserBundle(),
