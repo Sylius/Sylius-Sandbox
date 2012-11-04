@@ -1,0 +1,14 @@
+<div class="row product-container well">
+    <div class="span3 photo-container">
+        <a href="{{ path('sylius_sandbox_product_show', {'slug': product.slug}) }}" class="thumbnail">
+            <img src="{{ product.imageWebPath is empty ? 'http://placehold.it/245x180' : product.imageWebPath|apply_filter('frontend_medium') }}" alt="product photo" />
+        </a>
+    </div>
+    <div class="span9">
+        <h3>{{ product.name }}</h3>
+        <p>
+            {{ product.description|markdown }}
+        </p>
+        <a href="{{ path('sylius_sandbox_product_show', {'slug': product.slug}) }}" class="btn pull-right">more info...</a>
+    </div>
+</div>

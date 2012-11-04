@@ -1,0 +1,31 @@
+# This file is part of the Sylius sandbox application.
+# (c) Paweł Jędrzejewski
+
+sylius_sandbox_backend_option_list:
+    pattern: /
+    defaults: 
+        _controller: sylius_assortment.controller.option:getCollectionAction
+        _sylius.template: SandboxCoreBundle:Backend/option:list.html.twig
+
+sylius_sandbox_backend_option_create:
+    pattern: /create
+    defaults: 
+        _controller: sylius_assortment.controller.option:createAction
+        _sylius.template: SandboxCoreBundle:Backend/option:create.html.twig
+
+sylius_sandbox_backend_option_update:
+    pattern: /update
+    defaults: 
+        _controller: sylius_assortment.controller.option:updateAction
+        _sylius.template: SandboxCoreBundle:Backend/option:update.html.twig
+
+sylius_sandbox_backend_option_delete:
+    pattern: /{id}/delete
+    defaults: 
+        _controller: sylius_assortment.controller.option:deleteAction
+
+sylius_sandbox_backend_option_show:
+    pattern: /{id}
+    defaults: 
+        _controller: sylius_assortment.controller.option:getAction
+        _sylius.template: SandboxCoreBundle:Backend/option:show.html.twig

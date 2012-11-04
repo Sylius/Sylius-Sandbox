@@ -49,8 +49,7 @@ class Builder extends ContainerAware
             'labelAttributes'    => array('class' => 'dropdown-toggle', 'data-toggle' => 'dropdown', 'href' => '#')
         );
 
-        $child = $menu->addChild('Offer', $childOptions);
-        $child->addChild('Products', array('route' => 'sylius_assortment_product_list'));
+        $menu->addChild('Products', array('route' => 'sylius_sandbox_product_list'));
 
         $child = $menu->addChild('My cart', array('route' => 'sylius_cart_show'));
 
@@ -220,11 +219,11 @@ class Builder extends ContainerAware
 
         // Products.
         $child->addChild('Create product', array(
-            'route'           => 'sylius_assortment_backend_product_create',
+            'route'           => 'sylius_sandbox_backend_product_create',
             'labelAttributes' => array('icon' => 'icon-plus-sign')
         ));
         $child->addChild('List products', array(
-            'route'           => 'sylius_assortment_backend_product_list',
+            'route'           => 'sylius_sandbox_backend_product_list',
             'labelAttributes' => array('icon' => 'icon-list-alt')
         ));
 
@@ -232,11 +231,11 @@ class Builder extends ContainerAware
 
         // Option types.
         $child->addChild('Create option', array(
-            'route'           => 'sylius_assortment_backend_option_create',
+            'route'           => 'sylius_sandbox_backend_option_create',
             'labelAttributes' => array('icon' => 'icon-plus-sign')
         ));
         $child->addChild('List options', array(
-            'route'           => 'sylius_assortment_backend_option_list',
+            'route'           => 'sylius_sandbox_backend_option_list',
             'labelAttributes' => array('icon' => 'icon-list-alt')
         ));
 
@@ -244,11 +243,11 @@ class Builder extends ContainerAware
 
         // Properties.
         $child->addChild('Create property', array(
-            'route'           => 'sylius_assortment_backend_property_create',
+            'route'           => 'sylius_sandbox_backend_property_create',
             'labelAttributes' => array('icon' => 'icon-plus-sign')
         ));
         $child->addChild('List properties', array(
-            'route'           => 'sylius_assortment_backend_property_list',
+            'route'           => 'sylius_sandbox_backend_property_list',
             'labelAttributes' => array('icon' => 'icon-list-alt')
         ));
 
@@ -256,11 +255,11 @@ class Builder extends ContainerAware
 
         // Prototypes.
         $child->addChild('Create prototype', array(
-            'route'           => 'sylius_assortment_backend_prototype_create',
+            'route'           => 'sylius_sandbox_backend_prototype_create',
             'labelAttributes' => array('icon' => 'icon-plus-sign')
         ));
         $child->addChild('List prototypes', array(
-            'route'           => 'sylius_assortment_backend_prototype_list',
+            'route'           => 'sylius_sandbox_backend_prototype_list',
             'labelAttributes' => array('icon' => 'icon-list-alt')
         ));
     }

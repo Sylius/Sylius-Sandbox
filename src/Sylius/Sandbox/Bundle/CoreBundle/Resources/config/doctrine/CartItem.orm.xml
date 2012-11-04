@@ -12,7 +12,7 @@
         <many-to-one field="cart" target-entity="Sylius\Sandbox\Bundle\CoreBundle\Entity\Cart">
           <join-column name="cart_id" referenced-column-name="id" />
       </many-to-one>
-      <many-to-one field="variant" target-entity="Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Variant\Variant">
+      <many-to-one field="variant" target-entity="Sylius\Sandbox\Bundle\CoreBundle\Entity\Variant\Variant">
           <join-column name="variant_id" referenced-column-name="id" />
       </many-to-one>
     </entity>

@@ -1,0 +1,15 @@
+# This file is part of the Sylius sandbox application.
+# (c) Paweł Jędrzejewski
+
+sylius_sandbox_product_list:
+    pattern: /
+    defaults: 
+        _controller: sylius_assortment.controller.product:getCollectionAction
+        _sylius.template: SandboxCoreBundle:Frontend/Product:list.html.twig
+
+sylius_sandbox_product_show:
+    pattern: /{slug}
+    defaults: 
+        _controller: sylius_assortment.controller.product:getAction
+        _sylius.template: SandboxCoreBundle:Frontend/Product:show.html.twig
+        _sylius.identifier: slug

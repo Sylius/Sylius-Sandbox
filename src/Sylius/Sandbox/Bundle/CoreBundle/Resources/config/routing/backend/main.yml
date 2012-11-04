@@ -1,0 +1,26 @@
+# This file is part of the Sylius sandbox application.
+# (c) Paweł Jędrzejewski
+
+sylius_sandbox_core_backend:
+    pattern: /
+    defaults: { _controller: sylius_sandbox_core.controller.backend.main:indexAction }
+
+sylius_sandbox_core_backend_product:
+    resource: @SandboxCoreBundle/Resources/config/routing/backend/product.yml
+    prefix: /products
+
+sylius_sandbox_core_backend_variant:
+    resource: @SandboxCoreBundle/Resources/config/routing/backend/variant.yml
+    prefix: /products/variants
+
+sylius_sandbox_core_backend_option:
+    resource: @SandboxCoreBundle/Resources/config/routing/backend/option.yml
+    prefix: /options
+
+sylius_sandbox_core_backend_prototype:
+    resource: @SandboxCoreBundle/Resources/config/routing/backend/prototype.yml
+    prefix: /prototypes
+
+sylius_sandbox_core_backend_properties:
+    resource: @SandboxCoreBundle/Resources/config/routing/backend/property.yml
+    prefix: /properties

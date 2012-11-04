@@ -1,0 +1,37 @@
+# This file is part of the Sylius sandbox application.
+# (c) Paweł Jędrzejewski
+
+sylius_sandbox_backend_product_list:
+    pattern: /
+    defaults: 
+        _controller: sylius_assortment.controller.product:getCollectionAction
+        _sylius.template: SandboxCoreBundle:Backend/Product:list.html.twig
+
+sylius_sandbox_backend_product_create:
+    pattern: /create
+    defaults: 
+        _controller: sylius_assortment.controller.product:createAction
+        _sylius.template: SandboxCoreBundle:Backend/Product:create.html.twig
+
+sylius_sandbox_backend_product_update:
+    pattern: /{id}/update
+    defaults: 
+        _controller: sylius_assortment.controller.product:updateAction
+        _sylius.template: SandboxCoreBundle:Backend/Product:update.html.twig
+
+sylius_sandbox_backend_product_delete:
+    pattern: /{id}/delete
+    defaults: 
+        _controller: sylius_assortment.controller.product:deleteAction
+        _sylius.redirect: sylius_sandbox_backend_product_list
+
+sylius_sandbox_backend_product_duplicate:
+    pattern: /{id}/duplicate
+    defaults: 
+        _controller: sylius_assortment.controller.product:duplicateAction
+
+sylius_sandbox_backend_product_show:
+    pattern: /{id}
+    defaults:
+        _controller: sylius_assortment.controller.product:getAction
+        _sylius.template: SandboxCoreBundle:Backend/Product:show.html.twig

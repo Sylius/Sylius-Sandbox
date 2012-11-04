@@ -11,7 +11,6 @@
 
 namespace Sylius\Sandbox\Bundle\CoreBundle\Resolver;
 
-use Sylius\Bundle\AssortmentBundle\Model\ProductManagerInterface;
 use Sylius\Bundle\CartBundle\Model\CartItemInterface;
 use Sylius\Bundle\CartBundle\Resolver\ItemResolverInterface;
 use Sylius\Bundle\InventoryBundle\Resolver\StockResolverInterface;
@@ -29,7 +28,7 @@ class ItemResolver implements ItemResolverInterface
     /**
      * Product manager.
      *
-     * @var ProductManagerInterface
+     * @var ResourceManagerInterface
      */
     private $productManager;
 
@@ -50,14 +49,14 @@ class ItemResolver implements ItemResolverInterface
     /**
      * Constructor.
      *
-     * @param ProductManagerInterface $productManager
-     * @param FormFactory             $formFactory
-     * @param StockResolverInterface  $stockResolver
+     * @param ResourceManagerInterface $productManager
+     * @param FormFactory              $formFactory
+     * @param StockResolverInterface   $stockResolver
      */
     public function __construct(
-        ProductManagerInterface $productManager,
-        FormFactory             $formFactory,
-        StockResolverInterface  $stockResolver
+        ResourceManagerInterface $productManager,
+        FormFactory              $formFactory,
+        StockResolverInterface   $stockResolver
     )
     {
         $this->productManager = $productManager;
@@ -82,7 +81,7 @@ class ItemResolver implements ItemResolverInterface
             return false;
         }
 
-        if (!$product = $this->productManager->findProduct($id)) {
+        if (!$product = $this->productManager->find($id)) {
             throw new NotFoundHttpException('Requested product does not exist');
         }
 

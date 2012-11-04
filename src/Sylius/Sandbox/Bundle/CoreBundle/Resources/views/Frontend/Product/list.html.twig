@@ -1,0 +1,33 @@
+{% extends 'SandboxCoreBundle:Frontend:layout.html.twig' %}
+
+{% block content %}
+<div class="page-header">
+<h1>Product list <small>Paginated products list</small></h1>
+</div>
+
+<ul class="breadcrumb">
+  <li><a href="{{ path('sylius_sandbox_core_frontend') }}">Sylius</a> <span class="divider">/</span></li>
+  <li><a href="{{ path('sylius_sandbox_product_list') }}">Products</a></li>
+</ul>
+
+{% if paginator.haveToPaginate() %}
+{{ pagerfanta(paginator, 'twitter_bootstrap_translated') }}
+{% endif %}
+
+{% if products|length > 0 %}
+    {% for product in products %}
+        {% include 'SandboxCoreBundle:Frontend/Product:single.html.twig' %}
+    {% endfor %}
+{% else %}
+<hr />
+<div class="alert alert-info">
+    <h4 class="alert-heading">Information.</h4>
+    There are no products to display.
+</div>
+{% endif %}
+
+{% if paginator.haveToPaginate() %}
+{{ pagerfanta(paginator, 'twitter_bootstrap_translated') }}
+{% endif %}
+
+{% endblock %}

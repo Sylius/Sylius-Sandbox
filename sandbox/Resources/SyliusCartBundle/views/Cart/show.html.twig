@@ -30,7 +30,7 @@
         <tr>
             <td>{{ loop.index }}</td>
             <td>
-                <a href="{{ path('sylius_assortment_product_show', {'slug': item.variant.product.slug}) }}" class="thumbnail" style="width: 90px;">
+                <a href="{{ path('sylius_sandbox_product_show', {'slug': item.variant.product.slug}) }}" class="thumbnail" style="width: 90px;">
                     <img src="{{ item.variant.product.imageWebPath is empty ? 'http://placehold.it/90x60' : item.variant.product.imageWebPath|apply_filter('frontend_medium') }}" alt="product photo" />
                 </a>
             </td>

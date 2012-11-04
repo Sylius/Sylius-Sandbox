@@ -1,0 +1,10 @@
+# This file is part of the Sylius sandbox application.
+# (c) Paweł Jędrzejewski
+
+sylius_sandbox_core_frontend:
+    pattern: /
+    defaults: { _controller: sylius_sandbox_core.controller.frontend.main:indexAction }
+
+sylius_sandbox_core_frontend_product:
+    resource: @SandboxCoreBundle/Resources/config/routing/frontend/product.yml
+    prefix: /products

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                                      http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd"
+>
+
+    <entity name="Sylius\Sandbox\Bundle\CoreBundle\Entity\Product" table="sylius_sandbox_assortment_product">
+        <id name="id" column="id" type="integer">
+            <generator strategy="AUTO" />
+        </id>
+        <field name="variantPickingMode" column="variant_picking_mode" type="integer" />
+        <field name="imagePath" column="image_path" nullable="true" />
+        <many-to-one field="category" target-entity="Sylius\Sandbox\Bundle\CoreBundle\Entity\ProductCategory">
+            <join-column name="category_id" referenced-column-name="id" />
+        </many-to-one>
+        <many-to-one field="masterVariant" target-entity="Sylius\Sandbox\Bundle\CoreBundle\Entity\Variant\Variant">
+            <cascade>
+                <cascade-all />
+            </cascade>
+            <join-column name="variant_id" referenced-column-name="id" />
+        </many-to-one>
+        <one-to-many field="variants" target-entity="Sylius\Sandbox\Bundle\CoreBundle\Entity\Variant\Variant" mapped-by="product">
+            <cascade>
+                <cascade-all />
+            </cascade>
+        </one-to-many>
+        <many-to-many field="options" target-entity="Sylius\Sandbox\Bundle\CoreBundle\Entity\Option\Option">
+            <join-table name="sylius_assortment_product_option">
+                <join-columns>
+                    <join-column name="product_id" referenced-column-name="id" column-definition="INT" />
+                </join-columns>
+                <inverse-join-columns>
+                    <join-column name="option_id" referenced-column-name="id" nullable="false" unique="false" />
+                </inverse-join-columns>
+            </join-table>
+        </many-to-many>
+        <one-to-many field="properties" target-entity="Sylius\Sandbox\Bundle\CoreBundle\Entity\Property\ProductProperty" mapped-by="product">
+            <cascade>
+                <cascade-all />
+            </cascade>
+        </one-to-many>
+        <lifecycle-callbacks>
+            <lifecycle-callback type="prePersist" method="saveImage"/>
+            <lifecycle-callback type="postRemove" method="deleteImage"/>
+        </lifecycle-callbacks>
+    </entity>
+
+</doctrine-mapping>

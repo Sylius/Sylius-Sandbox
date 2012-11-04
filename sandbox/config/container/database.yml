@@ -17,7 +17,6 @@ doctrine:
                 mappings:
                     FOSCommentBundle: ~
                     FOSUserBundle: ~
-                    SandboxAssortmentBundle: ~
                     SandboxCoreBundle: ~
                     SyliusAddressingBundle: ~
                     SyliusAssortmentBundle: ~

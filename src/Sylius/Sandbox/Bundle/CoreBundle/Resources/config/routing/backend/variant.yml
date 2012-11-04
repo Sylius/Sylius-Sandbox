@@ -1,0 +1,25 @@
+# This file is part of the Sylius sandbox application.
+# (c) Paweł Jędrzejewski
+
+sylius_sandbox_backend_variant_create:
+    pattern: /create
+    defaults: 
+        _controller: sylius_assortment.controller.variant:createAction
+        _sylius.template: SandboxCoreBundle:Backend/variant:create.html.twig
+
+sylius_sandbox_backend_variant_update:
+    pattern: /update
+    defaults: 
+        _controller: sylius_assortment.controller.variant:updateAction
+        _sylius.template: SandboxCoreBundle:Backend/variant:update.html.twig
+
+sylius_sandbox_backend_variant_delete:
+    pattern: /{id}/delete
+    defaults:
+        _controller: sylius_assortment.controller.variant:deleteAction
+
+sylius_sandbox_backend_variant_show:
+    pattern: /{id}
+    defaults:
+        _controller: sylius_assortment.controller.variant:getAction
+        _sylius.template: SandboxCoreBundle:Backend/variant:show.html.twig

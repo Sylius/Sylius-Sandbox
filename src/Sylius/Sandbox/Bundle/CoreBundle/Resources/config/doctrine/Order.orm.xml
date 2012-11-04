@@ -27,7 +27,7 @@
             </cascade>
             <join-column name="billing_address_id" referenced-column-name="id" />
         </many-to-one>
-        <one-to-many field="inventoryUnits" target-entity="Sylius\Sandbox\Bundle\AssortmentBundle\Entity\InventoryUnit" mapped-by="order">
+        <one-to-many field="inventoryUnits" target-entity="Sylius\Sandbox\Bundle\CoreBundle\Entity\InventoryUnit" mapped-by="order">
             <cascade>
                 <cascade-all/>
             </cascade>

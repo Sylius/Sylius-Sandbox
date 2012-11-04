@@ -96,27 +96,26 @@ fos_comment:
 
 sylius_assortment:
     driver: doctrine/orm
-    api: true
     classes:
         model:
-            product: Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Product
-            variant: Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Variant\Variant
-            property: Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Property\Property
-            product_property: Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Property\ProductProperty
-            prototype: Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Prototype\Prototype
-            option: Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Option\Option
-            option_value: Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Option\OptionValue
+            product: Sylius\Sandbox\Bundle\CoreBundle\Entity\Product
+            variant: Sylius\Sandbox\Bundle\CoreBundle\Entity\Variant\Variant
+            property: Sylius\Sandbox\Bundle\CoreBundle\Entity\Property\Property
+            product_property: Sylius\Sandbox\Bundle\CoreBundle\Entity\Property\ProductProperty
+            prototype: Sylius\Sandbox\Bundle\CoreBundle\Entity\Prototype\Prototype
+            option: Sylius\Sandbox\Bundle\CoreBundle\Entity\Option\Option
+            option_value: Sylius\Sandbox\Bundle\CoreBundle\Entity\Option\OptionValue
         form:
             type:
-                product: Sylius\Sandbox\Bundle\AssortmentBundle\Form\Type\ProductType
-                variant: Sylius\Sandbox\Bundle\AssortmentBundle\Form\Type\VariantType
+                product: Sylius\Sandbox\Bundle\CoreBundle\Form\Type\ProductType
+                variant: Sylius\Sandbox\Bundle\CoreBundle\Form\Type\VariantType
 
 sylius_categorizer:
     driver: doctrine/orm
     catalogs:
         assortment:
             property: "products"
-            model: Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Category
+            model: Sylius\Sandbox\Bundle\CoreBundle\Entity\ProductCategory
             form: sylius_sandbox_assortment_category
             templates:
                 backend: SandboxAssortmentBundle:Backend/Category:%s.html.twig
@@ -158,4 +157,4 @@ sylius_inventory:
     driver: doctrine/orm
     classes:
         model:
-            iu: Sylius\Sandbox\Bundle\AssortmentBundle\Entity\InventoryUnit
+            iu: Sylius\Sandbox\Bundle\CoreBundle\Entity\InventoryUnit

@@ -4,9 +4,6 @@
 sylius_sandbox_core:
     resource: @SandboxCoreBundle/Resources/config/routing/base.yml
 
-sylius_sandbox_assortment:
-    resource: @SandboxAssortmentBundle/Resources/config/routing.yml
-
 sylius_cart:
     resource: @SyliusCartBundle/Resources/config/routing.yml
     prefix: /cart
