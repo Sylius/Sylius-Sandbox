@@ -36,7 +36,6 @@
             <argument type="service" id="sylius_cart.manager.cart" />
         </service>
         <service id="sylius_sandbox_cart.resolver" class="%sylius_sandbox_cart.resolver.class%">
-            <argument type="service" id="sylius_cart.manager.item" />
             <argument type="service" id="sylius_assortment.manager.product" />
             <argument type="service" id="form.factory" />
             <argument type="service" id="sylius_inventory.resolver" />

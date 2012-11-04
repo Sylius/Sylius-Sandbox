@@ -12,9 +12,9 @@
 namespace Sylius\Sandbox\Bundle\CoreBundle\Resolver;
 
 use Sylius\Bundle\AssortmentBundle\Model\ProductManagerInterface;
+use Sylius\Bundle\CartBundle\Model\CartItemInterface;
 use Sylius\Bundle\CartBundle\Resolver\ItemResolverInterface;
 use Sylius\Bundle\InventoryBundle\Resolver\StockResolverInterface;
-use Sylius\Bundle\ResourceBundle\Manager\ResourceManagerInterface;
 use Symfony\Component\Form\FormFactory;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -26,13 +26,6 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class ItemResolver implements ItemResolverInterface
 {
-    /**
-     * Item manager.
-     *
-     * @var ResourceManagerInterface
-     */
-    private $itemManager;
-
     /**
      * Product manager.
      *
@@ -57,19 +50,16 @@ class ItemResolver implements ItemResolverInterface
     /**
      * Constructor.
      *
-     * @param ResourceManagerInterface $itemManager
-     * @param ProductManagerInterface  $productManager
-     * @param FormFactory              $formFactory
-     * @param StockResolverInterface   $stockResolver
+     * @param ProductManagerInterface $productManager
+     * @param FormFactory             $formFactory
+     * @param StockResolverInterface  $stockResolver
      */
     public function __construct(
-        ResourceManagerInterface $itemManager,
-        ProductManagerInterface  $productManager,
-        FormFactory              $formFactory,
-        StockResolverInterface   $stockResolver
+        ProductManagerInterface $productManager,
+        FormFactory             $formFactory,
+        StockResolverInterface  $stockResolver
     )
     {
-        $this->itemManager = $itemManager;
         $this->productManager = $productManager;
         $this->formFactory = $formFactory;
         $this->stockResolver = $stockResolver;
@@ -81,7 +71,7 @@ class ItemResolver implements ItemResolverInterface
      * Here we create the item that is going to be added to cart, basing on the current request.
      * This method simply has to return false value if something is wrong.
      */
-    public function resolveItemToAdd(Request $request)
+    public function resolve(CartItemInterface $item, Request $request)
     {
         /*
          * We're getting here product id via query but you can easily override route
@@ -115,16 +105,6 @@ class ItemResolver implements ItemResolverInterface
 
                 return $item;
             }
-        }
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function resolveItemToRemove(Request $request)
-    {
-        if ($id = $request->query->get('id')) {
-            return $this->itemManager->find($id);
         }
     }
 }
