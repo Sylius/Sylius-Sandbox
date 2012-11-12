@@ -130,7 +130,6 @@ sylius_categorizer:
 
 sylius_cart:
     driver: doctrine/orm
-    operator: sylius_sandbox_cart.operator
     resolver: sylius_sandbox_cart.resolver
     classes:
         model:
