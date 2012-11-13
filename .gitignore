@@ -2,6 +2,7 @@ bin/doctrine
 bin/doctrine.php
 bin/behat
 bin/goutte.phar
+bin/phpspec
 
 behat.yml
 
