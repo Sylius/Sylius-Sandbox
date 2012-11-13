@@ -1669,24 +1669,25 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/SyliusAddressingBundle.git",
-                "reference": "142eea7882567a82ee0c0d9ff6c754e153e774c8"
+                "reference": "7c7f97abec07a426829b9b55fcafb608d1973d02"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/Sylius/SyliusAddressingBundle/zipball/142eea7882567a82ee0c0d9ff6c754e153e774c8",
-                "reference": "142eea7882567a82ee0c0d9ff6c754e153e774c8",
+                "url": "https://github.com/Sylius/SyliusAddressingBundle/archive/7c7f97abec07a426829b9b55fcafb608d1973d02.zip",
+                "reference": "7c7f97abec07a426829b9b55fcafb608d1973d02",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.2",
-                "symfony/symfony": "2.1.*",
                 "stof/doctrine-extensions-bundle": "*",
-                "white-october/pagerfanta-bundle": "*"
+                "white-october/pagerfanta-bundle": "*",
+                "symfony/framework-bundle": ">=2.1,<3.0",
+                "sylius/resource-bundle": "*"
             },
             "require-dev": {
-                "doctrine/orm": "*"
+                "phpspec/phpspec2": "*"
             },
-            "time": "1346502602",
+            "time": "1352766960",
             "type": "symfony-bundle",
             "installation-source": "source",
             "autoload": {
@@ -1837,12 +1838,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/SyliusCartBundle.git",
-                "reference": "ccbb51c8f43f3fc1423b88726dd7b66ba181dc20"
+                "reference": "6fe243f9d752d7cccc5e9115db65e942a2485ad2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/Sylius/SyliusCartBundle/archive/ccbb51c8f43f3fc1423b88726dd7b66ba181dc20.zip",
-                "reference": "ccbb51c8f43f3fc1423b88726dd7b66ba181dc20",
+                "url": "https://github.com/Sylius/SyliusCartBundle/archive/6fe243f9d752d7cccc5e9115db65e942a2485ad2.zip",
+                "reference": "6fe243f9d752d7cccc5e9115db65e942a2485ad2",
                 "shasum": ""
             },
             "require": {
@@ -1858,7 +1859,7 @@
                 "doctrine/doctrine-bundle": "*",
                 "doctrine/orm": "*"
             },
-            "time": "1352303393",
+            "time": "1352758650",
             "type": "symfony-bundle",
             "installation-source": "source",
             "autoload": {
@@ -2061,12 +2062,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/SyliusResourceBundle.git",
-                "reference": "1733a776420b2bfc5014b8b2c4d7b33500ed37dd"
+                "reference": "8ac759a8f0e60623e4923e68c794a63409fe129f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/Sylius/SyliusResourceBundle/archive/1733a776420b2bfc5014b8b2c4d7b33500ed37dd.zip",
-                "reference": "1733a776420b2bfc5014b8b2c4d7b33500ed37dd",
+                "url": "https://github.com/Sylius/SyliusResourceBundle/archive/8ac759a8f0e60623e4923e68c794a63409fe129f.zip",
+                "reference": "8ac759a8f0e60623e4923e68c794a63409fe129f",
                 "shasum": ""
             },
             "require": {
@@ -2079,7 +2080,7 @@
             "require-dev": {
                 "phpspec/phpspec2": "*"
             },
-            "time": "1352755953",
+            "time": "1352767052",
             "type": "symfony-bundle",
             "installation-source": "source",
             "autoload": {
