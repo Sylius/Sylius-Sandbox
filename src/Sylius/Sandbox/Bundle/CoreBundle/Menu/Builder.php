@@ -153,8 +153,6 @@ class Builder extends ContainerAware
         $this->addSalesMenu($menu, $childOptions);
         $this->addAddressingMenu($menu, $childOptions);
 
-        $this->addDivider($menu, true);
-
         $menu->addChild('Go to <strong>frontend</strong>', array('route' => 'sylius_sandbox_core_frontend'));
 
         return $menu;
@@ -322,7 +320,7 @@ class Builder extends ContainerAware
      */
     protected function addDivider(ItemInterface $item, $vertical = false)
     {
-        $item->addChild(uniqid(), array(
+        $item->addChild('', array(
             'attributes' => array(
                 'class' => $vertical ? 'divider-vertical' : 'divider'
             )
