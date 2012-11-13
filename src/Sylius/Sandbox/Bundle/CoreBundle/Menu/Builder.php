@@ -52,9 +52,6 @@ class Builder extends ContainerAware
         $child = $menu->addChild('Offer', $childOptions);
         $child->addChild('Products', array('route' => 'sylius_assortment_product_list'));
 
-        $child = $menu->addChild('Blog', $childOptions);
-        $child->addChild('Posts', array('route' => 'sylius_blogger_post_list'));
-
         $child = $menu->addChild('My cart', array('route' => 'sylius_cart_show'));
 
         return $menu;
@@ -98,21 +95,6 @@ class Builder extends ContainerAware
                 'labelAttributes' => array('icon' => 'icon-chevron-right')
             ));
         }
-
-        $blogCategories = $categoryManager->findCategories('blog');
-        $child = $menu->addChild('Blog', $childOptions);
-
-        foreach ($blogCategories as $category) {
-            $child->addChild($category->getName(), array(
-                'route'           => 'sylius_categorizer_category_show',
-                'routeParameters' => array(
-                    'alias' => 'blog',
-                    'slug'  => $category->getSlug()
-                ),
-                'labelAttributes' => array('icon' => 'icon-chevron-right')
-            ));
-        }
-
 
         $child = $menu->addChild('My account', $childOptions);
         if ($this->container->get('security.context')->isGranted('ROLE_USER')) {
@@ -169,7 +151,6 @@ class Builder extends ContainerAware
 
         $this->addAssortmentMenu($menu, $childOptions);
         $this->addSalesMenu($menu, $childOptions);
-        $this->addBlogMenu($menu, $childOptions);
         $this->addAddressingMenu($menu, $childOptions);
 
         $this->addDivider($menu, true);
@@ -204,7 +185,6 @@ class Builder extends ContainerAware
 
         $this->addAssortmentMenu($menu, $childOptions);
         $this->addSalesMenu($menu, $childOptions);
-        $this->addBlogMenu($menu, $childOptions);
         $this->addAddressingMenu($menu, $childOptions);
 
         $child = $menu->addChild('Administration', $childOptions);
@@ -310,39 +290,6 @@ class Builder extends ContainerAware
 
         $child->addChild('Manage statuses', array(
             'route'           => 'sylius_sales_backend_status_list',
-            'labelAttributes' => array('icon' => 'icon-list-alt')
-        ));
-    }
-
-    /**
-     * Adds blog menu.
-     *
-     * @param ItemInterface $menu
-     * @param array         $childOptions
-     */
-    protected function addBlogMenu(ItemInterface $menu, array $childOptions)
-    {
-        $child = $menu->addChild('Blog', $childOptions);
-
-        $child->addChild('Create category', array(
-            'route'           => 'sylius_categorizer_backend_category_create',
-            'routeParameters' => array('alias' => 'blog'),
-            'labelAttributes' => array('icon' => 'icon-plus-sign')
-        ));
-        $child->addChild('List categories', array(
-            'route'           => 'sylius_categorizer_backend_category_list',
-            'routeParameters' => array('alias' => 'blog'),
-            'labelAttributes' => array('icon' => 'icon-list-alt')
-        ));
-
-        $this->addDivider($child);
-
-        $child->addChild('Create post', array(
-            'route' => 'sylius_blogger_backend_post_create',
-            'labelAttributes' => array('icon' => 'icon-plus-sign')
-        ));
-        $child->addChild('List post', array(
-            'route'           => 'sylius_blogger_backend_post_list',
             'labelAttributes' => array('icon' => 'icon-list-alt')
         ));
     }

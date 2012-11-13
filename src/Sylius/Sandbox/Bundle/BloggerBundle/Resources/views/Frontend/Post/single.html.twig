@@ -1,7 +1,0 @@
-<div class="well">
-    <h2>{{ post.title }}</h2>
-    <p>Posted at {{ post.createdAt|date('Y-m-d H:i:s') }} by <strong>{{ post.author }}</strong>.</p>
-    <p>{{ post.content }}</p>
-    <hr />
-    <a href="{{ path('sylius_blogger_post_show', {'slug': post.slug}) }}" class="btn span3">read</a>
-</div>

@@ -18,14 +18,12 @@ doctrine:
                     FOSCommentBundle: ~
                     FOSUserBundle: ~
                     SandboxAssortmentBundle: ~
-                    SandboxBloggerBundle: ~
                     SandboxCommentBundle: ~
                     SandboxCoreBundle: ~
                     SandboxSalesBundle: ~
                     SandboxUserBundle: ~
                     SyliusAddressingBundle: ~
                     SyliusAssortmentBundle: ~
-                    SyliusBloggerBundle: ~
                     SyliusCartBundle: ~
                     SyliusCategorizerBundle: ~
                     SyliusInventoryBundle: ~
