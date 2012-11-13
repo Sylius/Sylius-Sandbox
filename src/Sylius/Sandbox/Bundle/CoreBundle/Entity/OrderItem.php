@@ -12,7 +12,7 @@
 namespace Sylius\Sandbox\Bundle\SalesBundle\Entity;
 
 use Sylius\Bundle\AssortmentBundle\Model\Variant\VariantInterface;
-use Sylius\Bundle\SalesBundle\Entity\Item as BaseItem;
+use Sylius\Bundle\SalesBundle\Entity\OrderItem as BaseOrderItem;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -20,13 +20,12 @@ use Symfony\Component\Validator\Constraints as Assert;
  *
  * @author Paweł Jędrzjewski <pjedrzejewski@diweb.pl>
  */
-class Item extends BaseItem
+class OrderItem extends BaseOrderItem
 {
     /**
      * @Assert\NotBlank
      */
     protected $variant;
-    protected $unitPrice;
 
     public function getVariant()
     {
@@ -38,13 +37,4 @@ class Item extends BaseItem
         $this->variant = $variant;
     }
 
-    public function getUnitPrice()
-    {
-        return $this->unitPrice;
-    }
-
-    public function setUnitPrice($unitPrice)
-    {
-        $this->unitPrice = $unitPrice;
-    }
 }

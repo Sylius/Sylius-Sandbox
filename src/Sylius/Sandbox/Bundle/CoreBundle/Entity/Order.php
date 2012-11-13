@@ -21,13 +21,6 @@ use Symfony\Component\Validator\Constraints as Assert;
 class Order extends BaseOrder
 {
     /**
-     * Total order value.
-     *
-     * @var float
-     */
-    private $total;
-
-    /**
      * Delivery address.
      *
      * @var AddressInterface
@@ -63,29 +56,6 @@ class Order extends BaseOrder
         parent::__construct();
 
         $this->inventoryUnits = new ArrayCollection();
-    }
-
-    public function getTotal()
-    {
-        return $this->total;
-    }
-
-    public function setTotal($total)
-    {
-        $this->total = $total;
-    }
-
-    public function calculateTotal()
-    {
-        $total = 0.00;
-
-        foreach ($this->getItems() as $item)
-        {
-            $item->setUnitPrice($item->getVariant()->getPrice());
-            $total += $item->getQuantity() * $item->getUnitPrice();
-        }
-
-        $this->total = $total;
     }
 
     public function getDeliveryAddress()

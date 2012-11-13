@@ -138,12 +138,11 @@ sylius_sales:
     classes:
         model:
             order: Sylius\Sandbox\Bundle\SalesBundle\Entity\Order
-            item: Sylius\Sandbox\Bundle\SalesBundle\Entity\Item
-            status: Sylius\Bundle\SalesBundle\Entity\Status
+            item: Sylius\Sandbox\Bundle\SalesBundle\Entity\OrderItem
         form:
             type:
                 order: Sylius\Sandbox\Bundle\SalesBundle\Form\Type\OrderType
-                item: Sylius\Sandbox\Bundle\SalesBundle\Form\Type\ItemType
+                item: Sylius\Sandbox\Bundle\SalesBundle\Form\Type\OrderItemType
 
 sylius_addressing:
     driver: doctrine/orm
