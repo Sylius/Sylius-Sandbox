@@ -6,7 +6,7 @@
 
 {% block content %}
 <div class="well">
-<a href="{{ path('sylius_addressing_backend_address_create') }}" class="btn btn-primary">
+<a href="{{ path('sylius_sandbox_backend_address_create') }}" class="btn btn-primary">
     <i class="icon-plus icon-white"></i> create address
 </a>
 </div>
@@ -19,12 +19,12 @@
 <table class="table table-bordered table-striped">
     <thead>
         <tr>
-            <th><a href="{{ path('sylius_addressing_backend_address_list', {'sort': 'id', 'order': sorter.order}) }}">#id</a></th>
-            <th><a href="{{ path('sylius_addressing_backend_address_list', {'sort': 'firstname', 'order': sorter.order}) }}">firstname</a></th>
-            <th><a href="{{ path('sylius_addressing_backend_address_list', {'sort': 'lastname', 'order': sorter.order}) }}">lastname</a></th>
-            <th><a href="{{ path('sylius_addressing_backend_address_list', {'sort': 'city', 'order': sorter.order}) }}">city</a></th>
-            <th><a href="{{ path('sylius_addressing_backend_address_list', {'sort': 'street', 'order': sorter.order}) }}">street</a></th>
-            <th><a href="{{ path('sylius_addressing_backend_address_list', {'sort': 'postcode', 'order': sorter.order}) }}">postcode</a></th>
+            <th>#id</th>
+            <th>firstname</th>
+            <th>lastname</th>
+            <th>city</th>
+            <th>street</th>
+            <th>postcode</th>
             <th></th>
         </tr>
     </thead>
@@ -39,13 +39,13 @@
             <td>{{ address.postcode }}</td>
             <td>
                 <div class="btn-group pull-right">
-                    <a href="{{ path('sylius_addressing_backend_address_show', {'id': address.id}) }}" class="btn">
+                    <a href="{{ path('sylius_sandbox_backend_address_show', {'id': address.id}) }}" class="btn">
                         <i class="icon-book"></i> details
                     </a>
-                    <a href="{{ path('sylius_addressing_backend_address_update', {'id': address.id}) }}" class="btn">
+                    <a href="{{ path('sylius_sandbox_backend_address_update', {'id': address.id}) }}" class="btn">
                         <i class="icon-pencil"></i> edit 
                     </a>
-                    <a href="{{ path('sylius_addressing_backend_address_delete', {'id': address.id}) }}"  class="btn btn-danger confirmer"
+                    <a href="{{ path('sylius_sandbox_backend_address_delete', {'id': address.id}) }}"  class="btn btn-danger confirmer"
                         data-confirmer-question="Do you really want to delete address <strong>{{ address.firstname ~ ' ' ~ address.lastname }}</strong>?"
                     >
                         <i class="icon-trash icon-white"></i>

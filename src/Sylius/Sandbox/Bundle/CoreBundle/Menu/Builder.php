@@ -358,11 +358,11 @@ class Builder extends ContainerAware
         $child = $menu->addChild('Address book', $childOptions);
 
         $child->addChild('Create address', array(
-            'route' => 'sylius_addressing_backend_address_create',
+            'route' => 'sylius_sandbox_backend_address_create',
             'labelAttributes' => array('icon' => 'icon-plus-sign')
         ));
         $child->addChild('List addresses', array(
-            'route' => 'sylius_addressing_backend_address_list',
+            'route' => 'sylius_sandbox_backend_address_list',
             'labelAttributes' => array('icon' => 'icon-list-alt')
         ));
     }

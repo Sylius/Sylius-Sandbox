@@ -164,7 +164,7 @@ sylius_addressing:
     driver: doctrine/orm
     classes:
         model:
-            address: Sylius\Sandbox\Bundle\AddressingBundle\Entity\Address
+            address: Sylius\Sandbox\Bundle\CoreBundle\Entity\Address
         form:
             type:
                 address: Sylius\Bundle\AddressingBundle\Form\Type\CommonAddressType

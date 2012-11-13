@@ -1,6 +1,0 @@
-# This file is part of the Sylius sandbox application.
-# (c) Paweł Jędrzejewski
-
-sylius_addressing_backend_address:
-    resource: @SyliusAddressingBundle/Resources/config/routing/backend/address.yml
-    prefix: /administration/addresses

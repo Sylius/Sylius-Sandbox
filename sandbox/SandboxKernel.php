@@ -69,7 +69,6 @@ class SandboxKernel extends Kernel
             /*
              * Sandbox specific bundles.
              */
-            new \Sylius\Sandbox\Bundle\AddressingBundle\SandboxAddressingBundle(),
             new \Sylius\Sandbox\Bundle\AssortmentBundle\SandboxAssortmentBundle(),
             new \Sylius\Sandbox\Bundle\BloggerBundle\SandboxBloggerBundle(),
             new \Sylius\Sandbox\Bundle\CoreBundle\SandboxCoreBundle(),

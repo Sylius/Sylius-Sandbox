@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Sylius\Sandbox\Bundle\AddressingBundle\DataFixtures\ORM;
+namespace Sylius\Sandbox\Bundle\CoreBundle\DataFixtures\ORM;
 
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
@@ -45,13 +45,12 @@ class LoadAddressesData extends AbstractFixture implements ContainerAwareInterfa
      */
     public function load(ObjectManager $manager)
     {
-        $manager = $this->container->get('sylius_addressing.manager.address');
-        $manipulator = $this->container->get('sylius_addressing.manipulator.address');
+        $addressManager = $this->container->get('sylius_addressing.manager.address');
 
         $faker = FakerFactory::create();
 
         for ($i = 1; $i <= 100; $i++) {
-            $address = $manager->createAddress();
+            $address = $manager->create();
 
             $address->setFirstname($faker->firstName);
             $address->setLastname($faker->lastName);
@@ -59,7 +58,7 @@ class LoadAddressesData extends AbstractFixture implements ContainerAwareInterfa
             $address->setStreet($faker->streetAddress);
             $address->setPostcode($faker->postcode);
 
-            $manipulator->create($address);
+            $addressManager->persist($address);
 
             $this->setReference('Sandbox.Addressing.Address-'.$i, $address);
         }

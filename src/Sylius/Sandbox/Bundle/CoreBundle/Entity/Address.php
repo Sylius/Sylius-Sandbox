@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Sylius\Sandbox\Bundle\AddressingBundle\Entity;
+namespace Sylius\Sandbox\Bundle\CoreBundle\Entity;
 
 use Sylius\Bundle\AddressingBundle\Entity\CommonAddress as BaseAddress;
 
