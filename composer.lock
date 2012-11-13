@@ -1,5 +1,5 @@
 {
-    "hash": "b8682b7a9cac31cc01804a16c9423490",
+    "hash": "5ada73a4466fd6ba86d425c7cabf126d",
     "packages": [
         {
             "name": "avalanche123/imagine-bundle",
@@ -1051,12 +1051,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmittjoh/JMSSerializerBundle.git",
-                "reference": "991e3ffb53255ebae20f1f6d3fb70b3830eafb0a"
+                "reference": "14ed02db15504ab6274f8e2ef0aa379be852c69e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/schmittjoh/JMSSerializerBundle/archive/991e3ffb53255ebae20f1f6d3fb70b3830eafb0a.zip",
-                "reference": "991e3ffb53255ebae20f1f6d3fb70b3830eafb0a",
+                "url": "https://github.com/schmittjoh/JMSSerializerBundle/archive/14ed02db15504ab6274f8e2ef0aa379be852c69e.zip",
+                "reference": "14ed02db15504ab6274f8e2ef0aa379be852c69e",
                 "shasum": ""
             },
             "require": {
@@ -1079,7 +1079,7 @@
             "suggest": {
                 "symfony/framework-bundle": "2.*"
             },
-            "time": "1352370215",
+            "time": "1352827430",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -1776,62 +1776,6 @@
             "time": "1348644545"
         },
         {
-            "name": "sylius/blogger-bundle",
-            "version": "dev-master",
-            "target-dir": "Sylius/Bundle/BloggerBundle",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Sylius/SyliusBloggerBundle.git",
-                "reference": "1de0af198bdf467bd54d743b8ea44d6cfd68f9cc"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/Sylius/SyliusBloggerBundle/zipball/1de0af198bdf467bd54d743b8ea44d6cfd68f9cc",
-                "reference": "1de0af198bdf467bd54d743b8ea44d6cfd68f9cc",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.2",
-                "symfony/symfony": "2.1.*",
-                "white-october/pagerfanta-bundle": "*",
-                "stof/doctrine-extensions-bundle": "*"
-            },
-            "require-dev": {
-                "doctrine/orm": "*"
-            },
-            "suggest": {
-                "doctrine/doctrine-bundle": "*"
-            },
-            "type": "symfony-bundle",
-            "installation-source": "source",
-            "autoload": {
-                "psr-0": {
-                    "Sylius\\Bundle\\BloggerBundle": ""
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Paweł Jędrzejewski",
-                    "email": "pjedrzejewski@diweb.pl",
-                    "homepage": "http://pjedrzejewski.com"
-                },
-                {
-                    "name": "Community contributions",
-                    "homepage": "https://github.com/Sylius/SyliusBloggerBundle/contributors"
-                }
-            ],
-            "description": "Simple blogging bundle.",
-            "homepage": "http://sylius.org",
-            "keywords": [
-                "blogger",
-                "blog"
-            ],
-            "time": "1339793218"
-        },
-        {
             "name": "sylius/cart-bundle",
             "version": "dev-master",
             "target-dir": "Sylius/Bundle/CartBundle",
@@ -2062,12 +2006,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/SyliusResourceBundle.git",
-                "reference": "8ac759a8f0e60623e4923e68c794a63409fe129f"
+                "reference": "19bf5329010be2942a9df1eeeb7ba2dab9121298"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/Sylius/SyliusResourceBundle/archive/8ac759a8f0e60623e4923e68c794a63409fe129f.zip",
-                "reference": "8ac759a8f0e60623e4923e68c794a63409fe129f",
+                "url": "https://github.com/Sylius/SyliusResourceBundle/archive/19bf5329010be2942a9df1eeeb7ba2dab9121298.zip",
+                "reference": "19bf5329010be2942a9df1eeeb7ba2dab9121298",
                 "shasum": ""
             },
             "require": {
@@ -2080,7 +2024,7 @@
             "require-dev": {
                 "phpspec/phpspec2": "*"
             },
-            "time": "1352767052",
+            "time": "1352832795",
             "type": "symfony-bundle",
             "installation-source": "source",
             "autoload": {
@@ -2349,12 +2293,12 @@
             "source": {
                 "type": "git",
                 "url": "git://github.com/symfony/symfony.git",
-                "reference": "938670d34b0e9822c5ac7c5ac7934c4d6591f7a1"
+                "reference": "2d488b79f2e46bfff057c73081a8e5c426b712a7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/symfony/symfony/archive/938670d34b0e9822c5ac7c5ac7934c4d6591f7a1.zip",
-                "reference": "938670d34b0e9822c5ac7c5ac7934c4d6591f7a1",
+                "url": "https://github.com/symfony/symfony/archive/2d488b79f2e46bfff057c73081a8e5c426b712a7.zip",
+                "reference": "2d488b79f2e46bfff057c73081a8e5c426b712a7",
                 "shasum": ""
             },
             "require": {
@@ -2403,7 +2347,7 @@
                 "propel/propel1": "dev-master",
                 "monolog/monolog": "1.*"
             },
-            "time": "1352729061",
+            "time": "1352824146",
             "type": "library",
             "extra": {
                 "branch-alias": {

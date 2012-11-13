@@ -21,7 +21,6 @@
         "stof/doctrine-extensions-bundle":     "*",
         "sylius/addressing-bundle":            "*",
         "sylius/assortment-bundle":            "*",
-        "sylius/blogger-bundle":               "*",
         "sylius/cart-bundle":                  "*",
         "sylius/categorizer-bundle":           "*",
         "sylius/flow-bundle":                  "*",
