@@ -7,6 +7,7 @@ sylius_sandbox_backend_address_list:
         _controller: sylius_addressing.controller.address:getCollectionAction
         _sylius.resource:
             template: SandboxCoreBundle:Backend/Address:list.html.twig
+            sortable: true
             sorting:
                 firstname: asc
 

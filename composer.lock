@@ -2006,12 +2006,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/SyliusResourceBundle.git",
-                "reference": "19bf5329010be2942a9df1eeeb7ba2dab9121298"
+                "reference": "2dd1906b0da45b47760657463d1c48e899c0b869"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/Sylius/SyliusResourceBundle/archive/19bf5329010be2942a9df1eeeb7ba2dab9121298.zip",
-                "reference": "19bf5329010be2942a9df1eeeb7ba2dab9121298",
+                "url": "https://github.com/Sylius/SyliusResourceBundle/archive/2dd1906b0da45b47760657463d1c48e899c0b869.zip",
+                "reference": "2dd1906b0da45b47760657463d1c48e899c0b869",
                 "shasum": ""
             },
             "require": {
@@ -2024,7 +2024,7 @@
             "require-dev": {
                 "phpspec/phpspec2": "*"
             },
-            "time": "1352832795",
+            "time": "1352849956",
             "type": "symfony-bundle",
             "installation-source": "source",
             "autoload": {
