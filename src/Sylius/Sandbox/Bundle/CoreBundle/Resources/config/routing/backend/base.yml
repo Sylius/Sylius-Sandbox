@@ -8,3 +8,7 @@ sylius_sandbox_core_backend:
 sylius_sandbox_backend_address:
     prefix: /addresses
     resource: @SandboxCoreBundle/Resources/config/routing/backend/address.yml
+
+sylius_sandbox_backend_order:
+    prefix: /orders
+    resource: @SandboxCoreBundle/Resources/config/routing/backend/order.yml

@@ -103,8 +103,8 @@
     <td>
         <a class="btn btn-danger"><i class="icon-trash icon-white"></i></a>
     </td>
-    <td>{{ form_widget(form.variant, {'attr': {'class': 'span12'}}) }}</td>
-    <td>{{ form_widget(form.quantity, {'attr': {'class': 'span3'} ,'empty_value': '1'}) }}</td>
+    <td>{{ form_widget(form.variant, {'attr': {'class': 'input-xlarge'}}) }}</td>
+    <td>{{ form_widget(form.quantity, {'attr': {'class': 'input-small'} ,'empty_value': '1'}) }}</td>
     <td>
         {% if value is not empty %}
         {{ value.variant.product.name }}

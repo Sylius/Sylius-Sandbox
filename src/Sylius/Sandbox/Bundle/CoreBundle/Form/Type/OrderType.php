@@ -9,7 +9,7 @@
 * file that was distributed with this source code.
 */
 
-namespace Sylius\Sandbox\Bundle\SalesBundle\Form\Type;
+namespace Sylius\Sandbox\Bundle\CoreBundle\Form\Type;
 
 use Sylius\Bundle\SalesBundle\Form\Type\OrderType as BaseOrderType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -29,15 +29,9 @@ class OrderType extends BaseOrderType
     {
         parent::buildForm($builder, $options);
 
-        switch ($options['mode']) {
-            case self::MODE_CREATE:
-            case self::MODE_UPDATE:
-            case self::MODE_PLACE:
-                $builder
-                    ->add('deliveryAddress', 'sylius_addressing_address')
-                    ->add('billingAddress', 'sylius_addressing_address')
-                ;
-            break;
-        }
+        $builder
+            ->add('deliveryAddress', 'sylius_addressing_address')
+            ->add('billingAddress', 'sylius_addressing_address')
+        ;
     }
 }

@@ -5,8 +5,8 @@
 {% endblock %}
 
 {% block content %}
-<form action="{{ path('sylius_sales_backend_order_create') }}" method="post" novalidate>
-    {% include 'SandboxSalesBundle:Backend/Order:_form.html.twig' %}
+<form action="{{ path('sylius_sandbox_backend_order_create') }}" method="post" novalidate>
+    {% include 'SandboxCoreBundle:Backend/Order:_form.html.twig' %}
     <div class="form-actions">
        <input type="submit" value="create order" class="btn btn-primary btn-large" />
     </div>

@@ -9,7 +9,7 @@
 * file that was distributed with this source code.
 */
 
-namespace Sylius\Sandbox\Bundle\SalesBundle\Entity;
+namespace Sylius\Sandbox\Bundle\CoreBundle\Entity;
 
 use Sylius\Bundle\AssortmentBundle\Model\Variant\VariantInterface;
 use Sylius\Bundle\SalesBundle\Entity\OrderItem as BaseOrderItem;

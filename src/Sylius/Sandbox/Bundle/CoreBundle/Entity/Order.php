@@ -9,7 +9,7 @@
 * file that was distributed with this source code.
 */
 
-namespace Sylius\Sandbox\Bundle\SalesBundle\Entity;
+namespace Sylius\Sandbox\Bundle\CoreBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;

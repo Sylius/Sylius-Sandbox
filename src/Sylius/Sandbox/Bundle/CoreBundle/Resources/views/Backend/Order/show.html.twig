@@ -34,12 +34,6 @@
             <td><strong>created at</strong></td>
             <td>{{ order.createdAt|date('d.m.Y, H:i:s') }}</td>
         </tr>
-        <tr>
-            <td><strong>status</strong></td>
-            <td>
-                {% render 'sylius_sales.controller.backend.order:changeStatusAction' with {'id': order.id} %}
-            </td>
-        </tr>
     </tbody>
 </table>
 <hr />
@@ -109,10 +103,10 @@
 </div>
 <hr />
 <div class="well">
-    <a href="{{ path('sylius_sales_backend_order_update', {'id': order.id}) }}" class="btn">
+    <a href="{{ path('sylius_sandbox_backend_order_update', {'id': order.id}) }}" class="btn">
         <i class="icon-th"></i> update
     </a>
-    <a href="{{ path('sylius_sales_backend_order_delete', {'id': order.id}) }}" class="btn btn-danger">
+    <a href="{{ path('sylius_sandbox_backend_order_delete', {'id': order.id}) }}" class="btn btn-danger">
         <i class="icon-trash icon-white"></i> delete
     </a>
 </div>

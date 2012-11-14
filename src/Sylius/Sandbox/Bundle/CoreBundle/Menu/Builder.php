@@ -276,19 +276,12 @@ class Builder extends ContainerAware
         $child = $menu->addChild('Sales', $childOptions);
 
         $child->addChild('Current orders', array(
-            'route'           => 'sylius_sales_backend_order_list',
+            'route'           => 'sylius_sandbox_backend_order_list',
             'labelAttributes' => array('icon' => 'icon-list-alt')
         ));
         $child->addChild('Create order', array(
-            'route'           => 'sylius_sales_backend_order_create',
+            'route'           => 'sylius_sandbox_backend_order_create',
             'labelAttributes' => array('icon' => 'icon-plus-sign')
-        ));
-
-        $this->addDivider($child);
-
-        $child->addChild('Manage statuses', array(
-            'route'           => 'sylius_sales_backend_status_list',
-            'labelAttributes' => array('icon' => 'icon-list-alt')
         ));
     }
 

@@ -50,7 +50,7 @@ class LoadAddressesData extends AbstractFixture implements ContainerAwareInterfa
         $faker = FakerFactory::create();
 
         for ($i = 1; $i <= 100; $i++) {
-            $address = $manager->create();
+            $address = $addressManager->create();
 
             $address->setFirstname($faker->firstName);
             $address->setLastname($faker->lastName);
@@ -60,7 +60,7 @@ class LoadAddressesData extends AbstractFixture implements ContainerAwareInterfa
 
             $addressManager->persist($address);
 
-            $this->setReference('Sandbox.Addressing.Address-'.$i, $address);
+            $this->setReference('Address-'.$i, $address);
         }
     }
 

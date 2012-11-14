@@ -137,12 +137,12 @@ sylius_sales:
     driver: doctrine/orm
     classes:
         model:
-            order: Sylius\Sandbox\Bundle\SalesBundle\Entity\Order
-            item: Sylius\Sandbox\Bundle\SalesBundle\Entity\OrderItem
+            order: Sylius\Sandbox\Bundle\CoreBundle\Entity\Order
+            item: Sylius\Sandbox\Bundle\CoreBundle\Entity\OrderItem
         form:
             type:
-                order: Sylius\Sandbox\Bundle\SalesBundle\Form\Type\OrderType
-                item: Sylius\Sandbox\Bundle\SalesBundle\Form\Type\OrderItemType
+                order: Sylius\Sandbox\Bundle\CoreBundle\Form\Type\OrderType
+                item: Sylius\Sandbox\Bundle\CoreBundle\Form\Type\OrderItemType
 
 sylius_addressing:
     driver: doctrine/orm

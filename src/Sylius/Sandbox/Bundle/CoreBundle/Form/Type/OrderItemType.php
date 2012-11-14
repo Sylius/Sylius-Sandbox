@@ -9,9 +9,9 @@
 * file that was distributed with this source code.
 */
 
-namespace Sylius\Sandbox\Bundle\SalesBundle\Form\Type;
+namespace Sylius\Sandbox\Bundle\CoreBundle\Form\Type;
 
-use Sylius\Bundle\SalesBundle\Form\Type\ItemType as BaseItemType;
+use Sylius\Bundle\SalesBundle\Form\Type\OrderItemType as BaseOrderItemType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
@@ -21,7 +21,7 @@ use Symfony\Component\Form\FormEvents;
  *
  * @author Paweł Jędrzejewski <pjedrzejewski@diweb.pl>
  */
-class ItemType extends BaseItemType
+class OrderItemType extends BaseOrderItemType
 {
     /**
      * {@inheritdoc}
