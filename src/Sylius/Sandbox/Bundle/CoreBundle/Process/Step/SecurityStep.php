@@ -1,6 +1,6 @@
 <?php
 
-namespace Sylius\Sandbox\Bundle\SalesBundle\Process\Step;
+namespace Sylius\Sandbox\Bundle\CoreBundle\Process\Step;
 
 use FOS\UserBundle\Model\UserInterface;
 use Sylius\Bundle\AddressingBundle\Model\AddressInterface;
@@ -26,7 +26,7 @@ class SecurityStep extends ContainerAwareStep
 
         $registrationForm = $this->container->get('fos_user.registration.form');
 
-        return $this->container->get('templating')->renderResponse('SyliusSalesBundle:Process/Checkout/Step:security.html.twig', array(
+        return $this->container->get('templating')->renderResponse('SandboxCoreBundle:Process/Checkout/Step:security.html.twig', array(
             'context'          => $context,
             'registrationForm' => $registrationForm->createView(),
         ));
@@ -53,7 +53,7 @@ class SecurityStep extends ContainerAwareStep
             return;
         }
 
-        return $this->container->get('templating')->renderResponse('SyliusSalesBundle:Process/Checkout/Step:security.html.twig', array(
+        return $this->container->get('templating')->renderResponse('SandboxCoreBundle:Process/Checkout/Step:security.html.twig', array(
             'context'          => $context,
             'registrationForm' => $registrationForm->createView(),
         ));

@@ -1,0 +1,22 @@
+{% import 'SandboxCoreBundle:Backend/Order:macros.html.twig' as macros %}
+
+{{ sylius_resource_fetch_request(app.request) }}
+
+<div class="well">
+<a href="{{ path('sylius_sandbox_backend_order_create') }}" class="btn btn-success">
+    <i class="icon-plus-sign icon-white"></i> create new order
+</a>
+</div>
+
+<hr />
+
+<div class="row-fluid">
+    <div class="span6">
+        <h3>Recent orders</h3>
+        {{ macros.list(recentOrders)  }}
+    </div>
+    <div class="span6">
+        <h3>Top orders</h3>
+        {{ macros.list(topOrders)  }}
+    </div>
+</div>

@@ -1,10 +1,15 @@
 {% extends 'SandboxCoreBundle:Backend:layout.html.twig' %}
 
+{% import 'SandboxCoreBundle:Backend/Order:macros.html.twig' as macros %}
+
 {% block header %}
     <h1>Order details</h1>
 {% endblock %}
 
 {% block content %}
+
+{{ sylius_resource_fetch_request(app.request) }}
+
 <div class="well">
 <a href="{{ path('sylius_sandbox_backend_order_create') }}" class="btn btn-success">
     <i class="icon-plus-sign icon-white"></i> create new order
@@ -24,65 +29,7 @@
     <li><a href="">below <strong>500</strong> &euro;</a></li>
 </ul>
 
-{% if orders|length > 0 %}
-<table class="table">
-    <thead>
-        <tr>
-            <th>{{ sylius_resource_sort('id', '#id') }}</th>
-            <th>{{ sylius_resource_sort('total') }}</th>
-            <th>{{ sylius_resource_sort('createdAt', 'creation time') }}</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for order in orders %}
-        <tr{% if order.closed %} class="inactive"{% endif %}>
-            <td>{{ order.id }}</td>
-            <td>{{ order.total }} &euro;</td>
-            <td>{{ order.createdAt|date }}</td>
-            <td>
-                <div class="btn-group pull-right">
-                    <a href="{{ path('sylius_sandbox_backend_order_show', {'id': order.id}) }}" class="btn">
-                        <i class="icon-book"></i> details
-                    </a>
-                    <a href="#" data-toggle="dropdown" class="btn dropdown-toggle"><span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        {% if order.closed %}
-                        <li>
-                            <a href="{{ path('sylius_sandbox_backend_order_open', {'id': order.id}) }}">
-                                <i class="icon-share"></i> open
-                            </a>
-                        </li>
-                        {% else %}
-                        <li>
-                            <a href="{{ path('sylius_sandbox_backend_order_close', {'id': order.id}) }}">
-                                <i class="icon-lock"></i> close
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ path('sylius_sandbox_backend_order_update', {'id': order.id}) }}">
-                                 <i class="icon-pencil"></i> update
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ path('sylius_sandbox_backend_order_delete', {'id': order.id}) }}">
-                                 <i class="icon-trash"></i> delete
-                            </a>
-                        </li>
-                        {% endif %}
-                    </ul>
-                </div>
-            </td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
-{% else %}
-<div class="alert alert-info">
-    <h4 class="alert-heading">{{ 'alert.heading.info'|trans({}, 'SandboxCoreBundle') }}.</h4>
-    There are no orders to display.
-</div>
-{% endif %}
+{{ macros.list(orders)  }}
 
 {% if paginator.haveToPaginate() %}
 {{ pagerfanta(paginator, 'twitter_bootstrap_translated') }}

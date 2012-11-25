@@ -1,13 +1,15 @@
 <?php
 
-namespace Sylius\Sandbox\Bundle\SalesBundle\Processor\Operation;
+namespace Sylius\Sandbox\Bundle\CoreBundle\Builder;
 
+use Sylius\Bundle\SalesBundle\Builder\OrderBuilder as BaseOrderBuilder;
+use Sylius\Bundle\SalesBundle\Builder\OrderBuilderInterface;
 use Sylius\Bundle\SalesBundle\Model\OrderInterface;
-use Sylius\Bundle\SalesBundle\Processor\Operation\ContainerAwareOperation;
+use Symfony\Component\DependencyInjection\ContainerAware;
 
-class ProcessOperation extends ContainerAwareOperation
+class OrderBuilder extends ContainerAware implements OrderBuilderInterface
 {
-    public function prepare(OrderInterface $order)
+    public function build(OrderInterface $order)
     {
         $cart = $this->container->get('sylius_cart.provider')->getCart();
 
@@ -20,7 +22,7 @@ class ProcessOperation extends ContainerAwareOperation
         $orderItemManager = $this->container->get('sylius_sales.manager.item');
 
         foreach ($cart->getItems() as $item) {
-            $orderItem = $orderItemManager->createItem();
+            $orderItem = $orderItemManager->create();
             $orderItem->setVariant($item->getVariant());
             $orderItem->setQuantity($item->getQuantity());
             $orderItem->setUnitPrice($item->getVariant()->getPrice());
@@ -29,12 +31,6 @@ class ProcessOperation extends ContainerAwareOperation
         }
 
         $order->calculateTotal();
-    }
-
-    public function process(OrderInterface $order)
-    {
-        // Abandon current cart.
-        $this->container->get('sylius_cart.provider')->abandonCart();
     }
 
     public function finalize(OrderInterface $order)
@@ -53,5 +49,7 @@ class ProcessOperation extends ContainerAwareOperation
 
             $variantManipulator->update($item->getVariant());
         }
+
+        $this->container->get('sylius_cart.provider')->abandonCart();
     }
 }

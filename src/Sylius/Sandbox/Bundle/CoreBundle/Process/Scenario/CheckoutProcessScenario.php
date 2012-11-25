@@ -1,10 +1,10 @@
 <?php
 
-namespace Sylius\Sandbox\Bundle\SalesBundle\Process\Scenario;
+namespace Sylius\Sandbox\Bundle\CoreBundle\Process\Scenario;
 
 use Sylius\Bundle\FlowBundle\Process\Builder\ProcessBuilderInterface;
 use Sylius\Bundle\FlowBundle\Process\Scenario\ProcessScenarioInterface;
-use Sylius\Sandbox\Bundle\SalesBundle\Process\Step;
+use Sylius\Sandbox\Bundle\CoreBundle\Process\Step;
 use Symfony\Component\DependencyInjection\ContainerAware;
 
 /**

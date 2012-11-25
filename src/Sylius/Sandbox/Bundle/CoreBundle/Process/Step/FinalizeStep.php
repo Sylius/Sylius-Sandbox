@@ -1,6 +1,6 @@
 <?php
 
-namespace Sylius\Sandbox\Bundle\SalesBundle\Process\Step;
+namespace Sylius\Sandbox\Bundle\CoreBundle\Process\Step;
 
 use Sylius\Bundle\FlowBundle\Process\Context\ProcessContextInterface;
 use Sylius\Bundle\FlowBundle\Process\Step\ContainerAwareStep;
@@ -21,7 +21,7 @@ class FinalizeStep extends ContainerAwareStep
     {
         $order = $this->prepareOrder($context);
 
-        return $this->container->get('templating')->renderResponse('SyliusSalesBundle:Process/Checkout/Step:finalize.html.twig', array(
+        return $this->container->get('templating')->renderResponse('SandboxCoreBundle:Process/Checkout/Step:finalize.html.twig', array(
             'context' => $context,
             'order'   => $order
         ));
@@ -34,17 +34,10 @@ class FinalizeStep extends ContainerAwareStep
     {
         $order = $this->prepareOrder($context);
 
-        $eventDispatcher = $this->container->get('event_dispatcher');
-        $processor = $this->container->get('sylius_sales.processor');
+        $this->container->get('sylius_sales.manager.order')->persist($order);
 
-        $eventDispatcher->dispatch(SyliusSalesEvents::ORDER_PROCESS, new FilterOrderEvent($order));
-        $processor->process($order);
-
-        $eventDispatcher->dispatch(SyliusSalesEvents::ORDER_PLACE, new FilterOrderEvent($order));
-        $this->container->get('sylius_sales.manipulator.order')->place($order);
-
-        $eventDispatcher->dispatch(SyliusSalesEvents::ORDER_FINALIZE, new FilterOrderEvent($order));
-        $processor->finalize($order);
+        $orderBuilder = $this->container->get('sylius_sales.builder');
+        $orderBuilder->finalize($order);
 
         $this->container->get('session')->setFlash('success', 'Your order has been saved, thank you!');
 
@@ -60,7 +53,7 @@ class FinalizeStep extends ContainerAwareStep
      */
     private function prepareOrder(ProcessContextInterface $context)
     {
-        $order = $this->container->get('sylius_sales.manager.order')->createOrder();
+        $order = $this->container->get('sylius_sales.manager.order')->create();
 
         $deliveryAddress = $context->getStorage()->get('delivery.address');
         $billingAddress = $context->getStorage()->get('billing.address');
@@ -68,11 +61,8 @@ class FinalizeStep extends ContainerAwareStep
         $order->setDeliveryAddress($deliveryAddress);
         $order->setBillingAddress($billingAddress);
 
-        $eventDispatcher = $this->container->get('event_dispatcher');
-        $processor = $this->container->get('sylius_sales.processor');
-
-        $eventDispatcher->dispatch(SyliusSalesEvents::ORDER_PREPARE, new FilterOrderEvent($order));
-        $processor->prepare($order);
+        $orderBuilder = $this->container->get('sylius_sales.builder');
+        $orderBuilder->build($order);
 
         return $order;
     }

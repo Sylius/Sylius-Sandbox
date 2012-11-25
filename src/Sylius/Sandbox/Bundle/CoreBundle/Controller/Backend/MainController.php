@@ -11,15 +11,14 @@
 
 namespace Sylius\Sandbox\Bundle\CoreBundle\Controller\Backend;
 
-use Symfony\Component\DependencyInjection\ContainerAware;
-use Symfony\Component\HttpFoundation\Response;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 /**
  * Administration dashboard controller.
  *
  * @author Paweł Jędrzejewski <pjedrzejewski@diweb.pl>
  */
-class MainController extends ContainerAware
+class MainController extends Controller
 {
     /**
      * Displays administration dashboard main panel.
@@ -28,6 +27,24 @@ class MainController extends ContainerAware
      */
     public function indexAction()
     {
-        return $this->container->get('templating')->renderResponse('SandboxCoreBundle:Backend/Main:index.html.twig');
+        $recentOrders = $this
+            ->getOrderRepository()
+            ->findBy(array(), array('updatedAt' => 'desc'), 5)
+        ;
+
+        $topOrders = $this
+            ->getOrderRepository()
+            ->findBy(array(), array('total' => 'desc'), 5)
+        ;
+
+        return $this->render('SandboxCoreBundle:Backend/Main:index.html.twig', array(
+            'recentOrders' => $recentOrders,
+            'topOrders'    => $topOrders
+        ));
+    }
+
+    private function getOrderRepository()
+    {
+        return $this->get('sylius_sales.repository.order');
     }
 }

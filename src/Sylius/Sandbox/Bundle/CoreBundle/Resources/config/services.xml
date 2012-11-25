@@ -3,8 +3,7 @@
 <container xmlns="http://symfony.com/schema/dic/services"
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xsi:schemaLocation="http://symfony.com/schema/dic/services
-                               http://symfony.com/schema/dic/services/services-1.0.xsd"
->
+                               http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <parameters>
         <parameter key="sylius_sandbox_core.controller.frontend.main.class">Sylius\Sandbox\Bundle\CoreBundle\Controller\Frontend\MainController</parameter>
@@ -12,6 +11,10 @@
         <parameter key="sylius_sandbox_core.controller.backend.main.class">Sylius\Sandbox\Bundle\CoreBundle\Controller\Backend\MainController</parameter>
 
         <parameter key="sylius_sandbox_cart.resolver.class">Sylius\Sandbox\Bundle\CoreBundle\Resolver\ItemResolver</parameter>
+
+        <parameter key="sylius_sandbox.scenario.checkout.class">Sylius\Sandbox\Bundle\CoreBundle\Process\Scenario\CheckoutProcessScenario</parameter>
+
+        <parameter key="sylius_sandbox.builder.order.class">Sylius\Sandbox\Bundle\CoreBundle\Builder\OrderBuilder</parameter>
     </parameters>
 
     <services>
@@ -35,6 +38,19 @@
             <argument type="service" id="sylius_assortment.manager.product" />
             <argument type="service" id="form.factory" />
             <argument type="service" id="sylius_inventory.resolver" />
+        </service>
+
+        <service id="sylius_sandbox.scenario.checkout" class="%sylius_sandbox.scenario.checkout.class%">
+            <call method="setContainer">
+                <argument type="service" id="service_container" />
+            </call>
+            <tag name="sylius_flow.scenario" alias="sylius_sandbox_checkout" />
+        </service>
+
+        <service id="sylius_sandbox.builder.order" class="%sylius_sandbox.builder.order.class%">
+            <call method="setContainer">
+                <argument type="service" id="service_container" />
+            </call>
         </service>
     </services>
 

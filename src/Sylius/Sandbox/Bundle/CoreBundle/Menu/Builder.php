@@ -313,9 +313,10 @@ class Builder extends ContainerAware
      */
     protected function addDivider(ItemInterface $item, $vertical = false)
     {
-        $item->addChild('', array(
+        $item->addChild(uniqid(), array(
             'attributes' => array(
-                'class' => $vertical ? 'divider-vertical' : 'divider'
+                'class' => $vertical ? 'divider-vertical' : 'divider',
+                'label' => ''
             )
         ));
     }

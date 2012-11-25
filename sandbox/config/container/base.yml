@@ -135,6 +135,7 @@ sylius_cart:
 
 sylius_sales:
     driver: doctrine/orm
+    builder: sylius_sandbox.builder.order
     classes:
         model:
             order: Sylius\Sandbox\Bundle\CoreBundle\Entity\Order

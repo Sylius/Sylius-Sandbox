@@ -1,6 +1,6 @@
 <?php
 
-namespace Sylius\Sandbox\Bundle\SalesBundle\Process\Step;
+namespace Sylius\Sandbox\Bundle\CoreBundle\Process\Step;
 
 use Sylius\Bundle\AddressingBundle\Model\AddressInterface;
 use Sylius\Bundle\FlowBundle\Process\Context\ProcessContextInterface;
@@ -22,7 +22,7 @@ class DeliveryStep extends ContainerAwareStep
         $address = $context->getStorage()->get('delivery.address');
         $form = $this->createAddressForm($address);
 
-        return $this->container->get('templating')->renderResponse('SyliusSalesBundle:Process/Checkout/Step:delivery.html.twig', array(
+        return $this->container->get('templating')->renderResponse('SandboxCoreBundle:Process/Checkout/Step:delivery.html.twig', array(
             'form'    => $form->createView(),
             'context' => $context
         ));
@@ -43,7 +43,7 @@ class DeliveryStep extends ContainerAwareStep
             return;
         }
 
-        return $this->container->get('templating')->renderResponse('SyliusSalesBundle:Process/Checkout/Step:delivery.html.twig', array(
+        return $this->container->get('templating')->renderResponse('SandboxCoreBundle:Process/Checkout/Step:delivery.html.twig', array(
             'form'    => $form->createView(),
             'context' => $context
         ));

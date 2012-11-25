@@ -5,7 +5,7 @@
 <h1>Delivery <small>Where should we ship your order?</small></h1>
 </div>
 
-{% include 'SandboxSalesBundle:Process/Checkout/Step:_progressBar.html.twig' %}
+{% include 'SandboxCoreBundle:Process/Checkout/Step:_progressBar.html.twig' %}
 
 <form method="post" action="{{ path('sylius_sandbox_checkout_forward', {'stepName': context.currentStep.name}) }}" class="form-horizontal" novalidate>
 <fieldset>
