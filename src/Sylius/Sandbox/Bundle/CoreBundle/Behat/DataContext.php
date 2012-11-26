@@ -1,12 +1,12 @@
 <?php
 
-namespace Sylius\Sandbox\Bundle\UserBundle\Features\Context;
+namespace Sylius\Sandbox\Bundle\CoreBundle\Behat;
 
 use Behat\Behat\Context\BehatContext;
 use Behat\Behat\Context\Step;
 use Behat\Gherkin\Node\TableNode;
+use Sylius\Sandbox\Bundle\CoreBundle\Entity\User;
 use Sylius\Sandbox\Bundle\CoreBundle\Features\Context\AbstractDataContext;
-use Sylius\Sandbox\Bundle\UserBundle\Entity\User;
 
 /**
  * User data context.

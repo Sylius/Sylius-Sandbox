@@ -9,7 +9,7 @@
 * file that was distributed with this source code.
 */
 
-namespace Sylius\Sandbox\Bundle\UserBundle\Entity;
+namespace Sylius\Sandbox\Bundle\CoreBundle\Entity;
 
 use FOS\UserBundle\Entity\User as BaseUser;
 

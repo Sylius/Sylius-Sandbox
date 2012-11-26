@@ -9,7 +9,7 @@ use Behat\Gherkin\Node\TableNode;
 use Behat\MinkExtension\Context\MinkContext;
 use Behat\Symfony2Extension\Context\KernelAwareInterface;
 use Doctrine\Common\DataFixtures\Purger\ORMPurger;
-use Sylius\Sandbox\Bundle\UserBundle\Features\Context\DataContext as UserDataContext;
+use Sylius\Sandbox\Bundle\CoreBundle\Behat\DataContext;
 use Symfony\Component\HttpKernel\KernelInterface;
 
 require_once 'PHPUnit/Autoload.php';
@@ -49,7 +49,7 @@ class FeatureContext extends MinkContext implements KernelAwareInterface
         $this->useContext('pages', new PagesContext());
 
         // Datas contexts.
-        $this->useContext('user-data', new UserDataContext());
+        $this->useContext('user-data', new DataContext());
     }
 
     /**

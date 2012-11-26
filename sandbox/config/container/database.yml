@@ -20,7 +20,6 @@ doctrine:
                     SandboxAssortmentBundle: ~
                     SandboxCommentBundle: ~
                     SandboxCoreBundle: ~
-                    SandboxUserBundle: ~
                     SyliusAddressingBundle: ~
                     SyliusAssortmentBundle: ~
                     SyliusCartBundle: ~

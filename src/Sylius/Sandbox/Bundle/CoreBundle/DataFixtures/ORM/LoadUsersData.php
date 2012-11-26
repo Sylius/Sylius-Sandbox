@@ -9,14 +9,14 @@
  * file that was distributed with this source code.
  */
 
-namespace Sylius\Sandbox\Bundle\UserBundle\DataFixtures\ORM;
+namespace Sylius\Sandbox\Bundle\CoreBundle\DataFixtures\ORM;
 
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\ORM\EntityManager;
 use Faker\Factory as FakerFactory;
-use Sylius\Sandbox\Bundle\UserBundle\Entity\User;
+use Sylius\Sandbox\Bundle\CoreBundle\Entity\User;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
