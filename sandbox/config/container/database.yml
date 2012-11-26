@@ -18,7 +18,6 @@ doctrine:
                     FOSCommentBundle: ~
                     FOSUserBundle: ~
                     SandboxAssortmentBundle: ~
-                    SandboxCommentBundle: ~
                     SandboxCoreBundle: ~
                     SyliusAddressingBundle: ~
                     SyliusAssortmentBundle: ~

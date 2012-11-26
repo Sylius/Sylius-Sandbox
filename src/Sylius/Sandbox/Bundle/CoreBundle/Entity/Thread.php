@@ -9,22 +9,16 @@
 * file that was distributed with this source code.
 */
 
-namespace Sylius\Sandbox\Bundle\CommentBundle;
+namespace Sylius\Sandbox\Bundle\CoreBundle\Entity;
 
-use Symfony\Component\HttpKernel\Bundle\Bundle;
+use Doctrine\ORM\Mapping as ORM;
+use FOS\CommentBundle\Entity\Thread as BaseThread;
 
 /**
- * Comment sandbox bundle.
+ * Thread entity.
  *
  * @author Саша Стаменковић <umpirsky@gmail.com>
  */
-class SandboxCommentBundle extends Bundle
+class Thread extends BaseThread
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function getParent()
-    {
-        return 'FOSCommentBundle';
-    }
 }

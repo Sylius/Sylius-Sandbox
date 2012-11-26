@@ -70,7 +70,6 @@ class SandboxKernel extends Kernel
              */
             new \Sylius\Sandbox\Bundle\AssortmentBundle\SandboxAssortmentBundle(),
             new \Sylius\Sandbox\Bundle\CoreBundle\SandboxCoreBundle(),
-            new \Sylius\Sandbox\Bundle\CommentBundle\SandboxCommentBundle(),
         );
 
         if ($this->isDebug()) {

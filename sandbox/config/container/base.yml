@@ -69,8 +69,8 @@ fos_comment:
     db_driver: orm
     class:
         model:
-            comment: Sylius\Sandbox\Bundle\CommentBundle\Entity\Comment
-            thread: Sylius\Sandbox\Bundle\CommentBundle\Entity\Thread
+            comment: Sylius\Sandbox\Bundle\CoreBundle\Entity\Comment
+            thread: Sylius\Sandbox\Bundle\CoreBundle\Entity\Thread
     acl: true
     service:
         acl:
