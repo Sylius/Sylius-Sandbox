@@ -43,13 +43,6 @@ class LoadProductsData extends AbstractFixture implements ContainerAwareInterfac
     private $manager;
 
     /**
-     * Product manipulator.
-     *
-     * @var ProductManipulatorInterface
-     */
-    private $manipulator;
-
-    /**
      * Product property entity class.
      *
      * @var string
@@ -69,13 +62,6 @@ class LoadProductsData extends AbstractFixture implements ContainerAwareInterfac
      * @var VariantManagerInterface
      */
     private $variantManager;
-
-    /**
-     * Variant manipulator.
-     *
-     * @var VariantManipulatorInterface
-     */
-    private $variantManipulator;
 
     /**
      * Variants generator.
@@ -98,12 +84,8 @@ class LoadProductsData extends AbstractFixture implements ContainerAwareInterfac
     public function load(ObjectManager $manager)
     {
         $this->manager = $this->container->get('sylius_assortment.manager.product');
-        $this->manipulator = $this->container->get('sylius_assortment.manipulator.product');
-
         $this->productPropertyClass = $this->container->getParameter('sylius_assortment.model.product_property.class');
-
         $this->variantManager = $this->container->get('sylius_assortment.manager.variant');
-        $this->variantManipulator = $this->container->get('sylius_assortment.manipulator.variant');
         $this->variantGenerator = $this->container->get('sylius_assortment.generator.variant');
 
         $this->faker = FakerFactory::create();
@@ -147,7 +129,7 @@ class LoadProductsData extends AbstractFixture implements ContainerAwareInterfac
      */
     private function createTShirt($i)
     {
-        $product = $this->manager->createProduct();
+        $product = $this->manager->create();
 
         $product->setName(sprintf('T-Shirt "%s" in different sizes and colors', $this->faker->word));
         $product->setDescription($this->faker->paragraph);
@@ -173,7 +155,7 @@ class LoadProductsData extends AbstractFixture implements ContainerAwareInterfac
 
         $this->generateVariants($product);
 
-        $this->manipulator->create($product);
+        $this->manager->persist($product);
         $this->setReference('Sandbox.Assortment.Product-'.$i, $product);
     }
 
@@ -184,7 +166,7 @@ class LoadProductsData extends AbstractFixture implements ContainerAwareInterfac
      */
     private function createSticker($i)
     {
-        $product = $this->manager->createProduct();
+        $product = $this->manager->create();
 
         $product->setName(sprintf('Great sticker "%s" in different sizes', $this->faker->word));
         $product->setDescription($this->faker->paragraph);
@@ -205,7 +187,7 @@ class LoadProductsData extends AbstractFixture implements ContainerAwareInterfac
 
         $this->generateVariants($product);
 
-        $this->manipulator->create($product);
+        $this->manager->persist($product);
         $this->setReference('Sandbox.Assortment.Product-'.$i, $product);
     }
 
@@ -216,7 +198,7 @@ class LoadProductsData extends AbstractFixture implements ContainerAwareInterfac
      */
     private function createMug($i)
     {
-        $product = $this->manager->createProduct();
+        $product = $this->manager->create();
 
         $product->setName(sprintf('Mug "%s", many types available', $this->faker->word));
         $product->setDescription($this->faker->paragraph);
@@ -232,7 +214,7 @@ class LoadProductsData extends AbstractFixture implements ContainerAwareInterfac
 
         $this->generateVariants($product);
 
-        $this->manipulator->create($product);
+        $this->manager->persist($product);
         $this->setReference('Sandbox.Assortment.Product-'.$i, $product);
     }
 
@@ -243,7 +225,7 @@ class LoadProductsData extends AbstractFixture implements ContainerAwareInterfac
      */
     private function createBook($i)
     {
-        $product = $this->manager->createProduct();
+        $product = $this->manager->create();
 
         $author = $this->faker->name;
         $isbn = $this->faker->randomNumber(13);
@@ -258,7 +240,7 @@ class LoadProductsData extends AbstractFixture implements ContainerAwareInterfac
         $this->addProperty($product, 'Sandbox.Assortment.Property.Book.ISBN', $isbn);
         $this->addProperty($product, 'Sandbox.Assortment.Property.Book.Pages', $this->faker->randomNumber(3));
 
-        $this->manipulator->create($product);
+        $this->manager->persist($product);
         $this->setReference('Sandbox.Assortment.Product-'.$i, $product);
     }
 
@@ -294,7 +276,8 @@ class LoadProductsData extends AbstractFixture implements ContainerAwareInterfac
             $sku = $this->faker->randomNumber(6);
         }
 
-        $variant = $this->variantManager->createVariant($product);
+        $variant = $this->variantManager->create();
+        $variant->setProduct($product);
         $variant->setPrice($this->faker->randomNumber(5) / 100);
         $variant->setSku($sku);
         $variant->setAvailableOn($this->faker->dateTimeThisYear);

@@ -40,13 +40,6 @@ class LoadPropertiesData extends AbstractFixture implements ContainerAwareInterf
     private $manager;
 
     /**
-     * Property manipulator.
-     *
-     * @var PropertyManipulatorInterface
-     */
-    private $manipulator;
-
-    /**
      * {@inheritdoc}
      */
     public function setContainer(ContainerInterface $container = null)
@@ -60,7 +53,6 @@ class LoadPropertiesData extends AbstractFixture implements ContainerAwareInterf
     public function load(ObjectManager $manager)
     {
         $this->manager = $this->container->get('sylius_assortment.manager.property');
-        $this->manipulator = $this->container->get('sylius_assortment.manipulator.property');
 
         $this->createProperty('T-Shirt brand', 'Brand', 'Sandbox.Assortment.Property.T-Shirt.Brand');
         $this->createProperty('T-Shirt collection', 'Collection', 'Sandbox.Assortment.Property.T-Shirt.Collection');
@@ -93,12 +85,12 @@ class LoadPropertiesData extends AbstractFixture implements ContainerAwareInterf
      */
     private function createProperty($name, $presentation, $reference)
     {
-        $property = $this->manager->createProperty();
+        $property = $this->manager->create();
 
         $property->setName($name);
         $property->setPresentation($presentation);
 
-        $this->manipulator->create($property);
+        $this->manager->persist($property);
         $this->setReference($reference, $property);
     }
 }

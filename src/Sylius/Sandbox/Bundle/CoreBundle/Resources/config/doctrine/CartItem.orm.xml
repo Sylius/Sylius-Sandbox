@@ -9,7 +9,7 @@
         <id name="id" column="id" type="integer">
             <generator strategy="AUTO" />
         </id>
-        <many-to-one field="cart" target-entity="Sylius\Sandbox\Bundle\CoreBundle\Entity\Cart">
+        <many-to-one field="cart" target-entity="Sylius\Sandbox\Bundle\CoreBundle\Entity\Cart" inversed-by="items">
           <join-column name="cart_id" referenced-column-name="id" />
       </many-to-one>
       <many-to-one field="variant" target-entity="Sylius\Sandbox\Bundle\CoreBundle\Entity\Variant\Variant">

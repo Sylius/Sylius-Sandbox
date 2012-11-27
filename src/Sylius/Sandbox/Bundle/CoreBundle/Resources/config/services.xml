@@ -15,6 +15,8 @@
         <parameter key="sylius_sandbox.scenario.checkout.class">Sylius\Sandbox\Bundle\CoreBundle\Process\Scenario\CheckoutProcessScenario</parameter>
 
         <parameter key="sylius_sandbox.builder.order.class">Sylius\Sandbox\Bundle\CoreBundle\Builder\OrderBuilder</parameter>
+
+        <parameter key="sylius_sandbox.form.type.product_category.class">Sylius\Sandbox\Bundle\CoreBundle\Form\Type\ProductCategoryType</parameter>
     </parameters>
 
     <services>
@@ -35,7 +37,7 @@
         </service>
 
         <service id="sylius_sandbox_cart.resolver" class="%sylius_sandbox_cart.resolver.class%">
-            <argument type="service" id="sylius_assortment.manager.product" />
+            <argument type="service" id="sylius_assortment.repository.product" />
             <argument type="service" id="form.factory" />
             <argument type="service" id="sylius_inventory.resolver" />
         </service>
@@ -51,6 +53,10 @@
             <call method="setContainer">
                 <argument type="service" id="service_container" />
             </call>
+        </service>
+
+        <service id="sylius_sandbox.form.type.product_category" class="%sylius_sandbox.form.type.product_category.class%">
+            <tag name="form.type" alias="sylius_sandbox_product_category" />
         </service>
     </services>
 

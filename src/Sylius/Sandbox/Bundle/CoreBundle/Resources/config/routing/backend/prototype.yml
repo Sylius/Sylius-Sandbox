@@ -5,27 +5,36 @@ sylius_sandbox_backend_prototype_list:
     pattern: /
     defaults: 
         _controller: sylius_assortment.controller.prototype:getCollectionAction
-        _sylius.template: SandboxCoreBundle:Backend/prototype:list.html.twig
+        _sylius.resource:
+            template: SandboxCoreBundle:Backend/Prototype:list.html.twig
 
 sylius_sandbox_backend_prototype_create:
     pattern: /create
     defaults: 
         _controller: sylius_assortment.controller.prototype:createAction
-        _sylius.template: SandboxCoreBundle:Backend/prototype:create.html.twig
+        _sylius.resource:
+            template: SandboxCoreBundle:Backend/Prototype:create.html.twig
+            redirect: sylius_sandbox_backend_prototype_list
 
 sylius_sandbox_backend_prototype_update:
-    pattern: /update
+    pattern: /{id}/update
     defaults: 
         _controller: sylius_assortment.controller.prototype:updateAction
-        _sylius.template: SandboxCoreBundle:Backend/prototype:update.html.twig
+        _sylius.resource:
+            template: SandboxCoreBundle:Backend/Prototype:update.html.twig
+            redirect: sylius_sandbox_backend_prototype_list
 
 sylius_sandbox_backend_prototype_delete:
     pattern: /{id}/delete
     defaults: 
         _controller: sylius_assortment.controller.prototype:deleteAction
+        _sylius.resource:
+            redirect: sylius_sandbox_backend_prototype_list
 
-sylius_sandbox_backend_prototype_show:
-    pattern: /{id}
+sylius_sandbox_backend_prototype_build:
+    pattern: /{id}/build
     defaults: 
-        _controller: sylius_assortment.controller.prototype:getAction
-        _sylius.template: SandboxCoreBundle:Backend/prototype:show.html.twig
+        _controller: sylius_assortment.controller.prototype:buildAction
+        _sylius.resource:
+            template: SandboxCoreBundle:Backend/Prototype:update.html.twig
+            redirect: sylius_sandbox_backend_prototype_list

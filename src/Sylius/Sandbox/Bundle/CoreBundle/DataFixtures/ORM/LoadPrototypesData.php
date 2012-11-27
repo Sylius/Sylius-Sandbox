@@ -40,13 +40,6 @@ class LoadPrototypesData extends AbstractFixture implements ContainerAwareInterf
     private $manager;
 
     /**
-     * Prototype manipulator.
-     *
-     * @var PrototypeManipulatorInterface
-     */
-    private $manipulator;
-
-    /**
      * {@inheritdoc}
      */
     public function setContainer(ContainerInterface $container = null)
@@ -60,7 +53,6 @@ class LoadPrototypesData extends AbstractFixture implements ContainerAwareInterf
     public function load(ObjectManager $manager)
     {
         $this->manager = $this->container->get('sylius_assortment.manager.prototype');
-        $this->manipulator = $this->container->get('sylius_assortment.manipulator.prototype');
 
         $this->createPrototype(
             'T-Shirt',
@@ -124,7 +116,7 @@ class LoadPrototypesData extends AbstractFixture implements ContainerAwareInterf
      */
     private function createPrototype($name, array $options, array $properties)
     {
-        $prototype = $this->manager->createPrototype();
+        $prototype = $this->manager->create();
 
         $prototype->setName($name);
 
@@ -136,6 +128,6 @@ class LoadPrototypesData extends AbstractFixture implements ContainerAwareInterf
             $prototype->addProperty($this->getReference($property));
         }
 
-        $this->manipulator->create($prototype);
+        $this->manager->persist($prototype);
     }
 }

@@ -116,10 +116,10 @@ sylius_categorizer:
         assortment:
             property: "products"
             model: Sylius\Sandbox\Bundle\CoreBundle\Entity\ProductCategory
-            form: sylius_sandbox_assortment_category
+            form: sylius_sandbox_product_category
             templates:
-                backend: SandboxAssortmentBundle:Backend/Category:%s.html.twig
-                frontend: SandboxAssortmentBundle:Frontend/Category:%s.html.twig
+                backend: SandboxCoreBundle:Backend/ProductCategory:%s.html.twig
+                frontend: SandboxCoreBundle:Frontend/ProductCategory:%s.html.twig
 
 sylius_cart:
     driver: doctrine/orm

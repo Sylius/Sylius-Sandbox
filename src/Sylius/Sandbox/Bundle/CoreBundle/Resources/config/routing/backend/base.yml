@@ -12,3 +12,23 @@ sylius_sandbox_backend_address:
 sylius_sandbox_backend_order:
     prefix: /orders
     resource: @SandboxCoreBundle/Resources/config/routing/backend/order.yml
+
+sylius_sandbox_backend_product:
+    prefix: /products
+    resource: @SandboxCoreBundle/Resources/config/routing/backend/product.yml
+
+sylius_sandbox_backend_option:
+    prefix: /option
+    resource: @SandboxCoreBundle/Resources/config/routing/backend/option.yml
+
+sylius_sandbox_backend_variant:
+    prefix: /variants
+    resource: @SandboxCoreBundle/Resources/config/routing/backend/variant.yml
+
+sylius_sandbox_backend_property:
+    prefix: /properties
+    resource: @SandboxCoreBundle/Resources/config/routing/backend/property.yml
+
+sylius_sandbox_backend_prototype:
+    prefix: /prototypes
+    resource: @SandboxCoreBundle/Resources/config/routing/backend/prototype.yml

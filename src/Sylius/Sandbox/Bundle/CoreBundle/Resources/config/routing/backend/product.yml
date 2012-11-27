@@ -3,35 +3,42 @@
 
 sylius_sandbox_backend_product_list:
     pattern: /
-    defaults: 
+    defaults:
         _controller: sylius_assortment.controller.product:getCollectionAction
-        _sylius.template: SandboxCoreBundle:Backend/Product:list.html.twig
+        _sylius.resource: 
+            template: SandboxCoreBundle:Backend/Product:list.html.twig
 
 sylius_sandbox_backend_product_create:
     pattern: /create
-    defaults: 
+    defaults:
         _controller: sylius_assortment.controller.product:createAction
-        _sylius.template: SandboxCoreBundle:Backend/Product:create.html.twig
+        _sylius.resource:
+            template: SandboxCoreBundle:Backend/Product:create.html.twig
+            redirect: sylius_sandbox_backend_product_show
 
 sylius_sandbox_backend_product_update:
     pattern: /{id}/update
-    defaults: 
+    defaults:
         _controller: sylius_assortment.controller.product:updateAction
-        _sylius.template: SandboxCoreBundle:Backend/Product:update.html.twig
+        _sylius.resource:
+            template: SandboxCoreBundle:Backend/Product:update.html.twig
+            redirect: sylius_sandbox_backend_product_show
 
 sylius_sandbox_backend_product_delete:
     pattern: /{id}/delete
-    defaults: 
+    defaults:
         _controller: sylius_assortment.controller.product:deleteAction
-        _sylius.redirect: sylius_sandbox_backend_product_list
+        _sylius.resource:
+            redirect: sylius_sandbox_backend_product_list
 
 sylius_sandbox_backend_product_duplicate:
     pattern: /{id}/duplicate
-    defaults: 
+    defaults:
         _controller: sylius_assortment.controller.product:duplicateAction
 
 sylius_sandbox_backend_product_show:
     pattern: /{id}
     defaults:
         _controller: sylius_assortment.controller.product:getAction
-        _sylius.template: SandboxCoreBundle:Backend/Product:show.html.twig
+        _sylius.resource:
+            template: SandboxCoreBundle:Backend/Product:show.html.twig

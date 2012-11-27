@@ -19,13 +19,13 @@ use Symfony\Component\Form\FormBuilder;
  *
  * @author Paweł Jędrzejewski <pjedrzejewski@diweb.pl>
  */
-class NestedCategoryType extends BaseCategoryType
+class ProductCategoryType extends BaseCategoryType
 {
     /**
      * {@inheritdoc}
      */
     public function getName()
     {
-        return 'sylius_sandbox_assortment_category';
+        return 'sylius_sandbox_product_category';
     }
 }

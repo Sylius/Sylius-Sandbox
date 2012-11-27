@@ -1,6 +1,6 @@
 {% extends 'SandboxCoreBundle:Backend:layout.html.twig' %}
 
-{% import 'SandboxAssortmentBundle:Backend/Product:macros.html.twig' as macros %}
+{% import 'SandboxCoreBundle:Backend/Product:macros.html.twig' as macros %}
 
 {% block header %}
     <h1>Assortment category<small> List of all products in category <strong>{{ category.name }}</strong></small></h1>
@@ -8,7 +8,7 @@
 
 {% block content %}
 <div class="well">
-    <a href="{{ path('sylius_assortment_backend_product_create') }}" class="btn btn-primary">
+    <a href="{{ path('sylius_sandbox_backend_product_create') }}" class="btn btn-primary">
         <i class="icon-plus icon-white"></i> create product
     </a>
 </div>

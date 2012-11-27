@@ -6,7 +6,7 @@
 
 {% block content %}
 <form action="{{ path('sylius_categorizer_backend_category_create', {'alias': catalog.alias}) }}" method="post" class="form-horizontal">
-    {% include 'SandboxAssortmentBundle:Backend/Category:_form.html.twig' %}
+    {% include 'SandboxCoreBundle:Backend/ProductCategory:_form.html.twig' %}
     <div class="form-actions">
         <input type="submit" value="create category" class="btn btn-large btn-primary" />
         &nbsp;

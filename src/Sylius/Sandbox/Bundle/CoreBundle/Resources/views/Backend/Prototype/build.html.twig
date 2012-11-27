@@ -5,8 +5,8 @@
 {% endblock %}
 
 {% block content %}
-<form action="{{ path('sylius_assortment_backend_prototype_build', {'id': prototype.id}) }}" method="post" class="form-horizontal" {{ form_enctype(form) }} novalidate>
-    {% include 'SandboxAssortmentBundle:Backend/Product:_form.html.twig' %}
+<form action="{{ path('sylius_sandbox_backend_prototype_build', {'id': prototype.id}) }}" method="post" class="form-horizontal" {{ form_enctype(form) }} novalidate>
+    {% include 'SandboxCoreBundle:Backend/Product:_form.html.twig' %}
     {{ form_widget(form._token) }}
     <div class="form-actions">
        <input type="submit" value="create {% filter lower %}{{ prototype.name }}{% endfilter %}" class="btn btn-primary btn-large" />

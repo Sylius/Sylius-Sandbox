@@ -22,10 +22,10 @@
     </thead>
     <tbody>
         {% for category in categories %}
-            {% include 'SandboxAssortmentBundle:Backend/Category:_row.html.twig' %}
+            {% include 'SandboxCoreBundle:Backend/ProductCategory:_row.html.twig' %}
 
             {% if category['__children'] is defined %}
-                {% include 'SandboxAssortmentBundle:Backend/Category:_node.html.twig' %}
+                {% include 'SandboxCoreBundle:Backend/ProductCategory:_node.html.twig' %}
             {% endif %}
             {% endfor %}
     </tbody>

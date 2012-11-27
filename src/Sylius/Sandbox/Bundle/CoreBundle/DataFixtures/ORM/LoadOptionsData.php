@@ -40,13 +40,6 @@ class LoadOptionsData extends AbstractFixture implements ContainerAwareInterface
     private $manager;
 
     /**
-     * Option manipulator.
-     *
-     * @var OptionManipulatorInterface
-     */
-    private $manipulator;
-
-    /**
      * Option value entity class.
      *
      * @var string
@@ -67,7 +60,6 @@ class LoadOptionsData extends AbstractFixture implements ContainerAwareInterface
     public function load(ObjectManager $manager)
     {
         $this->manager = $this->container->get('sylius_assortment.manager.option');
-        $this->manipulator = $this->container->get('sylius_assortment.manipulator.option');
         $this->optionValueClass = $this->container->getParameter('sylius_assortment.model.option_value.class');
 
         // T-Shirt size option.
@@ -119,6 +111,8 @@ class LoadOptionsData extends AbstractFixture implements ContainerAwareInterface
             ),
             'Sandbox.Assortment.Option.Mug.Type'
         );
+
+        $manager->flush();
     }
 
     /**
@@ -139,7 +133,7 @@ class LoadOptionsData extends AbstractFixture implements ContainerAwareInterface
      */
     private function createOption($name, $presentation, array $values, $reference)
     {
-        $option = $this->manager->createOption();
+        $option = $this->manager->create();
 
         $option->setName($name);
         $option->setPresentation($presentation);
@@ -151,7 +145,7 @@ class LoadOptionsData extends AbstractFixture implements ContainerAwareInterface
             $option->addValue($value);
         }
 
-        $this->manipulator->create($option);
+        $this->manager->persist($option, false);
         $this->setReference($reference, $option);
     }
 }

@@ -10,7 +10,7 @@
         <id name="id" column="id" type="integer">
             <generator strategy="AUTO" />
         </id>
-        <many-to-one field="option" target-entity="Sylius\Sandbox\Bundle\CoreBundle\Entity\Option\Option">
+        <many-to-one field="option" target-entity="Sylius\Sandbox\Bundle\CoreBundle\Entity\Option\Option" inversed-by="values">
             <join-column name="option_id" referenced-column-name="id" />
         </many-to-one>
     </entity>

@@ -6,7 +6,7 @@
 
 {% block content %}
 <div class="well">
-<a href="{{ path('sylius_assortment_backend_property_create') }}" class="btn btn-primary">
+<a href="{{ path('sylius_sandbox_backend_property_create') }}" class="btn btn-primary">
     <i class="icon-plus icon-white"></i> create property
 </a>
 </div>
@@ -31,10 +31,10 @@
             <td>{{ property.createdAt|date('Y-m-d H:i:s') }}</td>
             <td>
                 <div class="btn-group pull-right">
-                    <a href="{{ path('sylius_assortment_backend_property_update', {'id': property.id}) }}" class="btn">
+                    <a href="{{ path('sylius_sandbox_backend_property_update', {'id': property.id}) }}" class="btn">
                        <i class="icon-pencil"></i> {{ 'update'|trans({}, 'SandboxCoreBundle') }}
                     </a>
-                    <a href="{{ path('sylius_assortment_backend_property_delete', {'id': property.id}) }}" class="btn btn-danger confirmer"
+                    <a href="{{ path('sylius_sandbox_backend_property_delete', {'id': property.id}) }}" class="btn btn-danger confirmer"
                         data-confirmer-question="{{ 'confirmer.q.property.delete'|trans({}, 'SandboxCoreBundle') }}"
                     >
                         <i class="icon-remove icon-white"></i> {{ 'delete'|trans({}, 'SandboxCoreBundle') }}

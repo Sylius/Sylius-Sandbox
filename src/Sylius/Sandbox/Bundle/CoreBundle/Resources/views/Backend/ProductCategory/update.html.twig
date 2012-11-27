@@ -6,7 +6,7 @@
 
 {% block content %}
 <form action="{{ path('sylius_categorizer_backend_category_update', {'alias': catalog.alias, 'id': category.id}) }}" method="post" class="form-horizontal">
-    {% include 'SandboxAssortmentBundle:Backend/Category:_form.html.twig' %}
+    {% include 'SandboxCoreBundle:Backend/ProductCategory:_form.html.twig' %}
     <div class="form-actions">
         <input type="submit" value="save changes" class="btn btn-primary btn-large" />
         &nbsp;

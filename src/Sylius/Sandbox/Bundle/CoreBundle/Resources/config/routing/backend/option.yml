@@ -5,27 +5,28 @@ sylius_sandbox_backend_option_list:
     pattern: /
     defaults: 
         _controller: sylius_assortment.controller.option:getCollectionAction
-        _sylius.template: SandboxCoreBundle:Backend/option:list.html.twig
+        _sylius.resource:
+            template: SandboxCoreBundle:Backend/Option:list.html.twig
 
 sylius_sandbox_backend_option_create:
     pattern: /create
     defaults: 
         _controller: sylius_assortment.controller.option:createAction
-        _sylius.template: SandboxCoreBundle:Backend/option:create.html.twig
+        _sylius.resource:
+            template: SandboxCoreBundle:Backend/Option:create.html.twig
+            redirect: sylius_sandbox_backend_option_list
 
 sylius_sandbox_backend_option_update:
-    pattern: /update
+    pattern: /{id}/update
     defaults: 
         _controller: sylius_assortment.controller.option:updateAction
-        _sylius.template: SandboxCoreBundle:Backend/option:update.html.twig
+        _sylius.resource:
+            template: SandboxCoreBundle:Backend/Option:update.html.twig
+            redirect: sylius_sandbox_backend_option_list
 
 sylius_sandbox_backend_option_delete:
     pattern: /{id}/delete
     defaults: 
         _controller: sylius_assortment.controller.option:deleteAction
-
-sylius_sandbox_backend_option_show:
-    pattern: /{id}
-    defaults: 
-        _controller: sylius_assortment.controller.option:getAction
-        _sylius.template: SandboxCoreBundle:Backend/option:show.html.twig
+        _sylius.resource:
+            redirect: sylius_sandbox_backend_option_list
