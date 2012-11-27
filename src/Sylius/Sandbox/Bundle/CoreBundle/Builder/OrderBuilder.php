@@ -37,7 +37,7 @@ class OrderBuilder extends ContainerAware implements OrderBuilderInterface
     {
         $inventoryUnitManager = $this->container->get('sylius_inventory.manager.iu');
         $inventoryOperator = $this->container->get('sylius_inventory.operator');
-        $variantManipulator = $this->container->get('sylius_assortment.manipulator.variant');
+        $variantManager = $this->container->get('sylius_assortment.manager.variant');
 
         foreach ($order->getItems() as $item) {
             $inventoryUnits = $inventoryOperator->decrease($item->getVariant(), $item->getQuantity());
@@ -47,7 +47,7 @@ class OrderBuilder extends ContainerAware implements OrderBuilderInterface
                 $inventoryUnitManager->persistInventoryUnit($unit);
             }
 
-            $variantManipulator->update($item->getVariant());
+            $variantManager->persist($item->getVariant());
         }
 
         $this->container->get('sylius_cart.provider')->abandonCart();
