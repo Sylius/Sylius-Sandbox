@@ -21,7 +21,11 @@ class ScriptHandler
         $IO = $event->getIO();
         $composer = $event->getComposer();
 
-        $symlinkTarget = __DIR__.'/../../../../../../vendor/twitter/bootstrap';
+        $dir = __DIR__;
+        while (!is_dir($dir.'/vendor/twitter/bootstrap'))
+            $dir = dirname($dir);
+
+        $symlinkTarget = $dir.'/vendor/twitter/bootstrap';
         $symlinkName = __DIR__.'/../Resources/public/bootstrap';
 
         if (!@readlink($symlinkName)) {
