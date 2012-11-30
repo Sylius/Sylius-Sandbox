@@ -11,80 +11,51 @@
 
 namespace Sylius\Bundle\SandboxBundle\DataFixtures\ORM;
 
-use Doctrine\Common\DataFixtures\AbstractFixture;
-use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
-use Doctrine\ORM\EntityManager;
-use Symfony\Component\DependencyInjection\ContainerAwareInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Default prototypes.
  *
  * @author Paweł Jędrzejewski <pjedrzejewski@diweb.pl>
  */
-class LoadPrototypesData extends AbstractFixture implements ContainerAwareInterface, OrderedFixtureInterface
+class LoadPrototypesData extends DataFixture
 {
-    /**
-     * Container.
-     *
-     * @var ContainerInterface
-     */
-    private $container;
-
-    /**
-     * Prototype manager.
-     *
-     * @var PrototypeManagerInterface
-     */
-    private $manager;
-
-    /**
-     * {@inheritdoc}
-     */
-    public function setContainer(ContainerInterface $container = null)
-    {
-        $this->container = $container;
-    }
-
     /**
      * {@inheritdoc}
      */
     public function load(ObjectManager $manager)
     {
-        $this->manager = $this->container->get('sylius_assortment.manager.prototype');
-
         $this->createPrototype(
             'T-Shirt',
             array(
-                'Sandbox.Assortment.Option.T-Shirt.Size',
-                'Sandbox.Assortment.Option.T-Shirt.Color',
+                'Option.T-Shirt.Size',
+                'Option.T-Shirt.Color',
             ),
             array(
-                'Sandbox.Assortment.Property.T-Shirt.Collection',
-                'Sandbox.Assortment.Property.T-Shirt.Brand',
-                'Sandbox.Assortment.Property.T-Shirt.Made-of',
+                'Property.T-Shirt.Collection',
+                'Property.T-Shirt.Brand',
+                'Property.T-Shirt.Made-of',
             )
         );
 
         $this->createPrototype(
             'Sticker',
             array(
-                'Sandbox.Assortment.Option.Sticker.Size',
+                'Option.Sticker.Size',
             ),
             array(
-                'Sandbox.Assortment.Property.Sticker.Resolution',
-                'Sandbox.Assortment.Property.Sticker.Paper'
+                'Property.Sticker.Resolution',
+                'Property.Sticker.Paper'
             )
         );
 
         $this->createPrototype(
             'Mug',
             array(
-                'Sandbox.Assortment.Option.Mug.Type',
+                'Option.Mug.Type',
             ),
             array(
-                'Sandbox.Assortment.Property.Mug.Material'
+                'Property.Mug.Material'
             )
         );
 
@@ -92,11 +63,13 @@ class LoadPrototypesData extends AbstractFixture implements ContainerAwareInterf
             'Book',
             array(),
             array(
-                'Sandbox.Assortment.Property.Book.Author',
-                'Sandbox.Assortment.Property.Book.ISBN',
-                'Sandbox.Assortment.Property.Book.Pages',
+                'Property.Book.Author',
+                'Property.Book.ISBN',
+                'Property.Book.Pages',
             )
         );
+
+        $manager->flush();
     }
 
     /**
@@ -104,7 +77,7 @@ class LoadPrototypesData extends AbstractFixture implements ContainerAwareInterf
      */
     public function getOrder()
     {
-        return 7;
+        return 4;
     }
 
     /**
@@ -116,8 +89,9 @@ class LoadPrototypesData extends AbstractFixture implements ContainerAwareInterf
      */
     private function createPrototype($name, array $options, array $properties)
     {
-        $prototype = $this->manager->create();
+        $manager = $this->getPrototypeManager();
 
+        $prototype = $manager->create();
         $prototype->setName($name);
 
         foreach ($options as $option) {
@@ -128,6 +102,11 @@ class LoadPrototypesData extends AbstractFixture implements ContainerAwareInterf
             $prototype->addProperty($this->getReference($property));
         }
 
-        $this->manager->persist($prototype);
+        $manager->persist($prototype, false);
+    }
+
+    private function getPrototypeManager()
+    {
+        return $this->get('sylius_assortment.manager.prototype');
     }
 }

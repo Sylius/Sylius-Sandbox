@@ -9,36 +9,18 @@
  * file that was distributed with this source code.
  */
 
-namespace Sylius\Bundle\SalesBundle\DataFixtures\ORM;
+namespace Sylius\Bundle\SandboxBundle\DataFixtures\ORM;
 
-use Doctrine\Common\DataFixtures\AbstractFixture;
-use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
-use Doctrine\ORM\EntityManager;
 use Sylius\Bundle\SalesBundle\Model\OrderInterface;
-use Symfony\Component\DependencyInjection\ContainerAwareInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Builds some simple orders to play with Sylius sandbox.
  *
  * @author Paweł Jędrzejewski <pjedrzejewski@diweb.pl>
  */
-class LoadOrdersData extends AbstractFixture implements ContainerAwareInterface, OrderedFixtureInterface
+class LoadOrdersData extends DataFixture
 {
-    /**
-     * @var ContainerInterface
-     */
-    private $container;
-
-    /**
-     * {@inheritdoc}
-     */
-    public function setContainer(ContainerInterface $container = null)
-    {
-        $this->container = $container;
-    }
-
     /**
      * {@inheritdoc}
      */
@@ -50,11 +32,19 @@ class LoadOrdersData extends AbstractFixture implements ContainerAwareInterface,
             $order = $orderManager->create();
             $this->buildOrder($order);
 
-            $orderManager->persist($order);
+            $orderManager->persist($order, false);
             $this->setReference('Order-'.$i, $order);
         }
 
         $manager->flush();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getOrder()
+    {
+        return 8;
     }
 
     /**
@@ -64,12 +54,12 @@ class LoadOrdersData extends AbstractFixture implements ContainerAwareInterface,
      */
     private function buildOrder(OrderInterface $order)
     {
-        $itemManager = $this->container->get('sylius_sales.manager.item');
+        $itemManager = $this->getOrderItemManager();
         $totalVariants = SYLIUS_ASSORTMENT_FIXTURES_TV;
 
         $totalItems = rand(3, 6);
         for ($i = 0; $i <= $totalItems; $i++) {
-            $variant = $this->getReference('Sandbox.Assortment.Variant-'.rand(1, $totalVariants - 1));
+            $variant = $this->getReference('Variant-'.rand(1, $totalVariants - 1));
 
             $item = $itemManager->create();
             $item->setQuantity(rand(1, 5));
@@ -85,11 +75,13 @@ class LoadOrdersData extends AbstractFixture implements ContainerAwareInterface,
         $order->calculateTotal();
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function getOrder()
+    private function getOrderManager()
     {
-        return 10;
+        return $this->get('sylius_sales.manager.order');
+    }
+
+    private function getOrderItemManager()
+    {
+        return $this->get('sylius_sales.manager.item');
     }
 }

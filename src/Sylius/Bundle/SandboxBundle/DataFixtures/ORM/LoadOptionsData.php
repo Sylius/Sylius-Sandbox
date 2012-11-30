@@ -9,57 +9,22 @@
  * file that was distributed with this source code.
  */
 
-namespace Sandbox\Bundle\SandboxBundle\DataFixtures\ORM;
+namespace Sylius\Bundle\SandboxBundle\DataFixtures\ORM;
 
-use Doctrine\Common\DataFixtures\AbstractFixture;
-use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
-use Doctrine\ORM\EntityManager;
-use Symfony\Component\DependencyInjection\ContainerAwareInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Default assortment product options to play with sandbox.
  *
  * @author Paweł Jędrzejewski <pjedrzejewski@diweb.pl>
  */
-class LoadOptionsData extends AbstractFixture implements ContainerAwareInterface, OrderedFixtureInterface
+class LoadOptionsData extends DataFixture
 {
-    /**
-     * Container.
-     *
-     * @var ContainerInterface
-     */
-    private $container;
-
-    /**
-     * Options manager.
-     *
-     * @var OptionManagerInterface
-     */
-    private $manager;
-
-    /**
-     * Option value entity class.
-     *
-     * @var string
-     */
-    private $optionValueClass;
-
-    /**
-     * {@inheritdoc}
-     */
-    public function setContainer(ContainerInterface $container = null)
-    {
-        $this->container = $container;
-    }
-
     /**
      * {@inheritdoc}
      */
     public function load(ObjectManager $manager)
     {
-        $this->manager = $this->container->get('sylius_assortment.manager.option');
         $this->optionValueClass = $this->container->getParameter('sylius_assortment.model.option_value.class');
 
         // T-Shirt size option.
@@ -73,7 +38,7 @@ class LoadOptionsData extends AbstractFixture implements ContainerAwareInterface
                 'XL',
                 'XXL'
             ),
-            'Sandbox.Assortment.Option.T-Shirt.Size'
+            'Option.T-Shirt.Size'
         );
 
         // T-Shirt color option.
@@ -85,7 +50,7 @@ class LoadOptionsData extends AbstractFixture implements ContainerAwareInterface
                 'Blue',
                 'Green'
             ),
-            'Sandbox.Assortment.Option.T-Shirt.Color'
+            'Option.T-Shirt.Color'
         );
 
         // Sticker size option.
@@ -97,7 +62,7 @@ class LoadOptionsData extends AbstractFixture implements ContainerAwareInterface
                 '5"',
                 '7"'
             ),
-            'Sandbox.Assortment.Option.Sticker.Size'
+            'Option.Sticker.Size'
         );
 
         // Mug type option.
@@ -109,7 +74,7 @@ class LoadOptionsData extends AbstractFixture implements ContainerAwareInterface
                 'Double mug',
                 'MONSTER mug'
             ),
-            'Sandbox.Assortment.Option.Mug.Type'
+            'Option.Mug.Type'
         );
 
         $manager->flush();
@@ -120,7 +85,7 @@ class LoadOptionsData extends AbstractFixture implements ContainerAwareInterface
      */
     public function getOrder()
     {
-        return 4;
+        return 3;
     }
 
     /**
@@ -133,8 +98,9 @@ class LoadOptionsData extends AbstractFixture implements ContainerAwareInterface
      */
     private function createOption($name, $presentation, array $values, $reference)
     {
-        $option = $this->manager->create();
+        $manager = $this->getOptionManager();
 
+        $option = $manager->create();
         $option->setName($name);
         $option->setPresentation($presentation);
 
@@ -145,7 +111,12 @@ class LoadOptionsData extends AbstractFixture implements ContainerAwareInterface
             $option->addValue($value);
         }
 
-        $this->manager->persist($option, false);
+        $manager->persist($option, false);
         $this->setReference($reference, $option);
+    }
+
+    private function getOptionManager()
+    {
+        return $this->get('sylius_assortment.manager.option');
     }
 }

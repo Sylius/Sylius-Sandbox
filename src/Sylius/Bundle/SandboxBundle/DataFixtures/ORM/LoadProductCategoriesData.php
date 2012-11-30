@@ -11,26 +11,15 @@
 
 namespace Sylius\Bundle\SandboxBundle\DataFixtures\ORM;
 
-use Doctrine\Common\DataFixtures\AbstractFixture;
-use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
-use Symfony\Component\DependencyInjection\ContainerAwareInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Default assortment categories to play with Sylius sandbox.
  *
  * @author Paweł Jędrzejewski <pjedrzejewski@diweb.pl>
  */
-class LoadProductCategoriesData extends AbstractFixture implements ContainerAwareInterface, OrderedFixtureInterface
+class LoadProductCategoriesData extends DataFixture
 {
-    /**
-     * Container.
-     *
-     * @var ContainerInterface
-     */
-    private $container;
-
     /**
      * Category manager.
      *
@@ -55,14 +44,6 @@ class LoadProductCategoriesData extends AbstractFixture implements ContainerAwar
     /**
      * {@inheritdoc}
      */
-    public function setContainer(ContainerInterface $container = null)
-    {
-        $this->container = $container;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
     public function load(ObjectManager $manager)
     {
         $this->manager = $this->container->get('sylius_categorizer.manager.category');
@@ -80,7 +61,7 @@ class LoadProductCategoriesData extends AbstractFixture implements ContainerAwar
      */
     public function getOrder()
     {
-        return 2;
+        return 5;
     }
 
     /**
@@ -94,6 +75,6 @@ class LoadProductCategoriesData extends AbstractFixture implements ContainerAwar
         $category->setName($name);
 
         $this->manipulator->create($category);
-        $this->setReference('Sandbox.Assortment.Category.'.$name, $category);
+        $this->setReference('Category.'.$name, $category);
     }
 }

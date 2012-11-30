@@ -11,57 +11,37 @@
 
 namespace Sylius\Bundle\SandboxBundle\DataFixtures\ORM;
 
-use Doctrine\Common\DataFixtures\AbstractFixture;
-use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
-use Faker\Factory as FakerFactory;
-use Symfony\Component\DependencyInjection\ContainerAwareInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Default addresssing fixtures to play with Sylius sandbox.
  *
  * @author Paweł Jędrzejewski <pjedrzejewski@diweb.pl>
  */
-class LoadAddressesData extends AbstractFixture implements ContainerAwareInterface, OrderedFixtureInterface
+class LoadAddressesData extends DataFixture
 {
-    /**
-     * Container.
-     *
-     * @var ContainerInterface
-     */
-    private $container;
-
-    /**
-     * {@inheritdoc}
-     */
-    public function setContainer(ContainerInterface $container = null)
-    {
-        $this->container = $container;
-    }
-
     /**
      * {@inheritdoc}
      */
     public function load(ObjectManager $manager)
     {
-        $addressManager = $this->container->get('sylius_addressing.manager.address');
-
-        $faker = FakerFactory::create();
+        $addressManager = $this->getAddressManager();
 
         for ($i = 1; $i <= 100; $i++) {
             $address = $addressManager->create();
 
-            $address->setFirstname($faker->firstName);
-            $address->setLastname($faker->lastName);
-            $address->setCity($faker->city);
-            $address->setStreet($faker->streetAddress);
-            $address->setPostcode($faker->postcode);
+            $address->setFirstname($this->faker->firstName);
+            $address->setLastname($this->faker->lastName);
+            $address->setCity($this->faker->city);
+            $address->setStreet($this->faker->streetAddress);
+            $address->setPostcode($this->faker->postcode);
 
-            $addressManager->persist($address);
+            $addressManager->persist($address, false);
 
             $this->setReference('Address-'.$i, $address);
         }
+
+        $manager->flush();
     }
 
     /**
@@ -69,6 +49,11 @@ class LoadAddressesData extends AbstractFixture implements ContainerAwareInterfa
      */
     public function getOrder()
     {
-        return 1;
+        return 7;
+    }
+
+    private function getAddressManager()
+    {
+        return $this->get('sylius_addressing.manager.address');
     }
 }

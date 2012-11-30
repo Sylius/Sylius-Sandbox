@@ -11,37 +11,16 @@
 
 namespace Sylius\Bundle\SandboxBundle\DataFixtures\ORM;
 
-use Doctrine\Common\DataFixtures\AbstractFixture;
-use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
-use Doctrine\ORM\EntityManager;
-use Faker\Factory as FakerFactory;
 use Sylius\Bundle\SandboxBundle\Entity\User;
-use Symfony\Component\DependencyInjection\ContainerAwareInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * Add some users.
+ * User fixtures.
  *
  * @author Paweł Jędrzejewski <pjedrzejewski@diweb.pl>
  */
-class LoadUsersData extends AbstractFixture implements ContainerAwareInterface, OrderedFixtureInterface
+class LoadUsersData extends DataFixture
 {
-    /**
-     * Container.
-     *
-     * @var ContainerInterface
-     */
-    private $container;
-
-    /**
-     * {@inheritdoc}
-     */
-    public function setContainer(ContainerInterface $container = null)
-    {
-        $this->container = $container;
-    }
-
     /**
      * {@inheritdoc}
      */
@@ -57,6 +36,20 @@ class LoadUsersData extends AbstractFixture implements ContainerAwareInterface, 
 
         $manager->persist($user);
         $manager->flush();
+
+        $this->setReference('User-Administrator', $user);
+
+        $user = new User();
+
+        $user->setUsername('john');
+        $user->setEmail('john@example.com');
+        $user->setPlainPassword('lumos');
+        $user->setEnabled(true);
+
+        $manager->persist($user);
+        $manager->flush();
+
+        $this->setReference('User-John', $user);
     }
 
     /**
@@ -64,6 +57,6 @@ class LoadUsersData extends AbstractFixture implements ContainerAwareInterface, 
      */
     public function getOrder()
     {
-        return 11;
+        return 1;
     }
 }

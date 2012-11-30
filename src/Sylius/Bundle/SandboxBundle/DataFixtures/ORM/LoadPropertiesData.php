@@ -11,61 +11,32 @@
 
 namespace Sylius\Bundle\SandboxBundle\DataFixtures\ORM;
 
-use Doctrine\Common\DataFixtures\AbstractFixture;
-use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
-use Doctrine\ORM\EntityManager;
-use Symfony\Component\DependencyInjection\ContainerAwareInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Default assortment product properties to play with Sylius sandbox.
  *
  * @author Paweł Jędrzejewski <pjedrzejewski@diweb.pl>
  */
-class LoadPropertiesData extends AbstractFixture implements ContainerAwareInterface, OrderedFixtureInterface
+class LoadPropertiesData extends DataFixture
 {
-    /**
-     * Container.
-     *
-     * @var ContainerInterface
-     */
-    private $container;
-
-    /**
-     * Property manager.
-     *
-     * @var PropertyManagerInterface
-     */
-    private $manager;
-
-    /**
-     * {@inheritdoc}
-     */
-    public function setContainer(ContainerInterface $container = null)
-    {
-        $this->container = $container;
-    }
-
     /**
      * {@inheritdoc}
      */
     public function load(ObjectManager $manager)
     {
-        $this->manager = $this->container->get('sylius_assortment.manager.property');
+        $this->createProperty('T-Shirt brand', 'Brand', 'Property.T-Shirt.Brand');
+        $this->createProperty('T-Shirt collection', 'Collection', 'Property.T-Shirt.Collection');
+        $this->createProperty('T-Shirt material', 'Made of', 'Property.T-Shirt.Made-of');
 
-        $this->createProperty('T-Shirt brand', 'Brand', 'Sandbox.Assortment.Property.T-Shirt.Brand');
-        $this->createProperty('T-Shirt collection', 'Collection', 'Sandbox.Assortment.Property.T-Shirt.Collection');
-        $this->createProperty('T-Shirt material', 'Made of', 'Sandbox.Assortment.Property.T-Shirt.Made-of');
+        $this->createProperty('Sticker print resolution', 'Print resolution', 'Property.Sticker.Resolution');
+        $this->createProperty('Sticker paper', 'Paper', 'Property.Sticker.Paper');
 
-        $this->createProperty('Sticker print resolution', 'Print resolution', 'Sandbox.Assortment.Property.Sticker.Resolution');
-        $this->createProperty('Sticker paper', 'Paper', 'Sandbox.Assortment.Property.Sticker.Paper');
+        $this->createProperty('Mug material', 'Material', 'Property.Mug.Material');
 
-        $this->createProperty('Mug material', 'Material', 'Sandbox.Assortment.Property.Mug.Material');
-
-        $this->createProperty('Book author', 'Author', 'Sandbox.Assortment.Property.Book.Author');
-        $this->createProperty('Book ISBN', 'ISBN', 'Sandbox.Assortment.Property.Book.ISBN');
-        $this->createProperty('Book pages', 'Number of pages', 'Sandbox.Assortment.Property.Book.Pages');
+        $this->createProperty('Book author', 'Author', 'Property.Book.Author');
+        $this->createProperty('Book ISBN', 'ISBN', 'Property.Book.ISBN');
+        $this->createProperty('Book pages', 'Number of pages', 'Property.Book.Pages');
     }
 
     /**
@@ -73,7 +44,7 @@ class LoadPropertiesData extends AbstractFixture implements ContainerAwareInterf
      */
     public function getOrder()
     {
-        return 5;
+        return 2;
     }
 
     /**
@@ -85,12 +56,18 @@ class LoadPropertiesData extends AbstractFixture implements ContainerAwareInterf
      */
     private function createProperty($name, $presentation, $reference)
     {
-        $property = $this->manager->create();
+        $manager = $this->getManager();
 
+        $property = $manager->create();
         $property->setName($name);
         $property->setPresentation($presentation);
 
-        $this->manager->persist($property);
+        $manager->persist($property);
         $this->setReference($reference, $property);
+    }
+
+    private function getManager()
+    {
+        return $this->get('sylius_assortment.manager.property');
     }
 }
