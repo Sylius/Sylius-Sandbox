@@ -11,6 +11,5 @@ default:
                 env: testing
             mink_driver: true
         Behat\MinkExtension\Extension:
-            base_url: http://sylius.localhost/Sandbox/public/testgate.php
             show_cmd: firefox %s
             goutte: ~
