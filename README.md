@@ -9,12 +9,7 @@ It's also testing ground for new features planned for [main Sylius application](
 
 This repository **will never** be stable.
 
-Live demo
----------
-
-[Click here](http://sylius.org/sandbox) to view a demo of this application.
-
-The inferface is powered by the coolest [Twitter Bootstrap 2](http://twitter.github.com/bootstrap).
+[DEMO](http://sylius.org/sandbox).
 
 Quick installation
 ------------------
@@ -31,7 +26,7 @@ Install dependencies using composer.
 
 ``` bash
 $ wget http://getcomposer.org/composer.phar
-$ php composer.phar install
+$ php composer.phar install --prefer-dist
 ```
 
 Create database schema and dump assetic assets by typing following commands inside console.
@@ -43,24 +38,18 @@ $ php sandbox/console assetic:dump
 
 Open up ``/path/to/Sylius-Sandbox/public/dev.php`` in your browser and play with the application.
 
-Behat features
---------------
-
-To check Behat business features, use the following command.
+[Behat](http://behat.org) scenarios
+-----------------------------------
 
 ``` bash
-$ ./bin/behat @SandboxCoreBundle
+$ ./bin/behat @SyliusSandboxBundle
 ```
 
-Testing and build status
-------------------------
-
-This application uses [travis-ci.org](http://travis-ci.org/Sylius/SyliusAssortmentBundle) for CI.
-
-You can run the tests by simply using this command, only if you installed vendors.
+[phpspec2](http://phpspec.net) examples
+---------------------------------------
 
 ``` bash
-$ phpunit -c sandbox
+$ bin/phpspec run -f pretty
 ```
 
 Contributing
@@ -93,8 +82,8 @@ Bug tracking
 This application uses [GitHub issues](https://github.com/Sylius/Sylius-Sandbox/issues).
 If you have found bug, please create an issue.
 
-License
--------
+MIT License
+-----------
 
 License can be found [here](https://github.com/Sylius/Sylius-Sandbox/blob/master/LICENSE).
 
