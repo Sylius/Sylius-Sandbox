@@ -1,0 +1,21 @@
+{% extends 'SyliusSandboxBundle:Frontend:layout.html.twig' %}
+
+{% block content %}
+<div class="page-header">
+<h1>Fill your order information. <small>Thanks for chosing our services.</small></h1>
+</div>
+
+<form method="post" action="{{ path('sylius_sales_order_place') }}" class="form-horizontal" novalidate>
+<fieldset>
+    {{ form_row(form.address.firstname, {'attr': {'class': 'span6'}}) }}
+    {{ form_row(form.address.lastname, {'attr': {'class': 'span6'}}) }}
+    {{ form_row(form.address.city, {'attr': {'class': 'span5'}}) }}
+    {{ form_row(form.address.street, {'attr': {'class': 'span5'}}) }}
+    {{ form_row(form.address.postcode, {'attr': {'class': 'span3'}}) }}
+</fieldset>
+    {{ form_rest(form) }}
+<div class="form-actions">
+    <input type="submit" class="btn btn-primary btn-large" value="place order" />
+</div>
+</form>
+{% endblock %}

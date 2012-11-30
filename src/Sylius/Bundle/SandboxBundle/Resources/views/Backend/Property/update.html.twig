@@ -1,0 +1,14 @@
+{% extends 'SyliusSandboxBundle:Backend:layout.html.twig' %}
+
+{% block header %}
+    <h1>Updating property<small> Use the form below edit existing property</small></h1>
+{% endblock %}
+
+{% block content %}
+<form action="{{ path('sylius_sandbox_backend_property_update', {'id': property.id}) }}" method="post" class="form-horizontal" novalidate>
+    {% include 'SyliusSandboxBundle:Backend/Property:_form.html.twig' %}
+    <div class="form-actions">
+       <input type="submit" value="save changes" class="btn btn-primary btn-large" />
+    </div>
+</form>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'SyliusSandboxBundle:Backend:layout.html.twig' %}
+
+{% block header %}
+    <h1>Creating category<small> Use the form below to create a new product category</small></h1>
+{% endblock %}
+
+{% block content %}
+<form action="{{ path('sylius_categorizer_backend_category_create', {'alias': catalog.alias}) }}" method="post" class="form-horizontal">
+    {% include 'SyliusSandboxBundle:Backend/ProductCategory:_form.html.twig' %}
+    <div class="form-actions">
+        <input type="submit" value="create category" class="btn btn-large btn-primary" />
+        &nbsp;
+        <input type="reset" value="cancel" class="btn btn-large" />
+    </div>
+</form>
+{% endblock %}

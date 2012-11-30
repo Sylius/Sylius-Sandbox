@@ -1,0 +1,55 @@
+{% extends 'SyliusSandboxBundle:Backend:layout.html.twig' %}
+
+{% block header %}
+    <h1>Product prototypes<small> List of all created prototype types</small></h1>
+{% endblock %}
+
+{% block content %}
+<div class="well">
+<a href="{{ path('sylius_sandbox_backend_prototype_create') }}" class="btn btn-primary">
+    <i class="icon-plus icon-white"></i> create prototype
+</a>
+</div>
+
+{% if prototypes|length > 0 %}
+    <table class="table">
+    <thead>
+        <tr>
+            <th>#id</th>
+            <th>name</th>
+            <th>creation time</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for prototype in prototypes %}
+        <tr>
+            <td>{{ prototype.id }}</td>
+            <td>{{ prototype.name }}</td>
+            <td>{{ prototype.createdAt|date('Y-m-d H:i:s') }}</td>
+            <td>
+                <div class="btn-group pull-right">
+                    <a href="{{ path('sylius_sandbox_backend_prototype_build', {'id': prototype.id}) }}" class="btn">
+                       <i class="icon-play-circle"></i> {{ 'build'|trans({}, 'SyliusSandboxBundle') }}
+                    </a>
+                    <a href="{{ path('sylius_sandbox_backend_prototype_update', {'id': prototype.id}) }}" class="btn">
+                       <i class="icon-pencil"></i> {{ 'update'|trans({}, 'SyliusSandboxBundle') }}
+                    </a>
+                    <a href="{{ path('sylius_sandbox_backend_prototype_delete', {'id': prototype.id}) }}" class="btn btn-danger confirmer"
+                        data-confirmer-question="{{ 'confirmer.q.prototype.delete'|trans({}, 'SyliusSandboxBundle') }}"
+                    >
+                        <i class="icon-remove icon-white"></i> {{ 'delete'|trans({}, 'SyliusSandboxBundle') }}
+                    </a>
+                </div>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<div class="alert alert-info">
+    <h4 class="alert-heading">{{ 'alert.heading.info'|trans({}, 'SyliusSandboxBundle') }}.</h4>
+    There are no prototypes to display.
+</div>
+{% endif %}
+{% endblock %}

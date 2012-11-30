@@ -1,0 +1,15 @@
+{% extends 'SyliusSandboxBundle:Backend:layout.html.twig' %}
+
+{% block header %}
+    <h1>Building {% filter lower %}{{ prototype.name }}{% endfilter %}<small> Use the form below to build a new {% filter lower %}{{ prototype.name }}{% endfilter %}</small></h1>
+{% endblock %}
+
+{% block content %}
+<form action="{{ path('sylius_sandbox_backend_prototype_build', {'id': prototype.id}) }}" method="post" class="form-horizontal" {{ form_enctype(form) }} novalidate>
+    {% include 'SyliusSandboxBundle:Backend/Product:_form.html.twig' %}
+    {{ form_widget(form._token) }}
+    <div class="form-actions">
+       <input type="submit" value="create {% filter lower %}{{ prototype.name }}{% endfilter %}" class="btn btn-primary btn-large" />
+    </div>
+</form>
+{% endblock %}

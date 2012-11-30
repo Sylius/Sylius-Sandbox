@@ -2,7 +2,7 @@
 # (c) Paweł Jędrzejewski
 
 sylius_sandbox_core:
-    resource: @SandboxCoreBundle/Resources/config/routing/base.yml
+    resource: @SyliusSandboxBundle/Resources/config/routing/base.yml
 
 sylius_cart:
     resource: @SyliusCartBundle/Resources/config/routing.yml

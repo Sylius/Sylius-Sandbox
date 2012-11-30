@@ -18,8 +18,6 @@ sandbox/phpunit.xml
 sandbox/cache/
 sandbox/logs/
 
-src/Sylius/Sandbox/Bundle/CoreBundle/Resources/public/bootstrap
-
 vendor/
 
 composer.phar

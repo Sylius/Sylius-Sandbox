@@ -1,0 +1,6 @@
+{% extends 'knp_menu.html.twig' %}
+
+{% block label %}
+    {{ item.labelAttribute('icon') is empty ? '' : '<i class="%s %s"></i>'|format(item.labelAttribute('icon'), item.current ? ' icon-white' : '')|raw }}
+    {{ item.label|trans(item.getExtra('translation_params', {}), item.getExtra('translation_domain', 'SyliusSandboxBundle')) }}
+{% endblock %}

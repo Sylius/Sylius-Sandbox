@@ -1,0 +1,16 @@
+{% extends 'SyliusSandboxBundle:Backend:layout.html.twig' %}
+
+{% block header %}
+    <h1>Updating category<small> Use the form below to modify <strong>{{ category.name }}</strong> category</small></h1>
+{% endblock %}
+
+{% block content %}
+<form action="{{ path('sylius_categorizer_backend_category_update', {'alias': catalog.alias, 'id': category.id}) }}" method="post" class="form-horizontal">
+    {% include 'SyliusSandboxBundle:Backend/ProductCategory:_form.html.twig' %}
+    <div class="form-actions">
+        <input type="submit" value="save changes" class="btn btn-primary btn-large" />
+        &nbsp;
+        <a href="{{ path('sylius_categorizer_backend_category_list', {'alias': catalog.alias}) }}" class="btn btn-large">cancel</a>
+    </div>
+</form>
+{% endblock %}

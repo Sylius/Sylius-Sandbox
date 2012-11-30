@@ -1,0 +1,60 @@
+{% extends 'SyliusSandboxBundle:Frontend:layout.html.twig' %}
+
+{% block content %}
+<div class="page-header">
+<h1>Identify customer <small>Login, create an account or continue checkout as guest</small></h1>
+</div>
+
+{% include 'SyliusSandboxBundle:Process/Checkout/Step:_progressBar.html.twig' %}
+
+<div class="form-horizontal">
+    <div class="row-fluid">
+        <div class="span6">
+            <div class="well">
+                <h3>Existing customer</h3>
+                <hr style="margin-top: 6px;" />
+                    <form action="{{ path('fos_user_security_login') }}" method="post">
+                    <fieldset>
+                        <div class="control-group">
+                        <label for="username" class="control-label">Login</label>
+                        <div class="controls">
+                            <input type="text" id="username" name="_username" />
+                        </div>
+                        </div>
+                        <div class="control-group">
+                        <label for="password" class="control-label">Password</label>
+                        <div class="controls">
+                            <input type="password" id="password" name="_password" />
+                        </div>
+                        </div>
+                    </fieldset>
+                    <div class="form-actions">
+                        <input type="submit" class="btn btn-primary btn-large" name="login" value="login" />
+                    </div>
+                    </form>
+            </div>
+            <div class="well">
+                <h3>Checkout as guest</h3>
+                <hr style="margin-top: 6px;" />
+                    <div class="alert alert-error">
+                    Not implemented yet
+                    </div>
+            </div>
+        </div>
+        <div class="span6">
+            <div class="well">
+                <h3>Register account</h3>
+                <hr style="margin-top: 6px;" />
+                    <form action="{{ path('sylius_sandbox_checkout_forward', {'stepName': context.currentStep.name}) }}" method="post" novalidate>
+                    <fieldset>
+                        {{ form_widget(registrationForm) }}
+                    </fieldset>
+                    <div class="form-actions">
+                        <input type="submit" class="btn btn-success btn-large span3" value="register" />
+                    </div>
+                    </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

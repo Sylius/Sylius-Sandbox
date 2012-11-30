@@ -25,8 +25,8 @@ if (!in_array(@$_SERVER['REMOTE_ADDR'], array(
 }
 
 // Require kernel.
-require_once __DIR__.'/../sandbox/SandboxKernel.php';
+require_once __DIR__.'/../sandbox/SyliusSandboxKernel.php';
 
 // Initialize kernel and run the application.
-$kernel = new \Sylius\SandboxKernel('dev', true);
+$kernel = new SyliusSandboxKernel('dev', true);
 $kernel->handle(Request::createFromGlobals())->send();

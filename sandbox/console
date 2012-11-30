@@ -13,8 +13,7 @@
 
 set_time_limit(0);
 
-require_once __DIR__.'/autoload.php';
-require_once __DIR__.'/SandboxKernel.php';
+require_once __DIR__.'/SyliusSandboxKernel.php';
 
 use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Component\Console\Input\ArgvInput;
@@ -23,6 +22,6 @@ $input = new ArgvInput();
 $env = $input->getParameterOption(array('--env', '-e'), getenv('SYMFONY_ENV') ?: 'dev');
 $debug = !$input->hasParameterOption(array('--no-debug', ''));
 
-$kernel = new Sylius\SandboxKernel($env, $debug);
+$kernel = new SyliusSandboxKernel($env, $debug);
 $application = new Application($kernel);
 $application->run();

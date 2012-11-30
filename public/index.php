@@ -17,8 +17,8 @@ use Symfony\Component\HttpFoundation\Request;
  */
 
 // Require kernel.
-require_once __DIR__.'/../sandbox/SandboxKernel.php';
+require_once __DIR__.'/../sandbox/SyliusSandboxKernel.php';
 
 // Initialize kernel and run the application.
-$kernel = new \Sylius\SandboxKernel('live', false);
+$kernel = new SyliusSandboxKernel('live', false);
 $kernel->handle(Request::createFromGlobals())->send();

@@ -1,9 +1,0 @@
-# This file is part of the Sylius sandbox application.
-# (c) Paweł Jędrzejewski
-
-sylius_sandbox_core_frontend:
-    resource: @SandboxCoreBundle/Resources/config/routing/frontend/base.yml
-
-sylius_sandbox_core_backend:
-    resource: @SandboxCoreBundle/Resources/config/routing/backend/base.yml
-    prefix: /administration

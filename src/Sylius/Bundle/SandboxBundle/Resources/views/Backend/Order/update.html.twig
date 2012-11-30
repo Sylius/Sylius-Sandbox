@@ -1,0 +1,14 @@
+{% extends 'SyliusSandboxBundle:Backend:layout.html.twig' %}
+
+{% block header %}
+    <h1>Updating order<small> Modify existing order</small></h1>
+{% endblock %}
+
+{% block content %}
+<form action="{{ path('sylius_sandbox_backend_order_update', {'id': order.id}) }}" method="post" novalidate>
+    {% include 'SyliusSandboxBundle:Backend/Order:_form.html.twig' %}
+    <div class="form-actions">
+       <input type="submit" value="save changes" class="btn btn-primary btn-large" />
+    </div>
+</form>
+{% endblock %}

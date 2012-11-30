@@ -1,5 +1,5 @@
 {
-    "hash": "5ada73a4466fd6ba86d425c7cabf126d",
+    "hash": "47144da4a35c6bb7c743f06afc285959",
     "packages": [
         {
             "name": "avalanche123/imagine-bundle",
@@ -2147,12 +2147,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/SyliusResourceBundle.git",
-                "reference": "1f8981a228032857bd97699f5a731b335fa6ff99"
+                "reference": "492f06f8803ecb063ee69ccf1f496684025b21c0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/Sylius/SyliusResourceBundle/archive/1f8981a228032857bd97699f5a731b335fa6ff99.zip",
-                "reference": "1f8981a228032857bd97699f5a731b335fa6ff99",
+                "url": "https://github.com/Sylius/SyliusResourceBundle/archive/492f06f8803ecb063ee69ccf1f496684025b21c0.zip",
+                "reference": "492f06f8803ecb063ee69ccf1f496684025b21c0",
                 "shasum": ""
             },
             "require": {
@@ -2165,7 +2165,7 @@
             "require-dev": {
                 "phpspec/phpspec2": "dev-develop"
             },
-            "time": "2012-11-25 23:51:01",
+            "time": "2012-11-27 08:37:11",
             "type": "symfony-bundle",
             "installation-source": "source",
             "autoload": {
@@ -2173,6 +2173,7 @@
                     "Sylius\\Bundle\\ResourceBundle": ""
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],

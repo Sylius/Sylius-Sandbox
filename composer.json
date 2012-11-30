@@ -28,8 +28,7 @@
         "sylius/sales-bundle":                 "*",
         "symfony/assetic-bundle":              "*",
         "symfony/monolog-bundle":              "*",
-        "symfony/swiftmailer-bundle":          "*",
-        "twitter/bootstrap":                   "v2.1.1"
+        "symfony/swiftmailer-bundle":          "*"
     },
     "require-dev": {
         "behat/mink-extension":                "*",
@@ -37,34 +36,14 @@
         "behat/symfony2-extension":            "*",
         "phpspec/phpspec2":                    "*"
     },
-    "repositories": [
-        {
-            "type": "package",
-            "package": {
-                "version": "v2.1.1",
-                "name": "twitter/bootstrap",
-                "source": {
-                    "url": "https://github.com/twitter/bootstrap.git",
-                    "type": "git",
-                    "reference": "v2.1.1"
-                },
-                "dist": {
-                    "url": "https://github.com/twitter/bootstrap/zipball/v2.1.1",
-                    "type": "zip"
-                 }
-            }
-        }
-    ],
     "scripts": {
         "post-install-cmd": [
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
-            "Sylius\\Sandbox\\Bundle\\CoreBundle\\Composer\\ScriptHandler::symlinkTwitterBootstrap"
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets"
         ],
         "post-update-cmd": [
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
-            "Sylius\\Sandbox\\Bundle\\CoreBundle\\Composer\\ScriptHandler::symlinkTwitterBootstrap"
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets"
         ]
     },
     "config": {
@@ -76,7 +55,7 @@
     },
     "autoload": {
         "psr-0": {
-            "Sylius\\Sandbox": "src/"
+            "Sylius\\Bundle\\SandboxBundle": "src/"
         }
     }
 }
