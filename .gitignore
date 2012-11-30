@@ -14,10 +14,8 @@ public/js/
 
 sandbox/config/container/*.local.yml
 sandbox/config/container/parameters.yml
-sandbox/phpunit.xml
 sandbox/cache/
 sandbox/logs/
 
 vendor/
-
 composer.phar
