@@ -183,7 +183,6 @@ class Product extends BaseProduct implements StockableInterface
     public function saveImage()
     {
         if (null === $this->image) {
-
             return;
         }
 
@@ -203,7 +202,7 @@ class Product extends BaseProduct implements StockableInterface
         return __DIR__.'/../../../../../../public/'.$this->getImageUploadDir();
     }
 
-    static public function getVariantPickingModeChoices()
+    public static function getVariantPickingModeChoices()
     {
         return array(
             self::VARIANT_PICKING_CHOICE => 'Display list of variants',

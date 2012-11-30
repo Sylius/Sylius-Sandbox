@@ -5,7 +5,7 @@ sylius_sandbox_backend_product_list:
     pattern: /
     defaults:
         _controller: sylius_assortment.controller.product:getCollectionAction
-        _sylius.resource: 
+        _sylius.resource:
             template: SyliusSandboxBundle:Backend/Product:list.html.twig
 
 sylius_sandbox_backend_product_create:

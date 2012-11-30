@@ -11,7 +11,6 @@
 
 namespace Sylius\Bundle\SandboxBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
 use FOS\CommentBundle\Entity\Comment as BaseComment;
 use FOS\CommentBundle\Model\SignedCommentInterface;
 use Symfony\Component\Security\Core\User\UserInterface;

@@ -3,7 +3,6 @@
 namespace Sylius\Bundle\SandboxBundle\Process\Step;
 
 use FOS\UserBundle\Model\UserInterface;
-use Sylius\Bundle\AddressingBundle\Model\AddressInterface;
 use Sylius\Bundle\FlowBundle\Process\Context\ProcessContextInterface;
 use Sylius\Bundle\FlowBundle\Process\Step\ContainerAwareStep;
 use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
@@ -82,4 +81,3 @@ class SecurityStep extends ContainerAwareStep
         $this->container->get('security.context')->setToken($token);
     }
 }
-

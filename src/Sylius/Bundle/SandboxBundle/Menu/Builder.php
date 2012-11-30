@@ -26,8 +26,8 @@ class Builder extends ContainerAware
     /**
      * Builds frontend main menu.
      *
-     * @param FactoryInterface  $factory
-     * @param array             $options
+     * @param FactoryInterface $factory
+     * @param array            $options
      *
      * @return ItemInterface
      */
@@ -59,8 +59,8 @@ class Builder extends ContainerAware
     /**
      * Builds frontend side menu.
      *
-     * @param FactoryInterface  $factory
-     * @param array             $options
+     * @param FactoryInterface $factory
+     * @param array            $options
      *
      * @return ItemInterface
      */
@@ -125,8 +125,8 @@ class Builder extends ContainerAware
     /**
      * Builds backend main menu.
      *
-     * @param FactoryInterface  $factory
-     * @param array             $options
+     * @param FactoryInterface $factory
+     * @param array            $options
      *
      * @return ItemInterface
      */
@@ -160,8 +160,8 @@ class Builder extends ContainerAware
     /**
      * Builds backend side menu.
      *
-     * @param FactoryInterface  $factory
-     * @param array             $options
+     * @param FactoryInterface $factory
+     * @param array            $options
      *
      * @return ItemInterface
      */

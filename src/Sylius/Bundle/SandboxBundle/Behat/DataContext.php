@@ -2,8 +2,6 @@
 
 namespace Sylius\Bundle\SandboxBundle\Behat;
 
-use Behat\Behat\Context\BehatContext;
-use Behat\Behat\Context\Step;
 use Behat\Gherkin\Node\TableNode;
 use Sylius\Bundle\SandboxBundle\Entity\User;
 use Sylius\Bundle\SandboxBundle\Features\Context\AbstractDataContext;
@@ -31,7 +29,6 @@ class DataContext extends AbstractDataContext
                 ),
                 $data
             );
-
 
             $user = $userManager->createUser();
             $user->setUsername($data['username']);

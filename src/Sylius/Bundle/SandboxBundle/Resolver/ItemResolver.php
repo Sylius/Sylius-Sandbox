@@ -51,8 +51,8 @@ class ItemResolver implements ItemResolverInterface
      * Constructor.
      *
      * @param ResourceRepositoryInterface $productRepository
-     * @param FormFactory              $formFactory
-     * @param StockResolverInterface   $stockResolver
+     * @param FormFactory                 $formFactory
+     * @param StockResolverInterface      $stockResolver
      */
     public function __construct(
         ResourceRepositoryInterface $productRepository,
@@ -78,7 +78,6 @@ class ItemResolver implements ItemResolverInterface
          * pattern and use attributes, which are available through request object.
          */
         if (!$id = $request->query->get('id')) {
-
             return false;
         }
 
@@ -102,7 +101,6 @@ class ItemResolver implements ItemResolverInterface
 
             // If all is ok with form, quantity and other stuff, simply return the item.
             if ($form->isValid() && $variant && $this->stockResolver->isInStock($variant)) {
-
                 return $item;
             }
         }

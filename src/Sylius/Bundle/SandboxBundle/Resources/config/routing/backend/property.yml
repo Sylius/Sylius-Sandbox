@@ -3,7 +3,7 @@
 
 sylius_sandbox_backend_property_list:
     pattern: /
-    defaults: 
+    defaults:
         _controller: sylius_assortment.controller.property:getCollectionAction
         _sylius.resource:
             template: SyliusSandboxBundle:Backend/Property:list.html.twig
@@ -18,7 +18,7 @@ sylius_sandbox_backend_property_create:
 
 sylius_sandbox_backend_property_update:
     pattern: /update
-    defaults: 
+    defaults:
         _controller: sylius_assortment.controller.property:updateAction
         _sylius.resource:
             template: SyliusSandboxBundle:Backend/Property:update.html.twig
@@ -26,7 +26,7 @@ sylius_sandbox_backend_property_update:
 
 sylius_sandbox_backend_property_delete:
     pattern: /{id}/delete
-    defaults: 
+    defaults:
         _controller: sylius_assortment.controller.property:deleteAction
         _sylius.resource:
             redirect: sylius_sandbox_backend_property_list

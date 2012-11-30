@@ -3,14 +3,14 @@
 
 sylius_sandbox_backend_variant_create:
     pattern: /create
-    defaults: 
+    defaults:
         _controller: sylius_assortment.controller.variant:createAction
         _sylius.resource:
             template: SyliusSandboxBundle:Backend/Variant:create.html.twig
 
 sylius_sandbox_backend_variant_update:
     pattern: /{id}/update
-    defaults: 
+    defaults:
         _controller: sylius_assortment.controller.variant:updateAction
         _sylius.resource:
             template: SyliusSandboxBundle:Backend/Variant:update.html.twig

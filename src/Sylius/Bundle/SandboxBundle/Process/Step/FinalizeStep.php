@@ -4,8 +4,6 @@ namespace Sylius\Bundle\SandboxBundle\Process\Step;
 
 use Sylius\Bundle\FlowBundle\Process\Context\ProcessContextInterface;
 use Sylius\Bundle\FlowBundle\Process\Step\ContainerAwareStep;
-use Sylius\Bundle\SalesBundle\EventDispatcher\Event\FilterOrderEvent;
-use Sylius\Bundle\SalesBundle\EventDispatcher\SyliusSalesEvents;
 
 /**
  * Finalize step.

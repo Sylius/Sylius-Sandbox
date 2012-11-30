@@ -11,7 +11,6 @@
 
 namespace Sylius\Bundle\SandboxBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
 use FOS\CommentBundle\Entity\Thread as BaseThread;
 
 /**

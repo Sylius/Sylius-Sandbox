@@ -2,7 +2,6 @@
 
 namespace Sylius\Bundle\SandboxBundle\Builder;
 
-use Sylius\Bundle\SalesBundle\Builder\OrderBuilder as BaseOrderBuilder;
 use Sylius\Bundle\SalesBundle\Builder\OrderBuilderInterface;
 use Sylius\Bundle\SalesBundle\Model\OrderInterface;
 use Symfony\Component\DependencyInjection\ContainerAware;

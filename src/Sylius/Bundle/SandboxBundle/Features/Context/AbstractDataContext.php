@@ -3,8 +3,6 @@
 namespace Sylius\Bundle\SandboxBundle\Features\Context;
 
 use Behat\Behat\Context\BehatContext;
-use Behat\Behat\Context\Step;
-use Behat\Gherkin\Node\TableNode;
 use Behat\Symfony2Extension\Context\KernelAwareInterface;
 use Symfony\Component\HttpKernel\KernelInterface;
 
