@@ -1,0 +1,37 @@
+# Capifony documentation: http://capifony.org.
+# Capistrano documentation: https://github.com/capistrano/capistrano/wiki.
+
+# Be more verbose by uncommenting the following line.
+# logger.level = Logger::MAX_LEVEL
+
+set :application, "Sylius-Sandbox application"
+set :domain,      ""
+set :deploy_to,   ""
+set :app_path,    "sandbox"
+
+role :web,        domain
+role :app,        domain
+role :db,         domain, :primary => true
+
+set :scm,         :git
+set :repository,  "http://github.com/Sylius/Sylius-Sandbox.git"
+set :deploy_via,  :remote_cache
+
+set :use_composer,   true
+set :update_vendors, true
+
+set :writable_dirs,     ["sandbox/cache", "sandbox/logs"]
+
+set :shared_files,    ["sandbox/config/container/parameters.yml", "public/.htaccess", "public/robots.txt"]
+set :shared_children, ["sandbox/logs", "public/uploads"]
+
+set :model_manager, "doctrine"
+
+set :use_sudo,    false
+
+set :keep_releases, 3
+
+before 'symfony:composer:update', 'symfony:copy_vendors'
+
+after "deploy:update", "deploy:cleanup"
+after "deploy", "deploy:set_permissions"

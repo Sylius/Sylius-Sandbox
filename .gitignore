@@ -12,6 +12,7 @@ public/uploads/
 public/media/
 public/js/
 
+sandbox/config/deploy.rb
 sandbox/config/container/*.local.yml
 sandbox/config/container/parameters.yml
 sandbox/cache/
