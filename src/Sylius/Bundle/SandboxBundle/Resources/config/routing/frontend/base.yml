@@ -5,6 +5,10 @@ sylius_sandbox_core_frontend:
     pattern: /
     defaults: { _controller: sylius_sandbox_core.controller.frontend.main:indexAction }
 
+sylius_sandbox_about:
+    pattern: /about
+    defaults: { _controller: sylius_sandbox_core.controller.frontend.main:aboutAction }
+
 sylius_sandbox_core_frontend_product:
     resource: @SyliusSandboxBundle/Resources/config/routing/frontend/product.yml
     prefix: /products

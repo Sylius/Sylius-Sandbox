@@ -1,0 +1,94 @@
+{% extends 'SyliusSandboxBundle:Frontend:layout.html.twig' %}
+
+{% block content %}
+<div class="page-header">
+  <h1>Sylius <small>Symfony2 e-commerce</small></h1>
+</div>
+
+<h2>About the  project</h2>
+<p>
+    <strong>Sylius</strong> is meant to be flexible e-commerce solution for Symfony2. <br />
+    It aims to be friendly for both users and developers, we focus on building it from fully decoupled bundles. <br />
+    If you don't want to use Sylius as a whole, maybe you'll find some of the packages handy for your project. <br />
+    <strong>They are fully independent.</strong> So despite providing a full-stack application, <strong>Sylius</strong> is also a <strong>framework</strong>.
+</p>
+<p>
+    You can read the full description of project and the idea on <a href="http://sylius.org"><strong>the official website Sylius.org</strong></a>.
+</p>
+    <h3>About this application</h3>
+    <p>
+        This is full Symfony2 application that shows how to integrate <a href="http://sylius.org">Sylius</a> bundles. <br />
+        It serves as a testing ground for new features, ideas and demonstrates which functionalities are already supported.
+    </p>
+    <h3>Included bundles</h3>
+        <ul>
+            <li>
+                <a href="http://github.com/Sylius/SyliusAssortmentBundle">SyliusAssortmentBundle</a>
+                <p>
+                    Rich featured implementation of product system. <br />
+                    Allows creating variants, options, properties, prototypes for products.
+                </p>
+            </li>
+            <li>
+                <a href="http://github.com/Sylius/SyliusCategorizerBundle">SyliusCategorizerBundle</a>
+                <p>
+                    Categorization bundle, boosts development by providing architecture for categories management. <br />
+                    This application comes with 2 preconfigured catalogs, for products and blog posts.
+                </p>
+            </li>
+            <li>
+                <a href="http://github.com/Sylius/SyliusCartBundle">SyliusCartBundle</a>
+                <p>
+                    Flexible cart system, capable of storing anything you want as it gives you full control of cart and item models.
+                </p>
+            </li>
+            <li>
+                <a href="http://github.com/Sylius/SyliusSalesBundle">SyliusSalesBundle</a>
+                <p>
+                    Orders, line items bundle which provides architecture for sales management. <br />
+                    Also provides simple single step "checkout".
+                </p>
+            </li>
+            <li>
+                <a href="http://github.com/Sylius/SyliusBloggerBundle">SyliusBloggerBundle</a>
+                <p>
+                    Relatively simple blogging bundle.
+                </p>
+            </li>
+            <li>
+                <a href="http://github.com/Sylius/SyliusInventoryBundle">SyliusInventoryBundle</a>
+                <p>
+                    Draft of inventory management system for Symfony2.
+                </p>
+            </li>
+            <li>
+                <a href="http://github.com/Sylius/SyliusFlowBundle">SyliusFlowBundle</a>
+                <p>
+                    Prototype of bundle which allows to build processes with reusable steps, store checkout was made with it.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Several third party bundles and libraries integrated.
+                </p>
+                <ol>
+                <li><a href="http://github.com/KnpLabs/KnpMenuBundle">KnpMenuBundle</a></li>
+                <li><a href="http://github.com/KnpLabs/KnpMarkdownBundle">KnpMarkdownBundle</a></li>
+                <li><a href="http://github.com/FriendsOfSymfony/FOSUserBundle">FOSUserBundle</a></li>
+                <li><a href="http://github.com/FriendsOfSymfony/FOSRestBundle">FOSRestBundle</a></li>
+                <li><a href="http://github.com/FriendsOfSymfony/FOSCommentBundle">FOSCommentBundle</a></li>
+                <li><a href="http://github.com/schmittjoh/JMSSerializerBundle">JMSSerializerBundle</a></li>
+                <li><a href="http://github.com/stof/StofDoctrineExtensionsBundle">StofDoctrineExtensionsBundle</a>
+                with <a href="http://github.com/l3pp4rd/DoctrineExtensions">DoctrineExtensions by l3pp4rd</a></li>
+                <li><a href="http://github.com/whiteoctober/WhiteOctoberPagerfantaBundle">WhiteOctoberPagerfantaBundle</a></li>
+                <li><a href="http://github.com/avalanche123/AvalancheImagineBundle">AvalancheImagineBundle</a></li>
+                <li><a href="https://github.com/fzaninotto/Faker">Faker</a></li>
+                <li>... and more.</li>
+                </ol>
+            </li>
+        </ul>
+    <h3>Storage layer</h3>
+    <p>
+        This app uses Doctrine ORM as main driver, although some bundles have already Doctrine MongoDB ODM support.
+    </p>
+{% endblock %}

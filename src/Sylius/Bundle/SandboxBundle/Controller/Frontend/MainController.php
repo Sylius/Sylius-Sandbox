@@ -11,23 +11,39 @@
 
 namespace Sylius\Bundle\SandboxBundle\Controller\Frontend;
 
-use Symfony\Component\DependencyInjection\ContainerAware;
-use Symfony\Component\HttpFoundation\Response;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 /**
  * Frontend main controller.
  *
  * @author Paweł Jędrzejewski <pjedrzejewski@diweb.pl>
  */
-class MainController extends ContainerAware
+class MainController extends Controller
 {
     /**
-     * Front page, yay!
+     * Fronte page with newest products.
      *
      * @return Response
      */
     public function indexAction()
     {
-        return $this->container->get('templating')->renderResponse('SyliusSandboxBundle:Frontend/Main:index.html.twig');
+        $recentProducts = $this
+            ->getProductRepository()
+            ->findBy(array(), array('updatedAt' => 'desc'), 8)
+        ;
+
+        return $this->render('SyliusSandboxBundle:Frontend/Main:index.html.twig', array(
+            'recentProducts' => $recentProducts,
+        ));
+    }
+
+    public function aboutAction()
+    {
+        return $this->render('SyliusSandboxBundle:Frontend/Main:about.html.twig');
+    }
+
+    private function getProductRepository()
+    {
+        return $this->get('sylius_assortment.repository.product');
     }
 }
