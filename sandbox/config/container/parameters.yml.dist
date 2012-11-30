@@ -8,7 +8,7 @@ parameters:
     sylius.database.host:     localhost
     sylius.database.port:     ~
     sylius.database.name:     sylius_sandbox
-    sylius.database.user:     ~
+    sylius.database.user:     root
     sylius.database.password: ~
 
     sylius.mailer.transport:  smtp
