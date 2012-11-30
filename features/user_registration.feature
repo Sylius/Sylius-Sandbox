@@ -24,4 +24,4 @@ Feature: User registration
             | Verification | foo         |
         And I press "register"
        Then I should be on registration page
-        And I should see "This value is not valid"
+        And I should see "The entered passwords don't match"

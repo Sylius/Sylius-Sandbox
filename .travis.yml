@@ -4,9 +4,15 @@ php:
   - 5.3
   - 5.4
 
-before_script: composer install --dev --prefer-dist
+before_script: 
+    - cp sandbox/config/container/parameters.yml.dist sandbox/config/container/parameters.yml
+    - composer install --dev --prefer-dist -q
+    - sandbox/console do:da:cr -e=testing > /dev/null
+    - sandbox/console do:sc:cr -e=testing > /dev/null
 
-script: php bin/phpspec run
+script: 
+    - bin/phpspec run -f pretty
+    - bin/behat -f progress --no-snippets
 
 notifications:
     irc: "irc.freenode.org#sylius-dev"

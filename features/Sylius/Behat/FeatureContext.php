@@ -1,11 +1,10 @@
 <?php
 
-namespace Sylius\Bundle\SandboxBundle\Features\Context;
+namespace Sylius\Behat;
 
 use Behat\MinkExtension\Context\MinkContext;
 use Behat\Symfony2Extension\Context\KernelAwareInterface;
 use Doctrine\Common\DataFixtures\Purger\ORMPurger;
-use Sylius\Bundle\SandboxBundle\Behat\DataContext;
 use Symfony\Component\HttpKernel\KernelInterface;
 
 require_once 'PHPUnit/Autoload.php';
@@ -44,8 +43,8 @@ class FeatureContext extends MinkContext implements KernelAwareInterface
         // Pages context.
         $this->useContext('pages', new PagesContext());
 
-        // Datas contexts.
-        $this->useContext('user-data', new DataContext());
+        // Data contexts.
+        $this->useContext('data', new DataContext());
     }
 
     /**

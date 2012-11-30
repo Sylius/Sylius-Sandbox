@@ -1,9 +1,13 @@
 default:
+    paths:
+        features: features
+    context:
+        class: Sylius\Behat\FeatureContext
     extensions:
         Behat\Symfony2Extension\Extension:
             kernel:
-                path: sandbox/SandboxKernel.php
-                class: Sylius\SandboxKernel
+                path: sandbox/SyliusSandboxKernel.php
+                class: SyliusSandboxKernel
                 env: testing
             mink_driver: true
         Behat\MinkExtension\Extension:

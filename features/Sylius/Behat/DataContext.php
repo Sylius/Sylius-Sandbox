@@ -1,17 +1,16 @@
 <?php
 
-namespace Sylius\Bundle\SandboxBundle\Behat;
+namespace Sylius\Behat;
 
 use Behat\Gherkin\Node\TableNode;
 use Sylius\Bundle\SandboxBundle\Entity\User;
-use Sylius\Bundle\SandboxBundle\Features\Context\AbstractDataContext;
 
 /**
- * User data context.
+ * Data context.
  *
  * @author Paweł Jędrzejewski <pjedrzejewski@diweb.pl>
  */
-class DataContext extends AbstractDataContext
+class DataContext extends BaseContext
 {
     /**
      * @Given /^there are following users:$/

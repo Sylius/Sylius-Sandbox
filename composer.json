@@ -56,7 +56,8 @@
     },
     "autoload": {
         "psr-0": {
-            "Sylius\\Bundle\\SandboxBundle": "src/"
+            "Sylius\\Bundle\\SandboxBundle": "src/",
+            "Sylius\\Behat":                 "features/"
         }
     }
 }
