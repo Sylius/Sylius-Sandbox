@@ -94,6 +94,9 @@ fos_comment:
             edit: ROLE_SYLIUS_ADMIN
             delete: ROLE_SYLIUS_ADMIN
 
+mopa_bootstrap:
+    navbar: ~
+
 sylius_assortment:
     driver: doctrine/orm
     classes:

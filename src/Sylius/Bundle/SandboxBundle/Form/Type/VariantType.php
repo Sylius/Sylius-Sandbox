@@ -29,7 +29,7 @@ class VariantType extends BaseVariantType
         parent::buildForm($builder, $options);
 
         $builder
-            ->add('price', 'number')
+            ->add('price', 'money')
             ->add('onHand', 'integer', array(
                 'label' => 'Stock "on hand"',
                 'data'  => 0

@@ -17,6 +17,7 @@
         "friendsofsymfony/user-bundle":        "*",
         "knplabs/knp-markdown-bundle":         "*",
         "knplabs/knp-menu-bundle":             "*",
+        "mopa/bootstrap-bundle":               "*",
         "sensio/distribution-bundle":          "*",
         "stof/doctrine-extensions-bundle":     "*",
         "sylius/addressing-bundle":            "*",
