@@ -5,15 +5,15 @@
         <div class="pull-right btn-toolbar">
             <div class="btn-group">
                 {% if loop.first %}
-                <a class="btn disabled">&uarr;</a>
+                <a class="btn disabled"><i class="icon-arrow-up"></i></a>
                 {% else %}
-                <a href="{{ path('sylius_categorizer_backend_category_move_up', {'alias': catalog.alias, 'id': category.id}) }}" class="btn">&uarr;</a>
+                <a title="Move up" href="{{ path('sylius_categorizer_backend_category_move_up', {'alias': catalog.alias, 'id': category.id}) }}" class="btn"><i class="icon-arrow-up"></i></a>
                 {% endif %}
 
                 {% if loop.last %}
-                <a class="btn disabled">&darr;</a>
+                <a class="btn disabled"><i class="icon-arrow-down"></i></a>
                 {% else %}
-                <a href="{{ path('sylius_categorizer_backend_category_move_down', {'alias': catalog.alias, 'id': category.id}) }}" class="btn">&darr;</a>
+                <a title="Move down" href="{{ path('sylius_categorizer_backend_category_move_down', {'alias': catalog.alias, 'id': category.id}) }}" class="btn"><i class="icon-arrow-down"></i></a>
                 {% endif %}
             </div>
             <div class="btn-group">
