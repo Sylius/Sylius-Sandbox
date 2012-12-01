@@ -4,12 +4,12 @@ default:
     context:
         class: Sylius\Behat\FeatureContext
     extensions:
+        Behat\MinkExtension\Extension:
+            default_session: symfony2
+            show_cmd: firefox %s
         Behat\Symfony2Extension\Extension:
             kernel:
                 path: sandbox/SyliusSandboxKernel.php
                 class: SyliusSandboxKernel
                 env: testing
             mink_driver: true
-        Behat\MinkExtension\Extension:
-            show_cmd: firefox %s
-            goutte: ~
