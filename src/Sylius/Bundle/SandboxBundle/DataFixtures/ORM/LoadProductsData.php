@@ -44,29 +44,28 @@ class LoadProductsData extends DataFixture
         $this->productPropertyClass = $this->container->getParameter('sylius_assortment.model.product_property.class');
 
         // T-Shirts...
-        for ($i = 1; $i <= 30; $i++) {
-            $this->createTShirt($i);
-        }
+        for ($i = 1; $i <= 120; $i++) {
+            switch (rand(0, 3)) {
+                case 0:
+                    $this->createTShirt($i);
+                break;
 
-        $manager->flush();
+                case 1:
+                    $this->createSticker($i);
+                break;
 
-        // Stickers.
-        for ($i = 31; $i <= 60; $i++) {
-            $this->createSticker($i);
-        }
+                case 2:
+                    $this->createMug($i);
+                break;
 
-        $manager->flush();
+                case 3:
+                    $this->createBook($i);
+                break;
+            }
 
-        // Mugs.
-        for ($i = 61; $i <= 90; $i++) {
-            $this->createMug($i);
-        }
-
-        $manager->flush();
-
-        // Books.
-        for ($i = 91; $i <= 120; $i++) {
-            $this->createBook($i);
+            if (0 === $i % 20) {
+                $manager->flush();
+            }
         }
 
         $manager->flush();
