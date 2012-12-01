@@ -36,14 +36,14 @@
         </div>
         {% endif %}
         <div class="tab-pane" id="properties">
-            <div id="sylius-assortment-product-properties" data-prototype="{{ form_widget(form.properties.vars.prototype)|e }}">
+            <div id="sylius-assortment-product-properties" class="collection-container" data-prototype="{{ form_widget(form.properties.vars.prototype)|e }}">
                 {% for propertyForm in form.properties %}
                     {{ form_widget(propertyForm) }}
                 {% endfor %}
             </div>
             <div class="control-group">
                 <div class="controls">
-                    <a id="sylius-assortment-product-property-adder" class="btn btn-success">add property</a>
+                    <a class="btn btn-success collection-add-btn" data-collection="sylius-assortment-product-properties">add property</a>
                 </div>
             </div>
         </div>

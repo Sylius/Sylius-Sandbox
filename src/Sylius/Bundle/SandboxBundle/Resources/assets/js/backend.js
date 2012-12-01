@@ -17,21 +17,31 @@
                 $("#confirmer-modal a.confirmer-modal-confirm").attr('href', $(this).data('confirmerLink'));
             });
         });
-        if ($("#sylius-sales-order-items").length > 0) {
-            $("#sylius-sales-order-items-adder").click(function () {
-                addOrderItemForm();
+
+        $("a.collection-add-btn").each(function () {
+            var $this = $(this);
+
+            $this.on('click', function () {
+                addCollectionItem($this.data('collection'));
             });
-            if ($("#sylius-sales-order-items tbody").children().length === 1) {
-                addOrderItemForm();
-            }
-        }
+        });
+        $("a.collection-remove-btn").each(function () {
+            var $this = $(this);
+
+            $this.on('click', function () {
+                removeCollectionItem($this);
+            });
+        });
     });
-    function addOrderItemForm() {
-        var collectionHolder = $("#sylius-sales-order-items tbody");
-        var prototype = $("#sylius-sales-order-items").attr('data-prototype');
-        var newOrderItem = prototype.replace(/__name__/g, collectionHolder.children().length - 1);
-        newOrderItem = newOrderItem.replace(/__id__/g, collectionHolder.children().length - 1);
-        newOrderItem = newOrderItem.replace(/__position__/g, collectionHolder.children().length);
-        $("#sylius-sales-order-items tbody tr:last").before(newOrderItem);
+
+    function addCollectionItem(name) {
+        var $collectionContainer = $("#" + name);
+        var prototype = $collectionContainer.attr('data-prototype');
+        var item = prototype.replace(/__name__/g, $collectionContainer.children().length);
+        $collectionContainer.append(item);
+    }
+
+    function removeCollectionItem(btn) {
+        btn.closest('collection-item').remove();
     }
 })( jQuery );

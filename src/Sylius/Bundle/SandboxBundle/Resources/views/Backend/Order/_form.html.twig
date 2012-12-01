@@ -23,7 +23,7 @@
 </div>
 
     <hr />
-    <table id="sylius-sales-order-items" data-prototype="{{ form_row(form.items.vars.prototype)|e }}" class="table table-striped">
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th></th>
@@ -34,13 +34,15 @@
                 <th><span class="pull-right">line total</span></th>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="sylius-sales-order-items" data-prototype="{{ form_row(form.items.vars.prototype)|e }}" class="collection-container">
             {% for itemForm in form.items %}
                 {{ form_row(itemForm) }}
             {% endfor %}
+        </tbody>
+        <tfoot>
             <tr>
                 <td colspan="5">
-                    <a id="sylius-sales-order-items-adder" class="btn btn-success">new item</a>
+                    <a class="btn btn-success collection-add-btn" data-collection="sylius-sales-order-items">add item</a>
                 </td>
                 <td>
                     <div class="input-append pull-right">
@@ -48,7 +50,7 @@
                     </div>
                 </td>
             </tr>
-        </tbody>
+        </tfoot>
     </table>
 </fieldset>
 {{ form_widget(form._token) }}
