@@ -7,18 +7,28 @@
 set :application, "Sylius-Sandbox application"
 set :domain,      ""
 set :deploy_to,   ""
-set :app_path,    "sandbox"
 
-role :web,        domain
-role :app,        domain
-role :db,         domain, :primary => true
+set :user, "root"
+
+set :app_path, "sandbox"
+set :web_path, "public"
+
+set :symfony_console, "sandbox/console"
+set :symfony_env_prod, "live"
+set :controllers_to_clear, ['dev.php', 'testgate.php']
+
+set :dump_assetic_assets, true
+
+role :web, domain
+role :app, domain
+role :db,  domain, :primary => true
 
 set :scm,         :git
 set :repository,  "http://github.com/Sylius/Sylius-Sandbox.git"
 set :deploy_via,  :remote_cache
 
-set :use_composer,   true
-set :update_vendors, true
+set :use_composer, true
+set :copy_vendors, true
 
 set :writable_dirs,     ["sandbox/cache", "sandbox/logs"]
 
@@ -26,12 +36,27 @@ set :shared_files,    ["sandbox/config/container/parameters.yml", "public/.htacc
 set :shared_children, ["sandbox/logs", "public/uploads"]
 
 set :model_manager, "doctrine"
-
 set :use_sudo,    false
-
 set :keep_releases, 3
 
-before 'symfony:composer:update', 'symfony:copy_vendors'
+namespace :symfony do
+  namespace :doctrine do
+    namespace :fixtures do
+      desc "Load data fixtures if needed"
+      task :load, :roles => :app, :except => { :no_release => true } do
+        if Capistrano::CLI.ui.agree("Do you want to load data fixtures?: (y/N)")
+          capifony_pretty_print "--> Loading data fixtures"
 
+          run "#{try_sudo} sh -c 'cd #{latest_release} && #{php_bin} #{symfony_console} doctrine:schema:drop --force --env=#{symfony_env_prod}'", :once => true
+          run "#{try_sudo} sh -c 'cd #{latest_release} && #{php_bin} #{symfony_console} doctrine:schema:create --env=#{symfony_env_prod}'", :once => true
+          run "#{try_sudo} sh -c 'cd #{latest_release} && #{php_bin} #{symfony_console} doctrine:fixtures:load --env=#{symfony_env_prod}'", :once => true
+          capifony_puts_ok
+        end
+      end
+    end
+  end
+end
+
+after "symfony:project:clear_controllers", "symfony:doctrine:fixtures:load"
 after "deploy:update", "deploy:cleanup"
 after "deploy", "deploy:set_permissions"
