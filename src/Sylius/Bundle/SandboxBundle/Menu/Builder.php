@@ -50,6 +50,7 @@ class Builder extends ContainerAware
         );
 
         $menu->addChild('Products', array('route' => 'sylius_sandbox_product_list'));
+        $menu->addChild('About', array('route' => 'sylius_sandbox_about'));
 
         $child = $menu->addChild('My cart', array('route' => 'sylius_cart_show'));
 
@@ -79,10 +80,21 @@ class Builder extends ContainerAware
             'labelAttributes'    => array('class' => 'nav-header')
         );
 
+        $child = $menu->addChild('Sylius', $childOptions);
+        $child->addChild('About', array(
+            'route'           => 'sylius_sandbox_about',
+            'labelAttributes' => array('icon' => 'icon-info-sign')
+        ));
+
         $categoryManager = $this->container->get('sylius_categorizer.manager.category');
 
         $assortmentCategories = $categoryManager->findCategories('assortment');
         $child = $menu->addChild('Browse products', $childOptions);
+
+        $child->addChild('All products', array(
+            'route'           => 'sylius_sandbox_product_list',
+            'labelAttributes' => array('icon' => 'icon-tags')
+        ));
 
         foreach ($assortmentCategories as $category) {
             $child->addChild($category['name'], array(
