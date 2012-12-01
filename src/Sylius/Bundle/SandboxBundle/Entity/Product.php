@@ -49,10 +49,10 @@ class Product extends BaseProduct implements StockableInterface
     /**
      * Image upload.
      *
-     * @Assert\File(maxSize="512k")
+     * @Assert\File(maxSize="1024k")
      * @Assert\Image
      */
-    public $image;
+    protected $image;
 
     /**
      * Set default variant picking mode.
@@ -160,6 +160,16 @@ class Product extends BaseProduct implements StockableInterface
         $this->imagePath = $imagePath;
     }
 
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    public function setImage($image)
+    {
+        $this->image = $image;
+    }
+
     public function getAbsoluteImagePath()
     {
         return null === $this->getImagePath() ? null : $this->getImageUploadRootDir().'/'.$this->getImagePath();
@@ -199,7 +209,7 @@ class Product extends BaseProduct implements StockableInterface
 
     protected function getImageUploadRootDir()
     {
-        return __DIR__.'/../../../../../../public/'.$this->getImageUploadDir();
+        return __DIR__.'/../../../../../public/'.$this->getImageUploadDir();
     }
 
     public static function getVariantPickingModeChoices()

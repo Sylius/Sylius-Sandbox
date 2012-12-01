@@ -1,5 +1,7 @@
 {% extends 'SyliusSandboxBundle:Frontend:layout.html.twig' %}
 
+{% set grid = app.request.query.get('grid', false) %}
+
 {% block content %}
 <div class="page-header">
 <h1>Products category <small>Paginated products list</small></h1>
@@ -11,23 +13,52 @@
   <li><a href="{{ path('sylius_categorizer_category_show', {'alias': catalog.alias, 'id': category.id, 'slug': category.slug}) }}">{{ category.name }}</a></li>
 </ul>
 
+<div class="pull-right well well-small">
+<a href="{{ app.request.baseUrl ~ app.request.pathInfo ~ '?grid=1' }}" class="btn {{ grid ? 'btn-success' : '' }}"><i class="icon-th-large"></i></a>
+<a href="{{ app.request.baseUrl ~ app.request.pathInfo }}" class="btn {{ grid ? '' : 'btn-success' }}"><i class="icon-th-list"></i></a>
+</div>
+
 {% if paginator.haveToPaginate() %}
 {{ pagerfanta(paginator, 'twitter_bootstrap_translated') }}
 {% endif %}
 
 {% if products|length > 0 %}
+
+    {% if grid %}
+        <div class="fluid-row">
+    {% endif %}
+
     {% for product in products %}
-        {% include 'SyliusSandboxBundle:Frontend/Product:single.html.twig' %}
+        {% if grid %}
+            {% include 'SyliusSandboxBundle:Frontend/Product:_singleGrid.html.twig' %}
+
+            {% if loop.index % 3 == 0 and not loop.last %}
+            </div>
+            <div class="fluid-row">
+            {% endif %}
+        {% else %}
+            {% include 'SyliusSandboxBundle:Frontend/Product:_single.html.twig' %}
+        {% endif %}
     {% endfor %}
+
+    {% if grid %}
+        </div>
+    {% endif %}
+
 {% else %}
 <hr />
 <div class="alert alert-info">
-    <h4 class="alert-heading">{{ 'alert.heading.info'|trans({}, 'SyliusSandboxBundle') }}.</h4>
+    <h4 class="alert-heading">Information.</h4>
     There are no products to display.
 </div>
 {% endif %}
 
 {% if paginator.haveToPaginate() %}
-{{ pagerfanta(paginator, 'twitter_bootstrap_translated') }}
+<div class="fluid-row">
+    <div class="span12">
+        {{ pagerfanta(paginator, 'twitter_bootstrap_translated') }}
+    </div>
+</div>
 {% endif %}
+
 {% endblock %}

@@ -17,24 +17,24 @@ This is demo of Sylius-Sandbox application, a testing ground for Sylius project.
 
         <div class="span3 well well-small">
             <a href="{{ path('sylius_sandbox_product_show', {'slug': product.slug})}}" class="thumbnail" style="width: 265px; height: 150px;">
-                <img src="http://placehold.it/265x150" alt="" />
+                <img src="{{ product.imageWebPath|apply_filter('frontend_box') }}" alt="" />
             </a>
             <hr />
 
                 <h4>
                     <a href="{{ path('sylius_sandbox_product_show', {'slug': product.slug})}}">
-                        {{ product.name }}
+                        {{ product.name|slice(0, 20) }}...
                     </a>
                 </h4>
 
-            <p>{{ product.description|slice(0, 80) }}...</p>
+            <p>{{ product.description|slice(0, 50) }}...</p>
             <p><a href="{{ path('sylius_sandbox_product_show', {'slug': product.slug})}}" class="btn pull-right">Read more</a>
         </div>
 
-    {% if loop.index % 4 == 0 %}
-    </div>
-    <div class="fluid-row">
-    {% endif %}
+        {% if loop.index % 4 == 0 %}
+        </div>
+        <div class="fluid-row">
+        {% endif %}
 
         {% endfor %}
     </div>

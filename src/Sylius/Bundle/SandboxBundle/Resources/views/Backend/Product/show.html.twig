@@ -10,8 +10,8 @@
 <div class="well">
     <div class="row">
         <div class="span3">
-            <a href="{{ path('sylius_sandbox_backend_product_show', {'id': product.id}) }}" class="thumbnail" style="margin-left: 20px;">
-                <img src="{{ product.imageWebPath is empty ? 'http://placehold.it/250x150' : product.imageWebPath|apply_filter('backend_mini') }}" alt="product photo" />
+            <a href="{{ path('sylius_sandbox_backend_product_show', {'id': product.id}) }}" class="thumbnail" style="margin-left: 20px; width: 250px; height: 150px;">
+                <img src="{{ product.imageWebPath is empty ? 'http://placehold.it/250x150' : product.imageWebPath|apply_filter('backend_medium') }}" alt="product photo" />
             </a>
         </div>
         <div class="span8">

@@ -16,7 +16,7 @@
         <tr>
             <td>{{ product.id }}</td>
             <td>
-                <a href="{{ path('sylius_sandbox_backend_product_show', {'id': product.id}) }}" class="thumbnail">
+                <a href="{{ path('sylius_sandbox_backend_product_show', {'id': product.id}) }}" class="thumbnail" style="width: 90px; height: 60px;">
                     <img src="{{ product.imageWebPath is empty ? 'http://placehold.it/90x60' : product.imageWebPath|apply_filter('backend_mini') }}" alt="product photo" />
                 </a>
             </td>

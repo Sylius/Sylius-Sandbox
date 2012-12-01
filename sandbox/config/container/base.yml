@@ -56,9 +56,15 @@ avalanche_imagine:
         frontend_medium:
             type: thumbnail
             options: { size: [220, 180], mode: outbound }
+        frontend_box:
+            type: thumbnail
+            options: { size: [265, 150], mode: outbound }
         backend_mini:
             type: thumbnail
             options: { size: [90, 60], mode: outbound }
+        backend_medium:
+            type: thumbnail
+            options: { size: [250, 150], mode: outbound }
 
 fos_user:
     db_driver: orm
@@ -120,6 +126,8 @@ sylius_categorizer:
             property: "products"
             model: Sylius\Bundle\SandboxBundle\Entity\ProductCategory
             form: sylius_sandbox_product_category
+            pagination:
+                mpp: 9
             templates:
                 backend: SyliusSandboxBundle:Backend/ProductCategory:%s.html.twig
                 frontend: SyliusSandboxBundle:Frontend/ProductCategory:%s.html.twig

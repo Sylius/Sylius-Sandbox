@@ -7,6 +7,7 @@ sylius_sandbox_product_list:
         _controller: sylius_assortment.controller.product:getCollectionAction
         _sylius.resource:
             template: SyliusSandboxBundle:Frontend/Product:list.html.twig
+            paginate: 9
 
 sylius_sandbox_product_show:
     pattern: /{slug}

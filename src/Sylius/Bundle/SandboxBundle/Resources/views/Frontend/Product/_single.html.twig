@@ -1,0 +1,30 @@
+<div class="row product-container well">
+    <div class="span3 photo-container">
+        <a href="{{ path('sylius_sandbox_product_show', {'slug': product.slug}) }}" class="thumbnail" style="width: 220px; height: 180px;">
+            <img src="{{ product.imageWebPath is empty ? 'http://placehold.it/220x180' : product.imageWebPath|apply_filter('frontend_medium') }}" alt="product photo" />
+        </a>
+    </div>
+    <div class="span9">
+        {% if not product.varied %}
+            <span class="label label-price label-success pull-right"><strong>Price</strong>: {{ product.price }} &euro;</span>
+        {% endif %}
+        <h3>{{ product.name }}</h3>
+        <p>
+            {{ product.description|markdown }}
+        </p>
+        {% if not product.varied %}
+            {% if not sylius_inventory_in_stock(product.masterVariant) %}
+                <br />
+                <span class="label label-important center-text out-of-stock">out of stock</span>
+            {% else %}
+                <form action="{{ path('sylius_cart_item_add', {'id': product.id}) }}" method="post" class="clearfix">
+                    {% set form = sylius_cart_form({'product': product}) %}
+                    {{ form_widget(form.quantity, {'attr': {'class': 'center-text'}, 'empty_value': '1'}) }}
+                    {{ form_widget(form._token) }}
+                    <input type="submit" class="btn btn-success" style="margin-bottom: 10px;" value="add to cart">
+                </form>
+            {% endif %}
+        {% endif %}
+        <a href="{{ path('sylius_sandbox_product_show', {'slug': product.slug}) }}" class="btn pull-right">more info...</a>
+    </div>
+</div>

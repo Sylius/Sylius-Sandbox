@@ -96,6 +96,7 @@ class LoadProductsData extends DataFixture
         $product->setDescription($this->faker->paragraph);
         $product->setCategory($this->getReference('Category.T-Shirts'));
         $product->setVariantPickingMode(Product::VARIANT_PICKING_MATCH);
+        $product->setImagePath('../../bundles/syliussandbox/images/t-shirt.jpg');
 
         $this->addMasterVariant($product);
 
@@ -137,6 +138,7 @@ class LoadProductsData extends DataFixture
         $product->setDescription($this->faker->paragraph);
         $product->setCategory($this->getReference('Category.Stickers'));
         $product->setVariantPickingMode($this->faker->randomElement(array(Product::VARIANT_PICKING_CHOICE, Product::VARIANT_PICKING_MATCH)));
+        $product->setImagePath('../../bundles/syliussandbox/images/sticker.jpg');
 
         $this->addMasterVariant($product);
 
@@ -173,6 +175,8 @@ class LoadProductsData extends DataFixture
         $product->setDescription($this->faker->paragraph);
         $product->setCategory($this->getReference('Category.Mugs'));
         $product->setVariantPickingMode(Product::VARIANT_PICKING_CHOICE);
+        $product->setImagePath('../../bundles/syliussandbox/images/mug.jpg');
+
 
         $this->addMasterVariant($product);
 
@@ -206,6 +210,7 @@ class LoadProductsData extends DataFixture
         $product->setName(sprintf('Book "%s" by "%s", product wihout options', ucfirst($this->faker->word), $author));
         $product->setDescription($this->faker->paragraph);
         $product->setCategory($this->getReference('Category.Books'));
+        $product->setImagePath('../../bundles/syliussandbox/images/book.jpg');
 
         $this->addMasterVariant($product, $isbn);
 
