@@ -7,7 +7,7 @@
     <td>{{ form_widget(form.variant, {'attr': {'class': 'input-xlarge'}}) }}</td>
     <td>{{ form_widget(form.quantity, {'attr': {'class': 'input-small'} ,'empty_value': '1'}) }}</td>
     <td>
-        {% if value is not empty %}
+        {% if value is not empty and value.product|default(false) %}
         {{ value.variant.product.name }}
         {% endif %}
     </td>

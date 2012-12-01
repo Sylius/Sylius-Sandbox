@@ -55,6 +55,10 @@ class Order extends BaseOrder
         parent::__construct();
 
         $this->inventoryUnits = new ArrayCollection();
+
+        $this->addItem(new OrderItem());
+        $this->addItem(new OrderItem());
+        $this->addItem(new OrderItem());
     }
 
     public function getDeliveryAddress()

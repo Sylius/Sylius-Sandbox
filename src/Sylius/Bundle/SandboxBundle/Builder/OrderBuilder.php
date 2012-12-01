@@ -10,6 +10,8 @@ class OrderBuilder extends ContainerAware implements OrderBuilderInterface
 {
     public function build(OrderInterface $order)
     {
+        $order->getItems()->clear();
+
         $cart = $this->container->get('sylius_cart.provider')->getCart();
 
         if ($cart->isEmpty()) {
