@@ -136,12 +136,11 @@ sylius_cart:
     driver: doctrine/orm
     resolver: sylius_sandbox_cart.resolver
     classes:
-        model:
-            cart: Sylius\Bundle\SandboxBundle\Entity\Cart
-            item: Sylius\Bundle\SandboxBundle\Entity\CartItem
-        form:
-            type:
-                item: Sylius\Bundle\SandboxBundle\Form\Type\CartItemType
+        cart:
+            model: Sylius\Bundle\SandboxBundle\Entity\Cart
+        item:
+            model: Sylius\Bundle\SandboxBundle\Entity\CartItem
+            form: Sylius\Bundle\SandboxBundle\Form\Type\CartItemType
 
 sylius_sales:
     driver: doctrine/orm
