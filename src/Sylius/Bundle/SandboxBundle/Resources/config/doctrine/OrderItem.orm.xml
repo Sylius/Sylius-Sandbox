@@ -11,9 +11,6 @@
             <generator strategy="AUTO" />
         </id>
         <many-to-one field="order" target-entity="Sylius\Bundle\SandboxBundle\Entity\Order" inversed-by="items">
-            <cascade>
-                <cascade-all/>
-            </cascade>
             <join-column name="order_id" referenced-column-name="id" />
         </many-to-one>
         <many-to-one field="variant" target-entity="Sylius\Bundle\SandboxBundle\Entity\Variant\Variant">

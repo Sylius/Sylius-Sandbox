@@ -11,10 +11,10 @@
 
 namespace Sylius\Bundle\SandboxBundle\Resolver;
 
+use Doctrine\Common\Persistence\ObjectRepository;
 use Sylius\Bundle\CartBundle\Model\CartItemInterface;
 use Sylius\Bundle\CartBundle\Resolver\ItemResolverInterface;
 use Sylius\Bundle\InventoryBundle\Resolver\StockResolverInterface;
-use Sylius\Bundle\ResourceBundle\Repository\ResourceRepositoryInterface;
 use Symfony\Component\Form\FormFactory;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -29,7 +29,7 @@ class ItemResolver implements ItemResolverInterface
     /**
      * Product manager.
      *
-     * @var ResourceRepositoryInterface
+     * @var ObjectRepository
      */
     private $productRepository;
 
@@ -50,14 +50,14 @@ class ItemResolver implements ItemResolverInterface
     /**
      * Constructor.
      *
-     * @param ResourceRepositoryInterface $productRepository
-     * @param FormFactory                 $formFactory
-     * @param StockResolverInterface      $stockResolver
+     * @param ObjectRepository       $productRepository
+     * @param FormFactory            $formFactory
+     * @param StockResolverInterface $stockResolver
      */
     public function __construct(
-        ResourceRepositoryInterface $productRepository,
-        FormFactory              $formFactory,
-        StockResolverInterface   $stockResolver
+        ObjectRepository       $productRepository,
+        FormFactory            $formFactory,
+        StockResolverInterface $stockResolver
     )
     {
         $this->productRepository = $productRepository;

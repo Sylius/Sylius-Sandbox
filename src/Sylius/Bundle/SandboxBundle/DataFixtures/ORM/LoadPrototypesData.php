@@ -90,8 +90,9 @@ class LoadPrototypesData extends DataFixture
     private function createPrototype($name, array $options, array $properties)
     {
         $manager = $this->getPrototypeManager();
+        $repository = $this->getPrototypeRepository();
 
-        $prototype = $manager->create();
+        $prototype = $repository->createNew();
         $prototype->setName($name);
 
         foreach ($options as $option) {
@@ -102,11 +103,16 @@ class LoadPrototypesData extends DataFixture
             $prototype->addProperty($this->getReference($property));
         }
 
-        $manager->persist($prototype, false);
+        $manager->persist($prototype);
     }
 
     private function getPrototypeManager()
     {
         return $this->get('sylius_assortment.manager.prototype');
+    }
+
+    private function getPrototypeRepository()
+    {
+        return $this->get('sylius_assortment.repository.prototype');
     }
 }

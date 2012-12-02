@@ -37,6 +37,8 @@ class LoadPropertiesData extends DataFixture
         $this->createProperty('Book author', 'Author', 'Property.Book.Author');
         $this->createProperty('Book ISBN', 'ISBN', 'Property.Book.ISBN');
         $this->createProperty('Book pages', 'Number of pages', 'Property.Book.Pages');
+
+        $manager->flush();
     }
 
     /**
@@ -56,9 +58,10 @@ class LoadPropertiesData extends DataFixture
      */
     private function createProperty($name, $presentation, $reference)
     {
-        $manager = $this->getManager();
+        $manager = $this->getPropertyManager();
+        $repository = $this->getPropertyRepository();
 
-        $property = $manager->create();
+        $property = $repository->createNew();
         $property->setName($name);
         $property->setPresentation($presentation);
 
@@ -66,8 +69,13 @@ class LoadPropertiesData extends DataFixture
         $this->setReference($reference, $property);
     }
 
-    private function getManager()
+    private function getPropertyManager()
     {
         return $this->get('sylius_assortment.manager.property');
+    }
+
+    private function getPropertyRepository()
+    {
+        return $this->get('sylius_assortment.repository.property');
     }
 }

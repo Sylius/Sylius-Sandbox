@@ -20,10 +20,10 @@ class OrderBuilder extends ContainerAware implements OrderBuilderInterface
 
         $order->setUser($this->container->get('security.context')->getToken()->getUser());
 
-        $orderItemManager = $this->container->get('sylius_sales.manager.item');
+        $orderItemRepository = $this->container->get('sylius_sales.repository.item');
 
         foreach ($cart->getItems() as $item) {
-            $orderItem = $orderItemManager->create();
+            $orderItem = $orderItemRepository->createNew();
             $orderItem->setVariant($item->getVariant());
             $orderItem->setQuantity($item->getQuantity());
             $orderItem->setUnitPrice($item->getVariant()->getPrice());

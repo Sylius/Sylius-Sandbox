@@ -118,7 +118,7 @@ class LoadProductsData extends DataFixture
 
         $this
             ->getProductManager()
-            ->persist($product, false)
+            ->persist($product)
         ;
 
         $this->setReference('Product-'.$i, $product);
@@ -155,7 +155,7 @@ class LoadProductsData extends DataFixture
 
         $this
             ->getProductManager()
-            ->persist($product, false)
+            ->persist($product)
         ;
 
         $this->setReference('Product-'.$i, $product);
@@ -176,7 +176,6 @@ class LoadProductsData extends DataFixture
         $product->setVariantPickingMode(Product::VARIANT_PICKING_CHOICE);
         $product->setImagePath('../../bundles/syliussandbox/images/mug.jpg');
 
-
         $this->addMasterVariant($product);
 
         $randomMugMaterial = $this->faker->randomElement(array('Invisible porcelain', 'Banana skin', 'Porcelain', 'Sand'));
@@ -188,7 +187,7 @@ class LoadProductsData extends DataFixture
 
         $this
             ->getProductManager()
-            ->persist($product, false)
+            ->persist($product)
         ;
 
         $this->setReference('Product-'.$i, $product);
@@ -219,7 +218,7 @@ class LoadProductsData extends DataFixture
 
         $this
             ->getProductManager()
-            ->persist($product, false)
+            ->persist($product)
         ;
 
         $this->setReference('Product-'.$i, $product);
@@ -260,7 +259,7 @@ class LoadProductsData extends DataFixture
             $sku = $this->faker->randomNumber(6);
         }
 
-        $variant = $this->getVariantManager()->create();
+        $variant = $this->getVariantRepository()->createNew();
         $variant->setProduct($product);
         $variant->setPrice($this->faker->randomNumber(5) / 100);
         $variant->setSku($sku);
@@ -293,8 +292,8 @@ class LoadProductsData extends DataFixture
     private function createProduct()
     {
         return $this
-            ->getProductManager()
-            ->create()
+            ->getProductRepository()
+            ->createNew()
         ;
     }
 
@@ -303,9 +302,19 @@ class LoadProductsData extends DataFixture
         return $this->get('sylius_assortment.manager.product');
     }
 
+    private function getProductRepository()
+    {
+        return $this->get('sylius_assortment.repository.product');
+    }
+
     private function getVariantManager()
     {
         return $this->get('sylius_assortment.manager.variant');
+    }
+
+    private function getVariantRepository()
+    {
+        return $this->get('sylius_assortment.repository.variant');
     }
 
     private function getVariantGenerator()

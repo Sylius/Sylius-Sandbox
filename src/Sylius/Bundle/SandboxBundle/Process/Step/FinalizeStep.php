@@ -4,6 +4,7 @@ namespace Sylius\Bundle\SandboxBundle\Process\Step;
 
 use Sylius\Bundle\FlowBundle\Process\Context\ProcessContextInterface;
 use Sylius\Bundle\FlowBundle\Process\Step\ContainerAwareStep;
+use Sylius\Bundle\SalesBundle\Model\OrderInterface;
 
 /**
  * Finalize step.
@@ -33,6 +34,7 @@ class FinalizeStep extends ContainerAwareStep
         $order = $this->prepareOrder($context);
 
         $this->container->get('sylius_sales.manager.order')->persist($order);
+        $this->container->get('sylius_sales.manager.order')->persist($order);
 
         $orderBuilder = $this->container->get('sylius_sales.builder');
         $orderBuilder->finalize($order);
@@ -40,6 +42,13 @@ class FinalizeStep extends ContainerAwareStep
         $this->container->get('session')->setFlash('success', 'Your order has been saved, thank you!');
 
         $context->complete();
+    }
+
+    public function save(OrderInterface $order)
+    {
+        $manager = $this->get('sylius_sales.manager.order');
+        $manager->persist($order);
+        $manager->flush();
     }
 
     /**
@@ -51,7 +60,7 @@ class FinalizeStep extends ContainerAwareStep
      */
     private function prepareOrder(ProcessContextInterface $context)
     {
-        $order = $this->container->get('sylius_sales.manager.order')->create();
+        $order = $this->container->get('sylius_sales.repository.order')->createNew();
 
         $deliveryAddress = $context->getStorage()->get('delivery.address');
         $billingAddress = $context->getStorage()->get('billing.address');

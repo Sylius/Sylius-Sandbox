@@ -98,9 +98,11 @@ class LoadOptionsData extends DataFixture
      */
     private function createOption($name, $presentation, array $values, $reference)
     {
-        $manager = $this->getOptionManager();
+        $option = $this
+            ->getOptionRepository()
+            ->createNew()
+        ;
 
-        $option = $manager->create();
         $option->setName($name);
         $option->setPresentation($presentation);
 
@@ -111,12 +113,21 @@ class LoadOptionsData extends DataFixture
             $option->addValue($value);
         }
 
-        $manager->persist($option, false);
+        $this
+            ->getOptionManager()
+            ->persist($option)
+        ;
+
         $this->setReference($reference, $option);
     }
 
     private function getOptionManager()
     {
         return $this->get('sylius_assortment.manager.option');
+    }
+
+    private function getOptionRepository()
+    {
+        return $this->get('sylius_assortment.repository.option');
     }
 }

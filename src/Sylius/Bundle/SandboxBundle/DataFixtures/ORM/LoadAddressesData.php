@@ -26,9 +26,10 @@ class LoadAddressesData extends DataFixture
     public function load(ObjectManager $manager)
     {
         $addressManager = $this->getAddressManager();
+        $addressRepository = $this->getAddressRepository();
 
         for ($i = 1; $i <= 100; $i++) {
-            $address = $addressManager->create();
+            $address = $addressRepository->createNew();
 
             $address->setFirstname($this->faker->firstName);
             $address->setLastname($this->faker->lastName);
@@ -36,7 +37,7 @@ class LoadAddressesData extends DataFixture
             $address->setStreet($this->faker->streetAddress);
             $address->setPostcode($this->faker->postcode);
 
-            $addressManager->persist($address, false);
+            $addressManager->persist($address);
 
             $this->setReference('Address-'.$i, $address);
         }
@@ -55,5 +56,10 @@ class LoadAddressesData extends DataFixture
     private function getAddressManager()
     {
         return $this->get('sylius_addressing.manager.address');
+    }
+
+    private function getAddressRepository()
+    {
+        return $this->get('sylius_addressing.repository.address');
     }
 }
