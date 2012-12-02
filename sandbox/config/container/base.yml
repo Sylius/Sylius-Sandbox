@@ -138,6 +138,7 @@ sylius_cart:
     classes:
         cart:
             model: Sylius\Bundle\SandboxBundle\Entity\Cart
+            repository: Sylius\Bundle\SandboxBundle\Repository\CartRepository
         item:
             model: Sylius\Bundle\SandboxBundle\Entity\CartItem
             form: Sylius\Bundle\SandboxBundle\Form\Type\CartItemType
