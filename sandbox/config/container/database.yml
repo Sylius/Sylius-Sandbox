@@ -20,6 +20,7 @@ doctrine:
                     SyliusSandboxBundle: ~
                     SyliusAddressingBundle: ~
                     SyliusAssortmentBundle: ~
+                    SyliusBloggerBundle: ~
                     SyliusCartBundle: ~
                     SyliusCategorizerBundle: ~
                     SyliusInventoryBundle: ~
