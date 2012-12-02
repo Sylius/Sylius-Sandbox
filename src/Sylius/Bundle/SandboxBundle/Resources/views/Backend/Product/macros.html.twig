@@ -20,9 +20,16 @@
                     <img src="{{ product.imageWebPath is empty ? 'http://placehold.it/90x60' : product.imageWebPath|apply_filter('backend_mini') }}" alt="product photo" />
                 </a>
             </td>
-            <td>{{ product.sku }}</td>
             <td>
-                {{ product.name }} <br />
+                {{ product.sku }}
+                {% if not product.varied and not product.isInStock %}
+                <br />
+                <span class="label label-important">out of stock</span>
+                {% endif %}
+            </td>
+            <td>
+                {{ product.name }} 
+                <br />
                 &bullet; in category <a href="{{ path('sylius_categorizer_backend_category_show', {'alias': 'assortment', 'id': product.category.id})}}"><strong>{{ product.category.name }}</strong></a>
             </td>
             <td>{{ product.updatedAt|date }}</td>

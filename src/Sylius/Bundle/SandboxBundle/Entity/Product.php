@@ -131,7 +131,7 @@ class Product extends BaseProduct implements StockableInterface
      */
     public function isInStock()
     {
-        return $this->masterVariant->inStock();
+        return $this->masterVariant->isInStock();
     }
 
     /**
