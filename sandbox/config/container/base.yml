@@ -114,6 +114,8 @@ sylius_assortment:
             prototype: Sylius\Bundle\SandboxBundle\Entity\Prototype\Prototype
             option: Sylius\Bundle\SandboxBundle\Entity\Option\Option
             option_value: Sylius\Bundle\SandboxBundle\Entity\Option\OptionValue
+        repository:
+            product: Sylius\Bundle\AssortmentBundle\Entity\CustomizableProductRepository
         form:
             type:
                 product: Sylius\Bundle\SandboxBundle\Form\Type\ProductType
