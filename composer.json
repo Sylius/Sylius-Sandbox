@@ -15,6 +15,7 @@
         "friendsofsymfony/comment-bundle":     "*",
         "friendsofsymfony/rest-bundle":        "*",
         "friendsofsymfony/user-bundle":        "*",
+        "jms/serializer-bundle":               "*",
         "knplabs/knp-markdown-bundle":         "*",
         "knplabs/knp-menu-bundle":             "*",
         "mopa/bootstrap-bundle":               "*",

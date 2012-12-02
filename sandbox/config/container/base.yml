@@ -131,6 +131,12 @@ sylius_categorizer:
             templates:
                 backend: SyliusSandboxBundle:Backend/ProductCategory:%s.html.twig
                 frontend: SyliusSandboxBundle:Frontend/ProductCategory:%s.html.twig
+        blog:
+            property: "posts"
+            model: Sylius\Bundle\SandboxBundle\Entity\PostCategory
+            templates:
+                backend: SyliusSandboxBundle:Backend/PostCategory:%s.html.twig
+                frontend: SyliusSandboxBundle:Frontend/PostCategory:%s.html.twig
 
 sylius_cart:
     driver: doctrine/orm
@@ -142,6 +148,15 @@ sylius_cart:
         form:
             type:
                 item: Sylius\Bundle\SandboxBundle\Form\Type\CartItemType
+
+sylius_blogger:
+    driver: doctrine/orm
+    classes:
+        model:
+            post: Sylius\Bundle\SandboxBundle\Entity\Post
+        form:
+            type:
+                post: Sylius\Bundle\SandboxBundle\Form\Type\PostType
 
 sylius_sales:
     driver: doctrine/orm
