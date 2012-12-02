@@ -36,19 +36,18 @@ class OrderBuilder extends ContainerAware implements OrderBuilderInterface
 
     public function finalize(OrderInterface $order)
     {
-        $inventoryUnitManager = $this->container->get('sylius_inventory.manager.iu');
         $inventoryOperator = $this->container->get('sylius_inventory.operator');
         $variantManager = $this->container->get('sylius_assortment.manager.variant');
 
         foreach ($order->getItems() as $item) {
-            $inventoryUnits = $inventoryOperator->decrease($item->getVariant(), $item->getQuantity());
-            $order->addInventoryUnits($inventoryUnits);
+            $variant = $item->getVariant();
 
-            foreach ($inventoryUnits as $unit) {
-                $inventoryUnitManager->persistInventoryUnit($unit);
-            }
+            $inventoryUnits = $inventoryOperator->decrease($variant, $item->getQuantity());
+            $order->setInventoryUnits($inventoryUnits);
 
-            $variantManager->persist($item->getVariant());
+            $variantManager->persist($variant);
+            $variantManager->flush($variant);
+
         }
 
         $this->container->get('sylius_cart.provider')->abandonCart();

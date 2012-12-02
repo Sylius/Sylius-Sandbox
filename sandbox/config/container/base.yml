@@ -166,6 +166,7 @@ sylius_addressing:
 
 sylius_inventory:
     driver: doctrine/orm
+    backorders: false
     classes:
         model:
             iu: Sylius\Bundle\SandboxBundle\Entity\InventoryUnit

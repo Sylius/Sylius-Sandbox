@@ -86,11 +86,11 @@ class Order extends BaseOrder
         return $this->inventoryUnits;
     }
 
-    public function addInventoryUnits(array $inventoryUnits)
+    public function setInventoryUnits(Collection $inventoryUnits)
     {
         foreach ($inventoryUnits as $unit) {
-            $unit->setOrder($this);
             $this->inventoryUnits->add($unit);
+            $unit->setOrder($this);
         }
     }
 

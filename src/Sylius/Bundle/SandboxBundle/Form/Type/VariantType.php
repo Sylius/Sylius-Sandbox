@@ -31,8 +31,8 @@ class VariantType extends BaseVariantType
         $builder
             ->add('price', 'money')
             ->add('onHand', 'integer', array(
-                'label' => 'Stock "on hand"',
-                'data'  => 0
+                'label'      => 'Stock "on hand"',
+                'empty_data' => 0
             ))
         ;
     }
