@@ -1,0 +1,18 @@
+# This file is part of the Sylius sandbox application.
+# (c) Paweł Jędrzejewski
+
+sylius_sandbox_post_list:
+    pattern: /
+    defaults:
+        _controller: sylius_blogger.controller.post:getCollectionAction
+        _sylius.resource:
+            template: SyliusSandboxBundle:Frontend/Post:list.html.twig
+            paginate: 9
+
+sylius_sandbox_post_show:
+    pattern: /{slug}
+    defaults:
+        _controller: sylius_blogger.controller.post:getAction
+        _sylius.resource:
+            template: SyliusSandboxBundle:Frontend/Post:show.html.twig
+            identifier: slug

@@ -1,0 +1,25 @@
+{% extends 'SyliusSandboxBundle:Frontend:layout.html.twig' %}
+
+{% block content %}
+<div class="page-header">
+<h1>Blog catalog category show <small>This action is handled inside categorizer bundle</small></h1>
+</div>
+
+{% if paginator.haveToPaginate() %}
+{{ pagerfanta(paginator, 'twitter_bootstrap_translated') }}
+{% endif %}
+
+{% if posts %}
+    {% for post in posts %}
+        {% include 'SyliusSandboxBundle:Frontend/Post:_single.html.twig' %}
+    {% endfor %}
+{% else %}
+    <div class="alert alert-info">
+        No posts to display.
+    </div>
+{% endif %}
+
+{% if paginator.haveToPaginate() %}
+{{ pagerfanta(paginator, 'twitter_bootstrap_translated') }}
+{% endif %}
+{% endblock %}

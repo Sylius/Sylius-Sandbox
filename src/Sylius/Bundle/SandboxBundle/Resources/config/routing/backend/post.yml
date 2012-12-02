@@ -1,0 +1,39 @@
+# This file is part of the Sylius sandbox application.
+# (c) Paweł Jędrzejewski
+
+sylius_sandbox_backend_post_list:
+    pattern: /
+    defaults:
+        _controller: sylius_blogger.controller.post:getCollectionAction
+        _sylius.resource:
+            template: SyliusSandboxBundle:Backend/Post:list.html.twig
+
+sylius_sandbox_backend_post_create:
+    pattern: /create
+    defaults:
+        _controller: sylius_blogger.controller.post:createAction
+        _sylius.resource:
+            template: SyliusSandboxBundle:Backend/Post:create.html.twig
+            redirect: sylius_sandbox_backend_post_show
+
+sylius_sandbox_backend_post_update:
+    pattern: /{id}/update
+    defaults:
+        _controller: sylius_blogger.controller.post:updateAction
+        _sylius.resource:
+            template: SyliusSandboxBundle:Backend/Post:update.html.twig
+            redirect: sylius_sandbox_backend_post_show
+
+sylius_sandbox_backend_post_delete:
+    pattern: /{id}/delete
+    defaults:
+        _controller: sylius_blogger.controller.post:deleteAction
+        _sylius.resource:
+            redirect: sylius_sandbox_backend_post_list
+
+sylius_sandbox_backend_post_show:
+    pattern: /{id}
+    defaults:
+        _controller: sylius_blogger.controller.post:getAction
+        _sylius.resource:
+            template: SyliusSandboxBundle:Backend/Post:show.html.twig
