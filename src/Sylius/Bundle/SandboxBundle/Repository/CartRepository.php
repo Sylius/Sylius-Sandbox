@@ -23,11 +23,11 @@ class CartRepository extends BaseCartRepository
     protected function getQueryBuilder()
     {
         return parent::getQueryBuilder()
-            ->select('c, i, v, p, o, ov')
-            ->leftJoin('i.variant', 'v')
-            ->leftJoin('v.product', 'p')
-            ->leftJoin('p.options', 'o')
-            ->leftJoin('o.values', 'ov')
+            ->select('cart, item, variant, product, option, optionValue')
+            ->leftJoin('item.variant', 'variant')
+            ->leftJoin('variant.product', 'product')
+            ->leftJoin('product.options', 'option')
+            ->leftJoin('option.values', 'optionValue')
         ;
     }
 }
