@@ -12,8 +12,10 @@
 namespace Sylius\Bundle\SandboxBundle\Resolver;
 
 use Doctrine\Common\Persistence\ObjectRepository;
+use Sylius\Bundle\AssortmentBundle\Model\Variant\VariantInterface;
 use Sylius\Bundle\CartBundle\Model\CartItemInterface;
 use Sylius\Bundle\CartBundle\Resolver\ItemResolverInterface;
+use Sylius\Bundle\CartBundle\Resolver\ItemResolvingException;
 use Sylius\Bundle\InventoryBundle\Resolver\StockResolverInterface;
 use Symfony\Component\Form\FormFactory;
 use Symfony\Component\HttpFoundation\Request;
@@ -78,31 +80,44 @@ class ItemResolver implements ItemResolverInterface
          * pattern and use attributes, which are available through request object.
          */
         if (!$id = $request->query->get('id')) {
-            return false;
+            throw new ItemResolvingException('Error while trying to add item to cart');
         }
 
         if (!$product = $this->productRepository->find($id)) {
-            throw new NotFoundHttpException('Requested product does not exist');
+            throw new ItemResolvingException('Requested product was not found');
+        }
+
+        if (!$request->isMethod('POST')) {
+            throw new ItemResolvingException('Wrong request method');
         }
 
         // We use forms to easily set the quantity and pick variant but you can do here whatever is required to create the item.
-        if ('POST' === $request->getMethod()) {
-            $form = $this->formFactory->create('sylius_cart_item', null, array('product' => $product));
+        $form = $this->formFactory->create('sylius_cart_item', null, array('product' => $product));
 
-            $form->bindRequest($request);
-            $item = $form->getData(); // Item instance, cool.
+        $form->bind($request);
+        $item = $form->getData(); // Item instance, cool.
 
-            // If our product has no variants, we simply set the master variant of it.
-            if (0 === $product->countVariants()) {
-                $item->setVariant($product->getMasterVariant());
-            }
+        // If our product has no variants, we simply set the master variant of it.
+        if (!$product->isVaried()) {
+            $item->setVariant($product->getMasterVariant());
+        }
 
-            $variant = $item->getVariant();
+        $variant = $item->getVariant();
 
-            // If all is ok with form, quantity and other stuff, simply return the item.
-            if ($form->isValid() && $variant && $this->stockResolver->isInStock($variant)) {
-                return $item;
-            }
+        // If all is ok with form, quantity and other stuff, simply return the item.
+        if ($form->isValid() && $variant) {
+            $this->isInStock($variant);
+
+            return $item;
+        }
+
+        throw new ItemResolvingException('Submitted form is invalid');
+    }
+
+    private function isInStock(VariantInterface $variant)
+    {
+        if (!$this->stockResolver->isInStock($variant)) {
+            throw new ItemResolvingException('Selected item is out of stock');
         }
     }
 }
