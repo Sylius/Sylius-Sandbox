@@ -27,13 +27,11 @@ class LoadPostsData extends DataFixture
      */
     public function load(ObjectManager $manager)
     {
-        $manager = $this->get('sylius_blogger.manager.post');
-
         $categoriesA = array('Symfony2', 'Sylius');
         $categoriesB = array('Doctrine', 'Composer');
 
-        for ($i = 1; $i <= 60; $i++) {
-            $post = $manager->create();
+        for ($i = 1; $i <= 50; $i++) {
+            $post = $this->get('sylius_blogger.repository.post')->createNew();
 
             $post->setTitle($this->faker->sentence);
             $post->setAuthor($this->faker->name);
@@ -51,8 +49,12 @@ class LoadPostsData extends DataFixture
 
             $this->setReference('Sandbox.Blogger.Post-'.$i, $post);
             
-            $manager->persist($post, 0 === $i % 20);
+            if (0 === $i % 20) {
+                $manager->flush();
+            }
         }
+
+        $manager->flush();
     }
 
     /**
