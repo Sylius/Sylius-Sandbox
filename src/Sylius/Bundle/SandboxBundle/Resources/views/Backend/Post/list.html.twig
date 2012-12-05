@@ -11,6 +11,10 @@
 </a>
 </div>
 
+{% if paginator.haveToPaginate() %}
+{{ pagerfanta(paginator, 'twitter_bootstrap_translated') }}
+{% endif %}
+
 {% if posts|length > 0 %}
 <table class="table">
     <thead>
@@ -53,6 +57,10 @@
     <h4 class="alert-heading">{{ 'alert.heading.info'|trans({}, 'SandboxCoreBundle') }}.</h4>
     There are no posts to display.
 </div>
+{% endif %}
+
+{% if paginator.haveToPaginate() %}
+{{ pagerfanta(paginator, 'twitter_bootstrap_translated') }}
 {% endif %}
 
 {% endblock %}
