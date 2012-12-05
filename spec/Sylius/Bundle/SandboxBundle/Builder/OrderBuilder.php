@@ -16,7 +16,7 @@ class OrderBuilder extends ObjectBehavior
         $this->shouldHaveType('Sylius\Bundle\SandboxBundle\Builder\OrderBuilder');
     }
 
-    function it_should_be_a_order_builder()
+    function it_should_be_Sylius_order_builder()
     {
         $this->shouldImplement('Sylius\Bundle\SalesBundle\Builder\OrderBuilderInterface');
     }

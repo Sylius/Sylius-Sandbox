@@ -16,7 +16,7 @@ class SyliusSandboxExtension extends ObjectBehavior
         $this->shouldHaveType('Sylius\Bundle\SandboxBundle\DependencyInjection\SyliusSandboxExtension');
     }
 
-    function it_should_be_a_container_extension()
+    function it_should_be_container_extension()
     {
         $this->shouldHaveType('Symfony\Component\HttpKernel\DependencyInjection\Extension');
     }

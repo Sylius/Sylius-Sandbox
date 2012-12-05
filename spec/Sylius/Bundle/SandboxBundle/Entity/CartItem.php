@@ -16,6 +16,11 @@ class CartItem extends ObjectBehavior
         $this->shouldHaveType('Sylius\Bundle\SandboxBundle\Entity\CartItem');
     }
 
+    function it_should_be_Sylius_cart_item()
+    {
+        $this->shouldImplement('Sylius\Bundle\CartBundle\Model\CartItemInterface');
+    }
+
     function it_should_extend_Sylius_cart_item_entity()
     {
         $this->shouldHaveType('Sylius\Bundle\CartBundle\Entity\CartItem');
@@ -29,7 +34,7 @@ class CartItem extends ObjectBehavior
     /**
      * @param Sylius\Bundle\AssortmentBundle\Model\Variant\VariantInterface $variant
      */
-    function it_should_allow_assigning_a_variant_to_it($variant)
+    function it_should_allow_assigning_a_variant($variant)
     {
         $this->setVariant($variant);
         $this->getVariant()->shouldReturn($variant);
