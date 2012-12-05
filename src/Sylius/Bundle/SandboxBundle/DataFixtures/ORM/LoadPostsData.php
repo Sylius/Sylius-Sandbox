@@ -47,6 +47,8 @@ class LoadPostsData extends DataFixture
 
             $post->setCategories(new ArrayCollection($categories));
 
+            $manager->persist($post);
+
             $this->setReference('Sandbox.Blogger.Post-'.$i, $post);
             
             if (0 === $i % 20) {
