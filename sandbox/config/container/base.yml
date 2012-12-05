@@ -160,6 +160,15 @@ sylius_blogger:
             type:
                 post: Sylius\Bundle\SandboxBundle\Form\Type\PostType
 
+sylius_blogger:
+    driver: doctrine/orm
+    classes:
+        model:
+            post: Sylius\Bundle\SandboxBundle\Entity\Post
+        form:
+            type:
+                post: Sylius\Bundle\SandboxBundle\Form\Type\PostType
+
 sylius_sales:
     driver: doctrine/orm
     builder: sylius_sandbox.builder.order
