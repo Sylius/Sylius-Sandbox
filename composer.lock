@@ -2583,12 +2583,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/SyliusResourceBundle.git",
-                "reference": "74904a1a2c17144a18ef99173d43d636ac62ff72"
+                "reference": "9c4b42f61812551587890c317da417f36db7cf33"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/Sylius/SyliusResourceBundle/archive/74904a1a2c17144a18ef99173d43d636ac62ff72.zip",
-                "reference": "74904a1a2c17144a18ef99173d43d636ac62ff72",
+                "url": "https://github.com/Sylius/SyliusResourceBundle/archive/9c4b42f61812551587890c317da417f36db7cf33.zip",
+                "reference": "9c4b42f61812551587890c317da417f36db7cf33",
                 "shasum": ""
             },
             "require": {
@@ -2607,7 +2607,7 @@
                 "doctrine/orm": "~2.3",
                 "doctrine/mongodb-odm": "*"
             },
-            "time": "2012-12-06 20:22:41",
+            "time": "2012-12-06 22:40:59",
             "type": "symfony-bundle",
             "installation-source": "source",
             "autoload": {
