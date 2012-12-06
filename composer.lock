@@ -25,7 +25,7 @@
             },
             "time": "2012-11-15 18:54:56",
             "type": "symfony-bundle",
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-0": {
                     "Avalanche\\Bundle\\ImagineBundle": ""
@@ -73,7 +73,7 @@
                     "dev-master": "1.0-dev"
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-0": {
                     "dflydev\\markdown": "src"
@@ -198,7 +198,7 @@
             },
             "time": "2012-11-22 04:04:25",
             "type": "library",
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-0": {
                     "Doctrine\\Common\\DataFixtures": "lib/"
@@ -246,7 +246,7 @@
                     "dev-master": "2.3.x-dev"
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-0": {
                     "Doctrine\\DBAL": "lib/"
@@ -322,7 +322,7 @@
                     "dev-master": "1.0.x-dev"
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-0": {
                     "Doctrine\\Bundle\\DoctrineBundle": ""
@@ -378,7 +378,7 @@
             },
             "time": "2012-10-22 13:57:52",
             "type": "symfony-bundle",
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-0": {
                     "Doctrine\\Bundle\\FixturesBundle": ""
@@ -432,7 +432,7 @@
             },
             "time": "2012-10-18 12:04:30",
             "type": "symfony-bundle",
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-0": {
                     "Doctrine\\Bundle\\MigrationsBundle": ""
@@ -491,7 +491,7 @@
             },
             "time": "2012-10-19 10:37:24",
             "type": "library",
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-0": {
                     "Doctrine\\DBAL\\Migrations": "lib"
@@ -553,7 +553,7 @@
                     "dev-master": "2.4.x-dev"
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-0": {
                     "Doctrine\\ORM\\": "lib/"
@@ -632,7 +632,7 @@
                     "dev-master": "2.0.x-dev"
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-0": {
                     "FOS\\CommentBundle": ""
@@ -691,7 +691,7 @@
                     "dev-master": "0.8.x-dev"
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-0": {
                     "FOS\\Rest": ""
@@ -756,7 +756,7 @@
                     "dev-master": "0.10.x-dev"
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-0": {
                     "FOS\\RestBundle": ""
@@ -827,7 +827,7 @@
                     "dev-master": "2.0.x-dev"
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-0": {
                     "FOS\\UserBundle": ""
@@ -882,7 +882,7 @@
                     "dev-master": "1.1.x-dev"
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-0": {
                     "Faker": "src/"
@@ -933,7 +933,7 @@
                     "dev-master": "2.3.x-dev"
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-0": {
                     "Gedmo": "lib/"
@@ -1037,7 +1037,7 @@
                     "dev-master": "1.2.x-dev"
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "classmap": [
                     "lib"
@@ -1087,7 +1087,7 @@
                     "dev-master": "1.1.0-dev"
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-0": {
                     "JMS\\AopBundle": ""
@@ -1135,7 +1135,7 @@
                     "dev-master": "1.1-dev"
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-0": {
                     "CG\\": "src/"
@@ -1201,7 +1201,7 @@
                     "dev-master": "1.3-dev"
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-0": {
                     "JMS\\DiExtraBundle": ""
@@ -1256,7 +1256,7 @@
                     "dev-master": "1.2.x-dev"
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-0": {
                     "Metadata\\": "src/"
@@ -1306,7 +1306,7 @@
                     "dev-master": "1.1-dev"
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-0": {
                     "JMS\\": "src/"
@@ -1358,7 +1358,7 @@
                     "dev-master": "1.0-dev"
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-0": {
                     "JMS\\Serializer": "src/"
@@ -1430,7 +1430,7 @@
                     "dev-master": "1.0-dev"
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-0": {
                     "JMS\\SerializerBundle": ""
@@ -1489,7 +1489,7 @@
                     "dev-master": "1.2.x-dev"
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-0": {
                     "Knp\\Bundle\\MarkdownBundle": ""
@@ -1552,7 +1552,7 @@
                     "dev-master": "2.0.x-dev"
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-0": {
                     "Knp\\Menu\\": "src/"
@@ -1609,7 +1609,7 @@
                     "dev-master": "2.0.x-dev"
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-0": {
                     "Knp\\Bundle\\MenuBundle": ""
@@ -1677,7 +1677,7 @@
                     "dev-master": "1.1-dev"
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-0": {
                     "Assetic": "src/"
@@ -1737,7 +1737,7 @@
                     "dev-master": "1.3.x-dev"
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-0": {
                     "Monolog": "src/"
@@ -1795,7 +1795,7 @@
                     "dev-master": "2.1.x-dev"
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-0": {
                     "Mopa\\Bundle\\BootstrapBundle": ""
@@ -1844,7 +1844,7 @@
             },
             "time": "2012-10-11 18:29:49",
             "type": "symfony-bridge",
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-0": {
                     "Mopa\\Bridge\\Composer": "src/"
@@ -1896,7 +1896,7 @@
             },
             "time": "2012-08-22 21:56:31",
             "type": "library",
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-0": {
                     "Pagerfanta\\": "src/"
@@ -1943,7 +1943,7 @@
                     "dev-master": "0.1-dev"
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-0": {
                     "PhpCollection": "src/"
@@ -1994,7 +1994,7 @@
                     "dev-master": "1.0-dev"
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-0": {
                     "PhpOption\\": "src/"
@@ -2045,7 +2045,7 @@
                     "dev-master": "2.1.x-dev"
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-0": {
                     "Sensio\\Bundle\\DistributionBundle": ""
@@ -2093,7 +2093,7 @@
                     "dev-master": "2.1.x-dev"
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-0": {
                     "Sensio\\Bundle\\FrameworkExtraBundle": ""
@@ -2146,7 +2146,7 @@
                     "dev-master": "1.1.x-dev"
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-0": {
                     "Stof\\DoctrineExtensionsBundle": ""
@@ -2255,7 +2255,7 @@
             },
             "time": "2012-12-02 12:19:24",
             "type": "symfony-bundle",
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-0": {
                     "Sylius\\Bundle\\AddressingBundle": ""
@@ -2316,7 +2316,7 @@
             },
             "time": "2012-12-02 23:11:32",
             "type": "symfony-bundle",
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-0": {
                     "Sylius\\Bundle\\AssortmentBundle": ""
@@ -2377,7 +2377,7 @@
             },
             "time": "2012-12-04 23:40:52",
             "type": "symfony-bundle",
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-0": {
                     "Sylius\\Bundle\\CartBundle": ""
@@ -2438,7 +2438,7 @@
             },
             "time": "2012-06-22 20:57:20",
             "type": "symfony-bundle",
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-0": {
                     "Sylius\\Bundle\\CategorizerBundle": ""
@@ -2488,7 +2488,7 @@
             },
             "time": "2012-07-01 08:23:12",
             "type": "symfony-bundle",
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-0": {
                     "Sylius\\Bundle\\FlowBundle": ""
@@ -2546,7 +2546,7 @@
             },
             "time": "2012-12-02 17:29:22",
             "type": "symfony-bundle",
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-0": {
                     "Sylius\\Bundle\\InventoryBundle": ""
@@ -2583,25 +2583,31 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/SyliusResourceBundle.git",
-                "reference": "f5799fb5b72d0250109506b00374b81e231786fc"
+                "reference": "74904a1a2c17144a18ef99173d43d636ac62ff72"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/Sylius/SyliusResourceBundle/archive/f5799fb5b72d0250109506b00374b81e231786fc.zip",
-                "reference": "f5799fb5b72d0250109506b00374b81e231786fc",
+                "url": "https://github.com/Sylius/SyliusResourceBundle/archive/74904a1a2c17144a18ef99173d43d636ac62ff72.zip",
+                "reference": "74904a1a2c17144a18ef99173d43d636ac62ff72",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.2",
                 "symfony/framework-bundle": ">=2.1,<3.0",
-                "doctrine/common": ">=2.1,<3.0",
                 "white-october/pagerfanta-bundle": "*",
-                "friendsofsymfony/rest-bundle": "*"
+                "friendsofsymfony/rest-bundle": "*",
+                "doctrine/common": "*"
             },
             "require-dev": {
-                "phpspec/phpspec2": "dev-develop"
+                "phpspec/phpspec2": "dev-develop",
+                "doctrine/orm": ">=2.3,<3.0",
+                "doctrine/mongodb-odm": "*"
             },
-            "time": "2012-12-02 22:11:24",
+            "suggest": {
+                "doctrine/orm": "~2.3",
+                "doctrine/mongodb-odm": "*"
+            },
+            "time": "2012-12-06 20:22:41",
             "type": "symfony-bundle",
             "installation-source": "source",
             "autoload": {
@@ -2662,7 +2668,7 @@
             },
             "time": "2012-12-02 23:30:06",
             "type": "symfony-bundle",
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-0": {
                     "Sylius\\Bundle\\SalesBundle": ""
@@ -2732,7 +2738,7 @@
                     "dev-master": "2.1.x-dev"
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-0": {
                     "Symfony\\Bundle\\AsseticBundle": ""
@@ -2790,7 +2796,7 @@
                     "dev-master": "2.1.x-dev"
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-0": {
                     "Symfony\\Bundle\\MonologBundle": ""
@@ -2846,7 +2852,7 @@
                     "dev-master": "2.1-dev"
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-0": {
                     "Symfony\\Bundle\\SwiftmailerBundle": ""
@@ -2936,7 +2942,7 @@
                     "dev-master": "2.1-dev"
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-0": {
                     "Symfony": "src/",
@@ -2987,7 +2993,7 @@
                     "dev-master": "1.0.x-dev"
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-0": {
                     "Twig_Extensions_": "lib/"
@@ -3082,7 +3088,7 @@
             },
             "time": "2012-07-24 12:48:41",
             "type": "symfony-bundle",
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-0": {
                     "WhiteOctober\\PagerfantaBundle": ""
