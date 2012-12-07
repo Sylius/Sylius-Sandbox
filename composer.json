@@ -28,6 +28,7 @@
         "sylius/flow-bundle":                  "*",
         "sylius/inventory-bundle":             "*",
         "sylius/sales-bundle":                 "*",
+        "sylius/blogger-bundle":               "*",
         "symfony/assetic-bundle":              "*",
         "symfony/monolog-bundle":              "*",
         "symfony/swiftmailer-bundle":          "*"
