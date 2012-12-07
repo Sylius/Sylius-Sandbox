@@ -1,0 +1,27 @@
+{% extends 'SyliusSandboxBundle:Frontend:layout.html.twig' %}
+
+{% block content %}
+<div class="page-header">
+<h1>Blog <small>Blog posts list</small></h1>
+</div>
+
+{% if paginator.haveToPaginate() %}
+{{ pagerfanta(paginator, 'twitter_bootstrap_translated') }}
+{% endif %}
+
+{% if posts|length > 0 %}
+    {% for post in posts %}
+        {% include 'SyliusSandboxBundle:Frontend/Post:_single.html.twig' %}
+    {% endfor %}
+{% else %}
+    <hr />
+    <div class="alert alert-info">
+        No posts to display.
+    </div>
+{% endif %}
+
+{% if paginator.haveToPaginate() %}
+{{ pagerfanta(paginator, 'twitter_bootstrap_translated') }}
+{% endif %}
+
+{% endblock %}
