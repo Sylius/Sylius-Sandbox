@@ -154,11 +154,9 @@ sylius_cart:
 sylius_blogger:
     driver: doctrine/orm
     classes:
-        model:
-            post: Sylius\Bundle\SandboxBundle\Entity\Post
-        form:
-            type:
-                post: Sylius\Bundle\SandboxBundle\Form\Type\PostType
+        post:
+            model: Sylius\Bundle\SandboxBundle\Entity\Post
+            form: Sylius\Bundle\SandboxBundle\Form\Type\PostType
 
 sylius_sales:
     driver: doctrine/orm

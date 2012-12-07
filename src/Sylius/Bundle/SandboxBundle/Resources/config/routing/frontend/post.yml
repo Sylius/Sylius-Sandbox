@@ -7,7 +7,7 @@ sylius_sandbox_post_list:
         _controller: sylius_blogger.controller.post:getCollectionAction
         _sylius.resource:
             template: SyliusSandboxBundle:Frontend/Post:list.html.twig
-            paginate: 9
+            paginate: 10
 
 sylius_sandbox_post_show:
     pattern: /{slug}
