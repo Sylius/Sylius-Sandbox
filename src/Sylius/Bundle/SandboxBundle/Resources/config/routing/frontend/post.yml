@@ -8,7 +8,8 @@ sylius_sandbox_post_list:
         _sylius.resource:
             template: SyliusSandboxBundle:Frontend/Post:list.html.twig
             paginate: 10
-            published: true
+            criteria:
+                published: true
 
 sylius_sandbox_post_show:
     pattern: /{slug}
