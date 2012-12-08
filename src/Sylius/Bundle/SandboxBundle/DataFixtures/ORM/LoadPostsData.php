@@ -50,7 +50,7 @@ class LoadPostsData extends DataFixture
             $manager->persist($post);
 
             $this->setReference('Sandbox.Blogger.Post-'.$i, $post);
-            
+
             if (0 === $i % 20) {
                 $manager->flush();
             }
@@ -64,6 +64,6 @@ class LoadPostsData extends DataFixture
      */
     public function getOrder()
     {
-        return 8;
+        return 10;
     }
 }
