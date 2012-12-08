@@ -43,16 +43,11 @@ class Builder extends ContainerAware
 
         $menu->addChild('Shop', array('route' => 'sylius_sandbox_core_frontend'));
 
-        $childOptions = array(
-            'attributes'         => array('class' => 'dropdown'),
-            'childrenAttributes' => array('class' => 'dropdown-menu'),
-            'labelAttributes'    => array('class' => 'dropdown-toggle', 'data-toggle' => 'dropdown', 'href' => '#')
-        );
-
         $menu->addChild('Products', array('route' => 'sylius_sandbox_product_list'));
+        $menu->addChild('Blog', array('route' => 'sylius_sandbox_post_list'));
         $menu->addChild('About', array('route' => 'sylius_sandbox_about'));
 
-        $child = $menu->addChild('My cart', array('route' => 'sylius_cart_show'));
+        $menu->addChild('My cart', array('route' => 'sylius_cart_show'));
 
         return $menu;
     }
@@ -107,6 +102,20 @@ class Builder extends ContainerAware
             ));
         }
 
+        $blogCategories = $categoryManager->findCategories('blog');
+        $child = $menu->addChild('Blog', $childOptions);
+
+        foreach ($blogCategories as $category) {
+            $child->addChild($category->getName(), array(
+                'route'           => 'sylius_categorizer_category_show',
+                'routeParameters' => array(
+                    'alias' => 'blog',
+                    'slug'  => $category->getSlug()
+                ),
+                'labelAttributes' => array('icon' => 'icon-chevron-right')
+            ));
+        }
+        
         $child = $menu->addChild('My account', $childOptions);
         if ($this->container->get('security.context')->isGranted('ROLE_USER')) {
             $child->addChild('Logout', array(
@@ -162,6 +171,7 @@ class Builder extends ContainerAware
 
         $this->addAssortmentMenu($menu, $childOptions);
         $this->addSalesMenu($menu, $childOptions);
+        $this->addBlogMenu($menu, $childOptions);
         $this->addAddressingMenu($menu, $childOptions);
 
         $menu->addChild('Go to <strong>frontend</strong>', array('route' => 'sylius_sandbox_core_frontend'));
@@ -194,6 +204,7 @@ class Builder extends ContainerAware
 
         $this->addAssortmentMenu($menu, $childOptions);
         $this->addSalesMenu($menu, $childOptions);
+        $this->addBlogMenu($menu, $childOptions);
         $this->addAddressingMenu($menu, $childOptions);
 
         $child = $menu->addChild('Administration', $childOptions);
@@ -293,6 +304,39 @@ class Builder extends ContainerAware
         $child->addChild('Create order', array(
             'route'           => 'sylius_sandbox_backend_order_create',
             'labelAttributes' => array('icon' => 'icon-plus-sign')
+        ));
+    }
+    
+    /**
+     * Adds blog menu.
+     *
+     * @param ItemInterface $menu
+     * @param array         $childOptions
+     */
+    protected function addBlogMenu(ItemInterface $menu, array $childOptions)
+    {
+        $child = $menu->addChild('Blog', $childOptions);
+
+        $child->addChild('Create category', array(
+            'route'           => 'sylius_categorizer_backend_category_create',
+            'routeParameters' => array('alias' => 'blog'),
+            'labelAttributes' => array('icon' => 'icon-plus-sign')
+        ));
+        $child->addChild('List categories', array(
+            'route'           => 'sylius_categorizer_backend_category_list',
+            'routeParameters' => array('alias' => 'blog'),
+            'labelAttributes' => array('icon' => 'icon-list-alt')
+        ));
+
+        $this->addDivider($child);
+
+        $child->addChild('Create post', array(
+            'route' => 'sylius_sandbox_backend_post_create',
+            'labelAttributes' => array('icon' => 'icon-plus-sign')
+        ));
+        $child->addChild('List posts', array(
+            'route'           => 'sylius_sandbox_backend_post_list',
+            'labelAttributes' => array('icon' => 'icon-list-alt')
         ));
     }
 
