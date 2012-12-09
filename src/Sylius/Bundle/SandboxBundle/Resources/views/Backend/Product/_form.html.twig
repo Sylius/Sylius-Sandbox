@@ -22,7 +22,10 @@
                 </div>
             </div>
             <hr />
-            {{ form_row(form.category, {'empty_value': "choose category..."}) }}
+            {% for taxonomyForm in form.taxons %}
+                {{ form_row(taxonomyForm) }}
+            {% endfor %}
+            <hr />
             {{ form_row(form.masterVariant.price) }}
             {{ form_row(form.masterVariant.availableOn) }}
             {{ form_row(form.variantPickingMode) }}

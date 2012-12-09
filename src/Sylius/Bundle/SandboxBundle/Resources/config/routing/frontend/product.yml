@@ -1,6 +1,13 @@
 # This file is part of the Sylius sandbox application.
 # (c) Paweł Jędrzejewski
 
+sylius_sandbox_product_list_by_taxon:
+    pattern: /t/{permalink}
+    defaults:
+        _controller: sylius_assortment.controller.product:listByTaxonAction
+        _sylius.resource:
+            template: SyliusSandboxBundle:Frontend/Product:listByTaxon.html.twig
+
 sylius_sandbox_product_list:
     pattern: /
     defaults:

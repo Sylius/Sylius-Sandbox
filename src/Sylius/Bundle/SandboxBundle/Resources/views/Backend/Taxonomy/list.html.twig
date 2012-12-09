@@ -1,0 +1,79 @@
+{% extends 'SyliusSandboxBundle:Backend:layout.html.twig' %}
+
+{% block header %}
+    <h1>Taxonomies list <small>All taxonomies saved in the system</small></h1>
+{% endblock %}
+
+{% block content %}
+
+{{ sylius_resource_fetch_request(app.request) }}
+
+<div class="well">
+<a href="{{ path('sylius_sandbox_backend_taxonomy_create') }}" class="btn btn-primary">
+    <i class="icon-plus icon-white"></i> create taxonomy
+</a>
+<a href="{{ path('sylius_sandbox_backend_taxon_create') }}" class="btn">
+    <i class="icon-plus"></i> create taxon
+</a>
+</div>
+
+{% if taxonomies|length > 0 %}
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>{{ sylius_resource_sort('id', '#id') }}</th>
+            <th>name</th>
+            <th>taxons</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for taxonomy in taxonomies %}
+        <tr>
+            <td>{{ taxonomy.id }}</td>
+            <td>{{ taxonomy.name }}</td>
+            <td>
+                {% for taxon in taxonomy.taxons %}
+                    {{ taxon.name }}
+                    <div class="btn-group pull-right">
+                        <a href="{{ path('sylius_sandbox_backend_product_list_by_taxon', {'permalink': taxon.permalink}) }}" class="btn">
+                            <i class="icon-list"></i> browse products
+                        </a>
+                        <a href="{{ path('sylius_sandbox_backend_taxon_update', {'id': taxon.id}) }}" class="btn">edit</a>
+                        <a href="{{ path('sylius_sandbox_backend_taxon_delete', {'id': taxon.id}) }}"  class="btn btn-danger confirmer"
+                            data-confirmer-question="Do you really want to delete taxon <strong>{{ taxon.name }}</strong>?"
+                        >
+                            <i class="icon-trash icon-white"></i>
+                        </a>
+                    </div>
+                    {% if not loop.last %}
+                        <hr>
+                    {% endif %}
+                {% else %}
+                This taxonomy has no taxons. <a href="{{ path('sylius_sandbox_backend_taxon_create') }}" class="btn btn-primary btn-small pull-right">Add new one</a>
+                {% endfor %}
+            </td>
+            <td>
+                <div class="btn-group pull-right">
+                    <a href="{{ path('sylius_sandbox_backend_taxonomy_update', {'id': taxonomy.id}) }}" class="btn">
+                        <i class="icon-pencil"></i> edit
+                    </a>
+                    <a href="{{ path('sylius_sandbox_backend_taxonomy_delete', {'id': taxonomy.id}) }}"  class="btn btn-danger confirmer"
+                        data-confirmer-question="Do you really want to delete taxonomy <strong>{{ taxonomy.name }}</strong>?"
+                    >
+                        <i class="icon-trash icon-white"></i>
+                    </a>
+                </div>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<div class="alert alert-info">
+    <h4 class="alert-heading">Information</h4>
+    There are no taxonomies to display
+</div>
+{% endif %}
+
+{% endblock %}

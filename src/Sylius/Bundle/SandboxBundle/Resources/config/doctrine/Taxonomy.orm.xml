@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:gedmo="http://gediminasm.org/schemas/orm/doctrine-extensions-mapping">
+
+    <entity name="Sylius\Bundle\SandboxBundle\Entity\Taxonomy" table="sylius_sandbox_taxonomy">
+        <id name="id" column="id" type="integer">
+            <generator strategy="AUTO" />
+        </id>
+        <one-to-many field="taxons" target-entity="Sylius\Bundle\SandboxBundle\Entity\Taxon" mapped-by="taxonomy">
+            <cascade>
+                <cascade-all/>
+            </cascade>
+        </one-to-many>
+        <many-to-one field="root" target-entity="Sylius\Bundle\SandboxBundle\Entity\Taxon">
+            <join-column name="root_id" referenced-column-name="id" />
+            <cascade>
+                <cascade-all/>
+            </cascade>
+        </many-to-one>
+    </entity>
+
+</doctrine-mapping>

@@ -8,6 +8,13 @@ sylius_sandbox_backend_product_list:
         _sylius.resource:
             template: SyliusSandboxBundle:Backend/Product:list.html.twig
 
+sylius_sandbox_backend_product_list_by_taxon:
+    pattern: /t/{permalink}
+    defaults:
+        _controller: sylius_assortment.controller.product:listByTaxonAction
+        _sylius.resource:
+            template: SyliusSandboxBundle:Backend/Product:listByTaxon.html.twig
+
 sylius_sandbox_backend_product_create:
     pattern: /create
     defaults:

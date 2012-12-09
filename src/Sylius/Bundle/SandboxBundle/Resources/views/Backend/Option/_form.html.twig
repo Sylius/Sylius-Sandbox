@@ -6,7 +6,7 @@
     <hr />
     <div id="sylius-assortment-option-values" class="collection-container" data-prototype="{{ form_widget(form.values.vars.prototype)|e }}">
         {% for valueForm in form.values %}
-            {{ form_row(valueForm)  }}
+            {{ form_widget(valueForm)  }}
         {% endfor %}
     </div>
     <div class="control-group">

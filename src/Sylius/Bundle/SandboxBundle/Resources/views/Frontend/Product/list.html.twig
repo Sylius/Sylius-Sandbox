@@ -12,10 +12,12 @@
   <li><a href="{{ path('sylius_sandbox_product_list') }}">Products</a></li>
 </ul>
 
+{% if products|length > 0 %}
 <div class="pull-right well well-small">
 <a href="{{ app.request.baseUrl ~ app.request.pathInfo ~ '?grid=1' }}" class="btn {{ grid ? 'btn-success' : '' }}"><i class="icon-th-large"></i></a>
 <a href="{{ app.request.baseUrl ~ app.request.pathInfo }}" class="btn {{ grid ? '' : 'btn-success' }}"><i class="icon-th-list"></i></a>
 </div>
+{% endif %}
 
 {% if paginator.haveToPaginate() %}
 {{ pagerfanta(paginator, 'twitter_bootstrap_translated') }}

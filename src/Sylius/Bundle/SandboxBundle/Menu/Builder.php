@@ -83,7 +83,6 @@ class Builder extends ContainerAware
 
         $categoryManager = $this->container->get('sylius_categorizer.manager.category');
 
-        $assortmentCategories = $categoryManager->findCategories('assortment');
         $child = $menu->addChild('Browse products', $childOptions);
 
         $child->addChild('All products', array(
@@ -91,15 +90,21 @@ class Builder extends ContainerAware
             'labelAttributes' => array('icon' => 'icon-tags')
         ));
 
-        foreach ($assortmentCategories as $category) {
-            $child->addChild($category['name'], array(
-                'route'           => 'sylius_categorizer_category_show',
-                'routeParameters' => array(
-                    'alias' => 'assortment',
-                    'slug'  => $category['slug']
-                ),
-                'labelAttributes' => array('icon' => 'icon-chevron-right')
-            ));
+        $taxonomies = $this
+            ->getTaxonomyRepository()
+            ->findAll()
+        ;
+
+        foreach ($taxonomies as $taxonomy) {
+            $child = $menu->addChild($taxonomy->getName(), $childOptions);
+
+            foreach ($taxonomy->getTaxons() as $taxon) {
+                $child->addChild($taxon->getName(), array(
+                    'route'           => 'sylius_sandbox_product_list_by_taxon',
+                    'routeParameters' => array('permalink' => $taxon->getPermalink()),
+                    'labelAttributes' => array('icon' => ' icon-caret-right')
+                ));
+            }
         }
 
         $blogCategories = $categoryManager->findCategories('blog');
@@ -115,7 +120,7 @@ class Builder extends ContainerAware
                 'labelAttributes' => array('icon' => 'icon-chevron-right')
             ));
         }
-        
+
         $child = $menu->addChild('My account', $childOptions);
         if ($this->container->get('security.context')->isGranted('ROLE_USER')) {
             $child->addChild('Logout', array(
@@ -169,6 +174,7 @@ class Builder extends ContainerAware
             'labelAttributes'    => array('class' => 'dropdown-toggle', 'data-toggle' => 'dropdown', 'href' => '#')
         );
 
+        $this->addTaxonomiesMenu($menu, $childOptions);
         $this->addAssortmentMenu($menu, $childOptions);
         $this->addSalesMenu($menu, $childOptions);
         $this->addBlogMenu($menu, $childOptions);
@@ -202,6 +208,7 @@ class Builder extends ContainerAware
             'labelAttributes'    => array('class' => 'nav-header')
         );
 
+        $this->addTaxonomiesMenu($menu, $childOptions);
         $this->addAssortmentMenu($menu, $childOptions);
         $this->addSalesMenu($menu, $childOptions);
         $this->addBlogMenu($menu, $childOptions);
@@ -225,20 +232,6 @@ class Builder extends ContainerAware
     protected function addAssortmentMenu(ItemInterface $menu, array $childOptions)
     {
         $child = $menu->addChild('Assortment', $childOptions);
-
-        // Categories.
-        $child->addChild('Create category', array(
-            'route'           => 'sylius_categorizer_backend_category_create',
-            'routeParameters' => array('alias' => 'assortment'),
-            'labelAttributes' => array('icon' => 'icon-plus-sign')
-        ));
-        $child->addChild('List categories', array(
-            'route'           => 'sylius_categorizer_backend_category_list',
-            'routeParameters' => array('alias' => 'assortment'),
-            'labelAttributes' => array('icon' => 'icon-list-alt')
-        ));
-
-        $this->addDivider($child);
 
         // Products.
         $child->addChild('Create product', array(
@@ -306,7 +299,7 @@ class Builder extends ContainerAware
             'labelAttributes' => array('icon' => 'icon-plus-sign')
         ));
     }
-    
+
     /**
      * Adds blog menu.
      *
@@ -361,6 +354,26 @@ class Builder extends ContainerAware
     }
 
     /**
+     * Adds taxonomies menu.
+     *
+     * @param ItemInterface $menu
+     * @param array         $childOptions
+     */
+    protected function addTaxonomiesMenu(ItemInterface $menu, array $childOptions)
+    {
+        $child = $menu->addChild('Categorization', $childOptions);
+
+        $child->addChild('Create taxonomy', array(
+            'route' => 'sylius_sandbox_backend_taxonomy_create',
+            'labelAttributes' => array('icon' => 'icon-plus-sign')
+        ));
+        $child->addChild('List taxonomies', array(
+            'route' => 'sylius_sandbox_backend_taxonomy_list',
+            'labelAttributes' => array('icon' => 'icon-list-alt')
+        ));
+    }
+
+    /**
      * Adds divider menu item.
      *
      * @param ItemInterface $item
@@ -374,5 +387,10 @@ class Builder extends ContainerAware
                 'label' => ''
             )
         ));
+    }
+
+    private function getTaxonomyRepository()
+    {
+        return $this->container->get('sylius_taxonomies.repository.taxonomy');
     }
 }

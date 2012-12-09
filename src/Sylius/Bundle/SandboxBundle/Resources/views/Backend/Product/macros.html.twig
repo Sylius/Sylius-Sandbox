@@ -29,8 +29,6 @@
             </td>
             <td>
                 {{ product.name }} 
-                <br />
-                &bullet; in category <a href="{{ path('sylius_categorizer_backend_category_show', {'alias': 'assortment', 'id': product.category.id})}}"><strong>{{ product.category.name }}</strong></a>
             </td>
             <td>{{ product.updatedAt|date }}</td>
             <td>

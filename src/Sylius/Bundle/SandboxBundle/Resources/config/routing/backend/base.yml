@@ -32,7 +32,15 @@ sylius_sandbox_backend_property:
 sylius_sandbox_backend_prototype:
     prefix: /prototypes
     resource: @SyliusSandboxBundle/Resources/config/routing/backend/prototype.yml
-    
+
 sylius_sandbox_backend_post:
     resource: @SyliusSandboxBundle/Resources/config/routing/backend/post.yml
     prefix: /posts
+
+sylius_sandbox_backend_taxonomy:
+    prefix: /taxonomies
+    resource: @SyliusSandboxBundle/Resources/config/routing/backend/taxonomy.yml
+
+sylius_sandbox_backend_taxon:
+    prefix: /taxons
+    resource: @SyliusSandboxBundle/Resources/config/routing/backend/taxon.yml
