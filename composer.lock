@@ -2641,12 +2641,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/SyliusResourceBundle.git",
-                "reference": "9c4b42f61812551587890c317da417f36db7cf33"
+                "reference": "d6c76945486f8eeda9ff13d9cb003a332c8f8e9c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/Sylius/SyliusResourceBundle/archive/9c4b42f61812551587890c317da417f36db7cf33.zip",
-                "reference": "9c4b42f61812551587890c317da417f36db7cf33",
+                "url": "https://github.com/Sylius/SyliusResourceBundle/archive/d6c76945486f8eeda9ff13d9cb003a332c8f8e9c.zip",
+                "reference": "d6c76945486f8eeda9ff13d9cb003a332c8f8e9c",
                 "shasum": ""
             },
             "require": {
@@ -2665,7 +2665,7 @@
                 "doctrine/orm": "~2.3",
                 "doctrine/mongodb-odm": "*"
             },
-            "time": "2012-12-06 22:40:59",
+            "time": "2012-12-09 21:58:27",
             "type": "symfony-bundle",
             "installation-source": "source",
             "autoload": {
@@ -2764,12 +2764,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/SyliusTaxonomiesBundle.git",
-                "reference": "b56b78c85109e5f10eac90ae4bea71914054440a"
+                "reference": "2f6877d0091b9570f83375a2eaf8dcb14d2f27c7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/Sylius/SyliusTaxonomiesBundle/archive/b56b78c85109e5f10eac90ae4bea71914054440a.zip",
-                "reference": "b56b78c85109e5f10eac90ae4bea71914054440a",
+                "url": "https://github.com/Sylius/SyliusTaxonomiesBundle/archive/2f6877d0091b9570f83375a2eaf8dcb14d2f27c7.zip",
+                "reference": "2f6877d0091b9570f83375a2eaf8dcb14d2f27c7",
                 "shasum": ""
             },
             "require": {
@@ -2783,7 +2783,7 @@
                 "symfony/form": ">=2.1,<3.0",
                 "twig/twig": "*"
             },
-            "time": "2012-12-07 23:24:11",
+            "time": "2012-12-09 23:07:57",
             "type": "symfony-bundle",
             "installation-source": "source",
             "autoload": {
