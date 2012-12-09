@@ -32,7 +32,6 @@ class VariantType extends BaseVariantType
             ->add('price', 'money')
             ->add('onHand', 'integer', array(
                 'label'      => 'Stock "on hand"',
-                'empty_data' => 0
             ))
         ;
     }

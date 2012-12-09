@@ -11,9 +11,11 @@
 
 namespace Sylius\Bundle\SandboxBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Sylius\Bundle\AssortmentBundle\Entity\CustomizableProduct as BaseProduct;
-use Sylius\Bundle\CategorizerBundle\Model\CategoryInterface;
 use Sylius\Bundle\InventoryBundle\Model\StockableInterface;
+use Sylius\Bundle\SandboxBundle\Entity\Variant\Variant;
 use Symfony\Component\Validator\Constraints as Assert;
 
 class Product extends BaseProduct implements StockableInterface
@@ -21,14 +23,7 @@ class Product extends BaseProduct implements StockableInterface
     const VARIANT_PICKING_CHOICE = 0;
     const VARIANT_PICKING_MATCH  = 1;
 
-    /**
-     * Product category.
-     *
-     * @Assert\NotBlank
-     *
-     * @var CategoryInterface
-     */
-    protected $category;
+    protected $taxons;
 
     /**
      * Variant picking mode.
@@ -62,26 +57,19 @@ class Product extends BaseProduct implements StockableInterface
         parent::__construct();
 
         $this->variantPickingMode = self::VARIANT_PICKING_CHOICE;
+        $this->taxons = new ArrayCollection();
+
+        $this->setMasterVariant(new Variant());
     }
 
-    /**
-     * Get category.
-     *
-     * @return CategoryInterface
-     */
-    public function getCategory()
+    public function getTaxons()
     {
-        return $this->category;
+        return $this->taxons;
     }
 
-    /**
-     * Set category.
-     *
-     * @param CategoryInterface $category
-     */
-    public function setCategory(CategoryInterface $category)
+    public function setTaxons(Collection $taxons)
     {
-        $this->category = $category;
+        $this->taxons = $taxons;
     }
 
     public function getVariantPickingMode()

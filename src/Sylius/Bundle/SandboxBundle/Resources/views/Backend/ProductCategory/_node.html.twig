@@ -1,7 +1,0 @@
-{% for category in category['__children'] %}
-    {% include 'SyliusSandboxBundle:Backend/ProductCategory:_row.html.twig' %}
-
-    {% if category['__children'] is defined %}
-        {% include 'SyliusSandboxBundle:Backend/ProductCategory:_node.html.twig' %}
-    {% endif %}
-{% endfor %}

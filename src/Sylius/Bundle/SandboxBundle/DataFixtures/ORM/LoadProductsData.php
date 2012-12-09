@@ -11,6 +11,7 @@
 
 namespace Sylius\Bundle\SandboxBundle\DataFixtures\ORM;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Persistence\ObjectManager;
 use Sylius\Bundle\AssortmentBundle\Model\CustomizableProductInterface;
 use Sylius\Bundle\SandboxBundle\Entity\Product;
@@ -93,11 +94,12 @@ class LoadProductsData extends DataFixture
 
         $product->setName(sprintf('T-Shirt "%s" in different sizes and colors', $this->faker->word));
         $product->setDescription($this->faker->paragraph);
-        $product->setCategory($this->getReference('Category.T-Shirts'));
         $product->setVariantPickingMode(Product::VARIANT_PICKING_MATCH);
         $product->setImagePath('../../bundles/syliussandbox/images/t-shirt.jpg');
 
         $this->addMasterVariant($product);
+
+        $this->setTaxons($product, array('T-Shirts', 'SuperTees'));
 
         // T-Shirt brand.
         $randomBrand = $this->faker->randomElement(array('Nike', 'Adidas', 'Puma', 'Potato'));
@@ -135,11 +137,12 @@ class LoadProductsData extends DataFixture
 
         $product->setName(sprintf('Great sticker "%s" in different sizes', $this->faker->word));
         $product->setDescription($this->faker->paragraph);
-        $product->setCategory($this->getReference('Category.Stickers'));
         $product->setVariantPickingMode($this->faker->randomElement(array(Product::VARIANT_PICKING_CHOICE, Product::VARIANT_PICKING_MATCH)));
         $product->setImagePath('../../bundles/syliussandbox/images/sticker.jpg');
 
         $this->addMasterVariant($product);
+
+        $this->setTaxons($product, array('Stickers', 'Stickypicky'));
 
         // Sticker resolution.
         $randomResolution = $this->faker->randomElement(array('Waka waka', 'FULL HD', '300DPI', '200DPI'));
@@ -172,11 +175,12 @@ class LoadProductsData extends DataFixture
 
         $product->setName(sprintf('Mug "%s", many types available', $this->faker->word));
         $product->setDescription($this->faker->paragraph);
-        $product->setCategory($this->getReference('Category.Mugs'));
         $product->setVariantPickingMode(Product::VARIANT_PICKING_CHOICE);
         $product->setImagePath('../../bundles/syliussandbox/images/mug.jpg');
 
         $this->addMasterVariant($product);
+
+        $this->setTaxons($product, array('Mugs', 'Mugland'));
 
         $randomMugMaterial = $this->faker->randomElement(array('Invisible porcelain', 'Banana skin', 'Porcelain', 'Sand'));
         $this->addProperty($product, 'Property.Mug.Material', $randomMugMaterial);
@@ -207,10 +211,11 @@ class LoadProductsData extends DataFixture
 
         $product->setName(sprintf('Book "%s" by "%s", product wihout options', ucfirst($this->faker->word), $author));
         $product->setDescription($this->faker->paragraph);
-        $product->setCategory($this->getReference('Category.Books'));
         $product->setImagePath('../../bundles/syliussandbox/images/book.jpg');
 
         $this->addMasterVariant($product, $isbn);
+
+        $this->setTaxons($product, array('Books', 'Bookmania'));
 
         $this->addProperty($product, 'Property.Book.Author', $author);
         $this->addProperty($product, 'Property.Book.ISBN', $isbn);
@@ -287,6 +292,17 @@ class LoadProductsData extends DataFixture
         $property->setValue($value);
 
         $product->addProperty($property);
+    }
+
+    private function setTaxons(CustomizableProductInterface $product, array $taxonNames)
+    {
+        $taxons = new ArrayCollection();
+
+        foreach ($taxonNames as $taxonName) {
+            $taxons->add($this->getReference('Taxon.'.$taxonName));
+        }
+
+        $product->setTaxons($taxons);
     }
 
     private function createProduct()

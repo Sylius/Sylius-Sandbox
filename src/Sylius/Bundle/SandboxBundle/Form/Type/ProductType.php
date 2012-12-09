@@ -37,10 +37,7 @@ class ProductType extends BaseCustomizableProductType
             ->add('image', 'file', array(
                 'required' => false
             ))
-            ->add('category', 'sylius_categorizer_category_choice', array(
-                'multiple' => false,
-                'catalog'  => 'assortment'
-            ))
+            ->add('taxons', 'sylius_taxonomies_selection')
             ->add('variantPickingMode', 'choice', array(
                 'label'    => 'Variant picking mode',
                 'choices'  => Product::getVariantPickingModeChoices()

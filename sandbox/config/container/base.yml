@@ -114,8 +114,10 @@ sylius_assortment:
             prototype: Sylius\Bundle\SandboxBundle\Entity\Prototype\Prototype
             option: Sylius\Bundle\SandboxBundle\Entity\Option\Option
             option_value: Sylius\Bundle\SandboxBundle\Entity\Option\OptionValue
+        controller:
+            product: Sylius\Bundle\SandboxBundle\Controller\ProductController
         repository:
-            product: Sylius\Bundle\AssortmentBundle\Entity\CustomizableProductRepository
+            product: Sylius\Bundle\SandboxBundle\Repository\ProductRepository
         form:
             type:
                 product: Sylius\Bundle\SandboxBundle\Form\Type\ProductType
@@ -124,15 +126,6 @@ sylius_assortment:
 sylius_categorizer:
     driver: doctrine/orm
     catalogs:
-        assortment:
-            property: "products"
-            model: Sylius\Bundle\SandboxBundle\Entity\ProductCategory
-            form: sylius_sandbox_product_category
-            pagination:
-                mpp: 9
-            templates:
-                backend: SyliusSandboxBundle:Backend/ProductCategory:%s.html.twig
-                frontend: SyliusSandboxBundle:Frontend/ProductCategory:%s.html.twig
         blog:
             property: "posts"
             model: Sylius\Bundle\SandboxBundle\Entity\PostCategory
@@ -185,3 +178,11 @@ sylius_inventory:
     classes:
         model:
             iu: Sylius\Bundle\SandboxBundle\Entity\InventoryUnit
+
+sylius_taxonomies:
+    driver: doctrine/orm
+    classes:
+        taxonomy:
+            model: Sylius\Bundle\SandboxBundle\Entity\Taxonomy
+        taxon:
+            model: Sylius\Bundle\SandboxBundle\Entity\Taxon
