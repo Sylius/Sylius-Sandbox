@@ -16,7 +16,7 @@ This is demo of Sylius-Sandbox application, a testing ground for Sylius project.
         {% for product in recentProducts %}
 
         <div class="span3 well well-small">
-            <a href="{{ path('sylius_sandbox_product_show', {'slug': product.slug})}}" class="thumbnail" style="width: 265px; height: 150px;">
+            <a href="{{ path('sylius_sandbox_product_show', {'slug': product.slug})}}" class="thumbnail" style="width: 130px; height: 75px;">
                 <img src="{{ product.imageWebPath|apply_filter('frontend_box') }}" alt="" />
             </a>
             <hr />

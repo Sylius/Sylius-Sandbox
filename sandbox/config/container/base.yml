@@ -58,7 +58,7 @@ avalanche_imagine:
             options: { size: [220, 180], mode: outbound }
         frontend_box:
             type: thumbnail
-            options: { size: [265, 150], mode: outbound }
+            options: { size: [130, 75], mode: outbound }
         backend_mini:
             type: thumbnail
             options: { size: [90, 60], mode: outbound }
