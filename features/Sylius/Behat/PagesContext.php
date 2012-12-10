@@ -3,6 +3,7 @@
 namespace Sylius\Behat;
 
 use Behat\Behat\Context\Step;
+use Behat\Gherkin\Node\TableNode;
 
 /**
  * Moving around page context.
@@ -17,6 +18,33 @@ class PagesContext extends BaseContext
     public function iAmOnStoreHomepage()
     {
         return $this->iAmOnRoute('sylius_sandbox_core_frontend');
+    }
+
+    /**
+     * @Given /^I am on admin dashboard$/
+     */
+    public function iAmOnAdminDashboard()
+    {
+        return $this->iAmOnRoute('sylius_sandbox_core_backend');
+    }
+
+    /**
+     * @Given /^I am logged in as admin$/
+     */
+    public function iAmLoggedInAsAdmin()
+    {
+        $table = new TableNode(<<<TABLE
+| username | password | role              |
+| admin    | foo      | ROLE_SYLIUS_ADMIN |
+TABLE
+        );
+        return array(
+            new Step\Given('there are following users:', $table),
+            new Step\When('I am on "/login"'),
+            new Step\When('I fill in "Login" with "admin"'),
+            new Step\When('I fill in "Password" with "foo"'),
+            new Step\When('I press "login"'),
+        );
     }
 
     /**

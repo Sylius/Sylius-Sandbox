@@ -65,4 +65,22 @@ class FeatureContext extends MinkContext implements KernelAwareInterface
         $purger = new ORMPurger($em);
         $purger->purge();
     }
+
+    /**
+     * @Then /^I should see (\d+) products on the page$/
+     */
+    public function iShouldSeeThatMuchProductsOnThePage($expected)
+    {
+        $actual = count($this->getSession()->getPage()->findAll('css', '.product-grid .well-small'));
+
+        assertEquals(
+            $expected,
+            $actual,
+            sprintf(
+                'Failed asserting there are "%s" products on the page, in reality they are "%s"',
+                $expected,
+                $actual
+            )
+        );
+    }
 }

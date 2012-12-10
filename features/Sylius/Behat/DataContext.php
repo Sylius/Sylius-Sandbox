@@ -3,7 +3,6 @@
 namespace Sylius\Behat;
 
 use Behat\Gherkin\Node\TableNode;
-use Sylius\Bundle\SandboxBundle\Entity\User;
 
 /**
  * Data context.
@@ -24,7 +23,7 @@ class DataContext extends BaseContext
         foreach ($table->getHash() as $data) {
             $data = array_merge(
                 array(
-                    'enabled'     => true,
+                    'enabled' => true,
                 ),
                 $data
             );
@@ -33,6 +32,9 @@ class DataContext extends BaseContext
             $user->setUsername($data['username']);
             $user->setEmail(sprintf('%s@sylius.org', strtolower($data['username'])));
             $user->setPlainPassword($data['password']);
+            if (isset($data['role'])) {
+                $user->setRoles(array($data['role']));
+            }
             $user->setEnabled($data['enabled']);
 
             $userManager->updateUser($user, false);
