@@ -36,18 +36,21 @@
         {% endjavascripts %}
         {% endblock %}
     </head>
+
+    {{ sylius_resource_fetch_request(app.request) }}
+
     <body>
         <div id="confirmer-modal" class="modal hide fade">
             <div class="modal-header">
                 <a class="close" data-dismiss="modal">×</a>
-                <h3>{{ 'confirmer.header'|trans({}, 'SyliusSandboxBundle') }}</h3>
+                <h3>Confirm your action</h3>
             </div>
             <div class="modal-body">
-                <p class="confirmer-modal-question">{{ 'confirmer.question'|trans({}, 'SyliusSandboxBundle') }}</p>
+                <p class="confirmer-modal-question">Are you sure about that?</p>
             </div>
             <div class="modal-footer">
-                <a class="confirmer-modal-confirm btn btn-primary">{{ 'yes'|trans({}, 'SyliusSandboxBundle') }}</a>
-                <a class="btn" data-dismiss="modal">{{ 'cancel'|trans({}, 'SyliusSandboxBundle') }}</a>
+                <a class="confirmer-modal-confirm btn btn-primary">yes</a>
+                <a class="btn" data-dismiss="modal">cancel</a>
             </div>
         </div>
         <div class="navbar navbar-fixed-top navbar-inverse">

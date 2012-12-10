@@ -5,9 +5,12 @@
 {% endblock %}
 
 {% block content %}
-<div class="well">
+<div class="well well-small">
 <a href="{{ path('sylius_sandbox_backend_option_create') }}" class="btn btn-primary">
     <i class="icon-plus icon-white"></i> create option
+</a>
+<a href="{{ path('sylius_sandbox_backend_property_list') }}" class="btn btn-success">
+    <i class="icon-table icon-white"></i> manage product properties
 </a>
 </div>
 
@@ -15,11 +18,11 @@
     <table class="table">
     <thead>
         <tr>
-            <th>#id</th>
-            <th>name</th>
+            <th>{{ sylius_resource_sort('id', '#id') }}</th>
+            <th>{{ sylius_resource_sort('name') }}</th>
+            <th>{{ sylius_resource_sort('presentation') }}</th>
             <th>values</th>
-            <th>created at</th>
-            <th>updated at</th>
+            <th>{{ sylius_resource_sort('updatedAt', 'last updated') }}</th>
             <th></th>
         </tr>
     </thead>
@@ -28,6 +31,7 @@
         <tr>
             <td>{{ option.id }}</td>
             <td>{{ option.name }}</td>
+            <td>{{ option.presentation }}</td>
             <td>
                 <ul>
                     {% for value in option.values %}
@@ -35,17 +39,16 @@
                     {% endfor %}
                 </ul>
             </td>
-            <td>{{ option.createdAt|date }}</td>
             <td>{{ option.updatedAt|date }}</td>
             <td>
                 <div class="btn-group pull-right">
                     <a href="{{ path('sylius_sandbox_backend_option_update', {'id': option.id}) }}" class="btn">
-                       <i class="icon-pencil"></i> {{ 'update'|trans({}, 'SyliusSandboxBundle') }}
+                       <i class="icon-pencil"></i> edit
                     </a>
                     <a href="{{ path('sylius_sandbox_backend_option_delete', {'id': option.id}) }}" class="btn btn-danger confirmer"
-                        data-confirmer-question="{{ 'confirmer.q.option.delete'|trans({}, 'SyliusSandboxBundle') }}"
+                        data-confirmer-question="Do you really want to delete <strong>{{ option.name }}</strong>?"
                     >
-                        <i class="icon-remove icon-white"></i> {{ 'delete'|trans({}, 'SyliusSandboxBundle') }}
+                        <i class="icon-trash icon-white"></i>
                     </a>
                 </div>
             </td>
@@ -55,7 +58,7 @@
 </table>
 {% else %}
 <div class="alert alert-info">
-    <h4 class="alert-heading">{{ 'alert.heading.info'|trans({}, 'SyliusSandboxBundle') }}.</h4>
+    <h4 class="alert-heading">Information</h4>
     There are no options to display.
 </div>
 {% endif %}

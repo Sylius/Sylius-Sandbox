@@ -7,6 +7,9 @@ sylius_sandbox_backend_option_list:
         _controller: sylius_assortment.controller.option:getCollectionAction
         _sylius.resource:
             template: SyliusSandboxBundle:Backend/Option:list.html.twig
+            sortable: true
+            sorting:
+                name: desc
 
 sylius_sandbox_backend_option_create:
     pattern: /create

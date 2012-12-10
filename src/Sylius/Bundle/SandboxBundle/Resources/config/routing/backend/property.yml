@@ -7,6 +7,9 @@ sylius_sandbox_backend_property_list:
         _controller: sylius_assortment.controller.property:getCollectionAction
         _sylius.resource:
             template: SyliusSandboxBundle:Backend/Property:list.html.twig
+            sortable: true
+            sorting:
+                name: desc
 
 sylius_sandbox_backend_property_create:
     pattern: /create
