@@ -1,0 +1,37 @@
+{% macro list(users) %}
+
+{% if users|length > 0 %}
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>{{ sylius_resource_sort('id', '#id') }}</th>
+            <th>{{ sylius_resource_sort('username') }}</th>
+            <th>{{ sylius_resource_sort('email') }}</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in users %}
+        <tr>
+            <td>{{ user.id }}</td>
+            <td>{{ user.username }}</td>
+            <td>{{ user.email }}</td>
+            <td>
+                <div class="btn-group pull-right">
+                    <a href="{{ path('sylius_sandbox_backend_user_show', {'id': user.id}) }}" class="btn">
+                        <i class="icon-book"></i> details
+                    </a>
+                </div>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<div class="alert alert-info">
+    <h4 class="alert-heading">Information</h4>
+    There are no users to display.
+</div>
+{% endif %}
+
+{% endmacro %}

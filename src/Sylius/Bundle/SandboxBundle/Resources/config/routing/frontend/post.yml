@@ -10,6 +10,8 @@ sylius_sandbox_post_list:
             paginate: 10
             criteria:
                 published: true
+            sorting:
+                createdAt: desc
 
 sylius_sandbox_post_show:
     pattern: /{slug}

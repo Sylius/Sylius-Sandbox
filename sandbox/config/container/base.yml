@@ -186,3 +186,10 @@ sylius_taxonomies:
             model: Sylius\Bundle\SandboxBundle\Entity\Taxonomy
         taxon:
             model: Sylius\Bundle\SandboxBundle\Entity\Taxon
+
+sylius_resource:
+    resources:
+        sylius_user.user:
+            driver: doctrine/orm
+            classes:
+                model: Sylius\Bundle\SandboxBundle\Entity\User

@@ -44,3 +44,7 @@ sylius_sandbox_backend_taxonomy:
 sylius_sandbox_backend_taxon:
     prefix: /taxons
     resource: @SyliusSandboxBundle/Resources/config/routing/backend/taxon.yml
+
+sylius_sandbox_backend_user:
+    prefix: /users
+    resource: @SyliusSandboxBundle/Resources/config/routing/backend/user.yml

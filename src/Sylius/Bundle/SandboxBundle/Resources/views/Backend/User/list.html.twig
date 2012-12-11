@@ -1,0 +1,28 @@
+{% extends 'SyliusSandboxBundle:Backend:layout.html.twig' %}
+
+{% import 'SyliusSandboxBundle:Backend/User:macros.html.twig' as macros %}
+
+{% block header %}
+    <h1>Users <small>List of all users registered in store</small></h1>
+{% endblock %}
+
+{% block content %}
+
+{{ sylius_resource_fetch_request(app.request) }}
+
+{% if paginator.haveToPaginate() %}
+{{ pagerfanta(paginator, 'twitter_bootstrap_translated') }}
+{% endif %}
+
+<ul class="nav nav-tabs">
+    <li><a href="{{ path('sylius_sandbox_backend_user_list') }}">show all users</a></li>
+    <li><a href="{{ path('sylius_sandbox_backend_user_list', {'criteria': {'enabled': false}}) }}"><span class="label label-important">&nbsp;!&nbsp;</span> unconfirmed users</a></li>
+</ul>
+
+{{ macros.list(users)  }}
+
+{% if paginator.haveToPaginate() %}
+{{ pagerfanta(paginator, 'twitter_bootstrap_translated') }}
+{% endif %}
+
+{% endblock %}

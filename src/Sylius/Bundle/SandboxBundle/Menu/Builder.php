@@ -42,11 +42,34 @@ class Builder extends ContainerAware
         $menu->setCurrent($this->container->get('request')->getRequestUri());
 
         $menu->addChild('Shop', array('route' => 'sylius_sandbox_core_frontend'));
-
         $menu->addChild('Products', array('route' => 'sylius_sandbox_product_list'));
-        $menu->addChild('Blog', array('route' => 'sylius_sandbox_post_list'));
-        $menu->addChild('About', array('route' => 'sylius_sandbox_about'));
 
+        $childOptions = array(
+            'attributes'         => array('class' => 'dropdown'),
+            'childrenAttributes' => array('class' => 'dropdown-menu'),
+            'labelAttributes'    => array('class' => 'dropdown-toggle', 'data-toggle' => 'dropdown', 'href' => '#')
+        );
+
+
+        $categoryManager = $this->container->get('sylius_categorizer.manager.category');
+        $blogCategories = $categoryManager->findCategories('blog');
+
+        $child = $menu->addChild('Blog', $childOptions);
+        $child->addChild('Latest posts', array('route' => 'sylius_sandbox_post_list'));
+        $this->addDivider($child);
+
+        foreach ($blogCategories as $category) {
+            $child->addChild($category->getName(), array(
+                'route'           => 'sylius_categorizer_category_show',
+                'routeParameters' => array(
+                    'alias' => 'blog',
+                    'slug'  => $category->getSlug()
+                ),
+                'labelAttributes' => array('icon' => 'icon-chevron-right')
+            ));
+        }
+
+        $menu->addChild('About', array('route' => 'sylius_sandbox_about'));
         $menu->addChild('My cart', array('route' => 'sylius_cart_show'));
 
         return $menu;
@@ -81,8 +104,6 @@ class Builder extends ContainerAware
             'labelAttributes' => array('icon' => 'icon-info-sign')
         ));
 
-        $categoryManager = $this->container->get('sylius_categorizer.manager.category');
-
         $child = $menu->addChild('Browse products', $childOptions);
 
         $child->addChild('All products', array(
@@ -105,20 +126,6 @@ class Builder extends ContainerAware
                     'labelAttributes' => array('icon' => ' icon-caret-right')
                 ));
             }
-        }
-
-        $blogCategories = $categoryManager->findCategories('blog');
-        $child = $menu->addChild('Blog', $childOptions);
-
-        foreach ($blogCategories as $category) {
-            $child->addChild($category->getName(), array(
-                'route'           => 'sylius_categorizer_category_show',
-                'routeParameters' => array(
-                    'alias' => 'blog',
-                    'slug'  => $category->getSlug()
-                ),
-                'labelAttributes' => array('icon' => 'icon-chevron-right')
-            ));
         }
 
         $child = $menu->addChild('My account', $childOptions);
@@ -177,8 +184,8 @@ class Builder extends ContainerAware
         $this->addTaxonomiesMenu($menu, $childOptions);
         $this->addAssortmentMenu($menu, $childOptions);
         $this->addSalesMenu($menu, $childOptions);
+        $this->addCustomersMenu($menu, $childOptions);
         $this->addBlogMenu($menu, $childOptions);
-        $this->addAddressingMenu($menu, $childOptions);
 
         $menu->addChild('Go to <strong>frontend</strong>', array('route' => 'sylius_sandbox_core_frontend'));
 
@@ -211,8 +218,7 @@ class Builder extends ContainerAware
         $this->addTaxonomiesMenu($menu, $childOptions);
         $this->addAssortmentMenu($menu, $childOptions);
         $this->addSalesMenu($menu, $childOptions);
-        $this->addBlogMenu($menu, $childOptions);
-        $this->addAddressingMenu($menu, $childOptions);
+        $this->addCustomersMenu($menu, $childOptions);
 
         $child = $menu->addChild('Administration', $childOptions);
         $child->addChild('Logout', array(
@@ -334,22 +340,26 @@ class Builder extends ContainerAware
     }
 
     /**
-     * Adds addressing menu.
+     * Adds customers menu.
      *
      * @param ItemInterface $menu
      * @param array         $childOptions
      */
-    protected function addAddressingMenu(ItemInterface $menu, array $childOptions)
+    protected function addCustomersMenu(ItemInterface $menu, array $childOptions)
     {
-        $child = $menu->addChild('Address book', $childOptions);
+        $child = $menu->addChild('Customers', $childOptions);
 
-        $child->addChild('Create address', array(
+        $child->addChild('Address book', array(
+            'route' => 'sylius_sandbox_backend_address_list',
+            'labelAttributes' => array('icon' => 'icon-list-alt')
+        ));
+        $child->addChild('New address', array(
             'route' => 'sylius_sandbox_backend_address_create',
             'labelAttributes' => array('icon' => 'icon-plus-sign')
         ));
-        $child->addChild('List addresses', array(
-            'route' => 'sylius_sandbox_backend_address_list',
-            'labelAttributes' => array('icon' => 'icon-list-alt')
+        $child->addChild('User list', array(
+            'route' => 'sylius_sandbox_backend_user_list',
+            'labelAttributes' => array('icon' => 'icon-user')
         ));
     }
 

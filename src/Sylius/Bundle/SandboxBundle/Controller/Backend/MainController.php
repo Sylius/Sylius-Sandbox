@@ -37,14 +37,26 @@ class MainController extends Controller
             ->findBy(array(), array('total' => 'desc'), 5)
         ;
 
+
+        $newestUsers = $this
+            ->getUserRepository()
+            ->findBy(array(), array('id' => 'desc'), 10)
+        ;
+
         return $this->render('SyliusSandboxBundle:Backend/Main:index.html.twig', array(
             'recentOrders' => $recentOrders,
-            'topOrders'    => $topOrders
+            'topOrders'    => $topOrders,
+            'newestUsers'  => $newestUsers
         ));
     }
 
     private function getOrderRepository()
     {
         return $this->get('sylius_sales.repository.order');
+    }
+
+    private function getUserRepository()
+    {
+        return $this->get('sylius_user.repository.user');
     }
 }

@@ -2,10 +2,12 @@
 
 {% block content %}
 <div class="alert alert-info">
-    <h4 class="alert-heading">{{ 'alert.heading.info'|trans({}, 'SyliusSandboxBundle') }}.</h4>
+    <h4 class="alert-heading">Information</h4>
     There are no new notifications.
 </div>
 
 {% include 'SyliusSandboxBundle:Backend/Order:_summary.html.twig' %}
+
+{% include 'SyliusSandboxBundle:Backend/User:_summary.html.twig' %}
 
 {% endblock %}

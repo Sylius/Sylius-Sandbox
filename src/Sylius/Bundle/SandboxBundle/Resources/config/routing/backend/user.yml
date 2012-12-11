@@ -1,0 +1,27 @@
+# This file is part of the Sylius sandbox application.
+# (c) Paweł Jędrzejewski
+
+sylius_sandbox_backend_user_list:
+    pattern: /list
+    defaults:
+        _controller: sylius_user.controller.user:getCollectionAction
+        _sylius.resource:
+            template: SyliusSandboxBundle:Backend/User:list.html.twig
+            filterable: true
+            sortable: true
+            sorting:
+                id: desc
+
+sylius_sandbox_backend_user_delete:
+    pattern: /{id}/delete
+    defaults:
+        _controller: sylius_user.controller.user:deleteAction
+        _sylius.resource:
+            redirect: sylius_sandbox_backend_user_list
+
+sylius_sandbox_backend_user_show:
+    pattern: /{id}
+    defaults:
+        _controller: sylius_user.controller.user:getAction
+        _sylius.resource:
+            template: SyliusSandboxBundle:Backend/User:show.html.twig
