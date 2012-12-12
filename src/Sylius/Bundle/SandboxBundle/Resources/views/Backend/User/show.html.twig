@@ -1,8 +1,45 @@
 {% extends 'SyliusSandboxBundle:Backend:layout.html.twig' %}
 
 {% block header %}
-    <h1>User details</h1>
+    <h1>User details <small>{{ user.username }}</small></h1>
 {% endblock %}
 
 {% block content %}
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th colspan="2">User details for {{ user.username }}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><strong>#id</strong></td>
+            <td>{{ user.id }}</td>
+        </tr>
+        <tr>
+            <td><strong>username</strong></td>
+            <td>{{ user.username }}</td>
+        </tr>
+        <tr>
+            <td><strong>email</strong></td>
+            <td>{{ user.email }}</td>
+        </tr>
+        <tr>
+            <td><strong>enabled</strong></td>
+            <td>
+            {% if user.enabled %}
+                <span class="label label-success">yes</span>
+            {% else %}
+                <span class="label label-warning">no</span>
+            {% endif %}
+            </td>
+        </tr>
+        {% if user.lastLogin %}
+        <tr>
+            <td><strong>last login</strong></td>
+            <td>{{ user.lastLogin|date('d.m.Y, H:i:s') }}</td>
+        </tr>
+        {% endif %}
+    </tbody>
+</table>
 {% endblock %}
