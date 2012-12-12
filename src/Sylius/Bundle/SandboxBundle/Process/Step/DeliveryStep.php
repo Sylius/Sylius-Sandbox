@@ -19,10 +19,10 @@ class DeliveryStep extends ContainerAwareStep
      */
     public function displayAction(ProcessContextInterface $context)
     {
-        $address = $context->getStorage()->get('delivery.address');
+        $address = $this->getAddress($context->getStorage()->get('delivery.address'));
         $form = $this->createAddressForm($address);
 
-        return $this->container->get('templating')->renderResponse('SyliusSandboxBundle:Process/Checkout/Step:delivery.html.twig', array(
+        return $this->container->get('templating')->renderResponse('SyliusSandboxBundle:Frontend/Checkout/Step:delivery.html.twig', array(
             'form'    => $form->createView(),
             'context' => $context
         ));
@@ -37,16 +37,33 @@ class DeliveryStep extends ContainerAwareStep
         $form = $this->createAddressForm();
 
         if ($request->isMethod('POST') && $form->bindRequest($request)->isValid()) {
-            $context->getStorage()->set('delivery.address', $form->getData());
-            $context->complete();
+            $address = $form->getData();
+            $this->saveAddress($address);
 
-            return;
+            $context->getStorage()->set('delivery.address', $address->getId());
+
+            return $this->complete();
         }
 
-        return $this->container->get('templating')->renderResponse('SyliusSandboxBundle:Process/Checkout/Step:delivery.html.twig', array(
+        return $this->container->get('templating')->renderResponse('SyliusSandboxBundle:Frontend/Checkout/Step:delivery.html.twig', array(
             'form'    => $form->createView(),
             'context' => $context
         ));
+    }
+
+    private function saveAddress(AddressInterface $address)
+    {
+        $addressManager = $this->container->get('sylius_addressing.manager.address');
+
+        $addressManager->persist($address);
+        $addressManager->flush($address);
+    }
+
+    private function getAddress($id)
+    {
+        $addressRepository = $this->container->get('sylius_addressing.repository.address');
+
+        return $addressRepository->find($id);
     }
 
     private function createAddressForm(AddressInterface $address = null)

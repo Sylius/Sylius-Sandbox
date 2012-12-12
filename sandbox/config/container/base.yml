@@ -155,22 +155,15 @@ sylius_sales:
     driver: doctrine/orm
     builder: sylius_sandbox.builder.order
     classes:
-        model:
-            order: Sylius\Bundle\SandboxBundle\Entity\Order
-            item: Sylius\Bundle\SandboxBundle\Entity\OrderItem
-        form:
-            type:
-                order: Sylius\Bundle\SandboxBundle\Form\Type\OrderType
-                item: Sylius\Bundle\SandboxBundle\Form\Type\OrderItemType
+        order:
+            model: Sylius\Bundle\SandboxBundle\Entity\Order
+            form: Sylius\Bundle\SandboxBundle\Form\Type\OrderType
+        item:
+            model: Sylius\Bundle\SandboxBundle\Entity\OrderItem
+            form: Sylius\Bundle\SandboxBundle\Form\Type\OrderItemType
 
 sylius_addressing:
     driver: doctrine/orm
-    classes:
-        model:
-            address: Sylius\Bundle\SandboxBundle\Entity\Address
-        form:
-            type:
-                address: Sylius\Bundle\AddressingBundle\Form\Type\CommonAddressType
 
 sylius_inventory:
     driver: doctrine/orm

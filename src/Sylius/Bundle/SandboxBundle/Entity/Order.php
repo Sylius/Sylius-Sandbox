@@ -16,6 +16,7 @@ use Doctrine\Common\Collections\Collection;
 use FOS\UserBundle\Model\UserInterface;
 use Sylius\Bundle\AddressingBundle\Model\AddressInterface;
 use Sylius\Bundle\SalesBundle\Entity\Order as BaseOrder;
+use Symfony\Component\Validator\Constraints as Assert;
 
 class Order extends BaseOrder
 {
@@ -23,6 +24,8 @@ class Order extends BaseOrder
      * Delivery address.
      *
      * @var AddressInterface
+     *
+     * @Assert\Valid
      */
     private $deliveryAddress;
 
@@ -30,6 +33,8 @@ class Order extends BaseOrder
      * Billing address.
      *
      * @var AddressInterface
+     *
+     * @Assert\Valid
      */
     private $billingAddress;
 

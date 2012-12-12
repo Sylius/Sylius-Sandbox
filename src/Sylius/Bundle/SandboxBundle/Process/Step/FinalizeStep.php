@@ -20,7 +20,7 @@ class FinalizeStep extends ContainerAwareStep
     {
         $order = $this->prepareOrder($context);
 
-        return $this->container->get('templating')->renderResponse('SyliusSandboxBundle:Process/Checkout/Step:finalize.html.twig', array(
+        return $this->container->get('templating')->renderResponse('SyliusSandboxBundle:Frontend/Checkout/Step:finalize.html.twig', array(
             'context' => $context,
             'order'   => $order
         ));
@@ -41,7 +41,7 @@ class FinalizeStep extends ContainerAwareStep
 
         $this->container->get('session')->setFlash('success', 'Your order has been saved, thank you!');
 
-        $context->complete();
+        return $this->complete();
     }
 
     public function save(OrderInterface $order)
@@ -62,8 +62,8 @@ class FinalizeStep extends ContainerAwareStep
     {
         $order = $this->container->get('sylius_sales.repository.order')->createNew();
 
-        $deliveryAddress = $context->getStorage()->get('delivery.address');
-        $billingAddress = $context->getStorage()->get('billing.address');
+        $deliveryAddress = $this->getAddress($context->getStorage()->get('delivery.address'));
+        $billingAddress = $this->getAddress($context->getStorage()->get('billing.address'));
 
         $order->setDeliveryAddress($deliveryAddress);
         $order->setBillingAddress($billingAddress);
@@ -72,5 +72,12 @@ class FinalizeStep extends ContainerAwareStep
         $orderBuilder->build($order);
 
         return $order;
+    }
+
+    private function getAddress($id)
+    {
+        $addressRepository = $this->container->get('sylius_addressing.repository.address');
+
+        return $addressRepository->find($id);
     }
 }

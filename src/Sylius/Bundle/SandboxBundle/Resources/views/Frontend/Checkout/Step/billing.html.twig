@@ -5,16 +5,11 @@
 <h1>Billing <small>Please select payment method you prefer</small></h1>
 </div>
 
-{% include 'SyliusSandboxBundle:Process/Checkout/Step:_progressBar.html.twig' %}
+{% include 'SyliusSandboxBundle:Frontend/Checkout:_progressBar.html.twig' %}
 
 <form method="post" action="{{ path('sylius_sandbox_checkout_forward', {'stepName': context.currentStep.name}) }}" class="form-horizontal" novalidate>
 <fieldset>
-    {{ form_row(form.firstname, {'attr': {'class': 'span6'}}) }}
-    {{ form_row(form.lastname, {'attr': {'class': 'span6'}}) }}
-    {{ form_row(form.city, {'attr': {'class': 'span5'}}) }}
-    {{ form_row(form.street, {'attr': {'class': 'span5'}}) }}
-    {{ form_row(form.postcode, {'attr': {'class': 'span3'}}) }}
-    {{ form_rest(form) }}
+    {% include 'SyliusSandboxBundle:Form:_address.html.twig' %}
 </fieldset>
 <div class="form-actions">
     <a href="{{ path('sylius_sandbox_checkout_display', {'stepName': context.previousStep.name}) }}" class="btn btn-large">back</a> &nbsp;

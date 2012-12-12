@@ -32,6 +32,21 @@ class SyliusSandboxKernel extends Kernel
     public function registerBundles()
     {
         $bundles = array(
+
+            /*
+             * Sylius bundles.
+             */
+            new Sylius\Bundle\AddressingBundle\SyliusAddressingBundle(),
+            new Sylius\Bundle\AssortmentBundle\SyliusAssortmentBundle(),
+            new Sylius\Bundle\CartBundle\SyliusCartBundle(),
+            new Sylius\Bundle\CategorizerBundle\SyliusCategorizerBundle(),
+            new Sylius\Bundle\FlowBundle\SyliusFlowBundle(),
+            new Sylius\Bundle\InventoryBundle\SyliusInventoryBundle(),
+            new Sylius\Bundle\ResourceBundle\SyliusResourceBundle(),
+            new Sylius\Bundle\SalesBundle\SyliusSalesBundle(),
+            new Sylius\Bundle\BloggerBundle\SyliusBloggerBundle(),
+            new Sylius\Bundle\TaxonomiesBundle\SyliusTaxonomiesBundle(),
+
             new Avalanche\Bundle\ImagineBundle\AvalancheImagineBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
@@ -51,20 +66,6 @@ class SyliusSandboxKernel extends Kernel
             new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
             new Symfony\Bundle\TwigBundle\TwigBundle(),
             new WhiteOctober\PagerfantaBundle\WhiteOctoberPagerfantaBundle(),
-
-            /*
-             * Sylius bundles.
-             */
-            new Sylius\Bundle\AddressingBundle\SyliusAddressingBundle(),
-            new Sylius\Bundle\AssortmentBundle\SyliusAssortmentBundle(),
-            new Sylius\Bundle\CartBundle\SyliusCartBundle(),
-            new Sylius\Bundle\CategorizerBundle\SyliusCategorizerBundle(),
-            new Sylius\Bundle\FlowBundle\SyliusFlowBundle(),
-            new Sylius\Bundle\InventoryBundle\SyliusInventoryBundle(),
-            new Sylius\Bundle\ResourceBundle\SyliusResourceBundle(),
-            new Sylius\Bundle\SalesBundle\SyliusSalesBundle(),
-            new Sylius\Bundle\BloggerBundle\SyliusBloggerBundle(),
-            new Sylius\Bundle\TaxonomiesBundle\SyliusTaxonomiesBundle(),
 
             /*
              * Sandbox specific bundles.

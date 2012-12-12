@@ -8,24 +8,27 @@
             "source": {
                 "type": "git",
                 "url": "git://github.com/avalanche123/AvalancheImagineBundle.git",
-                "reference": "v2.1"
+                "reference": "v2.1.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/avalanche123/AvalancheImagineBundle/archive/v2.1.zip",
-                "reference": "v2.1",
+                "url": "https://github.com/avalanche123/AvalancheImagineBundle/archive/v2.1.1.zip",
+                "reference": "v2.1.1",
                 "shasum": ""
             },
             "require": {
                 "symfony/framework-bundle": "2.*",
-                "imagine/imagine": "v0.3.0"
+                "imagine/imagine": "v0.4.0"
+            },
+            "require-dev": {
+                "makasim/temp-file": "dev-master"
             },
             "suggest": {
                 "symfony/twig-bundle": "2.*"
             },
-            "time": "2012-11-15 18:54:56",
+            "time": "2012-12-10 18:29:37",
             "type": "symfony-bundle",
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "Avalanche\\Bundle\\ImagineBundle": ""
@@ -185,20 +188,29 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/data-fixtures.git",
-                "reference": "a28b6bde290b0a908d32938e3393244086c2d89d"
+                "reference": "84cd1ca060e06bf5eb7066adb334adea4bf29fe7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/doctrine/data-fixtures/archive/a28b6bde290b0a908d32938e3393244086c2d89d.zip",
-                "reference": "a28b6bde290b0a908d32938e3393244086c2d89d",
+                "url": "https://github.com/doctrine/data-fixtures/archive/84cd1ca060e06bf5eb7066adb334adea4bf29fe7.zip",
+                "reference": "84cd1ca060e06bf5eb7066adb334adea4bf29fe7",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.2"
+                "php": ">=5.3.2",
+                "doctrine/common": ">=2.2,<2.5-dev"
             },
-            "time": "2012-11-22 04:04:25",
+            "require-dev": {
+                "doctrine/orm": ">=2.2,<2.5-dev"
+            },
+            "suggest": {
+                "doctrine/orm": "For loading ORM fixtures",
+                "doctrine/mongodb-odm": "For loading MongoDB ODM fixtures",
+                "doctrine/phpcr-odm": "For loading PHPCR ODM fixtures"
+            },
+            "time": "2012-12-03 09:46:47",
             "type": "library",
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "Doctrine\\Common\\DataFixtures": "lib/"
@@ -227,26 +239,26 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal",
-                "reference": "22a30c9cece379eab619727c83e1859288f32f89"
+                "reference": "f63af1948a609a96b8ea1c1302c7cdf2f9f51468"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/doctrine/dbal/archive/22a30c9cece379eab619727c83e1859288f32f89.zip",
-                "reference": "22a30c9cece379eab619727c83e1859288f32f89",
+                "url": "https://github.com/doctrine/dbal/archive/f63af1948a609a96b8ea1c1302c7cdf2f9f51468.zip",
+                "reference": "f63af1948a609a96b8ea1c1302c7cdf2f9f51468",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.2",
                 "doctrine/common": "2.3.*"
             },
-            "time": "2012-11-25 18:03:29",
+            "time": "2012-12-04 21:06:56",
             "type": "library",
             "extra": {
                 "branch-alias": {
                     "dev-master": "2.3.x-dev"
                 }
             },
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "Doctrine\\DBAL": "lib/"
@@ -292,12 +304,12 @@
             "source": {
                 "type": "git",
                 "url": "git://github.com/doctrine/DoctrineBundle.git",
-                "reference": "ac854d9452272d43b80a9043e0f33c2b9dd2cdd5"
+                "reference": "2991d0dfa58a5583d9231c490750e29c45b0a6e9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/doctrine/DoctrineBundle/archive/ac854d9452272d43b80a9043e0f33c2b9dd2cdd5.zip",
-                "reference": "ac854d9452272d43b80a9043e0f33c2b9dd2cdd5",
+                "url": "https://github.com/doctrine/DoctrineBundle/archive/2991d0dfa58a5583d9231c490750e29c45b0a6e9.zip",
+                "reference": "2991d0dfa58a5583d9231c490750e29c45b0a6e9",
                 "shasum": ""
             },
             "require": {
@@ -315,14 +327,14 @@
             "suggest": {
                 "doctrine/orm": "The Doctrine ORM integration is optional in the bundle."
             },
-            "time": "2012-11-21 09:23:38",
+            "time": "2012-12-11 09:53:45",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
                     "dev-master": "1.0.x-dev"
                 }
             },
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "Doctrine\\Bundle\\DoctrineBundle": ""
@@ -525,12 +537,12 @@
             "source": {
                 "type": "git",
                 "url": "git://github.com/doctrine/doctrine2.git",
-                "reference": "4bb6ff637c9312c05562928fb67fb439809de73b"
+                "reference": "df1336dd262faf40d5a343c1d21cbbc4aa8192d9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/doctrine/doctrine2/archive/4bb6ff637c9312c05562928fb67fb439809de73b.zip",
-                "reference": "4bb6ff637c9312c05562928fb67fb439809de73b",
+                "url": "https://github.com/doctrine/doctrine2/archive/df1336dd262faf40d5a343c1d21cbbc4aa8192d9.zip",
+                "reference": "df1336dd262faf40d5a343c1d21cbbc4aa8192d9",
                 "shasum": ""
             },
             "require": {
@@ -542,7 +554,7 @@
             "suggest": {
                 "symfony/yaml": "If you want to use YAML Metadata Mapping Driver"
             },
-            "time": "2012-11-30 20:43:49",
+            "time": "2012-12-04 12:29:01",
             "bin": [
                 "bin/doctrine",
                 "bin/doctrine.php"
@@ -553,7 +565,7 @@
                     "dev-master": "2.4.x-dev"
                 }
             },
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "Doctrine\\ORM\\": "lib/"
@@ -724,12 +736,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSRestBundle",
-                "reference": "826c0f90e1f135a030b801deafabaf90b23741bb"
+                "reference": "4601376e17460b1078f20a2def31e31e39d0edad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/FriendsOfSymfony/FOSRestBundle/archive/826c0f90e1f135a030b801deafabaf90b23741bb.zip",
-                "reference": "826c0f90e1f135a030b801deafabaf90b23741bb",
+                "url": "https://github.com/FriendsOfSymfony/FOSRestBundle/archive/4601376e17460b1078f20a2def31e31e39d0edad.zip",
+                "reference": "4601376e17460b1078f20a2def31e31e39d0edad",
                 "shasum": ""
             },
             "require": {
@@ -738,25 +750,25 @@
                 "friendsofsymfony/rest": ">=0.7.0,<0.9.0-dev"
             },
             "require-dev": {
-                "symfony/form": ">=2.0,<2.3-dev",
-                "symfony/yaml": ">=2.0,<2.3-dev",
-                "sensio/framework-extra-bundle": ">=2.0,<2.3-dev",
-                "symfony/security": ">=2.0,<2.3-dev",
-                "jms/serializer-bundle": ">=0.9,<=0.10"
+                "sensio/framework-extra-bundle": ">=2.1,<2.3-dev",
+                "symfony/form": ">=2.1,<2.3-dev",
+                "symfony/yaml": ">=2.1,<2.3-dev",
+                "symfony/security": ">=2.1,<2.3-dev",
+                "jms/serializer-bundle": "1.0.*"
             },
             "suggest": {
-                "sensio/framework-extra-bundle": "Add support for route annotations",
-                "jms/serializer-bundle": "Add support for advanced serialization capabilities, recommended, requires >=0.9,<=0.10",
-                "symfony/serializer": "Add support for basic serialization capabilities, requires >=2.0,<2.3-dev"
+                "symfony/serializer": "Add support for basic serialization capabilities, requires >=2.0,<2.3-dev",
+                "sensio/framework-extra-bundle": "Add support for route annotations and the view response listener",
+                "jms/serializer-bundle": "Add support for advanced serialization capabilities, recommended, requires 1.0.*"
             },
-            "time": "2012-12-01 18:05:36",
+            "time": "2012-12-11 13:24:09",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.10.x-dev"
+                    "dev-master": "0.11.x-dev"
                 }
             },
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "FOS\\RestBundle": ""
@@ -794,12 +806,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSUserBundle",
-                "reference": "f6eec68194b2b079f12d0663fefe7e6970f36bb3"
+                "reference": "6d1fe1bad7621e618a379aebc45b36e080e7eca8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/FriendsOfSymfony/FOSUserBundle/archive/f6eec68194b2b079f12d0663fefe7e6970f36bb3.zip",
-                "reference": "f6eec68194b2b079f12d0663fefe7e6970f36bb3",
+                "url": "https://github.com/FriendsOfSymfony/FOSUserBundle/archive/6d1fe1bad7621e618a379aebc45b36e080e7eca8.zip",
+                "reference": "6d1fe1bad7621e618a379aebc45b36e080e7eca8",
                 "shasum": ""
             },
             "require": {
@@ -820,14 +832,14 @@
                 "doctrine/doctrine-bundle": "*",
                 "doctrine/mongodb-odm-bundle": "*"
             },
-            "time": "2012-11-29 22:05:17",
+            "time": "2012-12-11 10:26:01",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
                     "dev-master": "2.0.x-dev"
                 }
             },
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "FOS\\UserBundle": ""
@@ -864,25 +876,25 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker",
-                "reference": "70c116bc33b4d429288f69abf3b0b3834af5a284"
+                "reference": "9fc08f1d454b55b3236c4a4eb4d9e6df9ebee37a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/fzaninotto/Faker/archive/70c116bc33b4d429288f69abf3b0b3834af5a284.zip",
-                "reference": "70c116bc33b4d429288f69abf3b0b3834af5a284",
+                "url": "https://github.com/fzaninotto/Faker/archive/9fc08f1d454b55b3236c4a4eb4d9e6df9ebee37a.zip",
+                "reference": "9fc08f1d454b55b3236c4a4eb4d9e6df9ebee37a",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
             },
-            "time": "2012-11-26 15:39:12",
+            "time": "2012-12-12 08:01:27",
             "type": "library",
             "extra": {
                 "branch-alias": {
                     "dev-master": "1.1.x-dev"
                 }
             },
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "Faker": "src/"
@@ -910,12 +922,12 @@
             "source": {
                 "type": "git",
                 "url": "git://github.com/l3pp4rd/DoctrineExtensions.git",
-                "reference": "b62943d0629acda07e4faca7b0b3f6d6b1870807"
+                "reference": "935223ab4d30d34ddc0df3d0ab5753fe971e0847"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/l3pp4rd/DoctrineExtensions/archive/b62943d0629acda07e4faca7b0b3f6d6b1870807.zip",
-                "reference": "b62943d0629acda07e4faca7b0b3f6d6b1870807",
+                "url": "https://github.com/l3pp4rd/DoctrineExtensions/archive/935223ab4d30d34ddc0df3d0ab5753fe971e0847.zip",
+                "reference": "935223ab4d30d34ddc0df3d0ab5753fe971e0847",
                 "shasum": ""
             },
             "require": {
@@ -926,14 +938,14 @@
                 "doctrine/orm": ">=2.1",
                 "doctrine/mongodb-odm": "*"
             },
-            "time": "2012-11-29 19:40:27",
+            "time": "2012-12-08 16:34:20",
             "type": "library",
             "extra": {
                 "branch-alias": {
                     "dev-master": "2.3.x-dev"
                 }
             },
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "Gedmo": "lib/"
@@ -967,16 +979,16 @@
         },
         {
             "name": "imagine/Imagine",
-            "version": "v0.3.0",
+            "version": "v0.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/avalanche123/Imagine",
-                "reference": "v0.3.0"
+                "reference": "v0.4.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/avalanche123/Imagine/zipball/v0.3.0",
-                "reference": "v0.3.0",
+                "url": "https://github.com/avalanche123/Imagine/archive/v0.4.0.zip",
+                "reference": "v0.4.0",
                 "shasum": ""
             },
             "require": {
@@ -985,7 +997,7 @@
             "require-dev": {
                 "sami/sami": "dev-master"
             },
-            "time": "2012-07-28 17:35:18",
+            "time": "2012-11-21 15:08:19",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -1165,12 +1177,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmittjoh/JMSDiExtraBundle",
-                "reference": "1639056c527dab2f39ac1dcac51617bbe9751e13"
+                "reference": "87f537b12b8f1f5b0926aed99513998356727386"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/schmittjoh/JMSDiExtraBundle/archive/1639056c527dab2f39ac1dcac51617bbe9751e13.zip",
-                "reference": "1639056c527dab2f39ac1dcac51617bbe9751e13",
+                "url": "https://github.com/schmittjoh/JMSDiExtraBundle/archive/87f537b12b8f1f5b0926aed99513998356727386.zip",
+                "reference": "87f537b12b8f1f5b0926aed99513998356727386",
                 "shasum": ""
             },
             "require": {
@@ -1178,7 +1190,6 @@
                 "symfony/process": ">=2.1.0,<2.3-dev",
                 "symfony/finder": ">=2.1.0,<2.3-dev",
                 "jms/aop-bundle": ">=1.0.0,<1.2-dev",
-                "phpcollection/phpcollection": "0.1.*@dev",
                 "jms/metadata": "1.*"
             },
             "require-dev": {
@@ -1192,16 +1203,17 @@
                 "symfony/twig-bundle": "*",
                 "sensio/framework-extra-bundle": "*",
                 "doctrine/doctrine-bundle": "*",
-                "doctrine/orm": "*"
+                "doctrine/orm": "*",
+                "phpcollection/phpcollection": "0.1.*@dev"
             },
-            "time": "2012-11-30 15:57:49",
+            "time": "2012-12-07 15:02:48",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
                     "dev-master": "1.3-dev"
                 }
             },
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "JMS\\DiExtraBundle": ""
@@ -1215,7 +1227,7 @@
                 {
                     "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "http://jmsyst.com",
+                    "homepage": "https://github.com/schmittjoh",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -1324,12 +1336,12 @@
             "source": {
                 "type": "git",
                 "url": "git://github.com/schmittjoh/serializer",
-                "reference": "5cead4683d8568494bc453ce32112d86a774cdbb"
+                "reference": "8208d71dd8e64f13fc1930b922c7957683009aaf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/schmittjoh/serializer/archive/5cead4683d8568494bc453ce32112d86a774cdbb.zip",
-                "reference": "5cead4683d8568494bc453ce32112d86a774cdbb",
+                "url": "https://github.com/schmittjoh/serializer/archive/8208d71dd8e64f13fc1930b922c7957683009aaf.zip",
+                "reference": "8208d71dd8e64f13fc1930b922c7957683009aaf",
                 "shasum": ""
             },
             "require": {
@@ -1351,14 +1363,14 @@
             "suggest": {
                 "symfony/yaml": "Required if you'd like to serialize data to YAML format."
             },
-            "time": "2012-12-02 08:23:41",
+            "time": "2012-12-11 15:09:41",
             "type": "library",
             "extra": {
                 "branch-alias": {
                     "dev-master": "1.0-dev"
                 }
             },
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "JMS\\Serializer": "src/"
@@ -1372,7 +1384,7 @@
                 {
                     "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "https://github.com/schmittjoh",
+                    "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -1393,12 +1405,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmittjoh/JMSSerializerBundle.git",
-                "reference": "28e1737c58c20f361ced291ea5ed9ae938106736"
+                "reference": "3b6d16508b7c743bf4f492ceac4bf458d4398a1b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/schmittjoh/JMSSerializerBundle/archive/28e1737c58c20f361ced291ea5ed9ae938106736.zip",
-                "reference": "28e1737c58c20f361ced291ea5ed9ae938106736",
+                "url": "https://github.com/schmittjoh/JMSSerializerBundle/archive/3b6d16508b7c743bf4f492ceac4bf458d4398a1b.zip",
+                "reference": "3b6d16508b7c743bf4f492ceac4bf458d4398a1b",
                 "shasum": ""
             },
             "require": {
@@ -1423,14 +1435,14 @@
             "suggest": {
                 "symfony/yaml": "Required if you'd like to serialize content to YAML format."
             },
-            "time": "2012-12-01 18:00:33",
+            "time": "2012-12-11 16:58:05",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
                     "dev-master": "1.0-dev"
                 }
             },
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "JMS\\SerializerBundle": ""
@@ -1444,7 +1456,7 @@
                 {
                     "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "https://github.com/schmittjoh",
+                    "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -1711,12 +1723,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog",
-                "reference": "b23cfd3d6ce0b6c050dda723040b83a1a6d7637e"
+                "reference": "546225bed27bea7d00b836e0f7d8954272e0cf42"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/Seldaek/monolog/archive/b23cfd3d6ce0b6c050dda723040b83a1a6d7637e.zip",
-                "reference": "b23cfd3d6ce0b6c050dda723040b83a1a6d7637e",
+                "url": "https://github.com/Seldaek/monolog/archive/546225bed27bea7d00b836e0f7d8954272e0cf42.zip",
+                "reference": "546225bed27bea7d00b836e0f7d8954272e0cf42",
                 "shasum": ""
             },
             "require": {
@@ -1730,14 +1742,14 @@
                 "ext-amqp": "Allow sending log messages to an AMQP server (1.0+ required)",
                 "ext-mongo": "Allow sending log messages to a MongoDB server"
             },
-            "time": "2012-11-14 15:46:10",
+            "time": "2012-12-04 11:59:29",
             "type": "library",
             "extra": {
                 "branch-alias": {
                     "dev-master": "1.3.x-dev"
                 }
             },
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "Monolog": "src/"
@@ -1769,12 +1781,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phiamo/MopaBootstrapBundle.git",
-                "reference": "14f7ae2da4723c77b6b383b2751d15cafca5d8e1"
+                "reference": "1efa1d9616b49ea87d6c0be4e8be9081c4163366"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/phiamo/MopaBootstrapBundle/archive/14f7ae2da4723c77b6b383b2751d15cafca5d8e1.zip",
-                "reference": "14f7ae2da4723c77b6b383b2751d15cafca5d8e1",
+                "url": "https://github.com/phiamo/MopaBootstrapBundle/archive/1efa1d9616b49ea87d6c0be4e8be9081c4163366.zip",
+                "reference": "1efa1d9616b49ea87d6c0be4e8be9081c4163366",
                 "shasum": ""
             },
             "require": {
@@ -1786,16 +1798,16 @@
                 "craue/formflow-bundle": "dev-master",
                 "twitter/bootstrap": "2.0.*",
                 "knplabs/knp-menu-bundle": "1.1.*",
-                "thomas-mcdonald/bootstrap-sass": "dev-master"
+                "jlong/sass-twitter-bootstrap": "dev-master"
             },
-            "time": "2012-11-06 08:52:05",
+            "time": "2012-12-02 18:36:50",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
                     "dev-master": "2.1.x-dev"
                 }
             },
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "Mopa\\Bundle\\BootstrapBundle": ""
@@ -1831,12 +1843,12 @@
             "source": {
                 "type": "git",
                 "url": "git://github.com/phiamo/MopaComposerBridge.git",
-                "reference": "e07e6f3a3c922c70892590048b7ded72f525e547"
+                "reference": "v1.0.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/phiamo/MopaComposerBridge/archive/e07e6f3a3c922c70892590048b7ded72f525e547.zip",
-                "reference": "e07e6f3a3c922c70892590048b7ded72f525e547",
+                "url": "https://github.com/phiamo/MopaComposerBridge/archive/v1.0.0.zip",
+                "reference": "v1.0.0",
                 "shasum": ""
             },
             "require": {
@@ -1844,7 +1856,7 @@
             },
             "time": "2012-10-11 18:29:49",
             "type": "symfony-bridge",
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "Mopa\\Bridge\\Composer": "src/"
@@ -1976,25 +1988,25 @@
             "source": {
                 "type": "git",
                 "url": "git://github.com/schmittjoh/php-option",
-                "reference": "b9c60ebf8242cf409d8734b6a757ba0ce1691493"
+                "reference": "7c3d959ac1ab7677cca6463dbb7d443ef9eea8ed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/schmittjoh/php-option/archive/b9c60ebf8242cf409d8734b6a757ba0ce1691493.zip",
-                "reference": "b9c60ebf8242cf409d8734b6a757ba0ce1691493",
+                "url": "https://github.com/schmittjoh/php-option/archive/7c3d959ac1ab7677cca6463dbb7d443ef9eea8ed.zip",
+                "reference": "7c3d959ac1ab7677cca6463dbb7d443ef9eea8ed",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.0"
             },
-            "time": "2012-11-18 14:14:12",
+            "time": "2012-12-07 09:34:13",
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0-dev"
+                    "dev-master": "1.1-dev"
                 }
             },
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "PhpOption\\": "src/"
@@ -2074,12 +2086,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensio/SensioFrameworkExtraBundle",
-                "reference": "v2.1.4"
+                "reference": "v2.1.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/sensio/SensioFrameworkExtraBundle/archive/v2.1.4.zip",
-                "reference": "v2.1.4",
+                "url": "https://github.com/sensio/SensioFrameworkExtraBundle/archive/v2.1.3.zip",
+                "reference": "v2.1.3",
                 "shasum": ""
             },
             "require": {
@@ -2093,7 +2105,7 @@
                     "dev-master": "2.1.x-dev"
                 }
             },
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "Sensio\\Bundle\\FrameworkExtraBundle": ""
@@ -2235,27 +2247,26 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/SyliusAddressingBundle.git",
-                "reference": "09747a4432637d74d566f922c3806518af129708"
+                "reference": "a6c659e25177380ce587f3f365d5b8f8956bf79e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/Sylius/SyliusAddressingBundle/archive/09747a4432637d74d566f922c3806518af129708.zip",
-                "reference": "09747a4432637d74d566f922c3806518af129708",
+                "url": "https://github.com/Sylius/SyliusAddressingBundle/archive/a6c659e25177380ce587f3f365d5b8f8956bf79e.zip",
+                "reference": "a6c659e25177380ce587f3f365d5b8f8956bf79e",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.2",
                 "stof/doctrine-extensions-bundle": "*",
-                "white-october/pagerfanta-bundle": "*",
                 "symfony/framework-bundle": ">=2.1,<3.0",
                 "sylius/resource-bundle": "*"
             },
             "require-dev": {
-                "phpspec/phpspec2": "*"
+                "phpspec/phpspec2": "dev-develop"
             },
-            "time": "2012-12-02 12:19:24",
+            "time": "2012-12-12 23:55:00",
             "type": "symfony-bundle",
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "Sylius\\Bundle\\AddressingBundle": ""
@@ -2293,12 +2304,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/SyliusAssortmentBundle.git",
-                "reference": "22cf6a1b3dcbe8756e6781b570060e771b37a780"
+                "reference": "fdce900fa37eb75cc3a232e284a754ba8e9f6a5d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/Sylius/SyliusAssortmentBundle/archive/22cf6a1b3dcbe8756e6781b570060e771b37a780.zip",
-                "reference": "22cf6a1b3dcbe8756e6781b570060e771b37a780",
+                "url": "https://github.com/Sylius/SyliusAssortmentBundle/archive/fdce900fa37eb75cc3a232e284a754ba8e9f6a5d.zip",
+                "reference": "fdce900fa37eb75cc3a232e284a754ba8e9f6a5d",
                 "shasum": ""
             },
             "require": {
@@ -2314,9 +2325,9 @@
             "suggest": {
                 "friendsofsymfony/rest-bundle": "*"
             },
-            "time": "2012-12-02 23:11:32",
+            "time": "2012-12-05 16:13:02",
             "type": "symfony-bundle",
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "Sylius\\Bundle\\AssortmentBundle": ""
@@ -2411,12 +2422,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/SyliusCartBundle.git",
-                "reference": "a7274e1837d41c19dab319252c5c9299eba3c222"
+                "reference": "v0.1.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/Sylius/SyliusCartBundle/archive/a7274e1837d41c19dab319252c5c9299eba3c222.zip",
-                "reference": "a7274e1837d41c19dab319252c5c9299eba3c222",
+                "url": "https://github.com/Sylius/SyliusCartBundle/archive/v0.1.0.zip",
+                "reference": "v0.1.0",
                 "shasum": ""
             },
             "require": {
@@ -2427,15 +2438,16 @@
             },
             "require-dev": {
                 "phpspec/phpspec2": "dev-develop",
-                "symfony/form": ">=2.1,<3.0"
+                "symfony/form": ">=2.1,<3.0",
+                "twig/twig": "*"
             },
             "suggest": {
                 "doctrine/doctrine-bundle": "*",
                 "doctrine/orm": "*"
             },
-            "time": "2012-12-04 23:40:52",
+            "time": "2012-12-06 07:59:05",
             "type": "symfony-bundle",
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "Sylius\\Bundle\\CartBundle": ""
@@ -2532,21 +2544,21 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/SyliusFlowBundle.git",
-                "reference": "e3fae9b3e71e4c745a1eff416356e128da6adaf8"
+                "reference": "d5e7bbb6b9267e5275f8addeef9434f50a6f078b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/Sylius/SyliusFlowBundle/archive/e3fae9b3e71e4c745a1eff416356e128da6adaf8.zip",
-                "reference": "e3fae9b3e71e4c745a1eff416356e128da6adaf8",
+                "url": "https://github.com/Sylius/SyliusFlowBundle/archive/d5e7bbb6b9267e5275f8addeef9434f50a6f078b.zip",
+                "reference": "d5e7bbb6b9267e5275f8addeef9434f50a6f078b",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.2",
                 "symfony/symfony": "2.*"
             },
-            "time": "2012-07-01 08:23:12",
+            "time": "2012-12-11 18:22:16",
             "type": "symfony-bundle",
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "Sylius\\Bundle\\FlowBundle": ""
@@ -2641,12 +2653,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/SyliusResourceBundle.git",
-                "reference": "d6c76945486f8eeda9ff13d9cb003a332c8f8e9c"
+                "reference": "cbc83004ac788a62f3afa980835077d23701eb16"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/Sylius/SyliusResourceBundle/archive/d6c76945486f8eeda9ff13d9cb003a332c8f8e9c.zip",
-                "reference": "d6c76945486f8eeda9ff13d9cb003a332c8f8e9c",
+                "url": "https://github.com/Sylius/SyliusResourceBundle/archive/cbc83004ac788a62f3afa980835077d23701eb16.zip",
+                "reference": "cbc83004ac788a62f3afa980835077d23701eb16",
                 "shasum": ""
             },
             "require": {
@@ -2665,7 +2677,7 @@
                 "doctrine/orm": "~2.3",
                 "doctrine/mongodb-odm": "*"
             },
-            "time": "2012-12-09 21:58:27",
+            "time": "2012-12-12 20:12:57",
             "type": "symfony-bundle",
             "installation-source": "source",
             "autoload": {
@@ -2703,12 +2715,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/SyliusSalesBundle.git",
-                "reference": "7e57b3080e1b7e8ae182255429f601516b9e0210"
+                "reference": "7f7d8d2a767e39fd2df3e826e48b4e4eadd35f1a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/Sylius/SyliusSalesBundle/archive/7e57b3080e1b7e8ae182255429f601516b9e0210.zip",
-                "reference": "7e57b3080e1b7e8ae182255429f601516b9e0210",
+                "url": "https://github.com/Sylius/SyliusSalesBundle/archive/7f7d8d2a767e39fd2df3e826e48b4e4eadd35f1a.zip",
+                "reference": "7f7d8d2a767e39fd2df3e826e48b4e4eadd35f1a",
                 "shasum": ""
             },
             "require": {
@@ -2724,9 +2736,9 @@
                 "doctrine/orm": "*",
                 "doctrine/doctrine-bundle": "*"
             },
-            "time": "2012-12-02 23:30:06",
+            "time": "2012-12-07 09:01:34",
             "type": "symfony-bundle",
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "Sylius\\Bundle\\SalesBundle": ""
@@ -3000,12 +3012,12 @@
             "source": {
                 "type": "git",
                 "url": "git://github.com/symfony/symfony.git",
-                "reference": "7b234db668b9d81e9779485431a12928a3f80320"
+                "reference": "7f3be5c49d11ddc226c070b2507a4302ed544237"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/symfony/symfony/archive/7b234db668b9d81e9779485431a12928a3f80320.zip",
-                "reference": "7b234db668b9d81e9779485431a12928a3f80320",
+                "url": "https://github.com/symfony/symfony/archive/7f3be5c49d11ddc226c070b2507a4302ed544237.zip",
+                "reference": "7f3be5c49d11ddc226c070b2507a4302ed544237",
                 "shasum": ""
             },
             "require": {
@@ -3054,14 +3066,9 @@
                 "propel/propel1": "dev-master",
                 "monolog/monolog": "1.*"
             },
-            "time": "2012-11-30 12:53:14",
+            "time": "2012-12-11 10:40:22",
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.1-dev"
-                }
-            },
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "Symfony": "src/",
@@ -3142,18 +3149,18 @@
             "source": {
                 "type": "git",
                 "url": "git://github.com/fabpot/Twig.git",
-                "reference": "6d40dbdf8b3036014e3e279f82af0c1d1a7faacb"
+                "reference": "2757f482c679aa00bb8c7fdfcb337f2bb922fa5a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/fabpot/Twig/archive/6d40dbdf8b3036014e3e279f82af0c1d1a7faacb.zip",
-                "reference": "6d40dbdf8b3036014e3e279f82af0c1d1a7faacb",
+                "url": "https://github.com/fabpot/Twig/archive/2757f482c679aa00bb8c7fdfcb337f2bb922fa5a.zip",
+                "reference": "2757f482c679aa00bb8c7fdfcb337f2bb922fa5a",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.2.4"
             },
-            "time": "2012-12-01 07:00:48",
+            "time": "2012-12-11 14:30:16",
             "type": "library",
             "extra": {
                 "branch-alias": {

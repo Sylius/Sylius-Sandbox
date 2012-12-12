@@ -6,11 +6,13 @@
 
 {% block content %}
 
-{{ sylius_resource_fetch_request(app.request) }}
-
 <div class="well">
-<a href="{{ path('sylius_sandbox_backend_address_create') }}" class="btn btn-primary">
-    <i class="icon-plus icon-white"></i> create address </a> </div> {% if paginator.haveToPaginate() %}
+    <a href="{{ path('sylius_sandbox_backend_address_create') }}" class="btn btn-primary">
+        <i class="icon-plus icon-white"></i> new address
+    </a>
+</div>
+
+{% if paginator.haveToPaginate() %}
 {{ pagerfanta(paginator, 'twitter_bootstrap_translated') }}
 {% endif %}
 
@@ -19,8 +21,10 @@
     <thead>
         <tr>
             <th>{{ sylius_resource_sort('id', '#id') }}</th>
-            <th>{{ sylius_resource_sort('firstname') }}</th>
-            <th>{{ sylius_resource_sort('lastname') }}</th>
+            <th>{{ sylius_resource_sort('firstName', 'first name') }}</th>
+            <th>{{ sylius_resource_sort('lastName', 'last name') }}</th>
+            <th>{{ sylius_resource_sort('country') }}</th>
+            <th>{{ sylius_resource_sort('province') }}</th>
             <th>{{ sylius_resource_sort('city') }}</th>
             <th>{{ sylius_resource_sort('street') }}</th>
             <th>{{ sylius_resource_sort('postcode') }}</th>
@@ -33,6 +37,8 @@
             <td>{{ address.id }}</td>
             <td>{{ address.firstname }}</td>
             <td>{{ address.lastname }}</td>
+            <td>{{ address.country }}</td>
+            <td>{{ address.province|default('---') }}</td>
             <td>{{ address.city }}</td>
             <td>{{ address.street }}</td>
             <td>{{ address.postcode }}</td>

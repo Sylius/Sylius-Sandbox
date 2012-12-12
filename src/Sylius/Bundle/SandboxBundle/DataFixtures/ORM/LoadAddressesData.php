@@ -37,6 +37,16 @@ class LoadAddressesData extends DataFixture
             $address->setStreet($this->faker->streetAddress);
             $address->setPostcode($this->faker->postcode);
 
+            do {
+                $isoName = $this->faker->countryCode;
+            } while ('UK' === $isoName);
+
+            $country = $this->getReference('Country-'.$isoName);
+            $province = $country->hasProvinces() ? $this->faker->randomElement($country->getProvinces()) : null;
+
+            $address->setCountry($country);
+            $address->setProvince($province);
+
             $addressManager->persist($address);
 
             $this->setReference('Address-'.$i, $address);

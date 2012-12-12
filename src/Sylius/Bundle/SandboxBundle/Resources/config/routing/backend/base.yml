@@ -9,6 +9,14 @@ sylius_sandbox_backend_address:
     prefix: /addresses
     resource: @SyliusSandboxBundle/Resources/config/routing/backend/address.yml
 
+sylius_sandbox_backend_country:
+    prefix: /countries
+    resource: @SyliusSandboxBundle/Resources/config/routing/backend/country.yml
+
+sylius_sandbox_backend_province:
+    prefix: /countries/{countryId}/provinces
+    resource: @SyliusSandboxBundle/Resources/config/routing/backend/province.yml
+
 sylius_sandbox_backend_order:
     prefix: /orders
     resource: @SyliusSandboxBundle/Resources/config/routing/backend/order.yml

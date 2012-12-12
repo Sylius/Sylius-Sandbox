@@ -15,13 +15,13 @@
                 <cascade-all/>
             </cascade>
         </one-to-many>
-        <many-to-one field="deliveryAddress" target-entity="Sylius\Bundle\SandboxBundle\Entity\Address" on-delete="SET NULL">
+        <many-to-one field="deliveryAddress" target-entity="Sylius\Bundle\AddressingBundle\Entity\Address" on-delete="SET NULL">
             <cascade>
                 <cascade-persist/>
             </cascade>
             <join-column name="delivery_address_id" referenced-column-name="id" />
         </many-to-one>
-        <many-to-one field="billingAddress" target-entity="Sylius\Bundle\SandboxBundle\Entity\Address" on-delete="SET NULL">
+        <many-to-one field="billingAddress" target-entity="Sylius\Bundle\AddressingBundle\Entity\Address" on-delete="SET NULL">
             <cascade>
                 <cascade-all/>
             </cascade>

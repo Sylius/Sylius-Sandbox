@@ -1,11 +1,20 @@
 <fieldset>
+
+{{ form_errors(form) }}
+
 <div class="row-fluid">
     <hr />
     <div class="span5 well">
     <h3>Delivery address</h3>
     <hr />
-    {{ form_row(form.deliveryAddress.firstname, {'attr': {'class': 'input-xlarge'}}) }}
-    {{ form_row(form.deliveryAddress.lastname, {'attr': {'class': 'input-xlarge'}}) }}
+    {{ form_row(form.deliveryAddress.firstName, {'attr': {'class': 'input-xlarge'}}) }}
+    {{ form_row(form.deliveryAddress.lastName, {'attr': {'class': 'input-xlarge'}}) }}
+    {{ form_row(form.deliveryAddress.country, {'attr': {'class': 'input-xlarge'}}) }}
+
+    {% if form.deliveryAddress.province is defined %}
+    {{ form_row(form.deliveryAddress.province, {'attr': {'class': 'input-large'}}) }}
+    {% endif %}
+
     {{ form_row(form.deliveryAddress.street, {'attr': {'class': 'input-medium'}}) }}
     {{ form_row(form.deliveryAddress.city, {'attr': {'class': 'input-medium'}}) }}
     {{ form_row(form.deliveryAddress.postcode, {'attr': {'class': 'input-small'}}) }}
@@ -14,8 +23,14 @@
     <div class="span5 well">
     <h3>Billing address</h3>
     <hr />
-    {{ form_row(form.billingAddress.firstname, {'attr': {'class': 'input-xlarge'}}) }}
-    {{ form_row(form.billingAddress.lastname, {'attr': {'class': 'input-xlarge'}}) }}
+    {{ form_row(form.billingAddress.firstName, {'attr': {'class': 'input-xlarge'}}) }}
+    {{ form_row(form.billingAddress.lastName, {'attr': {'class': 'input-xlarge'}}) }}
+    {{ form_row(form.billingAddress.country, {'attr': {'class': 'input-xlarge'}}) }}
+
+    {% if form.billingAddress.province is defined %}
+    {{ form_row(form.billingAddress.province, {'attr': {'class': 'input-large'}}) }}
+    {% endif %}
+
     {{ form_row(form.billingAddress.street, {'attr': {'class': 'input-medium'}}) }}
     {{ form_row(form.billingAddress.city, {'attr': {'class': 'input-medium'}}) }}
     {{ form_row(form.billingAddress.postcode, {'attr': {'class': 'input-small'}}) }}

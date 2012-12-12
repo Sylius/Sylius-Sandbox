@@ -185,6 +185,7 @@ class Builder extends ContainerAware
         $this->addAssortmentMenu($menu, $childOptions);
         $this->addSalesMenu($menu, $childOptions);
         $this->addCustomersMenu($menu, $childOptions);
+        $this->addConfigurationMenu($menu, $childOptions);
         $this->addBlogMenu($menu, $childOptions);
 
         $menu->addChild('Go to <strong>frontend</strong>', array('route' => 'sylius_sandbox_core_frontend'));
@@ -219,6 +220,7 @@ class Builder extends ContainerAware
         $this->addAssortmentMenu($menu, $childOptions);
         $this->addSalesMenu($menu, $childOptions);
         $this->addCustomersMenu($menu, $childOptions);
+        $this->addConfigurationMenu($menu, $childOptions);
 
         $child = $menu->addChild('Administration', $childOptions);
         $child->addChild('Logout', array(
@@ -380,6 +382,22 @@ class Builder extends ContainerAware
         $child->addChild('List taxonomies', array(
             'route' => 'sylius_sandbox_backend_taxonomy_list',
             'labelAttributes' => array('icon' => 'icon-list-alt')
+        ));
+    }
+
+    /**
+     * Adds configuration menu.
+     *
+     * @param ItemInterface $menu
+     * @param array         $childOptions
+     */
+    protected function addConfigurationMenu(ItemInterface $menu, array $childOptions)
+    {
+        $child = $menu->addChild('Configuration', $childOptions);
+
+        $child->addChild('Manage countries and provinces ', array(
+            'route' => 'sylius_sandbox_backend_country_list',
+            'labelAttributes' => array('icon' => 'icon-globe')
         ));
     }
 

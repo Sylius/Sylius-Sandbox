@@ -21,11 +21,8 @@ class CheckoutProcessScenario extends ContainerAware implements ProcessScenarioI
     {
         $cart = $this->container->get('sylius_cart.provider')->getCart();
 
-        if (!is_object($this->container->get('security.context')->getToken()->getUser())) {
-            $builder->add('security', new Step\SecurityStep());
-        }
-
         $builder
+            ->add('security', new Step\SecurityStep())
             ->add('delivery', new Step\DeliveryStep())
             ->add('billing', new Step\BillingStep())
             ->add('finalize', new Step\FinalizeStep())

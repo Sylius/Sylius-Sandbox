@@ -21,11 +21,15 @@ class SecurityStep extends ContainerAwareStep
      */
     public function displayAction(ProcessContextInterface $context)
     {
+        if (is_object($this->container->get('security.context')->getToken()->getUser())) {
+            return $this->complete();
+        }
+
         $this->overrideSecurityTargetPath();
 
         $registrationForm = $this->container->get('fos_user.registration.form');
 
-        return $this->container->get('templating')->renderResponse('SyliusSandboxBundle:Process/Checkout/Step:security.html.twig', array(
+        return $this->container->get('templating')->renderResponse('SyliusSandboxBundle:Frontend/Checkout/Step:security.html.twig', array(
             'context'          => $context,
             'registrationForm' => $registrationForm->createView(),
         ));
@@ -47,12 +51,10 @@ class SecurityStep extends ContainerAwareStep
             $this->authenticateUser($registrationForm->getData());
 
             // Registration was successful, complete this step.
-            $context->complete();
-
-            return;
+            return $this->complete();
         }
 
-        return $this->container->get('templating')->renderResponse('SyliusSandboxBundle:Process/Checkout/Step:security.html.twig', array(
+        return $this->container->get('templating')->renderResponse('SyliusSandboxBundle:Frontend/Checkout/Step:security.html.twig', array(
             'context'          => $context,
             'registrationForm' => $registrationForm->createView(),
         ));

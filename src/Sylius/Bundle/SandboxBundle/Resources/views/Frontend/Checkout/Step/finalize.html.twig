@@ -5,7 +5,7 @@
 <h1>Summary <small>Finalize your order</small></h1>
 </div>
 
-{% include 'SyliusSandboxBundle:Process/Checkout/Step:_progressBar.html.twig' %}
+{% include 'SyliusSandboxBundle:Frontend/Checkout:_progressBar.html.twig' %}
 
 <div class="form-horizontal">
     <div class="row-fluid">
@@ -25,6 +25,16 @@
                         <td><strong>lastname</strong></td>
                         <td>{{ order.deliveryAddress.lastname }}</td>
                     </tr>
+                    <tr>
+                        <td><strong>country</strong></td>
+                        <td>{{ order.deliveryAddress.country }}</td>
+                    </tr>
+                    {% if order.deliveryAddress.province is not empty %}
+                    <tr>
+                        <td><strong>province</strong></td>
+                        <td>{{ order.deliveryAddress.province }}</td>
+                    </tr>
+                    {% endif %}
                     <tr>
                         <td><strong>street</strong></td>
                         <td>{{ order.deliveryAddress.street }}</td>
@@ -56,6 +66,16 @@
                         <td><strong>lastname</strong></td>
                         <td>{{ order.billingAddress.lastname }}</td>
                     </tr>
+                    <tr>
+                        <td><strong>country</strong></td>
+                        <td>{{ order.billingAddress.country }}</td>
+                    </tr>
+                    {% if order.billingAddress.province is not empty %}
+                    <tr>
+                        <td><strong>province</strong></td>
+                        <td>{{ order.billingAddress.province }}</td>
+                    </tr>
+                    {% endif %}
                     <tr>
                         <td><strong>street</strong></td>
                         <td>{{ order.billingAddress.street }}</td>

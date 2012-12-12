@@ -9,7 +9,7 @@ sylius_sandbox_backend_address_list:
             template: SyliusSandboxBundle:Backend/Address:list.html.twig
             sortable: true
             sorting:
-                firstname: asc
+                updatedAt: desc
 
 sylius_sandbox_backend_address_create:
     pattern: /create

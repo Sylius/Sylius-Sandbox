@@ -28,3 +28,10 @@ sylius_sandbox_checkout_display:
 sylius_sandbox_checkout_forward:
     pattern: /checkout/{stepName}/forward
     defaults: { _controller: sylius_flow.controller.process:forwardAction, scenarioAlias: 'sylius_sandbox_checkout' }
+
+sylius_sandbox_ajax_render_province_choice_form:
+    pattern: /ajax/render-province-choice-form
+    defaults:
+        _controller: sylius_addressing.controller.province:renderProvinceChoiceTypeAction
+        _sylius.resource:
+            template: SyliusSandboxBundle:Backend/Province:_provinceChoiceForm.html.twig
