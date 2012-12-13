@@ -71,6 +71,38 @@ TABLE
         return $this->iShouldBeOnRoute('fos_user_registration_register');
     }
 
+    /**
+     * @Then /^I should be on create taxonomy$/
+     */
+    public function iShouldBeOnCreateTaxonomy()
+    {
+        return $this->iShouldBeOnRoute('sylius_sandbox_backend_taxonomy_create');
+    }
+
+    /**
+     * @Then /^I should be on update taxonomy$/
+     */
+    public function iShouldBeOnUpdateTaxonomy()
+    {
+        return $this->iShouldBeOnRoute('sylius_sandbox_backend_taxonomy_update', array('id' => 0));
+    }
+
+    /**
+     * @Then /^I should be on list taxonomies$/
+     */
+    public function iShouldBeOnListTaxonomies()
+    {
+        return $this->iShouldBeOnRoute('sylius_sandbox_backend_taxonomy_list');
+    }
+
+    /**
+     * @Then /^I should be on create taxon$/
+     */
+    public function iShouldBeOnCreateTaxon()
+    {
+        return $this->iShouldBeOnRoute('sylius_sandbox_backend_taxon_create');
+    }
+
     private function iAmOnRoute($route, array $parameters = array())
     {
         return $this->iAmOn($this->generateUrl($route, $parameters));

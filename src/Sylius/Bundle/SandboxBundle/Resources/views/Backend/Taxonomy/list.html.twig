@@ -40,7 +40,7 @@
                             <i class="icon-list"></i> browse products
                         </a>
                         <a href="{{ path('sylius_sandbox_backend_taxon_update', {'id': taxon.id}) }}" class="btn">edit</a>
-                        <a href="{{ path('sylius_sandbox_backend_taxon_delete', {'id': taxon.id}) }}"  class="btn btn-danger confirmer"
+                        <a href="{{ path('sylius_sandbox_backend_taxon_delete', {'id': taxon.id}) }}"  class="btn btn-danger confirmer" title="delete"
                             data-confirmer-question="Do you really want to delete taxon <strong>{{ taxon.name }}</strong>?"
                         >
                             <i class="icon-trash icon-white"></i>
@@ -50,7 +50,7 @@
                         <hr>
                     {% endif %}
                 {% else %}
-                This taxonomy has no taxons. <a href="{{ path('sylius_sandbox_backend_taxon_create') }}" class="btn btn-primary btn-small pull-right">Add new one</a>
+                This taxonomy has no taxons. <a href="{{ path('sylius_sandbox_backend_taxon_create') }}" class="btn btn-primary btn-small pull-right">add new one</a>
                 {% endfor %}
             </td>
             <td>
@@ -58,7 +58,7 @@
                     <a href="{{ path('sylius_sandbox_backend_taxonomy_update', {'id': taxonomy.id}) }}" class="btn">
                         <i class="icon-pencil"></i> edit
                     </a>
-                    <a href="{{ path('sylius_sandbox_backend_taxonomy_delete', {'id': taxonomy.id}) }}"  class="btn btn-danger confirmer"
+                    <a href="{{ path('sylius_sandbox_backend_taxonomy_delete', {'id': taxonomy.id}) }}"  class="btn btn-danger confirmer" title="delete"
                         data-confirmer-question="Do you really want to delete taxonomy <strong>{{ taxonomy.name }}</strong>?"
                     >
                         <i class="icon-trash icon-white"></i>

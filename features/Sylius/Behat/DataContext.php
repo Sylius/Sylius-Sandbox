@@ -42,4 +42,27 @@ class DataContext extends BaseContext
 
         $entityManager->flush();
     }
+
+    /**
+     * @Given /^there are following taxonomies:$/
+     */
+    public function thereAreFollowingTaxonomies(TableNode $table)
+    {
+        $taxonomyRepository = $this->kernel->getContainer()->get('sylius_taxonomies.repository.taxonomy');
+        $taxonomyManager = $this->kernel->getContainer()->get('sylius_taxonomies.manager.taxonomy');
+        $taxonRepository = $this->kernel->getContainer()->get('sylius_taxonomies.repository.taxon');
+
+        foreach ($table->getHash() as $data) {            
+            $taxonomy = $taxonomyRepository->createNew();
+            $taxonomy->setName($data['taxonomy']);
+            foreach(explode(',', $data['taxons']) as $taxonName) {
+                $taxon = $taxonRepository->createNew();
+                $taxon->setName(trim($taxonName));
+                $taxonomy->addTaxon($taxon);
+            }
+            $taxonomyManager->persist($taxonomy);
+        }
+
+        $taxonomyManager->flush();
+    }
 }

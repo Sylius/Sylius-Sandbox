@@ -11,7 +11,3 @@ Feature: See admin dashboard
           And I follow "Dashboard"
           And I should see "Sylius dashboard"
 
-    Scenario: Todo
-        Given I am on admin dashboard
-          And I follow "Create category"
-
