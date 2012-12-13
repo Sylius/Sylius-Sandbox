@@ -20,7 +20,7 @@
 <table class="table table-bordered">
     <thead>
         <tr>
-            <th>#{{ address.id }} for {{ address.fullName }}</th>
+            <th>#{{ address.id }} for "{{ address.fullName }}"</th>
         </tr>
     </thead>
     <tbody>
@@ -29,8 +29,9 @@
                 <address class="code">
                     <hr>
                     <strong>{{ address.fullName}}</strong> <br />
-                    {{ address.street }}, {{ address.city }} {{ address.postcode }}<br />
-                    {{ address.country }}, {{ address.province|default('') }} <br />
+                    {{ address.street }}, <br />
+                    {{ address.city }} {{ address.postcode }}<br />
+                    {{ address.country }} {% if address.province is not empty %} {{ address.province }} {% endif %} <br />
                 </address>
             </td>
         <tr>
