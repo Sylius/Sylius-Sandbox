@@ -2422,12 +2422,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/SyliusCartBundle.git",
-                "reference": "v0.1.0"
+                "reference": "248317feb2e52162646f6154dff47998da0b7e07"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/Sylius/SyliusCartBundle/archive/v0.1.0.zip",
-                "reference": "v0.1.0",
+                "url": "https://github.com/Sylius/SyliusCartBundle/archive/248317feb2e52162646f6154dff47998da0b7e07.zip",
+                "reference": "248317feb2e52162646f6154dff47998da0b7e07",
                 "shasum": ""
             },
             "require": {
@@ -2445,7 +2445,7 @@
                 "doctrine/doctrine-bundle": "*",
                 "doctrine/orm": "*"
             },
-            "time": "2012-12-06 07:59:05",
+            "time": "2012-12-13 21:26:48",
             "type": "symfony-bundle",
             "installation-source": "source",
             "autoload": {
@@ -2653,12 +2653,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/SyliusResourceBundle.git",
-                "reference": "cbc83004ac788a62f3afa980835077d23701eb16"
+                "reference": "eed73526690b9ff53ce48b94b9661a2d6f095084"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/Sylius/SyliusResourceBundle/archive/cbc83004ac788a62f3afa980835077d23701eb16.zip",
-                "reference": "cbc83004ac788a62f3afa980835077d23701eb16",
+                "url": "https://github.com/Sylius/SyliusResourceBundle/archive/eed73526690b9ff53ce48b94b9661a2d6f095084.zip",
+                "reference": "eed73526690b9ff53ce48b94b9661a2d6f095084",
                 "shasum": ""
             },
             "require": {
@@ -2677,7 +2677,7 @@
                 "doctrine/orm": "~2.3",
                 "doctrine/mongodb-odm": "*"
             },
-            "time": "2012-12-12 20:12:57",
+            "time": "2012-12-13 21:21:54",
             "type": "symfony-bundle",
             "installation-source": "source",
             "autoload": {

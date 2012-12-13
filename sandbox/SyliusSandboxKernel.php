@@ -36,9 +36,9 @@ class SyliusSandboxKernel extends Kernel
             /*
              * Sylius bundles.
              */
+            new Sylius\Bundle\CartBundle\SyliusCartBundle(),
             new Sylius\Bundle\AddressingBundle\SyliusAddressingBundle(),
             new Sylius\Bundle\AssortmentBundle\SyliusAssortmentBundle(),
-            new Sylius\Bundle\CartBundle\SyliusCartBundle(),
             new Sylius\Bundle\CategorizerBundle\SyliusCategorizerBundle(),
             new Sylius\Bundle\FlowBundle\SyliusFlowBundle(),
             new Sylius\Bundle\InventoryBundle\SyliusInventoryBundle(),

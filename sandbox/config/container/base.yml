@@ -138,7 +138,6 @@ sylius_cart:
     resolver: sylius_sandbox_cart.resolver
     classes:
         cart:
-            model: Sylius\Bundle\SandboxBundle\Entity\Cart
             repository: Sylius\Bundle\SandboxBundle\Repository\CartRepository
         item:
             model: Sylius\Bundle\SandboxBundle\Entity\CartItem
