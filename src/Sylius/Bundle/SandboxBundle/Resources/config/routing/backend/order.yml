@@ -34,20 +34,6 @@ sylius_sandbox_backend_order_delete:
         _sylius.resource:
             redirect: sylius_sandbox_backend_order_list
 
-sylius_sandbox_backend_order_open:
-    pattern: /{id}/open
-    defaults:
-        _controller: sylius_sales.controller.order:openAction
-        _sylius.resource:
-            redirect: sylius_sandbox_backend_order_show
-
-sylius_sandbox_backend_order_close:
-    pattern: /{id}/close
-    defaults:
-        _controller: sylius_sales.controller.order:closeAction
-        _sylius.resource:
-            redirect: sylius_sandbox_backend_order_show
-
 sylius_sandbox_backend_order_show:
     pattern: /{id}
     defaults:

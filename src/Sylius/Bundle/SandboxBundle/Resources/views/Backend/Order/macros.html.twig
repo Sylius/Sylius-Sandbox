@@ -13,7 +13,7 @@
     </thead>
     <tbody>
         {% for order in orders %}
-        <tr{% if order.closed %} class="inactive"{% endif %}>
+        <tr>
             <td>{{ order.id }}</td>
             <td>{{ order.total }} &euro;</td>
             <td>
@@ -27,18 +27,6 @@
                     </a>
                     <a href="#" data-toggle="dropdown" class="btn dropdown-toggle"><span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        {% if order.closed %}
-                        <li>
-                            <a href="{{ path('sylius_sandbox_backend_order_open', {'id': order.id}) }}">
-                                <i class="icon-share"></i> open
-                            </a>
-                        </li>
-                        {% else %}
-                        <li>
-                            <a href="{{ path('sylius_sandbox_backend_order_close', {'id': order.id}) }}">
-                                <i class="icon-lock"></i> close
-                            </a>
-                        </li>
                         <li>
                             <a href="{{ path('sylius_sandbox_backend_order_update', {'id': order.id}) }}">
                                  <i class="icon-pencil"></i> update
@@ -49,7 +37,6 @@
                                  <i class="icon-trash"></i> delete
                             </a>
                         </li>
-                        {% endif %}
                     </ul>
                 </div>
             </td>
@@ -59,8 +46,8 @@
 </table>
 {% else %}
 <div class="alert alert-info">
-    <h4 class="alert-heading">{{ 'alert.heading.info'|trans({}, 'SyliusSandboxBundle') }}.</h4>
-    There are no orders to display.
+    <h4 class="alert-heading">Information</h4>
+    There are no orders to display
 </div>
 {% endif %}
 
