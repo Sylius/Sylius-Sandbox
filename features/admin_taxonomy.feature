@@ -10,18 +10,21 @@ Feature: Taxonomy management
             | Brand    | Mugland, Bookmania  |
 
     Scenario: Create taxonomy
-        Given I am on admin dashboard
-          And I follow "Create taxonomy"
-         Then I should be on create taxonomy
-          And I should see "Creating taxonomy"
+        Given I am on create taxonomy
          When I fill in "Name" with "Material"
           And I press "create taxonomy"
          Then I should be on list taxonomies
           And I should see "Taxonomies list"
           And I should see "Material"
 
+    Scenario: Trying to create taxonomy without name
+        Given I am on create taxonomy
+         When I press "create taxonomy"
+         Then I should be on create taxonomy
+          And I should see "Please enter taxonomy name"
+
     Scenario: Update taxonomy
-        Given I am on admin list taxonimies
+        Given I am on list taxonimies
           And I follow edit taxonomy "Brand"
 #         Then I should be on update taxonomy
           And I should see "Taxonomy updating"
@@ -32,13 +35,13 @@ Feature: Taxonomy management
           And I should not see "Brand"
 
     Scenario: Delete taxonomy
-        Given I am on admin list taxonimies
+        Given I am on list taxonimies
           And I follow delete taxonomy "Brand"
           And I should see "Taxonomies list"
           And I should not see "Brand"
 
     Scenario: Create taxon
-        Given I am on admin list taxonimies
+        Given I am on list taxonimies
           And I follow create taxon
          Then I should be on create taxon
           And I should see "Creating taxon"
@@ -50,8 +53,14 @@ Feature: Taxonomy management
           And I should see "Brand"
           And I should see "SuperTees"
 
+    Scenario: Trying to create taxon without name
+        Given I am on create taxon
+         When I press "create taxon"
+         Then I should be on create taxon
+          And I should see "Please enter taxon name"
+
     Scenario: Update taxon
-        Given I am on admin list taxonimies
+        Given I am on list taxonimies
           And I follow edit taxon "Bookmania"
 #         Then I should be on update taxon
           And I should see "Taxon updating"
@@ -65,7 +74,7 @@ Feature: Taxonomy management
           And I should not see "Bookmania"
 
     Scenario: Delete taxon
-        Given I am on admin list taxonimies
+        Given I am on list taxonimies
           And I follow delete taxon "Bookmania"
           And I should see "Taxonomies list"
           And I should see "Brand"

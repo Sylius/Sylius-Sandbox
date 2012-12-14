@@ -21,18 +21,35 @@ class PagesContext extends BaseContext
     }
 
     /**
-     * @Given /^I am on admin dashboard$/
+     * @Given /^I am on dashboard$/
      */
-    public function iAmOnAdminDashboard()
+    public function iAmOnDashboard()
     {
         return $this->iAmOnRoute('sylius_sandbox_core_backend');
     }
+
     /**
-     * @Given /^I am on admin list taxonimies$/
+     * @Given /^I am on list taxonimies$/
      */
-    public function iAmOnAdminListTaxonomies()
+    public function iAmOnListTaxonomies()
     {
         return $this->iAmOnRoute('sylius_sandbox_backend_taxonomy_list');
+    }
+
+    /**
+     * @Given /^I am on create taxonomy$/
+     */
+    public function iAmOnCreateTaxonomy()
+    {
+        return $this->iAmOnRoute('sylius_sandbox_backend_taxonomy_create');
+    }
+
+    /**
+     * @Given /^I am on create taxon$/
+     */
+    public function iAmOnCreateTaxon()
+    {
+        return $this->iAmOnRoute('sylius_sandbox_backend_taxon_create');
     }
 
     /**
