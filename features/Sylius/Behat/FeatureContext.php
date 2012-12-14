@@ -67,6 +67,45 @@ class FeatureContext extends MinkContext implements KernelAwareInterface
     }
 
     /**
+     * @Given /^I follow edit taxonomy$/
+     */
+    public function iFollowEditTaxonomy()
+    {
+        $this->iClickLinkXpath('//*[@id="content-inner"]/table/tbody/tr[2]/td[4]/div/a[1]');
+    }
+
+    /**
+     * @Given /^I follow delete taxonomy$/
+     */
+    public function iFollowDeleteTaxonomy()
+    {
+        $this->iClickLinkXpath('//*[@id="content-inner"]/table/tbody/tr[2]/td[4]/div/a[2]');
+    }
+
+    /**
+     * @Given /^I follow create taxon$/
+     */
+    public function iFollowCreateTaxon()
+    {
+        $this->iClickLinkXpath('//*[@id="content-inner"]/div[2]/a[2]');
+    }
+
+    /**
+     * @Given /^I follow edit taxon$/
+     */
+    public function iFollowEditTaxon()
+    {
+        $this->iClickLinkXpath('//*[@id="content-inner"]/table/tbody/tr[2]/td[3]/div[2]/a[2]');
+    }
+    /**
+     * @Given /^I follow delete taxon$/
+     */
+    public function iFollowDeleteTaxon()
+    {
+        $this->iClickLinkXpath('//*[@id="content-inner"]/table/tbody/tr[2]/td[3]/div[2]/a[3]');
+    }
+
+    /**
      * @Then /^I should see (\d+) products on the page$/
      */
     public function iShouldSeeThatMuchProductsOnThePage($expected)
@@ -82,5 +121,15 @@ class FeatureContext extends MinkContext implements KernelAwareInterface
                 $actual
             )
         );
+    }
+
+    private function iClickLinkXpath($xpath)
+    {
+        $this
+            ->getSession()
+            ->getPage()
+            ->find('xpath', $xpath)
+            ->click()
+        ;
     }
 }
