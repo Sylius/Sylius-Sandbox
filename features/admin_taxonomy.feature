@@ -22,7 +22,7 @@ Feature: Taxonomy management
 
     Scenario: Update taxonomy
         Given I am on admin list taxonimies
-          And I follow edit taxonomy
+          And I follow edit taxonomy "Brand"
 #         Then I should be on update taxonomy
           And I should see "Taxonomy updating"
          When I fill in "Name" with "Material"
@@ -33,7 +33,7 @@ Feature: Taxonomy management
 
     Scenario: Delete taxonomy
         Given I am on admin list taxonimies
-          And I follow delete taxonomy
+          And I follow delete taxonomy "Brand"
           And I should see "Taxonomies list"
           And I should not see "Brand"
 
@@ -52,7 +52,7 @@ Feature: Taxonomy management
 
     Scenario: Update taxon
         Given I am on admin list taxonimies
-          And I follow edit taxon
+          And I follow edit taxon "Bookmania"
 #         Then I should be on update taxon
           And I should see "Taxon updating"
          When I fill in "Name" with "SuperTees"
@@ -66,7 +66,7 @@ Feature: Taxonomy management
 
     Scenario: Delete taxon
         Given I am on admin list taxonimies
-          And I follow delete taxon
+          And I follow delete taxon "Bookmania"
           And I should see "Taxonomies list"
           And I should see "Brand"
           And I should not see "Bookmania"

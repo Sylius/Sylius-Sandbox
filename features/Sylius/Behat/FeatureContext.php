@@ -67,7 +67,7 @@ class FeatureContext extends MinkContext implements KernelAwareInterface
     }
 
     /**
-     * @Given /^I follow edit taxonomy$/
+     * @Given /^I follow edit taxonomy "Brand"$/
      */
     public function iFollowEditTaxonomy()
     {
@@ -75,7 +75,7 @@ class FeatureContext extends MinkContext implements KernelAwareInterface
     }
 
     /**
-     * @Given /^I follow delete taxonomy$/
+     * @Given /^I follow delete taxonomy "Brand"$/
      */
     public function iFollowDeleteTaxonomy()
     {
@@ -91,14 +91,14 @@ class FeatureContext extends MinkContext implements KernelAwareInterface
     }
 
     /**
-     * @Given /^I follow edit taxon$/
+     * @Given /^I follow edit taxon "Bookmania"$/
      */
     public function iFollowEditTaxon()
     {
         $this->iClickLinkXpath('//*[@id="content-inner"]/table/tbody/tr[2]/td[3]/div[2]/a[2]');
     }
     /**
-     * @Given /^I follow delete taxon$/
+     * @Given /^I follow delete taxon "Bookmania"$/
      */
     public function iFollowDeleteTaxon()
     {
