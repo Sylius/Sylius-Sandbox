@@ -36,9 +36,14 @@ Feature: Taxonomy management
 
     Scenario: Delete taxonomy
         Given I am on list taxonimies
-          And I follow delete taxonomy "Brand"
-          And I should see "Taxonomies list"
+         When I follow delete taxonomy "Brand"
+         Then I should see "Taxonomies list"
           And I should not see "Brand"
+
+    Scenario: Browse taxon products
+        Given I am on browse "Bookmania" taxon products
+         Then I should see "Assortment by brand"
+          And I should see "List of all products categorized under \"Bookmania\""
 
     Scenario: Create taxon
         Given I am on list taxonimies
@@ -75,7 +80,7 @@ Feature: Taxonomy management
 
     Scenario: Delete taxon
         Given I am on list taxonimies
-          And I follow delete taxon "Bookmania"
-          And I should see "Taxonomies list"
+         When I follow delete taxon "Bookmania"
+         Then I should see "Taxonomies list"
           And I should see "Brand"
           And I should not see "Bookmania"

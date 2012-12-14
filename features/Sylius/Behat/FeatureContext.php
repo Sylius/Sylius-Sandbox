@@ -83,6 +83,14 @@ class FeatureContext extends MinkContext implements KernelAwareInterface
     }
 
     /**
+     * @Given /^I follow browse "Bookmania" products$/
+     */
+    public function iFollowBrowseTaxonProducts()
+    {
+        $this->iClickLinkXpath('//*[@id="content-inner"]/table/tbody/tr[2]/td[3]/div[2]/a[1]');
+    }
+
+    /**
      * @Given /^I follow create taxon$/
      */
     public function iFollowCreateTaxon()

@@ -45,6 +45,14 @@ class PagesContext extends BaseContext
     }
 
     /**
+     * @Given /^I am on browse "([^"]*)" taxon products$/
+     */
+    public function iAmOnBrowseTaxonProducts($permalink)
+    {
+        return $this->iAmOnRoute('sylius_sandbox_backend_product_list_by_taxon', array('permalink' => $permalink));
+    }
+
+    /**
      * @Given /^I am on create taxon$/
      */
     public function iAmOnCreateTaxon()
