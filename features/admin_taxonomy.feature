@@ -21,8 +21,7 @@ Feature: Taxonomy management
           And I should see "Material"
 
     Scenario: Update taxonomy
-        Given I am on admin dashboard
-          And I follow "List taxonomies"
+        Given I am on admin list taxonimies
           And I follow edit taxonomy
 #         Then I should be on update taxonomy
           And I should see "Taxonomy updating"
@@ -33,15 +32,13 @@ Feature: Taxonomy management
           And I should not see "Brand"
 
     Scenario: Delete taxonomy
-        Given I am on admin dashboard
-          And I follow "List taxonomies"
+        Given I am on admin list taxonimies
           And I follow delete taxonomy
           And I should see "Taxonomies list"
           And I should not see "Brand"
 
     Scenario: Create taxon
-        Given I am on admin dashboard
-          And I follow "List taxonomies"
+        Given I am on admin list taxonimies
           And I follow create taxon
          Then I should be on create taxon
           And I should see "Creating taxon"
@@ -54,8 +51,7 @@ Feature: Taxonomy management
           And I should see "SuperTees"
 
     Scenario: Update taxon
-        Given I am on admin dashboard
-          And I follow "List taxonomies"
+        Given I am on admin list taxonimies
           And I follow edit taxon
 #         Then I should be on update taxon
           And I should see "Taxon updating"
@@ -69,8 +65,7 @@ Feature: Taxonomy management
           And I should not see "Bookmania"
 
     Scenario: Delete taxon
-        Given I am on admin dashboard
-          And I follow "List taxonomies"
+        Given I am on admin list taxonimies
           And I follow delete taxon
           And I should see "Taxonomies list"
           And I should see "Brand"

@@ -27,6 +27,13 @@ class PagesContext extends BaseContext
     {
         return $this->iAmOnRoute('sylius_sandbox_core_backend');
     }
+    /**
+     * @Given /^I am on admin list taxonimies$/
+     */
+    public function iAmOnAdminListTaxonomies()
+    {
+        return $this->iAmOnRoute('sylius_sandbox_backend_taxonomy_list');
+    }
 
     /**
      * @Given /^I am logged in as admin$/
