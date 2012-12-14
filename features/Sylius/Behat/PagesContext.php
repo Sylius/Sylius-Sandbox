@@ -70,6 +70,7 @@ class PagesContext extends BaseContext
 | admin    | foo      | ROLE_SYLIUS_ADMIN |
 TABLE
         );
+
         return array(
             new Step\Given('there are following users:', $table),
             new Step\When('I am on "/login"'),

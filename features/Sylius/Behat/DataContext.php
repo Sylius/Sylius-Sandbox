@@ -52,10 +52,10 @@ class DataContext extends BaseContext
         $taxonomyManager = $this->kernel->getContainer()->get('sylius_taxonomies.manager.taxonomy');
         $taxonRepository = $this->kernel->getContainer()->get('sylius_taxonomies.repository.taxon');
 
-        foreach ($table->getHash() as $data) {            
+        foreach ($table->getHash() as $data) {
             $taxonomy = $taxonomyRepository->createNew();
             $taxonomy->setName($data['taxonomy']);
-            foreach(explode(',', $data['taxons']) as $taxonName) {
+            foreach (explode(',', $data['taxons']) as $taxonName) {
                 $taxon = $taxonRepository->createNew();
                 $taxon->setName(trim($taxonName));
                 $taxonomy->addTaxon($taxon);
