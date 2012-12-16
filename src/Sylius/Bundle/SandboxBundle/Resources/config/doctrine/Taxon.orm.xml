@@ -7,7 +7,7 @@
         <id name="id" column="id" type="integer">
             <generator strategy="AUTO" />
         </id>
-        <many-to-one field="taxonomy" target-entity="Sylius\Bundle\SandboxBundle\Entity\Taxonomy">
+        <many-to-one field="taxonomy" target-entity="Sylius\Bundle\SandboxBundle\Entity\Taxonomy" inversed-by="taxons">
             <join-column name="taxonomy_id" referenced-column-name="id" on-delete="SET NULL"/>
         </many-to-one>
         <many-to-one field="parent" target-entity="Sylius\Bundle\SandboxBundle\Entity\Taxon">
