@@ -14,7 +14,6 @@ Feature: Taxonomy management
          When I fill in "Name" with "Material"
           And I press "create taxonomy"
          Then I should be on list taxonomies
-          And I should see "Taxonomies list"
           And I should see "Material"
 
     Scenario: Trying to create taxonomy without name
@@ -37,7 +36,7 @@ Feature: Taxonomy management
     Scenario: Delete taxonomy
         Given I am on list taxonimies
          When I follow delete taxonomy "Brand"
-         Then I should see "Taxonomies list"
+         Then I should be on list taxonomies
           And I should not see "Brand"
 
     Scenario: Browse taxon products
@@ -54,7 +53,6 @@ Feature: Taxonomy management
           And I select "Brand" from "Taxonomy"
           And I press "create taxon"
          Then I should be on list taxonomies
-          And I should see "Taxonomies list"
           And I should see "Brand"
           And I should see "SuperTees"
 
@@ -73,7 +71,6 @@ Feature: Taxonomy management
           And I select "Brand" from "Taxonomy"
           And I press "save changes"
          Then I should be on list taxonomies
-          And I should see "Taxonomies list"
           And I should see "Brand"
           And I should see "SuperTees"
           And I should not see "Bookmania"
@@ -81,6 +78,6 @@ Feature: Taxonomy management
     Scenario: Delete taxon
         Given I am on list taxonimies
          When I follow delete taxon "Bookmania"
-         Then I should see "Taxonomies list"
+         Then I should be on list taxonomies
           And I should see "Brand"
           And I should not see "Bookmania"
