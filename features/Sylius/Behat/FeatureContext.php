@@ -6,6 +6,7 @@ use Behat\MinkExtension\Context\MinkContext;
 use Behat\Symfony2Extension\Context\KernelAwareInterface;
 use Doctrine\Common\DataFixtures\Purger\ORMPurger;
 use Symfony\Component\HttpKernel\KernelInterface;
+use Behat\Mink\Exception\ElementNotFoundException;
 
 require_once 'PHPUnit/Autoload.php';
 require_once 'PHPUnit/Framework/Assert/Functions.php';
@@ -67,19 +68,19 @@ class FeatureContext extends MinkContext implements KernelAwareInterface
     }
 
     /**
-     * @Given /^I follow edit taxonomy "Brand"$/
+     * @Given /^I follow edit taxonomy "([^"]*)"$/
      */
-    public function iFollowEditTaxonomy()
+    public function iFollowEditTaxonomy($taxonomy)
     {
-        $this->iClickLinkXpath('//*[@id="content-inner"]/table/tbody/tr[2]/td[4]/div/a[1]');
+        $this->iFollowTaxonomyLink($taxonomy, 'a:contains("edit")');
     }
 
     /**
-     * @Given /^I follow delete taxonomy "Brand"$/
+     * @Given /^I follow delete taxonomy "([^"]*)"$/
      */
-    public function iFollowDeleteTaxonomy()
+    public function iFollowDeleteTaxonomy($taxonomy)
     {
-        $this->iClickLinkXpath('//*[@id="content-inner"]/table/tbody/tr[2]/td[4]/div/a[2]');
+        $this->iFollowTaxonomyLink($taxonomy, 'a[title="delete"]');
     }
 
     /**
@@ -139,5 +140,75 @@ class FeatureContext extends MinkContext implements KernelAwareInterface
             ->find('xpath', $xpath)
             ->click()
         ;
+    }
+
+    /**
+     * Follows taxonomy action from taxonomies list table.
+     *
+     * @param string $taxonomy taxonomy name
+     * @param string $selector css selector to find link to follow
+     */
+    public function iFollowTaxonomyLink($taxonomy, $selector)
+    {
+        $taxonomies = $this->getActualValuesInTable('taxonomies-list', 1);
+        foreach($taxonomies as $row => $taxonomycell) {
+            if ($taxonomycell->getText() === $taxonomy) {
+                $actionsColumn = $this->getActualValuesInTable('taxonomies-list', 3);
+                return $this->visit(
+                    $actionsColumn[$row]
+                        ->find('css', $selector)
+                        ->getAttribute('href')
+                );
+            }
+        }
+ 
+        throw new ElementNotFoundException(
+            $this->getSession(), 'link', 'css', $selector
+        );
+    }
+
+    /**
+     * Fetch all the values of a column inside a table.
+     *
+     * @param string $id     css id of the the table to fetch from
+     * @param string $column column index from where we're getting the values
+     *
+     * @return \Behat\Mink\Element\NodeElement[]
+     */
+    private function getActualValuesInTable($id, $column)
+    {
+        $rows = $this->getSession()->getPage()->findAll('css', sprintf('table#%s tbody tr', $id));
+ 
+        $values = array();
+        foreach ($rows as $row) {
+            $cols = $row->findAll('css', 'td');
+            $values[] = $cols[$column];
+        }
+ 
+        return $values;
+    }
+ 
+    /**
+     * Fetch all the values of a column inside a table.
+     *
+     * @param string $id         css id of the the table to fetch from
+     * @param string $columnName name of the column from where we're getting the values
+     *
+     * @return \Behat\Mink\Element\NodeElement[]
+     */
+    private function getActualValuesInTableByColumnName($id, $columnName)
+    {
+        $selector = sprintf('table#%s thead tr th', $id);
+        $rows = $this->getSession()->getPage()->findAll('css', $selector);
+ 
+        foreach ($rows as $key => $row) {
+            if ($row->getText() === $columnName) {
+                return $this->getActualValuesInTable($id, $key);
+            }
+        }
+ 
+        throw new ElementNotFoundException(
+            $this->getSession(), 'table element', 'css', $selector
+        );
     }
 }
