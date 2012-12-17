@@ -113,11 +113,19 @@ TABLE
     }
 
     /**
-     * @Then /^I should be on update taxonomy$/
+     * @Then /^I should be on update taxonomy "([^"]*)"$/
      */
-    public function iShouldBeOnUpdateTaxonomy()
+    public function iShouldBeOnUpdateTaxonomy($taxonomy)
     {
-        return $this->iShouldBeOnRoute('sylius_sandbox_backend_taxonomy_update', array('id' => 0));
+        $id = $this
+            ->getService('sylius_taxonomies.repository.taxonomy')
+            ->findOneByName($taxonomy)
+            ->getId()
+        ;
+
+        return $this->iShouldBeOnRoute(
+            'sylius_sandbox_backend_taxonomy_update', array('id' => $id)
+        );
     }
 
     /**
@@ -134,6 +142,22 @@ TABLE
     public function iShouldBeOnCreateTaxon()
     {
         return $this->iShouldBeOnRoute('sylius_sandbox_backend_taxon_create');
+    }
+
+    /**
+     * @Then /^I should be on update taxon "([^"]*)"$/
+     */
+    public function iShouldBeOnUpdateTaxon($taxon)
+    {
+        $id = $this
+            ->getService('sylius_taxonomies.repository.taxon')
+            ->findOneBy(array('name' => $taxon))
+            ->getId()
+        ;
+
+        return $this->iShouldBeOnRoute(
+            'sylius_sandbox_backend_taxon_update', array('id' => $id)
+        );
     }
 
     private function iAmOnRoute($route, array $parameters = array())

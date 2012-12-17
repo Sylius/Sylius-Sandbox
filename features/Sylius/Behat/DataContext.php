@@ -18,7 +18,7 @@ class DataContext extends BaseContext
     public function thereAreFollowingUsers(TableNode $table)
     {
         $entityManager = $this->getEntityManager();
-        $userManager = $this->kernel->getContainer()->get('fos_user.user_manager');
+        $userManager = $this->getService('fos_user.user_manager');
 
         foreach ($table->getHash() as $data) {
             $data = array_merge(
@@ -48,9 +48,9 @@ class DataContext extends BaseContext
      */
     public function thereAreFollowingTaxonomies(TableNode $table)
     {
-        $taxonomyRepository = $this->kernel->getContainer()->get('sylius_taxonomies.repository.taxonomy');
-        $taxonomyManager = $this->kernel->getContainer()->get('sylius_taxonomies.manager.taxonomy');
-        $taxonRepository = $this->kernel->getContainer()->get('sylius_taxonomies.repository.taxon');
+        $taxonomyRepository = $this->getService('sylius_taxonomies.repository.taxonomy');
+        $taxonomyManager = $this->getService('sylius_taxonomies.manager.taxonomy');
+        $taxonRepository = $this->getService('sylius_taxonomies.repository.taxon');
 
         foreach ($table->getHash() as $data) {
             $taxonomy = $taxonomyRepository->createNew();

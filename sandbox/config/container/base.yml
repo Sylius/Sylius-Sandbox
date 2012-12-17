@@ -176,6 +176,7 @@ sylius_taxonomies:
     classes:
         taxonomy:
             model: Sylius\Bundle\SandboxBundle\Entity\Taxonomy
+            repository: Sylius\Bundle\SandboxBundle\Entity\TaxonomyRepository
         taxon:
             model: Sylius\Bundle\SandboxBundle\Entity\Taxon
 

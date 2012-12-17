@@ -26,7 +26,7 @@ Feature: Taxonomy management
     Scenario: Update taxonomy
         Given I am on list taxonimies
           And I follow edit taxonomy "Brand"
-#         Then I should be on update taxonomy
+         Then I should be on update taxonomy "Brand"
           And I should see "Taxonomy updating"
          When I fill in "Name" with "Material"
           And I press "save changes"
@@ -67,7 +67,7 @@ Feature: Taxonomy management
     Scenario: Update taxon
         Given I am on list taxonimies
           And I follow edit taxon "Bookmania"
-#         Then I should be on update taxon
+         Then I should be on update taxon "Bookmania"
           And I should see "Taxon updating"
          When I fill in "Name" with "SuperTees"
           And I select "Brand" from "Taxonomy"
