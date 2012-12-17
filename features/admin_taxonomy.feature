@@ -21,7 +21,7 @@ Feature: Taxonomy management
         Given I am on create taxonomy
          When I press "create taxonomy"
          Then I should be on create taxonomy
-          And I should see "Please enter taxonomy name"
+          And I should see "Please enter taxon name"
 
     Scenario: Update taxonomy
         Given I am on list taxonimies
