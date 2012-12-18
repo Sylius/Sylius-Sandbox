@@ -39,114 +39,27 @@ class AdminContext extends BaseContext
     }
 
     /**
-     * @Given /^I follow browse "Bookmania" products$/
+     * @Given /^I follow browse "([^"]*)" products$/
      */
-    public function iFollowBrowseTaxonProducts()
+    public function iFollowBrowseTaxonProducts($taxon)
     {
-        $this->iClickLinkXpath('//*[@id="content-inner"]/table/tbody/tr[2]/td[3]/div[2]/a[1]');
+        $this->iFollowTaxonLink($taxon, 'a:contains("browse products")');
     }
 
     /**
-     * @Given /^I follow create taxon$/
+     * @Given /^I follow edit taxon "([^"]*)"$/
      */
-    public function iFollowCreateTaxon()
+    public function iFollowEditTaxon($taxon)
     {
-        $this->iClickLinkXpath('//*[@id="content-inner"]/div[2]/a[2]');
+        $this->iFollowTaxonLink($taxon, 'a:contains("edit")');
     }
 
     /**
-     * @Given /^I follow edit taxon "Bookmania"$/
+     * @Given /^I follow delete taxon "([^"]*)"$/
      */
-    public function iFollowEditTaxon()
+    public function iFollowDeleteTaxon($taxon)
     {
-        $this->iClickLinkXpath('//*[@id="content-inner"]/table/tbody/tr[2]/td[3]/div[2]/a[2]');
-    }
-    /**
-     * @Given /^I follow delete taxon "Bookmania"$/
-     */
-    public function iFollowDeleteTaxon()
-    {
-        $this->iClickLinkXpath('//*[@id="content-inner"]/table/tbody/tr[2]/td[3]/div[2]/a[3]');
-    }
-    
-    private function iClickLinkXpath($xpath)
-    {
-        $this
-            ->getSession()
-            ->getPage()
-            ->find('xpath', $xpath)
-            ->click()
-        ;
-    }
-
-    /**
-     * Follows taxonomy action from taxonomies list table.
-     *
-     * @param string $taxonomy taxonomy name
-     * @param string $selector css selector to find link to follow
-     */
-    public function iFollowTaxonomyLink($taxonomy, $selector)
-    {
-        $taxonomies = $this->getActualValuesInTable('taxonomies-list', 1);
-        foreach($taxonomies as $row => $taxonomycell) {
-            if ($taxonomycell->getText() === $taxonomy) {
-                $actionsColumn = $this->getActualValuesInTable('taxonomies-list', 3);
-                return $this->getSession()->visit(
-                    $actionsColumn[$row]
-                        ->find('css', $selector)
-                        ->getAttribute('href')
-                );
-            }
-        }
- 
-        throw new ElementNotFoundException(
-            $this->getSession(), 'link', 'css', $selector
-        );
-    }
-
-    /**
-     * Fetch all the values of a column inside a table.
-     *
-     * @param string $id     css id of the the table to fetch from
-     * @param string $column column index from where we're getting the values
-     *
-     * @return \Behat\Mink\Element\NodeElement[]
-     */
-    private function getActualValuesInTable($id, $column)
-    {
-        $rows = $this->getSession()->getPage()->findAll('css', sprintf('table#%s tbody tr', $id));
- 
-        $values = array();
-        foreach ($rows as $row) {
-            $cols = $row->findAll('css', 'td');
-            $values[] = $cols[$column];
-        }
- 
-        return $values;
-    }
- 
-    /**
-     * Fetch all the values of a column inside a table.
-     *
-     * @param string $id         css id of the the table to fetch from
-     * @param string $columnName name of the column from where we're getting the values
-     *
-     * @return \Behat\Mink\Element\NodeElement[]
-     */
-    private function getActualValuesInTableByColumnName($id, $columnName)
-    {
-        $selector = sprintf('table#%s thead tr th', $id);
-        $rows = $this->getSession()->getPage()->findAll('css', $selector);
- 
-        foreach ($rows as $key => $row) {
-            if ($row->getText() === $columnName) {
-                return $this->getActualValuesInTable($id, $key);
-            }
-        }
- 
-        throw new ElementNotFoundException(
-            $this->getSession(), 'table element', 'css', $selector
-        );
+        $this->iFollowTaxonLink($taxon, 'a[title="delete"]');
     }
 
     /**
@@ -262,6 +175,98 @@ TABLE
 
         return $this->iShouldBeOnRoute(
             'sylius_sandbox_backend_taxon_update', array('id' => $id)
+        );
+    }
+
+    /**
+     * Follows taxonomy action from taxonomies list table.
+     *
+     * @param string $taxonomy taxonomy name
+     * @param string $selector css selector to find link to follow
+     */
+    private function iFollowTaxonomyLink($taxonomy, $selector)
+    {
+        $taxonomyCells = $this->getActualValuesInTableByColumnName('taxonomies-list', 'name');
+        foreach ($taxonomyCells as $row => $taxonomyCell) {
+            if ($taxonomyCell->getText() === $taxonomy) {
+                $actionCells = $this->getActualValuesInTableByColumnName('taxonomies-list', '');
+
+                return $this->getSession()->visit(
+                    $actionCells[$row]->find('css', $selector)->getAttribute('href')
+                );
+            }
+        }
+
+        throw new ElementNotFoundException(
+            $this->getSession(), 'a', 'css', $selector
+        );
+
+    }
+
+    /**
+     * Follows taxon action from taxonomies list table.
+     *
+     * @param string $taxon taxon name
+     * @param string $selector css selector to find link to follow
+     */
+    private function iFollowTaxonLink($taxon, $selector)
+    {
+        $taxonCells = $this->getActualValuesInTableByColumnName('taxonomies-list', 'taxons');
+        foreach ($taxonCells as $row => $taxonCell) {
+            $taxonDiv = $taxonCell->find('css', sprintf('div:contains("%s")', $taxon));
+            if (null !== $taxonDiv) {
+                return $this->getSession()->visit($taxonDiv->find('css', $selector)->getAttribute('href'));
+            }
+        }
+
+        throw new ElementNotFoundException(
+            $this->getSession(), 'a', 'css', $selector
+        );
+
+    }
+
+    /**
+     * Fetch all the values of a column inside a table.
+     *
+     * @param string $id     css id of the the table to fetch from
+     * @param string $column column index from where we're getting the values
+     *
+     * @return \Behat\Mink\Element\NodeElement[]
+     */
+    private function getActualValuesInTable($id, $column)
+    {
+        $rows = $this->getSession()->getPage()->findAll('css', sprintf('table#%s tbody tr', $id));
+
+        $values = array();
+        foreach ($rows as $row) {
+            $cols = $row->findAll('css', 'td');
+            $values[] = $cols[$column];
+        }
+
+        return $values;
+    }
+
+    /**
+     * Fetch all the values of a column inside a table.
+     *
+     * @param string $id         css id of the the table to fetch from
+     * @param string $columnName name of the column from where we're getting the values
+     *
+     * @return \Behat\Mink\Element\NodeElement[]
+     */
+    private function getActualValuesInTableByColumnName($id, $columnName)
+    {
+        $selector = sprintf('table#%s thead tr th', $id);
+        $rows = $this->getSession()->getPage()->findAll('css', $selector);
+
+        foreach ($rows as $key => $row) {
+            if ($row->getText() === $columnName) {
+                return $this->getActualValuesInTable($id, $key);
+            }
+        }
+
+        throw new ElementNotFoundException(
+            $this->getSession(), 'table element', 'css', $selector
         );
     }
 }

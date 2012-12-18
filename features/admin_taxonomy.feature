@@ -45,10 +45,7 @@ Feature: Taxonomy management
           And I should see "List of all products categorized under \"Bookmania\""
 
     Scenario: Create taxon
-        Given I am on list taxonimies
-          And I follow create taxon
-         Then I should be on create taxon
-          And I should see "Creating taxon"
+        Given I am on create taxon
          When I fill in "Name" with "SuperTees"
           And I select "Brand" from "Taxonomy"
           And I press "create taxon"
