@@ -40,11 +40,9 @@ class FeatureContext extends MinkContext implements KernelAwareInterface
     {
         $this->parameters = $parameters;
 
-        // Pages context.
-        $this->useContext('pages', new PagesContext());
-
-        // Data contexts.
         $this->useContext('data', new DataContext());
+        $this->useContext('user', new UserContext());
+        $this->useContext('admin', new AdminContext());
     }
 
     /**
