@@ -395,7 +395,7 @@ class Builder extends ContainerAware
     {
         $child = $menu->addChild('Configuration', $childOptions);
 
-        $child->addChild('Manage countries and provinces ', array(
+        $child->addChild('Manage countries and provinces', array(
             'route' => 'sylius_sandbox_backend_country_list',
             'labelAttributes' => array('icon' => 'icon-globe')
         ));
