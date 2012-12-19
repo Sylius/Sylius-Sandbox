@@ -10,7 +10,7 @@
             </a>
         </h4>
 
-        {% if not product.varied %}
+        {% if not product.hasOptions %}
             <span class="label label-price label-success pull-right"><strong>Price</strong>: {{ product.price }} &euro;</span>
         {% endif %}
 

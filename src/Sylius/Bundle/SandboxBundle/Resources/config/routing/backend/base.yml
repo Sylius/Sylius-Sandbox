@@ -30,7 +30,7 @@ sylius_sandbox_backend_option:
     resource: @SyliusSandboxBundle/Resources/config/routing/backend/option.yml
 
 sylius_sandbox_backend_variant:
-    prefix: /variants
+    prefix: /products/{productId}/variants
     resource: @SyliusSandboxBundle/Resources/config/routing/backend/variant.yml
 
 sylius_sandbox_backend_property:

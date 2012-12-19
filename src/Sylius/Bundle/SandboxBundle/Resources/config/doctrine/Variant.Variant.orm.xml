@@ -12,19 +12,6 @@
         </id>
         <field name="price" column="price" type="decimal" precision="10" scale="2" />
         <field name="onHand" column="on_hand" type="integer" />
-        <many-to-one field="product" target-entity="Sylius\Bundle\SandboxBundle\Entity\Product" inversed-by="variants">
-            <join-column name="product_id" referenced-column-name="id" />
-        </many-to-one>
-        <many-to-many field="options" target-entity="Sylius\Bundle\SandboxBundle\Entity\Option\OptionValue">
-            <join-table name="sylius_assortment_variant_option_value">
-                <join-columns>
-                    <join-column name="variant_id" referenced-column-name="id" column-definition="INT NULL" />
-                </join-columns>
-                <inverse-join-columns>
-                    <join-column name="option_value_id" referenced-column-name="id" nullable="false" unique="false" />
-                </inverse-join-columns>
-            </join-table>
-        </many-to-many>
     </entity>
 
 </doctrine-mapping>

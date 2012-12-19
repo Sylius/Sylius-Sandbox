@@ -72,7 +72,6 @@ class LoadOrdersData extends DataFixture
             $order->addItem($item);
         }
 
-
         $order->setDeliveryAddress($this->getReference('Address-'.rand(1, 50)));
         $order->setBillingAddress($this->getReference('Address-'.rand(1, 50)));
 

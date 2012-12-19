@@ -7,6 +7,7 @@ sylius_sandbox_backend_variant_create:
         _controller: sylius_assortment.controller.variant:createAction
         _sylius.resource:
             template: SyliusSandboxBundle:Backend/Variant:create.html.twig
+            redirect: sylius_sandbox_backend_variant_show
 
 sylius_sandbox_backend_variant_update:
     pattern: /{id}/update
@@ -21,7 +22,14 @@ sylius_sandbox_backend_variant_delete:
     defaults:
         _controller: sylius_assortment.controller.variant:deleteAction
         _sylius.resource:
-            redirect: sylius_sandbox_backend_variant_list
+            redirect: sylius_sandbox_backend_product_list
+
+sylius_sandbox_backend_variant_generate:
+    pattern: /generate
+    defaults:
+        _controller: sylius_assortment.controller.variant:generateAction
+        _sylius.resource:
+            redirect: sylius_sandbox_backend_product_show
 
 sylius_sandbox_backend_variant_show:
     pattern: /{id}
@@ -29,3 +37,4 @@ sylius_sandbox_backend_variant_show:
         _controller: sylius_assortment.controller.variant:getAction
         _sylius.resource:
             template: SyliusSandboxBundle:Backend/Variant:show.html.twig
+        productId: 'any' # Hacky hack...

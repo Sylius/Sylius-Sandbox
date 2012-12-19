@@ -26,8 +26,8 @@ class ProductRepository extends CustomizableProductRepository
         $queryBuilder = $this->getCollectionQueryBuilder();
 
         $queryBuilder
-            ->innerJoin('p.taxons', 't')
-            ->andWhere('t = :taxon')
+            ->innerJoin('product.taxons', 'taxon')
+            ->andWhere('taxon = :taxon')
             ->setParameter('taxon', $taxon)
         ;
 

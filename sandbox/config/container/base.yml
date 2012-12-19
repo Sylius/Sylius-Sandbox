@@ -106,22 +106,20 @@ mopa_bootstrap:
 sylius_assortment:
     driver: doctrine/orm
     classes:
-        model:
-            product: Sylius\Bundle\SandboxBundle\Entity\Product
-            variant: Sylius\Bundle\SandboxBundle\Entity\Variant\Variant
-            property: Sylius\Bundle\SandboxBundle\Entity\Property\Property
-            product_property: Sylius\Bundle\SandboxBundle\Entity\Property\ProductProperty
-            prototype: Sylius\Bundle\SandboxBundle\Entity\Prototype\Prototype
-            option: Sylius\Bundle\SandboxBundle\Entity\Option\Option
-            option_value: Sylius\Bundle\SandboxBundle\Entity\Option\OptionValue
-        controller:
-            product: Sylius\Bundle\SandboxBundle\Controller\ProductController
-        repository:
-            product: Sylius\Bundle\SandboxBundle\Repository\ProductRepository
-        form:
-            type:
-                product: Sylius\Bundle\SandboxBundle\Form\Type\ProductType
-                variant: Sylius\Bundle\SandboxBundle\Form\Type\VariantType
+        product:
+            model: Sylius\Bundle\SandboxBundle\Entity\Product
+            controller: Sylius\Bundle\SandboxBundle\Controller\ProductController
+            repository: Sylius\Bundle\SandboxBundle\Repository\ProductRepository
+            form: Sylius\Bundle\SandboxBundle\Form\Type\ProductType
+        variant:
+            model: Sylius\Bundle\SandboxBundle\Entity\Variant\Variant
+            form: Sylius\Bundle\SandboxBundle\Form\Type\VariantType
+        option:
+            model: Sylius\Bundle\SandboxBundle\Entity\Option\Option
+        property:
+            model: Sylius\Bundle\SandboxBundle\Entity\Property\Property
+        prototype:
+            model: Sylius\Bundle\SandboxBundle\Entity\Prototype\Prototype
 
 sylius_categorizer:
     driver: doctrine/orm

@@ -37,7 +37,6 @@ class MainController extends Controller
             ->findBy(array(), array('total' => 'desc'), 5)
         ;
 
-
         $newestUsers = $this
             ->getUserRepository()
             ->findBy(array(), array('id' => 'desc'), 10)

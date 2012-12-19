@@ -66,13 +66,19 @@
     </tbody>
 </table>
 
+{% if product.hasOptions %}
 <div class="well">
     <a href="{{ path('sylius_sandbox_backend_variant_create', {'productId': product.id}) }}" class="btn btn-primary">
         <i class="icon-plus icon-white"></i> create variant
     </a>
+    <a href="{{ path('sylius_sandbox_backend_variant_generate', {'productId': product.id}) }}" class="btn btn-info">
+        <i class="icon-random icon-white"></i> generate variants
+    </a>
 </div>
 
 {{ variantMacros.list(product.variants, product) }}
+
+{% endif %}
 
 <table class="table table-bordered">
     <thead>

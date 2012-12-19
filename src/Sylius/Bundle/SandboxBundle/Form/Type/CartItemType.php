@@ -33,8 +33,9 @@ class CartItemType extends BaseCartItemType
     {
         parent::buildForm($builder, $options);
 
-        if (isset($options['product']) && 0 < $options['product']->countVariants()) {
+        if (isset($options['product']) && $options['product']->hasOptions()) {
             $type = $options['product']->isVariantPickingModeChoice() ? 'sylius_assortment_variant_choice' : 'sylius_assortment_variant_match';
+
             $builder->add('variant', $type, array(
                 'product'  => $options['product']
             ));
@@ -54,7 +55,7 @@ class CartItemType extends BaseCartItemType
 
         $validationGroups = function (Options $options) {
             if (isset($options['product'])) {
-                return 0 < $options['product']->countVariants() ? 'CheckVariant' : null;
+                return $options['product']->hasOptions() ? 'CheckVariant' : null;
             }
         };
 

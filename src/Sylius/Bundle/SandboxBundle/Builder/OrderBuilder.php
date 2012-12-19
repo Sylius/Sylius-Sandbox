@@ -47,7 +47,6 @@ class OrderBuilder extends ContainerAware implements OrderBuilderInterface
 
             $variantManager->persist($variant);
             $variantManager->flush($variant);
-
         }
 
         $this->container->get('sylius_cart.provider')->abandonCart();

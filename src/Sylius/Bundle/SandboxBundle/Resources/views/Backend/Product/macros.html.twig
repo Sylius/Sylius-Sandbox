@@ -1,14 +1,22 @@
-{% macro list(products) %}
+{% macro list(products, sorting = true) %}
 {% if products|length > 0 %}
     <table class="table">
     <thead>
         <tr>
+            {% if sorting %}
+            <th>{{ sylius_resource_sort('id', '#id') }}</th>
+            <th>photo</th>
+            <th>{{ sylius_resource_sort('sku', 'SKU') }}</th>
+            <th>{{ sylius_resource_sort('name') }}</th>
+            <th>{{ sylius_resource_sort('updatedAt', 'last updated') }}</th>
+            {% else %}
             <th>#id</th>
             <th>photo</th>
             <th>SKU</th>
             <th>name</th>
-            <th>updated at</th>
+            <th>last updated</th>
             <th></th>
+            {% endif %}
         </tr>
     </thead>
     <tbody>
@@ -22,13 +30,13 @@
             </td>
             <td>
                 {{ product.sku }}
-                {% if not product.varied and not product.isInStock %}
+                {% if not product.hasOptions and not product.isInStock %}
                 <br />
                 <span class="label label-important">out of stock</span>
                 {% endif %}
             </td>
             <td>
-                {{ product.name }} 
+                {{ product.name }}
             </td>
             <td>{{ product.updatedAt|date }}</td>
             <td>

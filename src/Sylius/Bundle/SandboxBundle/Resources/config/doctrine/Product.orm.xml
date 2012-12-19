@@ -15,35 +15,19 @@
         <many-to-many field="taxons" target-entity="Sylius\Bundle\SandboxBundle\Entity\Taxon">
             <join-table name="sylius_sandbox_product_taxon">
                 <join-columns>
-                    <join-column name="product_id" referenced-column-name="id" column-definition="INT NULL" />
+                    <join-column name="product_id" referenced-column-name="id" nullable="false" />
                 </join-columns>
                 <inverse-join-columns>
                     <join-column name="taxon_id" referenced-column-name="id" nullable="false" unique="false" on-delete="CASCADE" />
                 </inverse-join-columns>
             </join-table>
         </many-to-many>
-        <many-to-one field="masterVariant" target-entity="Sylius\Bundle\SandboxBundle\Entity\Variant\Variant">
-            <cascade>
-                <cascade-all />
-            </cascade>
-            <join-column name="variant_id" referenced-column-name="id" />
-        </many-to-one>
-        <one-to-many field="variants" target-entity="Sylius\Bundle\SandboxBundle\Entity\Variant\Variant" mapped-by="product">
+        <one-to-many field="variants" target-entity="Sylius\Bundle\AssortmentBundle\Model\Variant\VariantInterface" mapped-by="product">
             <cascade>
                 <cascade-all />
             </cascade>
         </one-to-many>
-        <many-to-many field="options" target-entity="Sylius\Bundle\SandboxBundle\Entity\Option\Option">
-            <join-table name="sylius_assortment_product_option">
-                <join-columns>
-                    <join-column name="product_id" referenced-column-name="id" column-definition="INT" />
-                </join-columns>
-                <inverse-join-columns>
-                    <join-column name="option_id" referenced-column-name="id" nullable="false" unique="false" />
-                </inverse-join-columns>
-            </join-table>
-        </many-to-many>
-        <one-to-many field="properties" target-entity="Sylius\Bundle\SandboxBundle\Entity\Property\ProductProperty" mapped-by="product">
+        <one-to-many field="properties" target-entity="Sylius\Bundle\AssortmentBundle\Model\Property\ProductPropertyInterface" mapped-by="product">
             <cascade>
                 <cascade-all />
             </cascade>

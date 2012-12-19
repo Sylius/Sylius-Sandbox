@@ -38,6 +38,20 @@ class LoadProductsData extends DataFixture
     private $totalVariants;
 
     /**
+     * SKU collection.
+     *
+     * @var array
+     */
+    private $skus;
+
+    public function __construct()
+    {
+        parent::__construct();
+
+        $this->skus = array();
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function load(ObjectManager $manager)
@@ -207,7 +221,7 @@ class LoadProductsData extends DataFixture
         $product = $this->createProduct();
 
         $author = $this->faker->name;
-        $isbn = $this->faker->randomNumber(13);
+        $isbn = $this->getUniqueISBN();
 
         $product->setName(sprintf('Book "%s" by "%s", product wihout options', ucfirst($this->faker->word), $author));
         $product->setDescription($this->faker->paragraph);
@@ -244,7 +258,7 @@ class LoadProductsData extends DataFixture
         foreach ($product->getVariants() as $variant) {
             $variant->setAvailableOn($this->faker->dateTimeThisYear);
             $variant->setPrice($this->faker->randomNumber(5) / 100);
-            $variant->setSku($this->faker->randomNumber(5));
+            $variant->setSku($this->getUniqueSku());
             $variant->setOnHand($this->faker->randomNumber(1));
 
             $this->setReference('Variant-'.$this->totalVariants, $variant);
@@ -261,10 +275,10 @@ class LoadProductsData extends DataFixture
     private function addMasterVariant(CustomizableProductInterface $product, $sku = null)
     {
         if (null === $sku) {
-            $sku = $this->faker->randomNumber(6);
+            $sku = $this->getUniqueSku();
         }
 
-        $variant = $this->getVariantRepository()->createNew();
+        $variant = $product->getMasterVariant();
         $variant->setProduct($product);
         $variant->setPrice($this->faker->randomNumber(5) / 100);
         $variant->setSku($sku);
@@ -303,6 +317,22 @@ class LoadProductsData extends DataFixture
         }
 
         $product->setTaxons($taxons);
+    }
+
+    private function getUniqueSku($length = 5)
+    {
+        do {
+            $sku = $this->faker->randomNumber($length);
+        } while (in_array($sku, $this->skus));
+
+        $this->skus[] = $sku;
+
+        return $sku;
+    }
+
+    private function getUniqueISBN()
+    {
+        return $this->getUniqueSku(13);
     }
 
     private function createProduct()

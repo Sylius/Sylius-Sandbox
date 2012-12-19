@@ -26,19 +26,19 @@
         <tr>
             <td>{{ prototype.id }}</td>
             <td>{{ prototype.name }}</td>
-            <td>{{ prototype.createdAt|date('Y-m-d H:i:s') }}</td>
+            <td>{{ prototype.createdAt|date }}</td>
             <td>
                 <div class="btn-group pull-right">
-                    <a href="{{ path('sylius_sandbox_backend_prototype_build', {'id': prototype.id}) }}" class="btn">
-                       <i class="icon-play-circle"></i> {{ 'build'|trans({}, 'SyliusSandboxBundle') }}
+                    <a href="{# path('sylius_sandbox_backend_prototype_build', {'id': prototype.id}) #}" class="btn disabled">
+                       <i class="icon-play-circle"></i> build
                     </a>
                     <a href="{{ path('sylius_sandbox_backend_prototype_update', {'id': prototype.id}) }}" class="btn">
-                       <i class="icon-pencil"></i> {{ 'update'|trans({}, 'SyliusSandboxBundle') }}
+                       <i class="icon-pencil"></i> edit
                     </a>
                     <a href="{{ path('sylius_sandbox_backend_prototype_delete', {'id': prototype.id}) }}" class="btn btn-danger confirmer"
-                        data-confirmer-question="{{ 'confirmer.q.prototype.delete'|trans({}, 'SyliusSandboxBundle') }}"
+                        data-confirmer-question="Do you really want to delete this prototype?"
                     >
-                        <i class="icon-remove icon-white"></i> {{ 'delete'|trans({}, 'SyliusSandboxBundle') }}
+                        <i class="icon-trash icon-white"></i> delete
                     </a>
                 </div>
             </td>
@@ -48,7 +48,7 @@
 </table>
 {% else %}
 <div class="alert alert-info">
-    <h4 class="alert-heading">{{ 'alert.heading.info'|trans({}, 'SyliusSandboxBundle') }}.</h4>
+    <h4 class="alert-heading">Information</h4>
     There are no prototypes to display.
 </div>
 {% endif %}

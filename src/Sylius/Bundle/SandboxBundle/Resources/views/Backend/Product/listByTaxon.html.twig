@@ -26,7 +26,7 @@
 {{ pagerfanta(paginator, 'twitter_bootstrap_translated') }}
 {% endif %}
 
-{{ macros.list(products)  }}
+{{ macros.list(products, false)  }}
 
 {% if paginator.haveToPaginate() %}
 {{ pagerfanta(paginator, 'twitter_bootstrap_translated') }}

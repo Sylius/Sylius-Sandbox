@@ -7,6 +7,9 @@ sylius_sandbox_backend_product_list:
         _controller: sylius_assortment.controller.product:getCollectionAction
         _sylius.resource:
             template: SyliusSandboxBundle:Backend/Product:list.html.twig
+            sortable: true
+            sorting:
+                updatedAt: desc
 
 sylius_sandbox_backend_product_list_by_taxon:
     pattern: /t/{permalink}

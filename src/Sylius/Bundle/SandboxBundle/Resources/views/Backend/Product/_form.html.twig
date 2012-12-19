@@ -2,10 +2,11 @@
     {{ form_errors(form)  }}
     <ul class="nav nav-tabs">
         <li class="active"><a href="#main" data-toggle="tab">Product</a></li>
-        {% if prototype is not defined or (prototype is defined and prototype.options|length > 0) %}
+        {% if form.options is defined %}
         <li><a href="#options" data-toggle="tab">Options</a></li>
         {% endif %}
         <li><a href="#properties" data-toggle="tab">Properties</a></li>
+        <li><a href="#taxonomies" data-toggle="tab">Taxonomies</a></li>
     </ul>
     <div class="tab-content">
         <div class="tab-pane active" id="main">
@@ -22,19 +23,18 @@
                 </div>
             </div>
             <hr />
-            {% for taxonomyForm in form.taxons %}
-                {{ form_row(taxonomyForm) }}
-            {% endfor %}
-            <hr />
-            {{ form_row(form.masterVariant.price) }}
             {{ form_row(form.masterVariant.availableOn) }}
-            {{ form_row(form.variantPickingMode) }}
-            {% if not product.varied %}
+            {% if not product.hasOptions %}
+            {{ form_row(form.masterVariant.price) }}
             {{ form_row(form.masterVariant.onHand) }}
+            {% else %}
+            {{ form_row(form.masterVariant.price, {'label': 'Master price'}) }}
+            {{ form_row(form.masterVariant.onHand, {'label': 'Default inventory'}) }}
             {% endif %}
         </div>
-        {% if prototype is not defined or (prototype is defined and prototype.options|length > 0) %}
+        {% if form.options is defined %}
         <div class="tab-pane" id="options">
+            {{ form_row(form.variantPickingMode) }}
             {{ form_row(form.options) }}
         </div>
         {% endif %}
@@ -50,6 +50,16 @@
                 </div>
             </div>
         </div>
+        <div class="tab-pane" id="taxonomies">
+            {% for taxonomyForm in form.taxons %}
+                {{ form_row(taxonomyForm) }}
+            {% endfor %}
+        </div>
+        {% if form.options is defined %}
+        <div class="tab-pane" id="options">
+            {{ form_row(form.options) }}
+        </div>
+        {% endif %}
     </div>
 </fieldset>
 {{ form_widget(form._token) }}

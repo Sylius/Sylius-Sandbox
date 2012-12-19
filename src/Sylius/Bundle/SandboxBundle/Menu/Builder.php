@@ -50,7 +50,6 @@ class Builder extends ContainerAware
             'labelAttributes'    => array('class' => 'dropdown-toggle', 'data-toggle' => 'dropdown', 'href' => '#')
         );
 
-
         $categoryManager = $this->container->get('sylius_categorizer.manager.category');
         $blogCategories = $categoryManager->findCategories('blog');
 

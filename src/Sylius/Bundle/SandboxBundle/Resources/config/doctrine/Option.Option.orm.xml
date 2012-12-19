@@ -9,7 +9,7 @@
         <id name="id" column="id" type="integer">
             <generator strategy="AUTO" />
         </id>
-        <one-to-many field="values" target-entity="Sylius\Bundle\SandboxBundle\Entity\Option\OptionValue" mapped-by="option">
+        <one-to-many field="values" target-entity="Sylius\Bundle\AssortmentBundle\Model\Option\OptionValueInterface" mapped-by="option">
             <cascade>
                 <cascade-all />
             </cascade>

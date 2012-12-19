@@ -1,27 +1,29 @@
 {% extends 'SyliusSandboxBundle:Backend:layout.html.twig' %}
 
+{% set product = variant.product %}
+
 {% block header %}
     <h1>Variant details</h1>
 {% endblock %}
 
 {% block content %}
 <div class="well">
-    <a href="{{ path('sylius_sandbox_backend_variant_create', {'productId': variant.product.id}) }}" class="btn btn-primary">
+    <a href="{{ path('sylius_sandbox_backend_variant_create', {'productId': product.id}) }}" class="btn btn-primary">
         <i class="icon-plus icon-white"></i> add another variant
     </a>
-    <a href="{{ path('sylius_sandbox_product_show', {'id': variant.product.id, 'slug': variant.product.slug}) }}" class="btn">
+    <a href="{{ path('sylius_sandbox_product_show', {'slug': product.slug}) }}" class="btn">
         <i class="icon-book"></i> show product in the store
     </a>
-    <a href="{{ path('sylius_sandbox_backend_product_show', {'id': variant.product.id}) }}" class="btn">
+    <a href="{{ path('sylius_sandbox_backend_product_show', {'id': product.id}) }}" class="btn">
         <i class="icon-info-sign"></i> show product
     </a>
-    <a href="{{ path('sylius_sandbox_backend_variant_update', {'id': variant.id}) }}" class="btn">
-        <i class="icon-pencil"></i> {{ 'update'|trans({}, 'SyliusSandboxBundle') }}
+    <a href="{{ path('sylius_sandbox_backend_variant_update', {'productId': product.id, 'id': variant.id}) }}" class="btn">
+        <i class="icon-pencil"></i> edit
     </a>
-    <a href="{{ path('sylius_sandbox_backend_variant_delete', {'id': variant.id}) }}" class="btn btn-danger confirmer"
-        data-confirmer-question="{{ 'confirmer.q.variant.delete'|trans({}, 'SyliusSandboxBundle') }}"
+    <a href="{{ path('sylius_sandbox_backend_variant_delete', {'productId': product.id, 'id': variant.id}) }}" class="btn btn-danger confirmer"
+        data-confirmer-question="Do you really want to delete this variant?"
     >
-        <i class="icon-remove icon-white"></i> {{ 'delete'|trans({}, 'SyliusSandboxBundle') }}
+        <i class="icon-trash icon-white"></i> delete
     </a>
 </div>
 

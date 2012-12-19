@@ -32,7 +32,7 @@
         </tr>
         <tr>
             <td><strong>created at</strong></td>
-            <td>{{ order.createdAt|date('d.m.Y, H:i:s') }}</td>
+            <td>{{ order.createdAt|date }}</td>
         </tr>
     </tbody>
 </table>
@@ -47,33 +47,33 @@
             </thead>
             <tbody>
                 <tr>
-                    <td><strong>firstname</strong></td>
+                    <td><strong>First name</strong></td>
                     <td>{{ order.deliveryAddress.firstname }}</td>
                 </tr>
                 <tr>
-                    <td><strong>lastname</strong></td>
+                    <td><strong>Last name</strong></td>
                     <td>{{ order.deliveryAddress.lastname }}</td>
                 </tr>
                 <tr>
-                    <td><strong>country</strong></td>
+                    <td><strong>Country</strong></td>
                     <td>{{ order.deliveryAddress.country }}</td>
                 </tr>
                 {% if order.deliveryAddress.province is not empty %}
                 <tr>
-                    <td><strong>province</strong></td>
+                    <td><strong>Province</strong></td>
                     <td>{{ order.deliveryAddress.province }}</td>
                 </tr>
                 {% endif %}
                 <tr>
-                    <td><strong>street</strong></td>
+                    <td><strong>Street</strong></td>
                     <td>{{ order.deliveryAddress.street }}</td>
                 </tr>
                 <tr>
-                    <td><strong>city</strong></td>
+                    <td><strong>City</strong></td>
                     <td>{{ order.deliveryAddress.city }}</td>
                 </tr>
                 <tr>
-                    <td><strong>postcode</strong></td>
+                    <td><strong>Postcode</strong></td>
                     <td>{{ order.deliveryAddress.postcode }}</td>
                 </tr>
             </tbody>
@@ -88,33 +88,33 @@
             </thead>
             <tbody>
                 <tr>
-                    <td><strong>firstname</strong></td>
+                    <td><strong>First name</strong></td>
                     <td>{{ order.billingAddress.firstname }}</td>
                 </tr>
                 <tr>
-                    <td><strong>lastname</strong></td>
+                    <td><strong>Last name</strong></td>
                     <td>{{ order.billingAddress.lastname }}</td>
                 </tr>
                 <tr>
-                    <td><strong>country</strong></td>
+                    <td><strong>Country</strong></td>
                     <td>{{ order.billingAddress.country }}</td>
                 </tr>
                 {% if order.billingAddress.province is not empty %}
                 <tr>
-                    <td><strong>province</strong></td>
+                    <td><strong>Province</strong></td>
                     <td>{{ order.billingAddress.province }}</td>
                 </tr>
                 {% endif %}
                 <tr>
-                    <td><strong>street</strong></td>
+                    <td><strong>Street</strong></td>
                     <td>{{ order.billingAddress.street }}</td>
                 </tr>
                 <tr>
-                    <td><strong>city</strong></td>
+                    <td><strong>City</strong></td>
                     <td>{{ order.billingAddress.city }}</td>
                 </tr>
                 <tr>
-                    <td><strong>postcode</strong></td>
+                    <td><strong>Postcode</strong></td>
                     <td>{{ order.billingAddress.postcode }}</td>
                 </tr>
             </tbody>
@@ -143,14 +143,16 @@
     </thead>
     <tbody>
         {% for item in order.items %}
+        {% set variant = item.variant %}
+        {% set product = variant.product %}
         <tr>
             <td>{{ loop.index }}</td>
-            <td>{{ item.variant.sku }}</td>
+            <td>{{ variant.sku }}</td>
             <td>
-                <p>{{ item.variant.product.name }}</p>
-                {% if item.variant.countOptions > 0 %}
+                <p>{{ product.name }}</p>
+                {% if product.hasOptions %}
                 <ul class="unstyled">
-                    {% for option in item.variant.options %}
+                    {% for option in variant.options %}
                     <li><strong>{{ option.presentation }}</strong>: {{ option.value  }}</li>
                     {% endfor %}
                 </ul>
@@ -164,7 +166,7 @@
             </td>
             <td>
                 <span class="pull-right">
-                {{ item.unitPrice * item.quantity }} &euro;
+                {{ item.total }} &euro;
                 </span>
             </td>
         </tr>

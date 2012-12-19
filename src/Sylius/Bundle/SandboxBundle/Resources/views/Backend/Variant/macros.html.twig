@@ -31,17 +31,17 @@
             </td>
             <td>{{ variant.price }} &euro;</td>
             <td>
-                <span class="badge badge-{{ variant.inStock ? 'success' : 'important' }}">{{ variant.onHand }}</span> available units.
+                <span class="badge badge-{{ variant.inStock ? 'success' : 'important' }}">{{ variant.onHand }}</span> in stock
             </td>
             <td>
                 <div class="btn-group pull-right">
-                    <a href="{{ path('sylius_sandbox_backend_variant_update', {'id': variant.id}) }}" class="btn">
-                       <i class="icon-pencil"></i> {{ 'update'|trans({}, 'SyliusSandboxBundle') }}
+                    <a href="{{ path('sylius_sandbox_backend_variant_update', {'productId': product.id, 'id': variant.id}) }}" class="btn">
+                       <i class="icon-pencil"></i> edit
                     </a>
-                    <a href="{{ path('sylius_sandbox_backend_variant_delete', {'id': variant.id}) }}" class="btn btn-danger confirmer"
-                        data-confirmer-question="{{ 'confirmer.q.variant.delete'|trans({}, 'SyliusSandboxBundle') }}"
+                    <a href="{{ path('sylius_sandbox_backend_variant_delete', {'productId': product.id, 'id': variant.id}) }}" class="btn btn-danger confirmer"
+                        data-confirmer-question="Are you sure about deleting this product?"
                     >
-                        <i class="icon-remove icon-white"></i> {{ 'delete'|trans({}, 'SyliusSandboxBundle') }}
+                        <i class="icon-trash icon-white"></i> delete
                     </a>
                 </div>
             </td>
@@ -51,7 +51,7 @@
 </table>
 {% else %}
 <div class="alert alert-info">
-    <h4 class="alert-heading">{{ 'alert.heading.info'|trans({}, 'SyliusSandboxBundle') }}.</h4>
+    <h4 class="alert-heading">Information</h4>
     There are no variants of this product.
 </div>
 {% endif %}

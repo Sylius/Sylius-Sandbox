@@ -1,11 +1,13 @@
 {% extends 'SyliusSandboxBundle:Backend:layout.html.twig' %}
 
+{% set product = variant.product %}
+
 {% block header %}
     <h1>Updating variant<small> Use the form below to modify existing variant</small></h1>
 {% endblock %}
 
 {% block content %}
-<form action="{{ path('sylius_sandbox_backend_variant_update', {'id': variant.id}) }}" method="post" class="form-horizontal" novalidate>
+<form action="{{ path('sylius_sandbox_backend_variant_update', {'productId': product.id, 'id': variant.id}) }}" method="post" class="form-horizontal" novalidate>
     {% include 'SyliusSandboxBundle:Backend/Variant:_form.html.twig' %}
     <div class="form-actions">
        <input type="submit" value="save changes" class="btn btn-primary btn-large" />

@@ -16,7 +16,7 @@
         </a>
     </div>
     <div class="span5">
-        {% if not product.varied %}
+        {% if not product.hasOptions %}
             <span class="label label-price label-success pull-right"><strong>Price</strong>: {{ product.price }} &euro;</span>
         {% endif %}
         <h3>{{ product.name }}</h3>
@@ -45,7 +45,7 @@
     </div>
 </div>
 <form action="{{ path('sylius_cart_item_add', {'id': product.id}) }}" method="post" class="clearfix">
-    {% if product.varied %}
+    {% if product.hasOptions %}
         {% if product.isVariantPickingModeChoice %}
         <table class="table table-condensed table-striped">
             <thead>
@@ -99,7 +99,7 @@
         </ol>
     </div>
     <div class="pull-right">
-    {% if not product.varied and not sylius_inventory_in_stock(product.masterVariant) %}
+    {% if not product.hasOptions and not sylius_inventory_in_stock(product.masterVariant) %}
         <br />
         <span class="label label-important center-text out-of-stock">out of stock</span>
     {% else %}

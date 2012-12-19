@@ -100,7 +100,10 @@ class Product extends BaseProduct implements StockableInterface
      */
     public function getPrice()
     {
-        return $this->masterVariant->getPrice();
+        return $this
+            ->getMasterVariant()
+            ->getPrice()
+        ;
     }
 
     /**
@@ -111,7 +114,10 @@ class Product extends BaseProduct implements StockableInterface
      */
     public function getStockableId()
     {
-        return $this->masterVariant->getStockableId();
+        return $this
+            ->getMasterVariant()
+            ->getStockableId()
+        ;
     }
 
     /**
@@ -119,7 +125,10 @@ class Product extends BaseProduct implements StockableInterface
      */
     public function isInStock()
     {
-        return $this->masterVariant->isInStock();
+        return $this
+            ->getMasterVariant()
+            ->isInStock()
+        ;
     }
 
     /**
@@ -127,7 +136,10 @@ class Product extends BaseProduct implements StockableInterface
      */
     public function getOnHand()
     {
-        return $this->masterVariant->getOnHand();
+        return $this
+            ->getMasterVariant()
+            ->getOnHand()
+        ;
     }
 
     /**
@@ -135,7 +147,10 @@ class Product extends BaseProduct implements StockableInterface
      */
     public function setOnHand($onHand)
     {
-        $this->masterVariant->setOnHand($onHand);
+        $this
+            ->getMasterVariant()
+            ->setOnHand($onHand)
+        ;
     }
 
     public function getImagePath()

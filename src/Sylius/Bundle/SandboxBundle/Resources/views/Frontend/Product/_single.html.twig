@@ -5,14 +5,14 @@
         </a>
     </div>
     <div class="span9">
-        {% if not product.varied %}
+        {% if not product.hasOptions %}
             <span class="label label-price label-success pull-right"><strong>Price</strong>: {{ product.price }} &euro;</span>
         {% endif %}
         <h3>{{ product.name }}</h3>
         <p>
             {{ product.description|markdown }}
         </p>
-        {% if not product.varied %}
+        {% if not product.hasOptions %}
             {% if not sylius_inventory_in_stock(product.masterVariant) %}
                 <br />
                 <span class="label label-important center-text out-of-stock">out of stock</span>
