@@ -50,7 +50,7 @@ sylius_sandbox_backend_taxonomy:
     resource: @SyliusSandboxBundle/Resources/config/routing/backend/taxonomy.yml
 
 sylius_sandbox_backend_taxon:
-    prefix: /taxons
+    prefix: /taxonomies/{taxonomyId}/taxons
     resource: @SyliusSandboxBundle/Resources/config/routing/backend/taxon.yml
 
 sylius_sandbox_backend_user:

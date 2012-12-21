@@ -4,8 +4,10 @@
     <h1>Taxon updating <small>Use this form to edit existing taxon</small></h1>
 {% endblock %}
 
+{% set taxonomy = taxon.taxonomy %}
+
 {% block content %}
-<form action="{{ path('sylius_sandbox_backend_taxon_update', {'id': taxon.id}) }}" method="post" class="form-horizontal" novalidate>
+<form action="{{ path('sylius_sandbox_backend_taxon_update', {'taxonomyId': taxonomy.id, 'id': taxon.id}) }}" method="post" class="form-horizontal" novalidate>
     {% include 'SyliusSandboxBundle:Backend/Taxon:_form.html.twig' %}
     <div class="form-actions">
        <input type="submit" value="save changes" class="btn btn-large btn-primary" />

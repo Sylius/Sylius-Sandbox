@@ -40,7 +40,8 @@
             <th>SKU</th>
             <th>name</th>
             <th>options</th>
-            <th>price</th>
+            <th>taxons</th>
+            <th>{% if product.hasOptions %}master {% endif %}price</th>
         </tr>
     </thead>
     <tbody>
@@ -49,7 +50,7 @@
             <td>{{ product.sku }}</td>
             <td>{{ product.name }}</td>
             <td>
-                {% if product.options|length > 0 %}
+                {% if product.hasOptions %}
                 <ul>
                 {% for option in product.options %}
                     <li>{{ option.name }}</li>
@@ -58,6 +59,19 @@
                 {% else %}
                     <span class="label label-info label-padded">
                         <i class="icon-list-alt icon-white"></i> There are no options for this product.
+                    </span>
+                {% endif %}
+            </td>
+            <td>
+                {% if product.taxons|length > 0 %}
+                <ul>
+                {% for taxon in product.taxons %}
+                    <li>{{ taxon.name }}</li>
+                {% endfor %}
+                </ul>
+                {% else %}
+                    <span class="label label-info label-padded">
+                        <i class="icon-list-alt icon-white"></i> This product is unclassified.
                     </span>
                 {% endif %}
             </td>

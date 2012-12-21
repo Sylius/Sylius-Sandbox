@@ -2786,12 +2786,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/SyliusTaxonomiesBundle.git",
-                "reference": "829708ad79344a4b8e935073601d38ceb6536676"
+                "reference": "245678479f3b84c69ffbcd0f6f69532462ce763b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/Sylius/SyliusTaxonomiesBundle/archive/829708ad79344a4b8e935073601d38ceb6536676.zip",
-                "reference": "829708ad79344a4b8e935073601d38ceb6536676",
+                "url": "https://github.com/Sylius/SyliusTaxonomiesBundle/archive/245678479f3b84c69ffbcd0f6f69532462ce763b.zip",
+                "reference": "245678479f3b84c69ffbcd0f6f69532462ce763b",
                 "shasum": ""
             },
             "require": {
@@ -2805,7 +2805,7 @@
                 "symfony/form": ">=2.1,<3.0",
                 "twig/twig": "*"
             },
-            "time": "2012-12-19 16:10:26",
+            "time": "2012-12-21 20:31:48",
             "type": "symfony-bundle",
             "installation-source": "source",
             "autoload": {

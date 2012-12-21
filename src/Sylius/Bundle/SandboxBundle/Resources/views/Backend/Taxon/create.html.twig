@@ -4,8 +4,10 @@
     <h1>Creating taxon</h1>
 {% endblock %}
 
+{% set taxonomy = taxon.taxonomy %}
+
 {% block content %}
-<form action="{{ path('sylius_sandbox_backend_taxon_create') }}" method="post" class="form-horizontal" novalidate>
+<form action="{{ path('sylius_sandbox_backend_taxon_create', {'taxonomyId': taxonomy.id}) }}" method="post" class="form-horizontal" novalidate>
     {% include 'SyliusSandboxBundle:Backend/Taxon:_form.html.twig' %}
     <div class="form-actions">
        <input type="submit" value="Create taxon" class="btn btn-large btn-primary" />
