@@ -398,6 +398,10 @@ class Builder extends ContainerAware
             'route' => 'sylius_sandbox_backend_country_list',
             'labelAttributes' => array('icon' => 'icon-globe')
         ));
+        $child->addChild('Manage zones', array(
+            'route' => 'sylius_sandbox_backend_zone_list',
+            'labelAttributes' => array('icon' => 'icon-globe')
+        ));
     }
 
     /**

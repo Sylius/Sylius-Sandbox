@@ -8,40 +8,25 @@
  */
 (function ( $ ) {
     $(document).ready(function() {
-        $("a.confirmer").each(function () {
+        $('a.confirmer').each(function () {
             $(this).data('confirmerLink', this.href);
             $(this).click(function (e) {
                 e.preventDefault();
-                $("#confirmer-modal").modal('show');
-                $("#confirmer-modal p.confirmer-modal-question").html($(this).data('confirmerQuestion'));
-                $("#confirmer-modal a.confirmer-modal-confirm").attr('href', $(this).data('confirmerLink'));
+                $('#confirmer-modal').modal('show');
+                $('#confirmer-modal p.confirmer-modal-question').html($(this).data('confirmerQuestion'));
+                $('#confirmer-modal a.confirmer-modal-confirm').attr('href', $(this).data('confirmerLink'));
             });
         });
 
-        $("a.collection-add-btn").each(function () {
-            var $this = $(this);
-
-            $this.on('click', function () {
-                addCollectionItem($this.data('collection'));
-            });
+        $('a.collection-add-btn').on('click', function () {
+            var $collectionContainer = $('#' + $(this).data('collection'));
+            var prototype = $collectionContainer.attr('data-prototype');
+            var item = prototype.replace(/__name__/g, $collectionContainer.children().length);
+            $collectionContainer.append(item);
         });
-        $("a.collection-remove-btn").each(function () {
-            var $this = $(this);
 
-            $this.on('click', function () {
-                removeCollectionItem($this);
-            });
+        $('a.collection-remove-btn').on('click', function () {
+            $(this).closest('.control-group').remove();
         });
     });
-
-    function addCollectionItem(name) {
-        var $collectionContainer = $("#" + name);
-        var prototype = $collectionContainer.attr('data-prototype');
-        var item = prototype.replace(/__name__/g, $collectionContainer.children().length);
-        $collectionContainer.append(item);
-    }
-
-    function removeCollectionItem(btn) {
-        btn.closest('collection-item').remove();
-    }
 })( jQuery );

@@ -37,7 +37,7 @@ class LoadCountriesData extends DataFixture
             $country->setIsoName($isoName);
 
             if ('US' === $isoName) {
-                $this->loadProvinces($country, $manager);
+                $this->loadProvinces($country);
             }
 
             $manager->persist($country);
@@ -48,7 +48,7 @@ class LoadCountriesData extends DataFixture
         $manager->flush();
     }
 
-    private function loadProvinces($country, ObjectManager $manager)
+    private function loadProvinces($country)
     {
         $states = array(
             'AL' => 'Alabama',
@@ -106,11 +106,13 @@ class LoadCountriesData extends DataFixture
 
         $provinceRepository = $this->getProvinceRepository();
 
-        foreach ($states as $name) {
+        foreach ($states as $isoName => $name) {
             $province = $provinceRepository->createNew();
             $province->setName($name);
 
             $country->addProvince($province);
+
+            $this->setReference('Province-'.$isoName, $province);
         }
     }
 
