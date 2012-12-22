@@ -2256,12 +2256,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/SyliusAddressingBundle.git",
-                "reference": "9942d8841549aef0b52e2424ccc5d5cb55dcac1a"
+                "reference": "52e929270a1085d421b6e0ecc44a87b64b6ae69f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/Sylius/SyliusAddressingBundle/archive/9942d8841549aef0b52e2424ccc5d5cb55dcac1a.zip",
-                "reference": "9942d8841549aef0b52e2424ccc5d5cb55dcac1a",
+                "url": "https://github.com/Sylius/SyliusAddressingBundle/archive/52e929270a1085d421b6e0ecc44a87b64b6ae69f.zip",
+                "reference": "52e929270a1085d421b6e0ecc44a87b64b6ae69f",
                 "shasum": ""
             },
             "require": {
@@ -2273,7 +2273,7 @@
             "require-dev": {
                 "phpspec/phpspec2": "dev-develop"
             },
-            "time": "2012-12-13 21:55:10",
+            "time": "2012-12-22 20:47:23",
             "type": "symfony-bundle",
             "installation-source": "source",
             "autoload": {

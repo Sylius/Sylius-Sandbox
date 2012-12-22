@@ -11,7 +11,6 @@
     {{ form_row(form.name, {'attr': {'class': 'input-xlarge'}}) }}
     {{ form_row(form.type) }}
     <div class="control-group">
-        {{ form_label(form.members) }}
         {% for type in ['country', 'province', 'zone'] %}
             <div id="sylius-addressing-zone-members-{{ type }}" data-prototype="{{ form_widget(form.members.vars.prototypes['sylius_addressing_zone_member_' ~ type])|e }}">
                 {% if form.type.get('value') == type %}
