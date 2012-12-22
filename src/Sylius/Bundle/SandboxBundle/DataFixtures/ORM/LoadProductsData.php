@@ -106,6 +106,7 @@ class LoadProductsData extends DataFixture
     {
         $product = $this->createProduct();
 
+        $product->setTaxCategory($this->getTaxCategory('clothing'));
         $product->setName(sprintf('T-Shirt "%s" in different sizes and colors', $this->faker->word));
         $product->setDescription($this->faker->paragraph);
         $product->setVariantPickingMode(Product::VARIANT_PICKING_MATCH);
@@ -149,6 +150,7 @@ class LoadProductsData extends DataFixture
     {
         $product = $this->createProduct();
 
+        $product->setTaxCategory($this->getTaxCategory('default'));
         $product->setName(sprintf('Great sticker "%s" in different sizes', $this->faker->word));
         $product->setDescription($this->faker->paragraph);
         $product->setVariantPickingMode($this->faker->randomElement(array(Product::VARIANT_PICKING_CHOICE, Product::VARIANT_PICKING_MATCH)));
@@ -187,6 +189,7 @@ class LoadProductsData extends DataFixture
     {
         $product = $this->createProduct();
 
+        $product->setTaxCategory($this->getTaxCategory('default'));
         $product->setName(sprintf('Mug "%s", many types available', $this->faker->word));
         $product->setDescription($this->faker->paragraph);
         $product->setVariantPickingMode(Product::VARIANT_PICKING_CHOICE);
@@ -223,6 +226,7 @@ class LoadProductsData extends DataFixture
         $author = $this->faker->name;
         $isbn = $this->getUniqueISBN();
 
+        $product->setTaxCategory($this->getTaxCategory('default'));
         $product->setName(sprintf('Book "%s" by "%s", product wihout options', ucfirst($this->faker->word), $author));
         $product->setDescription($this->faker->paragraph);
         $product->setImagePath('../../bundles/syliussandbox/images/book.jpg');
@@ -317,6 +321,11 @@ class LoadProductsData extends DataFixture
         }
 
         $product->setTaxons($taxons);
+    }
+
+    private function getTaxCategory($name)
+    {
+        return $this->getReference('TaxCategory.'.ucfirst($name));
     }
 
     private function getUniqueSku($length = 5)

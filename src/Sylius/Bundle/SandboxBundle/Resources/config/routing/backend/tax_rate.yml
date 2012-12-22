@@ -1,0 +1,35 @@
+# This file is part of the Sylius sandbox application.
+# (c) Paweł Jędrzejewski
+
+sylius_sandbox_backend_tax_rate_list:
+    pattern: /
+    defaults:
+        _controller: sylius_taxation.controller.rate:getCollectionAction
+        _sylius.resource:
+            template: SyliusSandboxBundle:Backend/TaxRate:list.html.twig
+            sortable: true
+            sorting:
+                name: desc
+
+sylius_sandbox_backend_tax_rate_create:
+    pattern: /create
+    defaults:
+        _controller: sylius_taxation.controller.rate:createAction
+        _sylius.resource:
+            template: SyliusSandboxBundle:Backend/TaxRate:create.html.twig
+            redirect: sylius_sandbox_backend_tax_rate_list
+
+sylius_sandbox_backend_tax_rate_update:
+    pattern: /update
+    defaults:
+        _controller: sylius_taxation.controller.rate:updateAction
+        _sylius.resource:
+            template: SyliusSandboxBundle:Backend/TaxRate:update.html.twig
+            redirect: sylius_sandbox_backend_tax_rate_list
+
+sylius_sandbox_backend_tax_rate_delete:
+    pattern: /{id}/delete
+    defaults:
+        _controller: sylius_taxation.controller.rate:deleteAction
+        _sylius.resource:
+            redirect: sylius_sandbox_backend_tax_rate_list

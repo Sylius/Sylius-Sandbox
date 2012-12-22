@@ -1,0 +1,14 @@
+{% extends 'SyliusSandboxBundle:Backend:layout.html.twig' %}
+
+{% block header %}
+    <h1>Creating tax rate<small> Use the form below to create a tax rate</small></h1>
+{% endblock %}
+
+{% block content %}
+<form action="{{ path('sylius_sandbox_backend_tax_rate_create') }}" method="post" class="form-horizontal" novalidate>
+    {% include 'SyliusSandboxBundle:Backend/TaxRate:_form.html.twig' %}
+    <div class="form-actions">
+       <input type="submit" value="create tax rate" class="btn btn-primary btn-large" />
+    </div>
+</form>
+{% endblock %}

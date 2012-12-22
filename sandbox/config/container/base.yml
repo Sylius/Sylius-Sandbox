@@ -176,6 +176,8 @@ sylius_taxonomies:
             model: Sylius\Bundle\SandboxBundle\Entity\Taxonomy
         taxon:
             model: Sylius\Bundle\SandboxBundle\Entity\Taxon
+sylius_taxation:
+    driver: doctrine/orm
 
 sylius_resource:
     resources:

@@ -16,13 +16,16 @@ use Doctrine\Common\Collections\Collection;
 use Sylius\Bundle\AssortmentBundle\Entity\CustomizableProduct as BaseProduct;
 use Sylius\Bundle\InventoryBundle\Model\StockableInterface;
 use Sylius\Bundle\SandboxBundle\Entity\Variant\Variant;
+use Sylius\Bundle\TaxationBundle\Model\TaxCategoryInterface;
+use Sylius\Bundle\TaxationBundle\Model\TaxableInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
-class Product extends BaseProduct implements StockableInterface
+class Product extends BaseProduct implements StockableInterface, TaxableInterface
 {
     const VARIANT_PICKING_CHOICE = 0;
     const VARIANT_PICKING_MATCH  = 1;
 
+    protected $taxCategory;
     protected $taxons;
 
     /**
@@ -60,6 +63,16 @@ class Product extends BaseProduct implements StockableInterface
         $this->taxons = new ArrayCollection();
 
         $this->setMasterVariant(new Variant());
+    }
+
+    public function getTaxCategory()
+    {
+        return $this->taxCategory;
+    }
+
+    public function setTaxCategory(TaxCategoryInterface $taxCategory = null)
+    {
+        $this->taxCategory = $taxCategory;
     }
 
     public function getTaxons()

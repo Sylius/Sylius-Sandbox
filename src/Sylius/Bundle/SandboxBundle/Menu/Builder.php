@@ -252,38 +252,17 @@ class Builder extends ContainerAware
 
         $this->addDivider($child);
 
-        // Option types.
-        $child->addChild('Create option', array(
-            'route'           => 'sylius_sandbox_backend_option_create',
-            'labelAttributes' => array('icon' => 'icon-plus-sign')
-        ));
-        $child->addChild('List options', array(
+        $child->addChild('Manage options', array(
             'route'           => 'sylius_sandbox_backend_option_list',
-            'labelAttributes' => array('icon' => 'icon-list-alt')
+            'labelAttributes' => array('icon' => 'icon-random')
         ));
-
-        $this->addDivider($child);
-
-        // Properties.
-        $child->addChild('Create property', array(
-            'route'           => 'sylius_sandbox_backend_property_create',
-            'labelAttributes' => array('icon' => 'icon-plus-sign')
-        ));
-        $child->addChild('List properties', array(
+        $child->addChild('Customize properties', array(
             'route'           => 'sylius_sandbox_backend_property_list',
-            'labelAttributes' => array('icon' => 'icon-list-alt')
+            'labelAttributes' => array('icon' => 'icon-th-large')
         ));
-
-        $this->addDivider($child);
-
-        // Prototypes.
-        $child->addChild('Create prototype', array(
-            'route'           => 'sylius_sandbox_backend_prototype_create',
-            'labelAttributes' => array('icon' => 'icon-plus-sign')
-        ));
-        $child->addChild('List prototypes', array(
+        $child->addChild('Prototypes', array(
             'route'           => 'sylius_sandbox_backend_prototype_list',
-            'labelAttributes' => array('icon' => 'icon-list-alt')
+            'labelAttributes' => array('icon' => 'icon-cogs')
         ));
     }
 
@@ -396,11 +375,22 @@ class Builder extends ContainerAware
 
         $child->addChild('Manage countries and provinces', array(
             'route' => 'sylius_sandbox_backend_country_list',
-            'labelAttributes' => array('icon' => 'icon-globe')
+            'labelAttributes' => array('icon' => 'icon-flag')
         ));
         $child->addChild('Manage zones', array(
             'route' => 'sylius_sandbox_backend_zone_list',
             'labelAttributes' => array('icon' => 'icon-globe')
+        ));
+
+        $this->addDivider($child);
+
+        $child->addChild('Taxation categories', array(
+            'route' => 'sylius_sandbox_backend_tax_category_list',
+            'labelAttributes' => array('icon' => 'icon-tasks')
+        ));
+        $child->addChild('Tax rates', array(
+            'route' => 'sylius_sandbox_backend_tax_rate_list',
+            'labelAttributes' => array('icon' => 'icon-adjust')
         ));
     }
 

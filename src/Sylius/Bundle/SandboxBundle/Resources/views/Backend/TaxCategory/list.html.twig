@@ -1,0 +1,64 @@
+{% extends 'SyliusSandboxBundle:Backend:layout.html.twig' %}
+
+{% block header %}
+    <h1>Taxation categories <small>Here you can configure the taxation system</small></h1>
+{% endblock %}
+
+{% block content %}
+<div class="well well-small">
+<a href="{{ path('sylius_sandbox_backend_tax_category_create') }}" class="btn btn-primary">
+    <i class="icon-plus icon-white"></i> new tax category
+</a>
+<a href="{{ path('sylius_sandbox_backend_tax_rate_list') }}" class="btn btn-success">
+    <i class="icon-adjust icon-white"></i> manage tax rates
+</a>
+</div>
+
+{% if paginator.haveToPaginate() %}
+{{ pagerfanta(paginator, 'twitter_bootstrap_translated') }}
+{% endif %}
+
+{% if categories|length > 0 %}
+    <table class="table">
+    <thead>
+        <tr>
+            <th>{{ sylius_resource_sort('id', '#id') }}</th>
+            <th>{{ sylius_resource_sort('name') }}</th>
+            <th>{{ sylius_resource_sort('updatedAt', 'last updated') }}</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for category in categories %}
+        <tr>
+            <td>{{ category.id }}</td>
+            <td>{{ category.name }}</td>
+            <td>{{ category.updatedAt|date }}</td>
+            <td>
+                <div class="btn-group pull-right">
+                    <a href="{{ path('sylius_sandbox_backend_tax_category_update', {'id': category.id}) }}" class="btn">
+                       <i class="icon-pencil"></i> edit
+                    </a>
+                    <a href="{{ path('sylius_sandbox_backend_tax_category_delete', {'id': category.id}) }}" class="btn btn-danger confirmer"
+                        data-confirmer-question="Are you sure about deleting this tax category?"
+                    >
+                        <i class="icon-trash icon-white"></i>
+                    </a>
+                </div>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<div class="alert alert-info">
+    <h4 class="alert-heading">Information</h4>
+    You have no tax categories configured
+</div>
+{% endif %}
+
+{% if paginator.haveToPaginate() %}
+{{ pagerfanta(paginator, 'twitter_bootstrap_translated') }}
+{% endif %}
+
+{% endblock %}

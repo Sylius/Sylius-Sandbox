@@ -41,6 +41,7 @@
             <th>name</th>
             <th>options</th>
             <th>taxons</th>
+            <th>tax category</th>
             <th>{% if product.hasOptions %}master {% endif %}price</th>
         </tr>
     </thead>
@@ -75,6 +76,7 @@
                     </span>
                 {% endif %}
             </td>
+            <td>{{ product.taxCategory|default('Undefined') }}</td>
             <td>{{ product.price }} &euro;</td>
         </tr>
     </tbody>

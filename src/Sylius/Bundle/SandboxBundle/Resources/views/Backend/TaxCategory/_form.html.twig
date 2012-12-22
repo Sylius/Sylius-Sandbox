@@ -1,0 +1,6 @@
+<fieldset>
+    {{ form_row(form.name, {'attr': {'class': 'input-large'}}) }}
+    {{ form_row(form.description) }}
+</fieldset>
+
+{{ form_widget(form._token) }}

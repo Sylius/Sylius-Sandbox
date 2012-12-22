@@ -37,6 +37,10 @@ class ProductType extends BaseCustomizableProductType
             ->add('image', 'file', array(
                 'required' => false
             ))
+            ->add('taxCategory', 'sylius_taxation_category_choice', array(
+                'required' => false,
+                'label'    => 'Taxation category'
+            ))
             ->add('taxons', 'sylius_taxonomies_taxon_selection')
             ->add('variantPickingMode', 'choice', array(
                 'label'   => 'Variant picking mode',

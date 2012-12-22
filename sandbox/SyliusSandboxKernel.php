@@ -46,6 +46,7 @@ class SyliusSandboxKernel extends Kernel
             new Sylius\Bundle\SalesBundle\SyliusSalesBundle(),
             new Sylius\Bundle\BloggerBundle\SyliusBloggerBundle(),
             new Sylius\Bundle\TaxonomiesBundle\SyliusTaxonomiesBundle(),
+            new Sylius\Bundle\TaxationBundle\SyliusTaxationBundle(),
 
             new Avalanche\Bundle\ImagineBundle\AvalancheImagineBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),

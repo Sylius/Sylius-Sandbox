@@ -22,6 +22,7 @@ doctrine:
                     SyliusAssortmentBundle: ~
                     SyliusBloggerBundle: ~
                     SyliusCartBundle: ~
+                    SyliusTaxationBundle: ~
                     SyliusTaxonomiesBundle: ~
                     SyliusCategorizerBundle: ~
                     SyliusInventoryBundle: ~

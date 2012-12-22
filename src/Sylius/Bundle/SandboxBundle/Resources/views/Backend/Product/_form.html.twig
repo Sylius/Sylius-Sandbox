@@ -31,6 +31,7 @@
             {{ form_row(form.masterVariant.price, {'label': 'Master price'}) }}
             {{ form_row(form.masterVariant.onHand, {'label': 'Default inventory'}) }}
             {% endif %}
+            {{ form_row(form.taxCategory) }}
         </div>
         {% if form.options is defined %}
         <div class="tab-pane" id="options">
