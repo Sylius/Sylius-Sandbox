@@ -6,7 +6,7 @@
         <tr>
             <th>{{ sylius_resource_sort('id', '#id') }}</th>
             <th>{{ sylius_resource_sort('total') }}</th>
-            <th>customer</th>
+            <th>{{ sylius_resource_sort('customer') }}</th>
             <th>{{ sylius_resource_sort('updatedAt', 'last updated') }}</th>
             <th></th>
         </tr>
@@ -17,7 +17,9 @@
             <td>{{ order.id }}</td>
             <td>{{ order.total }} &euro;</td>
             <td>
-                {{ order.billingAddress.firstname }} {{ order.billingAddress.lastname }}
+                <a href="{{ path('sylius_sandbox_backend_user_show', {'id': order.user.id}) }}">
+                {{ order.user.username }}
+                </a>
             </td>
             <td>{{ order.createdAt|date }}</td>
             <td>

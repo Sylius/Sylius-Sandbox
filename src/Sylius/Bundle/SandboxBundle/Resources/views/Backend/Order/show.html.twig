@@ -24,7 +24,11 @@
             <td><strong>user</strong></td>
             <td>
             {% if order.user is not empty %}
-                <strong>{{ order.user.username }}</strong>
+                <strong>
+                    <a href="{{ path('sylius_sandbox_backend_user_show', {'id': order.user.id}) }}">
+                    {{ order.user.username }}
+                    </a>
+                </strong>
             {% else %}
                 <span class="label label-warning">unknown</span>
             {% endif %}
