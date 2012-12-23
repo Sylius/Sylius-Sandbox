@@ -27,10 +27,11 @@ class LoadTaxationData extends DataFixture
     public function load(ObjectManager $manager)
     {
         $taxableGoods = $this->createTaxCategory('Taxable goods', 'Default taxation category', 'Default');
-        $this->createTaxRate($taxableGoods, 'Default VAT', 0.23);
+        $this->createTaxRate($taxableGoods, 'Default Tax', 0.23, 'EU + USA GMT-8');
 
         $clothing = $this->createTaxCategory('Clothing', 'All clothing goods', 'Clothing');
-        $this->createTaxRate($clothing, 'Clothing VAT', 0.08);
+        $this->createTaxRate($clothing, 'Clothing US Tax', 0.20, 'USA GMT-8');
+        $this->createTaxRate($clothing, 'Clothing EU Tax', 0.23, 'EU', true);
 
         $manager->flush();
     }
@@ -61,9 +62,10 @@ class LoadTaxationData extends DataFixture
      * @param TaxCategoryInterface $category
      * @param string               $name
      * @param float                $amount
+     * @param string               $zone
      * @param string               $calculator
      */
-    private function createTaxRate(TaxCategoryInterface $category, $name, $amount, $calculator = 'default')
+    private function createTaxRate(TaxCategoryInterface $category, $name, $amount, $zone, $includedInPrice = false, $calculator = 'default')
     {
         $rate = $this
             ->getTaxRateRepository()
@@ -71,8 +73,10 @@ class LoadTaxationData extends DataFixture
         ;
 
         $rate->setCategory($category);
+        $rate->setZone($this->getZone($zone));
         $rate->setName($name);
         $rate->setAmount($amount);
+        $rate->setIncludedInPrice($includedInPrice);
         $rate->setCalculator($calculator);
 
         $this
@@ -85,7 +89,12 @@ class LoadTaxationData extends DataFixture
 
     public function getOrder()
     {
-        return 2;
+        return 6;
+    }
+
+    private function getZone($name)
+    {
+        return $this->getReference('Zone-'.$name);
     }
 
     private function getTaxCategoryManager()

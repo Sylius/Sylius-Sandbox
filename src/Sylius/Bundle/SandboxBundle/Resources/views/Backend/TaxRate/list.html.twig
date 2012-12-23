@@ -24,8 +24,10 @@
         <tr>
             <th>{{ sylius_resource_sort('id', '#id') }}</th>
             <th>{{ sylius_resource_sort('category') }}</th>
+            <th>{{ sylius_resource_sort('zone') }}</th>
             <th>{{ sylius_resource_sort('name') }}</th>
             <th>{{ sylius_resource_sort('amount') }}</th>
+            <th>{{ sylius_resource_sort('includedInPrice', 'included in price?') }}</th>
             <th>{{ sylius_resource_sort('calculator') }}</th>
             <th>{{ sylius_resource_sort('updatedAt', 'last updated') }}</th>
             <th></th>
@@ -36,8 +38,16 @@
         <tr>
             <td>{{ rate.id }}</td>
             <td>{{ rate.category }}</td>
+            <td>{{ rate.zone }}</td>
             <td>{{ rate.name }}</td>
             <td>{{ rate.amount }}</td>
+            <td>
+                {% if rate.includedInPrice %}
+                <span class="label label-success">yes</span>
+                {% else %}
+                <span class="label label-important">no</span>
+                {% endif %}
+            </td>
             <td><span class="label label-info">{{ rate.calculator }}</span></td>
             <td>{{ rate.updatedAt|date }}</td>
             <td>

@@ -26,10 +26,14 @@ class LoadZonesData extends DataFixture
      */
     public function load(ObjectManager $manager)
     {
-        $this->createZone('Yugoslavia', ZoneInterface::TYPE_COUNTRY, array('RS', 'ME', 'MK', 'BA', 'HR', 'SI'));
-        $this->createZone('Czechoslovakia', ZoneInterface::TYPE_COUNTRY, array('CZ', 'SK'));
+        $this->createZone('EU', ZoneInterface::TYPE_COUNTRY, array(
+            'BE', 'BG', 'CZ', 'DK', 'DE', 'EE', 'IE', 'GR', 'ES',
+            'FR', 'IT', 'CY', 'LV', 'LV', 'LT', 'LU', 'HU', 'MT',
+            'NL', 'AT', 'PL', 'PT', 'RO', 'SI', 'SK', 'FI', 'SE',
+            'GB'
+        ));
         $this->createZone('USA GMT-8', ZoneInterface::TYPE_PROVINCE, array('WA', 'OR', 'NV', 'ID', 'CA'));
-        $this->createZone('Yugoslavia + USA GMT-8', ZoneInterface::TYPE_ZONE, array('Yugoslavia', 'USA GMT-8'));
+        $this->createZone('EU + USA GMT-8', ZoneInterface::TYPE_ZONE, array('EU', 'USA GMT-8'));
 
         $manager->flush();
     }
@@ -70,6 +74,6 @@ class LoadZonesData extends DataFixture
      */
     public function getOrder()
     {
-        return 7;
+        return 3;
     }
 }
