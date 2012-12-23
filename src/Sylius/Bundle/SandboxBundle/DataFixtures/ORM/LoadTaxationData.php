@@ -89,7 +89,7 @@ class LoadTaxationData extends DataFixture
 
     public function getOrder()
     {
-        return 6;
+        return 4;
     }
 
     private function getZone($name)
