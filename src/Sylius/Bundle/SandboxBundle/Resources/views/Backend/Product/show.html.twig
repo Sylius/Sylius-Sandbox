@@ -87,6 +87,9 @@
     <a href="{{ path('sylius_sandbox_backend_variant_create', {'productId': product.id}) }}" class="btn btn-primary">
         <i class="icon-plus icon-white"></i> create variant
     </a>
+    <a href="{{ path('sylius_sandbox_backend_product_update_variants', {'id': product.id}) }}" class="btn">
+        <i class="icon-table"></i> edit all variants at once
+    </a>
     <a href="{{ path('sylius_sandbox_backend_variant_generate', {'productId': product.id}) }}" class="btn btn-info">
         <i class="icon-random icon-white"></i> generate variants
     </a>

@@ -34,6 +34,15 @@ sylius_sandbox_backend_product_update:
             template: SyliusSandboxBundle:Backend/Product:update.html.twig
             redirect: sylius_sandbox_backend_product_show
 
+sylius_sandbox_backend_product_update_variants:
+    pattern: /{id}/update-variants
+    defaults:
+        _controller: sylius_assortment.controller.product:updateAction
+        _sylius.resource:
+            form: sylius_sandbox_product_variants_grid
+            template: SyliusSandboxBundle:Backend/Product:updateVariants.html.twig
+            redirect: sylius_sandbox_backend_product_show
+
 sylius_sandbox_backend_product_delete:
     pattern: /{id}/delete
     defaults:

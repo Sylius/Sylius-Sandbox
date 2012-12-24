@@ -1,0 +1,61 @@
+{% extends 'SyliusSandboxBundle:Backend:layout.html.twig' %}
+
+{% block header %}
+    <h1>Variants grid <small>All "<strong>{{ product.name }}</strong>" variants</small></h1>
+{% endblock %}
+
+{% block content %}
+{{ form_errors(form) }}
+<form action="{{ path('sylius_sandbox_backend_product_update_variants', {'id': product.id}) }}" method="post" class="form-horizontal" {{ form_enctype(form) }} novalidate>
+    {% if product.hasVariants() %}
+        <table class="table">
+        <thead>
+            <tr>
+                <th>#id</th>
+                <th>SKU</th>
+                <th>availability</th>
+                <th>option set</th>
+                <th>price</th>
+                <th>stock "on hand"</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for variant in product.variants %}
+            <tr>
+                <td>{{ variant.id }}</td>
+                <td>
+                    {{ form_widget(form.variants[loop.index].sku) }}
+                </td>
+                <td>
+                    <span class="label label-{% if variant.available %}success{% else %}important{% endif %}">{{ variant.availableOn|date }}</span>
+                </td>
+                <td>
+                    <ul>
+                        {% for option in variant.options %}
+                            <li><strong>{{ option.name }}</strong>: {{ option.value }}</li>
+                        {% endfor %}
+                    </ul>
+                </td>
+                <td>
+                    {{ form_widget(form.variants[loop.index].price) }}
+                </td>
+                <td>
+                    {{ form_widget(form.variants[loop.index].onHand) }}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <div class="alert alert-info">
+        <h4 class="alert-heading">Information</h4>
+        There are no variants of this product.
+    </div>
+    {% endif %}
+    {{ form_widget(form._token) }}
+    <div class="form-actions">
+       <input type="submit" value="save changes" class="btn btn-primary btn-large" />
+       <a href="{{ path('sylius_sandbox_backend_product_show', {'id': product.id}) }}" class="btn btn-large">cancel<a>
+    </div>
+</form>
+{% endblock %}

@@ -17,6 +17,9 @@
         <parameter key="sylius_sandbox.builder.order.class">Sylius\Bundle\SandboxBundle\Builder\OrderBuilder</parameter>
 
         <parameter key="sylius_sandbox.form.type.product_category.class">Sylius\Bundle\SandboxBundle\Form\Type\ProductCategoryType</parameter>
+
+        <parameter key="sylius_sandbox.form.type.product_variants_grid.class">Sylius\Bundle\SandboxBundle\Form\Type\ProductVariantsGridType</parameter>
+        <parameter key="sylius_sandbox.form.type.product_variants_grid_line.class">Sylius\Bundle\SandboxBundle\Form\Type\ProductVariantsGridLineType</parameter>
     </parameters>
 
     <services>
@@ -57,6 +60,15 @@
 
         <service id="sylius_sandbox.form.type.product_category" class="%sylius_sandbox.form.type.product_category.class%">
             <tag name="form.type" alias="sylius_sandbox_product_category" />
+        </service>
+
+        <service id="sylius_sandbox.form.type.product_variants_grid" class="%sylius_sandbox.form.type.product_variants_grid.class%">
+            <argument>%sylius_assortment.model.product.class%</argument>
+            <tag name="form.type" alias="sylius_sandbox_product_variants_grid" />
+        </service>
+        <service id="sylius_sandbox.form.type.product_variants_grid_line" class="%sylius_sandbox.form.type.product_variants_grid_line.class%">
+            <argument>%sylius_assortment.model.variant.class%</argument>
+            <tag name="form.type" alias="sylius_sandbox_product_variants_grid_line" />
         </service>
     </services>
 
