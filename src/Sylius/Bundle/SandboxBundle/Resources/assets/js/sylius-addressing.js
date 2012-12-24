@@ -22,11 +22,13 @@
                         });
                     } else {
                         provinceContainer.fadeOut('slow', function () {
+                            $('select.select2').select2();
                             provinceContainer.html(response.content.replace('name="sylius_addressing_address_province"', 'name="sylius_addressing_address[province]"'));
                             provinceContainer.fadeIn();
                         });
                     }
                 });
+
             });
         });
 

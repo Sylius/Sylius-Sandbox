@@ -14,6 +14,7 @@
         {% stylesheets output='assets/compiled/backend.css'
             'http://netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap.no-icons.min.css'
             'http://netdna.bootstrapcdn.com/font-awesome/2.0/css/font-awesome.css'
+            '@SyliusSandboxBundle/Resources/assets/css/select2.css'
         %}
             <link rel="stylesheet" href="{{ asset_url }}" />
         {% endstylesheets %}
@@ -31,6 +32,7 @@
             'http://cdnjs.cloudflare.com/ajax/libs/less.js/1.3.1/less.min.js'
             'http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js'
             '@SyliusSandboxBundle/Resources/assets/js/sylius-addressing.js'
+            '@SyliusSandboxBundle/Resources/assets/js/select2.min.js'
             '@SyliusSandboxBundle/Resources/assets/js/backend.js'
         %}
             <script type="text/javascript" src="{{ asset_url }}"></script>

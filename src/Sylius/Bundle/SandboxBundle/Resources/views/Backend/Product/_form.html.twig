@@ -11,8 +11,8 @@
     <div class="tab-content">
         <div class="tab-pane active" id="main">
             {{ form_row(form.masterVariant.sku) }}
-            {{ form_row(form.name, {'attr': {'class': 'span7'}}) }}
-            {{ form_row(form.description, {'attr': {'class': 'span5', 'rows': 10}}) }}
+            {{ form_row(form.name, {'attr': {'class': 'input-xxlarge'}}) }}
+            {{ form_row(form.description, {'attr': {'class': 'input-xxlarge', 'rows': 10}}) }}
             <hr />
             <div class="control-group">
                 {{ form_label(form.image) }}
@@ -23,7 +23,10 @@
                 </div>
             </div>
             <hr />
-            {{ form_row(form.masterVariant.availableOn) }}
+            {% set availableOnForm = form.masterVariant.availableOn %}
+
+            {{ form_row(availableOnForm.date, {'attr': {'class': 'input-large'}, 'label': 'Available on'}) }}
+            {{ form_row(availableOnForm.time, {'attr': {'class': 'input-large'}, 'label': ' '}) }}
             {% if not product.hasOptions %}
             {{ form_row(form.masterVariant.price) }}
             {{ form_row(form.masterVariant.onHand) }}
@@ -31,18 +34,18 @@
             {{ form_row(form.masterVariant.price, {'label': 'Master price'}) }}
             {{ form_row(form.masterVariant.onHand, {'label': 'Default inventory'}) }}
             {% endif %}
-            {{ form_row(form.taxCategory) }}
+            {{ form_row(form.taxCategory, {'attr': {'class': 'select2 input-xlarge', 'placeholder': 'Select taxation category'}}) }}
         </div>
         {% if form.options is defined %}
         <div class="tab-pane" id="options">
             {{ form_row(form.variantPickingMode) }}
-            {{ form_row(form.options) }}
+            {{ form_row(form.options, {'attr': {'class': 'select2 input-xlarge', 'placeholder': 'Pick product options'}}) }}
         </div>
         {% endif %}
         <div class="tab-pane" id="properties">
-            <div id="sylius-assortment-product-properties" class="collection-container" data-prototype="{{ form_widget(form.properties.vars.prototype)|e }}">
+            <div id="sylius-assortment-product-properties" class="collection-container" data-prototype="{{ form_widget(form.properties.vars.prototype, {'attr': {'class': 'select2 input-xlarge'}})|e }}">
                 {% for propertyForm in form.properties %}
-                    {{ form_widget(propertyForm) }}
+                    {{ form_widget(propertyForm, {'attr': {'class': 'select2 input-xlarge'}}) }}
                 {% endfor %}
             </div>
             <div class="control-group">
@@ -53,14 +56,10 @@
         </div>
         <div class="tab-pane" id="taxonomies">
             {% for taxonomyForm in form.taxons %}
-                {{ form_row(taxonomyForm) }}
+                {{ form_row(taxonomyForm, {'attr': {'class': 'select2 input-xlarge', 'placeholder': 'Select taxons'}}) }}
             {% endfor %}
         </div>
-        {% if form.options is defined %}
-        <div class="tab-pane" id="options">
-            {{ form_row(form.options) }}
-        </div>
-        {% endif %}
     </div>
 </fieldset>
+
 {{ form_widget(form._token) }}

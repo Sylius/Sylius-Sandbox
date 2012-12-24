@@ -8,6 +8,8 @@
  */
 (function ( $ ) {
     $(document).ready(function() {
+        $('select.select2').select2();
+
         $('a.confirmer').each(function () {
             $(this).data('confirmerLink', this.href);
             $(this).click(function (e) {
@@ -23,6 +25,8 @@
             var prototype = $collectionContainer.attr('data-prototype');
             var item = prototype.replace(/__name__/g, $collectionContainer.children().length);
             $collectionContainer.append(item);
+
+            $('select.select2').select2();
         });
 
         $('a.collection-remove-btn').on('click', function () {
