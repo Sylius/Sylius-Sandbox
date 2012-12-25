@@ -1,5 +1,5 @@
 {
-    "hash": "7dd4612eaebf1b86e647a7a04d595459",
+    "hash": "05f7ae85069bae65114d8c51aa645c73",
     "packages": [
         {
             "name": "avalanche123/imagine-bundle",
@@ -805,17 +805,17 @@
         },
         {
             "name": "friendsofsymfony/user-bundle",
-            "version": "dev-master",
+            "version": "v1.3.1",
             "target-dir": "FOS/UserBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSUserBundle",
-                "reference": "618b95d373f67c075a0d6f61339066bb061a0b71"
+                "reference": "v1.3.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/FriendsOfSymfony/FOSUserBundle/archive/618b95d373f67c075a0d6f61339066bb061a0b71.zip",
-                "reference": "618b95d373f67c075a0d6f61339066bb061a0b71",
+                "url": "https://github.com/FriendsOfSymfony/FOSUserBundle/archive/v1.3.1.zip",
+                "reference": "v1.3.1",
                 "shasum": ""
             },
             "require": {
@@ -828,15 +828,10 @@
                 "doctrine/doctrine-bundle": "*",
                 "swiftmailer/swiftmailer": "*",
                 "willdurand/propel-typehintable-behavior": "dev-master",
-                "symfony/validator": "2.1.*",
-                "symfony/yaml": "2.1.*"
+                "symfony/yaml": "2.1.*",
+                "symfony/validator": "2.1.*"
             },
-            "suggest": {
-                "doctrine/couchdb-odm-bundle": "*",
-                "doctrine/doctrine-bundle": "*",
-                "doctrine/mongodb-odm-bundle": "*"
-            },
-            "time": "2012-12-22 15:52:39",
+            "time": "2012-12-22 15:09:34",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
