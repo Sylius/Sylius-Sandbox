@@ -1,5 +1,14 @@
 {% extends 'SyliusSandboxBundle:Backend:layout.html.twig' %}
 
+{% block javascripts %}
+{% javascripts
+    '@SyliusSandboxBundle/Resources/assets/js/sylius-addressing-zone.js'
+%}
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}
+{% endblock %}
+
 {% block header %}
     <h1>Zone updating <small>Use this form to edit existing zone</small></h1>
 {% endblock %}
