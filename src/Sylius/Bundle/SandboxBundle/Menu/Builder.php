@@ -392,6 +392,17 @@ class Builder extends ContainerAware
             'route' => 'sylius_sandbox_backend_tax_rate_list',
             'labelAttributes' => array('icon' => 'icon-adjust')
         ));
+
+        $this->addDivider($child);
+
+        $child->addChild('Shipping categories', array(
+            'route' => 'sylius_sandbox_backend_shipping_category_list',
+            'labelAttributes' => array('icon' => 'icon-forward')
+        ));
+        $child->addChild('Shipping methods', array(
+            'route' => 'sylius_sandbox_backend_shipping_method_list',
+            'labelAttributes' => array('icon' => 'icon-envelope')
+        ));
     }
 
     /**

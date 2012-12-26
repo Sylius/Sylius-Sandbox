@@ -17,16 +17,17 @@ doctrine:
                 mappings:
                     FOSCommentBundle: ~
                     FOSUserBundle: ~
-                    SyliusSandboxBundle: ~
                     SyliusAddressingBundle: ~
                     SyliusAssortmentBundle: ~
                     SyliusBloggerBundle: ~
                     SyliusCartBundle: ~
-                    SyliusTaxationBundle: ~
-                    SyliusTaxonomiesBundle: ~
                     SyliusCategorizerBundle: ~
                     SyliusInventoryBundle: ~
                     SyliusSalesBundle: ~
+                    SyliusSandboxBundle: ~
+                    SyliusShippingBundle: ~
+                    SyliusTaxationBundle: ~
+                    SyliusTaxonomiesBundle: ~
                 filters:
                     softdeleteable:
                         class: Gedmo\SoftDeleteable\Filter\SoftDeleteableFilter

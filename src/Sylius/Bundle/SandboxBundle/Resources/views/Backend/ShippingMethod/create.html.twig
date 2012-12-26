@@ -1,0 +1,14 @@
+{% extends 'SyliusSandboxBundle:Backend:layout.html.twig' %}
+
+{% block header %}
+    <h1>Creating shipping method<small> Use the form below to create a shipping method</small></h1>
+{% endblock %}
+
+{% block content %}
+<form action="{{ path('sylius_sandbox_backend_shipping_method_create') }}" method="post" class="form-horizontal" novalidate>
+    {% include 'SyliusSandboxBundle:Backend/ShippingMethod:_form.html.twig' %}
+    <div class="form-actions">
+       <input type="submit" value="create shipping method" class="btn btn-primary btn-large" />
+    </div>
+</form>
+{% endblock %}

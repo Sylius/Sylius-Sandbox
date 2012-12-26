@@ -27,6 +27,7 @@
         "sylius/categorizer-bundle":           "*",
         "sylius/taxonomies-bundle":            "*",
         "sylius/taxation-bundle":              "*",
+        "sylius/shipping-bundle":              "*",
         "sylius/flow-bundle":                  "*",
         "sylius/inventory-bundle":             "*",
         "sylius/sales-bundle":                 "*",

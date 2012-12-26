@@ -184,6 +184,13 @@ sylius_taxation:
             model: Sylius\Bundle\SandboxBundle\Entity\TaxRate
             form: Sylius\Bundle\SandboxBundle\Form\Type\TaxRateType
 
+sylius_shipping:
+    driver: doctrine/orm
+    classes:
+        method:
+            model: Sylius\Bundle\SandboxBundle\Entity\ShippingMethod
+            form: Sylius\Bundle\SandboxBundle\Form\Type\ShippingMethodType
+
 sylius_resource:
     resources:
         sylius_user.user:

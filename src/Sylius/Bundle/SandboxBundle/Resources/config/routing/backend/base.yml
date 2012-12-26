@@ -69,6 +69,14 @@ sylius_sandbox_backend_tax_rate:
     prefix: /tax-rates
     resource: @SyliusSandboxBundle/Resources/config/routing/backend/tax_rate.yml
 
+sylius_sandbox_backend_shipping_category:
+    prefix: /shipping-categories
+    resource: @SyliusSandboxBundle/Resources/config/routing/backend/shipping_category.yml
+
+sylius_sandbox_backend_shipping_method:
+    prefix: /shipping-methods
+    resource: @SyliusSandboxBundle/Resources/config/routing/backend/shipping_method.yml
+
 sylius_sandbox_backend_user:
     prefix: /users
     resource: @SyliusSandboxBundle/Resources/config/routing/backend/user.yml

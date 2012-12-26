@@ -1,0 +1,35 @@
+# This file is part of the Sylius sandbox application.
+# (c) Paweł Jędrzejewski
+
+sylius_sandbox_backend_shipping_method_list:
+    pattern: /
+    defaults:
+        _controller: sylius_shipping.controller.method:getCollectionAction
+        _sylius.resource:
+            template: SyliusSandboxBundle:Backend/ShippingMethod:list.html.twig
+            sortable: true
+            sorting:
+                name: desc
+
+sylius_sandbox_backend_shipping_method_create:
+    pattern: /create
+    defaults:
+        _controller: sylius_shipping.controller.method:createAction
+        _sylius.resource:
+            template: SyliusSandboxBundle:Backend/ShippingMethod:create.html.twig
+            redirect: sylius_sandbox_backend_shipping_method_list
+
+sylius_sandbox_backend_shipping_method_update:
+    pattern: /update
+    defaults:
+        _controller: sylius_shipping.controller.method:updateAction
+        _sylius.resource:
+            template: SyliusSandboxBundle:Backend/ShippingMethod:update.html.twig
+            redirect: sylius_sandbox_backend_shipping_method_list
+
+sylius_sandbox_backend_shipping_method_delete:
+    pattern: /{id}/delete
+    defaults:
+        _controller: sylius_shipping.controller.method:deleteAction
+        _sylius.resource:
+            redirect: sylius_sandbox_backend_shipping_method_list
