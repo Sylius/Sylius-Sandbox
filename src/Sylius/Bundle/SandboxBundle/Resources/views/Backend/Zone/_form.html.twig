@@ -1,11 +1,3 @@
-{% block javascripts %}
-{% javascripts
-    '@SyliusSandboxBundle/Resources/assets/js/sylius-addressing-zone.js'
-%}
-    <script type="text/javascript" src="{{ asset_url }}"></script>
-{% endjavascripts %}
-{% endblock %}
-
 {{ form_errors(form) }}
 <fieldset>
     {{ form_row(form.name, {'attr': {'class': 'input-xlarge'}}) }}
