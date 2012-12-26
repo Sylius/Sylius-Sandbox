@@ -2251,12 +2251,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/SyliusAddressingBundle.git",
-                "reference": "52e929270a1085d421b6e0ecc44a87b64b6ae69f"
+                "reference": "743ff525ccedbf2dd6f99228fee245b1e46dec8d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/Sylius/SyliusAddressingBundle/archive/52e929270a1085d421b6e0ecc44a87b64b6ae69f.zip",
-                "reference": "52e929270a1085d421b6e0ecc44a87b64b6ae69f",
+                "url": "https://github.com/Sylius/SyliusAddressingBundle/archive/743ff525ccedbf2dd6f99228fee245b1e46dec8d.zip",
+                "reference": "743ff525ccedbf2dd6f99228fee245b1e46dec8d",
                 "shasum": ""
             },
             "require": {
@@ -2266,9 +2266,10 @@
                 "sylius/resource-bundle": "*"
             },
             "require-dev": {
-                "phpspec/phpspec2": "dev-develop"
+                "phpspec/phpspec2": "dev-develop",
+                "doctrine/orm": "*"
             },
-            "time": "2012-12-22 20:47:23",
+            "time": "2012-12-26 10:13:56",
             "type": "symfony-bundle",
             "installation-source": "source",
             "autoload": {
