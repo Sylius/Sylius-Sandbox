@@ -32,8 +32,10 @@
         "sylius/inventory-bundle":             "*",
         "sylius/sales-bundle":                 "*",
         "sylius/blogger-bundle":               "*",
+        "sylius/settings-bundle":              "*",
         "symfony/assetic-bundle":              "*",
         "symfony/monolog-bundle":              "*",
+        "liip/doctrine-cache-bundle":          "dev-master",
         "symfony/swiftmailer-bundle":          "*"
     },
     "require-dev": {

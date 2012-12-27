@@ -25,6 +25,7 @@ doctrine:
                     SyliusInventoryBundle: ~
                     SyliusSalesBundle: ~
                     SyliusSandboxBundle: ~
+                    SyliusSettingsBundle: ~
                     SyliusShippingBundle: ~
                     SyliusTaxationBundle: ~
                     SyliusTaxonomiesBundle: ~

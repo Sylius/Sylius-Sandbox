@@ -1,5 +1,5 @@
 {
-    "hash": "92d40fa1d7d3b143b8107599e6b67bd4",
+    "hash": "f2ba41de681613801c444daf1bdde6a2",
     "packages": [
         {
             "name": "avalanche123/imagine-bundle",
@@ -1722,6 +1722,50 @@
             ]
         },
         {
+            "name": "liip/doctrine-cache-bundle",
+            "version": "dev-master",
+            "target-dir": "Liip/DoctrineCacheBundle",
+            "source": {
+                "type": "git",
+                "url": "git://github.com/liip/LiipDoctrineCacheBundle.git",
+                "reference": "f7c5487c89602d08b95090fb2776f0931d8946a1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/liip/LiipDoctrineCacheBundle/archive/f7c5487c89602d08b95090fb2776f0931d8946a1.zip",
+                "reference": "f7c5487c89602d08b95090fb2776f0931d8946a1",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0",
+                "symfony/symfony": ">=2.0",
+                "doctrine/common": ">=2.2"
+            },
+            "time": "2012-09-14 11:08:20",
+            "type": "symfony-bundle",
+            "installation-source": "source",
+            "autoload": {
+                "psr-0": {
+                    "Liip\\DoctrineCacheBundle\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Liip AG",
+                    "homepage": "http://www.liip.ch/"
+                }
+            ],
+            "description": "This Bundle provides integration into Symfony2 with the Doctrine Common Cache layer.",
+            "keywords": [
+                "Symfony2",
+                "cache"
+            ]
+        },
+        {
             "name": "monolog/monolog",
             "version": "dev-master",
             "source": {
@@ -2773,6 +2817,66 @@
                 "sales",
                 "orders",
                 "order"
+            ]
+        },
+        {
+            "name": "sylius/settings-bundle",
+            "version": "dev-master",
+            "target-dir": "Sylius/Bundle/SettingsBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Sylius/SyliusSettingsBundle.git",
+                "reference": "8b11288c1590dc0c6f48c4f454b9a17ee35f86bd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/Sylius/SyliusSettingsBundle/archive/8b11288c1590dc0c6f48c4f454b9a17ee35f86bd.zip",
+                "reference": "8b11288c1590dc0c6f48c4f454b9a17ee35f86bd",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2",
+                "symfony/framework-bundle": ">=2.1,<3.0",
+                "sylius/resource-bundle": "*",
+                "stof/doctrine-extensions-bundle": "*"
+            },
+            "require-dev": {
+                "phpspec/phpspec2": "dev-develop",
+                "symfony/form": ">=2.1,<3.0",
+                "twig/twig": "*"
+            },
+            "time": "2012-12-27 16:21:27",
+            "type": "symfony-bundle",
+            "installation-source": "source",
+            "autoload": {
+                "psr-0": {
+                    "Sylius\\Bundle\\SettingsBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Paweł Jędrzejewski",
+                    "email": "pjedrzejewski@diweb.pl",
+                    "homepage": "http://pjedrzejewski.com"
+                },
+                {
+                    "name": "Community contributions",
+                    "homepage": "https://github.com/Sylius/SyliusSettingsBundle/contributors"
+                }
+            ],
+            "description": "Settings system for Symfony2 applications.",
+            "homepage": "http://sylius.org",
+            "keywords": [
+                "configuration",
+                "shop",
+                "ecommerce",
+                "config",
+                "Settings",
+                "webshop"
             ]
         },
         {
@@ -4055,6 +4159,7 @@
     ],
     "minimum-stability": "dev",
     "stability-flags": {
+        "liip/doctrine-cache-bundle": 20,
         "phpspec/phpspec2": 20
     }
 }

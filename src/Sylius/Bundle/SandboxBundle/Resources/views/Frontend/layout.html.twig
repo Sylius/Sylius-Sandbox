@@ -1,9 +1,17 @@
 <!DOCTYPE html>
 
+{% set generalSettings = sylius_settings_all('general') %}
+
 <html>
     <head>
-        <title>{% block title %}Sylius e-commerce playground, visit Sylius.org.{% endblock %}</title>
+        <title>
+            {% block title %}
+                {{ generalSettings.defaultMetaTitle|default('Sylius - e-commerce solution for Symfony2') }}
+            {% endblock %}
+        </title>
         <meta charset="UTF-8">
+        <meta name="description" content="{{ generalSettings.defaultMetaDescription }}">
+        <meta name="keywords" content="{{ generalSettings.defaultMetaKeywords }}">
 
         <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
         <!--[if lt IE 9]>

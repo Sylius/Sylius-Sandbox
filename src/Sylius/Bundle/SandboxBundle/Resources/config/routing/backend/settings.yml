@@ -1,0 +1,9 @@
+# This file is part of the Sylius sandbox application.
+# (c) Paweł Jędrzejewski
+
+sylius_sandbox_backend_settings_general_configure:
+    pattern: /general
+    defaults:
+        _controller: sylius_settings.controller:configureAction
+        namespace: general
+        template: SyliusSandboxBundle:Backend/Settings:general.html.twig

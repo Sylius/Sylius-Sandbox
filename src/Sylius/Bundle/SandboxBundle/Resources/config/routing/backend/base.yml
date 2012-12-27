@@ -80,3 +80,7 @@ sylius_sandbox_backend_shipping_method:
 sylius_sandbox_backend_user:
     prefix: /users
     resource: @SyliusSandboxBundle/Resources/config/routing/backend/user.yml
+
+sylius_sandbox_backend_settings:
+    prefix: /settings
+    resource: @SyliusSandboxBundle/Resources/config/routing/backend/settings.yml

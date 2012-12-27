@@ -20,6 +20,8 @@
 
         <parameter key="sylius_sandbox.form.type.product_variants_grid.class">Sylius\Bundle\SandboxBundle\Form\Type\ProductVariantsGridType</parameter>
         <parameter key="sylius_sandbox.form.type.product_variants_grid_line.class">Sylius\Bundle\SandboxBundle\Form\Type\ProductVariantsGridLineType</parameter>
+
+        <parameter key="sylius_sandbox.settings.general.class">Sylius\Bundle\SandboxBundle\Settings\GeneralSettingsSchema</parameter>
     </parameters>
 
     <services>
@@ -69,6 +71,10 @@
         <service id="sylius_sandbox.form.type.product_variants_grid_line" class="%sylius_sandbox.form.type.product_variants_grid_line.class%">
             <argument>%sylius_assortment.model.variant.class%</argument>
             <tag name="form.type" alias="sylius_sandbox_product_variants_grid_line" />
+        </service>
+
+        <service id="sylius_sandbox.settings.general" class="%sylius_sandbox.settings.general.class%">
+            <tag name="sylius_settings.schema" namespace="general" />
         </service>
     </services>
 

@@ -191,6 +191,14 @@ sylius_shipping:
             model: Sylius\Bundle\SandboxBundle\Entity\ShippingMethod
             form: Sylius\Bundle\SandboxBundle\Form\Type\ShippingMethodType
 
+sylius_settings:
+    driver: doctrine/orm
+
+liip_doctrine_cache:
+    namespaces:
+        sylius_settings:
+            type: apc
+
 sylius_resource:
     resources:
         sylius_user.user:

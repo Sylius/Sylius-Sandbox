@@ -8,6 +8,9 @@
     {%- endfor -%}
 {% endmacro %}
 
-{% block label %}{{ item.label|trans(item.getExtra('translation_params', {}), item.getExtra('translation_domain', 'SyliusSandboxBundle'))|raw }}{% endblock %}
+{% block label %}
+    {{ item.labelAttribute('icon') is empty ? '' : '<i class="%s %s"></i>'|format(item.labelAttribute('icon'), item.current ? ' icon-white' : '')|raw }}
+    {{ item.label|raw }}
+{% endblock %}
 
 {% block spanElement %}<a{{ _self.attributes(item.labelAttributes) }}>{{ block('label') }}{% if item.hasChildren %} <b class="caret">{% endif %}</b></a>{% endblock %}

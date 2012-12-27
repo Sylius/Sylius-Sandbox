@@ -48,6 +48,7 @@ class SyliusSandboxKernel extends Kernel
             new Sylius\Bundle\TaxonomiesBundle\SyliusTaxonomiesBundle(),
             new Sylius\Bundle\TaxationBundle\SyliusTaxationBundle(),
             new Sylius\Bundle\ShippingBundle\SyliusShippingBundle(),
+            new Sylius\Bundle\SettingsBundle\SyliusSettingsBundle(),
 
             new Avalanche\Bundle\ImagineBundle\AvalancheImagineBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
@@ -60,6 +61,7 @@ class SyliusSandboxKernel extends Kernel
             new Knp\Bundle\MarkdownBundle\KnpMarkdownBundle(),
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new Mopa\Bundle\BootstrapBundle\MopaBootstrapBundle(),
+            new Liip\DoctrineCacheBundle\LiipDoctrineCacheBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),

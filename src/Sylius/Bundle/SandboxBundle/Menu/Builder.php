@@ -373,6 +373,13 @@ class Builder extends ContainerAware
     {
         $child = $menu->addChild('Configuration', $childOptions);
 
+        $child->addChild('General settings', array(
+            'route' => 'sylius_sandbox_backend_settings_general_configure',
+            'labelAttributes' => array('icon' => 'icon-cogs')
+        ));
+
+        $this->addDivider($child);
+
         $child->addChild('Manage countries and provinces', array(
             'route' => 'sylius_sandbox_backend_country_list',
             'labelAttributes' => array('icon' => 'icon-flag')
