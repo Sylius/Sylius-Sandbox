@@ -1,5 +1,7 @@
 {% extends 'SyliusSandboxBundle:Backend:layout.html.twig' %}
 
+{% from 'MopaBootstrapBundle::macros.html.twig' import label %}
+
 {% block header %}
     <h1>User details <small>{{ user.username }}</small></h1>
 {% endblock %}
@@ -28,9 +30,9 @@
             <td><strong>enabled</strong></td>
             <td>
             {% if user.enabled %}
-                <span class="label label-success">yes</span>
+                {{ label('yes', 'success') }}
             {% else %}
-                <span class="label label-warning">no</span>
+                {{ label('no', 'warning') }}
             {% endif %}
             </td>
         </tr>
