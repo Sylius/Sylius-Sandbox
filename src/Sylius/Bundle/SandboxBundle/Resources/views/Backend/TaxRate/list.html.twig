@@ -1,5 +1,7 @@
 {% extends 'SyliusSandboxBundle:Backend:layout.html.twig' %}
 
+{% from 'MopaBootstrapBundle::macros.html.twig' import label %}
+
 {% block header %}
     <h1>Taxation rates <small>Here you can configure the taxation system</small></h1>
 {% endblock %}
@@ -43,12 +45,12 @@
             <td>{{ rate.amount }}</td>
             <td>
                 {% if rate.includedInPrice %}
-                <span class="label label-success">yes</span>
+                    {{ label('yes', 'success') }}
                 {% else %}
-                <span class="label label-important">no</span>
+                    {{ label('no', 'important') }}
                 {% endif %}
             </td>
-            <td><span class="label label-info">{{ rate.calculator }}</span></td>
+            <td>{{ label(rate.calculator, 'info') }}</td>
             <td>{{ rate.updatedAt|date }}</td>
             <td>
                 <div class="btn-group pull-right">
