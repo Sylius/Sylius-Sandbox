@@ -2472,12 +2472,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/SyliusCartBundle.git",
-                "reference": "09f8fe8708a05629d28a9c19198a9332a1559743"
+                "reference": "v0.2.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/Sylius/SyliusCartBundle/archive/09f8fe8708a05629d28a9c19198a9332a1559743.zip",
-                "reference": "09f8fe8708a05629d28a9c19198a9332a1559743",
+                "url": "https://github.com/Sylius/SyliusCartBundle/archive/v0.2.0.zip",
+                "reference": "v0.2.0",
                 "shasum": ""
             },
             "require": {
@@ -2495,7 +2495,7 @@
                 "doctrine/doctrine-bundle": "*",
                 "doctrine/orm": "*"
             },
-            "time": "2012-12-14 12:15:35",
+            "time": "2012-12-27 23:24:07",
             "type": "symfony-bundle",
             "installation-source": "source",
             "autoload": {
@@ -3237,12 +3237,12 @@
             "source": {
                 "type": "git",
                 "url": "git://github.com/symfony/symfony.git",
-                "reference": "8fd34e4eae26c55c7aec04b9f452e10557b8bc89"
+                "reference": "277ababc82e4745f1c31480a82dc01c4a52d846f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/symfony/symfony/archive/8fd34e4eae26c55c7aec04b9f452e10557b8bc89.zip",
-                "reference": "8fd34e4eae26c55c7aec04b9f452e10557b8bc89",
+                "url": "https://github.com/symfony/symfony/archive/277ababc82e4745f1c31480a82dc01c4a52d846f.zip",
+                "reference": "277ababc82e4745f1c31480a82dc01c4a52d846f",
                 "shasum": ""
             },
             "require": {
@@ -3291,7 +3291,7 @@
                 "propel/propel1": "dev-master",
                 "monolog/monolog": "1.*"
             },
-            "time": "2012-12-23 18:08:33",
+            "time": "2012-12-28 07:29:59",
             "type": "library",
             "installation-source": "source",
             "autoload": {
@@ -3374,18 +3374,18 @@
             "source": {
                 "type": "git",
                 "url": "git://github.com/fabpot/Twig.git",
-                "reference": "f095f3a1777431412954e478f92e8a10cb7b6495"
+                "reference": "1b1a6e7de018d300e6eb67727f3717c24f4540ba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/fabpot/Twig/archive/f095f3a1777431412954e478f92e8a10cb7b6495.zip",
-                "reference": "f095f3a1777431412954e478f92e8a10cb7b6495",
+                "url": "https://github.com/fabpot/Twig/archive/1b1a6e7de018d300e6eb67727f3717c24f4540ba.zip",
+                "reference": "1b1a6e7de018d300e6eb67727f3717c24f4540ba",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.2.4"
             },
-            "time": "2012-12-18 10:01:32",
+            "time": "2012-12-27 16:33:50",
             "type": "library",
             "extra": {
                 "branch-alias": {

@@ -69,7 +69,7 @@ class Builder extends ContainerAware
         }
 
         $menu->addChild('About', array('route' => 'sylius_sandbox_about'));
-        $menu->addChild('My cart', array('route' => 'sylius_cart_show'));
+        $menu->addChild('My cart', array('route' => 'sylius_cart_summary'));
 
         return $menu;
     }

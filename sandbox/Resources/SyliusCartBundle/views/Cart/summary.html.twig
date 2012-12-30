@@ -12,7 +12,7 @@
 
 {{ form_errors(form) }}
 
-<form method="post" action="{{ path('sylius_cart_save') }}">
+<form method="post" action="{{ path('sylius_cart_save') }}" novalidate>
 <table class="table">
     <thead>
         <tr>
@@ -76,7 +76,7 @@
 {% else %}
 <hr />
 <div class="alert alert-info">
-    <h4 class="alert-heading">{{ 'alert.heading.info'|trans({}, 'SyliusSandboxBundle') }}.</h4>
+    <h4 class="alert-heading">Information</h4>
     Your cart is empty.
 </div>
 {% endif %}
