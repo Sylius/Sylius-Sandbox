@@ -19,3 +19,5 @@ parameters:
     sylius.locale: en
 
     sylius.secret: 7105d4542c26b7dec214bfab78d8da51b
+
+    sylius.cache:             apc

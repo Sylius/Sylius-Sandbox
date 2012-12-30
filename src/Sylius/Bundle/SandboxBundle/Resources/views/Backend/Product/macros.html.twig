@@ -9,6 +9,7 @@
             <th>{{ sylius_resource_sort('sku', 'SKU') }}</th>
             <th>{{ sylius_resource_sort('name') }}</th>
             <th>{{ sylius_resource_sort('updatedAt', 'last updated') }}</th>
+            <th></th>
             {% else %}
             <th>#id</th>
             <th>photo</th>
@@ -44,25 +45,20 @@
                 <div class="btn-toolbar pull-right">
                     <div class="btn-group">
                         <a href="{{ path('sylius_sandbox_backend_product_show', {'id': product.id}) }}" class="btn">
-                           <i class="icon-book"></i> {{ 'show'|trans({}, 'SyliusSandboxBundle') }}
+                           <i class="icon-book"></i> details
                         </a>
                         <a href="#" data-toggle="dropdown" class="btn dropdown-toggle"><span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li>
                             <a href="{{ path('sylius_sandbox_backend_product_update', {'id': product.id}) }}">
-                               <i class="icon-pencil"></i> {{ 'update'|trans({}, 'SyliusSandboxBundle') }}
-                            </a>
-                            </li>
-                            <li>
-                            <a href="{{ path('sylius_sandbox_backend_product_duplicate', {'id': product.id}) }}">
-                               <i class="icon-plus-sign"></i> {{ 'duplicate'|trans({}, 'SyliusSandboxBundle') }}
+                               <i class="icon-pencil"></i> edit
                             </a>
                             </li>
                             <li>
                             <a href="{{ path('sylius_sandbox_backend_product_delete', {'id': product.id}) }}" class="confirmer"
                                 data-confirmer-question="{{ 'confirmer.q.product.delete'|trans({}, 'SyliusSandboxBundle') }}"
                             >
-                                <i class="icon-remove icon-trash"></i> {{ 'delete'|trans({}, 'SyliusSandboxBundle') }}
+                                <i class="icon-remove icon-trash"></i> delete
                             </a>
                             </li>
                         </ul>
@@ -82,7 +78,7 @@
 </table>
 {% else %}
 <div class="alert alert-info">
-    <h4 class="alert-heading">{{ 'alert.heading.info'|trans({}, 'SyliusSandboxBundle') }}.</h4>
+    <h4 class="alert-heading">Information</h4>
     There are no products to display.
 </div>
 {% endif %}

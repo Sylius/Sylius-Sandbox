@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Sylius\Bundle\SandboxBundle\Entity\Variant;
+namespace Sylius\Bundle\SandboxBundle\Entity;
 
 use Sylius\Bundle\AssortmentBundle\Entity\Variant\Variant as BaseVariant;
 use Sylius\Bundle\InventoryBundle\Model\StockableInterface;

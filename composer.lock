@@ -2353,12 +2353,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/SyliusAssortmentBundle.git",
-                "reference": "3e8fbf1b191cca453a1397b14e7fad7ab5a14254"
+                "reference": "228f111651f502c2f0c4011c484b496c3a0c139f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/Sylius/SyliusAssortmentBundle/archive/3e8fbf1b191cca453a1397b14e7fad7ab5a14254.zip",
-                "reference": "3e8fbf1b191cca453a1397b14e7fad7ab5a14254",
+                "url": "https://github.com/Sylius/SyliusAssortmentBundle/archive/228f111651f502c2f0c4011c484b496c3a0c139f.zip",
+                "reference": "228f111651f502c2f0c4011c484b496c3a0c139f",
                 "shasum": ""
             },
             "require": {
@@ -2375,7 +2375,7 @@
             "suggest": {
                 "friendsofsymfony/rest-bundle": "*"
             },
-            "time": "2012-12-21 14:55:02",
+            "time": "2012-12-30 03:00:21",
             "type": "symfony-bundle",
             "installation-source": "source",
             "autoload": {

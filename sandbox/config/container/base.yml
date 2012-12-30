@@ -112,14 +112,8 @@ sylius_assortment:
             repository: Sylius\Bundle\SandboxBundle\Repository\ProductRepository
             form: Sylius\Bundle\SandboxBundle\Form\Type\ProductType
         variant:
-            model: Sylius\Bundle\SandboxBundle\Entity\Variant\Variant
+            model: Sylius\Bundle\SandboxBundle\Entity\Variant
             form: Sylius\Bundle\SandboxBundle\Form\Type\VariantType
-        option:
-            model: Sylius\Bundle\SandboxBundle\Entity\Option\Option
-        property:
-            model: Sylius\Bundle\SandboxBundle\Entity\Property\Property
-        prototype:
-            model: Sylius\Bundle\SandboxBundle\Entity\Prototype\Prototype
 
 sylius_categorizer:
     driver: doctrine/orm
@@ -197,7 +191,7 @@ sylius_settings:
 liip_doctrine_cache:
     namespaces:
         sylius_settings:
-            type: apc
+            type: %sylius.cache%
 
 sylius_resource:
     resources:

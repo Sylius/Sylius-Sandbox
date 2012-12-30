@@ -11,6 +11,9 @@
     <a href="{{ path('sylius_sandbox_backend_product_create') }}" class="btn btn-primary">
         <i class="icon-plus icon-white"></i> create product
     </a>
+    <a href="{{ path('sylius_sandbox_backend_prototype_list') }}" class="btn btn-info">
+        <i class="icon-cogs"></i> create from prototype
+    </a>
     {% if not app.request.query.get('deleted') %}
     <a href="{{ path('sylius_sandbox_backend_product_list', {'deleted': true}) }}" class="btn">
         <i class="icon-trash"></i> show deleted products

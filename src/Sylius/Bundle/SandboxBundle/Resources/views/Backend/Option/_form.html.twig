@@ -1,4 +1,5 @@
 <fieldset>
+    {{ form_errors(form) }}
     {% form_theme form _self %}
 
     {{ form_row(form.name, {'attr': {'class': 'span4'}}) }}

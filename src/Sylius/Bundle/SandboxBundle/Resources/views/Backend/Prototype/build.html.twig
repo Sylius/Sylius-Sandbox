@@ -1,7 +1,7 @@
 {% extends 'SyliusSandboxBundle:Backend:layout.html.twig' %}
 
 {% block header %}
-    <h1>Building {% filter lower %}{{ prototype.name }}{% endfilter %}<small> Use the form below to build a new {% filter lower %}{{ prototype.name }}{% endfilter %}</small></h1>
+    <h1>Creating product from prototype "{{ prototype.name }}" <small>Use the form below to build a new {{ prototype.name|lower }}</small></h1>
 {% endblock %}
 
 {% block content %}

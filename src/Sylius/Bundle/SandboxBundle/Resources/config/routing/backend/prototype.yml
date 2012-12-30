@@ -36,5 +36,5 @@ sylius_sandbox_backend_prototype_build:
     defaults:
         _controller: sylius_assortment.controller.prototype:buildAction
         _sylius.resource:
-            template: SyliusSandboxBundle:Backend/Prototype:update.html.twig
-            redirect: sylius_sandbox_backend_prototype_list
+            template: SyliusSandboxBundle:Backend/Prototype:build.html.twig
+            redirect: sylius_sandbox_backend_product_show
