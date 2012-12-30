@@ -1,5 +1,7 @@
 {% extends 'SyliusSandboxBundle:Backend:layout.html.twig' %}
 
+{% from 'MopaBootstrapBundle::macros.html.twig' import label %}
+
 {% block header %}
     <h1>Variants grid <small>All "<strong>{{ product.name }}</strong>" variants</small></h1>
 {% endblock %}
@@ -26,9 +28,7 @@
                 <td>
                     {{ form_widget(form.variants[loop.index].sku) }}
                 </td>
-                <td>
-                    <span class="label label-{% if variant.available %}success{% else %}important{% endif %}">{{ variant.availableOn|date }}</span>
-                </td>
+                <td>{{ label(variant.availableOn|date, variant.available ? 'success' : 'important') }}</td>
                 <td>
                     <ul>
                         {% for option in variant.options %}
