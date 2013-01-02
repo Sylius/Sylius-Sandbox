@@ -1,5 +1,14 @@
 {% extends 'SyliusSandboxBundle:Frontend:layout.html.twig' %}
 
+{% block javascripts %}
+{% javascripts
+    '@SyliusAddressingBundle/Resources/assets/js/sylius-addressing.js'
+%}
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}
+{% endblock %}
+
 {% block content %}
 <div class="page-header">
 <h1>Delivery <small>Where should we ship your order?</small></h1>

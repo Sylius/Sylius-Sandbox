@@ -330,11 +330,11 @@ class Builder extends ContainerAware
         $child = $menu->addChild('Customers', $childOptions);
 
         $child->addChild('Address book', array(
-            'route' => 'sylius_sandbox_backend_address_list',
+            'route' => 'sylius_addressing_address_list',
             'labelAttributes' => array('icon' => 'icon-list-alt')
         ));
         $child->addChild('New address', array(
-            'route' => 'sylius_sandbox_backend_address_create',
+            'route' => 'sylius_addressing_address_create',
             'labelAttributes' => array('icon' => 'icon-plus-sign')
         ));
         $child->addChild('User list', array(
@@ -381,11 +381,11 @@ class Builder extends ContainerAware
         $this->addDivider($child);
 
         $child->addChild('Manage countries and provinces', array(
-            'route' => 'sylius_sandbox_backend_country_list',
+            'route' => 'sylius_addressing_country_list',
             'labelAttributes' => array('icon' => 'icon-flag')
         ));
         $child->addChild('Manage zones', array(
-            'route' => 'sylius_sandbox_backend_zone_list',
+            'route' => 'sylius_addressing_zone_list',
             'labelAttributes' => array('icon' => 'icon-globe')
         ));
 
