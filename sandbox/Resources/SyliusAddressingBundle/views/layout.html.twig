@@ -1,6 +1,7 @@
 {% extends 'SyliusSandboxBundle:Backend:layout.html.twig' %}
 
 {% block javascripts %}
+    {{ parent() }}
     {% block sylius_addressing_javascripts %}{% endblock %}
 {% endblock %}
 
