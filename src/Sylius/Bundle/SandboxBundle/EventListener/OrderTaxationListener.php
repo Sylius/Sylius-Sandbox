@@ -95,7 +95,7 @@ class OrderTaxationListener
             $zone = $taxationSettings['defaultTaxZone'];
         }
 
-        $taxTotal = 0;
+        $taxes = array();
 
         foreach ($order->getItems() as $item) {
             $taxable = $item->getVariant()->getProduct();
@@ -105,17 +105,29 @@ class OrderTaxationListener
                 continue;
             }
 
-            $item->calculateTotal();
+            $rateName = $rate->getName();
 
-            $taxTotal += $this->taxCalculator->calculate($item->getTotal(), $rate);
+            $item->calculateTotal();
+            $taxAmount = $this->taxCalculator->calculate($item->getTotal(), $rate);
+            $percent = $rate->getAmount() * 100;
+            $taxLabel = sprintf('%s (%d%%)', $rateName, $percent);
+
+            if (!array_key_exists($taxLabel, $taxes)) {
+                $taxes[$taxLabel] = 0;
+            }
+
+            $taxes[$taxLabel] += $taxAmount;
         }
 
-        $adjustment = $this->adjustmentRepository->createNew();
+        foreach ($taxes as $label => $amount) {
+            $adjustment = $this->adjustmentRepository->createNew();
 
-        $adjustment->setLabel('Tax');
-        $adjustment->setAmount($taxTotal);
+            $adjustment->setLabel('Tax');
+            $adjustment->setDescription($label);
+            $adjustment->setAmount($amount);
 
-        $order->addAdjustment($adjustment);
+            $order->addAdjustment($adjustment);
+        }
 
         $order->calculateTotal();
     }

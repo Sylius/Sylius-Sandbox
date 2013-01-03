@@ -190,10 +190,17 @@
         </tr>
         {% endfor %}
         <tr>
-            <td colspan="4">Tax total</td>
+            <td colspan="4">
+            <p><strong>Taxes</strong></p>
+            <ul>
+            {% for taxAdjustment in order.taxAdjustments %}
+                <li>{{ taxAdjustment.description }} {{ taxAdjustment.amount }} &euro;</li>
+            {% endfor %}
+            </ul>
+            </td>
             <td colspan="2">
                 <span class="pull-right">
-                {{ order.taxTotal }} &euro;
+                <strong>Tax total</strong>: {{ order.taxTotal }} &euro;
                 </span>
             </td>
         </tr>
