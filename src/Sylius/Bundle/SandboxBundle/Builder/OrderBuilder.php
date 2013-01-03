@@ -2,28 +2,48 @@
 
 namespace Sylius\Bundle\SandboxBundle\Builder;
 
-use Sylius\Bundle\SalesBundle\Builder\OrderBuilderInterface;
+use Doctrine\Common\Persistence\ObjectRepository;
+use Sylius\Bundle\SalesBundle\Builder\OrderBuilder as BaseOrderBuilder;
 use Sylius\Bundle\SalesBundle\Model\OrderInterface;
-use Symfony\Component\DependencyInjection\ContainerAware;
+use Sylius\Bundle\CartBundle\Provider\CartProviderInterface;
+use Symfony\Component\Security\Core\SecurityContextInterface;
 
-class OrderBuilder extends ContainerAware implements OrderBuilderInterface
+/**
+ * Order builder.
+ *
+ * @author Paweł Jędrzejewski <pjedrzejewski@diweb.pl>
+ */
+class OrderBuilder extends BaseOrderBuilder
 {
+    private $cartProvider;
+    private $securityContext;
+
+    public function __construct(ObjectRepository $orderItemRepository, CartProviderInterface $cartProvider, SecurityContextInterface $securityContext)
+    {
+        $this->cartProvider = $cartProvider;
+        $this->securityContext = $securityContext;
+
+        parent::__construct($orderItemRepository);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function build(OrderInterface $order)
     {
         $order->getItems()->clear();
 
-        $cart = $this->container->get('sylius_cart.provider')->getCart();
+        $cart = $this->cartProvider->getCart();
 
         if ($cart->isEmpty()) {
-            throw new \LogicException('The cart must be not empty.');
+            throw new \LogicException('The cart must not be empty.');
         }
 
-        $order->setUser($this->container->get('security.context')->getToken()->getUser());
-
-        $orderItemRepository = $this->container->get('sylius_sales.repository.item');
+        $order->setUser($this->securityContext->getToken()->getUser());
 
         foreach ($cart->getItems() as $item) {
-            $orderItem = $orderItemRepository->createNew();
+            $orderItem = $this->createNewItem();
+
             $orderItem->setVariant($item->getVariant());
             $orderItem->setQuantity($item->getQuantity());
             $orderItem->setUnitPrice($item->getVariant()->getPrice());
@@ -32,23 +52,5 @@ class OrderBuilder extends ContainerAware implements OrderBuilderInterface
         }
 
         $order->calculateTotal();
-    }
-
-    public function finalize(OrderInterface $order)
-    {
-        $inventoryOperator = $this->container->get('sylius_inventory.operator');
-        $variantManager = $this->container->get('sylius_assortment.manager.variant');
-
-        foreach ($order->getItems() as $item) {
-            $variant = $item->getVariant();
-
-            $inventoryUnits = $inventoryOperator->decrease($variant, $item->getQuantity());
-            $order->setInventoryUnits($inventoryUnits);
-
-            $variantManager->persist($variant);
-            $variantManager->flush($variant);
-        }
-
-        $this->container->get('sylius_cart.provider')->abandonCart();
     }
 }

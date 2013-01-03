@@ -391,6 +391,10 @@ class Builder extends ContainerAware
 
         $this->addDivider($child);
 
+        $child->addChild('Configure taxation', array(
+            'route' => 'sylius_sandbox_backend_settings_taxation_configure',
+            'labelAttributes' => array('icon' => 'icon-cogs')
+        ));
         $child->addChild('Taxation categories', array(
             'route' => 'sylius_sandbox_backend_tax_category_list',
             'labelAttributes' => array('icon' => 'icon-tasks')

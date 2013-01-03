@@ -2,6 +2,7 @@
 
 namespace Sylius\Bundle\SandboxBundle\Process\Step;
 
+use Symfony\Component\EventDispatcher\GenericEvent;
 use Sylius\Bundle\FlowBundle\Process\Context\ProcessContextInterface;
 use Sylius\Bundle\FlowBundle\Process\Step\ContainerAwareStep;
 use Sylius\Bundle\SalesBundle\Model\OrderInterface;
@@ -32,21 +33,19 @@ class FinalizeStep extends ContainerAwareStep
     public function forwardAction(ProcessContextInterface $context)
     {
         $order = $this->prepareOrder($context);
-
-        $this->container->get('sylius_sales.manager.order')->persist($order);
-        $this->container->get('sylius_sales.manager.order')->persist($order);
-
-        $orderBuilder = $this->container->get('sylius_sales.builder');
-        $orderBuilder->finalize($order);
+        $this->save($order);
 
         $this->container->get('session')->setFlash('success', 'Your order has been saved, thank you!');
+
+        $this->container->get('sylius_cart.provider')->abandonCart();
 
         return $this->complete();
     }
 
     public function save(OrderInterface $order)
     {
-        $manager = $this->get('sylius_sales.manager.order');
+        $manager = $this->container->get('sylius_sales.manager.order');
+
         $manager->persist($order);
         $manager->flush();
     }
@@ -70,6 +69,8 @@ class FinalizeStep extends ContainerAwareStep
 
         $orderBuilder = $this->container->get('sylius_sales.builder');
         $orderBuilder->build($order);
+
+        $this->container->get('event_dispatcher')->dispatch('sylius_sales.order.pre_create', new GenericEvent($order));
 
         return $order;
     }

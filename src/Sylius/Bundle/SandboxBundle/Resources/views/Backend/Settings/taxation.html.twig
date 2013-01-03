@@ -1,0 +1,18 @@
+{% extends 'SyliusSandboxBundle:Backend:layout.html.twig' %}
+
+{% block header %}
+    <h1>Taxation settings</h1>
+{% endblock %}
+
+{% block content %}
+<form action="{{ path('sylius_sandbox_backend_settings_taxation_configure') }}" method="post" class="form-horizontal" novalidate>
+    {{ form_errors(form) }}
+    {{ form_row(form.defaultTaxZone, {'attr': {'class': 'input-xlarge select2'}}) }}
+    {{ form_rest(form) }}
+    <div class="form-actions">
+       <input type="submit" value="save" class="btn btn-large btn-primary" />
+       &nbsp;
+       <input type="reset" value="cancel" class="btn btn-large" />
+    </div>
+</form>
+{% endblock %}

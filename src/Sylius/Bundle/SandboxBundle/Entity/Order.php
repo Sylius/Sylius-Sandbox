@@ -16,10 +16,14 @@ use Doctrine\Common\Collections\Collection;
 use FOS\UserBundle\Model\UserInterface;
 use Sylius\Bundle\AddressingBundle\Model\AddressInterface;
 use Sylius\Bundle\SalesBundle\Entity\Order as BaseOrder;
+use Sylius\Bundle\SalesBundle\Model\AdjustmentInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 class Order extends BaseOrder
 {
+    // Label for tax adjustments.
+    const TAX_ADJUSTMENT = 'Tax';
+
     /**
      * Delivery address.
      *
@@ -64,6 +68,31 @@ class Order extends BaseOrder
         $this->addItem(new OrderItem());
         $this->addItem(new OrderItem());
         $this->addItem(new OrderItem());
+    }
+
+    public function getTaxTotal()
+    {
+        $taxTotal = 0;
+
+        foreach ($this->getTaxAdjustments() as $adjustment) {
+            $taxTotal += $adjustment->getAmount();
+        }
+
+        return $taxTotal;
+    }
+
+    public function getTaxAdjustments()
+    {
+        return $this->adjustments->filter(function (AdjustmentInterface $adjustment) {
+            return Order::TAX_ADJUSTMENT === $adjustment->getLabel();
+        });
+    }
+
+    public function removeTaxAdjustments()
+    {
+        foreach ($this->getTaxAdjustments() as $adjustment) {
+            $this->removeAdjustment($adjustment);
+        }
     }
 
     public function getDeliveryAddress()

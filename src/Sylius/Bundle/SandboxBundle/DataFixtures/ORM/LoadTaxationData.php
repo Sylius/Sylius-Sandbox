@@ -28,6 +28,7 @@ class LoadTaxationData extends DataFixture
     {
         $taxableGoods = $this->createTaxCategory('Taxable goods', 'Default taxation category', 'Default');
         $this->createTaxRate($taxableGoods, 'Default Tax', 0.23, 'EU + USA GMT-8');
+        $this->createTaxRate($taxableGoods, 'EU VAT', 0.23, 'EU');
 
         $clothing = $this->createTaxCategory('Clothing', 'All clothing goods', 'Clothing');
         $this->createTaxRate($clothing, 'Clothing US Tax', 0.20, 'USA GMT-8');

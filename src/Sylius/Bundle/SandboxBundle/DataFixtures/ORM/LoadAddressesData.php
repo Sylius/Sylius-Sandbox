@@ -60,7 +60,7 @@ class LoadAddressesData extends DataFixture
      */
     public function getOrder()
     {
-        return 7;
+        return 5;
     }
 
     private function getAddressManager()

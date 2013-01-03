@@ -13,6 +13,7 @@ namespace Sylius\Bundle\SandboxBundle\DataFixtures\ORM;
 
 use Doctrine\Common\Persistence\ObjectManager;
 use Sylius\Bundle\SalesBundle\Model\OrderInterface;
+use Symfony\Component\EventDispatcher\GenericEvent;
 
 /**
  * Builds some simple orders to play with Sylius sandbox.
@@ -28,12 +29,15 @@ class LoadOrdersData extends DataFixture
     {
         $orderManager = $this->container->get('sylius_sales.manager.order');
         $orderRepository = $this->container->get('sylius_sales.repository.order');
+        $eventDispatcher = $this->container->get('event_dispatcher');
 
         for ($i = 1; $i <= 100; $i++) {
             $order = $orderRepository->createNew();
             $this->buildOrder($order);
 
+            $eventDispatcher->dispatch('sylius_sales.order.pre_create', new GenericEvent($order));
             $orderManager->persist($order);
+            $eventDispatcher->dispatch('sylius_sales.order.post_create', new GenericEvent($order));
             $this->setReference('Order-'.$i, $order);
         }
 

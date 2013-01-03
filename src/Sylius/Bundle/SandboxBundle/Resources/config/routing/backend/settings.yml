@@ -7,3 +7,10 @@ sylius_sandbox_backend_settings_general_configure:
         _controller: sylius_settings.controller:configureAction
         namespace: general
         template: SyliusSandboxBundle:Backend/Settings:general.html.twig
+
+sylius_sandbox_backend_settings_taxation_configure:
+    pattern: /taxation
+    defaults:
+        _controller: sylius_settings.controller:configureAction
+        namespace: taxation
+        template: SyliusSandboxBundle:Backend/Settings:taxation.html.twig

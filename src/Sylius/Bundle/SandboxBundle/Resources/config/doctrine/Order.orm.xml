@@ -14,6 +14,11 @@
                 <cascade-all/>
             </cascade>
         </one-to-many>
+        <one-to-many field="adjustments" target-entity="Sylius\Bundle\SalesBundle\Model\AdjustmentInterface" mapped-by="order" orphan-removal="true">
+            <cascade>
+                <cascade-all/>
+            </cascade>
+        </one-to-many>
         <many-to-one field="deliveryAddress" target-entity="Sylius\Bundle\AddressingBundle\Entity\Address" on-delete="SET NULL">
             <cascade>
                 <cascade-persist/>

@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Sylius\Bundle\SandboxBundle\EventDispatcher\Listener;
+namespace Sylius\Bundle\SandboxBundle\EventListener;
 
 use Sylius\Bundle\AssortmentBundle\EventDispatcher\Event\FilterProductEvent;
 use Sylius\Bundle\AssortmentBundle\EventDispatcher\Event\FilterVariantEvent;

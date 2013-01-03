@@ -21,6 +21,14 @@
             <td>{{ order.total }} &euro;</td>
         </tr>
         <tr>
+            <td><strong>items total</strong></td>
+            <td>{{ order.itemsTotal }} &euro;</td>
+        </tr>
+        <tr>
+            <td><strong>tax total</strong></td>
+            <td>{{ order.taxTotal }} &euro;</td>
+        </tr>
+        <tr>
             <td><strong>user</strong></td>
             <td>
             {% if order.user is not empty %}
@@ -151,9 +159,15 @@
         {% set product = variant.product %}
         <tr>
             <td>{{ loop.index }}</td>
-            <td>{{ variant.sku }}</td>
             <td>
-                <p>{{ product.name }}</p>
+                <a href="{{ path('sylius_sandbox_backend_product_show', {'id': product.id}) }}" class="btn btn-info">
+                <i class="icon-info-sign"></i> {{ variant.sku }}
+                </a>
+            </td>
+            <td>
+                <p>
+                    <a href="{{ path('sylius_sandbox_backend_product_show', {'id': product.id}) }}">{{ product.name }}</a>
+                </p>
                 {% if product.hasOptions %}
                 <ul class="unstyled">
                     {% for option in variant.options %}
@@ -175,6 +189,31 @@
             </td>
         </tr>
         {% endfor %}
+        <tr>
+            <td colspan="4">Tax total</td>
+            <td colspan="2">
+                <span class="pull-right">
+                {{ order.taxTotal }} &euro;
+                </span>
+            </td>
+        </tr>
+        {#
+        {% if order.adjustments|length > 0 %}
+        <tr>
+            <td colspan="6" style="background-color: #f1f1f1; font-weight: bold;">Adjustments</td>
+        </tr>
+        {% for adjustment in order.adjustments %}
+        <tr>
+            <td colspan="4">{{ adjustment.label }}</td>
+            <td colspan="2">
+                <span class="pull-right">
+                {{ adjustment.amount }} &euro;
+                </span>
+            </td>
+        </tr>
+        {% endfor %}
+        {% endif %}
+        #}
         <tr>
             <td colspan="4">
             </td>

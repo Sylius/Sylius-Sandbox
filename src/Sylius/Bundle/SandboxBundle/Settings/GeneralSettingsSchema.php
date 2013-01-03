@@ -2,7 +2,7 @@
 
 namespace Sylius\Bundle\SandboxBundle\Settings;
 
-use Sylius\Bundle\SettingsBundle\Schema\SchemaInterface;
+use Sylius\Bundle\SettingsBundle\Schema\Schema;
 use Symfony\Component\Form\FormBuilderInterface;
 
 /**
@@ -10,16 +10,8 @@ use Symfony\Component\Form\FormBuilderInterface;
  *
  * @author Paweł Jędrzejewski <pjedrzejewski@diweb.pl>
  */
-class GeneralSettingsSchema implements SchemaInterface
+class GeneralSettingsSchema extends Schema
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function getNamespace()
-    {
-        return 'general';
-    }
-
     /**
      * {@inheritdoc}
      */
