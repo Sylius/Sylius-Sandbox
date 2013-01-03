@@ -1,5 +1,7 @@
 {% extends 'SyliusSandboxBundle:Frontend:layout.html.twig' %}
 
+{% form_theme form _self %}
+
 {% block content %}
 <div class="page-header">
 <h1>Shopping cart <small>What we have here, hm?</small></h1>
@@ -43,7 +45,7 @@
                 </ul>
             </td>
             <td>
-                {{ form_widget(form.items[loop.index0].quantity, {'attr': {'class': 'center-text'}}) }}
+                {{ form_row(form.items[loop.index0].quantity, {'attr': {'class': 'center-text'}, 'label': false}) }}
             </td>
             <td>
                 <a href="{{ path('sylius_cart_item_remove', {'id': item.id}) }}" class="btn btn-danger"><i class="icon-trash icon-white"></i></a>
@@ -80,4 +82,9 @@
     Your cart is empty.
 </div>
 {% endif %}
+{% endblock %}
+
+{% block sylius_cart_item_row %}
+{{ parent() }}
+{% block form_message %}{% endblock %}
 {% endblock %}

@@ -2472,12 +2472,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/SyliusCartBundle.git",
-                "reference": "v0.2.0"
+                "reference": "67c4365be9ba8da96a6ea0fd335b9fb4d0467b39"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/Sylius/SyliusCartBundle/archive/v0.2.0.zip",
-                "reference": "v0.2.0",
+                "url": "https://github.com/Sylius/SyliusCartBundle/archive/67c4365be9ba8da96a6ea0fd335b9fb4d0467b39.zip",
+                "reference": "67c4365be9ba8da96a6ea0fd335b9fb4d0467b39",
                 "shasum": ""
             },
             "require": {
@@ -2495,7 +2495,7 @@
                 "doctrine/doctrine-bundle": "*",
                 "doctrine/orm": "*"
             },
-            "time": "2012-12-27 23:24:07",
+            "time": "2013-01-03 20:46:37",
             "type": "symfony-bundle",
             "installation-source": "source",
             "autoload": {
