@@ -503,7 +503,7 @@
             },
             "time": "2012-10-19 10:37:24",
             "type": "library",
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "Doctrine\\DBAL\\Migrations": "lib"
@@ -1625,7 +1625,7 @@
                     "dev-master": "2.0.x-dev"
                 }
             },
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "Knp\\Bundle\\MenuBundle": ""
@@ -2295,12 +2295,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/SyliusAddressingBundle.git",
-                "reference": "7746aa4da7b080a969b7e3681c0b853d8670fffb"
+                "reference": "8d628ce632c12607f2fcf9df3868de81a3d01963"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/Sylius/SyliusAddressingBundle/archive/7746aa4da7b080a969b7e3681c0b853d8670fffb.zip",
-                "reference": "7746aa4da7b080a969b7e3681c0b853d8670fffb",
+                "url": "https://github.com/Sylius/SyliusAddressingBundle/archive/8d628ce632c12607f2fcf9df3868de81a3d01963.zip",
+                "reference": "8d628ce632c12607f2fcf9df3868de81a3d01963",
                 "shasum": ""
             },
             "require": {
@@ -2311,9 +2311,9 @@
             },
             "require-dev": {
                 "phpspec/phpspec2": "dev-develop",
-                "doctrine/orm": "*"
+                "symfony/form": ">=2.1,<3.0"
             },
-            "time": "2013-01-02 01:01:38",
+            "time": "2013-01-03 17:36:37",
             "type": "symfony-bundle",
             "installation-source": "source",
             "autoload": {
@@ -2353,12 +2353,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/SyliusAssortmentBundle.git",
-                "reference": "228f111651f502c2f0c4011c484b496c3a0c139f"
+                "reference": "ca89a5af124632e2cede08c20d0939f718340b8e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/Sylius/SyliusAssortmentBundle/archive/228f111651f502c2f0c4011c484b496c3a0c139f.zip",
-                "reference": "228f111651f502c2f0c4011c484b496c3a0c139f",
+                "url": "https://github.com/Sylius/SyliusAssortmentBundle/archive/ca89a5af124632e2cede08c20d0939f718340b8e.zip",
+                "reference": "ca89a5af124632e2cede08c20d0939f718340b8e",
                 "shasum": ""
             },
             "require": {
@@ -2375,7 +2375,7 @@
             "suggest": {
                 "friendsofsymfony/rest-bundle": "*"
             },
-            "time": "2012-12-30 03:00:21",
+            "time": "2012-12-31 17:01:53",
             "type": "symfony-bundle",
             "installation-source": "source",
             "autoload": {
@@ -2703,12 +2703,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/SyliusResourceBundle.git",
-                "reference": "d1f1b35916f6c6451fe8ea8ad4df7a9bac4cb7f3"
+                "reference": "5fa537ae0e6dceb8bf440482401441f602e916bd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/Sylius/SyliusResourceBundle/archive/d1f1b35916f6c6451fe8ea8ad4df7a9bac4cb7f3.zip",
-                "reference": "d1f1b35916f6c6451fe8ea8ad4df7a9bac4cb7f3",
+                "url": "https://github.com/Sylius/SyliusResourceBundle/archive/5fa537ae0e6dceb8bf440482401441f602e916bd.zip",
+                "reference": "5fa537ae0e6dceb8bf440482401441f602e916bd",
                 "shasum": ""
             },
             "require": {
@@ -2727,7 +2727,7 @@
                 "doctrine/orm": "~2.3",
                 "doctrine/mongodb-odm": "*"
             },
-            "time": "2012-12-30 17:05:49",
+            "time": "2013-01-03 17:58:34",
             "type": "symfony-bundle",
             "installation-source": "source",
             "autoload": {
@@ -3622,7 +3622,7 @@
                     "dev-develop": "1.4.x-dev"
                 }
             },
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "Behat\\Mink": "src/"
@@ -3770,7 +3770,7 @@
             },
             "time": "2012-11-29 22:05:37",
             "type": "mink-driver",
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "Behat\\Mink\\Driver": "src/"
