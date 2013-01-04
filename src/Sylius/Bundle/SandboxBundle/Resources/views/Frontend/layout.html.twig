@@ -47,11 +47,9 @@
         <div class="container-fluid">
             <div class="row-fluid">
                 <div id="sidebar" class="span2">
+                    {% from 'MopaBootstrapBundle::flash.html.twig' import flash %}
                     {% for name, value in app.session.flashes if name in ['success', 'error'] %}
-                    <div class="alert alert-{{ name }}">
-                        <a class="close" data-dismiss="alert" href="#">×</a>
-                        {{ value|trans }}
-                    </div>
+                        {{ flash(name, value|trans, true) }}
                     {% endfor %}
                     {% block sidebar %}
                         {% include 'SyliusSandboxBundle:Frontend:sidebar.html.twig' %}
