@@ -11,6 +11,7 @@ public/assets/compiled/
 public/uploads/
 public/media/
 public/js/
+public/css/
 
 sandbox/config/deploy.rb
 sandbox/config/container/*.local.yml

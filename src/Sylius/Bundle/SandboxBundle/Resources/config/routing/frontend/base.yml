@@ -34,4 +34,4 @@ sylius_sandbox_ajax_render_province_choice_form:
     defaults:
         _controller: sylius_addressing.controller.province:renderProvinceChoiceTypeAction
         _sylius.resource:
-            template: SyliusSandboxBundle:Backend/Province:_provinceChoiceForm.html.twig
+            template: SyliusAddressingBundle:Province:_provinceChoiceForm.html.twig

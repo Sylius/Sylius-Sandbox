@@ -1,0 +1,14 @@
+{% extends 'SyliusSandboxBundle:Backend:layout.html.twig' %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {% block sylius_addressing_javascripts %}{% endblock %}
+{% endblock %}
+
+{% block header %}
+    {% block sylius_addressing_header %}{% endblock %}
+{% endblock %}
+
+{% block content %}
+    {% block sylius_addressing_content %}{% endblock %}
+{% endblock %}
