@@ -30,8 +30,8 @@ class LoadShippingData extends DataFixture
         $regular = $this->createShippingCategory('Regular', 'Regular weight items', 'Regular');
         $heavy = $this->createShippingCategory('Heavy', 'Heavy items', 'Heavy');
 
-        $this->createShippingMethod('FedEx', 'USA GMT-8');
-        $this->createShippingMethod('UPS Ground', 'EU');
+        $this->createShippingMethod('FedEx', 'USA GMT-8', null, DefaultCalculators::FLEXIBLE_RATE, array('amount' => 10.00, 'rate' => 5.00, 'limit' => 0));
+        $this->createShippingMethod('UPS Ground', 'EU', null, DefaultCalculators::FLAT_RATE, array('amount' => 25.00));
 
         $manager->flush();
     }
@@ -64,7 +64,7 @@ class LoadShippingData extends DataFixture
      * @param ShippingCategoryInterface $category
      * @param string                    $calculator
      */
-    private function createShippingMethod($name, $zone, ShippingCategoryInterface $category = null, $calculator = DefaultCalculators::PER_ITEM_RATE)
+    private function createShippingMethod($name, $zone, ShippingCategoryInterface $category = null, $calculator = DefaultCalculators::PER_ITEM_RATE, array $configuration = array())
     {
         $method = $this
             ->getShippingMethodRepository()
@@ -75,6 +75,7 @@ class LoadShippingData extends DataFixture
         $method->setZone($this->getZone($zone));
         $method->setName($name);
         $method->setCalculator($calculator);
+        $method->setConfiguration($configuration);
 
         $this
             ->getShippingMethodManager()
