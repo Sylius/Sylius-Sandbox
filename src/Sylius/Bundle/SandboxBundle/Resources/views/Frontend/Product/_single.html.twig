@@ -13,7 +13,7 @@
             {{ product.description|markdown }}
         </p>
         {% if not product.hasOptions %}
-            {% if not sylius_inventory_in_stock(product.masterVariant) %}
+            {% if not sylius_inventory_is_available(product.masterVariant) %}
                 <br />
                 <span class="label label-important center-text out-of-stock">out of stock</span>
             {% else %}

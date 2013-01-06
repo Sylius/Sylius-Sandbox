@@ -17,12 +17,14 @@ use FOS\UserBundle\Model\UserInterface;
 use Sylius\Bundle\AddressingBundle\Model\AddressInterface;
 use Sylius\Bundle\SalesBundle\Entity\Order as BaseOrder;
 use Sylius\Bundle\SalesBundle\Model\AdjustmentInterface;
+use Sylius\Bundle\ShippingBundle\Model\ShipmentInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 class Order extends BaseOrder
 {
-    // Label for tax adjustments.
-    const TAX_ADJUSTMENT = 'Tax';
+    // Labels for tax and shipping adjustments.
+    const TAX_ADJUSTMENT      = 'Tax';
+    const SHIPPING_ADJUSTMENT = 'Shipping';
 
     /**
      * Delivery address.
@@ -41,6 +43,13 @@ class Order extends BaseOrder
      * @Assert\Valid
      */
     private $billingAddress;
+
+    /**
+     * Shipments.
+     *
+     * @var Collection
+     */
+    private $shipments;
 
     /**
      * Inventory units.
@@ -64,10 +73,7 @@ class Order extends BaseOrder
         parent::__construct();
 
         $this->inventoryUnits = new ArrayCollection();
-
-        $this->addItem(new OrderItem());
-        $this->addItem(new OrderItem());
-        $this->addItem(new OrderItem());
+        $this->shipments = new ArrayCollection();
     }
 
     public function getTaxTotal()
@@ -91,6 +97,31 @@ class Order extends BaseOrder
     public function removeTaxAdjustments()
     {
         foreach ($this->getTaxAdjustments() as $adjustment) {
+            $this->removeAdjustment($adjustment);
+        }
+    }
+
+    public function getShippingTotal()
+    {
+        $shippingTotal = 0;
+
+        foreach ($this->getShippingAdjustments() as $adjustment) {
+            $shippingTotal += $adjustment->getAmount();
+        }
+
+        return $shippingTotal;
+    }
+
+    public function getShippingAdjustments()
+    {
+        return $this->adjustments->filter(function (AdjustmentInterface $adjustment) {
+            return Order::SHIPPING_ADJUSTMENT === $adjustment->getLabel();
+        });
+    }
+
+    public function removeShippingAdjustments()
+    {
+        foreach ($this->getShippingAdjustments() as $adjustment) {
             $this->removeAdjustment($adjustment);
         }
     }
@@ -126,6 +157,32 @@ class Order extends BaseOrder
             $this->inventoryUnits->add($unit);
             $unit->setOrder($this);
         }
+    }
+
+    public function getShipments()
+    {
+        return $this->shipments;
+    }
+
+    public function addShipment(ShipmentInterface $shipment)
+    {
+        if (!$this->hasShipment($shipment)) {
+            $shipment->setOrder($this);
+            $this->shipments->add($shipment);
+        }
+    }
+
+    public function removeShipment(ShipmentInterface $shipment)
+    {
+        if ($this->hasShipment($shipment)) {
+            $shipment->setOrder(null);
+            $this->shipments->removeElement($shipment);
+        }
+    }
+
+    public function hasShipment(ShipmentInterface $shipment)
+    {
+        return $this->shipments->contains($shipment);
     }
 
     public function getUser()

@@ -43,7 +43,7 @@ class ItemResolver implements ItemResolverInterface
     private $formFactory;
 
     /**
-     * Stock resolver.
+     * Stock availability checker.
      *
      * @var AvailabilityCheckerInterface
      */
@@ -105,8 +105,8 @@ class ItemResolver implements ItemResolverInterface
         $variant = $item->getVariant();
 
         // If all is ok with form, quantity and other stuff, simply return the item.
-        if ($form->isValid() && $variant) {
-            $this->isInStock($variant);
+        if ($form->isValid() && null !== $variant) {
+            $this->isStockAvailable($variant);
 
             return $item;
         }
@@ -114,7 +114,7 @@ class ItemResolver implements ItemResolverInterface
         throw new ItemResolvingException('Submitted form is invalid');
     }
 
-    private function isInStock(VariantInterface $variant)
+    private function isStockAvailable(VariantInterface $variant)
     {
         if (!$this->availabilityChecker->isStockAvailable($variant)) {
             throw new ItemResolvingException('Selected item is out of stock');

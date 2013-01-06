@@ -1,0 +1,57 @@
+{% extends 'SyliusSandboxBundle:Backend:layout.html.twig' %}
+
+{% from 'MopaBootstrapBundle::macros.html.twig' import label, badge %}
+
+{% block header %}
+    <h1>Shipment details</h1>
+{% endblock %}
+
+{% block content %}
+
+<div class="well">
+    <a href="{{ path('sylius_sandbox_backend_order_show', {'id': shipment.order.id}) }}" class="btn btn-info">
+        <i class="icon-book"></i> order details
+    </a>
+</div>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th colspan="7">Shipment items</th>
+        </tr>
+        <tr>
+            <th>#</th>
+            <th>sku</th>
+            <th>name</th>
+            <th>state</th>
+            <th>inventory state</th>
+            <th>created at</th>
+            <th>modified</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in shipment.items %}
+        <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ item.stockable.sku }}</td>
+            <td>{{ item.inventoryName }}</td>
+            <td>{{ label(item.shippingState) }}</td>
+            <td>{{ label(item.inventoryState, item.sold ? 'success' : 'important') }}</td>
+            <td>{{ item.createdAt|date }}</td>
+            <td>{{ item.updatedAt|date }}</td>
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="7">
+                <hr />
+                <div class="alert alert-info">
+                    <h4 class="alert-heading">Information</h4>
+                    This shipment has no items
+                </div>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

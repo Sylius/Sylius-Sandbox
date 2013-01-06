@@ -13,6 +13,8 @@ namespace Sylius\Bundle\SandboxBundle\Entity;
 
 use Sylius\Bundle\InventoryBundle\Entity\InventoryUnit as BaseInventoryUnit;
 use Sylius\Bundle\SalesBundle\Model\OrderInterface;
+use Sylius\Bundle\ShippingBundle\Model\ShipmentInterface;
+use Sylius\Bundle\ShippingBundle\Model\ShipmentItemInterface;
 
 /**
  * Custom inventory unit class.
@@ -20,7 +22,7 @@ use Sylius\Bundle\SalesBundle\Model\OrderInterface;
  *
  * @author Paweł Jędrzejewski <pjedrzejewski@diweb.pl>
  */
-class InventoryUnit extends BaseInventoryUnit
+class InventoryUnit extends BaseInventoryUnit implements ShipmentItemInterface
 {
     /**
      * Order.
@@ -28,6 +30,27 @@ class InventoryUnit extends BaseInventoryUnit
      * @var OrderInterface
      */
     private $order;
+
+    /**
+     * Shipment.
+     *
+     * @var ShipmentInterface
+     */
+    protected $shipment;
+
+    /**
+     * Shipping state.
+     *
+     * @var string
+     */
+    protected $shippingState;
+
+    public function __construct()
+    {
+        parent::__construct();
+
+        $this->shippingState = ShipmentItemInterface::STATE_READY;
+    }
 
     /**
      * Get order.
@@ -44,8 +67,28 @@ class InventoryUnit extends BaseInventoryUnit
      *
      * @param OrderInterface $order
      */
-    public function setOrder(OrderInterface $order)
+    public function setOrder(OrderInterface $order = null)
     {
         $this->order = $order;
+    }
+
+    public function getShipment()
+    {
+        return $this->shipment;
+    }
+
+    public function setShipment(ShipmentInterface $shipment = null)
+    {
+        $this->shipment = $shipment;
+    }
+
+    public function getShippingState()
+    {
+        return $this->shippingState;
+    }
+
+    public function setShippingState($state)
+    {
+        $this->shippingState = $state;
     }
 }

@@ -249,6 +249,10 @@ class Builder extends ContainerAware
             'route'           => 'sylius_sandbox_backend_product_list',
             'labelAttributes' => array('icon' => 'icon-list-alt')
         ));
+        $child->addChild('Inventory levels', array(
+            'route'           => 'sylius_sandbox_backend_stockable_list',
+            'labelAttributes' => array('icon' => 'icon-tasks')
+        ));
 
         $this->addDivider($child);
 
@@ -283,6 +287,10 @@ class Builder extends ContainerAware
         $child->addChild('Create order', array(
             'route'           => 'sylius_sandbox_backend_order_create',
             'labelAttributes' => array('icon' => 'icon-plus-sign')
+        ));
+        $child->addChild('Shipments', array(
+            'route'           => 'sylius_sandbox_backend_shipment_list',
+            'labelAttributes' => array('icon' => 'icon-plane')
         ));
     }
 

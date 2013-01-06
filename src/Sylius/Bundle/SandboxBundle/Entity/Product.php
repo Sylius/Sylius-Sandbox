@@ -14,9 +14,9 @@ namespace Sylius\Bundle\SandboxBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Sylius\Bundle\AssortmentBundle\Entity\CustomizableProduct as BaseProduct;
-use Sylius\Bundle\InventoryBundle\Model\StockableInterface;
 use Sylius\Bundle\TaxationBundle\Model\TaxCategoryInterface;
 use Sylius\Bundle\TaxationBundle\Model\TaxableInterface;
+use Sylius\Bundle\InventoryBundle\Model\StockableInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 class Product extends BaseProduct implements StockableInterface, TaxableInterface
@@ -124,11 +124,24 @@ class Product extends BaseProduct implements StockableInterface, TaxableInterfac
      *
      * {@inheritdoc}
      */
-    public function getStockableId()
+    public function getInventoryName()
     {
         return $this
             ->getMasterVariant()
-            ->getStockableId()
+            ->getInventoryName()
+        ;
+    }
+
+    /**
+     * Implementation of stockable interface.
+     *
+     * {@inheritdoc}
+     */
+    public function isAvailableOnDemand()
+    {
+        return $this
+            ->getMasterVariant()
+            ->getIsAvailableOnDemand()
         ;
     }
 

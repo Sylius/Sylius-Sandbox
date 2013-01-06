@@ -1,0 +1,71 @@
+{% extends 'SyliusSandboxBundle:Backend:layout.html.twig' %}
+
+{% from 'MopaBootstrapBundle::macros.html.twig' import label, badge %}
+
+{% block header %}
+    <h1>Shipments<small> List of all shipments</small></h1>
+{% endblock %}
+
+{% block content %}
+<div class="well">
+<a href="{{ path('sylius_sandbox_backend_order_list') }}" class="btn btn-success">
+    <i class="icon-table icon-list-alt"></i> current orders
+</a>
+</div>
+
+{% if paginator.haveToPaginate() %}
+{{ pagerfanta(paginator, 'twitter_bootstrap_translated') }}
+{% endif %}
+
+{% if shipments|length > 0 %}
+<table class="table">
+    <thead>
+        <tr>
+            <th>{{ sylius_resource_sort('id', '#id') }}</th>
+            <th>{{ sylius_resource_sort('order') }}</th>
+            <th>{{ sylius_resource_sort('method') }}</th>
+            <th>{{ sylius_resource_sort('state') }}</th>
+            <th>{{ sylius_resource_sort('updatedAt', 'last updated') }}</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for shipment in shipments %}
+        <tr>
+            <td>{{ shipment.id }}</td>
+            <td>
+                <a href="{{ path('sylius_sandbox_backend_order_show', {'id': shipment.order.id}) }}" class="btn btn-info btn-small">
+                   #{{ shipment.order.id }}
+                </a>
+            </td>
+            <td>{{ shipment.method.name }}</td>
+            <td>{{ label(shipment.state, 'success') }}</td>
+            <td>{{ shipment.updatedAt|date }}</td>
+            <td>
+                <div class="btn-group pull-right">
+                    <a href="{{ path('sylius_sandbox_backend_shipment_show', {'id': shipment.id}) }}" class="btn">
+                       <i class="icon-book"></i> details
+                    </a>
+                    <a href="{{ path('sylius_sandbox_backend_shipment_delete', {'id': shipment.id}) }}" class="btn btn-danger confirmer"
+                        data-confirmer-question="Do you really want to delete shipment <strong>#{{ shipment.id }}</strong>?"
+                    >
+                        <i class="icon-trash icon-white"></i>
+                    </a>
+                </div>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<div class="alert alert-info">
+    <h4 class="alert-heading">Information</h4>
+    There are no shipments to display.
+</div>
+{% endif %}
+
+{% if paginator.haveToPaginate() %}
+{{ pagerfanta(paginator, 'twitter_bootstrap_translated') }}
+{% endif %}
+
+{% endblock %}

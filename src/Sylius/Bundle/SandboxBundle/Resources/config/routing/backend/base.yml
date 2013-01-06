@@ -29,6 +29,14 @@ sylius_sandbox_backend_order:
     prefix: /orders
     resource: @SyliusSandboxBundle/Resources/config/routing/backend/order.yml
 
+sylius_sandbox_backend_shipment:
+    prefix: /shipments
+    resource: @SyliusSandboxBundle/Resources/config/routing/backend/shipment.yml
+
+sylius_sandbox_backend_stockable:
+    prefix: /inventory
+    resource: @SyliusSandboxBundle/Resources/config/routing/backend/stockable.yml
+
 sylius_sandbox_backend_product:
     prefix: /products
     resource: @SyliusSandboxBundle/Resources/config/routing/backend/product.yml

@@ -1,0 +1,65 @@
+{% extends 'SyliusSandboxBundle:Backend:layout.html.twig' %}
+
+{% from 'MopaBootstrapBundle::macros.html.twig' import label, badge %}
+
+{% block header %}
+    <h1>Inventory <small>Here you can see current stock levels</small></h1>
+{% endblock %}
+
+{% block content %}
+<div class="well">
+<a href="{{ path('sylius_sandbox_backend_product_list') }}" class="btn btn-success">
+    <i class="icon-table icon-white"></i> manage products
+</a>
+<a href="{# path('sylius_sandbox_backend_settings_inventory_configure') #}" class="btn btn-info disabled">
+    <i class="icon-cogs icon-white"></i> inventory settings
+</a>
+</div>
+
+{% if paginator.haveToPaginate() %}
+{{ pagerfanta(paginator, 'twitter_bootstrap_translated') }}
+{% endif %}
+
+{% if stockables|length > 0 %}
+    <table class="table">
+    <thead>
+        <tr>
+            <th>{{ sylius_resource_sort('id', '#id') }}</th>
+            <th>{{ sylius_resource_sort('sku') }}</th>
+            <th>name</th>
+            <th>{{ sylius_resource_sort('onHand', 'stock level') }}</th>
+            <th>{{ sylius_resource_sort('updatedAt', 'last updated') }}</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for stockable in stockables %}
+        <tr>
+            <td>{{ stockable.id }}</td>
+            <td>{{ stockable.sku }}</td>
+            <td>{{ stockable.inventoryName }}</td>
+            <td>{{ badge(stockable.onHand,  stockable.isInStock ? 'success' : 'important') }}</td>
+            <td>{{ stockable.updatedAt|date }}</td>
+            <td>
+                <div class="btn-group pull-right">
+                    <a href="{# path('sylius_sandbox_backend_product_update', {'id': stockable.id}) #}" class="btn disabled">
+                       <i class="icon-pencil"></i> edit
+                    </a>
+                </div>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<div class="alert alert-info">
+    <h4 class="alert-heading">Information</h4>
+    There are no inventory items to display.
+</div>
+{% endif %}
+
+{% if paginator.haveToPaginate() %}
+{{ pagerfanta(paginator, 'twitter_bootstrap_translated') }}
+{% endif %}
+
+{% endblock %}

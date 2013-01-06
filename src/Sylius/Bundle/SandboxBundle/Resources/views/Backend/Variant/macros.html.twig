@@ -1,5 +1,7 @@
 {% macro list(variants, product) %}
+
 {% from 'MopaBootstrapBundle::macros.html.twig' import label, badge %}
+
 {% if variants|length > 0 %}
     <table class="table">
     <thead>

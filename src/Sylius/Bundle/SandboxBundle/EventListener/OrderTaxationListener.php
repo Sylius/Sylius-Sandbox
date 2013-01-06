@@ -83,7 +83,7 @@ class OrderTaxationListener
      *
      * @param FilterProductEvent $event
      */
-    public function determineTaxes(GenericEvent $event)
+    public function processTaxes(GenericEvent $event)
     {
         $order = $event->getSubject();
         $order->removeTaxAdjustments(); // Remove all tax adjustments, we recalculate everything from scratch.

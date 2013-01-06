@@ -159,14 +159,14 @@ sylius_addressing:
 sylius_inventory:
     driver: doctrine/orm
     backorders: true
+    events:
+        - sylius_assortment.product.pre_update
+        - sylius_assortment.variant.pre_update
     classes:
         unit:
             model: Sylius\Bundle\SandboxBundle\Entity\InventoryUnit
         stockable:
-            model: Sylius\Bundle\SandboxBundle\Entity\Variant
-    events:
-        - sylius_assortment.product.pre_update
-        - sylius_assortment.variant.pre_update
+            model: %sylius_assortment.model.variant.class%
 
 sylius_taxonomies:
     driver: doctrine/orm
@@ -187,6 +187,10 @@ sylius_taxation:
 sylius_shipping:
     driver: doctrine/orm
     classes:
+        shipment:
+            model: Sylius\Bundle\SandboxBundle\Entity\Shipment
+        shipment_item:
+            model: Sylius\Bundle\SandboxBundle\Entity\InventoryUnit
         method:
             model: Sylius\Bundle\SandboxBundle\Entity\ShippingMethod
             form: Sylius\Bundle\SandboxBundle\Form\Type\ShippingMethodType

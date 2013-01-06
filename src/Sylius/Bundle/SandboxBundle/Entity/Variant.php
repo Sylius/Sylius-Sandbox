@@ -82,13 +82,18 @@ class Variant extends BaseVariant implements StockableInterface
 
     /**
      * Implementation of stockable interface.
-     * Uses Variant SKU as stocking id.
+     * Uses Variant SKU and product name as displayed name.
      *
      * {@inheritdoc}
      */
-    public function getStockableId()
+    public function getInventoryName()
     {
-        return $this->sku;
+        return $this->product->getName();
+    }
+
+    public function isAvailableOnDemand()
+    {
+        return true;
     }
 
     /**
@@ -113,6 +118,10 @@ class Variant extends BaseVariant implements StockableInterface
     public function setOnHand($onHand)
     {
         $this->onHand = $onHand;
+
+        if (0 > $this->onHand) {
+            $this->onHand = 0;
+        }
     }
 
     public function getInventoryName()

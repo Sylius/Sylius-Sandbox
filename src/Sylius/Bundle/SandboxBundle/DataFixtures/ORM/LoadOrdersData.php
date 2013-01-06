@@ -36,6 +36,10 @@ class LoadOrdersData extends DataFixture
             $this->buildOrder($order);
 
             $eventDispatcher->dispatch('sylius_sales.order.pre_create', new GenericEvent($order));
+
+            $shipments = $order->getShipments();
+            $shipments[0]->setMethod($this->getReference('ShippingMethod.UPS Ground'));
+
             $orderManager->persist($order);
             $eventDispatcher->dispatch('sylius_sales.order.post_create', new GenericEvent($order));
             $this->setReference('Order-'.$i, $order);

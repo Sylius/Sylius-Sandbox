@@ -12,6 +12,10 @@
         <many-to-one field="order" target-entity="Sylius\Bundle\SandboxBundle\Entity\Order" inversed-by="inventoryUnits">
             <join-column name="order_id" referenced-column-name="id" />
         </many-to-one>
+        <field name="shippingState" column="shipping_state" type="string" nullable="false" />
+        <many-to-one field="shipment" target-entity="Sylius\Bundle\ShippingBundle\Model\ShipmentInterface" inversed-by="items">
+            <join-column name="shipment_id" referenced-column-name="id" nullable="true" />
+        </many-to-one>
     </entity>
 
 </doctrine-mapping>
