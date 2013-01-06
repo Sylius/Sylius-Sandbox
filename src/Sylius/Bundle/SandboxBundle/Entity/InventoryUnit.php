@@ -15,6 +15,7 @@ use Sylius\Bundle\InventoryBundle\Entity\InventoryUnit as BaseInventoryUnit;
 use Sylius\Bundle\SalesBundle\Model\OrderInterface;
 use Sylius\Bundle\ShippingBundle\Model\ShipmentInterface;
 use Sylius\Bundle\ShippingBundle\Model\ShipmentItemInterface;
+use Sylius\Bundle\ShippingBundle\Model\ShippableInterface;
 
 /**
  * Custom inventory unit class.
@@ -80,6 +81,16 @@ class InventoryUnit extends BaseInventoryUnit implements ShipmentItemInterface
     public function setShipment(ShipmentInterface $shipment = null)
     {
         $this->shipment = $shipment;
+    }
+
+    public function getShippable()
+    {
+        return $this->stockable;
+    }
+
+    public function setShippable(ShippableInterface $shippable)
+    {
+        $this->shippable = $shippable;
     }
 
     public function getShippingState()

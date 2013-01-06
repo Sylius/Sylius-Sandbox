@@ -12,6 +12,7 @@
 namespace Sylius\Bundle\SandboxBundle\DataFixtures\ORM;
 
 use Doctrine\Common\Persistence\ObjectManager;
+use Sylius\Bundle\ShippingBundle\Calculator\DefaultCalculators;
 use Sylius\Bundle\ShippingBundle\Model\ShippingCategoryInterface;
 
 /**
@@ -63,7 +64,7 @@ class LoadShippingData extends DataFixture
      * @param ShippingCategoryInterface $category
      * @param string                    $calculator
      */
-    private function createShippingMethod($name, $zone, ShippingCategoryInterface $category = null, $calculator = 'default')
+    private function createShippingMethod($name, $zone, ShippingCategoryInterface $category = null, $calculator = DefaultCalculators::PER_ITEM_RATE)
     {
         $method = $this
             ->getShippingMethodRepository()
