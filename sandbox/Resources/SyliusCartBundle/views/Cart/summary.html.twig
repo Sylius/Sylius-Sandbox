@@ -68,10 +68,10 @@
 </table>
 {{ form_rest(form) }}
 <div class="well">
-    <input type="submit" class="btn btn-primary btn-large" value="save">
+    <button type="submit" class="btn btn-primary btn-large"><i class="icon-save icon-white"></i> save</button>
     <div class="pull-right">
-    <a href="{{ path('sylius_sandbox_checkout_start') }}" class="btn btn-success btn-large"><i class="icon-shopping-cart icon-white"></i> checkout</a>
-    <a href="{{ path('sylius_cart_clear') }}" class="btn btn-danger btn-large">clear cart</a>
+    <a href="{{ path('sylius_sandbox_checkout_start') }}" class="btn btn-success btn-large"><i class="icon-shopping-cart"></i> checkout</a>
+    <a href="{{ path('sylius_cart_clear') }}" class="btn btn-danger btn-large"><i class="icon-remove"></i> clear cart</a>
     </div>
 </div>
 </form>
