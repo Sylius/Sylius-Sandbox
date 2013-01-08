@@ -4,7 +4,7 @@
 sylius_sandbox_backend_tax_rate_list:
     pattern: /
     defaults:
-        _controller: sylius_taxation.controller.rate:getCollectionAction
+        _controller: sylius_taxation.controller.rate:indexAction
         _sylius.resource:
             template: SyliusSandboxBundle:Backend/TaxRate:list.html.twig
             sortable: true

@@ -4,7 +4,7 @@
 sylius_sandbox_backend_order_list:
     pattern: /list
     defaults:
-        _controller: sylius_sales.controller.order:getCollectionAction
+        _controller: sylius_sales.controller.order:indexAction
         _sylius.resource:
             template: SyliusSandboxBundle:Backend/Order:list.html.twig
             sortable: true
@@ -37,6 +37,6 @@ sylius_sandbox_backend_order_delete:
 sylius_sandbox_backend_order_show:
     pattern: /{id}
     defaults:
-        _controller: sylius_sales.controller.order:getAction
+        _controller: sylius_sales.controller.order:showAction
         _sylius.resource:
             template: SyliusSandboxBundle:Backend/Order:show.html.twig
