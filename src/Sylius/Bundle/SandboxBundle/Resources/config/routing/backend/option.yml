@@ -4,7 +4,7 @@
 sylius_sandbox_backend_option_list:
     pattern: /
     defaults:
-        _controller: sylius_assortment.controller.option:getCollectionAction
+        _controller: sylius_assortment.controller.option:indexAction
         _sylius.resource:
             template: SyliusSandboxBundle:Backend/Option:list.html.twig
             sortable: true

@@ -11,7 +11,7 @@ sylius_sandbox_product_list_by_taxon:
 sylius_sandbox_product_list:
     pattern: /
     defaults:
-        _controller: sylius_assortment.controller.product:getCollectionAction
+        _controller: sylius_assortment.controller.product:indexAction
         _sylius.resource:
             template: SyliusSandboxBundle:Frontend/Product:list.html.twig
             paginate: 9
@@ -19,7 +19,7 @@ sylius_sandbox_product_list:
 sylius_sandbox_product_show:
     pattern: /{slug}
     defaults:
-        _controller: sylius_assortment.controller.product:getAction
+        _controller: sylius_assortment.controller.product:showAction
         _sylius.resource:
             template: SyliusSandboxBundle:Frontend/Product:show.html.twig
             identifier: slug

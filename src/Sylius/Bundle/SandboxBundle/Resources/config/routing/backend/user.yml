@@ -4,7 +4,7 @@
 sylius_sandbox_backend_user_list:
     pattern: /list
     defaults:
-        _controller: sylius_user.controller.user:getCollectionAction
+        _controller: sylius_user.controller.user:indexAction
         _sylius.resource:
             template: SyliusSandboxBundle:Backend/User:list.html.twig
             filterable: true
@@ -22,6 +22,6 @@ sylius_sandbox_backend_user_delete:
 sylius_sandbox_backend_user_show:
     pattern: /{id}
     defaults:
-        _controller: sylius_user.controller.user:getAction
+        _controller: sylius_user.controller.user:showAction
         _sylius.resource:
             template: SyliusSandboxBundle:Backend/User:show.html.twig

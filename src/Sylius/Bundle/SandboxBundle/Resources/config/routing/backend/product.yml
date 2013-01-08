@@ -4,7 +4,7 @@
 sylius_sandbox_backend_product_list:
     pattern: /
     defaults:
-        _controller: sylius_assortment.controller.product:getCollectionAction
+        _controller: sylius_assortment.controller.product:indexAction
         _sylius.resource:
             template: SyliusSandboxBundle:Backend/Product:list.html.twig
             sortable: true
@@ -58,6 +58,6 @@ sylius_sandbox_backend_product_duplicate:
 sylius_sandbox_backend_product_show:
     pattern: /{id}
     defaults:
-        _controller: sylius_assortment.controller.product:getAction
+        _controller: sylius_assortment.controller.product:showAction
         _sylius.resource:
             template: SyliusSandboxBundle:Backend/Product:show.html.twig

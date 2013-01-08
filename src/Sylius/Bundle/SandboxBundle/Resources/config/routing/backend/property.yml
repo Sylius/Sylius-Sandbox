@@ -4,7 +4,7 @@
 sylius_sandbox_backend_property_list:
     pattern: /
     defaults:
-        _controller: sylius_assortment.controller.property:getCollectionAction
+        _controller: sylius_assortment.controller.property:indexAction
         _sylius.resource:
             template: SyliusSandboxBundle:Backend/Property:list.html.twig
             sortable: true

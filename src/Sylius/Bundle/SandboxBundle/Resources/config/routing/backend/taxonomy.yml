@@ -4,7 +4,7 @@
 sylius_sandbox_backend_taxonomy_list:
     pattern: /list
     defaults:
-        _controller: sylius_taxonomies.controller.taxonomy:getCollectionAction
+        _controller: sylius_taxonomies.controller.taxonomy:indexAction
         _sylius.resource:
             template: SyliusSandboxBundle:Backend/Taxonomy:list.html.twig
             sortable: true

@@ -4,7 +4,7 @@
 sylius_sandbox_backend_address_list:
     pattern: /list
     defaults:
-        _controller: sylius_addressing.controller.address:getCollectionAction
+        _controller: sylius_addressing.controller.address:indexAction
         _sylius.resource:
             template: SyliusSandboxBundle:Backend/Address:list.html.twig
             sortable: true
@@ -37,6 +37,6 @@ sylius_sandbox_backend_address_delete:
 sylius_sandbox_backend_address_show:
     pattern: /{id}
     defaults:
-        _controller: sylius_addressing.controller.address:getAction
+        _controller: sylius_addressing.controller.address:showAction
         _sylius.resource:
             template: SyliusSandboxBundle:Backend/Address:show.html.twig

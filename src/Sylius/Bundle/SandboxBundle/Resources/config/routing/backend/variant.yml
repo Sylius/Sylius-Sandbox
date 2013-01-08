@@ -34,7 +34,7 @@ sylius_sandbox_backend_variant_generate:
 sylius_sandbox_backend_variant_show:
     pattern: /{id}
     defaults:
-        _controller: sylius_assortment.controller.variant:getAction
+        _controller: sylius_assortment.controller.variant:showAction
         _sylius.resource:
             template: SyliusSandboxBundle:Backend/Variant:show.html.twig
         productId: 'any' # Hacky hack...
