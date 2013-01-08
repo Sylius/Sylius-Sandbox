@@ -76,7 +76,7 @@
                     "dev-master": "1.0-dev"
                 }
             },
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "dflydev\\markdown": "src"
@@ -390,7 +390,7 @@
             },
             "time": "2012-10-22 13:57:52",
             "type": "symfony-bundle",
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "Doctrine\\Bundle\\FixturesBundle": ""
@@ -444,7 +444,7 @@
             },
             "time": "2012-10-18 12:04:30",
             "type": "symfony-bundle",
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "Doctrine\\Bundle\\MigrationsBundle": ""
@@ -704,7 +704,7 @@
                     "dev-master": "0.8.x-dev"
                 }
             },
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "FOS\\Rest": ""
@@ -838,7 +838,7 @@
                     "dev-master": "2.0.x-dev"
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-0": {
                     "FOS\\UserBundle": ""
@@ -1106,7 +1106,7 @@
                     "dev-master": "1.1.0-dev"
                 }
             },
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "JMS\\AopBundle": ""
@@ -1154,7 +1154,7 @@
                     "dev-master": "1.1-dev"
                 }
             },
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "CG\\": "src/"
@@ -1272,7 +1272,7 @@
                     "dev-master": "1.2.x-dev"
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-0": {
                     "Metadata\\": "src/"
@@ -1322,7 +1322,7 @@
                     "dev-master": "1.1-dev"
                 }
             },
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "JMS\\": "src/"
@@ -1505,7 +1505,7 @@
                     "dev-master": "1.2.x-dev"
                 }
             },
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "Knp\\Bundle\\MarkdownBundle": ""
@@ -1956,7 +1956,7 @@
             },
             "time": "2012-08-22 21:56:31",
             "type": "library",
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "Pagerfanta\\": "src/"
@@ -2437,7 +2437,7 @@
             },
             "time": "2012-12-07 18:24:15",
             "type": "symfony-bundle",
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "Sylius\\Bundle\\BloggerBundle": ""
@@ -2558,7 +2558,7 @@
             },
             "time": "2012-06-22 20:57:20",
             "type": "symfony-bundle",
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "Sylius\\Bundle\\CategorizerBundle": ""
@@ -2645,26 +2645,27 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/SyliusInventoryBundle.git",
-                "reference": "b14d8d2679e9a7c8685bc4eb2450de857972e3f3"
+                "reference": "2fef74fc6a024b2d48a0a83181eb8ac10f6be915"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/Sylius/SyliusInventoryBundle/archive/b14d8d2679e9a7c8685bc4eb2450de857972e3f3.zip",
-                "reference": "b14d8d2679e9a7c8685bc4eb2450de857972e3f3",
+                "url": "https://github.com/Sylius/SyliusInventoryBundle/archive/2fef74fc6a024b2d48a0a83181eb8ac10f6be915.zip",
+                "reference": "2fef74fc6a024b2d48a0a83181eb8ac10f6be915",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.2",
-                "symfony/symfony": ">=2.1,<3.0",
-                "sylius/resource-bundle": "*"
+                "sylius/resource-bundle": "*",
+                "symfony/framework-bundle": ">=2.1,<3.0"
             },
             "require-dev": {
-                "phpspec/phpspec2": "dev-develop"
+                "phpspec/phpspec2": "dev-develop",
+                "twig/twig": "*"
             },
             "suggest": {
                 "friendsofsymfony/rest-bundle": "*"
             },
-            "time": "2013-01-02 02:10:58",
+            "time": "2013-01-09 14:24:55",
             "type": "symfony-bundle",
             "installation-source": "source",
             "autoload": {
@@ -2703,12 +2704,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/SyliusResourceBundle.git",
-                "reference": "5fa537ae0e6dceb8bf440482401441f602e916bd"
+                "reference": "2c76beb8ad26e6ae3aac83dc0938be0ff7fd861d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/Sylius/SyliusResourceBundle/archive/5fa537ae0e6dceb8bf440482401441f602e916bd.zip",
-                "reference": "5fa537ae0e6dceb8bf440482401441f602e916bd",
+                "url": "https://github.com/Sylius/SyliusResourceBundle/archive/2c76beb8ad26e6ae3aac83dc0938be0ff7fd861d.zip",
+                "reference": "2c76beb8ad26e6ae3aac83dc0938be0ff7fd861d",
                 "shasum": ""
             },
             "require": {
@@ -2727,7 +2728,7 @@
                 "doctrine/orm": "~2.3",
                 "doctrine/mongodb-odm": "*"
             },
-            "time": "2013-01-03 17:58:34",
+            "time": "2013-01-08 20:11:22",
             "type": "symfony-bundle",
             "installation-source": "source",
             "autoload": {
@@ -3440,7 +3441,7 @@
             },
             "time": "2012-07-24 12:48:41",
             "type": "symfony-bundle",
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "WhiteOctober\\PagerfantaBundle": ""
@@ -3668,7 +3669,7 @@
             },
             "time": "2012-11-18 17:19:25",
             "type": "mink-driver",
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "Behat\\Mink\\Driver": "src/"
@@ -3821,9 +3822,9 @@
                 "behat/mink-browserkit-driver": "dev-master",
                 "behat/mink": "1.4@stable"
             },
-            "time": "2012-10-16 02:38:57",
+            "time": "2012-10-16 09:38:57",
             "type": "behat-extension",
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "Behat\\Symfony2Extension": "src/"
@@ -4070,7 +4071,7 @@
             },
             "time": "2012-11-08 08:55:45",
             "type": "library",
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "Diff": "lib/"

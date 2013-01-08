@@ -24,3 +24,10 @@
 </tr>
 {% endspaceless %}
 {% endblock %}
+
+{% block checkbox_widget %}
+    {% spaceless %}
+        <input type="checkbox" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %}> {{ help_inline|trans({}, translation_domain)|raw }}
+        {{ block('form_message') }}
+    {% endspaceless %}
+{% endblock checkbox_widget %}

@@ -32,6 +32,9 @@ class ProductVariantsGridLineType extends BaseVariantType
             ->add('onHand', 'integer', array(
                 'label' => 'Stock "on hand"'
             ))
+            ->add('availableOnDemand', 'checkbox', array(
+                'label' => 'Available on demand'
+            ))
         ;
     }
 

@@ -11,6 +11,7 @@
             <th>option set</th>
             <th>price</th>
             <th>stock "on hand"</th>
+            <th>available on demand</th>
             <th></th>
         </tr>
     </thead>
@@ -30,6 +31,13 @@
             </td>
             <td>{{ variant.price }} &euro;</td>
             <td>{{ badge(variant.onHand, variant.inStock ? 'success' : 'important') }} in stock</td>
+            <td>
+                {% if variant.availableOnDemand %}
+                    {{ label('yes', 'success') }}
+                {% else %}
+                    {{ label('no', 'important') }}
+                {% endif %}
+            </td>
             <td>
                 <div class="btn-group pull-right">
                     <a href="{{ path('sylius_sandbox_backend_variant_update', {'productId': product.id, 'id': variant.id}) }}" class="btn">

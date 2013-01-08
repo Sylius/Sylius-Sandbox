@@ -42,6 +42,13 @@ class Variant extends BaseVariant implements StockableInterface
     protected $onHand;
 
     /**
+     * Is variant available on demand?
+     *
+     * @var Boolean
+     */
+    protected $availableOnDemand;
+
+    /**
      * Override constructor to set on hand stock.
      */
     public function __construct()
@@ -50,6 +57,7 @@ class Variant extends BaseVariant implements StockableInterface
 
         $this->price = 0.00;
         $this->onHand = 1;
+        $this->availableOnDemand = true;
     }
 
     /**
@@ -105,5 +113,20 @@ class Variant extends BaseVariant implements StockableInterface
     public function setOnHand($onHand)
     {
         $this->onHand = $onHand;
+    }
+
+    public function getInventoryName()
+    {
+        return $this->getPresentation();
+    }
+
+    public function isAvailableOnDemand()
+    {
+        return $this->availableOnDemand;
+    }
+
+    public function setAvailableOnDemand($availableOnDemand)
+    {
+        $this->availableOnDemand = (Boolean) $availableOnDemand;
     }
 }

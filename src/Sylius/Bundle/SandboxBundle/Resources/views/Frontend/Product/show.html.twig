@@ -73,7 +73,7 @@
                         <span class="label label-success">{{ variant.price }} &euro;</span>
                     </td>
                     <td>
-                    {% if sylius_inventory_in_stock(variant) %}
+                    {% if sylius_inventory_is_available(variant) %}
                         {{ form_widget(form.variant[loop.index0]) }}
                     {% else %}
                         <span class="label label-important">out of stock</span>
@@ -99,7 +99,7 @@
         </ol>
     </div>
     <div class="pull-right">
-    {% if not product.hasOptions and not sylius_inventory_in_stock(product.masterVariant) %}
+    {% if not product.hasOptions and not sylius_inventory_is_available(product.masterVariant) %}
         <br />
         <span class="label label-important center-text out-of-stock">out of stock</span>
     {% else %}

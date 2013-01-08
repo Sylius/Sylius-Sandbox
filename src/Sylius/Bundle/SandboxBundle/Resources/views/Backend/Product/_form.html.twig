@@ -27,6 +27,7 @@
 
             {{ form_row(availableOnForm.date, {'attr': {'class': 'input-large'}, 'label': 'Available on'}) }}
             {{ form_row(availableOnForm.time, {'attr': {'class': 'input-large'}, 'label': ' '}) }}
+            {{ form_row(form.availableOnDemand) }}
             {% if not product.hasOptions %}
             {{ form_row(form.masterVariant.price) }}
             {{ form_row(form.masterVariant.onHand) }}

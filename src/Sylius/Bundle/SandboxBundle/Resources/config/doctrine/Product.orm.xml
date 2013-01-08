@@ -12,6 +12,7 @@
         </id>
         <field name="variantPickingMode" column="variant_picking_mode" type="integer" />
         <field name="imagePath" column="image_path" nullable="true" />
+        <field name="availableOnDemand" column="available_on_demand" type="boolean"/>
         <many-to-one field="taxCategory" target-entity="Sylius\Bundle\TaxationBundle\Model\TaxCategoryInterface" on-delete="SET NULL">
             <join-column name="tax_category_id" referenced-column-name="id" />
         </many-to-one>
