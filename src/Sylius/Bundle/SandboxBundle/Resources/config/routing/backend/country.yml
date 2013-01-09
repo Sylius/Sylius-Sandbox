@@ -4,7 +4,7 @@
 sylius_sandbox_backend_country_list:
     pattern: /
     defaults:
-        _controller: sylius_addressing.controller.country:getCollectionAction
+        _controller: sylius_addressing.controller.country:indexAction
         _sylius.resource:
             template: SyliusSandboxBundle:Backend/Country:list.html.twig
             paginate: 50

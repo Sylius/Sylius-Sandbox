@@ -37,9 +37,6 @@ class ProductType extends BaseCustomizableProductType
             ->add('image', 'file', array(
                 'required' => false
             ))
-            ->add('availableOnDemand', 'checkbox', array(
-                'label' => 'Available on demand'
-            ))
             ->add('taxCategory', 'sylius_taxation_category_choice', array(
                 'required' => false,
                 'label'    => 'Taxation category'

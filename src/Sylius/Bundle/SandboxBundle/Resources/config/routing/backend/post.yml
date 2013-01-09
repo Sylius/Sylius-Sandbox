@@ -4,7 +4,7 @@
 sylius_sandbox_backend_post_list:
     pattern: /
     defaults:
-        _controller: sylius_blogger.controller.post:getCollectionAction
+        _controller: sylius_blogger.controller.post:indexAction
         _sylius.resource:
             template: SyliusSandboxBundle:Backend/Post:list.html.twig
 
@@ -34,6 +34,6 @@ sylius_sandbox_backend_post_delete:
 sylius_sandbox_backend_post_show:
     pattern: /{id}
     defaults:
-        _controller: sylius_blogger.controller.post:getAction
+        _controller: sylius_blogger.controller.post:showAction
         _sylius.resource:
             template: SyliusSandboxBundle:Backend/Post:show.html.twig

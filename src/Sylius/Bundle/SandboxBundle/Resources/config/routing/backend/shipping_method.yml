@@ -4,7 +4,7 @@
 sylius_sandbox_backend_shipping_method_list:
     pattern: /
     defaults:
-        _controller: sylius_shipping.controller.method:getCollectionAction
+        _controller: sylius_shipping.controller.method:indexAction
         _sylius.resource:
             template: SyliusSandboxBundle:Backend/ShippingMethod:list.html.twig
             sortable: true

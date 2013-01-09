@@ -4,7 +4,7 @@
 sylius_sandbox_post_list:
     pattern: /
     defaults:
-        _controller: sylius_blogger.controller.post:getCollectionAction
+        _controller: sylius_blogger.controller.post:indexAction
         _sylius.resource:
             template: SyliusSandboxBundle:Frontend/Post:list.html.twig
             paginate: 10
@@ -16,7 +16,7 @@ sylius_sandbox_post_list:
 sylius_sandbox_post_show:
     pattern: /{slug}
     defaults:
-        _controller: sylius_blogger.controller.post:getAction
+        _controller: sylius_blogger.controller.post:showAction
         _sylius.resource:
             template: SyliusSandboxBundle:Frontend/Post:show.html.twig
             identifier: slug

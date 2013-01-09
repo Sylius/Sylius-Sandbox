@@ -8,8 +8,6 @@
 
 {% block content %}
 
-{{ sylius_resource_fetch_request(app.request) }}
-
 {% if paginator.haveToPaginate() %}
 {{ pagerfanta(paginator, 'twitter_bootstrap_translated') }}
 {% endif %}

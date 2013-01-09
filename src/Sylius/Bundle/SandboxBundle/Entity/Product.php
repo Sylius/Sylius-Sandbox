@@ -52,13 +52,6 @@ class Product extends BaseProduct implements StockableInterface, TaxableInterfac
     protected $image;
 
     /**
-     * Is product available on demand?
-     *
-     * @var Boolean
-     */
-    protected $availableOnDemand;
-
-    /**
      * Set default variant picking mode.
      */
     public function __construct()
@@ -66,7 +59,6 @@ class Product extends BaseProduct implements StockableInterface, TaxableInterfac
         parent::__construct();
 
         $this->variantPickingMode = self::VARIANT_PICKING_CHOICE;
-        $this->availableOnDemand = true;
         $this->taxons = new ArrayCollection();
 
         $this->setMasterVariant(new Variant());
@@ -260,11 +252,9 @@ class Product extends BaseProduct implements StockableInterface, TaxableInterfac
 
     public function isAvailableOnDemand()
     {
-        return $this->availableOnDemand;
-    }
-
-    public function setAvailableOnDemand($availableOnDemand)
-    {
-        $this->availableOnDemand = (Boolean) $availableOnDemand;
+        $this
+            ->getMasterVariant()
+            ->isAvailableOnDemand()
+        ;
     }
 }
