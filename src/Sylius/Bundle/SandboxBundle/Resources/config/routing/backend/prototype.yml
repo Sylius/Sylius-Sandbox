@@ -4,7 +4,7 @@
 sylius_sandbox_backend_prototype_list:
     pattern: /
     defaults:
-        _controller: sylius_assortment.controller.prototype:getCollectionAction
+        _controller: sylius_assortment.controller.prototype:indexAction
         _sylius.resource:
             template: SyliusSandboxBundle:Backend/Prototype:list.html.twig
 

@@ -244,4 +244,17 @@ class Product extends BaseProduct implements StockableInterface, TaxableInterfac
     {
         return 'assortment_product_'.$this->getId();
     }
+
+    public function getInventoryName()
+    {
+        return $this->getName();
+    }
+
+    public function isAvailableOnDemand()
+    {
+        $this
+            ->getMasterVariant()
+            ->isAvailableOnDemand()
+        ;
+    }
 }
