@@ -5,28 +5,24 @@ sylius_sandbox_backend_zone_list:
     pattern: /
     defaults:
         _controller: sylius_addressing.controller.zone:indexAction
-        _sylius.resource:
-            template: SyliusSandboxBundle:Backend/Zone:list.html.twig
+        _template: SyliusSandboxBundle:Backend/Zone:list.html.twig
 
 sylius_sandbox_backend_zone_create:
     pattern: /create
     defaults:
         _controller: sylius_addressing.controller.zone:createAction
-        _sylius.resource:
-            template: SyliusSandboxBundle:Backend/Zone:create.html.twig
-            redirect: sylius_sandbox_backend_zone_list
+        _template: SyliusSandboxBundle:Backend/Zone:create.html.twig
+        _redirect: sylius_sandbox_backend_zone_list
 
 sylius_sandbox_backend_zone_update:
     pattern: /{id}/update
     defaults:
         _controller: sylius_addressing.controller.zone:updateAction
-        _sylius.resource:
-            template: SyliusSandboxBundle:Backend/Zone:update.html.twig
-            redirect: sylius_sandbox_backend_zone_list
+        _template: SyliusSandboxBundle:Backend/Zone:update.html.twig
+        _redirect: sylius_sandbox_backend_zone_list
 
 sylius_sandbox_backend_zone_delete:
     pattern: /{id}/delete
     defaults:
         _controller: sylius_addressing.controller.zone:deleteAction
-        _sylius.resource:
-            redirect: sylius_sandbox_backend_zone_list
+        _redirect: sylius_sandbox_backend_zone_list

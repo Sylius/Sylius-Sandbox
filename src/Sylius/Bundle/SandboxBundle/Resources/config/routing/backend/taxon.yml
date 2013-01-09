@@ -5,21 +5,18 @@ sylius_sandbox_backend_taxon_create:
     pattern: /create
     defaults:
         _controller: sylius_taxonomies.controller.taxon:createAction
-        _sylius.resource:
-            template: SyliusSandboxBundle:Backend/Taxon:create.html.twig
-            redirect: sylius_sandbox_backend_taxonomy_list
+        _template: SyliusSandboxBundle:Backend/Taxon:create.html.twig
+        _redirect: sylius_sandbox_backend_taxonomy_list
 
 sylius_sandbox_backend_taxon_update:
     pattern: /{id}/update
     defaults:
         _controller: sylius_taxonomies.controller.taxon:updateAction
-        _sylius.resource:
-            template: SyliusSandboxBundle:Backend/Taxon:update.html.twig
-            redirect: sylius_sandbox_backend_taxonomy_list
+        _template: SyliusSandboxBundle:Backend/Taxon:update.html.twig
+        _redirect: sylius_sandbox_backend_taxonomy_list
 
 sylius_sandbox_backend_taxon_delete:
     pattern: /{id}/delete
     defaults:
         _controller: sylius_taxonomies.controller.taxon:deleteAction
-        _sylius.resource:
-            redirect: sylius_sandbox_backend_taxonomy_list
+        _redirect: sylius_sandbox_backend_taxonomy_list

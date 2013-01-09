@@ -5,36 +5,31 @@ sylius_sandbox_backend_variant_create:
     pattern: /create
     defaults:
         _controller: sylius_assortment.controller.variant:createAction
-        _sylius.resource:
-            template: SyliusSandboxBundle:Backend/Variant:create.html.twig
-            redirect: sylius_sandbox_backend_variant_show
+        _template: SyliusSandboxBundle:Backend/Variant:create.html.twig
+        _redirect: sylius_sandbox_backend_variant_show
 
 sylius_sandbox_backend_variant_update:
     pattern: /{id}/update
     defaults:
         _controller: sylius_assortment.controller.variant:updateAction
-        _sylius.resource:
-            template: SyliusSandboxBundle:Backend/Variant:update.html.twig
-            redirect: sylius_sandbox_backend_variant_show
+        _template: SyliusSandboxBundle:Backend/Variant:update.html.twig
+        _redirect: sylius_sandbox_backend_variant_show
 
 sylius_sandbox_backend_variant_delete:
     pattern: /{id}/delete
     defaults:
         _controller: sylius_assortment.controller.variant:deleteAction
-        _sylius.resource:
-            redirect: sylius_sandbox_backend_product_list
+        _redirect: sylius_sandbox_backend_product_list
 
 sylius_sandbox_backend_variant_generate:
     pattern: /generate
     defaults:
         _controller: sylius_assortment.controller.variant:generateAction
-        _sylius.resource:
-            redirect: sylius_sandbox_backend_product_show
+        _redirect: sylius_sandbox_backend_product_show
 
 sylius_sandbox_backend_variant_show:
     pattern: /{id}
     defaults:
         _controller: sylius_assortment.controller.variant:showAction
-        _sylius.resource:
-            template: SyliusSandboxBundle:Backend/Variant:show.html.twig
+        _template: SyliusSandboxBundle:Backend/Variant:show.html.twig
         productId: 'any' # Hacky hack...
