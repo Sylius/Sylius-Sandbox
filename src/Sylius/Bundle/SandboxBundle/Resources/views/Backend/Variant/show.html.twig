@@ -1,5 +1,7 @@
 {% extends 'SyliusSandboxBundle:Backend:layout.html.twig' %}
 
+{% from 'MopaBootstrapBundle::macros.html.twig' import label, badge %}
+
 {% set product = variant.product %}
 
 {% block header %}
@@ -35,6 +37,7 @@
             <th>created at</th>
             <th>updated at</th>
             <th>stock "on hand"</th>
+            <th>available on demand</th>
             <th>option set</th>
             <th>price</th>
         </tr>
@@ -46,7 +49,14 @@
             <td>{{ variant.createdAt|date }}</td>
             <td>{{ variant.updatedAt|date }}</td>
             <td>
-                <span class="badge badge-{{ variant.inStock ? 'success' : 'important' }}">{{ variant.onHand }}</span> available units.
+                {{ badge(variant.onHand, variant.inStock ? 'success' : 'important') }} available units.
+            </td>
+            <td>
+                {% if variant.availableOnDemand %}
+                    {{ label('yes', 'success') }}
+                {% else %}
+                    {{ label('no', 'important') }}
+                {% endif %}
             </td>
             <td>
                 <ul>

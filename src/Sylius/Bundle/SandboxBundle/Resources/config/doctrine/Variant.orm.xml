@@ -12,6 +12,7 @@
         </id>
         <field name="price" column="price" type="decimal" precision="10" scale="2" />
         <field name="onHand" column="on_hand" type="integer" />
+        <field name="availableOnDemand" column="available_on_demand" type="boolean"/>
     </entity>
 
 </doctrine-mapping>

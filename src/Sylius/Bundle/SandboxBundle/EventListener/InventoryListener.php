@@ -11,8 +11,7 @@
 
 namespace Sylius\Bundle\SandboxBundle\EventListener;
 
-use Sylius\Bundle\AssortmentBundle\EventDispatcher\Event\FilterProductEvent;
-use Sylius\Bundle\AssortmentBundle\EventDispatcher\Event\FilterVariantEvent;
+use Symfony\Component\EventDispatcher\GenericEvent;
 use Sylius\Bundle\InventoryBundle\Operator\InventoryOperatorInterface;
 
 /**
@@ -41,22 +40,12 @@ class InventoryListener
     }
 
     /**
-     * Refresh product inventory.
+     * Refresh product/variant inventory.
      *
-     * @param FilterProductEvent $event
+     * @param GenericEvent $event
      */
-    public function refreshProductInventory(FilterProductEvent $event)
+    public function refreshInventory(GenericEvent $event)
     {
-        $this->inventoryOperator->refresh($event->getProduct());
-    }
-
-    /**
-     * Refresh variant inventory
-     *
-     * @param FilterVariantEvent $event
-     */
-    public function refreshVariantInventory(FilterVariantEvent $event)
-    {
-        $this->inventoryOperator->refresh($event->getVariant());
+        $this->inventoryOperator->fillBackorders($event->getSubject());
     }
 }

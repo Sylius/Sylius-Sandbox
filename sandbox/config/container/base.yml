@@ -160,8 +160,10 @@ sylius_inventory:
     driver: doctrine/orm
     backorders: true
     classes:
-        model:
-            iu: Sylius\Bundle\SandboxBundle\Entity\InventoryUnit
+        unit:
+            model: Sylius\Bundle\SandboxBundle\Entity\InventoryUnit
+        stockable:
+            model: Sylius\Bundle\SandboxBundle\Entity\Variant
 
 sylius_taxonomies:
     driver: doctrine/orm

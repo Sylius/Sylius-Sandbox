@@ -27,6 +27,8 @@
         <parameter key="sylius_sandbox.listener.order_taxation.class">Sylius\Bundle\SandboxBundle\EventListener\OrderTaxationListener</parameter>
         <parameter key="sylius_sandbox.listener.order_inventory.class">Sylius\Bundle\SandboxBundle\EventListener\OrderInventoryListener</parameter>
 
+        <parameter key="sylius_sandbox.listener.inventory.class">Sylius\Bundle\SandboxBundle\EventListener\InventoryListener</parameter>
+
         <parameter key="sylius_sandbox.tax_rate_resolver.class">Sylius\Bundle\SandboxBundle\Taxation\TaxRateResolver</parameter>
     </parameters>
 
@@ -50,7 +52,7 @@
         <service id="sylius_sandbox_cart.resolver" class="%sylius_sandbox_cart.resolver.class%">
             <argument type="service" id="sylius_assortment.repository.product" />
             <argument type="service" id="form.factory" />
-            <argument type="service" id="sylius_inventory.resolver" />
+            <argument type="service" id="sylius_inventory.checker" />
         </service>
 
         <service id="sylius_sandbox.scenario.checkout" class="%sylius_sandbox.scenario.checkout.class%">
@@ -102,6 +104,12 @@
             <argument type="service" id="sylius_assortment.manager.variant" />
             <argument type="service" id="sylius_inventory.operator" />
             <tag name="kernel.event_listener" event="sylius_sales.order.pre_create" method="processInventory" />
+        </service>
+
+        <service id="sylius_sandbox.listener.inventory" class="%sylius_sandbox.listener.inventory.class%">
+            <argument type="service" id="sylius_inventory.operator.default" />
+            <tag name="kernel.event_listener" event="sylius_assortment.product.pre_update" method="refreshInventory" />
+            <tag name="kernel.event_listener" event="sylius_assortment.variant.pre_update" method="refreshInventory" />
         </service>
 
         <service id="sylius_sandbox.tax_rate_resolver" class="%sylius_sandbox.tax_rate_resolver.class%">

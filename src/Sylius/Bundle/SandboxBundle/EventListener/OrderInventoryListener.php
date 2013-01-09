@@ -14,7 +14,6 @@ namespace Sylius\Bundle\SandboxBundle\EventListener;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Persistence\ObjectManager;
 use Sylius\Bundle\InventoryBundle\Operator\InventoryOperatorInterface;
-use Sylius\Bundle\SalesBundle\Model\OrderInterface;
 use Symfony\Component\EventDispatcher\GenericEvent;
 
 /**

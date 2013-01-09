@@ -16,7 +16,7 @@ use Sylius\Bundle\AssortmentBundle\Model\Variant\VariantInterface;
 use Sylius\Bundle\CartBundle\Model\CartItemInterface;
 use Sylius\Bundle\CartBundle\Resolver\ItemResolverInterface;
 use Sylius\Bundle\CartBundle\Resolver\ItemResolvingException;
-use Sylius\Bundle\InventoryBundle\Resolver\StockResolverInterface;
+use Sylius\Bundle\InventoryBundle\Checker\AvailabilityCheckerInterface;
 use Symfony\Component\Form\FormFactory;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -45,26 +45,26 @@ class ItemResolver implements ItemResolverInterface
     /**
      * Stock resolver.
      *
-     * @var StockResolverInterface
+     * @var AvailabilityCheckerInterface
      */
-    private $stockResolver;
+    private $availabilityChecker;
 
     /**
      * Constructor.
      *
-     * @param ObjectRepository       $productRepository
-     * @param FormFactory            $formFactory
-     * @param StockResolverInterface $stockResolver
+     * @param ObjectRepository             $productRepository
+     * @param FormFactory                  $formFactory
+     * @param AvailabilityCheckerInterface $availabilityChecker
      */
     public function __construct(
-        ObjectRepository       $productRepository,
-        FormFactory            $formFactory,
-        StockResolverInterface $stockResolver
+        ObjectRepository             $productRepository,
+        FormFactory                  $formFactory,
+        AvailabilityCheckerInterface $availabilityChecker
     )
     {
         $this->productRepository = $productRepository;
         $this->formFactory = $formFactory;
-        $this->stockResolver = $stockResolver;
+        $this->availabilityChecker = $availabilityChecker;
     }
 
     /**
@@ -116,7 +116,7 @@ class ItemResolver implements ItemResolverInterface
 
     private function isInStock(VariantInterface $variant)
     {
-        if (!$this->stockResolver->isInStock($variant)) {
+        if (!$this->availabilityChecker->isStockAvailable($variant)) {
             throw new ItemResolvingException('Selected item is out of stock');
         }
     }

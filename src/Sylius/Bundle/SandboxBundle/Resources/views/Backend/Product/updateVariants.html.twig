@@ -19,6 +19,7 @@
                 <th>option set</th>
                 <th>price</th>
                 <th>stock "on hand"</th>
+                <th>available on demand</th>
             </tr>
         </thead>
         <tbody>
@@ -41,6 +42,9 @@
                 </td>
                 <td>
                     {{ form_widget(form.variants[loop.index].onHand) }}
+                </td>
+                <td>
+                    {{ form_widget(form.variants[loop.index].availableOnDemand) }}
                 </td>
             </tr>
         {% endfor %}
