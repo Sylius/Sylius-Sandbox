@@ -1,0 +1,7 @@
+{% javascripts '@FOSCommentBundle/Resources/assets/js/comments.js' %}
+    <script type="text/javascript">
+        var fos_comment_thread_id = '{{ id }}';
+        var fos_comment_thread_api_base_url = '{{ path('fos_comment_get_threads') }}';
+    </script>
+    <script async="" type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}
