@@ -164,6 +164,9 @@ sylius_inventory:
             model: Sylius\Bundle\SandboxBundle\Entity\InventoryUnit
         stockable:
             model: Sylius\Bundle\SandboxBundle\Entity\Variant
+    events:
+        - sylius_assortment.product.pre_update
+        - sylius_assortment.variant.pre_update
 
 sylius_taxonomies:
     driver: doctrine/orm
