@@ -5,31 +5,27 @@ sylius_sandbox_backend_property_list:
     pattern: /
     defaults:
         _controller: sylius_assortment.controller.property:indexAction
-        _sylius.resource:
-            template: SyliusSandboxBundle:Backend/Property:list.html.twig
-            sortable: true
-            sorting:
-                name: desc
+        _template: SyliusSandboxBundle:Backend/Property:list.html.twig
+        _sortable: true
+        _sorting:
+            name: desc
 
 sylius_sandbox_backend_property_create:
     pattern: /create
     defaults:
         _controller: sylius_assortment.controller.property:createAction
-        _sylius.resource:
-            template: SyliusSandboxBundle:Backend/Property:create.html.twig
-            redirect: sylius_sandbox_backend_property_list
+        _template: SyliusSandboxBundle:Backend/Property:create.html.twig
+        _redirect: sylius_sandbox_backend_property_list
 
 sylius_sandbox_backend_property_update:
     pattern: /update
     defaults:
         _controller: sylius_assortment.controller.property:updateAction
-        _sylius.resource:
-            template: SyliusSandboxBundle:Backend/Property:update.html.twig
-            redirect: sylius_sandbox_backend_property_list
+        _template: SyliusSandboxBundle:Backend/Property:update.html.twig
+        _redirect: sylius_sandbox_backend_property_list
 
 sylius_sandbox_backend_property_delete:
     pattern: /{id}/delete
     defaults:
         _controller: sylius_assortment.controller.property:deleteAction
-        _sylius.resource:
-            redirect: sylius_sandbox_backend_property_list
+        _redirect: sylius_sandbox_backend_property_list

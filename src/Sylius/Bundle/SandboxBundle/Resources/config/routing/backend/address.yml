@@ -5,38 +5,33 @@ sylius_sandbox_backend_address_list:
     pattern: /list
     defaults:
         _controller: sylius_addressing.controller.address:indexAction
-        _sylius.resource:
-            template: SyliusSandboxBundle:Backend/Address:list.html.twig
-            sortable: true
-            sorting:
-                updatedAt: desc
+        _template: SyliusSandboxBundle:Backend/Address:list.html.twig
+        _sortable: true
+        _sorting:
+            updatedAt: desc
 
 sylius_sandbox_backend_address_create:
     pattern: /create
     defaults:
         _controller: sylius_addressing.controller.address:createAction
-        _sylius.resource:
-            template: SyliusSandboxBundle:Backend/Address:create.html.twig
-            redirect: sylius_sandbox_backend_address_show
+        _template: SyliusSandboxBundle:Backend/Address:create.html.twig
+        _redirect: sylius_sandbox_backend_address_show
 
 sylius_sandbox_backend_address_update:
     pattern: /{id}/update
     defaults:
         _controller: sylius_addressing.controller.address:updateAction
-        _sylius.resource:
-            template: SyliusSandboxBundle:Backend/Address:update.html.twig
-            redirect: sylius_sandbox_backend_address_show
+        _template: SyliusSandboxBundle:Backend/Address:update.html.twig
+        _redirect: sylius_sandbox_backend_address_show
 
 sylius_sandbox_backend_address_delete:
     pattern: /{id}/delete
     defaults:
         _controller: sylius_addressing.controller.address:deleteAction
-        _sylius.resource:
-            redirect: sylius_sandbox_backend_address_list
+        _redirect: sylius_sandbox_backend_address_list
 
 sylius_sandbox_backend_address_show:
     pattern: /{id}
     defaults:
         _controller: sylius_addressing.controller.address:showAction
-        _sylius.resource:
-            template: SyliusSandboxBundle:Backend/Address:show.html.twig
+        _template: SyliusSandboxBundle:Backend/Address:show.html.twig

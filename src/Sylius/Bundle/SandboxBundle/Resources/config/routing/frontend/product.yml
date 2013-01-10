@@ -5,21 +5,18 @@ sylius_sandbox_product_list_by_taxon:
     pattern: /t/{permalink}
     defaults:
         _controller: sylius_assortment.controller.product:listByTaxonAction
-        _sylius.resource:
-            template: SyliusSandboxBundle:Frontend/Product:listByTaxon.html.twig
+        _template: SyliusSandboxBundle:Frontend/Product:listByTaxon.html.twig
 
 sylius_sandbox_product_list:
     pattern: /
     defaults:
         _controller: sylius_assortment.controller.product:indexAction
-        _sylius.resource:
-            template: SyliusSandboxBundle:Frontend/Product:list.html.twig
-            paginate: 9
+        _template: SyliusSandboxBundle:Frontend/Product:list.html.twig
+        _paginate: 9
 
 sylius_sandbox_product_show:
     pattern: /{slug}
     defaults:
         _controller: sylius_assortment.controller.product:showAction
-        _sylius.resource:
-            template: SyliusSandboxBundle:Frontend/Product:show.html.twig
-            identifier: slug
+        _template: SyliusSandboxBundle:Frontend/Product:show.html.twig
+        _identifier: slug

@@ -5,38 +5,33 @@ sylius_sandbox_backend_order_list:
     pattern: /list
     defaults:
         _controller: sylius_sales.controller.order:indexAction
-        _sylius.resource:
-            template: SyliusSandboxBundle:Backend/Order:list.html.twig
-            sortable: true
-            sorting:
-                updatedAt: asc
+        _template: SyliusSandboxBundle:Backend/Order:list.html.twig
+        _sortable: true
+        _sorting:
+            updatedAt: asc
 
 sylius_sandbox_backend_order_create:
     pattern: /create
     defaults:
         _controller: sylius_sales.controller.order:createAction
-        _sylius.resource:
-            template: SyliusSandboxBundle:Backend/Order:create.html.twig
-            redirect: sylius_sandbox_backend_order_show
+        _template: SyliusSandboxBundle:Backend/Order:create.html.twig
+        _redirect: sylius_sandbox_backend_order_show
 
 sylius_sandbox_backend_order_update:
     pattern: /{id}/update
     defaults:
         _controller: sylius_sales.controller.order:updateAction
-        _sylius.resource:
-            template: SyliusSandboxBundle:Backend/Order:update.html.twig
-            redirect: sylius_sandbox_backend_order_show
+        _template: SyliusSandboxBundle:Backend/Order:update.html.twig
+        _redirect: sylius_sandbox_backend_order_show
 
 sylius_sandbox_backend_order_delete:
     pattern: /{id}/delete
     defaults:
         _controller: sylius_sales.controller.order:deleteAction
-        _sylius.resource:
-            redirect: sylius_sandbox_backend_order_list
+        _redirect: sylius_sandbox_backend_order_list
 
 sylius_sandbox_backend_order_show:
     pattern: /{id}
     defaults:
         _controller: sylius_sales.controller.order:showAction
-        _sylius.resource:
-            template: SyliusSandboxBundle:Backend/Order:show.html.twig
+        _template: SyliusSandboxBundle:Backend/Order:show.html.twig

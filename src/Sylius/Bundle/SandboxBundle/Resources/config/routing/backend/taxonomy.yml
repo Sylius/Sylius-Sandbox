@@ -5,29 +5,25 @@ sylius_sandbox_backend_taxonomy_list:
     pattern: /list
     defaults:
         _controller: sylius_taxonomies.controller.taxonomy:indexAction
-        _sylius.resource:
-            template: SyliusSandboxBundle:Backend/Taxonomy:list.html.twig
-            sortable: true
+        _template: SyliusSandboxBundle:Backend/Taxonomy:list.html.twig
+        _sortable: true
 
 sylius_sandbox_backend_taxonomy_create:
     pattern: /create
     defaults:
         _controller: sylius_taxonomies.controller.taxonomy:createAction
-        _sylius.resource:
-            template: SyliusSandboxBundle:Backend/Taxonomy:create.html.twig
-            redirect: sylius_sandbox_backend_taxonomy_list
+        _template: SyliusSandboxBundle:Backend/Taxonomy:create.html.twig
+        _redirect: sylius_sandbox_backend_taxonomy_list
 
 sylius_sandbox_backend_taxonomy_update:
     pattern: /{id}/update
     defaults:
         _controller: sylius_taxonomies.controller.taxonomy:updateAction
-        _sylius.resource:
-            template: SyliusSandboxBundle:Backend/Taxonomy:update.html.twig
-            redirect: sylius_sandbox_backend_taxonomy_list
+        _template: SyliusSandboxBundle:Backend/Taxonomy:update.html.twig
+        _redirect: sylius_sandbox_backend_taxonomy_list
 
 sylius_sandbox_backend_taxonomy_delete:
     pattern: /{id}/delete
     defaults:
         _controller: sylius_taxonomies.controller.taxonomy:deleteAction
-        _sylius.resource:
-            redirect: sylius_sandbox_backend_taxonomy_list
+        _redirect: sylius_sandbox_backend_taxonomy_list

@@ -5,50 +5,44 @@ sylius_sandbox_backend_product_list:
     pattern: /
     defaults:
         _controller: sylius_assortment.controller.product:indexAction
-        _sylius.resource:
-            template: SyliusSandboxBundle:Backend/Product:list.html.twig
-            sortable: true
-            sorting:
-                updatedAt: desc
+        _template: SyliusSandboxBundle:Backend/Product:list.html.twig
+        _sortable: true
+        _sorting:
+            updatedAt: desc
 
 sylius_sandbox_backend_product_list_by_taxon:
     pattern: /t/{permalink}
     defaults:
         _controller: sylius_assortment.controller.product:listByTaxonAction
-        _sylius.resource:
-            template: SyliusSandboxBundle:Backend/Product:listByTaxon.html.twig
+        _template: SyliusSandboxBundle:Backend/Product:listByTaxon.html.twig
 
 sylius_sandbox_backend_product_create:
     pattern: /create
     defaults:
         _controller: sylius_assortment.controller.product:createAction
-        _sylius.resource:
-            template: SyliusSandboxBundle:Backend/Product:create.html.twig
-            redirect: sylius_sandbox_backend_product_show
+        _template: SyliusSandboxBundle:Backend/Product:create.html.twig
+        _redirect: sylius_sandbox_backend_product_show
 
 sylius_sandbox_backend_product_update:
     pattern: /{id}/update
     defaults:
         _controller: sylius_assortment.controller.product:updateAction
-        _sylius.resource:
-            template: SyliusSandboxBundle:Backend/Product:update.html.twig
-            redirect: sylius_sandbox_backend_product_show
+        _template: SyliusSandboxBundle:Backend/Product:update.html.twig
+        _redirect: sylius_sandbox_backend_product_show
 
 sylius_sandbox_backend_product_update_variants:
     pattern: /{id}/update-variants
     defaults:
         _controller: sylius_assortment.controller.product:updateAction
-        _sylius.resource:
-            form: sylius_sandbox_product_variants_grid
-            template: SyliusSandboxBundle:Backend/Product:updateVariants.html.twig
-            redirect: sylius_sandbox_backend_product_show
+        _form: sylius_sandbox_product_variants_grid
+        _template: SyliusSandboxBundle:Backend/Product:updateVariants.html.twig
+        _redirect: sylius_sandbox_backend_product_show
 
 sylius_sandbox_backend_product_delete:
     pattern: /{id}/delete
     defaults:
         _controller: sylius_assortment.controller.product:deleteAction
-        _sylius.resource:
-            redirect: sylius_sandbox_backend_product_list
+        _redirect: sylius_sandbox_backend_product_list
 
 sylius_sandbox_backend_product_duplicate:
     pattern: /{id}/duplicate
@@ -59,5 +53,5 @@ sylius_sandbox_backend_product_show:
     pattern: /{id}
     defaults:
         _controller: sylius_assortment.controller.product:showAction
-        _sylius.resource:
-            template: SyliusSandboxBundle:Backend/Product:show.html.twig
+        _template: SyliusSandboxBundle:Backend/Product:show.html.twig
+

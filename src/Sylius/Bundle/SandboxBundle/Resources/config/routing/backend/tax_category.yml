@@ -5,31 +5,27 @@ sylius_sandbox_backend_tax_category_list:
     pattern: /
     defaults:
         _controller: sylius_taxation.controller.category:indexAction
-        _sylius.resource:
-            template: SyliusSandboxBundle:Backend/TaxCategory:list.html.twig
-            sortable: true
-            sorting:
-                name: desc
+        _template: SyliusSandboxBundle:Backend/TaxCategory:list.html.twig
+        _sortable: true
+        _sorting:
+            name: desc
 
 sylius_sandbox_backend_tax_category_create:
     pattern: /create
     defaults:
         _controller: sylius_taxation.controller.category:createAction
-        _sylius.resource:
-            template: SyliusSandboxBundle:Backend/TaxCategory:create.html.twig
-            redirect: sylius_sandbox_backend_tax_category_list
+        _template: SyliusSandboxBundle:Backend/TaxCategory:create.html.twig
+        _redirect: sylius_sandbox_backend_tax_category_list
 
 sylius_sandbox_backend_tax_category_update:
     pattern: /update
     defaults:
         _controller: sylius_taxation.controller.category:updateAction
-        _sylius.resource:
-            template: SyliusSandboxBundle:Backend/TaxCategory:update.html.twig
-            redirect: sylius_sandbox_backend_tax_category_list
+        _template: SyliusSandboxBundle:Backend/TaxCategory:update.html.twig
+        _redirect: sylius_sandbox_backend_tax_category_list
 
 sylius_sandbox_backend_tax_category_delete:
     pattern: /{id}/delete
     defaults:
         _controller: sylius_taxation.controller.category:deleteAction
-        _sylius.resource:
-            redirect: sylius_sandbox_backend_tax_category_list
+        _redirect: sylius_sandbox_backend_tax_category_list
