@@ -5,21 +5,18 @@ sylius_sandbox_backend_province_create:
     pattern: /create
     defaults:
         _controller: sylius_addressing.controller.province:createAction
-        _sylius.resource:
-            template: SyliusSandboxBundle:Backend/Province:create.html.twig
-            redirect: sylius_sandbox_backend_country_list
+        _template: SyliusSandboxBundle:Backend/Province:create.html.twig
+        _redirect: sylius_sandbox_backend_country_list
 
 sylius_sandbox_backend_province_update:
     pattern: /{id}/update
     defaults:
         _controller: sylius_addressing.controller.province:updateAction
-        _sylius.resource:
-            template: SyliusSandboxBundle:Backend/Province:update.html.twig
-            redirect: sylius_sandbox_backend_country_list
+        _template: SyliusSandboxBundle:Backend/Province:update.html.twig
+        _redirect: sylius_sandbox_backend_country_list
 
 sylius_sandbox_backend_province_delete:
     pattern: /{id}/delete
     defaults:
         _controller: sylius_addressing.controller.province:deleteAction
-        _sylius.resource:
-            redirect: sylius_sandbox_backend_country_list
+        _redirect: sylius_sandbox_backend_country_list
