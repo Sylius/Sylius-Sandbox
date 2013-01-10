@@ -2599,12 +2599,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/SyliusInventoryBundle.git",
-                "reference": "2fef74fc6a024b2d48a0a83181eb8ac10f6be915"
+                "reference": "1c370809e8c6cbe7a8c686a39ceb61e4d316fddc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/Sylius/SyliusInventoryBundle/archive/2fef74fc6a024b2d48a0a83181eb8ac10f6be915.zip",
-                "reference": "2fef74fc6a024b2d48a0a83181eb8ac10f6be915",
+                "url": "https://github.com/Sylius/SyliusInventoryBundle/archive/1c370809e8c6cbe7a8c686a39ceb61e4d316fddc.zip",
+                "reference": "1c370809e8c6cbe7a8c686a39ceb61e4d316fddc",
                 "shasum": ""
             },
             "require": {
@@ -2619,7 +2619,7 @@
             "suggest": {
                 "friendsofsymfony/rest-bundle": "*"
             },
-            "time": "2013-01-09 14:24:55",
+            "time": "2013-01-10 13:41:14",
             "type": "symfony-bundle",
             "autoload": {
                 "psr-0": {
