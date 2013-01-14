@@ -120,6 +120,19 @@ class Product extends BaseProduct implements StockableInterface, TaxableInterfac
 
     /**
      * Implementation of stockable interface.
+     *
+     * {@inheritdoc}
+     */
+    public function getSku()
+    {
+        return $this
+            ->getMasterVariant()
+            ->getSku()
+        ;
+    }
+
+    /**
+     * Implementation of stockable interface.
      * Proxy to use master variant for managing inventory status.
      *
      * {@inheritdoc}
@@ -256,18 +269,5 @@ class Product extends BaseProduct implements StockableInterface, TaxableInterfac
     public function getCommentThreadId()
     {
         return 'assortment_product_'.$this->getId();
-    }
-
-    public function getInventoryName()
-    {
-        return $this->getName();
-    }
-
-    public function isAvailableOnDemand()
-    {
-        $this
-            ->getMasterVariant()
-            ->isAvailableOnDemand()
-        ;
     }
 }

@@ -8,8 +8,8 @@
 
 {% block content %}
 
-{% if paginator.haveToPaginate() %}
-{{ pagerfanta(paginator, 'twitter_bootstrap_translated') }}
+{% if users.haveToPaginate() %}
+{{ pagerfanta(users, 'twitter_bootstrap_translated') }}
 {% endif %}
 
 <ul class="nav nav-tabs">
@@ -19,8 +19,8 @@
 
 {{ macros.list(users)  }}
 
-{% if paginator.haveToPaginate() %}
-{{ pagerfanta(paginator, 'twitter_bootstrap_translated') }}
+{% if users.haveToPaginate() %}
+{{ pagerfanta(users, 'twitter_bootstrap_translated') }}
 {% endif %}
 
 {% endblock %}

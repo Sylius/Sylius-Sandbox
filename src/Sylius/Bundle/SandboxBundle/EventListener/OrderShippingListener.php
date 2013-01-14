@@ -12,39 +12,64 @@
 namespace Sylius\Bundle\SandboxBundle\EventListener;
 
 use Doctrine\Common\Persistence\ObjectRepository;
+use Sylius\Bundle\SandboxBundle\Entity\Order;
+use Sylius\Bundle\ShippingBundle\Calculator\CalculatorInterface;
 use Symfony\Component\EventDispatcher\GenericEvent;
 
 /**
- * Dummy order shipping listener.
+ * This listener calculates the shipping charge
  *
  * @author Paweł Jędrzejewski <pjedrzejewski@diweb.pl>
  */
 class OrderShippingListener
 {
     /**
+     * Adjustment repository.
+     *
+     * @var ObjectRepository
+     */
+    private $adjustmentRepository;
+
+    /**
+     * Shipping charges calculator.
+     *
+     * @var ShippingChargeCalculator
+     */
+    private $calculator;
+
+    /**
      * Constructor.
      *
-     * @param ObjectRepository $shipmentRepository
+     * @param ObjectRepository    $adjustmentRepository
+     * @param CalculatorInterface $calculator
      */
-    public function __construct(ObjectRepository $shipmentRepository)
+    public function __construct(ObjectRepository $adjustmentRepository, CalculatorInterface $calculator)
     {
-        $this->shipmentRepository = $shipmentRepository;
+        $this->adjustmentRepository = $adjustmentRepository;
+        $this->calculator = $calculator;
     }
 
     /**
-     * Create a dummy shipment on the order.
+     * Calculate shipment charges on the order.
      *
      * @param GenericEvent $event
      */
-    public function processShipments(GenericEvent $event)
+    public function processShippingCharges(GenericEvent $event)
     {
         $order = $event->getSubject();
-        $shipment = $this->shipmentRepository->createNew();
 
-        foreach ($order->getInventoryUnits() as $item) {
-            $shipment->addItem($item);
+        foreach ($order->getShipments() as $shipment) {
+            $adjustment = $this->adjustmentRepository->createNew();
+
+            $charge = $this->calculator->calculate($shipment);
+
+            $adjustment->setLabel(Order::SHIPPING_ADJUSTMENT);
+            $adjustment->setAmount($charge);
+            $adjustment->setDescription($shipment->getMethod()->getName());
+
+            $order->addAdjustment($adjustment);
         }
 
-        $order->addShipment($shipment);
+        $order->calculateTotal();
     }
 }

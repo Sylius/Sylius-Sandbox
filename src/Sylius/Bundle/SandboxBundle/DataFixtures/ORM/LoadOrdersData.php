@@ -27,20 +27,16 @@ class LoadOrdersData extends DataFixture
      */
     public function load(ObjectManager $manager)
     {
-        $orderManager = $this->container->get('sylius_sales.manager.order');
-        $orderRepository = $this->container->get('sylius_sales.repository.order');
+        $repository = $this->container->get('sylius_sales.repository.order');
         $eventDispatcher = $this->container->get('event_dispatcher');
 
         for ($i = 1; $i <= 100; $i++) {
-            $order = $orderRepository->createNew();
+            $order = $repository->createNew();
             $this->buildOrder($order);
 
             $eventDispatcher->dispatch('sylius_sales.order.pre_create', new GenericEvent($order));
 
-            $shipments = $order->getShipments();
-            $shipments[0]->setMethod($this->getReference('ShippingMethod.UPS Ground'));
-
-            $orderManager->persist($order);
+            $manager->persist($order);
             $eventDispatcher->dispatch('sylius_sales.order.post_create', new GenericEvent($order));
             $this->setReference('Order-'.$i, $order);
         }
@@ -80,6 +76,15 @@ class LoadOrdersData extends DataFixture
             $order->addItem($item);
         }
 
+        $shipment = $this->createNewShipment();
+        $shipment->setMethod($this->getReference('ShippingMethod.UPS Ground'));
+
+        foreach ($order->getInventoryUnits() as $item) {
+            $shipment->addItem($item);
+        }
+
+        $order->addShipment($shipment);
+
         $order->setUser($this->getReference('User-'.rand(1, 15)));
         $order->setDeliveryAddress($this->getReference('Address-'.rand(1, 50)));
         $order->setBillingAddress($this->getReference('Address-'.rand(1, 50)));
@@ -105,5 +110,10 @@ class LoadOrdersData extends DataFixture
     private function getOrderItemRepository()
     {
         return $this->get('sylius_sales.repository.item');
+    }
+
+    private function createNewShipment()
+    {
+        return $this->get('sylius_shipping.repository.shipment')->createNew();
     }
 }

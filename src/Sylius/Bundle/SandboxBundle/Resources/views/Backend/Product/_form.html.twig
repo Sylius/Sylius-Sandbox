@@ -2,9 +2,7 @@
     {{ form_errors(form)  }}
     <ul class="nav nav-tabs">
         <li class="active"><a href="#main" data-toggle="tab">Product</a></li>
-        {% if form.options is defined %}
         <li><a href="#options" data-toggle="tab">Options</a></li>
-        {% endif %}
         <li><a href="#properties" data-toggle="tab">Properties</a></li>
         <li><a href="#taxonomies" data-toggle="tab">Taxonomies</a></li>
     </ul>
@@ -36,13 +34,14 @@
             {{ form_row(form.masterVariant.onHand, {'label': 'Default inventory'}) }}
             {% endif %}
             {{ form_row(form.taxCategory, {'attr': {'class': 'select2 input-xlarge', 'placeholder': 'Select taxation category'}}) }}
+            {{ form_row(form.masterVariant.shippingCategory, {'attr': {'class': 'select2 input-xlarge', 'placeholder': 'Select shipping category'}}) }}
         </div>
-        {% if form.options is defined %}
         <div class="tab-pane" id="options">
             {{ form_row(form.variantPickingMode) }}
+            {% if form.options is defined %}
             {{ form_row(form.options, {'attr': {'class': 'select2 input-xlarge', 'placeholder': 'Pick product options'}}) }}
+            {% endif %}
         </div>
-        {% endif %}
         <div class="tab-pane" id="properties">
             <div id="sylius-assortment-product-properties" class="collection-container" data-prototype="{{ form_widget(form.properties.vars.prototype, {'attr': {'class': 'select2 input-xlarge'}})|e }}">
                 {% for propertyForm in form.properties %}

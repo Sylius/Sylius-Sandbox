@@ -9,12 +9,13 @@ use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 
 /**
  * Security step.
+ *
  * If user is not logged in, displays login & registration form.
  * Also guest checkout is possible.
  *
  * @author Paweł Jędrzejewski <pjedrzejewski@diweb.pl>
  */
-class SecurityStep extends ContainerAwareStep
+class SecurityCheckoutStep extends ContainerAwareStep
 {
     /**
      * {@inheritdoc}

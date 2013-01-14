@@ -13,6 +13,8 @@ namespace Sylius\Bundle\SandboxBundle\Entity;
 
 use Sylius\Bundle\AssortmentBundle\Entity\Variant\Variant as BaseVariant;
 use Sylius\Bundle\InventoryBundle\Model\StockableInterface;
+use Sylius\Bundle\ShippingBundle\Model\ShippableInterface;
+use Sylius\Bundle\ShippingBundle\Model\ShippingCategoryInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -20,8 +22,10 @@ use Symfony\Component\Validator\Constraints as Assert;
  *
  * @author Paweł Jędrzejewski <pjedrzejewski@diweb.pl>
  */
-class Variant extends BaseVariant implements StockableInterface
+class Variant extends BaseVariant implements StockableInterface, ShippableInterface
 {
+    protected $sku;
+
     /**
      * Variant price.
      *
@@ -40,6 +44,8 @@ class Variant extends BaseVariant implements StockableInterface
      * @var integer
      */
     protected $onHand;
+
+    protected $shippingCategory;
 
     /**
      * Is variant available on demand?
@@ -60,6 +66,16 @@ class Variant extends BaseVariant implements StockableInterface
         $this->availableOnDemand = true;
     }
 
+    public function getSku()
+    {
+        return $this->sku;
+    }
+
+    public function setSku($sku)
+    {
+        $this->sku = $sku;
+    }
+
     /**
      * Get price.
      *
@@ -78,22 +94,6 @@ class Variant extends BaseVariant implements StockableInterface
     public function setPrice($price)
     {
         $this->price = $price;
-    }
-
-    /**
-     * Implementation of stockable interface.
-     * Uses Variant SKU and product name as displayed name.
-     *
-     * {@inheritdoc}
-     */
-    public function getInventoryName()
-    {
-        return $this->product->getName();
-    }
-
-    public function isAvailableOnDemand()
-    {
-        return true;
     }
 
     /**
@@ -126,7 +126,7 @@ class Variant extends BaseVariant implements StockableInterface
 
     public function getInventoryName()
     {
-        return $this->getPresentation();
+        return $this->product->getName();
     }
 
     public function isAvailableOnDemand()
@@ -137,5 +137,19 @@ class Variant extends BaseVariant implements StockableInterface
     public function setAvailableOnDemand($availableOnDemand)
     {
         $this->availableOnDemand = (Boolean) $availableOnDemand;
+    }
+
+    public function getShippingCategory()
+    {
+        if (null === $this->shippingCategory && !$this->isMaster() && null !== $product = $this->getProduct()) {
+            return $product->getMasterVariant()->getShippingCategory();
+        }
+
+        return $this->shippingCategory;
+    }
+
+    public function setShippingCategory(ShippingCategoryInterface $category = null)
+    {
+        $this->shippingCategory = $category;
     }
 }

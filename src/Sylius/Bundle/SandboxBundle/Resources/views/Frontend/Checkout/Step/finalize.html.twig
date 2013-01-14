@@ -135,14 +135,29 @@
                 <td colspan="4">
                 <p><strong>Taxes</strong></p>
                 <ul>
-                {% for taxAdjustment in order.taxAdjustments %}
-                    <li>{{ taxAdjustment.description }} {{ taxAdjustment.amount }} &euro;</li>
+                {% for adjustment in order.taxAdjustments %}
+                    <li>{{ adjustment.description }} {{ adjustment.amount }} &euro;</li>
                 {% endfor %}
                 </ul>
                 </td>
                 <td colspan="2">
                     <span class="pull-right">
                     <strong>Tax total</strong>: {{ order.taxTotal }} &euro;
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                <p><strong>Shipping</strong></p>
+                <ul>
+                {% for adjustment in order.shippingAdjustments %}
+                    <li>{{ adjustment.description }} {{ adjustment.amount }} &euro;</li>
+                {% endfor %}
+                </ul>
+                </td>
+                <td colspan="2">
+                    <span class="pull-right">
+                    <strong>Shipping total</strong>: {{ order.shippingTotal }} &euro;
                     </span>
                 </td>
             </tr>

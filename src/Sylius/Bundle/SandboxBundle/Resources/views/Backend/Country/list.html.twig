@@ -11,8 +11,8 @@
     </a>
 </div>
 
-{% if paginator.haveToPaginate() %}
-{{ pagerfanta(paginator, 'twitter_bootstrap_translated') }}
+{% if countries.haveToPaginate() %}
+{{ pagerfanta(countries, 'twitter_bootstrap_translated') }}
 {% endif %}
 
 {% if countries|length > 0 %}
@@ -80,8 +80,8 @@
 </div>
 {% endif %}
 
-{% if paginator.haveToPaginate() %}
-{{ pagerfanta(paginator, 'twitter_bootstrap_translated') }}
+{% if countries.haveToPaginate() %}
+{{ pagerfanta(countries, 'twitter_bootstrap_translated') }}
 {% endif %}
 
 {% endblock %}

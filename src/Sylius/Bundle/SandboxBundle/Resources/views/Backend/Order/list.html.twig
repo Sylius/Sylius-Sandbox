@@ -14,23 +14,20 @@
 </a>
 </div>
 
-{% if paginator.haveToPaginate() %}
-{{ pagerfanta(paginator, 'twitter_bootstrap_translated') }}
+{% if orders.haveToPaginate() %}
+{{ pagerfanta(orders, 'twitter_bootstrap_translated') }}
 {% endif %}
 
 <ul class="nav nav-tabs">
-    <li><a href="">show all orders</a></li>
-    <li><a href="">only open orders</a></li>
-    <li><a href="">only closed orders</a></li>
-    <li><a href=""><span class="label label-important">&nbsp;!&nbsp;</span> orders that need attention</a></li>
-    <li><a href="">over <strong>500</strong> &euro;</a></li>
-    <li><a href="">below <strong>500</strong> &euro;</a></li>
+    <li><a href="">completed orders</a></li>
+    <li><a href="">display all orders</a></li>
+    <li><a href=""><span class="label label-important">&nbsp;!&nbsp;</span> incomplete orders</a></li>
 </ul>
 
 {{ macros.list(orders)  }}
 
-{% if paginator.haveToPaginate() %}
-{{ pagerfanta(paginator, 'twitter_bootstrap_translated') }}
+{% if orders.haveToPaginate() %}
+{{ pagerfanta(orders, 'twitter_bootstrap_translated') }}
 {% endif %}
 
 {% endblock %}

@@ -1,5 +1,7 @@
 {% macro list(orders) %}
 
+{% from 'MopaBootstrapBundle::macros.html.twig' import label, badge %}
+
 {% if orders|length > 0 %}
 <table class="table">
     <thead>
@@ -17,8 +19,8 @@
             <td>{{ order.id }}</td>
             <td>{{ order.total }} &euro;</td>
             <td>
-                <a href="{{ path('sylius_sandbox_backend_user_show', {'id': order.user.id}) }}">
-                {{ order.user.username }}
+                <a href="{{ path('sylius_sandbox_backend_user_show', {'id': order.user.id}) }}" class="btn">
+                <i class="icon-user"></i> &nbsp; {{ order.user.username }}
                 </a>
             </td>
             <td>{{ order.createdAt|date }}</td>

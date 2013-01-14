@@ -2,17 +2,19 @@
 
 namespace Sylius\Bundle\SandboxBundle\Process\Step;
 
-use Symfony\Component\EventDispatcher\GenericEvent;
 use Sylius\Bundle\FlowBundle\Process\Context\ProcessContextInterface;
-use Sylius\Bundle\FlowBundle\Process\Step\ContainerAwareStep;
+use Sylius\Bundle\FlowBundle\Process\Step\ControllerStep;
 use Sylius\Bundle\SalesBundle\Model\OrderInterface;
+use Symfony\Component\EventDispatcher\GenericEvent;
 
 /**
- * Finalize step.
+ * Finalize checkout step.
+ * It builds the order from cart.
+ * Defines the shipment and method.
  *
  * @author Paweł Jędrzejewski <pjedrzejewski@diweb.pl>
  */
-class FinalizeStep extends ContainerAwareStep
+class FinalizeCheckoutStep extends ControllerStep
 {
     /**
      * {@inheritdoc}
@@ -21,7 +23,7 @@ class FinalizeStep extends ContainerAwareStep
     {
         $order = $this->prepareOrder($context);
 
-        return $this->container->get('templating')->renderResponse('SyliusSandboxBundle:Frontend/Checkout/Step:finalize.html.twig', array(
+        return $this->render('SyliusSandboxBundle:Frontend/Checkout/Step:finalize.html.twig', array(
             'context' => $context,
             'order'   => $order
         ));
@@ -33,10 +35,10 @@ class FinalizeStep extends ContainerAwareStep
     public function forwardAction(ProcessContextInterface $context)
     {
         $order = $this->prepareOrder($context);
+
         $this->save($order);
 
         $this->container->get('session')->setFlash('success', 'Your order has been saved, thank you!');
-
         $this->container->get('sylius_cart.provider')->abandonCart();
 
         return $this->complete();
@@ -64,6 +66,17 @@ class FinalizeStep extends ContainerAwareStep
         $deliveryAddress = $this->getAddress($context->getStorage()->get('delivery.address'));
         $billingAddress = $this->getAddress($context->getStorage()->get('billing.address'));
 
+        $shippingMethod = $this->getShippingMethod($context->getStorage()->get('shipping-method'));
+
+        $shipment = $this->createNewShipment();
+        $shipment->setMethod($shippingMethod);
+
+        foreach ($order->getInventoryUnits() as $item) {
+            $shipment->addItem($item);
+        }
+
+        $order->addShipment($shipment);
+
         $order->setDeliveryAddress($deliveryAddress);
         $order->setBillingAddress($billingAddress);
 
@@ -80,5 +93,17 @@ class FinalizeStep extends ContainerAwareStep
         $addressRepository = $this->container->get('sylius_addressing.repository.address');
 
         return $addressRepository->find($id);
+    }
+
+    private function getShippingMethod($id)
+    {
+        $shippingMethodRepository = $this->container->get('sylius_shipping.repository.method');
+
+        return $shippingMethodRepository->find($id);
+    }
+
+    private function createNewShipment()
+    {
+        return $this->get('sylius_shipping.repository.shipment')->createNew();
     }
 }

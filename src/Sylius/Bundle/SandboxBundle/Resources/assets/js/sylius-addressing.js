@@ -9,6 +9,14 @@
 ; // Temporary fix for live environment
 (function ( $ ) {
     $(document).ready(function() {
+        if ($('.billing-address-trigger').is(':checked')) {
+            $('#billing-address-container').fadeIn();
+        }
+
+        $('.billing-address-trigger').on('click', function () {
+            $('#billing-address-container').fadeToggle();
+        });
+
         $("select.country-select").each(function () {
             var $this = $(this);
 

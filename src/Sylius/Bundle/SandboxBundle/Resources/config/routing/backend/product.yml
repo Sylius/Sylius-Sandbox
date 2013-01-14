@@ -54,4 +54,3 @@ sylius_sandbox_backend_product_show:
     defaults:
         _controller: sylius_assortment.controller.product:showAction
         _template: SyliusSandboxBundle:Backend/Product:show.html.twig
-

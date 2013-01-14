@@ -19,8 +19,8 @@
 </div>
 {% endif %}
 
-{% if paginator.haveToPaginate() %}
-{{ pagerfanta(paginator, 'twitter_bootstrap_translated') }}
+{% if products.haveToPaginate() %}
+{{ pagerfanta(products, 'twitter_bootstrap_translated') }}
 {% endif %}
 
 {% if products|length > 0 %}
@@ -54,10 +54,10 @@
 </div>
 {% endif %}
 
-{% if paginator.haveToPaginate() %}
+{% if products.haveToPaginate() %}
 <div class="fluid-row">
     <div class="span12">
-        {{ pagerfanta(paginator, 'twitter_bootstrap_translated') }}
+        {{ pagerfanta(products, 'twitter_bootstrap_translated') }}
     </div>
 </div>
 {% endif %}

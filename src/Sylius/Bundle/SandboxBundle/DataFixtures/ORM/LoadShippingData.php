@@ -30,8 +30,11 @@ class LoadShippingData extends DataFixture
         $regular = $this->createShippingCategory('Regular', 'Regular weight items', 'Regular');
         $heavy = $this->createShippingCategory('Heavy', 'Heavy items', 'Heavy');
 
-        $this->createShippingMethod('FedEx', 'USA GMT-8', null, DefaultCalculators::FLEXIBLE_RATE, array('amount' => 10.00, 'rate' => 5.00, 'limit' => 0));
+        $this->createShippingMethod('FedEx', 'USA GMT-8', null, DefaultCalculators::FLEXIBLE_RATE, array('first_item_cost' => 10.00, 'additional_item_cost' => 5.00, 'additional_item_limit' => 0));
         $this->createShippingMethod('UPS Ground', 'EU', null, DefaultCalculators::FLAT_RATE, array('amount' => 25.00));
+        $this->createShippingMethod('DHL', 'EU', null, DefaultCalculators::FLAT_RATE, array('amount' => 23.50));
+        $this->createShippingMethod('FedEx World Shipping', 'Rest of world', null, DefaultCalculators::FLEXIBLE_RATE, array('first_item_cost' => 40.00, 'additional_item_cost' => 5.00, 'additional_item_limit' => 10));
+        $this->createShippingMethod('International Shipping', 'Rest of world', null, DefaultCalculators::FLAT_RATE, array('amount' => 50.00));
 
         $manager->flush();
     }

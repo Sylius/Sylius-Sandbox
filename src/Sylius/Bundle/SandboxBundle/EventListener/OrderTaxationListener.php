@@ -14,6 +14,7 @@ namespace Sylius\Bundle\SandboxBundle\EventListener;
 use Doctrine\Common\Persistence\ObjectRepository;
 use Sylius\Bundle\AddressingBundle\Matcher\ZoneMatcherInterface;
 use Sylius\Bundle\SalesBundle\Model\OrderInterface;
+use Sylius\Bundle\SandboxBundle\Entity\Order;
 use Sylius\Bundle\SettingsBundle\Manager\SettingsManagerInterface;
 use Sylius\Bundle\TaxationBundle\Calculator\TaxCalculatorInterface;
 use Sylius\Bundle\TaxationBundle\Resolver\TaxRateResolverInterface;
@@ -122,7 +123,7 @@ class OrderTaxationListener
         foreach ($taxes as $label => $amount) {
             $adjustment = $this->adjustmentRepository->createNew();
 
-            $adjustment->setLabel('Tax');
+            $adjustment->setLabel(Order::TAX_ADJUSTMENT);
             $adjustment->setDescription($label);
             $adjustment->setAmount($amount);
 

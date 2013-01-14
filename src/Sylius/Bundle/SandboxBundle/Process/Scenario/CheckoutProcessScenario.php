@@ -22,10 +22,10 @@ class CheckoutProcessScenario extends ContainerAware implements ProcessScenarioI
         $cart = $this->container->get('sylius_cart.provider')->getCart();
 
         $builder
-            ->add('security', new Step\SecurityStep())
-            ->add('delivery', new Step\DeliveryStep())
-            ->add('billing', new Step\BillingStep())
-            ->add('finalize', new Step\FinalizeStep())
+            ->add('security', new Step\SecurityCheckoutStep())
+            ->add('addressing', new Step\AddressingCheckoutStep())
+            ->add('shipping', new Step\ShippingCheckoutStep())
+            ->add('finalize', new Step\FinalizeCheckoutStep())
             ->setDisplayRoute('sylius_sandbox_checkout_display')
             ->setForwardRoute('sylius_sandbox_checkout_forward')
             ->setRedirect('sylius_sandbox_core_frontend')

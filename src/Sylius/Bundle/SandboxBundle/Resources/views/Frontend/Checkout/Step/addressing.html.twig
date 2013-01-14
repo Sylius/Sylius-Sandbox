@@ -1,0 +1,39 @@
+{% extends 'SyliusSandboxBundle:Frontend:layout.html.twig' %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Shipping <small>Please select shipping method</small></h1>
+</div>
+
+{% include 'SyliusSandboxBundle:Frontend/Checkout:_progressBar.html.twig' %}
+
+<form method="post" action="{{ path('sylius_sandbox_checkout_forward', {'stepName': context.currentStep.name}) }}" class="form-horizontal" novalidate>
+
+{{ form_errors(form) }}
+
+<fieldset>
+<div class="fluid-row">
+    <div class="span6 well well-small">
+    <br />
+    {% include 'SyliusSandboxBundle:Form:_address.html.twig' with {'form': form.deliveryAddress} %}
+    </div>
+    <div class="span6 well well-small">
+    <hr />
+    {{ form_widget(form.differentBillingAddress, {'attr': {'class': 'billing-address-trigger'}}) }}
+    </div>
+    <div class="span6 well well-small hide" id="billing-address-container">
+    <br />
+    {% include 'SyliusSandboxBundle:Form:_address.html.twig' with {'form': form.billingAddress} %}
+    </div>
+</div>
+</fieldset>
+
+{{ form_widget(form._token) }}
+
+<div class="form-actions">
+    <a href="{{ path('sylius_cart_summary') }}" class="btn btn-large">back</a> &nbsp;
+    <input type="submit" class="btn btn-primary btn-large" value="continue" />
+</div>
+
+</form>
+{% endblock %}

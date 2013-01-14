@@ -2,18 +2,25 @@
 
 {% block content %}
 <div class="page-header">
-<h1>Delivery <small>Where should we ship your order?</small></h1>
+    <h1>Shipping method <small>Please select your preferred shipping method</small></h1>
 </div>
 
 {% include 'SyliusSandboxBundle:Frontend/Checkout:_progressBar.html.twig' %}
 
 <form method="post" action="{{ path('sylius_sandbox_checkout_forward', {'stepName': context.currentStep.name}) }}" class="form-horizontal" novalidate>
+
+{{ form_errors(form) }}
+
 <fieldset>
-    {% include 'SyliusSandboxBundle:Form:_address.html.twig' %}
+{{ form_row(form.method) }}
 </fieldset>
+
+{{ form_widget(form._token) }}
+
 <div class="form-actions">
-    <a href="{{ path('sylius_cart_summary') }}" class="btn btn-large">back</a> &nbsp;
+    <a href="{{ path('sylius_sandbox_checkout_display', {'stepName': context.previousStep.name}) }}" class="btn btn-large">back</a> &nbsp;
     <input type="submit" class="btn btn-primary btn-large" value="continue" />
 </div>
+
 </form>
 {% endblock %}

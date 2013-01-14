@@ -245,6 +245,15 @@
         {% endfor %}
         <tr>
             <td colspan="4">
+            </td>
+            <td colspan="2">
+                <span class="pull-right">
+                <strong>Items total</strong>: {{ order.itemsTotal }} &euro;
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
             <p><strong>Taxes</strong></p>
             <ul>
             {% for taxAdjustment in order.taxAdjustments %}
@@ -260,7 +269,12 @@
         </tr>
         <tr>
             <td colspan="4">
-                <strong>Shipping charges</strong>
+            <p><strong>Shipping</strong></p>
+            <ul>
+            {% for adjustment in order.shippingAdjustments %}
+                <li>{{ adjustment.description }} {{ adjustment.amount }} &euro;</li>
+            {% endfor %}
+            </ul>
             </td>
             <td colspan="2">
                 <span class="pull-right">
