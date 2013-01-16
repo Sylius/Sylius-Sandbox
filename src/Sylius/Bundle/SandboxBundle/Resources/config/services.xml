@@ -30,8 +30,6 @@
         <parameter key="sylius_sandbox.listener.order_taxation.class">Sylius\Bundle\SandboxBundle\EventListener\OrderTaxationListener</parameter>
         <parameter key="sylius_sandbox.listener.order_inventory.class">Sylius\Bundle\SandboxBundle\EventListener\OrderInventoryListener</parameter>
         <parameter key="sylius_sandbox.listener.order_shipping.class">Sylius\Bundle\SandboxBundle\EventListener\OrderShippingListener</parameter>
-
-        <parameter key="sylius_sandbox.tax_rate_resolver.class">Sylius\Bundle\SandboxBundle\Taxation\TaxRateResolver</parameter>
     </parameters>
 
     <services>
@@ -119,10 +117,6 @@
             <argument type="service" id="sylius_sales.repository.adjustment" />
             <argument type="service" id="sylius_shipping.calculator" />
             <tag name="kernel.event_listener" event="sylius_sales.order.pre_create" method="processShippingCharges" />
-        </service>
-
-        <service id="sylius_sandbox.tax_rate_resolver" class="%sylius_sandbox.tax_rate_resolver.class%">
-            <argument type="service" id="sylius_taxation.repository.rate" />
         </service>
     </services>
 

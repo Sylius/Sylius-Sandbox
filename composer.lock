@@ -2930,25 +2930,31 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/SyliusTaxationBundle.git",
-                "reference": "34539758a56d7f81b6749b7952298baf6a422bca"
+                "reference": "3a07f97127ef776b70e92c138f55424c19f132ab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/Sylius/SyliusTaxationBundle/archive/34539758a56d7f81b6749b7952298baf6a422bca.zip",
-                "reference": "34539758a56d7f81b6749b7952298baf6a422bca",
+                "url": "https://github.com/Sylius/SyliusTaxationBundle/archive/3a07f97127ef776b70e92c138f55424c19f132ab.zip",
+                "reference": "3a07f97127ef776b70e92c138f55424c19f132ab",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.2",
                 "symfony/framework-bundle": ">=2.1,<3.0",
-                "sylius/resource-bundle": "*",
-                "stof/doctrine-extensions-bundle": "*"
+                "php": ">=5.3.3",
+                "sylius/resource-bundle": "0.1.*",
+                "stof/doctrine-extensions-bundle": "1.*"
             },
             "require-dev": {
-                "phpspec/phpspec2": "dev-develop"
+                "phpspec/phpspec2": "dev-develop",
+                "symfony/form": ">=2.1,<3.0"
             },
-            "time": "2013-01-11 21:56:16",
+            "time": "2013-01-16 00:19:29",
             "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.1.x-dev"
+                }
+            },
             "autoload": {
                 "psr-0": {
                     "Sylius\\Bundle\\TaxationBundle": ""

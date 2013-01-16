@@ -16,7 +16,7 @@ use Sylius\Bundle\AddressingBundle\Matcher\ZoneMatcherInterface;
 use Sylius\Bundle\SalesBundle\Model\OrderInterface;
 use Sylius\Bundle\SandboxBundle\Entity\Order;
 use Sylius\Bundle\SettingsBundle\Manager\SettingsManagerInterface;
-use Sylius\Bundle\TaxationBundle\Calculator\TaxCalculatorInterface;
+use Sylius\Bundle\TaxationBundle\Calculator\CalculatorInterface;
 use Sylius\Bundle\TaxationBundle\Resolver\TaxRateResolverInterface;
 use Symfony\Component\EventDispatcher\GenericEvent;
 
@@ -44,7 +44,7 @@ class OrderTaxationListener
     /**
      * Tax calculator.
      *
-     * @var TaxCalculatorInterface
+     * @var CalculatorInterface
      */
     private $taxCalculator;
 
@@ -60,14 +60,14 @@ class OrderTaxationListener
      *
      * @param ZoneMatcherInterface     $zoneMatcher
      * @param TaxRateResolverInterface $taxRateResolver
-     * @param TaxCalculatorInterface   $taxCalculator
+     * @param CalculatorInterface      $taxCalculator
      * @param ObjectRepository         $adjustmentRepository
      * @param SettingsManagerInterface $settingsManager
      */
     public function __construct(
         ZoneMatcherInterface $zoneMatcher,
         TaxRateResolverInterface $taxRateResolver,
-        TaxCalculatorInterface $taxCalculator,
+        CalculatorInterface $taxCalculator,
         ObjectRepository $adjustmentRepository,
         SettingsManagerInterface $settingsManager
     )
@@ -92,8 +92,7 @@ class OrderTaxationListener
         $zone = $this->zoneMatcher->match($order->getDeliveryAddress());
 
         if (null === $zone) {
-            $taxationSettings = $this->settingsManager->loadSettings('taxation');
-            $zone = $taxationSettings['defaultTaxZone'];
+            $zone = $this->getDefaultTaxZone();
         }
 
         $taxes = array();
@@ -109,27 +108,40 @@ class OrderTaxationListener
             $rateName = $rate->getName();
 
             $item->calculateTotal();
-            $taxAmount = $this->taxCalculator->calculate($item->getTotal(), $rate);
-            $percent = $rate->getAmount() * 100;
-            $taxLabel = sprintf('%s (%d%%)', $rateName, $percent);
 
-            if (!array_key_exists($taxLabel, $taxes)) {
-                $taxes[$taxLabel] = 0;
+            $amount = $this->taxCalculator->calculate($item->getTotal(), $rate);
+            $taxAmount = $rate->getAmount() * 100;
+            $description = sprintf('%s (%d%%)', $rateName, $taxAmount);
+
+            if (!array_key_exists($description, $taxes)) {
+                $taxes[$description] = 0;
             }
 
-            $taxes[$taxLabel] += $taxAmount;
+            $taxes[$description] += $taxAmount;
         }
 
-        foreach ($taxes as $label => $amount) {
+        foreach ($taxes as $description => $amount) {
             $adjustment = $this->adjustmentRepository->createNew();
 
             $adjustment->setLabel(Order::TAX_ADJUSTMENT);
-            $adjustment->setDescription($label);
+            $adjustment->setDescription($description);
             $adjustment->setAmount($amount);
 
             $order->addAdjustment($adjustment);
         }
 
         $order->calculateTotal();
+    }
+
+    /**
+     * Get the default tax zone.
+     *
+     * @return ZoneInterface
+     */
+    private function getDefaultTaxZone()
+    {
+        $taxationSettings = $this->settingsManager->loadSettings('taxation');
+
+        return $taxationSettings['defaultTaxZone'];
     }
 }

@@ -179,7 +179,6 @@ sylius_taxonomies:
 
 sylius_taxation:
     driver: doctrine/orm
-    rate_resolver: sylius_sandbox.tax_rate_resolver
     classes:
         rate:
             model: Sylius\Bundle\SandboxBundle\Entity\TaxRate
