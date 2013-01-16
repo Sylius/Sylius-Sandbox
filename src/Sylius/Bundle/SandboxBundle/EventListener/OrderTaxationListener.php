@@ -117,7 +117,7 @@ class OrderTaxationListener
                 $taxes[$description] = 0;
             }
 
-            $taxes[$description] += $taxAmount;
+            $taxes[$description] += $amount;
         }
 
         foreach ($taxes as $description => $amount) {
