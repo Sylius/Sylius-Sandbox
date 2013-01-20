@@ -2,7 +2,7 @@
 # (c) Paweł Jędrzejewski
 
 parameters:
-    sylius.url:               http://sylius-sandbox.localhost/dev.php
+    sylius.url:               http://172.44.44.44/dev.php
 
     sylius.database.driver:   pdo_mysql
     sylius.database.host:     localhost
