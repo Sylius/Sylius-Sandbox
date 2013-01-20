@@ -81,6 +81,18 @@ execute "preparing parameters.yml file" do
   command "cp /mnt/sylius/sandbox/config/container/parameters.yml.dist /mnt/sylius/sandbox/config/container/parameters.yml"
 end
 
+bash "Running composer install and preparing the Sylius repository" do
+  not_if "test -e /mnt/sylius/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Resources/public"
+  user "vagrant"
+  cwd "/mnt/sylius"
+  code <<-EOH
+    set -e
+    ln -sf /var/tmp/vendor
+    curl -s https://getcomposer.org/installer | php
+    COMPOSER_VENDOR_DIR="/var/tmp/vendor" php composer.phar install
+  EOH
+end
+
 execute "doctrine:database:drop" do
   command "/mnt/sylius/sandbox/console doctrine:database:drop --force"
 end
@@ -99,16 +111,4 @@ end
 
 execute "assetic:dump" do
   command "/mnt/sylius/sandbox/console assetic:dump"
-end
-
-bash "Running composer install and preparing the Sylius repository" do
-  not_if "test -e /vagrant/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Resources/public"
-  user "vagrant"
-  cwd "/mnt/sylius"
-  code <<-EOH
-    set -e
-    ln -sf /var/tmp/vendor
-    curl -s https://getcomposer.org/installer | php
-    COMPOSER_VENDOR_DIR="/var/tmp/vendor" php composer.phar install
-  EOH
 end
