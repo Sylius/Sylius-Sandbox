@@ -2673,12 +2673,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/SyliusResourceBundle.git",
-                "reference": "668d4a8ed20547c5a0eb871aa8fe806813cf077e"
+                "reference": "c646106a8c2d473b15eb15b7817811ce137e594b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/Sylius/SyliusResourceBundle/archive/668d4a8ed20547c5a0eb871aa8fe806813cf077e.zip",
-                "reference": "668d4a8ed20547c5a0eb871aa8fe806813cf077e",
+                "url": "https://github.com/Sylius/SyliusResourceBundle/archive/c646106a8c2d473b15eb15b7817811ce137e594b.zip",
+                "reference": "c646106a8c2d473b15eb15b7817811ce137e594b",
                 "shasum": ""
             },
             "require": {
@@ -2700,7 +2700,7 @@
                 "fsc/hateoas-bundle": "0.3.x-dev",
                 "doctrine/mongodb-odm": "1.0.*@dev"
             },
-            "time": "2013-01-15 19:46:24",
+            "time": "2013-01-20 12:27:05",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -2867,12 +2867,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/SyliusShippingBundle.git",
-                "reference": "7efc441ec4d821a6cb12aeb18cec9e79a62694e2"
+                "reference": "de0725de30001458398f92f7601e86acde1eae3e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/Sylius/SyliusShippingBundle/archive/7efc441ec4d821a6cb12aeb18cec9e79a62694e2.zip",
-                "reference": "7efc441ec4d821a6cb12aeb18cec9e79a62694e2",
+                "url": "https://github.com/Sylius/SyliusShippingBundle/archive/de0725de30001458398f92f7601e86acde1eae3e.zip",
+                "reference": "de0725de30001458398f92f7601e86acde1eae3e",
                 "shasum": ""
             },
             "require": {
@@ -2885,7 +2885,7 @@
                 "phpspec/phpspec2": "dev-develop",
                 "symfony/form": ">=2.1,<3.0"
             },
-            "time": "2013-01-14 01:07:53",
+            "time": "2013-01-23 11:46:08",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
