@@ -32,7 +32,7 @@
                     {% endfor %}
                 </ul>
             </td>
-            <td>{{ variant.price }} &euro;</td>
+            <td>{{ variant.price }} {{ currency|raw }}</td>
             <td>{{ badge(variant.onHand, variant.inStock ? 'success' : 'important') }} in stock</td>
             <td>
                 {% if variant.availableOnDemand %}

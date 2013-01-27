@@ -67,7 +67,7 @@
                 </ul>
             </td>
             <td>{{ variant.shippingCategory|default('Undefined') }}</td>
-            <td>{{ variant.price }} &euro;</td>
+            <td>{{ variant.price }} {{ currency|raw }}</td>
         </tr>
     </tbody>
 </table>

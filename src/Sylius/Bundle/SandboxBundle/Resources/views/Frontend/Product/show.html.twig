@@ -17,7 +17,7 @@
     </div>
     <div class="span5">
         {% if not product.hasOptions %}
-            <span class="label label-price label-success pull-right"><strong>Price</strong>: {{ product.price }} &euro;</span>
+            <span class="label label-price label-success pull-right"><strong>Price</strong>: {{ product.price }} {{ currency|raw }}</span>
         {% endif %}
         <h3>{{ product.name }}</h3>
         <p>
@@ -70,7 +70,7 @@
                         {% endif %}
                     </td>
                     <td>
-                        <span class="label label-success">{{ variant.price }} &euro;</span>
+                        <span class="label label-success">{{ variant.price }} {{ currency|raw }}</span>
                     </td>
                     <td>
                     {% if sylius_inventory_is_available(variant) %}

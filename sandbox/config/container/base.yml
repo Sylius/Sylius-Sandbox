@@ -26,6 +26,8 @@ twig:
             - 'SyliusSandboxBundle::forms.html.twig'
     debug:            %kernel.debug%
     strict_variables: %kernel.debug%
+    globals:
+        currency:     %sylius.currency%
 
 assetic:
     debug:          %kernel.debug%
