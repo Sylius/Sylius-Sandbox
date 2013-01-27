@@ -3,17 +3,22 @@ language: php
 php:
   - 5.3
   - 5.4
+  - 5.5
+  
+matrix:
+    allow_failure:
+        - php: 5.5
 
 before_script: 
     - cp sandbox/config/container/parameters.yml.dist sandbox/config/container/parameters.yml
-    - composer install --dev --prefer-dist -q
+    - composer install --dev --prefer-source > /dev/null
     - sandbox/console do:da:cr -e=testing > /dev/null
     - sandbox/console do:sc:cr -e=testing > /dev/null
 
 script: 
-    - bin/phpspec run -f pretty
-    - bin/behat -f progress --no-snippets
+    - bin/phpspec run -f pretty --verbose
+    - bin/behat -f progress --no-snippets --no-paths
 
 notifications:
-    irc: "irc.freenode.org#sylius-dev"
-    email: travis-ci@sylius.org
+    email: "travis-ci@sylius.org"
+    irc:   "irc.freenode.org#sylius-dev"
