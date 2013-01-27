@@ -121,12 +121,12 @@
                 <td>{{ item.quantity }}</td>
                 <td>
                     <span class="pull-right">
-                    {{ item.unitPrice }} &euro;
+                    {{ item.unitPrice }} {{ currency|raw }}
                     </span>
                 </td>
                 <td>
                     <span class="pull-right">
-                    {{ item.total }} &euro;
+                    {{ item.total }} {{ currency|raw }}
                     </span>
                 </td>
             </tr>
@@ -136,13 +136,13 @@
                 <p><strong>Taxes</strong></p>
                 <ul>
                 {% for adjustment in order.taxAdjustments %}
-                    <li>{{ adjustment.description }} {{ adjustment.amount }} &euro;</li>
+                    <li>{{ adjustment.description }} {{ adjustment.amount }} {{ currency|raw }}</li>
                 {% endfor %}
                 </ul>
                 </td>
                 <td colspan="2">
                     <span class="pull-right">
-                    <strong>Tax total</strong>: {{ order.taxTotal }} &euro;
+                    <strong>Tax total</strong>: {{ order.taxTotal }} {{ currency|raw }}
                     </span>
                 </td>
             </tr>
@@ -151,13 +151,13 @@
                 <p><strong>Shipping</strong></p>
                 <ul>
                 {% for adjustment in order.shippingAdjustments %}
-                    <li>{{ adjustment.description }} {{ adjustment.amount }} &euro;</li>
+                    <li>{{ adjustment.description }} {{ adjustment.amount }} {{ currency|raw }}</li>
                 {% endfor %}
                 </ul>
                 </td>
                 <td colspan="2">
                     <span class="pull-right">
-                    <strong>Shipping total</strong>: {{ order.shippingTotal }} &euro;
+                    <strong>Shipping total</strong>: {{ order.shippingTotal }} {{ currency|raw }}
                     </span>
                 </td>
             </tr>
@@ -166,7 +166,7 @@
                 </td>
                 <td colspan="2">
                     <span class="pull-right">
-                    <strong>Total</strong>: {{ order.total }} &euro;
+                    <strong>Total</strong>: {{ order.total }} {{ currency|raw }}
                     </span>
                 </td>
             </tr>

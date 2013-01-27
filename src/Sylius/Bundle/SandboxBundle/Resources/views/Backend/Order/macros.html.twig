@@ -17,7 +17,7 @@
         {% for order in orders %}
         <tr>
             <td>{{ order.id }}</td>
-            <td>{{ order.total }} &euro;</td>
+            <td>{{ order.total }} {{ currency|raw }}</td>
             <td>
                 <a href="{{ path('sylius_sandbox_backend_user_show', {'id': order.user.id}) }}" class="btn">
                 <i class="icon-user"></i> &nbsp; {{ order.user.username }}

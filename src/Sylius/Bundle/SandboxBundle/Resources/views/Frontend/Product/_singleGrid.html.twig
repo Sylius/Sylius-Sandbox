@@ -11,7 +11,7 @@
         </h4>
 
         {% if not product.hasOptions %}
-            <span class="label label-price label-success pull-right"><strong>Price</strong>: {{ product.price }} &euro;</span>
+            <span class="label label-price label-success pull-right"><strong>Price</strong>: {{ product.price }} {{ currency|raw }}</span>
         {% endif %}
 
     <p>{{ product.description|slice(0, 50) }}...</p>

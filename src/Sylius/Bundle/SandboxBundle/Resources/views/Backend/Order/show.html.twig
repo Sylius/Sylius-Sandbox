@@ -22,19 +22,19 @@
             </tr>
             <tr>
                 <td><strong>total</strong></td>
-                <td>{{ order.total }} &euro;</td>
+                <td>{{ order.total }} {{ currency|raw }}</td>
             </tr>
             <tr>
                 <td><strong>items total</strong></td>
-                <td>{{ order.itemsTotal }} &euro;</td>
+                <td>{{ order.itemsTotal }} {{ currency|raw }}</td>
             </tr>
             <tr>
                 <td><strong>tax total</strong></td>
-                <td>{{ order.taxTotal }} &euro;</td>
+                <td>{{ order.taxTotal }} {{ currency|raw }}</td>
             </tr>
             <tr>
                 <td><strong>shipping total</strong></td>
-                <td>{{ order.shippingTotal }} &euro;</td>
+                <td>{{ order.shippingTotal }} {{ currency|raw }}</td>
             </tr>
             <tr>
                 <td><strong>user</strong></td>
@@ -233,12 +233,12 @@
             <td>{{ item.quantity }}</td>
             <td>
                 <span class="pull-right">
-                {{ item.unitPrice }} &euro;
+                {{ item.unitPrice }} {{ currency|raw }}
                 </span>
             </td>
             <td>
                 <span class="pull-right">
-                {{ item.total }} &euro;
+                {{ item.total }} {{ currency|raw }}
                 </span>
             </td>
         </tr>
@@ -248,7 +248,7 @@
             </td>
             <td colspan="2">
                 <span class="pull-right">
-                <strong>Items total</strong>: {{ order.itemsTotal }} &euro;
+                <strong>Items total</strong>: {{ order.itemsTotal }} {{ currency|raw }}
                 </span>
             </td>
         </tr>
@@ -257,13 +257,13 @@
             <p><strong>Taxes</strong></p>
             <ul>
             {% for taxAdjustment in order.taxAdjustments %}
-                <li>{{ taxAdjustment.description }} {{ taxAdjustment.amount }} &euro;</li>
+                <li>{{ taxAdjustment.description }} {{ taxAdjustment.amount }} {{ currency|raw }}</li>
             {% endfor %}
             </ul>
             </td>
             <td colspan="2">
                 <span class="pull-right">
-                <strong>Tax total</strong>: {{ order.taxTotal }} &euro;
+                <strong>Tax total</strong>: {{ order.taxTotal }} {{ currency|raw }}
                 </span>
             </td>
         </tr>
@@ -272,13 +272,13 @@
             <p><strong>Shipping</strong></p>
             <ul>
             {% for adjustment in order.shippingAdjustments %}
-                <li>{{ adjustment.description }} {{ adjustment.amount }} &euro;</li>
+                <li>{{ adjustment.description }} {{ adjustment.amount }} {{ currency|raw }}</li>
             {% endfor %}
             </ul>
             </td>
             <td colspan="2">
                 <span class="pull-right">
-                <strong>Shipping total</strong>: {{ order.shippingTotal }} &euro;
+                <strong>Shipping total</strong>: {{ order.shippingTotal }} {{ currency|raw }}
                 </span>
             </td>
         </tr>
@@ -287,7 +287,7 @@
             </td>
             <td colspan="2">
                 <span class="pull-right">
-                <strong>Total</strong>: {{ order.total }} &euro;
+                <strong>Total</strong>: {{ order.total }} {{ currency|raw }}
                 </span>
             </td>
         </tr>

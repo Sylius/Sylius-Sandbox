@@ -79,7 +79,7 @@
             </td>
             <td>{{ product.taxCategory|default('Undefined') }}</td>
             <td>{{ product.masterVariant.shippingCategory|default('Undefined') }}</td>
-            <td>{{ product.price }} &euro;</td>
+            <td>{{ product.price }} {{ currency|raw }}</td>
         </tr>
     </tbody>
 </table>
