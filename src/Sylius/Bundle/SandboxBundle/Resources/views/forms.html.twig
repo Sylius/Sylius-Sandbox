@@ -13,12 +13,12 @@
     </td>
     <td>
         <div class="input-append pull-right">
-        <input type="text" id="{{ id }}-unitPrice" class="disabled input-small" disabled="disabled" value="{{ value is not empty ? value.unitPrice : '0.00' }}"/><span class="add-on">&euro;</span>
+        <input type="text" id="{{ id }}-unitPrice" class="disabled input-small" disabled="disabled" value="{{ value is not empty ? value.unitPrice : '0.00' }}"/><span class="add-on">{{ currency|raw }}</span>
         </div>
     </td>
     <td>
         <div class="input-append pull-right">
-        <input type="text" id="{{ id }}-total" class="disabled input-small" disabled="disabled" value="{{ value is not empty ? value.unitPrice * value.quantity : '0.00' }}"/><span class="add-on">&euro;</span>
+        <input type="text" id="{{ id }}-total" class="disabled input-small" disabled="disabled" value="{{ value is not empty ? value.unitPrice * value.quantity : '0.00' }}"/><span class="add-on">{{ currency|raw }}</span>
         </div>
     </td>
 </tr>

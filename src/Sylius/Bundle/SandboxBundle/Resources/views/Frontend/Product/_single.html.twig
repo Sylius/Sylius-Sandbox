@@ -6,7 +6,7 @@
     </div>
     <div class="span9">
         {% if not product.hasOptions %}
-            <span class="label label-price label-success pull-right"><strong>Price</strong>: {{ product.price }} &euro;</span>
+            <span class="label label-price label-success pull-right"><strong>Price</strong>: {{ product.price }} {{ currency|raw }}</span>
         {% endif %}
         <h3>{{ product.name }}</h3>
         <p>
