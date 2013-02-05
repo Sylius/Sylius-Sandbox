@@ -30,8 +30,8 @@ class OrderType extends BaseOrderType
         parent::buildForm($builder, $options);
 
         $builder
-            ->add('deliveryAddress', 'sylius_addressing_address')
-            ->add('billingAddress', 'sylius_addressing_address')
+            ->add('deliveryAddress', 'sylius_address')
+            ->add('billingAddress', 'sylius_address')
         ;
     }
 }

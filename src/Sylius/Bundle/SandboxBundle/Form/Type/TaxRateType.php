@@ -30,7 +30,7 @@ class TaxRateType extends BaseTaxRateType
         parent::buildForm($builder, $options);
 
         $builder
-            ->add('zone', 'sylius_addressing_zone_choice')
+            ->add('zone', 'sylius_zone_choice')
         ;
     }
 }

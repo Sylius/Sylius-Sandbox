@@ -93,12 +93,12 @@
         </service>
 
         <service id="sylius_sandbox.settings.taxation" class="%sylius_sandbox.settings.taxation.class%">
-            <argument type="service" id="sylius_addressing.repository.zone" />
+            <argument type="service" id="sylius.repository.zone" />
             <tag name="sylius_settings.schema" namespace="taxation" />
         </service>
 
         <service id="sylius_sandbox.listener.order_taxation" class="%sylius_sandbox.listener.order_taxation.class%">
-            <argument type="service" id="sylius_addressing.zone_matcher" />
+            <argument type="service" id="sylius.zone_matcher" />
             <argument type="service" id="sylius_taxation.rate_resolver" />
             <argument type="service" id="sylius_taxation.calculator" />
             <argument type="service" id="sylius_sales.repository.adjustment" />

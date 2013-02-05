@@ -90,7 +90,7 @@ class FinalizeCheckoutStep extends ControllerStep
 
     private function getAddress($id)
     {
-        $addressRepository = $this->container->get('sylius_addressing.repository.address');
+        $addressRepository = $this->container->get('sylius.repository.address');
 
         return $addressRepository->find($id);
     }

@@ -4,26 +4,26 @@
 sylius_sandbox_backend_country_list:
     pattern: /
     defaults:
-        _controller: sylius_addressing.controller.country:indexAction
+        _controller: sylius.controller.country:indexAction
         _template: SyliusSandboxBundle:Backend/Country:list.html.twig
         _paginate: 50
 
 sylius_sandbox_backend_country_create:
     pattern: /create
     defaults:
-        _controller: sylius_addressing.controller.country:createAction
+        _controller: sylius.controller.country:createAction
         _template: SyliusSandboxBundle:Backend/Country:create.html.twig
         _redirect: sylius_sandbox_backend_country_list
 
 sylius_sandbox_backend_country_update:
     pattern: /{id}/update
     defaults:
-        _controller: sylius_addressing.controller.country:updateAction
+        _controller: sylius.controller.country:updateAction
         _template: SyliusSandboxBundle:Backend/Country:update.html.twig
         _redirect: sylius_sandbox_backend_country_list
 
 sylius_sandbox_backend_country_delete:
     pattern: /{id}/delete
     defaults:
-        _controller: sylius_addressing.controller.country:deleteAction
+        _controller: sylius.controller.country:deleteAction
         _redirect: sylius_sandbox_backend_country_list

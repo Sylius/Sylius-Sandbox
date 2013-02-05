@@ -40,8 +40,8 @@ class CheckoutAddressingType extends AbstractType
                     $event->setData($data);
                 }
             })
-            ->add('deliveryAddress', 'sylius_addressing_address')
-            ->add('billingAddress', 'sylius_addressing_address')
+            ->add('deliveryAddress', 'sylius_address')
+            ->add('billingAddress', 'sylius_address')
             ->add('differentBillingAddress', 'checkbox', array(
                 'mapped' => false,
                 'label'  => 'Use different address for billing?'

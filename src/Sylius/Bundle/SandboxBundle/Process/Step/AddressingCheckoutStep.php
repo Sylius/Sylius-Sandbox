@@ -63,7 +63,7 @@ class AddressingCheckoutStep extends ControllerStep
 
     private function saveAddress(AddressInterface $address)
     {
-        $addressManager = $this->get('sylius_addressing.manager.address');
+        $addressManager = $this->get('sylius.manager.address');
 
         $addressManager->persist($address);
         $addressManager->flush($address);
@@ -71,7 +71,7 @@ class AddressingCheckoutStep extends ControllerStep
 
     private function getAddress($id)
     {
-        $addressRepository = $this->container->get('sylius_addressing.repository.address');
+        $addressRepository = $this->container->get('sylius.repository.address');
 
         return $addressRepository->find($id);
     }

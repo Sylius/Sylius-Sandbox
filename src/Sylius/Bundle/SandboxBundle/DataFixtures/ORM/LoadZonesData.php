@@ -53,7 +53,7 @@ class LoadZonesData extends DataFixture
         $zone->setType($type);
 
         foreach ($members as $id) {
-            $zoneMember = $this->get('sylius_addressing.repository.zone_member_'.$type)->createNew();
+            $zoneMember = $this->get('sylius.repository.zone_member_'.$type)->createNew();
             call_user_func(array(
                 $zoneMember, 'set'.ucfirst($type)),
                 $this->getReference(ucfirst($type).'-'.$id)
@@ -69,12 +69,12 @@ class LoadZonesData extends DataFixture
 
     private function getZoneRepository()
     {
-        return $this->get('sylius_addressing.repository.zone');
+        return $this->get('sylius.repository.zone');
     }
 
     private function getZoneManager()
     {
-        return $this->get('sylius_addressing.manager.zone');
+        return $this->get('sylius.manager.zone');
     }
 
     /**

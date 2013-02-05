@@ -8,7 +8,7 @@
  */
 (function ( $ ) {
     $(document).ready(function() {
-        var typeSelect = $('#sylius_addressing_zone_type');
+        var typeSelect = $('#sylius_zone_type');
 
         $('form.form-horizontal').on('submit', function(e) {
             $('div[id^="sylius-addressing-zone-members-"]').not('[id$="'+ typeSelect.val() +'"]').each(function () {

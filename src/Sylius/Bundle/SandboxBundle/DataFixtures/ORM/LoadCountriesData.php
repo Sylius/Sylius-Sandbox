@@ -126,11 +126,11 @@ class LoadCountriesData extends DataFixture
 
     private function getCountryRepository()
     {
-        return $this->get('sylius_addressing.repository.country');
+        return $this->get('sylius.repository.country');
     }
 
     private function getProvinceRepository()
     {
-        return $this->get('sylius_addressing.repository.province');
+        return $this->get('sylius.repository.province');
     }
 }

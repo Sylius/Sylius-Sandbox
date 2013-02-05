@@ -37,7 +37,7 @@ class TaxationSettingsSchema extends Schema
     public function build(FormBuilderInterface $builder)
     {
         $builder
-            ->add('defaultTaxZone', 'sylius_addressing_zone_choice', array(
+            ->add('defaultTaxZone', 'sylius_zone_choice', array(
                 'label' => 'Default tax zone'
             ))
         ;

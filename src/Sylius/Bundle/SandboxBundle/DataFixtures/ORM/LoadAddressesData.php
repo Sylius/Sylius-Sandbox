@@ -65,11 +65,11 @@ class LoadAddressesData extends DataFixture
 
     private function getAddressManager()
     {
-        return $this->get('sylius_addressing.manager.address');
+        return $this->get('sylius.manager.address');
     }
 
     private function getAddressRepository()
     {
-        return $this->get('sylius_addressing.repository.address');
+        return $this->get('sylius.repository.address');
     }
 }

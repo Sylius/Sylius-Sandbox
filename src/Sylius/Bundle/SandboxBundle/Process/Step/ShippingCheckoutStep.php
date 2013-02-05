@@ -56,7 +56,7 @@ class ShippingCheckoutStep extends ControllerStep
     {
         $deliveryAddress = $this->getAddress($context->getStorage()->get('delivery.address'));
 
-        $zone = $this->get('sylius_addressing.zone_matcher')->match($deliveryAddress);
+        $zone = $this->get('sylius.zone_matcher')->match($deliveryAddress);
 
         return $this->createForm('sylius_sandbox_checkout_shipping', null, array(
             'shippables' => $this->getCurrentCart(),
@@ -71,7 +71,7 @@ class ShippingCheckoutStep extends ControllerStep
 
     private function getAddress($id)
     {
-        $addressRepository = $this->container->get('sylius_addressing.repository.address');
+        $addressRepository = $this->container->get('sylius.repository.address');
 
         return $addressRepository->find($id);
     }
