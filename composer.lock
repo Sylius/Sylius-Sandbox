@@ -2265,12 +2265,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/SyliusAddressingBundle.git",
-                "reference": "2f2baa9239cec2e5e2e8726b2e1f60978a1a95f2"
+                "reference": "3cc75d4733f5e2bd167955df6322aebfcd8d5f5e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Sylius/SyliusAddressingBundle/zipball/2f2baa9239cec2e5e2e8726b2e1f60978a1a95f2",
-                "reference": "2f2baa9239cec2e5e2e8726b2e1f60978a1a95f2",
+                "url": "https://api.github.com/repos/Sylius/SyliusAddressingBundle/zipball/3cc75d4733f5e2bd167955df6322aebfcd8d5f5e",
+                "reference": "3cc75d4733f5e2bd167955df6322aebfcd8d5f5e",
                 "shasum": ""
             },
             "require": {
@@ -2284,7 +2284,7 @@
                 "symfony/form": ">=2.1,<3.0",
                 "doctrine/orm": ">=2.3,<3.0"
             },
-            "time": "2013-01-30 23:56:22",
+            "time": "2013-02-05 23:22:25",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
