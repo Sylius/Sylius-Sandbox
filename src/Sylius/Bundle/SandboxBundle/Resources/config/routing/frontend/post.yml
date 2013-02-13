@@ -5,18 +5,16 @@ sylius_sandbox_post_list:
     pattern: /
     defaults:
         _controller: sylius_blogger.controller.post:indexAction
-        _sylius.resource:
-            template: SyliusSandboxBundle:Frontend/Post:list.html.twig
-            paginate: 10
-            criteria:
-                published: true
-            sorting:
-                createdAt: desc
+        _template: SyliusSandboxBundle:Frontend/Post:list.html.twig
+        _paginate: 10
+        _criteria:
+            published: true
+        _sorting:
+            createdAt: desc
 
 sylius_sandbox_post_show:
     pattern: /{slug}
     defaults:
         _controller: sylius_blogger.controller.post:showAction
-        _sylius.resource:
-            template: SyliusSandboxBundle:Frontend/Post:show.html.twig
-            identifier: slug
+        _template: SyliusSandboxBundle:Frontend/Post:show.html.twig
+        _identifier: slug
