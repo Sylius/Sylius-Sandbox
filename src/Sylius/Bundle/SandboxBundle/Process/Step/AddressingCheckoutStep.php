@@ -19,7 +19,13 @@ class AddressingCheckoutStep extends ControllerStep
      */
     public function displayAction(ProcessContextInterface $context)
     {
-        $form = $this->createCheckoutAddressingForm();
+        $user = $this->container->get('security.context')->getToken()->getUser();
+        $address = $this->getAddress($user->getId());
+        $data = array(
+            'deliveryAddress' => $address,
+            'billingAddress' => $address,
+        );
+        $form = $this->createCheckoutAddressingForm($data);
 
         return $this->render('SyliusSandboxBundle:Frontend/Checkout/Step:addressing.html.twig', array(
             'form'    => $form->createView(),
@@ -56,9 +62,9 @@ class AddressingCheckoutStep extends ControllerStep
         ));
     }
 
-    private function createCheckoutAddressingForm()
+    private function createCheckoutAddressingForm($data = null)
     {
-        return $this->createForm('sylius_sandbox_checkout_addressing');
+        return $this->createForm('sylius_sandbox_checkout_addressing', $data);
     }
 
     private function saveAddress(AddressInterface $address)
